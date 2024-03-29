@@ -1,0 +1,130 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#790909>UNIQUE TRAIT: EXPLOSIVE RAGE</>
+	Angous has a powered-up form that he can access by using his
+	EXPLOSIVE RAGE super. This form increases his speed and power, while
+	also giving him access to new moves. Moves that can only be used
+	in this form are marked with (RAGE).
+
+	<#790909>UNIQUE MOVES</>
+PRIMAL	-		_F^C
+   <#bbbbbb>Hits overhead and bounces airborne enemies.</>
+WORLD DESTROYER	-		(CAN BE HELD) _DF^C
+   <#bbbbbb>Low hitting sweep. Can be charged to launch higher.</>
+MOVE THE GROUND	-		(HOLD)_D^C
+   <#bbbbbb>Low-hitting launcher. Can be jump-canceled.</>
+
+	<#790909>SPECIAL MOVES</>
+RAGE WAVE	-		(CAN BE HELD) ^Y
+   <#bbbbbb>A large, disjointed attack.
+   Fires a multi-hitting projectile when fully held.</>
+METEOR DIVE	-		<#65b5ff>(AIR ONLY)</> ^Y
+   <#bbbbbb>A diving punch. This move cannot be
+   blocked by airborne enemies.</>
+BRAWLER RUSH	-		_F^Y
+   <#bbbbbb>The first hit of a 3-part move. On hit, it
+   can be canceled into other specials, or _F^Z, or _B^Z.</>
+_!UPPER RUSH	-		_F^Y
+        <#bbbbbb>The second hit of a 3-hit move.
+        Can be canceled into other specials, or _F^Z, or _B^Z.</>
+   _!DEMOLITION RUSH	-		(CAN BE HELD) _F^Y
+           <#bbbbbb>The final hit of the move.
+           Gains armor and causes a wall bounce when held.
+           Causes a sliding knockdown while in <#ff0000>RAGE.</>
+BRAWLER RUSH B	-		(RAGE)_DB^Y
+   <#bbbbbb>Does the second brawler rush attack by itself.
+   Can be dash canceled on hit.</>
+BRAWLER RUSH C	-		(RAGE)_DF^Y
+   <#bbbbbb>Does the third brawler rush attack by itself.
+   Causes a wall-bounce.</>
+STRONG GRAPPLE	-		_B^Y
+   <#bbbbbb>A command grab.</>
+RAGING UPPER	-		_D^Y
+   <#bbbbbb>A counter that's vulnerable to cross-ups. when
+   triggered, angous will teleport to the opponent's location
+   and attack them.</>
+UPPER RUSH <#ff0000>(RAGE)</>	-		_DB^Y
+   <#bbbbbb>An anti-air reversal. On hit, it can be
+   canceled into other specials, or _F^Z, or _B^Z.</>
+DEMOLITION RUSH <#ff0000>(RAGE)</>	-		(CAN BE HELD) _DF^Y
+   <#bbbbbb>The final hit from the 3-part move.
+   Has armor, and causes a wall bounce when held.</>
+
+	<#790909>REMIX MOVES</>
+RAGE CHARGE	-		(HOLD)^Z
+   <#bbbbbb>Angous will gain <#55ffff>Meter<#bbbbbb> exponentially 
+   for as long as he holds ^Z.</>
+ROLL	-		_F^Z
+   <#bbbbbb>A movement option that can pass through enemies.
+   Holding ^Z will keep Angous from passing through.</>
+_!OUT	-		^A
+        <#bbbbbb>A 2-hitting attack that pulls the enemy in.</>
+_!IN	-		^B
+        <#bbbbbb>A 2-hitting overhead attack.</>
+_!THROUGH	-		^C
+        <#bbbbbb>A long range dashpunch.</>
+RAW POWER	-		_B^Z
+   <#bbbbbb>A slow, unblockable attack with armor.</>
+_!CANCEL	-		(BEFORE IT HITS) _F_F/_B_B
+        <#bbbbbb>Cancels the attack early by dashing.</>
+_!UPPERCUT	-		(AFTER IT HITS) _D^C
+        <#bbbbbb>A followup after landing the attack.</>
+RAMPAGE	-		_D^Z
+   <#bbbbbb>A multi-hit barrage. Can be canceled into _F^Z.</>
+_!RAMPAGE ENDER	-		(HOLD)^Z
+        <#bbbbbb>An overhead-hitting attack.
+        Can be canceled into _F^Z or any Special Move.</>
+
+	<#ffef0f>EX MOVES</>
+_EX RAGE WAVE	-		<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>A large attack with a multi-hitting projectile.</>
+_EX METEOR DIVE	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>A diving punch. This move cannot be blocked
+   by airborne enemies and causes a sliding knockdown.</>
+_EX BRAWLER RUSH	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+   <#bbbbbb>The first hit of a 3-part move. On hit, it
+   can be canceled into other specials, or _F^Z, or _B^Z.</>
+_!_EX UPPER RUSH	-		_F^Y
+        <#bbbbbb>The second hit of a 3-hit move.
+        Can be canceled into other specials, or _F^Z, or _B^Z.</>
+   _!_EX DEMOLITION RUSH	-		_F^Y
+           <#bbbbbb>The final hit of the move.
+           Has armor and causes a wall bounce.</>
+_EX STRONG GRAPPLE	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>A command grab. Can be used in a combo,
+   even to OTG.</>
+_EX FULL COUNTER	-		<#55ffff>(1 BAR)</> _D^Y+^Z
+   <#bbbbbb>Angous counters the opponent with improved
+   invul and damage. If the followup attack hits, he'll have
+   the opportunity to combo.</>
+_EX UPPER RUSH <#ff0000>(RAGE)</>	-		<#55ffff>(1 BAR)</> _DB^Y+^Z
+   <#bbbbbb>An anti-air reversal. On hit, it can be
+   canceled into other specials, or _F^Z, or _B^Z.</>
+_EX DEMOLITION RUSH <#ff0000>(RAGE)</>	-		<#55ffff>(1 BAR)</> _DF^Y+^Z
+   <#bbbbbb>The final hit from the 3-part move.
+   Has armor, and causes a wall bounce when held.</>
+
+	<#55ffff>SUPERS</>
+<#790909>HORIZON BUSTER</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A fullscreen, invincible punch.</>
+<#790909>EXPLOSIVE RAGE</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>This move puts Angous in <#ff0000>RAGE <#bbbbbb>for the rest of
+   the round.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>

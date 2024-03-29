@@ -1,0 +1,9 @@
+Arzon v1.5
+Changes made 2022NOV14 by camji
+
+- 4S now fixed for all stage
+   Coder Note: This means I went and logged the bounds for ALL the stages, which means, corner only things are a GO when using var 50 - 53
+- 236X now included in Wind Series
+- 214X is now not cancellable
+- Chording/Version Selector Adjusted (Buffer SUCKS, Still use the hold down the button to make sure you get the version you want, Works better in neutral tho)
+ 

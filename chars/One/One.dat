@@ -1,0 +1,119 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#0f43ff>UNIQUE TRAIT: SWORDLOCK</>
+	One has a different set of moves when he isn't holding his sword.
+	His Remix Moves make him throw his sword, and he can pick it back up
+	by touching it. Doing any variant of 5S while swordless will prompt
+   ONE to fly to his sword.
+
+	<#24ff24>SWORD UNIQUE MOVES</>
+VERTICAL	-		_B^B
+   <#bbbbbb>An uppercut.</>
+SWEEP	-		_DF^C
+   <#bbbbbb>A low-hitting sweep.</>
+SPIKE	-		<#65b5ff>(AIR ONLY)</> _D^C
+   <#bbbbbb>An aerial spike. Causes a sliding knockdown.</>
+
+	<#0f43ff>SWORDLESS UNIQUE MOVE</>
+SWEEP	-		_DF^C
+   <#bbbbbb>A low-hitting sweep.</>
+
+	<#24ff24>SWORD SPECIAL MOVES</>
+ACID FLIP	-		<#aaffff>(GROUND OR AIR)</> ^Y
+   <#bbbbbb>Makes One fly through the air, influenced
+   by his prior momentum.
+   Has unique followup attacks.</>
+_!PEDESTAL	-		^A
+        <#bbbbbb>Drops straight down with an overhead attack.</>
+_!CUT	-		^B
+        <#bbbbbb>A large sword attack.
+        Can be canceled into _B^Y on hit.</>
+_!GRAPPLE	-		^C
+        <#bbbbbb>An airborne command grab.</>
+ACID DASH	-		_F^Y
+   <#bbbbbb>A forward moving attack that causes a sliding knockdown.</>
+RAPID	-		_B^Y
+   <#bbbbbb>A multi-hitting attack.</>
+INCISION	-		<#65b5ff>(AIR ONLY)</> _B^Y
+   <#bbbbbb>A strong, advancing cut that is great for extending
+   airborne combos.</>
+RISE	-		<#aaffff>(GROUND OR AIR)</> _D^Y
+   <#bbbbbb>An invincible uppercut.
+   The airborn version has no invincibility.</>
+
+	<#0f43ff>SWORDLESS SPECIAL MOVES</>
+FLIP	-		<#aaffff>(GROUND OR AIR)</> ^Y
+   <#bbbbbb>Makes One fly forward through the air, tracking his
+   sword.</>
+
+	<#24ff24>SWORD REMIX MOVES</>
+SWORD THROW	-		^Z
+   <#bbbbbb>One throws his sword straight forward.
+   Can be canceled into regrab moves by pressing or
+   holding R after the sword is thrown.</>
+DOWN THROW	-		<#65b5ff>(AIR ONLY)</> ^Z
+   <#bbbbbb>One throws his sword diagonally down.</>
+_!FLYING PEDESTAL	-		<#65b5ff>(AIR ONLY)</> _F^Z
+        <#bbbbbb>A falling attack that launches the enemy upon landing.</>
+ROUNDABOUT	-		(HOLD) ^Z
+   <#bbbbbb>One throws a spinning sword that travels fullscreen and back.</>
+_!AIM	-		(AS THE MOVE STARTS) _U
+        <#bbbbbb>Holding up makes One throw the sword upwards.</>
+UP THROW	-		_D^Z
+   <#bbbbbb>One throws his sword diagonally upwards.</>
+   Can be canceled into other ^Z moves.</>
+
+	<#0f43ff>SWORDLESS REMIX MOVES</>
+AXE	-		<#65b5ff>(AIR ONLY)</> ^Z
+           <#bbbbbb>A large kick with both legs.</>
+
+	<#ffef0f>EX MOVES</>
+_EX ACID FLIP	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> ^Y
+   <#bbbbbb>A multi-hitting attack that makes One fly forward
+   through the air. Has unique followup attacks.</>
+_!PEDESTAL	-		^A
+        <#bbbbbb>Drops straight down with an overhead attack.</>
+_!CUT	-		^B
+        <#bbbbbb>A large sword attack.
+        Can be canceled into _B^Y on hit.</>
+_!_EX GRAPPLE	-		^C
+        <#bbbbbb>An airborn command grab that launches the enemy.</>
+_EX ACID DASH	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+   <#bbbbbb>A fullscreen attack that combos the enemy on hit.</>
+_EX RAPID	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>A multi-hitting attack that launches the enemy.</>
+_EX SHREDDER	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>A spinning airborn attack that causes a sliding knockdown.</>
+_EX RISE	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _D^Y+^Z
+    <#bbbbbb>A multi-hitting invincible uppercut that can start combos.
+   The airborn version has no invincibility.</>
+
+	<#55ffff>SWORD SUPERS</>
+<#24ff24>ACIDIC REVENGE</>		<#aaffff>(GROUND OR AIR)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A multi-hitting sword barrage.</>
+<#24ff24>TIME STOP</>	-		<#55ffff>(4 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>One raises his sword and stops time for a few moments.
+   At close range, this move does damage and is unblockable.</>
+
+	<#0f43ff>SWORDLESS SUPER</>
+<#0f43ff>REVENGE</>		<#aaffff>(GROUND OR AIR)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A multi-hitting sword barrage. Hits fullscreen
+   along the ground, even if used in the air.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>

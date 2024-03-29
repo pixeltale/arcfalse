@@ -1,0 +1,1053 @@
+# Active Tag by Phantom.of.the.Server
+# Built from Ikemen GO's default tag code by K4thos
+
+# Alternative system for Ikemen GO's Tag mode, mostly based on "active switching"
+# See the readme for more details
+
+
+#===============================================================================
+# Configuration
+#===============================================================================
+
+[Function fPotSTagConfig()]
+# Configure Tag Gauge position on screen
+# Default values are just meant to work in both the screenpacks included with Ikemen GO, in both aspect ratios
+mapset{map: "_potstag_cfg_gaugex"; value: 89} # X offset
+mapset{map: "_potstag_cfg_gaugey"; value: 41} # Y offset
+mapset{map: "_potstag_cfg_gaugescale"; value: 0.67} # Font scale
+
+# Check Ikemen GO's common.const file for red life options
+
+
+#===============================================================================
+# Functions
+#===============================================================================
+
+# Returns character ID's that can tag in next
+[Function fTagPartnerRange(partnerID) ret]
+ignorehitpause {
+	if $partnerID > player(teamSide), ID + numPartner {
+		let partnerID = player(teamSide), ID;
+	} else if $partnerID < player(teamSide), ID {
+		let partnerID = player(teamSide), ID + numPartner;
+	}
+	let ret = $partnerID;
+}
+
+[Function fTagGetPartnerID(add) ret]
+ignorehitpause {
+	let partnerID = call fTagPartnerRange(ID + $add);
+	if (playerID($partnerID), stateno != playerID($partnerID), const(StateTagWaitingOutside)) || (playerID($partnerID), alive = 0) || (playerID($partnerID), map(_potstag_cooldown) > 0) {
+		let partnerCnt = 1;
+		if $partnerCnt = min(numPartner, 3) {
+			let partnerID = 0;
+		} else {
+			let partnerID = call fTagPartnerRange($partnerID + $add);
+			if (playerID($partnerID), stateno != playerID($partnerID), const(StateTagWaitingOutside)) || (playerID($partnerID), alive = 0) || (playerID($partnerID), map(_potstag_cooldown) > 0) {
+				let partnerCnt = $partnerCnt + 1;
+				if $partnerCnt = min(numPartner, 3) {
+					let partnerID = 0;
+				} else {
+					let partnerID = call fTagPartnerRange($partnerID + $add);
+					if (playerID($partnerID), stateno != playerID($partnerID), const(StateTagWaitingOutside)) || (playerID($partnerID), alive = 0) || (playerID($partnerID), map(_potstag_cooldown) > 0) {
+						let partnerID = 0;
+					}
+				}
+			}
+		}
+	}
+	# If gauge is full, go back and check characters that are cooling down
+	if $partnerID = 0 && map(_potstag_canbusyswitch) {
+		let partnerID = call fTagPartnerRange(ID + $add);
+		if (playerID($partnerID), stateno != playerID($partnerID), const(StateTagWaitingOutside)) || (playerID($partnerID), alive = 0) {
+			let partnerCnt = 1;
+			if $partnerCnt = min(numPartner, 3) {
+				let partnerID = 0;
+			} else {
+				let partnerID = call fTagPartnerRange($partnerID + $add);
+				if (playerID($partnerID), stateno != playerID($partnerID), const(StateTagWaitingOutside)) || (playerID($partnerID), alive = 0) {
+					let partnerCnt = $partnerCnt + 1;
+					if $partnerCnt = min(numPartner, 3) {
+						let partnerID = 0;
+					} else {
+						let partnerID = call fTagPartnerRange($partnerID + $add);
+						if (playerID($partnerID), stateno != playerID($partnerID), const(StateTagWaitingOutside)) || (playerID($partnerID), alive = 0) {
+							let partnerID = 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	let ret = $partnerID;
+}
+
+# tagIn Switch explod
+[Function fTagSwitchExplod()]
+let anim = const(FxTagSwitchAI);
+if aiLevel = 0 {
+	if gameMode = "versuscoop" {
+		let anim = $anim + playerNo;
+	} else if gameMode = "netplaysurvivalcoop" || gameMode = "netplayteamcoop" || gameMode = "survivalcoop" || gameMode = "teamcoop" {
+		if teamSide = 1 {
+			let anim = $anim + playerNo / 2 + 1;
+		} else {
+			let anim = $anim + playerNo / 2;
+		}
+	} else {
+		let anim = $anim + teamSide;
+	}
+}
+explod{
+	anim: GO $anim;
+	posType: p1;
+	pos: 0, floor((const(size.head.pos.y) - const(size.ground.front) / 2 - const(size.ground.back) / 2));
+	sprPriority: 5;
+	ownPal: 1;
+	facing: facing;
+	scale: 0.5, 0.5;
+	bindTime: -1;
+	superMoveTime: -1;
+	pauseMoveTime: -1;
+	removeOnGetHit: 0;
+	ignoreHitPause: 1;
+}
+
+
+#===============================================================================
+# StateTagEnteringScreen
+#===============================================================================
+
+[StateDef const(StateTagEnteringScreen); 
+	type: S;
+	moveType: I;
+	physics: N;
+	anim: map(_potstag_enteringanim);
+	sprPriority: 1;
+	ctrl: 0;
+]
+
+mapset{map: "_iksys_tagSwitchCooldown"; value: const(TagSwitchCooldown)} # For compatibility. Not actually used
+
+# Set movement
+velSet{x: const240p(0.80 * const(TagInVelX)); y: 0}
+
+if time = 0 {
+	if facing != map(_potstag_facing) {
+		turn{}
+	}
+	# set starting pos
+	posAdd{x: -backEdgeDist - const240p(80)}
+	posSet{y: 0}
+	# Store distance to switch initiation position. Not used but may be useful later
+	mapset{map: "_iksys_tagSwitchDist"; value: abs(pos x - player(teamleader), pos x)}
+	# Store ID as last player active
+	mapset{map: "_iksys_tagLastId"; value: player(teamleader), ID}
+	# Change active player assignment
+	tagIn{leader: playerNo}
+	call fTagSwitchExplod();
+	palfx{time:10; add: 128, 128, 128; sinadd: -128, -128, -128, 4} # For visibility
+	superpause{time: 0; anim: -1; darken: 0; p2defmul: 1.5} # Damage scaling
+} else {
+	mapadd{map: "_iksys_tagSwitchDist"; value: -vel x}
+}
+
+# Camera
+screenBound{
+	value: backedgedist >= const(size.ground.back);
+	# This value of 35 (50 - 15) considers stage tension as the standard one
+	# This can be replaced with each stage's own tension once Ikemen allows localcoord conversions for stages
+	moveCamera: backedgedist >= const240p(35) || (!AIlevel && command = "holdback");
+	stageBound: 1;
+}
+
+# Invulnerable before being visible
+if backEdgeDist < -vel x {
+	notHitBy{value: SCA; time: 1}
+	statetypeset{statetype: A} # Compatibility fix for legacy tag codes
+} else {
+	statetypeset{statetype: S}
+}
+
+# Even more invulnerable during Counter Tag
+if map(_potstag_invulnerable) {
+	notHitBy{value: SCA; time: 6}
+}
+
+# Can't cancel run with forward walk
+if command != "holdback" && command != "holdup" {assertSpecial{flag: noHardcodedKeys}}
+
+# Runs up to the enemy unless cancelled
+# Can't block in the first frame
+if backEdgeDist >= 0 {
+	# Make the AI tag in close to the opponent
+	if AIlevel > 0 && !inguarddist {
+		ctrlset{value: 0}
+	} else {
+		ctrlset{value: 1}
+	} 
+	if time >= 45 || p2BodyDist X < const240p(24) || frontedgedist < const240p(24) {
+		velSet{x: 0; y: 0}
+		selfState{value: const(StateStand); ctrl: 1}
+	}
+}
+
+
+#===============================================================================
+# StateTagLeavingScreen
+#===============================================================================
+
+[StateDef const(StateTagLeavingScreen);
+	type: S;
+	moveType: I;
+	physics: N;
+	sprPriority: -2;
+	velSet: 0, 0;
+	ctrl: 0;
+]
+
+posset{y: 0}
+assertSpecial{flag: noturntarget}
+
+if time = 0 {
+	afterimagetime{time: 0}
+}
+
+if map(_potstag_leavingdelay) = 0 {
+	if time < 6 {
+		changeanim{value: const(AnimJumpStart_onGround)}
+	}
+	if time = 6 {
+		if p2dist x >= 0 {
+			turn{}
+		}
+		changeanim{value: map(_potstag_leavinganim)}
+	}
+}
+
+if map(_potstag_leavingdelay) = 1 {
+	if time = 0 {
+		if p2dist x < 0 {
+			turn{}
+			changeanim{value: const(AnimStandTurning)}
+		}
+	}
+	if time < 24 {
+		persistent(0) if (anim = const(AnimStandTurning) && !animtime)
+		|| (anim != const(AnimStanding) && anim != const(AnimStandTurning)) {
+			changeanim{value: const(AnimStanding)}
+		}
+	}
+	if time = 24 {
+		if p2dist x >= 0 || frontedgedist = 0 {
+			turn{}
+			changeanim{value: const(AnimStandTurning)}
+		}
+	}
+	if time >= 24 && anim != map(_potstag_leavinganim) {
+		if (anim = const(AnimStandTurning) && !animtime) || time >= 30 {
+			changeanim{value: map(_potstag_leavinganim)}
+		}
+	}
+}
+
+if anim = map(_potstag_leavinganim)
+|| map(_potstag_leavingdelay) = 0
+|| (map(_potstag_leavingdelay) = 1 && time >= 24)
+|| time >= 30 {
+	tagOut{}
+	playerPush{value: 0}
+	notHitBy{value: SCA; time: 2}
+	if anim = map(_potstag_leavinganim) || time >= 30 {
+		velSet{x: 0.60 * const240p(const(TagInVelX)); y: 0}
+	}
+	screenBound{value: 0; moveCamera: 0, 0; stageBound: 0}
+	palfx{time:1; mul: 192, 192, 192}
+}
+
+if anim = const(AnimStanding) && roundstate != 2 {selfState{value: 0; ctrl: 1}} # Just in case
+
+if backEdgeDist < 0 || frontEdgeDist < 0 {stateTypeSet{statetype: A}} # Compatibility fix for legacy tag codes
+
+if backEdgeDist < const240p(-80) || frontEdgeDist < const240p(-80) || time >= 180 {
+	selfState{value: const(StateTagWaitingOutside)}
+}
+
+
+#===============================================================================
+# StateTagWaitingOutside
+#===============================================================================
+
+[StateDef const(StateTagWaitingOutside);
+	type: A; # For compatibility with legacy tag codes
+	moveType: I;
+	physics: N;
+	anim: const(AnimAirRecover); # Prevents some characters from playing standing anim sounds/effects
+	velSet: 0, 0;
+	ctrl: 0;
+]
+
+tagOut{}
+notHitBy{value: SCA; time: 2}
+screenBound{value: 0; moveCamera: 0, 0; stageBound: 0}
+assertSpecial{flag: invisible; flag2: noAutoTurn; flag3: noturntarget}
+mapset{map: "_potstag_leavingdelay"; value: 0}
+
+# Red Life regeneration
+# 0.5% of lifemax every 30 frames by default
+if life < redLife && (time % const(TagRedLifeRegenFrames)) = 0 {
+	lifeAdd{value: min(redLife - life, ceil(lifeMax * const(TagRedLifeRegenPercent))); absolute: 1}
+}
+
+# Drop target when safe to do so
+# May reset juggle checking and combo limits in some characters
+if numtarget {
+	if target, incustomstate = 0
+	|| (target, ID) = (player(teamleader), target, ID) {
+		targetdrop{}
+	}
+}
+
+# Face towards enemy when leader dies
+# Prevents funny behavior while changing active character
+if player(teamleader), alive {
+	if pos x * facing > 0 {turn{}} # Face center of screen
+} else {
+	if facing = (player(enemy, teamLeader), facing) {turn{}}
+}
+
+# Force standby character to always stay outside visible area
+posSet{x: const240p(-320) * facing / camerazoom; y: 0}
+
+# Cool down
+# Is instant when the enemy is not being hit
+if map(_potstag_cooldown) > 0 {
+	if p2, dizzy = 0
+	&& p2, dizzypoints > 0
+	&& (p2movetype != H || p2stateno = p2, const(StateDownedGetHit_lyingDown) || p2stateno = p2, const(StateDownedGetHit_gettingUp)) {
+		mapset{map: "_potstag_cooldown"; value: 0}
+	}
+}
+
+# Darken portrait if character is cooling down (lifebars must allow it)
+if map(_potstag_cooldown) > 0 {
+	palfx{time:1; mul: 128, 128, 128}
+}
+
+
+#===============================================================================
+# StateTagJumpingIn
+#===============================================================================
+
+[StateDef const(StateTagJumpingIn);
+	type: A;
+	moveType: I;
+	physics: N;
+	anim: const(AnimTagJumpingIn);
+	sprPriority: 1;
+	ctrl: 0;
+]
+
+mapset{map: "_iksys_tagSwitchCooldown"; value: const(TagSwitchCooldown)} # For compatibility. Not actually used
+
+# The character cannot be hit until it has landed
+notHitBy{value: SCA; time: 2}
+
+if roundState != 2 {
+	playerPush{value: 0}
+}
+
+if time = 0 {
+
+	# Face same way as team leader for win pose
+	if roundstate != 2 && facing != (player(teamleader), facing) {
+		turn{}
+	}
+
+	# Set starting pos
+	posAdd{x: -backEdgeDist - const240p(80)}
+	posSet{y: 0}
+
+	# Change active player assignment if the battle still goes on
+	if roundState = 2 {
+		mapset{map: "_iksys_tagLastId"; value: player(teamleader), ID}
+		tagIn{leader: playerNo}
+		call fTagSwitchExplod();
+	}
+	velSet{x: const240p(3.0); y: const240p(-10.0)}
+
+	# Space characters for their win poses
+	# Should use MemberNo trigger instead but it's currently faulty
+	if roundstate = 3 {
+		velSet{x: const240p(6.0 - 0.5 * (playerno - teamside)); y: const240p(-10.0)}
+	}
+
+} else {
+	veladd{y: const240p(0.5)}
+	if vel y > 0 && pos y > -vel y {
+		velSet{x: 0; y: 0}
+		notHitBy{value: , AT; time: 6}
+		selfState{value: const(StateTagLanding)}
+	}
+}
+
+# Bound to screen when falling
+screenBound{value: (vel y > 0); moveCamera: 1, 0; stageBound: (vel y > 0)}
+
+# Change to falling down anim if it exists
+persistent(0) if vel y > const240p(-2) && anim = [41, 43] && selfAnimExist(anim + 3) {
+	changeAnim{value: anim + 3}
+}
+
+# Jumping in for the win pose does not push the enemy
+if roundState = 3 {
+	playerPush{value: 0}
+}
+
+
+#===============================================================================
+# StateTagLanding
+#===============================================================================
+
+[StateDef const(StateTagLanding);
+	type: S;
+	moveType: I;
+	physics: N;
+	anim: const(AnimTagLanding);
+	sprPriority: 1;
+	ctrl: 1;
+	velset: 0, 0;
+]
+
+if time = 0 {
+	posSet{y: 0}
+}
+
+if animTime >= 0 || time >= 10 {
+	selfState{value: const(StateStand); ctrl: 1}
+}
+
+# Reduce overlapping with leader
+if roundstate = [3, 4] {
+	if abs(player(teamleader), pos x - pos x) < const240p(40) {
+		if (player(teamleader), pos x - pos x) * facing < 0 {
+			posadd{x: const240p(8)}
+		} else {
+			posadd{x: const240p(-8)}
+		}
+	}
+}
+
+#===============================================================================
+# State Forced Tag Out (not present in the default Tag code)
+#===============================================================================
+
+[StateDef 56565615;
+	type: U;
+	moveType: I;
+	physics: N;
+	sprPriority: 1;
+	ctrl: 0;
+]
+
+mapset{map: "_potstag_tagouttimer"; value: 0}
+
+if time = 0 {
+	removeexplod{}
+	if numtarget { # Send targets back to their own states so they don't freeze
+		if (target, incustomstate) && (target, ID = ID) {
+			selfstate{value: target, const(StateAirGetHit_recoveringInAirNotFalling); redirectID: target, ID}
+			targetdrop{}
+		}
+	}
+	if pos y < 0 {
+		changeanim{value: const(AnimJumpNeutral_upwards)}
+	} else {
+		velSet{x: 0; y: 0}
+		selfState{value: const(StateTagLeavingScreen)}
+	}
+}
+
+if pos y < 0 {
+	veladd{y: const240p(0.5)}
+}
+
+if (vel y > 0 && pos y > -vel y) && anim != const(AnimJumpLanding) {
+	posset{y: 0}
+	velset{x: 0; y: 0}
+	changeanim{value: const(AnimJumpLanding)}
+}
+
+if (anim = const(AnimJumpLanding) && animtime = 0) || time >= 120 {
+	velSet{x: 0; y: 0}
+	selfState{value: const(StateTagLeavingScreen)}
+}
+
+
+#===============================================================================
+# Global states (executed outside of pauses)
+#===============================================================================
+
+[StateDef -2]
+
+ignorehitpause {
+
+	if map(_iksys_tagActive) = 1 {
+
+		# Prevents Active Tag before round actually starts as roundstate 2 starts too early
+		if !map(_potstag_firstctrl) && ctrl {
+			mapset{map: "_potstag_firstctrl"; value: 1}
+		}
+
+		# Fix erratic camera during intros
+		if roundstate = [0, 1] && playerno != teamleader {
+			screenbound{value: 0; movecamera: 0, 0; stagebound: 0}
+		}
+
+		if roundState = 4 {
+			mapset{map: "_iksys_tagActive"; value: 0}
+
+		# ALIVE players
+		} else if alive {
+
+			# ACTIVE player
+			if playerNo = teamLeader {
+
+				# Tag switch cooldown. Not used but kept for compatibility
+				# A character that wishes to disable tagging out can use this as a timer
+				if map(_iksys_tagSwitchCooldown) > 0 {
+					mapadd{map: "_iksys_tagSwitchCooldown"; value: -1}
+				} else {
+
+					# Logical order is crucial here
+					# Check if the player is allowed to counter tag
+					mapset{map: "_potstag_willcounter"; value: 0}
+
+					if roundstate = 2
+					&& !map(_potstag_lastchar)
+					&& (player(teamside), map(_potstag_taggauge)) >= (player(teamside), map(_potstag_taggaugemax))
+					&& (movetype = H || stateno = const(StateDownedGetHit_gettingUp) || dizzy || dizzypoints <= 0)
+					&& gethitvar(attr) != const(AttrStandingHyperAttack)
+					&& gethitvar(attr) != const(AttrCrouchingHyperAttack)
+					&& gethitvar(attr) != const(AttrAerialHyperAttack)
+					&& gethitvar(attr) != const(AttrStandingHyperThrow)
+					&& gethitvar(attr) != const(AttrCrouchingHyperThrow)
+					&& gethitvar(attr) != const(AttrAerialHyperThrow)
+					&& gethitvar(attr) != const(AttrStandingHyperProjectile)
+					&& gethitvar(attr) != const(AttrCrouchingHyperProjectile)
+					&& gethitvar(attr) != const(AttrAerialHyperProjectile) {
+						mapset{map: "_potstag_willcounter"; value: 1}
+					}
+
+					# Check if the player is allowed to active switch
+					mapset{map: "_potstag_willswitch"; value: 0}
+
+					if roundstate = 2
+					&& movetype != H
+					&& map(_potstag_firstctrl)
+					&& !map(_potstag_lastchar)
+					&& !map(_potstag_willcounter) {
+						mapset{map: "_potstag_willswitch"; value: 1}
+					}
+
+					# Check if last active player has left the screen or died
+					mapset{map: "_potstag_lastonebusy"; value: 0}
+
+					if map(_iksys_tagLastID)
+					&& playerID(map(_iksys_tagLastID)), alive
+					&& playerID(map(_iksys_tagLastID)), stateno != const(StateTagWaitingOutside) {
+							mapset{map: "_potstag_lastonebusy"; value: 1}
+					}
+
+					# Check if the player is allowed to active switch while partners are busy
+					mapset{map: "_potstag_canbusyswitch"; value: 0}
+
+					if roundstate = 2
+					&& (map(_potstag_willswitch) || map(_potstag_willcounter))
+					&& (player(teamside), map(_potstag_taggauge)) >= (player(teamside), map(_potstag_taggaugemax)) {
+						mapset{map: "_potstag_canbusyswitch"; value: 1}
+					}
+
+					# Check if the player is allowed to manually tag
+					mapset{map: "_potstag_playerallowed"; value: 0}
+
+					if roundstate = 2
+					&& map(_potstag_firstctrl)
+					&& !map(_potstag_gotostandby)
+					&& (ctrl || map(_potstag_willswitch) || map(_potstag_willcounter))
+					&& (map(_potstag_lastonebusy) = 0 || map(_potstag_canbusyswitch))
+					&& stateno != const(StateTagEnteringScreen)
+					&& stateno != const(StateTagJumpingIn)
+					&& stateno != const(StateTagLanding) {
+						mapset{map: "_potstag_playerallowed"; value: 1}
+					}
+
+					# Get partner ID in case of tag command
+					let partnerID = 0;
+					let nextPartnerID = call fTagGetPartnerID(1);
+					let previousPartnerID = call fTagGetPartnerID(-1);
+
+					if map(_potstag_cmdnext) {
+						let partnerID = $nextPartnerID;
+					} else if map(_potstag_cmdprev) {
+						let partnerID = $previousPartnerID;
+					}
+
+					# Check if the player will switch while partners are busy
+					mapset{map: "_potstag_willbusyswitch"; value: 0}
+
+					if map(_potstag_canbusyswitch) {
+						if map(_potstag_lastonebusy) || (playerID($partnerID), map(_potstag_cooldown) > 0) {
+							mapset{map: "_potstag_willbusyswitch"; value: 1}
+						}
+					}
+
+					# Conditions for tagging are met, so go for it
+					if map(_potstag_playerallowed) && $partnerID > 0
+					&& (playerID($partnerID), stateno = const(StateTagWaitingOutside)) {
+						if map(_potstag_willbusyswitch) {
+							palfx{time: 12; add: -128, 128, -128; sinadd: 128, -128, 128, 4}
+							lifebarAction{spr: ifelse(ctrl = 0, const(MsgActiveSwitch), const(MsgPartnerChange)), 0; top: 1}
+							mapset{map: "_potstag_taggauge"; value: 0; redirectID: player(teamside), ID}
+							mapset{map: "_potstag_leavingdelay"; value: 1}
+						} else if map(_potstag_willcounter) {
+							palfx{time: 24; add: 128, -128, -128; sinadd: -128, 128, 128, 4}
+							lifebarAction{spr: const(MsgCounterSwitch), 0; top: 1}
+							mapset{map: "_potstag_taggauge"; value: 0; redirectID: player(teamside), ID}
+							mapset{map: "_potstag_leavingdelay"; value: 0}
+							redlifeset{value: life}
+						} else if ctrl = 0 {
+							palfx{time: 12; add: 128, 128, 128; sinadd: -128, -128, -128, 4}
+							lifebarAction{spr: const(MsgActiveSwitch), 0; top: 1}
+							mapset{map: "_potstag_leavingdelay"; value: 1}
+						} else if ctrl = 1 {
+							lifebarAction{spr: const(MsgPartnerChange), 0; top: 1}
+							mapset{map: "_potstag_leavingdelay"; value: 0}
+						}
+						mapset{map: "_potstag_gotostandby"; value: 1}
+						mapset{map: "_potstag_cooldown"; value: 60}
+						mapset{map: "_potstag_invulnerable"; value: map(_potstag_willcounter); redirectId: $partnerId}
+						tagIn{stateno: playerID($partnerID), const(StateTagEnteringScreen); redirectId: $partnerId}
+					}
+				}
+
+				# Red Life conversion to power
+				# If on last remaining character
+				if map(_potstag_lastchar) && redLife > life {
+					powerAdd{value: float(redLife - life) / lifeMax * min(3000, powerMax)}
+					redLifeSet{value: life}
+				}
+
+			# PARTNERS
+			} else {
+
+				# Exit if on screen, at the round start / during round
+				if roundState = 2
+				&& (ctrl || standby || map(_potstag_gotostandby) || map(_potstag_firstctrl) = 0)
+				&& pos y >= const240p(-10)
+				&& stateno != const(StateTagLeavingScreen)
+				&& stateno != 56565615 # Forced tag out
+				&& ((stateno = const(StateStand) || stateno = const(StateStandToCrouch) || stateno = const(StateCrouching) || stateno = const(StateCrouchToStand) ||
+					stateno = const(StateWalk) || stateno = const(StateJumpStart) || stateno = const(StateJumpLand) || stateno = const(StateRunForward) || stateno = const(StateHopBackwards_land) ||
+					(stateno = const(StateGuard_start) && statetype != A) || stateno = const(StateStandGuard_guarding) || stateno = const(StateCrouchGuard_guarding))
+				|| (AIlevel > 0 && (anim = const(AnimWalkingForwards) || anim = const(AnimWalkingBackwards) || anim = const(AnimJumpStart_onGround)))) { # Overrides old AI walking scripts
+					if map(_potstag_firstctrl) = 0 {
+						tagOut{stateno: const(StateTagLeavingScreen)}
+						mapset{map: "_potstag_leavingdelay"; value: 0}
+					} else {
+						tagIn{stateno: const(StateTagLeavingScreen)}
+					}
+				}
+
+				# Reset tag out variable
+				if map(_potstag_gotostandby) {
+					if standby || roundstate != 2 {
+						mapset{map: "_potstag_gotostandby"; value: 0}
+					}
+				}
+
+				# Disable control and inputs when tagging out
+				if map(_potstag_gotostandby) {
+					ctrlset{value: 0}
+					assertSpecial{flag: noturntarget}
+					assertSpecial{flag: noInput; flag2: noHardcodedKeys}
+					if majorversion {
+						assertSpecial{flag: noInput}
+					}
+					if stateno = const(StateDownedGetHit_lyingDown) {
+						tagOut{stateno: const(StateDownedGetHit_gettingUp)}
+					}
+				}
+
+				# Enter at the round end to perform the win pose
+				if roundState = 3 {
+					mapadd{map: "_potstag_wintimer"; value: 1} # Increase timer
+					if map(_potstag_wintimer) >= 30 {
+						assertSpecial{flag: noInput}
+						if stateno = const(StateTagWaitingOutside) {
+							mapset{map: "_potstag_invulnerable"; value: 1}
+							tagIn{stateno: const(StateTagJumpingIn)}
+						}
+					}
+				}
+
+				# Force Tag Out timer
+				if standby {
+					mapset{map: "_potstag_tagouttimer"; value: 0} # Reset timer
+				} else if roundstate = 2 {
+					mapadd{map: "_potstag_tagouttimer"; value: 1} # Increase timer
+				}
+
+				# Force Tag Out in case the AI is too active
+				# But not if it's getting hit, binding the opponent or in the middle of a super
+				if AIlevel > 0 && !standby && stateno != 56565615 && stateno != const(StateTagLeavingScreen) {
+					if movetype != H
+					&& dizzy = 0 && dizzypoints > 0 && guardbreak = 0
+					&& cond(numtarget, (target, incustomstate = 0), 1)
+					&& cond(numtarget, (target, gethitvar(isbound) = 0), 1)
+					&& cond(numtarget, (target, gethitvar(attr) != [(target, const(AttrCrouchingHyperAttack)), (target, const(AttrAerialHyperProjectile))]), 1) {
+						if map(_potstag_tagouttimer) >= 30 {
+							if movecontact && !(gametime % 10) && hitdefattr = SCA, NA, SA, NP, SP {
+								movehitreset{} # Motivates older AI's to stop most combos
+							}
+						}
+						if map(_potstag_tagouttimer) >= 180 {
+							tagin{stateno: 56565615}
+							mapset{map: "_potstag_leavingdelay"; value: 1}
+						}
+						if time <= 1
+						&& (prevstateno = [const(StateGuard_start), const(StateAirGuardHit_knockedAway)]
+						|| prevstateno = [const(StateStandGetHit_shaking), const(StateAirGetHit_fallRecoveryInAir)]) {
+							tagin{stateno: 56565615}
+							mapset{map: "_potstag_leavingdelay"; value: 0}
+						}
+					}
+				}
+
+				# Force Tag Out if Active Tag somehow freezes the character
+				if roundstate = 2 && map(_potstag_tagouttimer) >= 300 {
+					if (movetype = I && dizzy = 0 && dizzypoints > 0)
+					&& cond(numtarget, (target, gethitvar(isbound) = 0), 1)
+					&& cond(numtarget, (target, incustomstate = 0), 1)
+					&& ((abs(vel x) < 1 && abs(vel y) < 1) || backedgedist <= 0 || frontedgedist <= 0 || screenpos y < 0 || screenpos y > const240p(320))
+					&& stateno != const(StateTagEnteringScreen)
+					&& stateno != const(StateTagLeavingScreen)
+					&& stateno != const(StateTagWaitingOutside)
+					&& stateno != const(StateTagJumpingIn)
+					&& stateno != const(StateTagLanding)
+					&& stateno != 56565615 {
+						tagIn{stateno: 56565615}
+						mapset{map: "_potstag_leavingdelay"; value: 0}
+					}
+				}
+
+				# Force Tag In
+				# Backup measure to maybe prevent freezing the game
+				if standby && map(_potstag_lastchar) {
+					if stateno != const(StateTagEnteringScreen)
+					&& stateno != const(StateTagLeavingScreen)
+					&& stateno != const(StateTagWaitingOutside)
+					&& stateno != const(StateTagJumpingIn)
+					&& stateno != const(StateTagLanding) {
+						tagin{}
+					}
+				}
+
+			}
+
+			# Decide and memorize which way to face when entering the screen
+			if player(teamleader), map(_potstag_gottostandby) = 0 {
+				if player(teamleader), movetype != H {
+					mapset{map: "_potstag_facing"; value: player(teamleader), facing}
+				} else {
+					mapset{map: "_potstag_facing"; value: -(p2, facing)}
+				}
+			}
+
+			# Reset leaving delay if the character was caught in a combo
+			if movetype = H {mapset{map: "_potstag_leavingdelay"; value: 0}}
+
+		# DEAD players
+		} else {
+
+			# Death timer
+			mapadd{map: "_potstag_deathtimer"; value: 1}
+
+			# KO slowdown
+			if playerNo = teamLeader && roundstate = 2
+			&& map(_potstag_deathtimer) = [1, 30] {
+				pause{time: 1}
+			}
+
+			# Disable boundaries so point character can go die outside the screen
+			if playerNo = teamLeader
+			&& roundstate = 2
+			&& map(_potstag_deathtimer) <= 140 {
+				screenbound{value: (backedgedist > 0 && frontedgedist > 0); movecamera: 1, 1; stagebound: 0}
+			}
+
+			# Active player has died, so bring in the next character
+			# Tag in now happens after a fixed time
+			if playerNo = teamLeader && map(_potstag_deathtimer) >= 120 {
+				if random < 50 || map(_potstag_deathtimer) >= 140 { # Slight timing variation
+					let partnerID = call fTagGetPartnerID(1);
+					if $partnerID > 0 {
+						lifebarAction{spr: const(MsgPartnerChange), 0; top: 1}
+						mapset{map: "_potstag_invulnerable"; value: 1; redirectId: $partnerId}
+						tagIn{stateno: playerID($partnerID), const(StateTagJumpingIn); redirectId: $partnerId}
+					}
+				}
+			}
+
+			# Tag out dead leader a few frames later
+			# Tagging out right away confuses the camera because standby characters can't be followed
+			if !standby
+			&& playerNo != teamLeader
+			&& map(_potstag_deathtimer) > 140 {
+				# Disable tag code checking
+				mapset{map: "_iksys_tagActive"; value: 0}
+				tagout{}
+			}
+
+		}
+
+	}
+
+	# Win pose camera for mixed team modes
+	if teammode != Tag && p2, teammode = Tag {
+		if stateno = const(StateDownedGetHit_lyingDefeated) {
+			screenbound{value: 0; movecamera: 0, 0}
+		}
+	}
+
+}
+
+#===============================================================================
+# Global states (executed during pauses)
+#===============================================================================
+
+[StateDef -4]
+
+ignorehitpause {
+
+	if !const(Default.Enable.Tag) || isHelper || teamSide = 0 {
+		# Do nothing
+	} else if roundState = 0 && teamMode = Tag {
+		# Initialize variables. Some were added, others were removed
+		mapset{map: "_potstag_cooldown"; value: 0}
+		mapset{map: "_potstag_firstctrl"; value: 0}
+		mapset{map: "_potstag_leavingdelay"; value: 0}
+		mapset{map: "_potstag_deathtimer"; value: 0}
+		mapset{map: "_potstag_wintimer"; value: 0}
+		mapset{map: "_potstag_taggauge"; value: 0}
+		mapset{map: "_potstag_taggaugemax"; value: (lifemax + cond(numpartner >= 1, partner(0), lifemax, 0) + cond(numpartner >= 2, partner(1), lifemax, 0) + cond(numpartner >= 3, partner(2), lifemax, 0)) / float(numpartner + 1)} # Maximum allowed
+		mapset{map: "_potstag_facing"; value: ifelse(teamside = 2, -1, 1)}
+		mapset{map: "_potstag_enteringanim"; value: ifelse(selfanimexist(const(AnimTagEnteringScreen)), const(AnimTagEnteringScreen), ifelse(selfanimexist(const(AnimRunFwdOrHopForward)), const(AnimRunFwdOrHopForward), const(AnimWalkingForwards)))}
+		mapset{map: "_potstag_leavinganim"; value: ifelse(selfanimexist(const(AnimTagLeavingScreen)), const(AnimTagLeavingScreen), ifelse(selfanimexist(const(AnimRunFwdOrHopForward)), const(AnimRunFwdOrHopForward), const(AnimWalkingForwards)))}
+		mapset{map: "_iksys_tagActive"; value: 1}
+		mapset{map: "_iksys_tagLastId"; value: 0}
+		mapset{map: "_iksys_tagSwitchCooldown"; value: 0}
+
+		# Players 1 and 2 always start as the point characters
+		if playerno = teamside {
+			tagin{leader: playerno}
+		}
+
+		# Check Configuration
+		call fPotSTagConfig();
+	}
+
+	# Players 1 and 2 handle the Tag Gauge
+	if teamMode = Tag && playerno = teamside {
+
+		# Tag Gauge limits
+		if map(_potstag_taggauge) < 0 {mapset{map: "_potstag_taggauge"; value: 0}} # Minimum
+		if gamemode = "training" && p2movetype != H {mapadd{map: "_potstag_taggauge"; value: 0.0334 * map(_potstag_taggaugemax)}} # Refill in Training mode
+		if map(_potstag_taggauge) > map(_potstag_taggaugemax) {mapset{map: "_potstag_taggauge"; value: map(_potstag_taggaugemax)}} # Can't go over maximum
+
+		# Display Tag Gauge
+		# Uses debug font for compatibility purposes
+		if roundstate = [1, 2] && (player(teamleader), map(_potstag_lastchar) = 0) {
+
+			# Shadow layer
+			if teamside = 1 {
+				text{
+					font: -1; # Edit this line to change the Tag gauge font
+					text: "TAG x %d%%";
+					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+					removetime: 1;
+					layerno: 1;
+					align: 1;
+					pos: map(_potstag_cfg_gaugex) + 1, map(_potstag_cfg_gaugey) + 1;
+					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+					color: 0, 0, 0;
+				}
+			} else {
+				text{
+					font: -1; # Edit this line to change the Tag gauge font
+					text: "%d%% x TAG";
+					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+					removetime: 1;
+					layerno: 1;
+					align: -1;
+					pos: 321 - map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey) + 1;
+					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+					color: 0, 0, 0;
+				}
+			}
+
+			# Main text
+			if teamside = 1 {
+				text{
+					font: -1; # Edit this line to change the Tag gauge font
+					text: "TAG x %d%%";
+					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+					removetime: 1;
+					layerno: 1;
+					align: 1;
+					pos: map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey);
+					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+					}
+			} else {
+				text{
+					font: -1; # Edit this line to change the Tag gauge font
+					text: "%d%% x TAG";
+					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+					removetime: 1;
+					layerno: 1;
+					align: -1;
+					pos: 320 - map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey);
+					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+				}
+			}
+		}
+	}
+
+	if map(_iksys_tagActive) = 1 {
+
+		# Reset tag input, but only if the characters are not paused or in hitpause
+		if pausetime = 0 && hitpausetime = 0 && p2, pausetime = 0 {
+			if map(_potstag_cmdnext) > 0 {
+				mapadd{map: "_potstag_cmdnext"; value: -1}
+			}
+			if map(_potstag_cmdprev) > 0 {
+				mapadd{map: "_potstag_cmdprev"; value: -1}
+			}
+		}
+
+		# Buffer tag input in case input.pauseonhitpause is 0
+		if playerNo = teamLeader && AIlevel = 0 {
+			if command = "TagShiftFwd" {
+				mapset{map: "_potstag_cmdnext"; value: 5}
+			}
+			else if command = "TagShiftBack" {
+				mapset{map: "_potstag_cmdprev"; value: 5}
+			}
+		}
+
+		# Fake the inputs for the AI
+		if playerNo = teamLeader && AIlevel > 0 {
+			let partnerID = 0;
+			let nextPartnerID = call fTagGetPartnerID(1);
+			let previousPartnerID = call fTagGetPartnerID(-1);
+
+		# AI tagging. Harder AI thinks faster
+		if AIlevel > 0 && random < (100 * (AIlevel ** 2 / 64.0)) {
+
+			# Neutral Tag. Pick a character with more health left. More likely to pick next character than the previous one
+			if ctrl
+			&& !inguarddist
+			&& (p2dist x > 200 || (p2movetype = H && p2, hitfall) || p2, dizzy) {
+				if (float(life) / lifemax) < (float(playerID($nextPartnerID), life - 200) / playerID($nextPartnerID), lifemax) && random < 666 {
+					mapset{map: "_potstag_cmdnext"; value: 5}
+				}
+				if (float(life) / lifemax) < (float(playerID($previousPartnerID), life - 200) / playerID($previousPartnerID), lifemax) {
+					mapset{map: "_potstag_cmdprev"; value: 5}
+				}
+			}
+
+			# Active Tag. Pick a character with at least some health
+			# Harder AI tags more often
+			if random < (100 * (AIlevel ** 2 / 64.0))
+			&& movetype = A
+			&& !(hitdefattr = SCA, NA)
+			&& (map(_potstag_lastonebusy) = 0 || power >= 1000)
+			&& cond(numtarget, target, gethitvar(isbound) = 0, 1)
+			&& (p2movetype = H || p2, inguarddist)
+			&& (animtime < -20 || vel y < -5 || pos y < -50 || (p2movetype = H && p2, gethitvar(hittime) < abs(animtime))) {
+				if playerID($nextPartnerID), life > 300 && random < 500 {
+					mapset{map: "_potstag_cmdnext"; value: 5}
+				}
+				if playerID($previousPartnerID), life > 300 {
+					mapset{map: "_potstag_cmdprev"; value: 5}
+				}
+			}
+
+			# Counter Tag. If in bad shape
+			if movetype = H && inguarddist && getHitVar(isbound) = 0 && p2bodydist x < 80 && life < 500 {
+				if playerID($nextPartnerID), life > 300 && random < 666 {
+					mapset{map: "_potstag_cmdnext"; value: 5}
+				}
+				if playerID($previousPartnerID), life > 300 {
+					mapset{map: "_potstag_cmdprev"; value: 5}
+				}
+			}
+
+			# Active tag in response to Counter Tag
+			if random < (100 * (AIlevel ** 2 / 64.0))
+			&& !ctrl
+			&& enemynear(0), movetype = H
+			&& enemynear(1), standby = 0
+			&& (animtime < -10 || vel y < -5 || pos y < -50) {
+				if playerID($nextPartnerID), life > 300 && random < 500 {
+					mapset{map: "_potstag_cmdnext"; value: 5}
+				}
+				if playerID($previousPartnerID), life > 300 {
+					mapset{map: "_potstag_cmdprev"; value: 5}
+				}
+			}
+		}
+		}
+
+		# Tag Gauge filling
+		# Only for the active character
+		if roundstate = 2 && playerno = teamLeader {
+			if life >= lifemax {
+				mapset{map: "_potstag_checklife"; value: lifemax}
+			}
+			if life < map(_potstag_checklife) {
+				mapadd{map: "_potstag_taggauge"; value: map(_potstag_checklife) - life; redirectID: player(teamside), ID}
+			}
+			mapset{map: "_potstag_checklife"; value: life}
+		}
+
+		# Check if player is the last remaining character
+		# Last character has no need to display Tag text
+		if alive {
+			mapset{map: "_potstag_lastchar"; value: 0}
+			if cond(numpartner = 0, 1, 1) && cond(numpartner >= 1, partner(0), alive = 0, 1) && cond(numpartner >= 2, partner(1), alive = 0, 1) && cond(numpartner >= 3, partner(2), alive = 0, 1) {
+					mapset{map: "_potstag_lastchar"; value: 1}
+			}
+		}
+
+		# Tag in the last character if it's already on screen
+		if map(_potstag_lastchar) && playerno != teamleader {
+			if stateno != const(StateTagLeavingScreen) && stateno != const(StateTagWaitingOutside) {
+			if map(_potstag_gotostandby) {
+				mapset{map: "_potstag_gotostandby"; value: 0}
+			}
+				tagIn{leader: playerNo}
+				call fTagSwitchExplod();
+			}
+		}
+
+	}
+
+	# Disable inputs for helpers
+	if isHelper && teamMode = Tag {
+		if playerno != teamleader && root, isasserted(noinput) {
+			assertSpecial{flag: noInput}
+		}
+	}
+
+}

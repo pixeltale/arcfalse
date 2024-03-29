@@ -1,0 +1,80 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#7f7f7f>UNIQUE TRAIT: FREE AS THE WIND</>
+	Excluding a few exceptions, Arzon can freely cancel Special Moves
+	and Remix Moves into other Special and Remix Moves up to
+	3 times in a sequence, so long as he doesn't try to use
+	any specific move more than once in that sequence.
+
+	<#7f7f7f>UNIQUE MOVES</>
+STORM WINDS	-		<#aaffff>(GROUND OR AIR)</> _DF^C
+   <#bbbbbb>Pushes Arzon back and causes a wall bounce.</>
+
+
+	<#7f7f7f>SPECIAL MOVES</>
+TYPHOON SHOT	-		<#aaffff>(GROUND OR AIR)</> ^Y
+   <#bbbbbb>A projectile. Enemies can hit it to destroy it.
+   Can be manipulated with ^Z moves.</>
+_!TYPHOON FOLLOWUP	-		^Y
+        <#bbbbbb>Another hittable projectile.
+        Can be manipulated with ^Z moves.</>
+TYPHOON DISK		<#aaffff>(GROUND OR AIR)</> _F^Y/
+   <#bbbbbb>A large, multi-hitting projectile.</>
+TORNADO TRAP	-		_B^Y/+^A/+^B/+^C
+   <#bbbbbb>Creates a trap on the ground.
+   Holding ^A,^B, or ^C changes it's placement.</>
+_!TYPHOON UPPERCUT	-		<#aaffff>(GROUND OR AIR)</> _B^Y
+        <#bbbbbb>Activates the trap. A launching attack. Can be jump canceled.</>
+TYPHOON SHIELD	-		_D^Y
+   <#bbbbbb>A large move that gains invincibility after it begins.</>
+WHIRLWIND HOVER	-		<#65b5ff>(AIR ONLY)</> _D^Y
+   <#bbbbbb>This move stops Arzon's vertical movement, allowing
+   him to hover and drift side-to-side for a moment.
+   This move does not obey Arzon's FREE AS THE WIND trait.</>
+
+	<#7f7f7f>REMIX MOVES</>
+JETSTREAM	-		^Z/_F^Z/_B^Z/_D^Z
+   <#bbbbbb>Creates a gust of wind that moves enemies.
+   Can also manipulate TYPHOON SHOT and WIND BOOMERANG projectiles.</>
+
+	<#ffef0f>EX MOVES</>
+_EX WIND BOOMERANG	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>Multi-hitting projectile.
+   Can be manipulated with ^Z moves.</>
+_!BOOMERANG GUIDANCE	-		(AS THE MOVE STARTS) _U/_F/_B/_D
+        <#bbbbbb>Holding a direction as the move comes out
+        can change the speed and direction of the projectile.</>
+_EX TYPHOON DISK		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _F^Y+^Z/+^A/+^B/+^C
+   <#bbbbbb>A large, multi-hitting projectile.
+   Holding ^A,^B, or ^C changes it's speed and direction.</>
+_EX TORNADO TRAP	-		<#55ffff>(1 BAR)</> _B^Y+^Z/+^A/+^B/+^C
+   <#bbbbbb>Creates an automatically activated trap on the ground. 
+   Holding ^A,^B, or ^C changes it's placement.</>
+_EX TYPHOON SHIELD	-		<#55ffff>(1 BAR)</> _D^Y+^Z
+  <#bbbbbb>A large, invincible reversal. You can only cancel into this move
+  if the enemy is currently getting hit. Cannot be canceled on block.</>
+
+	<#55ffff>SUPERS</>
+<#7f7f7f>WIND PALM</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A giant projectile attack.
+   It moves faster when used in a combo.</>
+<#7f7f7f>TYPHOON STRIKE</>	-		<#55ffff>(4 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>A powerful fullscreen barrage.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>

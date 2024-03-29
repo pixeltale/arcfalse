@@ -1,0 +1,89 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#964317>UNIQUE TRAIT: "TRUE POWER"</>
+	Unlike every other character, Roger has no unique gimmick.
+	He scoffs at the idea of unique gameplay mechanics, instead preferring
+	to dominate with more health and sheer power. And you know what?
+	It works.
+
+	<#964317>UNIQUE MOVES</>
+UPPER CUT	-		_B^A
+   <#bbbbbb>A quick, high-hitting attack.</>
+WRECKING BALL	-		^C
+   <#bbbbbb>Hits overhead. Causes a wallbounce on counter-hit.</>
+SCUFFED	-		_DF^C
+   <#bbbbbb>A low-hitting sweep.</>
+
+
+	<#964317>SPECIAL MOVES</>
+GUARDIAN SLAMMER	-		(CAN BE HELD) ^Y
+   <#bbbbbb>A powerful command grab.
+   Holding the button increases its power.</>
+FLYING GUARDIAN SLAMMER	-		<#65b5ff>(AIR ONLY)</> ^Y
+   <#bbbbbb>An airborne command grab.</>
+GOD CRUSH	-		_F^Y
+   <#bbbbbb>A forward moving command grab that takes
+   the enemy to the corner of the stage.</>
+_!A PRAYER UNANSWERED	-		^Y
+        <#bbbbbb>Cancels the move early.</>
+UMBRAL SNATCH	-		_B^Y
+   <#bbbbbb>A fast move that launches the enemy
+   for a long time, but does no damage.</>
+HELL DELIVERY	-		_D^Y/_DF^Y
+   <#bbbbbb>An anti-air command grab that's invulnerable to airborne attacks.
+   Holding forward makes Roger move more forward.</>
+
+	<#964317>REMIX MOVES</>
+VITRIOL COALESCENCE	-		(CAN BE HELD) ^Z
+   <#bbbbbb>A clap attack that's safe on block.
+   Holding the button increases the power and number of hits.
+   Hitting any projectile with it creates a large,
+   powerful fireball that beats enemy projectiles.</>
+HEAT DEATH KNUCKLE	-		(CAN BE HELD) _B^Z
+   <#bbbbbb>A large, powerful punch.
+   Pressing the button causes a sliding knockdown.
+   Holding the button for a moment increases the power
+   and causes a wallbounce.
+   Fully holding the button for a long time adds even more power.</>
+SEISMIC SCRUTINY	-			 _D (HOLD)^Z
+   <#bbbbbb>A fullscreen low-hitting attack that launches the enemy.</>
+_!SECOND THOUGHT	-		LET GO OF ^Z
+        <#bbbbbb>Letting go of the button cancels the attack.</>
+
+	<#ffef0f>EX MOVES</>
+_EX GUARDIAN SLAMMER	-		<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>A faster, more powerful command grab.</>
+_EX FLYING GUARDIAN SLAMMER	-		<#65b5ff>(AIR ONLY)</><#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>An airborne command grab that launches the enemy.</>
+_EX GOD CRUSH	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+   <#bbbbbb>A forward moving command grab that takes the enemy
+   to the corner of the stage and starts combos.</>
+_EX UMBRAL SNATCH	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>An invincible reversal attack.</>
+_EX HELL DELIVERY	-		<#55ffff>(1 BAR)</> _D^Y+^Z/_DF^Y+^Z
+   <#bbbbbb>An anti-air command grab that's invulnerable to airborne attacks
+   and launches the enemy. Holding forward makes Roger move more forward.</>
+
+	<#55ffff>SUPERS</>
+<#964317>INFINITE HYPERDEATH</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>An extremely fast and powerful command grab.</>
+<#964317>STAY STILL.</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>A powerful anti-air command grab.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>

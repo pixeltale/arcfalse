@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippet>
+
+	<field name="Name" title="Name" type="string" />
+
+	<code>
+		;------------------------------------------------------
+		@Name
+	</code>
+
+</snippet>

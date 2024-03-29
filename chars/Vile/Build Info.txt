@@ -1,0 +1,25 @@
+Vile Ver1.1
+"The Setplay cohesion patch"
+
+- Guiding Bubble into the ground now makes puddle
+- Bubble now has to be set down for passive hitbox to appear
+- Bubble Spawn animation reduced
+- Aerial Bubble Spawn animations bugs fixed
+- Can cancel Forward and Backwards movement into Downwards movement
+- Bubble is hittable 
+
+- Puddle removed from ic2S
+- Puddle now turns SLKD's into bounces
+- Puddle buffs razors
+
+- Razor now gets a forward boost if over puddle
+
+- 4H now has set stun
+- SLKD's now bounce when done on puddle
+- SLKD length extended
+- 2S launches higher on sliding opponents
+- 6SS can now be delayed up to 60 frames
+- 4EX no longer makes a puddle (bug reasons) 
+- jM hitbox/hurtboxes adjusted to make pickups easier
+
+

@@ -1,0 +1,21 @@
+
+
+;---------------------------------------------------------------------------
+;HelperClear
+;---------------------------------------------------------------------------
+[Statedef 99999]
+type    = U
+movetype= I
+anim = 99999
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !numtarget
+;ignorehitpause = 
+;persistent = 

@@ -1,0 +1,98 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#008928>UNIQUE TRAIT: UNSTOPPABLE FORCE</>
+	Sahkive can cancel his Remix moves by using Special moves,
+	allowing him to move around in unique and unusual ways.
+   Additionally, hitting opponents OTG grants him a small
+   meter bonus.
+
+	<#008928>UNIQUE MOVES</>
+TRAPSTAR LARIAT	-		_F^C
+   <#bbbbbb>A hard-hitting punch.
+   <#D62187>Doing this during a forward dash makes it hit harder.</>
+BEAR TRAP	-		_DF^C
+   <#bbbbbb>A low-hitting attack.
+   Sahkive throws the enemy into the air if this hits.</>
+_!CRUSH!	-		^A/^B/^C
+        <#bbbbbb>A followup launcher attack.</>
+
+	<#008928>SPECIAL MOVES</>
+C'MERE	-		^Y
+   <#bbbbbb>A command grab with follow-up attacks.
+   Can grab opponents out of a sliding knockdown or OTG.</>
+_!KIDNEY PUNCH	-		^A
+        <#bbbbbb>A damaging pummel.</>
+_!OUT BACK, WITH THE TRASH	-		^B
+        <#bbbbbb>A side-switching kick.</>
+_!EAT DIRT	-		^C
+        <#bbbbbb>A heavy slam.</>
+DDT!	-		_F^Y
+   <#bbbbbb>A long-range lunging attack. Sahkive slams the enemy if it hits.
+   Can be spaced to become plus on block.</>
+WHY ARE YOU JUMPING!?	-		_B^Y
+   <#bbbbbb>An anti-air command grab with follow-up attacks.</>
+_!PIÑATA	-		^A
+        <#bbbbbb>A damaging pummel.</>
+_!GET OUTTA HERE	-		^B
+        <#bbbbbb>Sahkive tosses the enemy across the screen.</>
+_!I WILL LITERALLY SLIDE YOU	-		^C
+        <#bbbbbb>A heavy toss that leaves the enemy close to you.</>
+EARTH MOVER	-		_D^Y 
+   <#bbbbbb>A low-hitting ranged attack. Causes a hard knockdown.</>
+
+	<#008928>REMIX MOVES</>
+RUSHING ANGEL	-		^Z
+   <#bbbbbb>A simple tackle.</>
+CHARGING ANGEL	-		(HOLD) ^Z
+   <#bbbbbb>A long-range tackle that causes a wallbounce.
+   Can be dash cancelled.</>
+GUARDIAN'S SPEED	-		_F^Z/_B^Z
+   <#bbbbbb>A dash that can pass through opponents.</>
+GUARDIAN'S STRENGTH	-		_F^Z/_B^Z
+   <#bbbbbb>An overhead stomp.</>
+
+	<#ffef0f>EX MOVES</>
+_EX GOTCHA DUMBASS	-		<#55ffff>(1 BAR)</> ^Y
+   <#bbbbbb>A faster, harder-hitting command grab.
+   Can grab opponents out of a sliding knockdown.</>
+_EX DDT!	-		<#55ffff>(1 BAR)</> _F^Y
+   <#bbbbbb>A lunging attack with even more range and power.
+_EX GUARDIAN'S DOMAIN	-		<#55ffff>(1 BAR)</> _B^Y
+   <#bbbbbb>An anti-air command grab that sends the enemy flying.</>
+_EX EARTH SHATTERER	-		<#55ffff>(1 BAR)</> _D^Y 
+   <#bbbbbb>A low-hitting ranged attack. Launches the enemy.</>
+
+	<#55ffff>SUPER MOVES</>
+<#008928>The 7/11 Incident.</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A command grab. If it lands, Sahkive beats down on
+   the opponent with a flurry of punches.</>
+<#008928>LAST RIDE</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>An overhead attack. Landing this move will put Sahkive into
+   a special state where he must time each attack as the previous one 
+   hits to continue the combo, and doing so with specific timing will 
+   increase his damage.</>
+FLY HIGH	^A_- ^B_- ^C_- ^A_- ^B_- ^C_- ^Z
+        <#bbbbbb>A series of increasingly damaging attacks.
+        The faster the attacks are performed in succession,
+        the more damage they will deal.</>
+_!BURNOUT		_D_DF_F_-^Z
+        <#bbbbbb>A powerful ender swing. Deals extra damage if 
+        canceled from the very last hit of LAST RIDE.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>

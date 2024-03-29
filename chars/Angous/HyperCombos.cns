@@ -1,0 +1,2046 @@
+;Super 1: Horizon Buster (Start)
+;-----------------------------
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd=-2000
+ctrl = 0
+velset = 0,0
+anim =3001
+sprpriority = 16
+
+
+[State Meter Burn State, VarSet]
+type = VarSet
+trigger1 = movehit = 1
+v = 2
+value = 0
+
+[State 4000, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 19
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 6952
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1013
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1009
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1 = time = 0
+value = 9500, 2
+channel=1
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1 = animelem = 2
+value = 9507, (0+(Random%2))
+channel=5
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 4
+anim = 3002
+ID = 1090
+ontop = 1
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+pausemovetime = 0
+scale = 0.78,0.78
+sprpriority = 3
+removeongethit = 1
+ignorehitpause=  1
+
+[State 77]
+type=bgpalfx
+trigger1=var(1)=1
+trigger1=var(1):=99
+time=90
+add=-128,-128,-128
+sinadd=128,128,128,80
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S1,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S6969,0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 84
+anim = 100
+sound = 20,0
+pos = 0,-50
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim =3000
+ID = 3000
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 0.84,0.84
+sprpriority = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+supermovetime = 200
+
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 2
+x = 15
+y = 0
+
+[State 0, veladd]
+type = velset
+trigger1 = animelem = 3
+x = 35
+persistent = 1
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "StarterLevel"
+value 		= 2	;Medium Starter
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboTimer)
+map 		= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+;Hitdef
+[State 200, 1]
+type = HitDef
+trigger1 = time = 0
+attr = S, HA
+animtype  = hard
+damage = 250*MAP(P4) + 100,25
+hitflag = MAFDP
+guardflag = MA
+pausetime = 50,50
+guard.pausetime = 30,30
+sparkno = 13
+sparkxy = -15,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 19
+air.hittime  = 25
+ground.velocity = -2,-10
+air.velocity = -2,-9
+envshake.time = 50
+envshake.freq = 120
+envshake.ampl = 7
+guard.cornerpush.veloff = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.fall = 1
+fall=1
+fall.yvelocity = 0
+guard.velocity = -9
+guard.hittime = 22
+guard.slidetime = 20
+guard.ctrltime = 21
+getpower = 0
+p2stateno = 5300
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = movehit
+value = 0
+ignorehitpause = 1
+
+[State 3000, P1 Custom State]
+type = Changestate
+triggerall = AnimElemTime(3) > 0
+trigger1= MoveHit =1 && NumTarget(3000) && !ishelper
+;trigger1= Target(3000),MoveType=H
+;ID = 3000
+value = 3001
+ignorehitpause=0
+
+ [State 1200, Shake Screen]
+type = EnvShake
+trigger1 = time = 1
+time = 30    ;Time to shake screen
+ampl = 2     ;Amount to shake
+freq = 120   ;A frequency of 180 shakes the screen rapidly
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------------------------
+;Buster Hitframe
+[Statedef 3001]
+type    = S
+movetype= I
+physics = S
+;juggle  = 0
+;poweradd=-1000
+ctrl = 0
+velset = 0,0
+anim =3005
+sprpriority = 16
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NP,SP,HP
+time = 2
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = time > 49
+value = 3002
+ctrl = 1
+
+;---------------------------------------------------------------------------------------------
+;Buster Hit Success
+[Statedef 3002]
+type    = S
+movetype= I
+physics = S
+;juggle  = 0
+;poweradd=-1000
+ctrl = 0
+velset = 33,0
+anim =3006
+sprpriority = 16
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = Time%40 = 0 
+time = 53
+length = 25
+palcolor = 256
+palinvertall = 0
+paladd = 7,-200,-200
+palmul = 256,256,256
+Trans = Add
+framegap = 5
+timegap = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 3002
+ID = 1090
+ontop = 1
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+pausemovetime = 0
+scale = .66,.66
+sprpriority = 3
+removeongethit = 1
+ignorehitpause=  1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S1,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S6969,0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NP,SP,HP
+time = 2
+
+[State 200, 3]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;Super 1: Install Horizon Buster (Start)
+;-----------------------------
+[Statedef 3005]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd=-2000
+ctrl = 0
+velset = 0,0
+anim=3004
+sprpriority = 16
+
+[State 0, Zoom]
+type = zoom
+triggerall	= backedgebodydist<=100
+trigger1 	= movehit
+trigger1 	= enemy,HitShakeOver = 0
+scale 	= 1.2
+lag 	= 0
+stagebound 	= 1
+camerabound 	= 0
+pos 		= pos x + 10,0
+ignorehitpause	= 1
+[State 0, Zoom]
+type = zoom
+triggerall	= backedgebodydist>100
+trigger1 	= movehit
+trigger1 	= enemy,HitShakeOver = 0
+scale 	= 1.5
+lag 	= 0.5
+stagebound 	= 1
+camerabound 	= 0
+pos 		= pos x,0
+ignorehitpause	=1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =time<1 
+flag = invisible
+ignorehitpause=1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time=1
+value = 3004
+elem = 2
+ignorehitpause =0
+;persistent = 
+
+[State Meter Burn State, VarSet]
+type = VarSet
+trigger1 = movehit = 1
+v = 2
+value = 0
+
+[State 4000, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 19
+
+[State 1000, shake]
+type = EnvShake
+triggerall = time = 0;animelemtime(6)>=0
+trigger1 = !(time%4)
+time=110
+freq=80
+ampl=2+0.02*time
+
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 6952
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1013
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1009
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1 = time = 0
+value = 9506, (0+(Random%4))
+channel=1
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1 = animelem = 2
+value = 9507, (0+(Random%2))
+channel=1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 4
+anim = 30022
+ID = 1090
+ontop = 1
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+pausemovetime = 0
+scale = .84,.84
+sprpriority = 3
+removeongethit = 1
+ignorehitpause=  1
+
+[State 77]
+type=bgpalfx
+trigger1=var(1)=1
+trigger1=var(1):=99
+time=111
+add=-128,-128,-128
+sinadd=128,128,128,80
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S1,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S6969,0
+
+
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 110
+anim = 100
+sound = 20,0
+pos = 0,-50
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim =3003
+ID = 3003
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 0.84,0.84
+sprpriority = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+supermovetime = 200
+
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 2
+x = 15
+y = 0
+
+[State 0, veladd]
+type = velset
+trigger1 = animelem = 3
+x =55
+persistent = 1
+
+;Hitdef
+[State 200, 1]
+type = HitDef
+trigger1 = time = 0
+attr = S, HA
+animtype  = hard
+damage = 325*MAP(P4)+150,35
+hitflag = MAFDP
+guardflag = MA
+pausetime = 65,65
+guard.pausetime = 45,45
+sparkno = 13
+sparkxy = -15,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 19
+air.hittime  = 25
+ground.velocity = -2,-10
+air.velocity = -2,-9
+envshake.time = 60
+envshake.freq = 120
+envshake.ampl = 12
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.fall = 1
+fall=1
+fall.yvelocity = 0
+guard.velocity = -30
+guard.slidetime = 10
+guard.ctrltime = 10
+getpower = 0
+p2stateno = 5300
+
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = movehit
+value = 0
+ignorehitpause = 1
+
+
+
+ [State 1200, Shake Screen]
+type = EnvShake
+trigger1 = time = 1
+time = 45    ;Time to shake screen
+ampl = 9     ;Amount to shake
+freq = 10   ;A frequency of 180 shakes the screen rapidly
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------------------------
+;Install Buster Hitframe
+[Statedef 3006]
+type    = S
+movetype= I
+physics = S
+;juggle  = 0
+;poweradd=-1000
+ctrl = 0
+velset = 0,0
+anim =30055
+sprpriority = 16
+
+[State 3000, P2 Custom State]
+type = TargetState
+triggerall = AnimElemTime(3) > 0
+trigger1= MoveHit =1 && NumTarget(3000)
+trigger1= Target(3000),MoveType=H
+ID = 3000
+value = 30000
+ignorehitpause=0
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NP,SP,HP
+time = 2
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = time > 59
+value = 3007
+ctrl = 1
+
+;---------------------------------------------------------------------------------------------
+;Install Buster Hit Success
+[Statedef 3007]
+type    = S
+movetype= I
+physics = S
+;juggle  = 0
+;poweradd=-1000
+ctrl = 0
+velset = 39,0
+anim =3006
+sprpriority = 16
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = Time%40 = 0 
+time = 53
+length = 25
+palcolor = 256
+palinvertall = 0
+paladd = 7,-200,-200
+palmul = 256,256,256
+Trans = Add
+framegap = 5
+timegap = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1
+anim = 30022
+ID = 1090
+ontop = 1
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+pausemovetime = 0
+scale = .66,.66
+sprpriority = 3
+removeongethit = 1
+ignorehitpause=  1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S1,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S6969,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8992
+id = 8992
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NP,SP,HP
+time = 2
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8992
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+
+[State 200, 3]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+
+; True Buster
+[Statedef 3015]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= -4000
+ctrl = 0
+velset = 0,0
+anim = 3015
+sprpriority = -1
+
+
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = time=0
+time = 86
+mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 0
+ignorehitpause = 0
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = animelem=11
+time = -1
+mul =  60,226,40
+sinadd=0,20,0,600
+color = 1
+ignorehitpause = 1
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = movehit
+time =-1
+mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 0
+ignorehitpause = 1
+
+[State 0, SuperPause]
+type = SuperPause
+triggerall=anim=3015
+trigger1 = animelem=6
+time = 30
+anim = -1
+sound = -1
+pos = 0,-50
+movetime = 0
+darken = 1
+p2defmul = 1
+unhittable = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+fv =13     ;fv = 
+value = 3
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = !numtarget
+fv = 13
+value = 3
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1007
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1008
+
+;This goes into the actual hit
+[State 200, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+fv = 25   
+value = 1; You can make this whatever you want to increase stun scaling per move
+ignorehitpause = 1
+persistent = 0
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = !numtarget
+fv = 25
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+fv = 6  ;fv = 10
+value = 1062 ;State of this attack
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time<33
+value = SCA,NA,SA,NP,SP,NT,ST
+time = 1
+ignorehitpause = 1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 1
+trigger2 = animelem = 2
+trigger3 = animelem = 3
+x = 10
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 4
+x = 3
+
+[State 100, 1]
+type = VelSet
+trigger1 = time=[37,53]
+x =1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem =12
+trigger2 = animelem = 13
+trigger3 = animelem = 14
+x = 5
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 15
+trigger2 = animelem = 16
+trigger3 = animelem = 17
+x = 3
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1=anim=3015
+trigger1 = animelem = 2
+value = 1013,0
+channel=1
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1=anim=3015
+trigger1 = animelem = 10
+value = 1014, (0+(Random%3))
+channel=1
+
+ [State 1200, Shake Screen]
+type = EnvShake
+trigger1 = animelem = 11
+time = 15    ;Time to shake screen
+ampl = 2     ;Amount to shake
+freq = 80  ;A frequency of 180 shakes the screen rapidly
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 4
+anim = 1055
+ID = 1055
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 52
+pausemovetime = 0
+;vel = 0,0
+;accel = 0,0
+;random = 0,0
+scale =0.84,0.84
+sprpriority = 4
+;ontop = 0
+;shadow = 0,0,0
+;ownpal = 0
+removeongethit = 1
+ignorehitpause = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 11
+anim = 6700
+ID = 6700
+pos = 30,0
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+scale =0.84,0.84
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 1
+
+
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 610, 3]
+type = hitdef 
+p2facing = 1
+trigger1 = Time = 0
+attr = S, HA
+damage = 0
+animtype = hard
+hitflag = MAFD
+priority = 3
+pausetime = 35,35
+sparkno = 3
+sparkxy = -19, -22
+hitsound   = 5,4
+ground.type = l
+ground.slidetime = 0
+ground.hittime  =9999
+down.hittime  =9999
+ground.velocity = -1,22
+airguard.velocity = -1,-.8
+air.type = high
+air.velocity = -1,22
+air.hittime = 9999
+air.fall = 1
+fall = 1 
+fall.yvelocity = cond(var(18)=0, -9,-0)
+down.bounce = 9
+envshake.time = 35
+envshake.freq = 90
+envshake.ampl = -6
+envshake.phase = 100
+  palfx.time = 16
+  palfx.add = 40, 30, -40
+palfx.sinadd = 50,50,50,16
+p2facing = 1
+;ground.cornerpush.veloff = -7
+;air.cornerpush.veloff = -7
+;p2stateno = 43211
+guard.dist = 0
+palfx.time = 35
+palfx.add = 100, 0,20
+ground.cornerpush.veloff = 0
+id = 3000
+snap=30,0
+p2stateno = 30000
+
+
+;Throw Tech not allowed
+[State 1060, Explod]
+type = Explod
+trigger1 = !NumExplod(44020)
+anim = 99856
+ID = 44020
+removetime = -1
+removeongethit = 0
+persistent = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+v = 18
+value = 2
+
+[State 210, 4]
+type = SprPriority
+trigger1 = AnimElem = 11
+value = 2
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall=anim!=3016
+trigger1 = movehit
+value = 3016
+ignorehitpause = 0
+persistent =0
+
+[State 210, 5]
+type = ChangeState
+triggerall=time>100
+triggerall = movehit
+trigger1=enemy,pos y >=-300
+value = 3016
+ctrl = 0
+
+;True Buster Punch
+;-----------------------------
+[Statedef 3016]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim =3004
+sprpriority = 16
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = time=0
+time = 87
+mul = 256,256,256
+;sinadd = 0,0,0,10
+;invertall = 0
+color = 0
+ignorehitpause = 0
+
+[State Meter Burn State, VarSet]
+type = VarSet
+trigger1 = movehit = 1
+v = 2
+value = 0
+
+[State 4000, NotHitBy]
+type = NotHitBy
+trigger1 =1
+value = SCA
+time = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 6952
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1013
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1009
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1 = time = 0
+value = 9506, (0+(Random%4))
+channel=1
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1 = animelem = 2
+value = 9507, (0+(Random%2))
+channel=1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 41
+value = 1031,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S1,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = S6969,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time=0
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "THBFX"
+ID = 3017
+stateno =3017 
+pos = 0,0
+postype = back   ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 260
+pausemovetime = 260
+
+;[State 0, SuperPause]
+;type = SuperPause
+;trigger1 = time = 0
+;time = 259
+;anim = -1
+;sound = 20,0
+;pos = 0,-50
+;movetime = 0
+;darken = 1
+;p2defmul = 1
+;poweradd = 0
+;unhittable = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =movehit=0
+flag = invisible
+flag2 = nobardisplay
+flag3 = globalnoshadow
+ignorehitpause=1
+persistent=1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 =movehit=0
+flag = noFG
+flag2 = noBG
+flag3 = timerfreeze
+ignorehitpause=1
+persistent=1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1=facing=1
+facing=-1
+anim =3017
+ID = 3017
+pos = 0,0
+postype =right ;p2,front,back,left,right
+bindtime = 1000
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 0.59,0.59
+sprpriority = 20
+ontop=1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+supermovetime = 260
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+trigger1=facing=-1
+anim =3017
+ID = 3017
+pos = 0,0
+postype =left ;p2,front,back,left,right
+bindtime = 1000
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 0.59,0.59
+sprpriority = 20
+ontop=1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+supermovetime = 260
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim =3018
+ID = 3018
+pos = 0,0
+postype = front  ;p2,front,back,left,right
+facing=-1
+vfacing = 1
+bindtime = 1000
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 255
+scale = 0.69,0.69
+sprpriority = 10
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+supermovetime = 260
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 2
+x = 15
+y = 0
+
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = animelem = 3
+;x = 20
+;ignorehitpause = 
+;persistent = 
+
+[State 0, veladd]
+type = velset
+trigger1 = animelem = 3
+x =80
+;y = 0
+;ignorehitpause = 
+;persistent = 
+
+;[State 0, PosAdd]
+;type = PosAdd
+;trigger1 = animelem = 4
+;x = 36
+;y = 0
+;ignorehitpause = 
+;persistent = 
+;[State 0, PosAdd]
+;type = PosAdd
+;trigger1 = animelem = 5
+;x = 24
+;y = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VelAdd]
+type = Velset
+trigger1 = animelem = 4
+x = 5
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = movecontact
+id = 1072
+
+;Hitdef
+[State 200, 1]
+type = HitDef
+trigger1 = time = 0
+attr = S, HA
+animtype  = hard
+damage = 5000
+hitflag = MAFDP
+guardflag = MA
+pausetime = 1,60
+guard.pausetime = 45,45
+sparkno = 13
+sparkxy = -15,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 19
+air.hittime  = 25
+ground.velocity = -2,-10
+air.velocity = -2,-9
+envshake.time = 60
+envshake.freq = 120
+envshake.ampl = 12
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.fall = 1
+fall=1
+fall.yvelocity = 0
+guard.velocity = -9
+guard.hittime = 22
+guard.slidetime = 20
+guard.ctrltime = 21
+getpower = 0
+ID = 3000
+p2stateno = 30000
+
+[State 3000, P1 Custom State]
+type = Changestate
+triggerall = AnimElemTime(3) > 0
+trigger1= MoveHit =1 && NumTarget(3000) && !ishelper
+;trigger1= Target(3000),MoveType=H
+;ID = 3000
+value = 3006
+ignorehitpause=0
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;THBFX
+;-----------------------------
+[Statedef 3017]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim =8200
+sprpriority =-5
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=1
+value = 3010,1
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=80
+value = 3010,6
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=88
+value = 3010,4
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=120
+value = 666,4
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=124
+value = 3010,2
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=180
+value = 3010,5
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=196
+value = 10303,0
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time=200
+value = 3010,0
+channel = -1
+ignorehitpause = 1
+loop = 0
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = root,stateno!=3016
+;ignorehitpause = 
+;persistent = 
+
+
+;Super 2: Explosive Rage (Install)
+;-----------------------------
+[Statedef 3010]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd=0
+ctrl = 0
+velset = 0,0
+anim =3010
+sprpriority = 8
+
+[State Meter Burn State, VarSet]
+type = VarSet
+trigger1 = movehit = 1
+v = 2
+value = 0
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value =0
+persistent = 1
+
+
+[State 0,????]
+type = varadd
+trigger1 = time = 0
+fvar(13) = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = time=1
+fv =13     ;fv = 
+value = 7
+ignorehitpause=1
+persistent=0
+
+[State 4000, NotHitBy]
+type = NotHitBy
+trigger1 = time <=37
+value = SCA
+time = 1
+
+[State 0, VarSet] ;armorboi
+type = VarSet
+trigger1 = time = 0
+v = 28    ;fv = 10
+value = 1
+
+[State 0, PlaySnd] ;DURAGON INSTALLL voice
+type = PlaySnd
+trigger1 = animelem = 9 && palno = 10
+value = 3012,0
+channel = 99
+loop = 0
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = palno = 10
+channel = 1
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = RoundState > 3
+channel = 100
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 33
+anim = 100
+sound = 20,0
+pos = 0,-50
+movetime = 32
+darken = 1
+p2defmul = 1
+poweradd = -2000
+unhittable = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 1900, dust]
+type = explod
+trigger1 = animelem = 9
+anim = 6800
+id = 6800
+pos = 0,0
+sprpriority = 9
+bindtime = -1
+ownpal = 1
+scale = 1.1,0.8
+removeongethit = 1
+ignorehitpause = 1
+facing = -1
+removetime = -2
+;ontop = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 9
+anim = 6700
+ID = 6700
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = -1,0
+accel = 0,0
+random = 0,0
+scale =0.74,0.74
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 1
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 9
+anim = 6700
+ID = 6700
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 1,0
+accel = 0,0
+random = 0,0
+scale =0.74,0.74
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 1
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animelem = 47
+id = 6800
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 9
+value = 3010,1
+ [State 1200, Shake Screen]
+type = EnvShake
+trigger1 = animelem = 8
+time = 9   ;Time to shake screen
+ampl = 14     ;Amount to shake
+freq = 180   ;A frequency of 180 shakes the screen rapidly
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 9
+value = 3010,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 47
+value = 3010,3
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 27
+value = 3010,4
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 9
+value = 3010,5
+
+[State 0, Explod]
+type = Explod
+trigger1 =animelem = 9
+anim =13005
+ID = 13005
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 1,1
+sprpriority = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ontop=1
+
+[State 200, 1]
+type = hitdef 
+p2facing = 1
+trigger1 = time = 0
+attr = S, HA
+animtype  = hard
+damage = 100, 0
+hitflag = MAFD
+guardflag = M
+pausetime = 5,5
+sparkno = 3
+sparkxy = enemy, pos x, enemy, pos y+-40 ;Bruh
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = TRIP
+air.type = TRIP
+ground.hittime  = 999
+air.hittime = 999
+down.hittime = 999
+ground.velocity = -8,-8
+down.velocity = -8,-8
+air.velocity = -8,-5
+down.bounce=1
+fall.yvelocity=-6
+air.cornerpush.veloff = -10
+envshake.time = 12
+envshake.freq = 10
+envshake.ampl = 3
+envshake.phase = 1
+palfx.time = 12
+palfx.add = 100, 0,20
+guard.hittime = 55
+guard.slidetime = 16
+guard.ctrltime = 55
+guard.velocity = -3.5
+air.fall = 1
+fall=1
+getpower = 0
+
+ [State 1200, Shake Screen]
+type = EnvShake
+trigger1 = animelem = 9
+time = 90   ;Time to shake screen
+ampl = 2     ;Amount to shake
+freq = 180   ;A frequency of 180 shakes the screen rapidly
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

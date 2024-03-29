@@ -1,0 +1,699 @@
+;---------------------- Integer variable list ----------------------
+
+; var(1):= 105, -1
+; var(2):= -2, 3000, 3005, 3010, 3100, 3200
+; var(3):= -2, 3000
+;var(10):= 420
+;var(13):= 0, 10, 11, 12
+;var(15):= -2
+;var(23):= -3, 45
+;var(25):= -3
+;var(26):= -2
+;var(27):= -3, 45
+;var(29):= -3
+;var(30):= 2000, 3000, 3010
+;var(38):= -2
+;var(40):= 40, 4000
+;var(44):= -2
+;var(45):= -3, 45
+;var(50):= -2
+;var(51):= -2
+;var(52):= -2
+;var(53):= -2
+;var(54):= -2
+;var(56):= -2
+;var(57):= -2
+;var(59):= 0
+
+;---------------------- Float variable list ----------------------
+
+; fvar(1):= -2
+; fvar(2):= -2
+; fvar(6):= 4000, 4001
+; fvar(7):= -2
+; fvar(8):= -2
+;fvar(10):= -2
+;fvar(11):= -2
+;fvar(13):= -2, 633
+;fvar(14):= -2
+;fvar(15):= -2
+;fvar(16):= -2
+;fvar(17):= -2
+;fvar(18):= 99
+;fvar(20):= -3
+;fvar(25):= -2, 633
+;fvar(26):= -2
+;fvar(27):= -2 - P1 Value for Display
+;fvar(28):= -2 - P2 Value for Display
+
+
+
+; KFM's constants and state file.
+; There are comments scattered through this file, so you may like to
+; take a look if would like to learn more about the cns.
+
+[Data]
+;Amount of life to start with
+life = 1400
+;attack power (more is stronger)
+attack = 100
+;defensive power (more is stronger)
+defence = 100
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 0
+;Time which player lies down for, before getting up
+liedown.time = 60
+;Number of points for juggling
+airjuggle = 15
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = 40
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 0
+
+power = 4010
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 4
+FloatPersistIndex = 40
+
+[Size]
+xscale = 0.84          ;Horizontal scaling factor.
+yscale = 0.84          ;Vertical scaling factor.
+ground.back = 15     ;Player width (back, ground)
+ground.front = 16    ;Player width (front, ground)
+air.back = 12        ;Player width (back, air)
+air.front = 12       ;Player width (front, air)
+height = 50          ;Height of player (for opponent to jump over)
+attack.dist = 160    ;Default attack distance
+proj.attack.dist = 90 ;Default attack distance for projectiles
+proj.doscale = 0     ;Set to 1 to scale projectiles too
+head.pos = -5, -90   ;Approximate position of head
+mid.pos = -5, -55    ;Approximate position of midsection
+shadowoffset = 0     ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
+
+[Velocity]
+walk.fwd  = 2.5      ;Walk forward
+walk.back = -2.5     ;Walk backward
+run.fwd  = 5.6, 0    ;Run forward (x, y)
+run.back = -3.5,-3.8 ;Hop backward (x, y)
+jump.neu = 0,-7    ;Neutral jumping velocity (x, y)
+jump.back = -2.55    ;Jump back Speed (x, y)
+jump.fwd = 2.33       ;Jump forward Speed (x, y)
+runjump.back = -1,-8.1 ;Running jump speeds (opt)
+runjump.fwd = 7.5,-10      ;.
+airjump.neu = 0,-6.5      ;.
+airjump.back = -2      ;Air jump speeds (opt)
+airjump.fwd = 2.2         ;.
+air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
+air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
+air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
+air.gethit.airrecover.back = -1       ;Extra x-velocity for holding back during air recovery **MUGEN 1.0**
+air.gethit.airrecover.fwd = 0         ;Extra x-velocity for holding forward during air recovery **MUGEN 1.0**
+air.gethit.airrecover.up = -2         ;Extra y-velocity for holding up during air recovery **MUGEN 1.0**
+air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during air recovery **MUGEN 1.0**
+
+[Movement]
+airjump.num = 0       ;Number of air jumps allowed (opt)
+airjump.height = 35   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .39          ;Vertical acceleration
+stand.friction = .85  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+stand.friction.threshold = 2          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = .05       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
+air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
+air.gethit.groundrecover.groundlevel = 0   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
+air.gethit.airrecover.threshold = 3  ;Y-velocity above which player may use the air recovery command **MUGEN 1.0**
+air.gethit.airrecover.yaccel = .35    ;Vertical acceleration for player in the air recovery state **MUGEN 1.0**
+air.gethit.trip.groundlevel = -5      ;Y-position at which player in the tripped state touches the ground **MUGEN 1.0**
+down.bounce.offset = 0, -5            ;Offset for player bouncing off the ground (x, y) **MUGEN 1.0**
+down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing off the ground **MUGEN 1.0**
+down.bounce.groundlevel = -4          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
+down.friction.threshold = .05         ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
+
+;Default language victory quotes (optional).  **MUGEN 1.0**
+;If this section is included, the default language victory quotes must be in English.
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "The hell, even after all that you still haven't gone down? Alright then, time for round 2!"
+victory2 = "Guardian, huh? So is that why that other guy was so strong as well? Seems like I have a lot to worry about around here."
+victory3 = "...Britain? The hell's that? Are you messing with me or something...?"
+victory4 = "The hell is a 'Blackwatch?' Why would I be working for them? Is this a race thing?"
+victory5 = "I can see why they call you the 'God Killing Demon'. You were strong...stand proud..."
+victory6 = "Everyone wants to say they're a 'death god' or 'death goddess' nowadays. Why don't you fill out a damn job application."
+victory7 = "Grandmaster Wu? Like, Wu-Tang clan? No? Alright, sorry..."
+victory8 = "Sorry man, the Garten is that way."
+victory9 = "...Is this really how weak I am...? No way you...I mean me...I mean...fuck. Whatever."
+victory10 = "Come on Alicia. I know you're just acting injured so you can stab me in the neck when I come check on you. That trick wont work on me twice."
+victory11 = "Sorry, but a cinder block in a weed warehouse is not enough to stop me."
+;Alternate language victory quotes (optional).
+;0 or more alternate language sections may be added, preceded by the
+;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".
+;See language setting in mugen.cfg.
+[ja.Quotes]
+victory1 = "私は私のベルトで長年の経験を持っています、あなたは知っています。"
+
+;---------------------------------------------------------------------------
+; Variable usage:
+; This is a record of the variables that KFM uses. Keeping a record of your
+; variable usage helps you avoid careless mistakes later.
+; var(1)  - Used in kfm.cmd for combo condition (updated every tick)
+; var(2)  - Used in Kung Fu Throw (state 800) to remember if fwd was being
+;           held (remembered from state 800 through state 810).
+
+
+;---------------------------------------------------------------------------
+; Lose by Time Over
+; CNS difficulty: basic
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win state decider
+; CNS difficulty: basic
+[Statedef 180]
+type = S
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+value = 182
+
+;---------------------------------------------------------------------------
+; Win pose 1 - Bow
+; CNS difficulty: basic
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State -3, Win Announcer]
+type = PlaySnd
+trigger1 = time=0
+value = 7410, (0+(Random%2))
+;---------------------------------------------------------------------------
+; Win pose 2 - Bow
+; CNS difficulty: basic
+[Statedef 182]
+type = S
+ctrl = 0
+anim = 182
+velset = 0,0
+
+[State -3, Win Announcer]
+type = PlaySnd
+trigger1 = time=0
+value = 7410, (0+(Random%2))
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = Roundstate > 3
+flag = Nobardisplay
+
+;---------------------------------------------------------------------------
+; Introduction
+; CNS difficulty: basic
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 190
+velset = 0,0
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = RoundState < 3
+flag = Nobardisplay
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;========================================
+; States that are always executed (use statedef -2)        ||
+;========================================
+
+
+[Statedef -2]
+
+;=============================================+
+;Palette Stuff
+[State 0, MapSet]
+type = RemapPal
+trigger1 = roundstate < 2 && time = [0,2]
+source = 1, 1
+dest = 1 + map(AltPal), palno
+;Palette Stuff
+[State 0, MapSet]
+type = RemapPal
+trigger1 = roundstate < 2 && time = [0,2]
+source = 1, 1 + palno
+dest = 1 + map(AltPal), palno
+;jH Limiter
+[State 0, MapSet]
+type = MapSet
+trigger1 = roundstate < 2
+trigger1 = command = "start"
+map = "AltPal"
+value = 1
+ignorehitpause = 1
+;=============================================+
+
+[State 100, 2] 
+type = AssertSpecial
+trigger1 = map(ChargeLVL) = 3 && movehit
+flag = NoMusic
+ignorehitpause = 1
+
+;[EN]5R~H EXPLOD REMOVAL
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim != 1531
+id = 1532
+ignorehitpause = 1
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= stateno = [3000, 3200]
+map 		= "BurstLock"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 1
+
+;=============================
+;LIMITERS
+;=============================
+[State SP, MapSet]
+type = MapSet
+trigger1 = !map(comboTimer)
+map = "sSENuse"
+value = 0
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !map(ComboTimer)
+map 		= "jEXLim"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "counterHIt = %f"
+params = map(CHStarter)
+ignorehitpause = 1
+persistent = 1
+
+;========================================
+; Dash Enhance Timer (J.V.)                                                 []
+;=======================================
+[State 0, Mapset]
+type = MapSet
+trigger1 = stateno = 100 || stateno = 60
+map = "EN"
+value = 18
+
+[State 0, Mapset]
+type = MapAdd
+trigger1 = map(EN)
+map = "EN"
+value = -1
+
+[State 0, Mapset]
+type = MapSet
+trigger1 = map(EN)
+map = "EnState"
+value = 1
+[State 0, Mapset]
+type = MapSet
+trigger1 = !map(EN)
+map = "EnState"
+value = 0
+
+[State 0, No Normals Set] ;No Normals After 4SDC
+type = MapSet
+trigger1 = stateno = 100 && prevstateno = 1010
+map = "NoNormals"
+value = 20
+[State 0, No Normals Set] ;No Normals After 6S>LDC
+type = MapSet
+trigger1 = stateno = 100 && prevstateno = 1120
+map = "NoNormals"
+value = 2
+[State 0, No Normals Tick Down] ;No Normals After 4SDC
+type = MapAdd
+trigger1 = map(NoNormals)
+map = "NoNormals"
+value = -1
+
+[State 100, 3] ;No Block After DC
+type = AssertSpecial
+trigger1 = map(NoNormals)
+flag = NoStandGuard
+[State 100, 3] ;No Block After DC
+type = AssertSpecial
+trigger1 = map(NoNormals)
+flag = NoCrouchGuard
+[State 100, 3] ;No Block After DC
+type = AssertSpecial
+trigger1 = map(NoNormals)
+flag = NoAirGuard
+
+
+;==============================================================================
+; Magic Pixel Check                                                          []
+;=============================================================================
+[State 0, PalFX]
+type = PalFX
+trigger1 = life = 1
+time = 2
+add = (80 + 20 + 50 * sin(2 * pi * gametime / 160)),0,0 ;sinadd but manual
+mul = 256,256,256
+sinadd = 50,0,0,120 ;this part doesn't work and it's gonna make me fucking cry holy shit
+invertall = 0
+color = 256
+
+;Timeslow
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = fvar(18) >0 
+trigger1 = stateno != [3000, 3200]
+fv = (18)
+value = -1
+
+
+[State 0,P1 Desp Bar Back]
+type = Explod
+ignorehitpause = 1
+trigger1 = teamside = 1
+anim = F1901
+ID = 777
+pos = 135,217
+postype = left  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermovetime = 999999999999999999999
+pausemovetime = 999999999999999999999
+scale = 0.15,.1
+sprpriority = -1
+ontop = 1
+ownpal = 1
+
+[State 0,P1 Desp Bar Bar]
+type = Explod
+ignorehitpause = 1
+trigger1 = teamside = 1
+anim = F1902
+ID = 779
+pos = 38,217
+postype = left  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermovetime = 999999999999999999999
+pausemovetime = 999999999999999999999
+scale = 0.000148*abs(var(15)),.1
+sprpriority = 2
+ontop = 1
+ownpal = 1
+
+[State 0,P1 Desp Bar Frame]
+type = Explod
+ignorehitpause = 1
+trigger1 = teamside = 1
+anim = F1900
+ID = 778
+pos = 135,217
+postype = left  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermovetime = 1999999999999999999999
+pausemovetime = 1999999999999999999999
+scale = 0.15,.1
+sprpriority = 2
+ontop = 1
+ownpal = 1
+
+[State 0,P2 Desp Bar Back]
+type = Explod
+ignorehitpause = 1
+trigger1 = teamside = 2
+anim = F1901
+ID = 777
+pos = -135,217
+postype = right  ;P2, Front, Back, Left, Right
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermovetime = 1999999999999999999999
+pausemovetime = 1999999999999999999999
+scale = .15,.1
+sprpriority = -1
+ontop = 1
+ownpal = 1
+
+[State 0,P2 Desp Bar Bar]
+type = Explod
+ignorehitpause = 1
+trigger1 = teamside = 2
+anim = F1902
+ID = 779
+pos = -38,217
+postype = right  ;P2, Front, Back, Left, Right
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermovetime = 1999999999999999999999
+pausemovetime = 1999999999999999999999
+scale = 0.000148*abs(var(15)),.1
+sprpriority = 2
+ontop = 1
+ownpal = 1
+
+[State 0,P2 Desp Bar Frame]
+type = Explod
+ignorehitpause = 1
+trigger1 = teamside = 2
+anim = F1900
+ID = 778
+pos = -135,217
+postype = right  ;P2, Front, Back, Left, Right
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermovetime = 1999999999999999999999
+pausemovetime = 1999999999999999999999
+scale = .15,.1
+sprpriority = 2
+ontop = 1
+ownpal = 1
+
+;------------------------------------
+;Either he techs throws or he doesnt it depends
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno != 812
+trigger1 = stateno != 803
+id = 44020
+
+
+;------------------------
+[State -2, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 3
+value = 1
+
+[State -2,Poison Variable]
+type = VarAdd
+trigger1 = time%2=0 && fvar(17)>0
+fv = 17     ;fv = 
+value = -1
+;ignorehitpause = 
+;persistent =
+
+[State 0, Explod] ;BURST EXPLOD
+type = Explod
+triggerall = !numexplod(900)
+trigger1 = var(15) = 1000 && teamside = 1
+anim =F905
+ID = 900
+pos = -3,18
+postype = left  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+pausemovetime = 0
+scale =0.60,0.60
+sprpriority = 8
+ontop = 1
+ignorehitpause = 1
+[State 0, Explod]
+type = Explod
+triggerall = !numexplod(900)
+trigger1 = var(15) = 1000 && teamside = 2
+anim =F906
+ID = 900
+pos = -53,18
+postype = right  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+pausemovetime = 0
+scale = 0.64,0.64
+sprpriority = 8
+ontop = 1
+ignorehitpause = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno = 900
+id = 900
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numhelper(99149)
+id = 900
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  GetHitVar(fall) = 1 
+v = 50    ;fv = 10
+value = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = helper, numexplod(900)=1
+time = 15
+add = 100,100,100
+mul = 256,256,256
+sinadd = 30,30,30,3
+invertall = 0
+color = 256
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = command = "holdup"
+v = 44     ;fv = 
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarSet
+trigger1 = command!= "holdup" 
+v =44     ;fv = 
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, Explod]
+type = Explod
+triggerall = prevstateno = 410
+trigger1 = animelemtime(1) = 0
+anim = 9900
+ID = 9900
+pos = 0,10-random%35
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .23,.23
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+[Statedef -3]
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 23    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 25    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 27    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = statetype=S
+trigger2 = statetype=C
+v = 29    ;fv = 10
+value = 1
+[State 0, VarRangeSet]
+type = VarRangeSet
+trigger1 = !numtarget
+fvalue = 0
+first = 20
+last = 27 ;
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = statetype=S
+trigger2 = statetype=C
+v = 45    ;fv = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+;This controller plays a sound everytime KFM lands from a jump, or
+;from his back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 ;Run-back land
+value = 40, 0

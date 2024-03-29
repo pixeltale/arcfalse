@@ -1,0 +1,404 @@
+[Info]
+name = "THE DOJO"
+author = "red"
+	versiondate=08,08,2014
+	mugenversion=1.1
+[StageInfo]
+ZoffSet			=400			;????????(????????????????)
+AutoTurn		= 1				;?????????????(1?????)
+ResetBG			= 0				;???????????????????(1?ON)
+localcoord=640,480
+Hires = 1				;D4?????????
+
+;--------------------------------------------------------------------------------;
+;¦????????
+[Camera]
+	startx=0
+	starty=0
+	boundleft= -650
+	boundright= 650
+	boundhigh= -150
+	boundlow=0
+	verticalfollow = .2
+floortension = 0
+tension = 300
+overdrawhigh = 120
+overdrawlow = 120
+cuthigh = 0
+cutlow = 0
+
+
+
+;--------------------------------------------------------------------------------;
+;¦????????
+[PlayerInfo]
+	p1startx=-150
+	p1starty=0
+	p1startz=0
+	p1facing=1
+
+	p2startx=150
+	p2starty=0
+	p2startz=0
+	p2facing=-1
+
+	leftbound=-5000
+	rightbound=5000
+	topbound=0
+	botbound=0				;???????????????
+
+[Scaling]
+	topz=0
+	botz=100
+	topscale=1.5
+	botscale=1.7
+
+[Bound]
+	screenleft=25
+	screenright=25
+
+
+
+[Shadow]
+	color=0,0,0
+	intensity=196
+	reflect=0;1
+	yscale=-0.05
+	fade.range=-120,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/KITSCH.mp3
+
+[BGdef]
+spr = dojoout.sff
+debugbg = 0
+
+
+;[BG 0]
+;type  = normal
+;spriteno = 0, 0
+;start =0, -200
+;delta = 0,1
+;mask = 1
+;velocity = -0.3, 0
+;tile = 1, 0
+;tilespacing = 0, 0
+
+[BG 0]
+type  = normal
+spriteno =100,0
+start =0, 960
+delta =0.1,0.9
+mask = 1
+velocity = 0, 0
+[BG 0]
+type  	= normal
+spriteno 	= 0,1
+start 	= 0, 1060
+	delta=0.1,1
+	tile=1,0
+	tilespacing=0,0
+	trans=none
+	mask=1
+	velocity=-0.065,0
+	scalestart=0.75,1
+
+[BG 0]
+type  = normal
+spriteno =3, 0
+start =40, 997
+delta =1,2.4
+mask = 1
+velocity = 0, 0
+
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40, 290
+delta = 1.2,1
+mask = 1
+velocity = -1, 0
+tile = 1, 0
+id=3
+
+[bg 1]
+type  = parallax
+spriteno =1,1
+start =0, 960
+delta = 1.3,2
+mask = 1
+velocity = 0, 0
+width=2300,2300
+yscalestart=110
+tile=1,0
+
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40, 365
+delta =  1.2,0
+mask = 1
+velocity = 3, 0
+tile = 1, 0
+id=2
+trans=add
+alpha=256,100
+
+[BG 1]
+type  = parallax
+spriteno = 1,0
+start =0, 960
+delta=1,1.9
+mask=1
+width= 1500,2500 ;; 472,3890
+xscale = 1.2, 1.2
+yscalestart=110
+tile=1,0
+
+
+
+[BG 0]
+type  = normal
+spriteno =2, 0
+start =0, 1009
+delta =1.4,2
+mask = 1
+velocity = 0, 0
+
+[BGCtrlDef Heaven]
+looptime = -1
+ctrlID = 1,2,3
+[BGCtrl Heaven]
+type = enable
+time = 0,1,1
+value=0
+sctrlid=1
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40, 421
+delta = 1.5, 1
+mask = 1
+velocity = -10, 0
+tile = 1, 0
+id=1
+;bushes
+[BG 0]
+type  = normal
+spriteno =4, 0
+start =0, 960
+delta =1.6,1.9
+mask = 1
+velocity = 0, 0
+[BG 0]
+type  = normal
+spriteno =4, 1
+start =10, 960
+delta =1.6,1.9
+mask = 1
+velocity = 0, 0
+[BG 0]
+type  = normal
+spriteno =4, 2
+start =10, 960
+delta =1.56,1.9
+mask = 1
+velocity = 0, 0
+
+
+
+[BG 0]
+type  = normal
+spriteno =4, 4
+start =10, 960
+delta =1.69,1.8
+mask = 1
+velocity = 0, 0
+layerno=1
+trans=add1
+;[bg 3]
+;type  = normal
+;spriteno = 10,0
+;start =0, -400
+;delta = 0.5,1
+;mask = 1
+;velocity = 0, 0
+
+
+;[BG 2]
+;type  =parallax
+;spriteno = 9,0
+;start =0, -200
+;	delta=0.3,0.6
+;	mask=1
+;	width= 472,3890
+;	yscalestart=100
+
+
+
+
+
+
+
+
+;[BG 2]
+;type  = anim
+;actionno = 5
+;start =500, 330
+;delta = 1.9,1.9
+;mask = 1
+;velocity = 0, 0
+
+[Begin Action 5]
+5,0, 0,0, 10
+5,1, 0,0, 10
+5,2, 0,0, 10
+5,3, 0,0, 10
+5,4, 0,0, 10
+5,5, 0,0, 10
+5,6, 0,0, 10
+5,8, 0,0, 10
+
+;---
+[Begin Action 120]
+100,5,0,0,10,vh
+100,4,0,0,10,vh
+100,3,0,0,-1,vh
+
+[Begin Action 121]
+100,0,0,0,5,h
+100,1,0,0,5,h
+100,2,0,0,5,h
+100,1,0,0,5,h
+
+; BGC: Grandmaster Wu
+[Begin Action 500]
+LoopStart
+1010,3, 0,0, 6
+1010,4, 0,0, 6
+1010,5, 0,0, 6
+1010,6, 0,0, 6
+
+
+[Begin Action 13] ;--->falling blossoms select screen animation
+13,33,0,0,135
+13,0,0,0,5
+13,1,0,0,5
+13,2,0,0,5
+13,3,0,0,6
+13,4,0,0,7
+13,5,0,0,7
+13,6,0,0,7
+13,7,0,0,5
+13,8,0,0,7
+13,9,0,0,5
+13,10,0,0,5
+13,11,0,0,7
+13,12,0,0,6
+13,13,0,0,5
+13,14,0,0,5
+13,15,0,0,7
+13,16,0,0,6
+13,17,0,0,5
+13,18,0,0,6
+13,19,0,0,5
+13,20,0,0,7
+13,21,0,0,5
+13,22,0,0,7
+13,23,0,0,5
+13,24,0,0,6
+13,25,0,0,7
+13,26,0,0,5
+13,27,0,0,7
+13,28,0,0,6
+13,29,0,0,6
+13,30,0,0,7
+13,31,0,0,6
+13,32,0,0,6
+13,33,0,0,300
+
+
+
+[Begin Action 122]
+100,3,0,0,10,h
+100,4,0,0,10,h
+100,5,0,0,-1,h
+
+[Begin Action 123]
+100,5,0,0,10,v
+100,4,0,0,10,v
+100,3,0,0,-1,v
+
+[Begin Action 124]
+100,0,0,0,5
+100,1,0,0,5
+100,2,0,0,5
+100,1,0,0,5
+
+[Begin Action 125]
+100,3,0,0,10
+100,4,0,0,10
+100,5,0,0,-1
+
+[Begin Action 1]
+1,0, 0,0, 15
+1,1, 0,0, 15
+1,2, 0,0, 15
+
+[Begin Action 2]
+1,0, 0,0, 21, H
+1,1, 0,0, 21, H
+1,2, 0,0, 21, H
+
+
+[Begin action 3] ; birds flying start
+203,0, 0,0, 3
+203,1, 0,0, 3
+203,2, 0,0, 3
+203,3, 0,0, 3
+203,4, 0,0, 3
+
+
+[Begin Action 77]
+0,77, 0,0, 1, , A
+0,77, 0,0, 1, , AS200D256
+0,77, 0,0, 1, , A
+
+
+[Begin Action 78]
+0,78, 0,0, 10, , AS50D256
+
+
+
+;---
+[Begin Action 120]
+100,5,0,0,10,vh
+100,4,0,0,10,vh
+100,3,0,0,-1,vh
+[Begin Action 121]
+100,0,0,0,5,h
+100,1,0,0,5,h
+100,2,0,0,5,h
+100,1,0,0,5,h
+[Begin Action 122]
+100,3,0,0,10,h
+100,4,0,0,10,h
+100,5,0,0,-1,h
+[Begin Action 123]
+100,5,0,0,10,v
+100,4,0,0,10,v
+100,3,0,0,-1,v
+[Begin Action 124]
+100,0,0,0,5
+100,1,0,0,5
+100,2,0,0,5
+100,1,0,0,5
+[Begin Action 125]
+100,3,0,0,10
+100,4,0,0,10
+100,5,0,0,-1
+;;---------------
+

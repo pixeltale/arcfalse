@@ -1,0 +1,141 @@
+[Info]
+name = "THE DOJO -INTERIOR-"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -370
+boundright = 370
+boundhigh = -2000
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 300
+overdrawhigh = 120
+overdrawlow = 120
+cuthigh = 0
+cutlow = 0
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70          
+p1starty = 0            
+p1startz = 0            
+p1facing = 1            
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 25
+screenright = 25  
+
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 1
+
+[shadow]
+Intensity = 80
+color = 0,0,0
+yscale = .3
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/HANDLEMESOFTLY.mp3
+
+[BGdef]
+spr = dojo.sff
+debugbg = 0
+
+[BG sky]
+type  = normal
+spriteno = 100, 0
+start = 0, 185
+delta = 1, 1
+mask = 0
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+[BG sky]
+type  = normal
+spriteno = 0, 7
+start = 0, 185
+delta = 1, 1
+mask = 0
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40, 100
+delta = 1, 0.35
+mask = 1
+velocity = 1, 0
+tile = 1, 0
+id=3
+trans=add
+
+[BG clouds 3.1 medium]
+type = normal
+spriteno = 0,2
+start = 0,185
+delta = 1,1
+tile = 1,0
+layerno = 1
+tilespacing = 400,400
+velocity = 0,0
+mask = 0
+trans = sub
+alpha = 1,1
+
+[BGCtrlDef Heaven]
+looptime = -1
+ctrlID = 1,2,3
+[BGCtrl Heaven]
+type = enable
+time = 0,1,1
+value=0
+sctrlid=1
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40, 130
+delta = 1, 1
+mask = 1
+velocity = -10, 0
+tile = 1, 0
+id=1
+
+
+
+; BG LIGHT
+[Begin Action 1]
+0,1, 0,0, 7, , A
+0,1, 0,0, 7, , AS250D256
+0,1, 0,0, 7, , A
+0,1, 0,0, 7, , AS230D256
+0,1, 0,0, 7, , AS250D256
+
+[Begin Action 2]
+0,2, 0,0, 10, , S

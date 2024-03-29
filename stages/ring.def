@@ -1,0 +1,258 @@
+[Info]
+name = "KNOCKOUT RING"
+
+[Camera]
+startx = 0
+starty = 0
+zoomin = 0.85
+zoomout = 0.70
+boundleft = -700
+boundright = 700
+boundhigh = -700
+boundlow = 0
+verticalfollow = .3
+floortension = 0
+tension = 300
+overdrawhigh = 120
+overdrawlow = 120
+cuthigh = 0
+cutlow = 0
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70          
+p1starty = 0            
+p1startz = 0            
+p1facing = 1            
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 25    
+screenright = 25  
+
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 1
+
+[shadow]
+Intensity = 100
+color = 0,0,0
+yscale = .5
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/Knockout_OST_-_Clay_and_Dust.mp3
+
+[BGdef]
+spr = ring.sff
+debugbg = 0
+
+[BG sky]
+type  = normal
+spriteno = 100, 0
+start = 0, 0
+delta = 0.8,0.8
+mask = 1
+velocity = 0, 0
+tile = 1, 1
+tilespacing = 0, 0
+
+[BG clouds1]
+type  = normal
+spriteno = 0, 10
+start = 0, 0
+delta = 0.8,0.8
+mask = 1
+velocity = -0.1, 0
+tile = 1, 0
+tilespacing = 0, 0
+[BG clouds2]
+type  = normal
+spriteno = 0, 9
+start = 0, 0
+delta = 0.8,0.8
+mask = 1
+velocity = -0.1, 0
+tile = 1, 0
+tilespacing = 0, 0
+[BG sun]
+type  = normal
+spriteno = 0, 5
+start = 0, -35
+delta = 0.8,0.8
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+[BG clouds3]
+type  = normal
+spriteno = 0, 8
+start = 0, 0
+delta = 0.8,0.8
+mask = 1
+velocity = -0.2, 0
+tile = 1, 0
+tilespacing = 100, 0
+[BG grass2]
+type  = normal
+spriteno = 0, 4
+start = 0, -50
+delta = 0.8,0.8
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+[BG water]
+type  = normal
+spriteno = 0, 7
+start = 0, 150
+delta = 0.8,0.8
+mask = 1
+velocity = -0.1, 0
+tile = 1, 0
+tilespacing = 0, 0
+[BG birds]
+type  = anim
+actionno = 10
+start = -200, 300
+delta = 0.1, 0.1
+velocity = 0.2, -0.5
+tile = 0, 0
+tilespacing = 0, 0
+[BG grass1]
+type  = normal
+spriteno = 0, 3
+start = 0, -50
+delta = 0.9,0.9
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+
+
+
+[BG cHARSxeno]
+type = normal	
+spriteno=5,0
+start = -210,210
+delta = 0.9,0.8
+tile = 0,0
+velocity = 0,0
+mask = 1
+[BG cHARSxeno]
+type = anim	
+actionno=1
+start = -160,210
+delta = 0.9,0.8
+tile = 0,0
+velocity = 0,0
+mask = 1
+[BG cHARSjojo]
+type = anim	
+actionno=2
+start = -120,186
+delta = 0.9,0.8
+tile = 0,0
+velocity = 0,0
+mask = 1
+[BG cHARSconduc]
+type = anim	
+actionno=3
+start = 120,219
+delta = 0.9,0.8
+tile = 0,0
+velocity = 0,0
+mask = 1
+[BG cHARSsugar]
+type = anim	
+actionno=4
+start = 80,217
+delta = 0.9,0.8
+tile = 0,0
+velocity = 0,0
+mask = 1
+
+[BG clouds 3.1 medium]
+type = normal
+spriteno = 0,1
+start = 0,115
+delta = 1,1
+tile = 0,0
+velocity = 0,0
+mask = 1
+
+[BG sunglow]
+type  = anim
+actionno=9
+start = 0, -30
+delta = 0.8,0.8
+mask = 1
+trans=add
+alpha=100,256
+
+
+; Xeno
+[Begin Action 1]
+1,1, 0,2, 10
+1,0, 0,1, 5
+1,2, 0,0, 5
+1,0, 0,0, 5
+
+; Birds
+[Begin Action 10]
+203,0, 0,0, 3
+203,1, 0,0, 3
+203,2, 0,0, 3
+203,3, 0,0, 3
+203,4, 0,0, 3
+
+
+
+; Jojo&Andi
+[Begin Action 2]
+2,0, 0,0, 100
+2,1, 0,0, 6
+2,2, 0,0, 6
+2,3, 0,0, 6
+
+; TheConductor
+[Begin Action 3]
+3,0, 0,0, 200, H
+3,1, 0,0, 10, H
+
+; SugarRatio
+[Begin Action 4]
+4,0, 0,-2, 100, H
+4,3, 0,-2, 10, H
+4,0, 0,-2, 100, H
+4,2, 0,-2, 10, H
+4,1, 0,-2, 100, H
+4,2, 0,-2, 10, H
+4,0, 0,-2, 10, H
+
+[Begin Action 9]
+0,6, 0,0, 1, , AS50D256
+0,6, 0,0, 1, , AS51D256
+

@@ -1,0 +1,96 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#009d20>UNIQUE TRAIT: ACID PUDDLES</>
+	Vile can empower himself by placing and interacting with acid puddles.
+	Puddles placed with Remix Moves are temporary, but puddles placed with
+	EX Moves or Supers last until Vile creates a new puddle. Puddles give Vile a
+	variety of benefits, so he should try to always be standing in or near one.
+
+	<#009d20>UNIQUE MOVES</>
+LIGHT KICK	-		_B^A
+   <#bbbbbb>Low-hitting kick.</>
+ACIDIC SWEEP	-		_DF^C
+   <#bbbbbb>A low-hitting sweep.</>
+VILE CLAW	-		<#65b5ff>(AIR ONLY)</> _DF^C
+   <#bbbbbb>A downward claw attack.</>
+   <#aaff00>IN PUDDLE: Causes a sliding knockdown.</>
+LAUNCHER 	-		^C
+   <#bbbbbb>Hits overhead and bounces the enemy.</>
+
+	<#009d20>SPECIAL MOVES</>
+RAZOR	-		<#aaffff>(GROUND OR AIR)</> ^Y
+   <#bbbbbb>A multi-hitting projectile attack.</>
+   <#aaff00>IN PUDDLE: Lasts longer and has more hits.</>
+RISING	-		<#aaffff>(GROUND OR AIR)</> _F^Y
+   <#bbbbbb>Anti-air reversal move.
+   The air version has no invulnerability.</>
+_!KNEE	-		<#65b5ff>(AIR ONLY)</> _F^Y
+        <#bbbbbb>Followup that hits overhead.</>
+        <#aaff00>IN PUDDLE: Causes a sliding knockdown.</>
+LOOPHOLD	-		_B^Y
+   <#bbbbbb>A command grab.</>
+   <#aaff00>IN PUDDLE: Does more damage.</>
+CURB STOMP	-		_D^Y
+   <#bbbbbb>A low hitting attack.</>
+   <#aaff00>IN PUDDLE: Has much more range and launches the enemy.</>
+
+	<#009d20>REMIX MOVES</>
+ACIDIC SPAWN		<#aaffff>(GROUND OR AIR)</>^Z/_F^Z/_B^Z, <#65b5ff>(AIR ONLY)<#55ffff>_D^Z
+   <#bbbbbb>Creates an acid bubble that the enemy can hit to destroy.
+   Using this move while holding different directions
+   changes where the bubble spawns.</>
+_!TOXIC WILL		<#aaffff>(GROUND OR AIR)</> _U^Z/_F^Z/_B^Z/_D^Z
+        <#bbbbbb>Moves the bubble in your chosen direction.</>
+_!DETONATE	-		<#aaffff>(GROUND OR AIR)</>^Z
+        <#bbbbbb>Causes the bubble to explode.</>
+ACID PUDDLE	-		_DB^Z/_D^Z/_DF^Z
+   <#bbbbbb>Creates an <#aaff00>Acid Puddle<#bbbbbb> at Vile's feet.
+   The _DB and _DF variations change the placement of the <#aaff00>Puddle.</>
+
+	<#ffef0f>EX MOVES</>
+_EX RAZOR	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>Ground version is a sliding low attack into a launcher. Creates <#aaff00>EX Puddle.<#bbbbbb>
+   Air version is a multi-hitting projectile that creates
+   an <#aaff00>EX Puddle<#bbbbbb> upon hitting the ground.</>
+_EX RISING	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>Invincible reversal move.
+   The air version has no invincibility.</>
+_!_EX KNEE	-		<#65b5ff>(AIR ONLY)</> _F^Y+^Z
+        <#bbbbbb>Followup that hits overhead and bounces the enemy.</>
+_EX LOOPHOLD	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>Command grab that can switch sides with the enemy.
+   Creates an <#aaff00>EX Puddle<#bbbbbb> on hit.</>
+_EX CURB STOMP	-		<#55ffff>(1 BAR)</> _D^Y+^Z
+   <#bbbbbb>A ranged low attack that launches the enemy towards
+   Vile and creates an <#aaff00>EX Puddle.</>
+
+	<#55ffff>SUPERS</>
+<#009d20>OMEN</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A multi-hitting attack with invincible startup.
+   Creates a fullscreen projectile.</>
+<#009d20>ACRID BLODSHED</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>A large acid geyser that launches enemies. Launches
+   higher on OTG hit.
+   Creates a fullscreen projectile.</>
+<#009d20>OUROBUBBLES</>	-		<#55ffff>(4 BARS)</> _D_DB_B_-^Y
+   <#bbbbbb>Vile spawns 2 acid bubbles that circle around him.
+   These bubbles can hit the enemy whenever the enemy is blocking or
+   taking damage. They disappear if Vile blocks or takes damage.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>

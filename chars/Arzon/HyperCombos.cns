@@ -1,0 +1,1067 @@
+;---------------------------------------------------------------------------
+;Wind Palm Startup
+;-----------------------------
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+poweradd= -2000
+ctrl = 0
+anim = 3000
+sprpriority = 2
+
+[State Meter Burn State, VarSet]
+type = VarSet
+trigger1 = movehit = 1
+v = 3
+value = 0
+
+[State 0, Special Counter UP]
+type = VarAdd
+trigger1 = time = 0
+v =  5
+value = 1
+
+[State 0, Special Cancel OKAY]
+type = Explod
+trigger1 = animelem = 23
+anim = 99999
+ID = 1000
+sprpriority = -3
+removetime = -1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+
+[State 0, Special Cancel NOT OKAY]
+type = RemoveExplod
+trigger1 = time = 0
+id = 1000
+ignorehitpause = 1
+persistent = 0
+
+[State 8000, Varadd]
+type = VarAdd
+trigger1 = time = 0
+v = 26    ;fv = 10
+value = 1
+persistent = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+fv =13     ;fv = 
+value = 1.5
+
+[State -3, Arzon Lvl2 Voice]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 2010, (0+(Random%3))
+
+[State -3, Arzon Hyper Voice]
+type = PlaySnd
+trigger1 = animelem = 21
+value = 3004, 0
+
+[State -3, Arzon WIND SFX 2]
+type = PlaySnd
+trigger1 = animelem = 21
+value = 2000, 1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 3
+time = 65
+anim = 100
+sound = 20,0
+pos = 0,-40
+movetime = 60
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+
+;[State 630, 2]
+;type = HitDef 
+;p2facing = 1 
+;trigger1 = !movecontact
+;attr = A,HP
+;getpower = 0
+;damage = 0
+;hitflag = MAF
+;guardflag = MA
+;priority = 1
+;pausetime = 0,0
+;sparkno = -3
+;sparkxy = random%20,10-random%20
+;hitsound   = 5,3
+;guardsound = 6,2
+;ground.type = Low
+;animtype = medium;
+;ground.slidetime = 15
+;ground.hittime  = 15
+;ground.velocity = -5,0
+;fall.xvelocity = -2
+;fall.yvelocity = -0
+;air.velocity = -5,-1
+;getpower = 0
+;air.hittime = 34
+;;air.fall = 1
+;envshake.time = 5
+
+ [State 1200, Shake Screen]
+type = EnvShake
+trigger1 = animelem = 22
+time = 15     ;Time to shake screen
+ampl = 6     ;Amount to shake
+freq = 100   ;A frequency of 180 shakes the screen rapidly
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 7
+value = 6,0
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 7
+anim = 6700
+ID = 6700
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 65
+scale = 0.8,0.8
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 7
+anim = F202
+ID = 206
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 65
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 23
+helpertype = normal ;player
+name = "WindPalm"
+ID = 3010
+stateno = 3010
+pos = 40,-50
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+size.xscale = .82
+size.yscale = .82
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value =0
+ctrl = 1
+
+;||--Fireball Travel
+;-----------------------------
+[Statedef 3010]
+type    = A
+movetype= A
+physics = N
+poweradd= 0
+ctrl = 0
+anim =3010
+velset = 6
+sprpriority = 7
+
+[State 0, ParentVarAdd]
+type = ParentVarAdd
+trigger1 = movehit = 1
+fv = 13
+value = 0.2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = enemy,movetype=H
+x = 26
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA, AA, AP, AT
+;value2 = S,NA
+time = 1
+ ;============================
+;Note: Always have ignorehitpause on all of these.
+[State -2, Starter Level]
+type         = ParentMapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type         = ParentMapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "P1"
+value         =  1    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
+[State -2, P2 Value Set]
+type         = ParentMapSet
+trigger1         = movehit && map(ComboStateCheck)
+map         = "P2"
+value         =  0.85  ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
+persistent         = 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
+[State -2, P2 Accumulation - Scale]
+type         = ParentMapSet
+trigger1         = movehit
+map         = "Accumulation"
+value         = Map(Accumulation) * map(P2)
+ignorehitpause     = 1
+persistent         = 0
+;============================
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+trigger1 = !movecontact
+attr = A,HP
+getpower = 0
+air.animtype = back
+damage = 310*(parent,MAP(P4))
+hitflag = MAF
+guardflag = MA
+priority = 3
+pausetime = 15,15
+sparkno = 3
+sparkxy = random%20,10-random%20
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = trip
+air.type = trip
+animtype = medium
+ground.slidetime = 14
+ground.hittime  = 33
+ground.velocity = -10,-1
+fall.xvelocity = -2
+fall.yvelocity = -0
+air.velocity = -12,-1
+getpower = (0)*(cond(var(var(3)) = 1, 1, .5))
+air.hittime = 34
+fall = 1
+envshake.time = 5
+
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+[State 0, ChangeState]
+type = Changestate
+trigger1 = movecontact
+trigger2 = time >= 35
+value=  3011
+
+;Palm Hit
+;-----------------------------
+[Statedef 3011]
+type    = A
+movetype= I
+physics = N
+poweradd= 0
+ctrl = 0
+anim =3011
+velset = .25
+sprpriority = 7
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+;---------------------------------------------------------------------------
+;Typhoon Rush Startup
+;-----------------------------
+[Statedef 3500]
+type    = S
+movetype= A
+physics = S
+poweradd= -4000
+ctrl = 0
+anim = 3500
+sprpriority = 2
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time<=72
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+
+[State 0, Special Cancel NOT OKAY]
+type = RemoveExplod
+trigger1 = time = 0
+id = 1000
+ignorehitpause = 1
+persistent = 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 1
+time = 60
+anim = 100
+sound = 20,0
+pos = 0,-40
+movetime = 55
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = animelem = 3
+source = 1,1
+dest = 2,palno
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 2
+anim = 3510
+ID =  3510
+pos = 0,0
+postype = p1
+removetime = -2
+pausemovetime = 0
+scale = .82,.82
+sprpriority = 3
+removeongethit = 1
+bindtime = 0
+supermovetime = 999
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 16
+anim = 3511
+ID =  3511
+pos = 0,0
+postype = p1
+removetime = -2
+pausemovetime = 0
+scale = .82,.82
+sprpriority = 3
+removeongethit = 1
+bindtime = 0
+supermovetime = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelemno(0) = [16,19]
+x =18
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelemno(0) = [20,21]
+x = 2
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 22
+x = 0
+;============================
+;Note: Always have ignorehitpause on all of these.
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "P1"
+value         =  0.85    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
+[State -2, P2 Value Set]
+type         = MapSet
+trigger1         = movehit && map(ComboStateCheck)
+map         = "P2"
+value         =  0.80  ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
+persistent         = 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
+[State -2, P2 Accumulation - Scale]
+type         = MapSet
+trigger1         = movehit
+map         = "Accumulation"
+value         = Map(Accumulation) * map(P2)
+ignorehitpause     = 1
+persistent         = 0
+;============================
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+trigger1 = !movecontact
+attr = S,HA
+getpower = 0
+damage = 0*map(P4)
+hitflag = MAF
+guardflag = MA
+priority = 1
+pausetime = 0,0
+sparkno = -3
+sparkxy = 0,-50
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = medium
+air.animtype = back
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -5,0
+fall.xvelocity = -2
+fall.yvelocity = -0
+air.velocity = -5,-1
+getpower = 0
+air.hittime = 34
+envshake.time = 5
+maxdist = 3,0
+id=3500
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit
+time = 1
+id = 3500
+pos = 20,0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit
+value = 3501
+ctrl = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value =0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Typhoon Rush Slashes
+;-----------------------------
+[Statedef 3501]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 3501
+sprpriority = 2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+x = -25
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = movehit
+flag = timerfreeze
+ignorehitpause = 1
+;============================
+;Note: Always have ignorehitpause on all of these.
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  2    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "P1"
+value         =  0.85    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
+[State -2, P2 Value Set]
+type         = MapSet
+trigger1         = movehit && map(ComboStateCheck)
+map         = "P2"
+value         =  0.80  ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
+persistent         = 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
+[State -2, P2 Accumulation - Scale]
+type         = MapSet
+trigger1         = movehit
+map         = "Accumulation"
+value         = Map(Accumulation) * map(P2)
+ignorehitpause     = 1
+persistent         = 0
+;============================
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+triggerall = time < 91
+trigger1 = time % 3 = 0
+kill = 0
+trigger1 = animelemno(0) = [1,29]
+attr = S,HA
+getpower = 0
+damage = 5*map(P4) + 10
+hitflag = MAF
+guardflag = MA
+priority = 1
+pausetime = 0,0
+sparkno = random%2
+sparkxy = enemy, pos x + -10 -(random%80) ,enemy, pos y -10 -(random%80)
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = medium
+air.animtype = back
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = 0,-1
+fall.xvelocity = -2
+fall.yvelocity = -0
+air.velocity = p2dist x * 0.05,-.5
+envshake.time = 5
+envshake.freq = 140
+envshake.ampl = 5
+getpower = (0)
+air.hittime = 999
+envshake.time = 5
+fall = 1
+;============================
+;Note: Always have ignorehitpause on all of these.
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "P1"
+value         =  0.85      ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
+[State -2, P2 Value Set]
+type         = MapSet
+trigger1         = movehit && map(ComboStateCheck)
+map         = "P2"
+value         =  0.80  ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
+persistent         = 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
+[State -2, P2 Accumulation - Scale]
+type         = MapSet
+trigger1         = movehit
+map         = "Accumulation"
+value         = Map(Accumulation) * map(P2)
+ignorehitpause     = 1
+persistent         = 0
+;============================
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+trigger1 = animelem = 30
+kill = 0
+attr = S,HA
+getpower = 0
+damage = 15
+hitflag = MAF
+guardflag = MA
+priority = 1
+pausetime = 0,0
+sparkno = 3
+sparkxy = random%80,-10-random%-150
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = up
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -.5,-10
+fall.xvelocity = -2
+fall.yvelocity = -0
+air.velocity = -.5,-6.25
+getpower = (0)
+air.hittime = 999
+envshake.time = 15
+envshake.freq = 220
+envshake.ampl = 5
+envshake.phase = 1
+yaccel = 0.05
+fall = 1
+fall.yvelocity = -8
+down.bounce = -8
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 31
+x = 25
+
+[State 0, VelMul]
+type = VelMul
+trigger1 = time > 93
+x = .9999
+
+[State 0, Turn]
+type = Turn
+trigger1 = animelem = 37
+
+[State -3, Arzon Hyper Voice]
+type = PlaySnd
+trigger1 = animelem = 36
+value = 3004, 1
+
+[State -3, Arzon Hyper Voice]
+type = PlaySnd
+trigger1 = animelem = 52
+value = 3004, 0
+;============================
+;Note: Always have ignorehitpause on all of these.
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "P1"
+value         =  .90    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
+[State -2, P2 Value Set]
+type         = MapSet
+trigger1         = movehit && map(ComboStateCheck)
+map         = "P2"
+value         =  0.90
+ignorehitpause     = 1
+persistent         = 0
+[State -2, P2 Accumulation - Scale]
+type         = MapSet
+trigger1         = movehit
+map         = "Accumulation"
+value         = Map(Accumulation) * map(P2)
+ignorehitpause     = 1
+persistent         = 0
+;============================
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+trigger1 = animelem = 54
+attr = S,HA
+getpower = 0
+damage = 200*map(P4) + 100
+hitflag = MAFD
+guardflag = MA
+priority = 1
+pausetime = 10,18
+sparkno = 3
+sparkxy = 20,-80
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = medium
+air.animtype = back
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -20,-6
+fall.xvelocity = -2
+fall.yvelocity = -0
+air.velocity = -20,-6
+envshake.time = 17 
+envshake.freq = 230
+envshake.ampl = 5
+getpower = (0)
+air.hittime = 999
+envshake.time = 5
+fall = 1
+
+[State -3, Arzon Hyper Hit]
+type = PlaySnd
+trigger1 = animelem = 54
+value = 3004, 2
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 5
+value = 8991,5
+channel = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = WinKO
+trigger1 = time = 6
+value = 8991,5
+channel = 1
+ignorehitpause = 1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = Time = 0
+anim = 8990
+id = 8990
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 35
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+triggerall = WinKO
+trigger1 = time = 40
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+;---------------------------------------------------------------------------
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem = 43
+time = 37
+anim = 99999
+sound = S10,0
+pos = 50,-60
+movetime = 37
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 31
+anim = 3512
+ID =  3512
+pos = 100,0
+postype = p1
+facing = -1
+removetime = -2
+pausemovetime = 0
+scale = .82,.82
+sprpriority = 3
+removeongethit = 1
+bindtime = 0
+supermovetime = 999
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 43
+anim = 3513
+ID =  3512
+pos = 100,0
+postype = p1
+facing = 1
+removetime = -2
+pausemovetime = 0
+scale = 1.82,1.82
+sprpriority = -9
+removeongethit = 1
+bindtime = 0
+supermovetime = 999
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 43
+anim = 3515
+ID =  3512
+pos = -60,-25
+postype = p1
+facing = 1
+removetime = -2
+pausemovetime = 0
+scale = 2,2
+sprpriority = -9
+removeongethit = 1
+bindtime = 0
+velocity = 12.5,0
+accel = -.45,0
+supermovetime = 999
+ownpal = 1
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value =0
+ctrl = 1

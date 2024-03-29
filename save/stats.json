@@ -1,0 +1,53 @@
+{
+  "modes": {
+    "training": {
+      "playtime": 0
+    },
+    "versus": {
+      "playtime": 524.68
+    },
+    "netplayversus": {
+      "playtime": 74406.8
+    },
+    "freebattle": {
+      "playtime": 132.88
+    },
+    "arcade": {
+      "playtime": 913.02,
+      "clear": 2,
+      "clearcount": {
+        "eddy": 1,
+        "jv": 1
+      },
+      "ranking": [
+        {
+          "score": 948700,
+          "time": 323.27,
+          "name": "",
+          "chars": [
+            "jv"
+          ],
+          "tmode": 0,
+          "ailevel": 8,
+          "win": 6,
+          "lose": 0,
+          "consecutive": 6
+        },
+        {
+          "score": 610701,
+          "time": 589.75,
+          "name": "",
+          "chars": [
+            "eddy"
+          ],
+          "tmode": 0,
+          "ailevel": 8,
+          "win": 6,
+          "lose": 1,
+          "consecutive": 4
+        }
+      ]
+    }
+  },
+  "playtime": 75977.38
+}
