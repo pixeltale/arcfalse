@@ -3293,7 +3293,7 @@ ground.hittime  = 1
 air.hittime  = 18
 ground.velocity = -1.5,-5
 air.velocity = -1.5,-5
-;fall = 1;
+air.fall = 1
  envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
@@ -3316,7 +3316,8 @@ animtype  = hard
 damage 	= 60*MAP(P4), 3
 hitflag 	= MAFD
 guardflag	= MA
-pausetime = 14,20
+pausetime = 20,20
+guard.pausetime = 15, 15
 sparkno = 12
 sparkxy = -10,-40
 hitsound   = s8,2
@@ -3324,14 +3325,17 @@ guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 18-map(untechDecay)
-air.hittime  = 18-map(untechDecay)
+air.hittime  = 20-map(untechDecay)
 down.hittime = 18-map(untechDecay)
+guard.ctrltime = 10
 ground.velocity = -1.5,-5
 air.velocity = -1.5,-5
 envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
+fall = 1
+air.fall = 1
 getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, PlaySnd]

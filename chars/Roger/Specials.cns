@@ -1973,14 +1973,6 @@ ctrl = 0
 anim =1005
 sprpriority = 2
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = 1
-v = 51    ;fv = 10
-value = 1
-;ignorehitpause = 
-;persistent = 
-
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = animelem = 1
@@ -2111,6 +2103,13 @@ ctrl = 0
 anim =1006
 sprpriority = 2
 
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 51    ;fv = 10
+value = 1
+ignorehitpause = 1
+;persistent = 
 
 [State 0, VarAdd]
 type = VarAdd

@@ -430,8 +430,14 @@ buffertime = 15
 
 [Command]
 name = "66"
+command = ~F, F
+time = 5
+buffertime = 5
+
+[Command]
+name = "66"
 command = F, n, F
-time = 10
+time = 40
 buffertime = 15
 
 [Command]

@@ -562,13 +562,14 @@ type 	= ChangeAnim
 trigger1 	= time = 0 && prevstateno = 220
 value 	= 22
 elem 	= map(armorElement)
+ignorehitpause = 1
 [State 0. MapSet]
 type 		= MapSet
-trigger1 		= animelemno(0) > map(armorElement)
+trigger1 	= animelemno(0) > map(armorElement)
 map 		= "armorElement"
 value 		= animelemno(0)
 ignorehitpause 	= 1
-persistent 		= 1
+persistent 	= 1
 [State 0, ReversalDef]
 type = ReversalDef
 triggerall = animelemno(0) = [3,6]

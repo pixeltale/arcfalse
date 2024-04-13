@@ -81,7 +81,7 @@ value = 55
 triggerall = statetype != A 
 triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = stateno = 100 && animelemno(0) > 2
-trigger2 = stateno = 420 && movehit
+trigger2 = (stateno = 420 || stateno = 210) && movehit
 trigger3 = ctrl
 
 ;Jump Cancel
@@ -91,7 +91,7 @@ value = 40
 triggerall = statetype != A
 triggerall = command = "holdupb" || command = "up"
 trigger1 = stateno = 100 && animelemno(0) > 2
-trigger2 = stateno = 420 && movehit
+trigger2 = (stateno = 420 || stateno = 210) && movehit
 
 ;Dash
 [State -1, Run Fwd]
@@ -108,7 +108,7 @@ trigger3 = Map(DCFH) > 0 || Map(DCFB) > 0
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdupb"
+triggerall = command = "up" || movecontact && command = "holdup"
 triggerall = stateno!=45 && stateno!=46 && stateno!= 434 && (stateno!=[4000,4099]) && !(stateno = [55, 56] && time < 6)
 triggerall = var(45)>0
 ;triggerall = var(29)>0
@@ -395,8 +395,7 @@ triggerall = command != "holddown"
 trigger1 = ctrl
 trigger2 = (stateno = 201) && movecontact =1
 trigger3 = (stateno = 210 || stateno=211)&& movecontact =1
-trigger4 = (stateno = 410 || stateno=411) && movecontact =1
-trigger5 = (stateno = 420) && movecontact =1
+trigger4 = (stateno = [400,420]) && movecontact =1
 
 
 

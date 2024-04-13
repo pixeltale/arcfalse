@@ -378,7 +378,8 @@ sparkno = 13
 sparkxy = -15,-50
 hitsound   = 5,4
 guardsound = 6,2
-ground.type = high
+ground.type = TRIP
+air.type	= TRIP
 ground.slidetime = 12
 ground.hittime  = 19
 air.hittime  = 25
@@ -398,8 +399,6 @@ guard.hittime = 22
 guard.slidetime = 20
 guard.ctrltime = 21
 getpower = 0
-p2stateno = cond(abs(camerapos x) > 260 && stagefrontedgedist < 800, 5225, 5220)
-p2getp1state = 0
 
 
 

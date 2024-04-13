@@ -165,7 +165,7 @@ trigger3 = stateno = 1000 && movecontact
 [State -1,DJC] ;Double Jump Raw
 type = ChangeState
 value = 45
-triggerall = statetype = A
+triggerall = statetype = A && pos y < -15
 triggerall =  command = "up"
 triggerall = stateno!=45 && stateno!=46
 triggerall = Map(DJCL) > 0 && map(FLOAT) = 0
@@ -174,7 +174,7 @@ trigger1 = ctrl && stateno!= [40, 45] && stateno!= 4260 && !(stateno = [50,56] &
 [State -1,DJC] ;Double Jump Cancel
 type = ChangeState
 value = 45
-triggerall = statetype = A
+triggerall = statetype = A && pos y < -15
 triggerall =  command = "holdup"
 triggerall = Map(DJCL) > 0
 trigger1 = movecontact ;&& enemynear, movetype = H
@@ -440,7 +440,7 @@ triggerall = Map(ADash) > 0
 triggerall = statetype = A && !(stateno = 60 && time < 20)
 triggerall = command = "a66" || teammode != Tag && command = "M66" && command != "holdback"
 triggerall = pos y < -30 && stateno != 62
-trigger1 = ctrl
+trigger1 = ctrl || map(Float)
 
 ;Backward Airdash
 [State -1, Air Backdash]
@@ -449,7 +449,7 @@ value = 61
 triggerall = Map(ADash) > 0
 triggerall = statetype = A && !(stateno = 61 && time < 6)
 triggerall = command = "a44" || teammode != Tag && command = "M44"
-trigger1 = ctrl
+trigger1 = ctrl || map(Float)
 
 
 ;--------------------------------------------------------------------------
@@ -485,8 +485,7 @@ type = ChangeState
 value = 200
 triggerall = command = "x"
 triggerall = command != "holddown" && var(59) !=4
-trigger1 = statetype = S
-trigger1 = statetype != A
+trigger1 = statetype = S || map(Float)
 trigger1 = ctrl
 trigger2 = command = "x"
 trigger2 = movecontact =1 ;&& enemynear, movetype = H
@@ -584,7 +583,7 @@ type = ChangeState
 value = 600
 triggerall = command = "x"
 triggerall = statetype = A
-trigger1 = ctrl
+trigger1 = ctrl && !map(Float)
 trigger2 = stateno = 600 && movecontact
 trigger3 = movehit && stateno = [600, 630]
 

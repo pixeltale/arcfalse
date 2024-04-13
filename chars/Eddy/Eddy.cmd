@@ -78,7 +78,7 @@ trigger1 = movehit
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdup"
+triggerall = command = "up" || movecontact && command = "holdup"
 triggerall = stateno != 11 && stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) 
 triggerall = Map(DJCL) > 0
 trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260  && !(stateno = 56 && time < 30)

@@ -75,7 +75,7 @@ trigger2 = movehit
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdup"
+triggerall = command = "up" || movecontact && command = "holdup"
 triggerall = stateno!=45 && stateno!=46
 triggerall = var(29)>0
 trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260 && !(stateno = 56 && time < 30)
@@ -119,7 +119,7 @@ triggerall = command != "holdback"
 triggerall = command = "66" || teammode != Tag && command = "M66"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 510 && animelemno(0) >= 4
+trigger2 = stateno = 510 && animelemno(0) > 4
 
 ;---------------------------------------------------------------------------
 ;Run Back
@@ -130,7 +130,7 @@ triggerall = command = "44"|| teammode != Tag && command = "M44"
 triggerall = statetype != A
 triggerall = stateno!=105
 trigger1 = ctrl
-trigger2 = stateno = 510 && animelemno(0) >= 4
+trigger2 = stateno = 510 && animelemno(0) > 4
 
 ;================================
 
