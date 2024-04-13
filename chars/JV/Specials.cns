@@ -2457,18 +2457,19 @@ hitsound   = 5,1
 guardsound = 6,1
 ground.type = Low
 animtype = medium
-ground.slidetime = 14
+ground.slidetime = 34
 ground.hittime  = 23
 ground.velocity = -6,-5
 air.velocity = -6.6,-3
-air.hittime = 24
+air.hittime = 34
 envshake.time = 7
 fall = 1
 fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 5
-p2stateno = 915020
+p2stateno	= cond((enemy, statetype = A), 5230, 5000)
+p2getp1state	= 0
 getpower = 0
 
 [State 0, ChangeState]

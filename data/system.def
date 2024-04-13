@@ -514,9 +514,9 @@ velocity = -6, 0
 
 ;-------------------------------------------------------------------
 [VS Screen]
-time = 450                ;Time to show screen
-fadein.time = 25
-fadeout.time = 15
+time = 0                ;Time to show screen
+fadein.time = 0
+fadeout.time = 0
 ;Match text in arcade modes
 match.text = "Match %i"   ;%i can be used for the match number
 match.offset = 159, 12
@@ -633,7 +633,7 @@ storyboard = ko/gameover.def ;Game over storyboard filename
 ;This is the screen that is shown when you win a match in arcade mode.
 ;It will not be displayed on the last match of arcade mode.
 [Victory Screen]
-enabled = 1
+enabled = 0
 time = 300                ;Time to show screen
 fadein.time = 8
 fadeout.time = 15

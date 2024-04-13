@@ -418,10 +418,10 @@ over.wintime = 45          ;Time to wait before players change to win states
 over.time = 270            ;Time to wait before round ends
 
 ; Win text
-win.time = 60              ;Time to wait before showing win/draw message
+win.time = 0              ;Time to wait before showing win/draw message
 win.offset = 160, 70
 win.font = 1,0
-win.text = %s Wins
+win.text = 
 win.displaytime = 540
 ; 2-player win text
 win2.offset = 160, 70
@@ -587,7 +587,6 @@ shutter.col = 0, 0, 0      ;Ikemen feature: skip intro fade color (default: 0,0,
 ;"K.O." Animation
 [Begin Action 8]
 700,0, 0,0, 1
-700,1, 0,0, 1
 700,0, 0,0, 1
 700,2, 0,0, 80
 700,3, 0,0, 4
@@ -623,7 +622,7 @@ shutter.col = 0, 0, 0      ;Ikemen feature: skip intro fade color (default: 0,0,
 
 ; [KO] Fight
 [Begin Action 79]
-7979,0, 0,0, 3
+7979,0, 0,0, 10, , AS100D256
 7979,1, 0,0, 1
 7979,2, 0,0, 1
 7979,3, 0,0, 3
@@ -644,12 +643,10 @@ shutter.col = 0, 0, 0      ;Ikemen feature: skip intro fade color (default: 0,0,
 7979,8, 0,0, 3
 7979,2, 0,0, 1
 7979,9, 0,0, 1
-7979,0, 0,0, 3
-
 
 ; [KO] K.O!
 [Begin Action 89]
-7979,0, 0,0, 10
+89,-1, 0,10, 5, , A
 89,3, 0,10, 1, , A
 89,3, 0,-10, 1
 89,3, 0,5, 1
@@ -672,5 +669,5 @@ shutter.col = 0, 0, 0      ;Ikemen feature: skip intro fade color (default: 0,0,
 89,1, 0,0, 80
 89,0, 0,0, 1
 89,4, -8,-19, 1, , A
-7979,0, 0,0, 10
 -1,0, 0,0, -1
+
