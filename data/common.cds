@@ -83,7 +83,7 @@ command = F
 time = 1
 [Command]
 name = "up"       ; REQUIRED for command buffering
-command = U
+command = $U
 time = 1
 [Command]
 name = "down"     ; REQUIRED for command buffering
@@ -277,6 +277,14 @@ time = 1
 name = "holdup" ;Required (do not remove)
 command = /$U
 time = 1
+[Command]
+name = "holdup" ;Required (do not remove)
+command = /UF
+time = 1
+[Command]
+name = "holdup" ;Required (do not remove)
+command = /UB
+time = 1
 
 [Command]
 name = "holdfwd_r" ; Raw hold forward (REQUIRED for command buffering)
@@ -434,11 +442,6 @@ command = ~F, F
 time = 5
 buffertime = 5
 
-[Command]
-name = "66"
-command = F, n, F
-time = 40
-buffertime = 15
 
 [Command]
 name = "a66"

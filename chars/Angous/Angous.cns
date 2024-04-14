@@ -549,35 +549,43 @@ params = MAP(armorElement), MAP(armorPoints4RIN), map(combotimer)
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 		= ctrl = 1
+trigger1 	= ctrl = 1
 map 		= "armorPoints4R"
 value 		= 3
 ignorehitpause 	= 1
-persistent 		= 1
+persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 		= ctrl = 1
+trigger1 	= ctrl = 1
+map 		= "armorElement"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 1
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= ctrl = 1
 map 		= "armorPoints4RIN"
 value 		= 15
 ignorehitpause 	= 1
-persistent 		= 1
+persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapAdd
-trigger1 		= enemy, moveReversed = 1
+trigger1 	= enemy, moveReversed
 map 		= "armorPoints4R"
 value 		= -1
 ignorehitpause 	= 0
-persistent 		= 1
+persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapAdd
-trigger1 		= enemy, moveReversed = 1
+trigger1 		= enemy, moveReversed
 map 		= "armorPoints4RIN"
 value 		= -1
 ignorehitpause 	= 0
-persistent 		= 1
+persistent 	= 1
 
 [State 0, MAPSET]
 type = MapSet
