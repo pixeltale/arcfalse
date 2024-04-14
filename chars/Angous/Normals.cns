@@ -3040,7 +3040,7 @@ pausetime = 10,10
 sparkno = 1000
 hitsound = 5,3
 p1stateno = 1062
-persistent = 1
+persistent = 0
 ;=======================================
 
 [State 0, PosAdd]
