@@ -582,6 +582,16 @@ p1stateno = 220
 persistent = 0
 ;=======================================
 
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0

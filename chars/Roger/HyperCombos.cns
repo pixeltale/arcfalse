@@ -165,6 +165,48 @@ ctrl = 0
 anim =10002
 sprpriority = 2
 
+[State 0, PlaySnd] ;cursed palette sound lol
+type = PlaySnd
+triggerall = time = 0 && palno = 9
+trigger1=enemy,name="roger"
+trigger1=enemy,palno!=7
+trigger2=enemy,name!="roger"
+value = 7614,0
+channel=17
+
+[State 0, PlaySnd] ;cursed palette sound lol
+type = PlaySnd
+trigger1 = time = 0
+trigger1 = palno!=9
+trigger1 = palno!=7
+trigger1 = palno!=4
+value = 8000,6
+channel=17
+
+
+[State 0, PlaySnd] ;cursed palette sound lol
+type = PlaySnd
+trigger1 = time = 0 && palno = 7
+value = 7619,0
+
+[State 0, PlaySnd] ;cursed palette sound lol
+type = PlaySnd
+trigger1 = time = 0 && palno = 9
+trigger1=enemy,name="roger"
+trigger1=enemy,palno=7
+value = 8000,17
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = palno=7
+trigger1 = time=0
+time = 262
+sinadd = 200,200,200,340
+invertall = 0
+color = 0
+;ignorehitpause = 
+;persistent = 
+
 [State 0, MAPSET]
 type 		= MapSet
 trigger1 		= 1
@@ -172,11 +214,6 @@ map 		= "ScratchLockout"
 value 		= 10
 ignorehitpause 	= 1
 persistent		= 1
-
-[State 0, PlaySnd] ;cursed palette sound lol
-type = PlaySnd
-trigger1 = time = 0 && palno = 9
-value = 7614,0
 
 [State 0, SuperPause]
 type = SuperPause
@@ -333,10 +370,19 @@ time = 999
 id = -1
 pos = 0,-190
 
+
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1
+trigger1=palno!=7
 y = .5
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = time>35
+trigger1=palno=7
+y = .5
+
 
 
 [State 0, TargetState]
@@ -360,10 +406,14 @@ value = 30015
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = time = 95
+trigger1=palno!=7
+trigger2 = time = 160
+trigger2=palno=7
 value = 3000,1
 volumescale = 100
 channel = 1
 freqmul = 1.0
+
 ;---------------------------------------------------------------------------
 ;236X Slam
 ;-----------------------------
@@ -408,11 +458,20 @@ value = 7614,1
 
 [State 0, PlaySnd]
 type = PlaySnd
+trigger1 = animelem = 4 
+trigger1 = palno!=7
+trigger1 = palno!=9
+trigger1 = palno!=4
+value = 7613,2
+
+[State 0, PlaySnd]
+type = PlaySnd
 trigger1 = time = 0
 value = 3000,0
 volumescale = 10000
 channel = -1
 freqmul = 1.0
+
 
 [State 100, 2] 
 type = AssertSpecial
@@ -1216,7 +1275,7 @@ persistent=0
 
 [State 0, PlaySnd] ;stay still.
 type = PlaySnd
-trigger1 = time = 0 && palno = 9
+trigger1 = time = 0 
 value = 7615,0
 
 [State 4000, NotHitBy]
@@ -1242,16 +1301,9 @@ darken = 1
 p2defmul = 1
 unhittable = 1
 
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = animelem  = 2
-value = 700,1
-channel = 1
-
 [State 0, Stopsnd]
 type = stopsnd
-trigger1 = time = 0 && palno = 9
+trigger1 = time = 0
 channel = 1
 
 [State 0, AfterImage]
