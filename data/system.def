@@ -617,6 +617,8 @@ debuginfo = 0             ;Set to 0 to hide debugging info (debug mode only)
 	menu.itemname.characterchange = "Character Select"
 	menu.itemname.exit = "Main Menu"
 
+	
+
 ;-------------------------------------------------------------------
 ;Continue screen definition
 [Continue Screen]
@@ -763,6 +765,8 @@ keymenu.itemname.menu = "MENU"
 keymenu.itemname.back = "BACK"
 keymenu.itemname.page = "PAGE"
 
+
+
 ;-------------------
 ;Options screen background
 [OptionBGdef] 
@@ -773,4 +777,6 @@ spriteno = 100,2
 start = 0,0
 tile  = 1,1
 velocity = 0, -0.25
+
+
 
