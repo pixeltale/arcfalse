@@ -1,8 +1,8 @@
-external/script/main.lua:2695: read tcp 26.65.18.31:7500->26.35.237.168:64320: wsarecv: An existing connection was forcibly closed by the remote host.
+external/script/main.lua:4034: <game end>
 stack traceback:
-	[G]: in function 'synchronize'
-	external/script/main.lua:2695: in function <external/script/main.lua:2693>
-	external/script/main.lua:3200: in function 'loop'
+	[G]: in function 'refresh'
+	external/script/main.lua:4034: in function 'f_menuCommonDraw'
+	external/script/main.lua:3101: in function 'loop'
 	external/script/main.lua:3189: in function 'loop'
 	external/script/main.lua:4156: in main chunk
 	[G]: ?
