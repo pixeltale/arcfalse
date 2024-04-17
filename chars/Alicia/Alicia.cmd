@@ -485,7 +485,7 @@ type = ChangeState
 value = 200
 triggerall = command = "x"
 triggerall = command != "holddown" && var(59) !=4
-trigger1 = statetype = S || map(Float)
+trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = command = "x"
 trigger2 = movecontact =1 ;&& enemynear, movetype = H
@@ -583,7 +583,7 @@ type = ChangeState
 value = 600
 triggerall = command = "x"
 triggerall = statetype = A
-trigger1 = ctrl && !map(Float)
+trigger1 = ctrl || map(Float)
 trigger2 = stateno = 600 && movecontact
 trigger3 = movehit && stateno = [600, 630]
 

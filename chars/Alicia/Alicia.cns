@@ -268,12 +268,12 @@ value = 0
 ignorehitpause = 1
 
 ;=================
-;[State 0, MapSet]
-;type = MapSet
-;trigger1 = stateno != 50
-;map = "Float"
-;value = 0
-;ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+trigger1 = pos y >= 0
+map = "Float"
+value = 0
+ignorehitpause = 1
 
 
 ;=============================================+
