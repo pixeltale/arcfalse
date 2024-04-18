@@ -2353,10 +2353,11 @@ Clsn2Default: 1
 5300,1, 0,0, 8
 
 
+; Spinout
 [Begin Action 6160]
 Clsn2: 1
-  Clsn2[0] = -42, -36, 43, 44
-5030,0, 4,55, 0
+  Clsn2[0] = -42, -39, 60, 44
+5031,0, 0,0, 1
 
 ; Dust: Jump
 [Begin Action 6500]

@@ -1221,7 +1221,7 @@ movetype= A
 physics = S
 poweradd= 0
 ctrl = 0
-anim =1030
+anim =1032
 velset = 0,0 
 sprpriority = 2
 facep2 = 1
@@ -3143,7 +3143,7 @@ ctrl = 0
 anim =1051 +((var(50)*20))
 sprpriority = 2
 velset = vel x, vel y*0.5 - 6*(!var(50))
-facep2 = 0
+facep2 = 1
 
 [State 0, AfterImage]
 type = AfterImage

@@ -274,6 +274,22 @@ type = PlaySnd
 trigger1 = time=0
 value = 7410, (0+(Random%2))
 
+[State -3, Win Announcer]
+type = PlaySnd
+trigger1 = time=0&& palno != 9
+trigger1 = time=0&& palno != 7
+value = 8000, (10+(Random%2))
+
+[State -3, Win Announcer]
+type = PlaySnd
+trigger1 = time=0&& palno = 7
+value = 8000,16
+
+[State -3, Win Announcer]
+type = PlaySnd
+trigger1 = time=0
+value = 7410, (0+(Random%2))
+
 [State 8990, AssertSpecial]
 type = AssertSpecial
 trigger1 = RoundState < 3
@@ -382,6 +398,24 @@ velset = 0,0
 type = PlaySnd
 trigger1 = time = 0 && palno = 9
 value = 7615,3
+
+[State 0, PlaySnd] ;what can I say.
+type = PlaySnd
+trigger1 = time = 0 && palno = 7
+value = 8000,14+random%2
+
+[State 0, PlaySnd] ;what can I say.
+type = PlaySnd
+triggerall = time = 0 && palno != 9
+triggerall = time = 0 && palno != 7
+trigger1=teamside=1
+trigger1=enemy,name!="Roger"
+trigger2=teamside=2
+trigger2=enemy,name!="Roger"
+trigger3=teamside=2
+trigger3=enemy,name="Roger"
+trigger3=enemy,palno!=9&&enemy,palno!=7
+value = 8000,12+random%2
 
 
 [State 8990, AssertSpecial]
@@ -496,38 +530,7 @@ value = 7070, 0
 channel=2
 
 ;--------------------
-; KO Scream
-    [State -2, VarSet]
-    type = VarSet
-    trigger1 = Alive && palno = 9
-    trigger1 = Life > 0 && palno = 9
-    ignorehitpause = 1
-    v = 55
-    value = -1
-     
-    [State -2, VarAdd]
-    type = VarAdd
-    trigger1 = Alive <= 0 && palno = 9
-    trigger1 = Life <= 0 && palno = 9
-    trigger1 = Var(55) <= 10 && palno = 9
-    ignorehitpause = 1
-    v = 55
-    value = 1
-     
-    [State -2, PlaySnd]
-    Type = PlaySnd
-    triggerall = Alive <= 0 && palno = 9
-    triggerall = Life <= 0 && palno = 9
-    trigger1 = Var(55) = 0 && palno = 9
-    value = 11,0
-    channel = 11
- 
-    [State -2, StopSnd]
-    Type = StopSnd
-    triggerall = Alive <= 0 && palno = 9
-    triggerall = Life <= 0 && palno = 9
-    trigger1 = Var(55) = 10 && palno = 9
-    channel = 11
+
 
 ;---------------------------------------------------------------------------
 ; Taunt
@@ -593,7 +596,7 @@ persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapAdd
-trigger1 	= enemy, moveReversed = 1
+trigger1 	= enemy, moveReversed
 map 		= "armorPoints4R"
 value 		= -1
 ignorehitpause 	= 0
@@ -601,10 +604,18 @@ persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapAdd
-trigger1 	= enemy, moveReversed = 1
+trigger1 	= enemy, moveReversed
 map 		= "armorPoints5H"
 value 		= -1
 ignorehitpause 	= 0
+persistent 	= 1
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= ctrl = 1
+map 		= "armorElement"
+value 		= 1
+ignorehitpause 	= 1
 persistent 	= 1
 
 [State 0, VarSet]
@@ -872,6 +883,28 @@ var(26)=0
 ;-----------------------------------------------------------------------------------------
 
 [Statedef -3]
+
+; KO Scream
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = map(DIE)=1 && palno = 9
+value = 7618,0
+channel = -1
+loop = 0
+persistent = 0
+[State 0, VarAdd]
+type = MapAdd
+trigger1 = !alive
+map = "DIE"
+value = 1
+ignorehitpause=0
+[State 0, VarAdd]
+type = MapSet
+trigger1 = roundstate=0
+map = "DIE"
+value = 0
+ignorehitpause=0
+;------------------------------------------------
 
 [State 0, AttackDist]
 type = AttackDist

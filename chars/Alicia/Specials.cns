@@ -807,7 +807,7 @@ trigger1 = 1
 value = 1030
 
 ;---------------------------------------------------------------------------
-;[EXE] 214X
+;[EXE] Knife Summon
 [Statedef 1030]
 type    = S
 movetype= A
@@ -874,6 +874,7 @@ value = 1, 2
 ;=============================================+
 [State 0, Helper]
 type = Helper
+triggerall = !time
 trigger1 = movetype != H && numhelper(250)
 trigger1 = !numhelper(1031)
 trigger1 = prevstateno != [1028,1029]
@@ -891,6 +892,7 @@ size.xscale = const(size.xscale)
 size.yscale = const(size.yscale)
 [State 0, Helper]
 type = Helper
+triggerall = !time
 trigger1 = movetype != H && numhelper(251)
 trigger1 = !numhelper(1032)
 trigger1 = prevstateno = 1028
@@ -908,6 +910,7 @@ size.xscale = const(size.xscale)
 size.yscale = const(size.yscale)
 [State 0, Helper]
 type = Helper
+triggerall = !time
 trigger1 = movetype != H && numhelper(252)
 trigger1 = !numhelper(1033)
 trigger1 = prevstateno = 1029
@@ -993,13 +996,13 @@ ignorehitpause = 1
 [State 0, AngleDraw]
 type = AngleDraw
 trigger1 = 1
-value = (time * -30 * 2*(time > 15))
+value = (time * -30 * 2*(time > 5))
 scale = 0.55, 0.55
 ignorehitpause = 1
 
 [State 3001, Line up with Velocity]
 type = AngleSet
-trigger1 = time >= 15
+trigger1 = time >= 5
 value = ((atan(Vel Y/Vel X) + (3*pi/2)) *(-180/Pi))-90
 ignorehitpause = 1
 
@@ -1021,42 +1024,42 @@ persistent = 1
 
 [State 0, StateTypeSet]
 type = StateTypeSet
-trigger1 = time > 15
+trigger1 = time > 5
 statetype = A       ;S,A,C,L
 movetype = A        ;I,A,H
 physics = N         ;A,C,S,N
 
 [State 0, VelMul]
 type = VelSet
-trigger1 = time < 15
+trigger1 = time < 5
 x = vel x * 0.95
 y = vel y * 0.95
 ignorehitpause = 1
 
 [State 0, VelMul]
 type = VelSet
-trigger1 = vel x >= 15
+trigger1 = vel x >= 5
 x = 25
 ignorehitpause = 1
 
 
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = time <= 15
+trigger1 = time <= 5
 x = -p2dist x * 0.005
 y = (p2dist y - 10) * 0.0005
 ignorehitpause = 1
 [State 0, VelAdd]
 type = VelAdd
 triggerall = time % 4 = 0
-trigger1 = time > 15
+trigger1 = time > 5
 x = p2dist x * 0.015
 y = (p2dist y - 10) * 0.008
 ignorehitpause = 1
 
 [State 0, VelAdd]
 type = VelSet
-trigger1 = time = [15,20]
+trigger1 = time = [5,20]
 x = p2dist x * 0.1
 y = (p2dist y - 19) * 0.095
 ignorehitpause = 1
@@ -1076,12 +1079,12 @@ sparkno 		= 2
 sparkxy 		= -30,-35
 hitsound   		= 5,1
 guardsound 		= 6,0
-ground.hittime  	= 22 - root, map(UntechDecay)
+ground.hittime  	= 30
 air.hittime  		= 40 - root, map(UntechDecay)
 down.hittime 		= 30
 ground.velocity 	= -2.5
-guard.ctrltime 		= 3
-air.velocity 		= -1.5,-2
+guard.ctrltime 		= 8
+air.velocity 		= -1.5,-6
 down.velocity		= -1, -4
 air.fall 		= 1
 fall.yvelocity 		= 0
@@ -1089,9 +1092,17 @@ palfx.time 		= 12
 palfx.add 		= 100, 0,20
 getpower 		= 80
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = movehit
+value = 999 ;Nothing
+elem = 1
+ignorehitpause = 1
+;persistent = 
+
 [State 0, destroyself]
 type = destroyself
-trigger1 = animtime = 0
+trigger1 = animtime = 0 || movehit
 trigger2 = parent, movetype = H
 trigger2 = parent, stateno != [120, 155]
 trigger3 = pos y >= 0
@@ -1420,7 +1431,7 @@ juggle  = 0
 ctrl 	= 0
 anim 	= 1085
 sprpriority = 2
-velset 	= 5, 0
+velset 	= cond(vel x > 0, 5, vel x + 4), 0
 
 [State 0, ChangeAnim]
 type = ChangeAnim

@@ -323,7 +323,7 @@ trigger4=stateno=105
 type = ChangeState
 value = 1100
 triggerall=stateno!=40
-triggerall = NumprojID(1102) <= 0
+triggerall = NumHelper(1101) <= 0
 triggerall = command = "b" && command = "holdfwd"
 triggerall = command != "holdback"
 triggerall = command != "holdup"
@@ -353,7 +353,7 @@ trigger4=stateno=105
 [State -1, j6S]
 type = ChangeState
 value = 1400
-triggerall = NumprojID(1102) <= 0
+triggerall = NumHelper(1102) <= 0
 triggerall = command != "holdback" && command = "holdfwd" 
 triggerall=command != "holddown"
 triggerall = command = "b" && command != "c"

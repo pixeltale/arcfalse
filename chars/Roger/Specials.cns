@@ -285,6 +285,11 @@ type = PlaySnd
 trigger1 = time = 8 && palno = 9
 value = 7613,1
 
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 8 && palno != 9
+value = 8000,0
+
 [State -3, Win Voices] ;Win
 type = PlaySnd
 trigger1 = animelem=7
@@ -533,6 +538,11 @@ sprpriority = 2
 type = PlaySnd
 trigger1 = time = 0 && palno = 9
 value = 7615,4
+
+[State 0, PlaySnd] ;SLAMMAAAHHH
+type = PlaySnd
+trigger1 = time = 3 && palno != 9
+value = 8000,1
 
 [State 0, SuperPause]
 type = SuperPause
@@ -1973,14 +1983,6 @@ ctrl = 0
 anim =1005
 sprpriority = 2
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = 1
-v = 51    ;fv = 10
-value = 1
-;ignorehitpause = 
-;persistent = 
-
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = animelem = 1
@@ -2111,6 +2113,13 @@ ctrl = 0
 anim =1006
 sprpriority = 2
 
+[State 0, VarSet]
+type = VarSet
+trigger1 = 1
+v = 51    ;fv = 10
+value = 1
+ignorehitpause = 1
+;persistent = 
 
 [State 0, VarAdd]
 type = VarAdd
@@ -2482,6 +2491,16 @@ ctrl = 0
 anim =1051
 sprpriority = 2
 
+[State 0, PlaySnd] ;futile
+type = PlaySnd
+trigger1 = time = 3 && palno != 9
+value =8000,7
+
+[State -3, Cursed Voices] ;3000!!!!
+type = PlaySnd
+trigger1 = time = 0 && palno = 9
+value = 7613,0
+
 [State 0, MAPSET]
 type 		= MapSet
 trigger1 		= 1
@@ -2495,11 +2514,6 @@ type = NotHitBy
 trigger1 = 1
 value = SCA,NA,SA
 time = 1
-
-[State -3, Cursed Voices] ;3000!!!!
-type = PlaySnd
-trigger1 = time = 0 && palno = 9
-value = 7613,0
 
 [State 0, VarSet]
 type = VarSet
@@ -4030,7 +4044,12 @@ sprpriority = 2
 [State 0, PlaySnd] ;SLAMMAAAHHH
 type = PlaySnd
 trigger1 = time = 8 && palno = 9
-value = 7613,5
+value = 7613,4
+
+[State 0, PlaySnd] ;SLAMMAAAHHH
+type = PlaySnd
+trigger1 = time = 3 && palno != 9
+value = 8000,1
 
 [State 0, Explod]
 type = Explod
@@ -5132,10 +5151,25 @@ ctrl = 0
 anim =1103
 sprpriority = 2
 
+[State 0, PlaySnd] ;HELLLLL
+type = PlaySnd
+triggerall=prevstateno!=1351
+trigger1=palno!=9
+trigger1 = time = 0 
+value = 8000,2
+[State 0, PlaySnd] ;DELIVERY.
+type = PlaySnd
+triggerall=prevstateno=1351
+trigger1=palno!=9
+trigger1 = time = 0 
+value = 8000,5
+
 [State 0, PlaySnd] ;futile
 type = PlaySnd
-trigger1 = time = 0 && palno = 9
-value = 7615,1
+trigger1=palno=9
+trigger1 = time = 0 
+value = 7613,5
+
 
 [State 0, VelAdd]
 type = VelAdd
@@ -5706,6 +5740,19 @@ physics = N
 ctrl = 0
 anim =1103
 sprpriority = 2
+
+[State 0, PlaySnd] ;futile
+type = PlaySnd
+triggerall=prevstateno!=1301
+trigger1=palno!=9
+trigger1 = time = 0 
+value = 8000,0
+[State 0, PlaySnd] ;futile
+type = PlaySnd
+triggerall=prevstateno=1301
+trigger1=palno!=9
+trigger1 = time = 0 
+value = 8000,3+random%2
 
 [State -3, WTF Voices] ;cursed palette sound lol
 type = PlaySnd
@@ -6640,7 +6687,7 @@ velset = 7,0
 
 [State 0, PlaySnd] ;REFRESHING
 type = PlaySnd
-trigger1 = time = 0 && palno = 9
+trigger1 = time = 0 
 value = 7615,2
 
 [State Meter Burn State, VarSet]
@@ -7310,6 +7357,11 @@ ctrl = 0
 anim =1301
 sprpriority = 2
 velset = 7,0
+
+[State 0, PlaySnd] ;futile
+type = PlaySnd
+trigger1 = time = 0 
+value =7615,1
 
 ;============================
 [State -2, Starter Level]

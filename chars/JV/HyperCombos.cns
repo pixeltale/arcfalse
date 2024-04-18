@@ -924,7 +924,7 @@ scale = 1.2
 lag = 0
 stagebound = 1
 camerabound = 0
-pos = 0,-60
+pos = 60,-60
 ignorehitpause=1
 
 [State 0, ChangeState]

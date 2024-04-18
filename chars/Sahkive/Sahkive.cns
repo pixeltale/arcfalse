@@ -188,7 +188,7 @@ type = S
 [State 180, 1]
 type = ChangeState
 trigger1 = Time = 0
-value = 182
+value = 181
 
 ;---------------------------------------------------------------------------
 ; Win pose 1 - Bow
@@ -199,29 +199,21 @@ ctrl = 0
 anim = 181
 velset = 0,0
 
-[State -3, Win Announcer]
-type = PlaySnd
-trigger1 = time=0
-value = 7410, (0+(Random%2))
-;---------------------------------------------------------------------------
-; Win pose 2 - Bow
-; CNS difficulty: basic
-[Statedef 182]
-type = S
-ctrl = 0
-anim = 182
-velset = 0,0
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 6
+time = 30
+freq = 60
+ampl = -4
+phase = 90
+;ignorehitpause = 
+;persistent = 
+
 
 [State -3, Win Announcer]
 type = PlaySnd
 trigger1 = time=0
 value = 7410, (0+(Random%2))
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 = Roundstate > 3
-flag = Nobardisplay
-
 ;---------------------------------------------------------------------------
 ;---------------------------------------------------------------------------
 ; Introduction

@@ -85,7 +85,7 @@ getpower 		= 60
 [State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 0 + 50*map(Float)
 ctrl = 1
 
 ;---------------------------------------------------------------------------
@@ -150,7 +150,7 @@ ground.hittime  	= 22-map(UntechDecay)
 air.hittime  		= 22-map(UntechDecay)
 down.hittime 		= 22-map(UntechDecay)
 ground.velocity 	= -9
-guard.ctrltime 		= 10
+guard.ctrltime 		= 8
 guard.velocity		= -5
 guard.slidetime		= 15
 air.velocity 		= -3,-1
@@ -167,7 +167,7 @@ air.animtype	 = back
 damage 		= 80*map(P4)
 hitflag 		= MAFD
 guardflag 	= MA
-pausetime 	= 16,16
+pausetime 	= 10,10
 sparkno 		= 1
 sparkxy 		= -30,-54
 hitsound   	= 5,2
@@ -175,11 +175,11 @@ guardsound 	= 6,0
 ground.hittime  	= 14-map(UntechDecay)
 air.hittime  		= 24-map(UntechDecay)
 down.hittime 		= 24
-ground.velocity 	= 9
+ground.velocity 	= p2dist x * 0.15
 guard.ctrltime 		= 16
 guard.velocity		= 5
 guard.slidetime		= 15
-air.velocity 		= 5,-3
+air.velocity 		= (p2dist x + -50) * 0.10,-3
 air.fall 		= 1
 fall.yvelocity 		= 0
 getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))

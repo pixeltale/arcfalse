@@ -601,7 +601,7 @@ trigger2 = (stateno = 215 || stateno = 420) && movehit
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdupb"
+triggerall = command = "up" || movecontact && command = "holdup"
 triggerall = stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) && !(stateno = [55, 56] && time < 6)
 triggerall = var(45)>0
 triggerall = var(29)>0

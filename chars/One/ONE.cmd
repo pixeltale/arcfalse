@@ -102,7 +102,7 @@ trigger3 = ctrl
 [State 45, DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdup"
+triggerall = command = "up" || movecontact && command = "holdup"
 triggerall = numexplod(2045)
 triggerall = stateno!=45 && stateno!=46 && stateno!= 434 && stateno != [903, 904] && !(stateno = [55, 56] && time < 6)
 triggerall = var(45)>0
@@ -161,23 +161,23 @@ trigger2 = var(1)
 ;trigger3 = (stateno = 610)||(stateno = 620)||(stateno = 630) 
 ;trigger3 = movecontact ;&& enemynear, movetype = H
 
-[State 1027, j4EX: EX Shredder]
+[State 1027, j6EX: EX Shredder]
 type = ChangeState
 value = 1027
 triggerall = power>=1000 
 triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
-triggerall = command = "holdback"
+triggerall = command = "holdfwd"
 triggerall = !var(50)
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = (stateno = [600,650]) && movehit
 
-[State 1020, j4S: Shredder]
+[State 1020, j6S: Shredder]
 type = ChangeState
 value = 1020
 triggerall = command = "b"
-triggerall = command = "holdback"
+triggerall = command = "holdfwd"
 triggerall = statetype = A
 triggerall = !var(50)
 trigger3 = var(1)

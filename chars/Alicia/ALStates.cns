@@ -106,6 +106,7 @@ value = 11
 [Statedef 12]
 type    = S
 physics = S
+ctrl = 1
 anim = 12
 [State 0, VarSet]
 type = VarSet
@@ -138,8 +139,8 @@ x = 1.2
 
 [State 20, 1]
 type = VelSet
-trigger1 = vel x > 5
-x = 5
+trigger1 = vel x > 3
+x = 3
 
 [State 20, 2]
 type = VelAdd
@@ -149,8 +150,8 @@ x = -1.2
 
 [State 20, 1]
 type = VelSet
-trigger1 = vel x < -4
-x = -4
+trigger1 = vel x < -2
+x = -2
 
 [State 20, 3]
 type = ChangeAnim
@@ -346,15 +347,22 @@ facep2 = 1
 
 [State 0, VelSet]
 type = VelSet
-triggerall = time = 0
+triggerall = time = 0 && map(FCancel) = 1
 trigger1 = prevstateno = 50
-y = 5
+y = 2
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+triggerall = time = 0 && map(FCancel) = 2
+trigger1 = prevstateno = 50
+y = -4
 ignorehitpause = 1
 ;persistent = 
 
 
 [State 50, 2]
 type = ChangeAnim
+triggerall = anim != 44
 trigger1 = Time = 0 || prevstateno = 50
 value = 44
 ;---------------------------------------------------------------------------
@@ -380,27 +388,15 @@ value = 41
 type 		= mapset
 trigger1 	= 1
 map 		= "Float"
-value 		= (prevstateno = 46)
+value 		= (prevstateno = 46) || prevstateno = [200, 430]
 
 [State 0, VelMul]
 type = VelMul
 triggerall = map(Float)
-trigger1 = time < 15
-y = 0.9
+trigger1 = time < 5
+y = 0.6
 ignorehitpause = 1
 
-[State 0, VelSet]
-type = VelSet
-triggerall = map(Float)
-trigger1 = time >= 15
-y = 0
-ignorehitpause = 1
-[State 0, VelSet]
-type = VelSet
-triggerall = map(Float)
-trigger1 = time && command != "holdfwd" && command != "holdback"
-x = 0
-ignorehitpause = 1
 [State 0, VelSet]
 type = VelSet
 triggerall = map(Float)
@@ -408,20 +404,38 @@ trigger1 = time >= 5
 y = 0
 ignorehitpause = 1
 [State 0, VelSet]
-type = VelSet
+type = VelMul
+triggerall = map(Float)
+trigger1 = time && command != "holdfwd" && command != "holdback"
+x = 0.8
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelAdd
 triggerall = time >= 5
 triggerall = map(Float)
 trigger1 = command = "holdfwd"
-x = 5
-y = 2
+x = 1
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelAdd
+triggerall = time >= 5
+triggerall = map(Float)
+trigger1 = command = "holdback"
+x = -1
 ignorehitpause = 1
 [State 0, VelSet]
 type = VelSet
-triggerall = time >= 15
+triggerall = time >= 5
 triggerall = map(Float)
-trigger1 = command = "holdback"
-x = -4	
-y = 0.75
+trigger1 = vel x >= 6
+x = 6
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+triggerall = time >= 5
+triggerall = map(Float)
+trigger1 = vel x <= -6
+x = -6
 ignorehitpause = 1
 
 [State 20, 3]
@@ -441,11 +455,44 @@ triggerall = map(Float)
 trigger1 = vel x < -1
 value = 21
 
+;Cancel Type - Reset
+[State Cancel]
+type 		= mapset
+trigger1 	= time = [0, 5]
+map 		= "FCancel"
+value 		= 0
+;Cancel Type 1
+[State Cancel]
+type 		= mapset
+triggerall	= time >= 5
+trigger1 	= command = "down"
+map 		= "FCancel"
+value 		= 1
+;Cancel Type 1
+[State Cancel]
+type 		= mapset
+triggerall	= time >= 5
+trigger1 	= command = "up"
+map 		= "FCancel"
+value 		= 2
+;Cancel Type 1
+[State Cancel]
+type 		= mapset
+triggerall	= time >= 5
+trigger1 	= command = "66" || command = "M66"
+map 		= "FCancel"
+value 		= 2
+
 [State 20, 4]
 type = Changestate
 triggerall = map(Float)
-trigger1 = command = "down" || command = "holddown"
+trigger1 = map(FCancel) = [1,2]
 value = 47
+[State 20, 4]
+type = Changestate
+triggerall = map(Float)
+trigger1 = map(FCancel) = 3
+value = 62
 
 [State 0, Explod] ;Magic Circle
 type = Explod
@@ -494,7 +541,7 @@ value = 1
 [State 100, 1]
 type = VelSet
 trigger1 = time = 0
-x = 6
+x = 7
 
 [State 0, AfterImage]
 type = AfterImage
@@ -533,7 +580,7 @@ physics = A
 anim = 61
 sprpriority = 1
 ctrl = 1
-velset = -4, vel y
+velset = -6, vel y
 
 [State - Airdash Momentum Preserve]
 type = mapset
@@ -820,14 +867,14 @@ ctrl = 0
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = pos y < -18
+trigger1 = pos y < -16
 value = 1
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time >= 0
-x = 0.50
-y = -0.75
+x = 0.75
+y = -0.85
 [State 0, VelSet]
 type = VelSet
 trigger1 = vel x > 7

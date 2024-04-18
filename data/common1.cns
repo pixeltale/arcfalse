@@ -2745,6 +2745,7 @@ ctrl = 0
 anim = 900
 sprpriority = 2
 velset = 0,0
+facep2 = 1
 
 [state 40, MapSet] ;Burstgauge Drain
 type = MapAdd
@@ -2760,7 +2761,7 @@ value = 1
 
 [State 0, Turn]
 type = Turn
-trigger1 = time  = 0 && p2dist x < 0
+trigger1 = p2dist x < 0
 ignorehitpause = 1
 
 [State 0, RC LOCKOUT]
@@ -7291,7 +7292,7 @@ persistent	= 0
 type 		= MapSet
 trigger1 	= 1
 map 		= "cornerSplat"
-value 		= cond(abs(camerapos x) > 230 && stagefrontedgedist < 800, 5225, 5220)
+value 		= cond(abs(camerapos x) > 230 && abs(stagefrontedgedist) < 800, 5225, 5220)
 ignorehitpause 	= 0
 persistent	= 0
 
@@ -8303,14 +8304,11 @@ persistent = 1
 ;-----------------------------------------------------
 ;Block Attacks In Midair after jumping over
 [State 0, AttackDist]
-type = AssertSpecial
+type = Turn
 trigger1 = ctrl
 trigger1 = enemy, movetype = A
 trigger1 = p2dist x < 0 && statetype = A
 trigger1 = command = "holdfwd" || command = "fwd"
-flag = autoguard
-ignorehitpause = 1
-persistent = 1
 
 ;================================================
 ;Start with Meter
