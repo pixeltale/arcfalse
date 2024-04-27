@@ -7185,7 +7185,7 @@ type = ChangeState
 value = 4000
 triggerall = !map(ScratchLockout) && enemy, Alive
 triggerall = power>=2000
-triggerall = stateno != 900
+triggerall = stateno != 900 && stateno != 803
 triggerall = command = "SP"
 triggerall = statetype != A
 trigger1 = movecontact || moveguarded || movereversed
