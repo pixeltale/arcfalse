@@ -351,7 +351,7 @@ type = ChangeState
 value = 700 + 1*(MAP(EnState))
 triggerall = command = "c"
 triggerall = prevstateno != 632
-trigger1 = statetype !=A
+trigger1 = statetype !=A && stateno != 704
 trigger1 = var(1)
 trigger1 = ctrl
 trigger2 = stateno = [200,230] || stateno = [400,431]

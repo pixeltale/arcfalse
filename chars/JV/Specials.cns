@@ -684,7 +684,7 @@ guardsound 	= 6, 0
 ground.type 	= High
 ground.slidetime 	= 5
 ;==============================================
-ground.hittime  	= 60-map(UntechDecay)
+ground.hittime  	= 30-map(UntechDecay)
 air.hittime  	= 90-map(UntechDecay)
 down.hittime 	= 120-map(UntechDecay)
 ;==============================================
@@ -758,30 +758,6 @@ paladd		= 191, 64, 191			        ;+
 trans 		= add				        ;+
 persistent 	= 0				        ;+
 ;==================================================++
-
-[State 0, Zoom]
-type = zoom
-triggerall=backedgebodydist<=100
-trigger1 = movehit
-trigger1 = enemy,HitShakeOver = 0
-scale = 1.2
-lag = 0
-stagebound = 1
-camerabound = 0
-pos =0,-20
-ignorehitpause=1
-[State 0, Zoom]
-type = zoom
-triggerall=backedgebodydist>100
-trigger1 = movehit
-trigger1 = enemy,HitShakeOver = 0
-scale = 1.5
-lag = 0.5
-stagebound = 1
-camerabound = 0
-pos = pos x,-20
-ignorehitpause=1
-
 
 [State 0, VelAdd]
 type = veladd
@@ -1404,7 +1380,7 @@ poweradd= 0
 ctrl = 0
 anim = 1016
 sprpriority = 2
-velset = vel x * 0.9, 0
+velset = vel x * 0.2, 0
 facep2 = 1
 
 [State -2, Starter Level]
@@ -1451,27 +1427,27 @@ sparkxy = -p2dist x * 0.25,-1
 hitsound   = 5,3
 guardsound = 6,2
 hitflag = MAFD
-guardflag = LA
-guard.ctrltime 	= 18
-guard.velocity 	= -5
+guardflag = HA
+guard.ctrltime 	= 28
+guard.velocity 	= -10
 guard.slidetime = 18
-ground.hittime  = 22 - map(untechDecay) + 20*(map(CounterHit) > 0)
+ground.hittime  = 58 - map(untechDecay) + 20*(map(CounterHit) > 0)
 air.hittime	= 42 - map(UntechDecay)
 down.hittime	= 48 - map(UntechDecay)
 ground.velocity = -3
 air.velocity = 1,16
 air.fall = 1
 fall.yvelocity = 0
-envshake.time = 15
-envshake.freq = 80
-envshake.ampl = 2
-envshake.phase = 1
+envshake.time 		= 35
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, statetype = A
+triggerall = enemy, statetype = A || enemy, statetype = L
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
@@ -1484,7 +1460,7 @@ hitsound   = 5,3
 guardsound = 6,2
 hitflag = MAFD
 guardflag = LA
-guard.ctrltime 	= 18
+guard.ctrltime 	= 20
 guard.velocity 	= -5
 guard.slidetime = 18
 ground.type 	= TRIP
@@ -1494,16 +1470,28 @@ down.hittime	= 48 - map(UntechDecay)
 ground.velocity = -3, 18
 air.type	= TRIP
 air.velocity = 1,16
+down.velocity = 1, 16
 air.fall = 1
 fall = 1
 fall.yvelocity = 0
-envshake.time = 15
-envshake.freq = 80
-envshake.ampl = 2
-envshake.phase = 1
+envshake.time 		= 35
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
 p2stateno 	= 5255
 p2getp1state	= 0
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
+
+[State 0, Zoom]
+type = zoom
+trigger1 = (movehit =1)
+trigger1 = enemy,HitShakeOver = 0
+scale = 1.2
+lag = 0
+stagebound = 1
+camerabound = 0
+pos = 0,-20
+ignorehitpause=1
 
 [State 0, VelSet]
 type= VelSet
