@@ -173,7 +173,7 @@ stages/OneVMany.def,music = sound/VAMPIRES.mp3,zoom=0
 stages/CTEAlley.def, zoom = 0
 stages/sakura.def, zoom=0
 stages/virtualbattleground.def, music = sound/MEDIUMPACE.mp3, music = sound/NIGGASINPARIS.mp3, zoom = 0
-stages/kno.def, music = sound/IMUNSTABLE.mp3, zoom=0,music = sound/GUESTSCAMEOVER.mp3 , music = sound/CHECKAGAIN.mp3
+stages/kno.def, music = sound/IMUNSTABLE.mp3, zoom=0, music = sound/GUESTSCAMEOVER.mp3 , music = sound/CHECKAGAIN.mp3
 
 ;---------------------------------------------------------------------
 [Options]
