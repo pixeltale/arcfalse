@@ -81,7 +81,7 @@ value = 45
 triggerall = command = "up" || movecontact && command = "holdup"
 triggerall = stateno != 11 && stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) && stateno !=[903,904]
 triggerall = Map(DJCL) > 0
-trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260 && !(stateno = 56 && time < 30)
+trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260 && !(stateno = 56 && time < 10)
 trigger2 = movecontact && stateno != 230
 trigger2 = hitdefattr = A, NA
 trigger3 =  stateno = 45 || stateno=46|| stateno=50

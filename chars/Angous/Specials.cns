@@ -1421,7 +1421,7 @@ p2facing = 1
 trigger1 = animelem = 21
 attr = S, ST
 animtype  = Hard
-damage = 260 * MAP(P4), 11
+damage = 200 * MAP(P4), 11
 hitflag = MAFD
 guardflag =
 pausetime 	= 30,30
@@ -1433,7 +1433,7 @@ ground.type 	= low
 p2sprpriority 	= 6
 ground.slidetime 	= 12
 ground.hittime  	= 55-MAP(UntechTime)
-air.hittime  	= 55-MAP(UntechTime)
+air.hittime  	= 40-MAP(UntechTime)
 down.hittime 	= 55-MAP(UntechTime)
 ground.velocity 	= -3,19
 air.velocity 	= -3,10
@@ -2905,12 +2905,6 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0, Mapset]
-type = MapSet
-trigger1 = time > 10
-map = "Invul_Air"
-value = 0
-persistent = 1
 
 [State 0, Explod]
 type = Explod
@@ -3092,20 +3086,11 @@ palcontrast = 256,206,206
 trans = add1
 ignorehitpause = 1
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = !time
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 1
-ignorehitpause = 1
-;persistent = 
-
 [State 0, Mapset]
 type = MapSet
 trigger1 = time <= 18
 map = "Invul_Full"
 value = 2
-ignorehitpause = 1
 persistent = 1
 
 [State -3, Win Voices] ;Win
@@ -3886,7 +3871,6 @@ projsprpriority = 6
 projedgebound = 40
 projstagebound = 40
 projheightbound = -240
-guard.dist = 0
 offset = 30,2
 postype = p1         ;p2,front,back,left,right
 projshadow = 0,0,0
@@ -3909,7 +3893,7 @@ air.type = high
 ground.type = high
 animtype = medium
 ground.slidetime = 14
-ground.hittime  = 10
+ground.hittime  = 17
 ground.velocity = -5,0
 fall.xvelocity = -2
 fall.yvelocity = 0

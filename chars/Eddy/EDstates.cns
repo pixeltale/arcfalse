@@ -774,7 +774,7 @@ ignorehitpause = 1
 
 [State Cancel]
 type = mapset
-triggerall = prevstateno = 1100
+triggerall = prevstateno = [1100, 1102]
 trigger1 = time = 0 && enemy, movetype = H
 map = "FeintDCBurn"
 value = 1

@@ -256,6 +256,8 @@ value = 0
 
 [Statedef -2]
 
+
+
 [State 0, AttackMulSet]
 type = AttackMulSet
 trigger1 = stateno != 3000
@@ -296,23 +298,38 @@ persistent 	= 1
 ;Palette Stuff
 [State 0, MapSet]
 type = RemapPal
-trigger1 = roundstate < 2 && time = [0,2]
+trigger1 = roundstate = 0
+trigger1 = palno != 1
 source = 1, 1
-dest = 1 + map(AltPal), palno
-;Palette Stuff
+dest = 1, palno + map(AltPal)
+
 [State 0, MapSet]
 type = RemapPal
-trigger1 = roundstate < 2 && time = [0,2]
-source = 1, 1 + palno
-dest = 1 + map(AltPal), palno
-;jH Limiter
+triggerall = map(TREASURE)=1
+trigger1 = roundstate = 0
+trigger1 = roundno != 1
+trigger1 = palno = 1
+trigger2 = roundstate = 0
+trigger2 = gamemode = "Training"
+source = 1, 1
+dest = 1, palno + map(AltPal)
+
 [State 0, MapSet]
 type = MapSet
-trigger1 = roundstate < 2
-trigger1 = command = "start"
+trigger1 = roundsexisted = 0
+trigger1 = roundstate = 0
+trigger1 = command = "holds"
 map = "AltPal"
-value = 1
+value = 12
 ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = !alive && palno = 1 && map(AltPal)=12
+trigger2 = palno = 1&&map(AltPal)=12
+trigger2 = gamemode = "Training"
+map = "TREASURE"
+value = 1
 
 [State 0, BGPalFX]
 type = BGPalFX

@@ -39,18 +39,6 @@ value = 1.9; You can make this whatever you want to increase stun scaling per mo
 ignorehitpause = 1
 persistent = 0
 
-[State 0, Damage Scaling UP]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 2.1
-
-[State 0, Untech Scaling RESET]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
-
 [State 0, Special Counter UP]
 type = VarAdd
 trigger1 = time = 0
@@ -87,7 +75,7 @@ volumescale = 65
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
-value         =  1
+value         =  2
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
@@ -118,7 +106,7 @@ hitonce = 1
 p2facing = 0
 attr = S, SA
 air.animtype = back
-damage = 120*map(P4)
+damage = 150*map(P4), 30
 hitflag = MAFD
 guardflag = MAF
 priority = 3
@@ -136,7 +124,7 @@ down.hittime = 999
 air.fall = 1
 ground.velocity = -5,-5.4
 ground.cornerpush.veloff = -15
-air.velocity = -6,-4.5
+air.velocity = -6,-3.5
 envshake.time = 20
 envshake.freq = 110
 envshake.ampl = 7
@@ -408,7 +396,7 @@ trigger1 = movecontact = 0 && movereversed = 0
 hitonce = 1
 p2facing = 1
 attr = S, SA
-damage =  150*map(P4)
+damage =  150*map(P4), 50
 hitflag = MAFD
 guardflag = MAF
 priority = 6
@@ -503,6 +491,14 @@ ownpal=1
 type 		= MapSet
 trigger1		= animelemno(0) >= 4
 map 		= "RemixCancel"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !time && map(ComboStateCheck)
+map 		= "EX4SLimiter"
 value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
@@ -781,20 +777,20 @@ time = 999
  ;============================
 [State -2, Starter Level]
 type         = ParentMapSet
-trigger1         = movehit && !map(ComboStateCheck)
+trigger1         = movehit && root, !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  1
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = ParentMapSet
-trigger1         = movehit && !map(ComboStateCheck)
+trigger1         = movehit && root, !map(ComboStateCheck)
 map         = "P1"
 value         =  1
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = ParentMapSet
-trigger1         = movehit && map(ComboStateCheck)
+trigger1         = movehit && root, map(ComboStateCheck)
 map         = "P2"
 value         =  0.87
 ignorehitpause     = 1
@@ -803,7 +799,7 @@ persistent         = 0
 type         = ParentMapSet
 trigger1         = movehit
 map         = "Accumulation"
-value         = Map(Accumulation) * map(P2)
+value         = root, Map(Accumulation) * root, map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
@@ -813,7 +809,7 @@ trigger1 = !movecontact
 hitonce = 1
 attr = S, SP
 air.animtype = up
-damage = 75*(parent,map(P4))
+damage = 75*(parent,map(P4)), 30
 hitflag = MAFD
 guardflag = LAF
 priority = 3
@@ -1062,23 +1058,6 @@ trigger1 = 1
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 999
 
-
-;var(50) = Cam Left Bound
-;var(51) = Cam Right Bound
-;var(52) = Player Left Bound
-;var(53) = Player Right Bound
-[State 0, Snap to Right Edge]
-type = PosSet
-trigger1 = Pos X >= parent, var(53)
-trigger1 = CameraPos X >= parent, var(51)
-x = parent, var(53)
-
-[State 0, Snap to Left Edge]
-type = PosSet
-trigger1 = Pos X <= parent, var(52)
-trigger1 = CameraPos X <= parent, var(50)
-x = parent, var(52)
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = p2dist x <= 60
@@ -1126,20 +1105,20 @@ time = 999
  ;============================
 [State -2, Starter Level]
 type         = ParentMapSet
-trigger1         = movehit && !map(ComboStateCheck)
+trigger1         = movehit && root, !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  2
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = ParentMapSet
-trigger1         = movehit && !map(ComboStateCheck)
+trigger1         = movehit && root, !map(ComboStateCheck)
 map         = "P1"
 value         =  1
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = ParentMapSet
-trigger1         = movehit && map(ComboStateCheck)
+trigger1         = movehit && root, map(ComboStateCheck)
 map         = "P2"
 value         =  0.87
 ignorehitpause     = 1
@@ -1148,15 +1127,15 @@ persistent         = 0
 type         = ParentMapSet
 trigger1         = movehit
 map         = "Accumulation"
-value         = Map(Accumulation) * map(P2)
+value         = root, Map(Accumulation) * root, map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
 [State 630, 2]
 type = HitDef 
-trigger1 = time%5 = 0
+trigger1 = time%3 = 0
 attr = S, SP
-damage =15*(parent,map(P4))
+damage =15*(parent,map(P4)), 10
 hitflag = MAFP
 guardflag = MAF
 priority = 3
@@ -2731,6 +2710,13 @@ poweradd = -1000
 
 [State 0,	MapSet]
 type 		= MapSet
+trigger1		= !time && map(ComboStateCheck)
+map 		= "EX5SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
 trigger1		= animelemno(0) >= 5
 map 		= "RemixCancel"
 value 		= 1
@@ -3045,7 +3031,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= Root, movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
@@ -3553,8 +3539,8 @@ ground.slidetime = 12
 ground.hittime  = 999
 air.hittime  = 999
 down.hittime = 999
-ground.velocity = -20,-8
-air.velocity = -20,-6
+ground.velocity = 20,-8
+air.velocity = 20,-6
 envshake.time = 20
 envshake.freq = 180
 envshake.ampl = 2
@@ -3893,7 +3879,7 @@ x = vel x * 0.95
 ignorehitpause = 1
 
 [State 0, VelSet]
-type = MapAdd
+type = MapSet
 trigger1 = !time
 map = "hitCount"
 value = 0
@@ -3906,12 +3892,12 @@ value = 1
 
 [State 410, 2]
 type = HitDef
-trigger1 = time % 3 = 0
+trigger1 = map(hitCount) < 3
 attr = S, SP
-damage = 35*root, map(P4)
+damage = 35*root, map(P4), 5
 hitflag = MAFD
 guardflag = MAF
-pausetime = 5,5
+pausetime = 4,7
 guard.ctrltime = 5
 sparkno = 0
 sparkxy = 0,0
@@ -4030,6 +4016,14 @@ ctrl = 0
 poweradd = -1000
 anim =1100
 sprpriority = 2
+
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !time && map(ComboStateCheck)
+map 		= "EX6SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0,	MapSet]
 type 		= MapSet
@@ -4247,7 +4241,7 @@ supermovetime = 0
 pausemovetime = 0
 hitonce = 1
 attr = S, SP
-damage = 35*map(P4)
+damage = 35*map(P4), 15
 hitflag = MAFD
 guardflag = MAF
 pausetime = 5,5
@@ -4261,7 +4255,7 @@ animtype = medium
 air.animtype = back
 air.fall = 1
 ground.slidetime = 14
-ground.hittime  = 17
+ground.hittime  = 20
 ground.velocity = -1.25,0
 air.velocity = -1.25,-1.25
 air.hittime = 45
@@ -5057,6 +5051,13 @@ y = -5
 ignorehitpause = 1
 ;persistent = 
 
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !time && map(ComboStateCheck)
+map 		= "EXJ6SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -5084,46 +5085,6 @@ statetype = A       ;S,A,C,L
 movetype =A        ;I,A,H
 physics = A         ;A,C,S,N
 
-[State 0, Cancel into DISABLE]
-type = Explod
-trigger1 = time = 0
-anim = 99999
-ID = 1200
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
-
-
-
-[State 0, Special Cancel NOT OKAY]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1000
-ignorehitpause = 1
-persistent = 0
-
-
-;[State 0, Special Counter UP]
-;type = VarAdd
-;trigger1 = time = 0
-;v =  5
-;value = 1
-
-
-[State 0, Special Cancel OKAY]
-type = Explod
-trigger1 = animelem = 5
-anim = 99999
-ID = 1000
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
-
-
 [State -3, Arzon WIND SFX 2]
 type = PlaySnd
 trigger1 = animelem = 4
@@ -5148,12 +5109,6 @@ pausemovetime = 0
 size.xscale = .82
 size.yscale = .82
 
-;[State -1, 5S>S]
-;type = ChangeState
-;value = 1201
-;triggerall = command = "b" || command = "hold_b"
-;trigger1 = animelemno(0) = [8,11]
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 =pos y>= 0
@@ -5172,7 +5127,7 @@ movetype= A
 physics = N
 juggle  = 0
 poweradd= 0
-velset	= 4,5
+velset	= 5,5
 ctrl = 0
 anim = 1204
 sprpriority = 1
@@ -5197,30 +5152,30 @@ trigger1 = 1
 ignorehitpause = 1
  ;============================
 [State -2, Starter Level]
-type         = ParentMapSet
-trigger1         = movehit && !map(ComboStateCheck)
+type         = RootMapSet
+trigger1         = movehit && root, !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  2
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
-type         = ParentMapSet
-trigger1         = movehit && !map(ComboStateCheck)
+type         = RootMapSet
+trigger1         = movehit && root, !map(ComboStateCheck)
 map         = "P1"
 value         =  1
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
-type         = ParentMapSet
-trigger1         = movehit && map(ComboStateCheck)
+type         = RootMapSet
+trigger1         = movehit && root, map(ComboStateCheck)
 map         = "P2"
 value         =  0.87
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
-type         = ParentMapSet
+type         = RootMapSet
 trigger1         = movehit
 map         = "Accumulation"
-value         = Map(Accumulation) * map(P2)
+value         = root, Map(Accumulation) * root, map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
@@ -5232,7 +5187,7 @@ animtype  = Light
 air.animtype = back
 hitonce = 1
 attr = S, SP
-damage = 30*(parent,map(P4))  
+damage = 30*(parent,map(P4)), 15
 hitflag = MAF
 guardflag = MA
 priority = 3
@@ -5250,7 +5205,7 @@ ground.velocity = -3.75,0
 air.fall = 1
 fall.yvelocity = 0
 airguard.velocity = -1,-.25
-air.hittime = 34-map(UntechDecay)
+air.hittime = 24-root,map(UntechDecay)
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, ChangeState]
@@ -5302,6 +5257,14 @@ ctrl = 0
 anim =1430
 sprpriority = 2
 poweradd = -1000
+
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !time && map(ComboStateCheck)
+map 		= "EXj5SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0, VelAdd]
 type = Velset
@@ -5530,7 +5493,7 @@ animtype  = Light
 air.animtype = back
 hitonce = 1
 attr = S, SP
-damage = 25*(parent,map(P4))
+damage = 35*(parent,map(P4)), 15
 hitflag = MAF
 guardflag = MAF
 priority = 3

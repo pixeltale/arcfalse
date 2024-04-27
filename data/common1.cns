@@ -407,7 +407,7 @@ y = 0.9
 type = VelSet
 trigger1 = Time = 0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*0.5 + vel x * 0.5, const(velocity.jump.back.x)*0.5))*1.1
-y = -10
+y = -9.5
 
 [State 0, StateTypeSet]
 type = StateTypeSet

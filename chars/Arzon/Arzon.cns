@@ -441,6 +441,49 @@ ctrl = 1
 
 [Statedef -2]
 
+[State 0, MAPADD]
+type = MapSet
+trigger1 = !map(ComboStateCheck)
+map = "jH_UseCount"
+value = 0
+ignorehitpause = 1
+persistent = 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !map(ComboStateCheck)
+map 		= "EX6SLimiter"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !map(ComboStateCheck)
+map 		= "EX4SLimiter"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !map(ComboStateCheck)
+map 		= "EXj6SLimiter"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !map(ComboStateCheck)
+map 		= "EXj5SLimiter"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !map(ComboStateCheck)
+map 		= "EX5SLimiter"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 0. MapSet]
 type         = MapSet
 trigger1     = movetype = H

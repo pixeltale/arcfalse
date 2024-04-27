@@ -113,7 +113,7 @@ ignorehitpause 	= 1
 
 [State 0, AfterImage]
 type = AfterImage
-trigger1 = movehit = 1
+trigger1 = movehit = 1 && map(TREASURE)!=1
 time = 20
 length = 10
 palcolor = 256
@@ -126,13 +126,36 @@ framegap = 2
 persistent = 1
 [State 0, PalFX]
 type = PalFX
-trigger1 = animelemno(0) = 2 && map(PCancel)
+trigger1 = animelemno(0) = 2 && map(PCancel) && map(TREASURE)!=1
 time = 10
 add = 191, 64, 191	
 mul = 256,256,256
 invertall = 0
 color = 256
 persistent = 1
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = movehit = 1 && map(TREASURE)=1
+time = 20
+length = 10
+palcolor = 256
+palcontrast = 50,0,0
+trans = add
+paladd = 10,10,10
+palmul = .75,.65,.75
+timegap = 1
+framegap = 2
+persistent = 1
+[State 0, PalFX]
+type = PalFX
+trigger1 = animelemno(0) = 2 && map(PCancel) && map(TREASURE)=1
+time = 10
+add = 255, 0, 0
+mul = 256,256,256
+invertall = 0
+color = 256
+persistent = 1
+
 [State 1200, Shake Screen]
 type = EnvShake
 trigger1 = animelem = 2 && map(PCancel)
@@ -351,6 +374,12 @@ sprpriority = 2
 facep2 = 1
 poweradd=-2000
 
+;why the fuck was this so complicated its literally a joke palette
+[State -3, Win Voices] ;Win
+type = PlayBgm
+trigger1 = time = 0 && map(TREASURE)
+bgm="sound\TREASURESUMMONED.wav"
+
 
 [State 0, SuperPause]
 type = SuperPause
@@ -434,6 +463,12 @@ anim = 3100
 sprpriority = 2
 facep2 = 1
 poweradd=-2000
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+trigger1 = time = 9 && map(TREASURE)=1
+value = 8000, 0
+
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -540,7 +575,7 @@ value = 0, 3
 [State 800, 1] ;With grab sound
 type = HitDef
 trigger1 = !map(ComboStateCheck)
-Trigger1 = !movecontact && !movereversed
+Trigger1 = !movecontact && !movereversed && p2stateno != [120,199]
 attr = S, HT
 hitflag = MFD
 sparkno = -1
@@ -566,7 +601,7 @@ guard.slidetime = 15
 [State 800, 1] ;With grab sound
 type = HitDef
 trigger1 = map(ComboStateCheck)
-Trigger1 = !movecontact && !movereversed
+Trigger1 = !movecontact && !movereversed && p2stateno != [120,199]
 attr = S, HT
 hitflag = MAFD
 sparkno = -1
@@ -728,6 +763,7 @@ p2getp1state = 0
 getpower = 25*var(2)
 fall=1
 air.fall=1
+kill = 0
 
 [State 0]
 type = hitdef 
@@ -763,6 +799,7 @@ p2facing = 1
 getpower = 25*var(2)
 fall=1
 air.fall=1
+kill = 0
 
 [State 0, SuperPause]
 type = SuperPause

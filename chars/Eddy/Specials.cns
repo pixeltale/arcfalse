@@ -702,13 +702,6 @@ ctrl = 0
 anim =1010
 sprpriority = 2
 
-
-[State Cancel]
-type = mapset
-trigger1 = time = 0 && !map(comboTimer)
-map = "FeintDCBurn"
-value = 0
-
 [State Cancel]
 type = mapset
 trigger1 = time = 12 && !map(feintDCBurn)
@@ -1169,12 +1162,6 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State Cancel]
-type = mapset
-trigger1 = 1
-map = "DCFH"
-value = 0
-
 [State 0, Width]
 type = Width
 trigger1 = animelem = 11
@@ -1238,34 +1225,46 @@ type = HitDef
 p2facing = -1 
 trigger1 = animelem = 11
 hitonce 		= 1
-attr 		= S, SA
-damage 		= ceil(cond(fvar(11) *60 < 5, 5, fvar(11) * 60)), 5
+attr 			= S, SA
+damage 			= 60*map(P4), 5
 hitflag 		= MAFD
-guardflag 	= MA
+guardflag 		= MA
 priority 		= 3
 getpower 		= (70)*(cond(var(var(2)) = 1, 1, .5))
-pausetime 	= 13,13
+pausetime 		= 13,13
 sparkno 		= 3
 sparkxy 		= -5,-35
 p2facing 		= -1
-hitsound   	= 5,4
-guardsound 	= 6,2
-ground.type 	= high
+hitsound   		= 5,4
+guardsound 		= 6,2
+ground.type 		= high
 air.type 		= trip
 animtype 		= hard
 ground.slidetime 	= 14
 ground.hittime  	= 38-map(UntechDecay)
-air.hittime  	= 44-map(UntechDecay)
-down.hittime 	= 40
+air.hittime  		= 28-map(UntechDecay)
+down.hittime 		= 40
 ground.velocity 	= 0.5
-air.velocity 	= -1.2,	14
+air.velocity 		= -1.2,	16
 guard.slidetime 	= 18
 guard.ctrltime 		= 18
-fall.yvelocity 	= 0
+fall.yvelocity 		= 0
 air.fall 		= 1
 p2stateno 	= cond(enemy, statetype = A, 5255, 5000)
 p2getp1state 	= 0
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
+
+[State Cancel]
+type = mapset
+trigger1 = movehit && !map(feintDCBurn)
+map = "DCFH"
+value = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = animelem = 11
+ignorehitpause = 1
+persistent = 1 
 
 
 [State 0, VelSet]
@@ -1276,7 +1275,7 @@ x = 4
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 11
-x = 5
+x = -5
 
 [State 0, PosAdd]
 type = PosAdd
@@ -1286,7 +1285,7 @@ x = 10
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelem = 11
-x = 100
+x = -100
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1731,8 +1730,8 @@ envshake.time 	= 7
 fall 		= 1
 air.fall		= 1
 fall.yvelocity	= 0
-guard.ctrltime 	= 10
-guard.pausetime 	= 20,20
+guard.ctrltime 	= 8
+guard.velocity  = -3
 ground.cornerpush.veloff = -20
 p2stateno 	= 5220
 p2getp1state 	= 0

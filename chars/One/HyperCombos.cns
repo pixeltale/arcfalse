@@ -609,7 +609,7 @@ type = HitDef
 kill = 0
 trigger1 = time = 0
 attr = S, HA
-damage = ceil(cond(root, fvar(11) * 15 < 4, 4, root, fvar(11) * 15)),6
+damage = 15*root, map(P4),6
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA
@@ -678,6 +678,12 @@ trigger1 =pos y>= 0
 value = 52
 ctrl = 1
 
+[State 0, ChangeState]
+type = ChangeState
+trigger1 =animtime = 0 
+value = 69000
+ctrl = 1
+
 ;---------------------------------------------------------------------------
 
 ;---------------------------------------------------------------------------
@@ -711,7 +717,7 @@ type = HitDef
 p2facing 		= 1 
 trigger1 		= time = 0
 attr 		= S, HA
-damage 		= ceil(cond(fvar(11) *70 < 40, 40, fvar(11) * 70)), 3
+damage 		= 40*root, map(P4) + 20, 3
 hitflag 		= MAFD
 air.animtype 	= back
 guardflag 	= MA

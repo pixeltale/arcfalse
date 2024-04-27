@@ -174,7 +174,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.84	;84% DMG For next hit
+value 		= 0.88	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -204,7 +204,7 @@ guardsound = 6,1
 ground.type = low
 ground.slidetime = 12
 ground.hittime  = 26-map(UntechDecay)
-air.hittime  = 22-map(UntechDecay)
+air.hittime  = 28-map(UntechDecay)
 down.hittime = 31-map(UntechDecay)
 ground.velocity = -4
 air.velocity = -1.5,-3.5
@@ -212,7 +212,7 @@ down.velocity = -1.5,-3
 envshake.phase = 1
 guard.slidetime = 15
 guard.ctrltime = 8
-guard.cornerpush.veloff = -4
+guard.cornerpush.veloff = -5
 air.fall = 1
 getpower = (25)*(cond(var(var(2)) = 1, 1, 1)) 
 
@@ -341,7 +341,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.90	;85% DMG For next hit
+value 		= 0.95	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -508,7 +508,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.90	;85% DMG For next hit
+value 		= 0.95	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -525,7 +525,7 @@ trigger1 = !movecontact
 attr = S, NA
 animtype  = Hard
 air.animtype = back
-damage = 50*map(P4)
+damage = 90*map(P4)
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -903,9 +903,9 @@ hitsound   	= 5,2
 guardsound 	= 6,1
 ground.type 	= Low
 ground.slidetime 	= 16
-ground.hittime  	= 16 - MAP(untechDecay)
-air.hittime  	= 20 - MAP(untechDecay)
-down.hittime 	= 22 - MAP(untechDecay)
+ground.hittime  	= 20
+air.hittime  	= 30 - MAP(untechDecay)
+down.hittime 	= 32 - MAP(untechDecay)
 ground.velocity 	= -6
 air.velocity 	= -3,-2.5;
 down.velocity 	= -3,-1.9;
@@ -1530,26 +1530,6 @@ scale = .82,.82
 sprpriority = 3
 ignorehitpause = 0
 
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 25   
-value = 0.3; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1.6
-
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 3
@@ -1569,10 +1549,16 @@ type = VelAdd
 trigger1 = 1
 y = .44
 
-;Explod Limiter
+[State 0, MAPADD]
+type = MapAdd
+triggerall = enemy, statetype = A
+trigger1 = movehit && map(ComboStateCheck)
+map = "jH_UseCount"
+value = 1
+ignorehitpause = 1
+persistent = 0
 
- ;============================
-
+;============================
 [State -2, Starter Level]
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
@@ -1605,7 +1591,7 @@ persistent         = 0
 type = HitDef 
 p2facing = 1
 triggerall = !movecontact
-trigger1 = !numexplod(90101)
+trigger1 = !movereversed
 attr = A, NA
 animtype  = Medium
 air.animtype = back
@@ -1621,11 +1607,11 @@ ground.type 	= HIGH
 air.type		= TRIP
 ground.slidetime = 12
 ground.hittime  = 18
-air.hittime  =40 - MAP(UntechDecay)
+air.hittime  = 30 - MAP(UntechDecay)/2
 down.hittime =40 - MAP(UntechDecay)
 ground.velocity = -2.4
 down.velocity = -1,6
-air.velocity = -1,3
+air.velocity = -1,14
 fall.yvelocity = -6
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
@@ -1640,51 +1626,10 @@ envshake.freq = 85
 envshake.ampl = 2
 envshake.phase = 1
 air.fall = 1
+p2stateno = cond((enemy, statetype = A), cond(map(jH_useCount) < 2, 5255,  5070), 5000)
+p2getp1state = 0
 getpower = (30)*(cond(var(var(3)) = 1, 1, .5))
 
-[State 0]
-type = HitDef 
-p2facing = 1
-triggerall = !movecontact
-trigger1 = numexplod(90101)
-attr = A, NA
-animtype  = Medium
-air.animtype = back
-damage = ceil(cond(fvar(11) *70 < 5, 5, fvar(11) * 70)), 5
-hitflag = MAFD
-guardflag = HA
-pausetime = 16,16
-sparkno = 1
-sparkxy = -15,-40
-hitsound   = 5,2
-guardsound = 6,2
-ground.type = high
-ground.slidetime = 12
-ground.hittime  = 18
-air.hittime  = ceil(cond(fvar(15) *60 < 9, 9, fvar(15) *60))
-down.hittime = ceil(cond(fvar(15) *60 < 9, 9, fvar(15) * 60))
-ground.velocity = -2.4
-down.velocity = -1,6
-air.velocity = -1,6
-ground.cornerpush.veloff = 0
-down.cornerpush.veloff = 0
-air.cornerpush.veloff = 0
-;envshake.freq =
-;envshake.ampl = 
-;envshake.phase =
-guard.hittime = 20
-guard.pausetime= 14,14
-guard.velocity = -7
-guard.dist = 5
-guard.slidetime = 30;
-envshake.time = 10
-envshake.freq = 85
-envshake.ampl = 2
-envshake.phase = 1
-fall.yvelocity = 0
-fall  = 1
-air.fall = 1
-getpower = (30)*(cond(var(var(3)) = 1, 1, .5))
 
 
 [State 0, ChangeState]
@@ -1843,10 +1788,10 @@ guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 40 - MAP(UntechDecay)
-air.hittime  = 12-map(UntechDecay)
+air.hittime  = 26-map(UntechDecay)
 down.hittime = 56 - MAP(UntechDecay)
-ground.velocity = -20,-4.5
-air.velocity = -26,-2
+ground.velocity = -16,-4.5
+air.velocity = -16,-2
 envshake.time = 20
 envshake.freq = 180
 envshake.ampl = 2
@@ -1859,11 +1804,32 @@ p2stateno 	= 5220
 p2getp1state 	= 0
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
 
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_boomerang"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+[State -2, Wallbounce Velocity Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_yvel"
+value 		= -1.5
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 0, ChangeState]
 type = ChangeState
 trigger1 =pos y>= 0
 value = 52
 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = movehit > 5
+value = 1
+ignorehitpause = 1
+;persistent = 
 ;---------------------------------------------------------------------------
 ;4R
 [Statedef 1540]

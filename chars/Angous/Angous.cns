@@ -48,7 +48,7 @@
 
 [Data]
 ;Amount of life to start with
-life = 1600
+life = 1500
 ;attack power (more is stronger)
 attack = 100
 ;defensive power (more is stronger)
@@ -277,8 +277,17 @@ freq = 120   ;A frequency of 180 shakes the screen rapidly
 
 [State -3, Angous Voices]
 type = PlaySnd
-trigger1 = animelem = 1
+trigger1 = animelem = 1 && palno != 9
 value = 8503, (0+(Random%2))
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 1 && palno = 9
+value = 3026, 0
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time = [0,360] && palno = 9
+flag = roundnotover
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -376,8 +385,13 @@ flag = Nobardisplay
 
 [State -3, Voices] ;Win
 type = PlaySnd
-trigger1 = animelem = 11
+trigger1 = animelem = 11 && palno != 9
 value = 1000, (0+(Random%3))
+
+[State -3, Voices] ;Win
+type = PlaySnd
+trigger1 = animelem = 11 && palno = 9
+value = 3023, 0
 
 [State -3, Win Voices] ;Win
 type = PlaySnd
@@ -513,8 +527,13 @@ value = 1
 
 [State -3, Voices] ;Win
 type = PlaySnd
-trigger1 = time=0
+trigger1 = time=0 && palno != 9
 value = 1000, (0+(Random%3))
+
+[State -3, Voices] ;Win
+type = PlaySnd
+trigger1 = time=0 && palno = 9
+value = 3025, (0+(Random%3))
 
 [State 195, 2]
 type = ChangeState
@@ -536,6 +555,37 @@ ctrl = 1
 ; States that are executed when in self's state file (use statedef -3)
 ;---------------------------------------------------------------------------
 [Statedef -2]
+
+;=================================
+;Gravity Scaling		+
+;===============================
+[State 0, VelSet]
+type = MapAdd
+trigger1 = map(ComboStateCheck) && enemy, statetype = A
+map = "JuggleTimer"
+value = 1
+ignorehitpause = 0
+[State 0, VelSet]
+type = MapSet
+trigger1 = !map(ComboStateCheck) || !(enemy, statetype = A)
+map = "JuggleTimer"
+value = 0
+ignorehitpause = 0
+[State 0, VelSet]
+type = MapAdd
+trigger1 = map(JuggleTimer) = 100 || map(JuggleTimer) = 150 || map(JuggleTimer) = 200
+map = "gravMul"
+value = -0.10
+ignorehitpause = 0
+persistent = 0
+[State 0, VelSet]
+type = MapSet
+trigger1 = !map(ComboStateCheck)
+map = "gravMul"
+value = 1
+ignorehitpause = 0
+
+;===========================
 
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
@@ -810,20 +860,16 @@ v = 2
 value = 0
 
 ;Install stuff
-[State -2, AssertSpecial]
-type = AssertSpecial
-trigger1 = var(28) >0 && palno = 10
-flag = nomusic
 
 [State -2, StopSnd]
 type = StopSnd
 trigger1 = var(28) <=0 && palno = 10
 channel = 100
 
-[State -2, AssertSpecial]
-type = AssertSpecial
-trigger1 = var(28) >0 && palno = 11
-flag = nomusic
+[State -2, StopSnd]
+type = StopSnd
+trigger1 = var(28) <=0 && palno = 10
+channel = 100
 
 [State -2, StopSnd]
 type = StopSnd
@@ -1316,10 +1362,38 @@ type = ChangeState
 trigger1 = Time >= 4;floor(gethitvar(hittime) * 0.8)
 value = fvar(6)
 
-
-;-----------------------------------
 [Statedef -3]
 
+; KO Scream
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = map(DIE)=1 && palno != 9
+value = 9512,0
+channel = -1
+loop = 0
+persistent = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = map(DIE)=1 && palno = 9
+value = 3024,0+random%4
+channel = -1
+loop = 0
+persistent = 0
+
+[State 0, VarAdd]
+type = MapAdd
+trigger1 = !alive
+map = "DIE"
+value = 1
+ignorehitpause=0
+[State 0, VarAdd]
+type = MapSet
+trigger1 = roundstate=0
+map = "DIE"
+value = 0
+ignorehitpause=0
+;------------------------------------------------
 
 [State 200, VarAdd]
 type = VarAdd

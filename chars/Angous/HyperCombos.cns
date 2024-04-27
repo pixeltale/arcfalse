@@ -137,7 +137,7 @@ persistent = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboTimer)
 map 		= "StarterLevel"
-value 		= 2	;Medium Starter
+value 		= 1	;Medium Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -181,7 +181,7 @@ ground.slidetime = 12
 ground.hittime  = 19
 air.hittime  = 25
 ground.velocity = -2,-10
-air.velocity = -2,-9
+air.velocity = -2,-6
 envshake.time = 50
 envshake.freq = 120
 envshake.ampl = 7
@@ -1856,6 +1856,19 @@ trigger1 = animelem = 9 && palno = 10
 value = 3012,0
 channel = 99
 loop = 0
+
+[State 0, PlaySnd] ;DURAGON INSTALLL voice
+type = PlaySnd
+trigger1 = animelem = 2 && palno = 9
+value = 3020,0
+channel = 99
+loop = 0
+
+[State 0, PlaySnd] ;DURAGON INSTALLL voice
+type = PlayBgm
+trigger1 = animelem = 9 && palno = 9 && roundno = 3
+trigger2 = animelem = 9 && palno = 9 && gamemode = "Training"
+bgm = "sound\gabeinstall.mp3"
 
 [State 0, StopSnd]
 type = StopSnd

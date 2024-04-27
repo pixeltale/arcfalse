@@ -66,7 +66,7 @@ triggerall = command = "236X"
 triggerall = power >= 2000
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact || map(remixCancel) && stateno != 3000
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = 1030 && movecontact = 1 ;&& enemynear, movetype = H
 trigger5 = stateno = 1033 && movecontact = 1 ;&& enemynear, movetype = H
@@ -79,8 +79,8 @@ value = 3500
 triggerall = command = "214X"
 triggerall = power >= 4000
 triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger1 = ctrl 
+trigger2 = movecontact || map(remixCancel)
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = 1030 && movecontact = 1 ;&& enemynear, movetype = H
 trigger5 = stateno = 1033 && movecontact = 1 ;&& enemynear, movetype = H
@@ -129,6 +129,17 @@ trigger2 = hitdefattr = A, NA
 trigger3 =  stateno=45 || stateno=46|| stateno=50
 
 ;---------------------------------------------------------------------------
+;Aerial Backdash
+[State -1, Air Backdash]
+type = ChangeState
+value =903
+triggerall = command = "a44" || teammode != Tag && command = "M44"
+trigger1 = statetype = A
+trigger1 = ctrl
+triggerall = stateno!=903
+triggerall = var(29)>0
+triggerall = pos y<-10
+
 ;Aerial Dash
 [State -1, Airdash]
 type = ChangeState
@@ -137,19 +148,6 @@ triggerall = command = "a66" || teammode != Tag && command = "M66"
 trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=904
-triggerall = var(29)>0
-triggerall = pos y<-10
-
-
-;Aerial Backdash
-[State -1, Air Backdash]
-type = ChangeState
-value =903
-triggerall = command = "a44" || teammode != Tag && command = "M44"
-trigger1 = statetype = A
-trigger1 = ctrl
-trigger2 = (stateno = [600,640]) && movehit
-triggerall = stateno!=903
 triggerall = var(29)>0
 triggerall = pos y<-10
 
@@ -218,7 +216,7 @@ type = ChangeState
 value = 1310
 triggerall=stateno!=40
 triggerall = stateno != 1310
-triggerall = power>=1000
+triggerall = power>=1000 && !map(EX4SLimiter)
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = command != "holddown"
 triggerall = command = "holdback"
@@ -279,7 +277,7 @@ type = ChangeState
 value = 1250
 triggerall=stateno!=40
 triggerall = numhelper(12050)=0
-triggerall = power>=1000
+triggerall = power>=1000  && !map(EX5SLimiter)
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = statetype != A
@@ -340,7 +338,7 @@ type = ChangeState
 value = 1110
 triggerall=stateno!=40
 triggerall = NumprojID(1112) <= 0
-triggerall = power>=1000
+triggerall = power>=1000  && !map(EX6SLimiter)
 triggerall = fvar(23) = 0
 triggerall = command = "b" && command = "c"  || command = "EX"
 triggerall = command = "holdfwd"  && command != "holdback" && command != "holddown"
@@ -364,7 +362,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1410
 triggerall = NumprojID(1112) <= 0
-triggerall = power>=1000
+triggerall = power>=1000  && !map(EXj6SLimiter)
 triggerall = command != "holdback" && command = "holdfwd" && command != "holddown"
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = statetype = A
@@ -375,7 +373,7 @@ trigger2 = var(1)
 [State -1, j5S]
 type = ChangeState
 value = 1430
-triggerall = !map(Airball)
+triggerall = !map(Airball) && stateno != 1430
 triggerall = command != "holdback" && command != "holdfwd" 
 triggerall=command != "holddown"
 triggerall = command = "b" && command != "c"
@@ -389,7 +387,7 @@ trigger3 = numexplod(1000) && (var(5) <= 2)
 type = ChangeState
 value = 1440
 triggerall = numhelper(12050)=0
-triggerall = power>=1000
+triggerall = power>=1000  && !map(EXj5SLimiter)
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = statetype = A

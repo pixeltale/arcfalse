@@ -400,10 +400,6 @@ movetype= H
 physics = N
 velset = 0,0
 
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = S3001, 0+(Random%8)
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0

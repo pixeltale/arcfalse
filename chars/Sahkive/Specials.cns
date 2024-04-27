@@ -1375,9 +1375,9 @@ ignorehitpause     = 1    ;You can also make it over 1 in order to make followin
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.90    ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
-ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
-persistent         = 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
+value         =  0.90
+ignorehitpause     = 1
+persistent         = 0
 [State -2, P2 Accumulation - Scale]
 type         = MapSet
 trigger1         = movehit
@@ -1387,11 +1387,10 @@ ignorehitpause     = 1
 persistent         = 0
 [State 800, 1] ;With grab sound
 type 	= HitDef
-Trigger1 	= time = 0 
+Trigger1 	= !movecontact 
 attr 		= S, ST
 hitflag 		= MAFD
-guardflag 	= MA
-priority 		= 3,HIT
+guardflag 		= MA
 sparkno 		= 1000
 sparkxy 		= -10,-30
 p1sprpriority 	= 1
@@ -1399,14 +1398,15 @@ hitsound 		= S669,0
 guardsound 	= 6,2
 p1facing 		= 1
 p2facing 		= 1
-p1stateno 	= 1021
-p2stateno 	= 1023
-forcestand 	= 1
+p1stateno 		= 1021
+p2stateno 		= 1023
 air.fall 		= 1
 ground.velocity 	= 0,0
-air.velocity 	= 0,30
+air.velocity 	= 0,-3
 pausetime	= 0,0
-guard.pausetime 	= 6,24
+guard.ctrltime	= 30
+guard.hittime 	= 15
+guard.pausetime = 8,8
 guard.velocity 	= -5
 
 [State 0, ChangeState]
@@ -2842,8 +2842,8 @@ persistent         	= 0
 
 [State 800, 1] ;With grab sound
 type = HitDef
-Trigger1 = !movecontact
-attr = S, ST          ;Attributes: Standing, Normal Throw
+Trigger1 = !movecontact && p2stateno != [120,199]
+attr = S, ST, SA          ;Attributes: Standing, Normal Throw
 hitflag = AFD          ;Affect only ground people who are not being hit
 pausetime = 0,50
 priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
@@ -2857,6 +2857,33 @@ p2facing = 1          ;Force p2 to face KFM
 p1stateno = 1041
 air.hittime = 1-MAP(untechDecay)
 air.fall = 1
+ground.velocity = 0,0
+air.velocity = -2,-.2
+guard.pausetime = 0,0
+guard.velocity = -5
+guard.hittime = 12
+guard.ctrltime = 11
+guard.slidetime = 15
+[State 800, 1] ;With grab sound
+type = HitDef
+Trigger1 = !movecontact
+Trigger1 = enemynear, name = "Angous"
+trigger1 = p2stateno = 230
+attr = S, ST, SA          ;Attributes: Standing, Normal Throw
+hitflag = MAFD          ;Affect only ground people who are not being hit
+pausetime = 0,50
+priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
+sparkno = 1000          ;No spark
+sparkxy = -20,-80
+p1sprpriority = 1
+hitsound = S669,0
+guardsound = 6,2
+p1facing = 1
+p2facing = 1          ;Force p2 to face KFM
+p1stateno = 1041
+air.hittime = 1-MAP(untechDecay)
+air.fall = 1
+fall = 1
 ground.velocity = 0,0
 air.velocity = -2,-.2
 guard.pausetime = 0,0
@@ -3529,7 +3556,37 @@ flag = unguardable
 [State 800, 1] ;With grab sound
 type = HitDef
 Trigger1 = !movecontact
-attr = S, ST          ;Attributes: Standing, Normal Throw
+attr = S, ST, SA          ;Attributes: Standing, Normal Throw
+hitflag = AFD          ;Affect only ground people who are not being hit
+guardflag = MAFD
+priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
+sparkno = 1000          ;No spark
+sparkxy = -20,-80
+p1sprpriority = 1
+hitsound = S669,0
+air.type=trip
+guardsound = 6,2
+p1facing = 1
+p2facing = 1          ;Force p2 to face KFM
+guard.dist = 0        ;This prevents p2 from going into a guard state if close
+air.hittime = 0
+air.fall = 0
+ground.velocity = 0,0
+air.velocity=0,0
+pausetime=0,50
+guard.pausetime = 0,0
+guard.velocity = -5
+guard.hittime = 12
+guard.ctrltime = 11
+guard.slidetime = 15
+p1stateno=1051
+p2stateno=1049
+[State 800, 1] ;With grab sound
+type = hitdef
+Trigger1 = !movecontact
+Trigger1 = enemynear, name = "Angous"
+trigger1 = p2stateno = 230
+attr = S, ST, SA          ;Attributes: Standing, Normal Throw
 hitflag = AFD          ;Affect only ground people who are not being hit
 guardflag = MAFD
 priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
