@@ -4534,6 +4534,21 @@ trigger1 = time =  0
 v = 10    ;fv = 10
 value = 0
 
+[State 0, VarSet]
+type = VarSet
+trigger1 = prevstateno!=(666999) && time = 0
+v = 41    ;fv = 10
+value = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+v = 41
+value = 1
+ignorehitpause = 1
+;armor end
+
+
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time%3=0
