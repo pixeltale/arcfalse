@@ -255,26 +255,27 @@ flag = Nobardisplay
 
 [Statedef -2]
 
+[State 0, MAPSET]
+type = MapSet
+trigger1 = enemy, movetype != H
+map = "j2H_UseCount"
+value = 0
+
 ;=============================================+
 ;Palette Stuff
 [State 0, MapSet]
 type = RemapPal
-trigger1 = roundstate < 2 && time = [0,2]
+trigger1 = roundstate = 0
 source = 1, 1
-dest = 1 + map(AltPal), palno
-;Palette Stuff
-[State 0, MapSet]
-type = RemapPal
-trigger1 = roundstate < 2 && time = [0,2]
-source = 1, 1 + palno
-dest = 1 + map(AltPal), palno
-;jH Limiter
+dest = 1, palno + map(AltPal)
+
 [State 0, MapSet]
 type = MapSet
-trigger1 = roundstate < 2
-trigger1 = command = "start"
+trigger1 = roundsexisted = 0
+trigger1 = roundstate = 0
+trigger1 = command = "holds"
 map = "AltPal"
-value = 1
+value = 12
 ignorehitpause = 1
 ;=============================================+
 

@@ -78,8 +78,8 @@ delta = .1,.1
 [BG FarthestTrees]
 type  = normal
 spriteno = 0,3
-start = 0, -30
-delta = .15,.15
+start = 0, -10
+delta = .25,.25
 
 [BG BackTrees]
 type  = normal
@@ -91,20 +91,20 @@ tile = 3, 0
 [BG MidTrees]
 type  = anim
 actionno = 2
-start = 0, -30
-delta = .5,.5
+start = 0, -20
+delta = .7,.7
 tile = 3, 0
 
 [BG River]
 type  = anim
 actionno = 3
-start = 0, -30
+start = 0, -10
 delta = .8,.8
 
 [BG FrontTrees]
 type  = anim
 actionno = 1
-start = 0, -30
+start = -26, -22
 delta = .8,.8
 tile = 1, 0
 

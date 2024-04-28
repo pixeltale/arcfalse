@@ -96,16 +96,13 @@ ctrl = 0
 [Statedef 10]
 type    = C
 physics = C
+velset = vel x, 0
 anim = 10
 [State 0, VarSet]
 type = VarSet
 trigger1 = time=0
 v = 13    ;fv = 10
 value = 0
-[State 10, 1]
-type = VelMul
-trigger1 = Time = 0
-x = .75
 
 [State 10, 2] ;Stop moving if low velocity
 type = VelSet
@@ -1031,7 +1028,7 @@ value = 1009,0
 [State 100]
 type = VelSet
 trigger1 = time = [0,10]
-x = 6
+x = 8
 
 [State 0, Explod]
 type = Explod
@@ -1177,12 +1174,12 @@ y = 0
 ;ignorehitpause = 
 ;persistent = 
 
-[State 0, Mapset]
-type = MapSet
+[State 0, NotHitBy]
+type = NotHitBy
 trigger1 = time <= 10
-map = "Invul_Full"
-value = 1
-persistent = 1
+value = SCA
+time = 1
+ignorehitpause = 1
 
 
 [State 100, 2] ;Prevent run from canceling into walk

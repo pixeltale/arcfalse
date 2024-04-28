@@ -1541,7 +1541,6 @@ physics = A
 juggle  = 0
 poweradd= 0
 ctrl = 1
-anim = 41
 sprpriority = 2
 
 [State 0, Null]

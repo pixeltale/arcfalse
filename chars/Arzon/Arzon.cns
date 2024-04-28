@@ -767,8 +767,8 @@ value = 0
 [State 0, Double Jump Display]
 type = DisplaytoClipboard
 trigger1 = 1
-text = "DJ Detector: %i, DJ Limiter: %i, map(RemixCancel)=%f"
-params = numexplod(45), var(45), map(floatjump)
+text = "wallbounce velocity: %f wallhit: %f"
+params = map(Wallbounce_yvel), enemy,map(Wallbounce_hit)
 
 
 ;[State 0, Stage Selector Test]

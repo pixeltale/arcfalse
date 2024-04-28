@@ -299,7 +299,7 @@ trigger4 = stateno = 100 && time > 2
 [State -1, Jotunn's Wrath]
 type = changeState
 value = 2500
-triggerall = command = "b" && command = "c"
+triggerall = (command = "b" && command = "c") ||  (command = "EX") && teammode != Tag
 triggerall = statetype = A
 triggerall = power>=1000
 triggerall = !map(jEXLim)

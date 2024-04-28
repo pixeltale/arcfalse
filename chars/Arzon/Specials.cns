@@ -75,20 +75,20 @@ volumescale = 65
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
-value         =  2
+value         =  3
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.90
+value         =  1.10
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.90
+value         =  0.95
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
@@ -1591,8 +1591,9 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = movecontact = 1
-trigger2 = time >200
-trigger3 = frontedgedist<-60
+trigger2 = time >80
+trigger3 = frontedgedist < -1
+ignorehitpause = 1
 value = 1299
 ctrl = 0 
 
@@ -2881,6 +2882,12 @@ ctrl = 0
 anim = 1208
 sprpriority = 1
 
+[State 0, VelAdd]
+type = VelAdd
+triggerall = time > 5
+trigger1 = frontedgedist < 5
+x = -1
+
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0 && root, command = "holdfwd"
@@ -3043,7 +3050,7 @@ animtype  = Light
 air.animtype = back
 hitonce = 1
 attr = S, SP
-damage = 25*(root,map(P4))
+damage = 35*(root,map(P4)), 15
 hitflag = MAF
 guardflag = MAF
 priority = 3
@@ -3051,8 +3058,8 @@ pausetime = 3,9
 guard.ctrltime = 8
 sparkno = 1
 sparkxy = 0,0
-hitsound   = S6,2
-guardsound = S6,1
+hitsound = 5, 0                  
+guardsound = 6, 0 
 ground.type = high
 animtype = medium
 ground.slidetime = 14
@@ -3529,7 +3536,7 @@ air.animtype = back
 damage = 150*(parent,map(P4))
 hitflag = MAFD
 guardflag = MA
-pausetime = 5,5
+pausetime = 10,10
 sparkno = 2
 sparkxy = -15,-45
 hitsound   = 5,3
@@ -5436,7 +5443,12 @@ velset= 6,1
 anim = 1208
 sprpriority = 1
 
-[State 0, VelSet]
+[State 0, VelAdd]
+type = VelAdd
+triggerall = time > 5
+trigger1 = frontedgedist < 5
+x = -1
+[State 0, VelAdd]
 type = VelAdd
 triggerall = time > 5
 trigger1 = time % 2
@@ -5474,12 +5486,6 @@ v = 36
 value = -1
 
 [State 3001, blah]
-type = AngleSet
-trigger1 = time
-value = ((atan(Vel Y/Vel X) + (3*pi/2)) *(-180/Pi))-90
-ignorehitpause = 1
-
-[State 3001, blah]
 type = AngleDraw
 trigger1 = 1
 ignorehitpause = 1
@@ -5488,7 +5494,7 @@ ignorehitpause = 1
 type = HitDef 
 p2facing = 1
 triggerall=enemy,statetype!=A
-trigger1 = time %7= 0
+trigger1 = time % 5 = 0
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -5501,8 +5507,8 @@ pausetime = 3,3
 guard.ctrltime = 8
 sparkno = 1
 sparkxy = 0,0
-hitsound   = S6,2
-guardsound = S6,1
+hitsound = 5, 0                  
+guardsound = 6, 0 
 ground.type = high
 animtype = medium
 ground.slidetime = 14
@@ -5548,16 +5554,16 @@ persistent         = 0
 type = HitDef 
 p2facing = 1
 triggerall=enemy,statetype=A
-trigger1 = time %7= 0
+trigger1 = time %5= 0
 animtype  = Light
 air.animtype = back
 hitonce = 1
 attr = S, SP
-damage = 25*map(P4)
+damage = 35*root, map(P4), 15
 hitflag = MAF
 guardflag = MAF
 priority = 3
-pausetime = 3,3
+pausetime = 3,5
 guard.ctrltime = 8
 sparkno = 1
 sparkxy = 0,0
@@ -5570,12 +5576,11 @@ ground.hittime  = 35
 ground.velocity = -3.75,0
 ;fall.xvelocity = -1.5
 fall.yvelocity = 0
-air.velocity = -2.75,0
+air.velocity = -vel x - 1,0
 airguard.velocity = -1,-.25
 air.hittime = 56
 air.fall = 1
 getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
-snap=-1,-1
 
 [State 0, ChangeState]
 type = ChangeState

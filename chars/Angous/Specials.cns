@@ -4534,20 +4534,6 @@ trigger1 = time =  0
 v = 10    ;fv = 10
 value = 0
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = prevstateno!=(666999) && time = 0
-v = 41    ;fv = 10
-value = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = 1
-v = 41
-value = 1
-ignorehitpause = 1
-;armor end
-
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time%3=0
@@ -4778,7 +4764,6 @@ guard.hittime = 28
 guard.slidetime = 19
 guard.ctrltime = 27
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
-id = 99856
 
 [State 410, 2]
 type = hitdef 
@@ -5297,7 +5282,7 @@ air.hittime	= 999
 down.hittime	= 999
 ground.velocity = -14,-6
 guard.velocity 	= -14
-air.velocity 	= -14,-6
+air.velocity 	= -18,-5
 fall  		= 1
 air.fall 	= 1
 envshake.time 	= 13
@@ -5320,7 +5305,7 @@ persistent 		= 0
 type 		= MapSet
 trigger1 		= movehit
 map 		= "wallbounce_yvel"
-value 		= -5.5 + (map(UntechDecay)/5)
+value 		= -5.5 + (map(UntechDecay)/2)
 ignorehitpause 	= 1
 persistent 		= 0
 

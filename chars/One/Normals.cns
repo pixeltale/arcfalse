@@ -1141,19 +1141,6 @@ fall.envshake.freq = 0
 fall.envshake.ampl = 0
 getpower = 0
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-v = 55    ;fv = 10
-value = 0
-;ignorehitpause = 
-;persistent = 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movecontact = 1
-v = 55    ;fv = 
-value = 1
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time>100 || backedgedist<0
@@ -1286,12 +1273,14 @@ y = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30])
+trigger1 = root, movetype != H
 value = 265
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = backedgedist <-10 ||frontedgedist<-10
-value =263
+trigger1 = backedgedist < -10 ||frontedgedist < -10
+trigger1 = time > 20
+value = 263
 ctrl = 0
 ;anim =
 ;ignorehitpause = 
@@ -1321,6 +1310,7 @@ y = .45
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30])
+trigger1 = root, movetype != H
 value = 265
 
 [State 0, ChangeState]
@@ -3845,7 +3835,7 @@ type = HitDef
 p2facing = 1
 trigger1 = time = 0
 attr = A, SP
-damage = ceil(cond(root,fvar(11) * 90 < 7, 7, root,fvar(11) * 90)),7
+damage = 90*root,map(P4),7
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -3858,6 +3848,7 @@ guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 45
+guard.hittime = 30
 air.hittime  = 45
 ground.velocity = -3,-6
 air.velocity = -3,-4

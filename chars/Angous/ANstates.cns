@@ -1479,7 +1479,7 @@ value = 111
 [State 0, CtrlSet]
 type = CtrlSet
 triggerall = prevstateno != 20011 && prevstateno != [1062, 1063]
-trigger1 = time >=  8
+trigger1 = time >=  3
 value = 1
 [State 0, CtrlSet]
 type = CtrlSet
@@ -1533,12 +1533,12 @@ anim = 106
 ctrl = 0
 sprpriority = 1
 
-[State 0, Mapset]
-type = MapSet
+[State 0, NotHitBy]
+type = NotHitBy
 trigger1 = time <= 10
-map = "Invul_Full"
-value = 1
-persistent = 1
+value = SCA
+time = 1
+ignorehitpause = 1
 
 [State 100, 1]
 type = VelSet

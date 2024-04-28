@@ -1249,12 +1249,6 @@ ctrl = 0
 anim =1030
 sprpriority = 2
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 1
-v = 39  
-value = var(39)+1
-
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time =0 
@@ -4103,7 +4097,7 @@ trigger1 = pos y>0
 value = 52
 ctrl = 1
 
-;[EX]~H - THROW
+;5S/[EX]~H - THROW
 ;-----------------------------
  [Statedef 1056]
 type    = A
@@ -4201,7 +4195,7 @@ trigger1 = animtime = 0
 value = 0
 ctrl = 1
 
-;[EX]~H - Success
+;5S/[EX]~H - Success
 ;-----------------------------
 [Statedef 1057]
 type    = A
@@ -4213,25 +4207,33 @@ anim =1057
 velset = 3,-7 
 sprpriority = 2
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 2.8
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
 
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 21   
-value = 1.8; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.84	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.80	;80% DMG For next hit
+ignorehitpause 	= 1
 persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 21
-value = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 200, 1]
 type = HitDef 
@@ -4240,7 +4242,7 @@ trigger1 = time = 0
 attr = A, ST
 animtype  = hard
 air.animtype = back
-damage = 105*MAP(P4), 13
+damage = 150*MAP(P4)
 hitflag = MAF
 guardflag = MA
 pausetime = 14,14
@@ -4250,11 +4252,11 @@ hitsound   = s8,2
 guardsound = 6,1
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 80 - MAP(UntechDecay)
-air.hittime  = 80 - MAP(untechDecay)
-ground.velocity 	= 1,-7
-air.velocity 	= 1,-7
- envshake.time 	= 22
+ground.hittime  = 60 - MAP(UntechDecay)
+air.hittime  	= 40 - MAP(untechDecay)
+ground.velocity = 1,-7 + (map(UntechDecay)/3 - 2)
+air.velocity 	= 1,-6 + (map(UntechDecay)/2)
+envshake.time 	= 22
 envshake.freq 	= 120
 envshake.ampl 	= 5
 envshake.phase 	= 1
@@ -4318,8 +4320,9 @@ elem = 1
 
 [State 00, ChangeState]
 type = SelfState
-trigger1 = time>70
-value = 5040
+trigger1 = time > 10
+trigger1 = enemy, movehit = 1
+value = 5050
 ctrl = 0
 
 ;-----------------------------

@@ -1207,12 +1207,12 @@ type = VelSet
 trigger1 = animelem = 2
 x = -5
 
-[State 0, Mapset]
-type = MapSet
+[State 0, NotHitBy]
+type = NotHitBy
 trigger1 = time <= 15
-map = "Invul_Full"
-value = 1
-persistent = 1
+value = SCA
+time = 1
+ignorehitpause = 1
 
 [State 100, 2] ;Prevent run from canceling into walk
 type = AssertSpecial

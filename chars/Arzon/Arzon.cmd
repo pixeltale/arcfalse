@@ -320,7 +320,7 @@ trigger4=stateno=105
 [State -1, 6S] ; Painwheel!
 type = ChangeState
 value = 1100
-triggerall=stateno!=40
+triggerall=stateno!=40 && stateno != 1100
 triggerall = NumHelper(1101) <= 0
 triggerall = command = "b" && command = "holdfwd"
 triggerall = command != "holdback"

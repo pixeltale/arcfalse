@@ -281,15 +281,6 @@ ignorehitpause = 1
 [State 0, MapSet]
 type = RemapPal
 trigger1 = roundstate = 0
-trigger1 = palno != 1
-source = 1, 1
-dest = 1, palno + map(AltPal)
-
-[State 0, MapSet]
-type = RemapPal
-trigger1 = roundstate = 0
-trigger1 = roundno != 1
-trigger1 = palno = 1
 source = 1, 1
 dest = 1, palno + map(AltPal)
 

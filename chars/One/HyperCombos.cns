@@ -455,7 +455,7 @@ ctrl = 1
 ;Dash Super Mid
 ;---------------------------------------------------------------------------
 [Statedef 3015]
-type    = U
+type    = S
 movetype= A
 physics = N
 juggle  = 0
@@ -477,12 +477,40 @@ trigger1 = numhelper(260)
 trigger2 = time = 1
 x = cond(p2dist x<60,p2dist x+20, 80)
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 	= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.95	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 410, 2]
 type = HitDef
 trigger1 = time = 0
 kill = 0
 attr = S, HA
-damage = ceil(cond(fvar(11) * 90 < 4, 4, fvar(11) * 90)),6
+damage = 100*map(P4),6
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA

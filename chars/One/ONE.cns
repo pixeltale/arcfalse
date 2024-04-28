@@ -1,6 +1,6 @@
 [Data]
 ;Amount of life to start with
-life = 1400
+life = 1200
 attack = 100
 defence = 100
 fall.defence_up = 0
@@ -467,6 +467,31 @@ ctrl = 1
 
 
 [Statedef -2]
+
+[State 0, Distance Display]
+type = DisplaytoClipboard
+trigger1 = 1
+text = "swordDistX= %f, frontedgedist= %d, noflip = %f"
+params = map(swordDistX), frontedgedist, map(NoJump)
+
+[State 0. MapAdd]
+type 		= MapSet
+triggerall	= numhelper(260)
+trigger1 	= map(swordDistX) > frontedgedist
+trigger2	= map(swordDistX) < backedgedist
+map 		= "noJump"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 0
+[State 0. MapAdd]
+type 		= MapSet
+trigger1 	= map(swordDistX) < frontedgedist
+trigger1	= map(swordDistX) > backedgedist
+trigger2	= !numhelper(260)
+map 		= "noJump"
+value 		= 0
+ignorehitpause 	= 1
+persistent 	= 0
 
 [State 0. MapAdd]
 type 		= MapAdd
@@ -1020,21 +1045,6 @@ triggerall = var(38) != 0
 trigger1= p2stateno = 5110
 var(38)=0
 
-;EX dp reset var
-[State -2, Reset var when the opponent recovers]
- type=varset
- triggerall = var(39) != 0
- trigger1= numenemy
- trigger1= (enemynear,movetype!=H)
- trigger2= !numenemy    ;I think this may be what's messing things up.....
- var(39)=0
-
-[State -2, reset var when opponent lies down]
-type=varset
-triggerall = var(39) != 0
-trigger1= p2stateno = 5110
-var(39)=0
-
 ;-----------------------------------
 ;3H
 [State -2, Reset var when the opponent recovers]
@@ -1177,20 +1187,6 @@ v = 9
 value = -1
 ignorehitpause = 1
 
-
-;[State 0, DisplayToClipboard]
-;type = DisplayToClipboard
-;trigger1 = 1
-;text = "Counter Hit = %d Scale Counter = %d Scaling = %f RC Time = %d Flips = %i "
-;params = fvar(8),var(27),fvar(11), fvar(18), numexplod(115120) 
-
-[State 0, Distance Display]
-type = DisplaytoClipboard
-trigger1 = 1
-text = "swordDistX= %f, SwordDistY = %f"
-params = map(swordDistX), map(swordDistY)
-
-
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = prevstateno = 630 && time = 0
@@ -1277,39 +1273,34 @@ value = 40, 0
 
 ;---------------------- Integer variable list ----------------------
 
-; var(1):= 251, 105, -1
-; var(2):= -2, 1010, 1027, 1028, 1035, 1240, 9260, 1250, 12251, 3000, 3050
+; var(1):= 105, -1
+; var(2):= -2, 1010, 1027, 1028, 1035, 1240, 9260, 1250, 12251, 3000, 3010, 3013, 3050
 ; var(3):= -2, 10301
-; var(5):= 69000
-;var(12):= 10020, 10120, 10124, 10125, 10220, 10221, 1022500
-;var(13):= 1010, 0, 10, 11, 12
-;var(15):= -2, 250, 111250, 111251, 251, 450, 111453, 640, 642, 900, 905, 7000, 99149
-;var(17):= 5900
-;var(19):= -3
+; var(4):= -2, 440
+; var(8):= -3
+; var(9):= -3, 211
+;var(13):= 0, 10, 11, 12
+;var(15):= 250, 111250, 111251, 450, 640, 642
 ;var(21):= -2, 645
 ;var(22):= -3
 ;var(23):= -3, 903, 904
 ;var(24):= -3, 903, 904
 ;var(25):= -3
 ;var(26):= -2, 650
-;var(27):= -2
 ;var(28):= -3
 ;var(29):= -3, 903, 904
-;var(30):= -2, 3050, 1000020
-;var(34):= -3
-;var(35):= -2, 1010
+;var(30):= -2, 3050
+;var(32):= 3012
+;var(35):= -2
 ;var(36):= -2, 1240
 ;var(37):= -2, 1250
 ;var(38):= -2, 12251
 ;var(39):= -2, 1034
-;var(40):= 40, 4000
+;var(40):= 40
 ;var(44):= -2
 ;var(45):= -3, 45
 ;var(50):= -2, -3, 250, 111250, 111251, 265, 450, 640, 10, 11, 12
-;var(51):= 111251, 450, 640
-;var(55):= 860
-;var(56):= -2
-;var(57):= -2
+;var(51):= 111251, 450
 ;var(58):= -2
 ;var(59):= 191, 0
 
@@ -1319,23 +1310,23 @@ value = 40, 0
 ; fvar(2):= -2, 1031
 ; fvar(3):= -2
 ; fvar(4):= -2, 643
-; fvar(6):= 4000
 ; fvar(7):= -2
 ; fvar(8):= -2
 ;fvar(10):= -2
 ;fvar(11):= -2
-;fvar(12):= -2, 610, 630, 620, 650, 635, 625
-;fvar(13):= -2, 200, 210, 211, 220, 205, 215, 860, 400, 410, 420, 430, 425, 435, 440, 460, 630, 620, 642, 643, 750, 755, 801, 802, 1000, 1010, 1027, 1028, 1031, 1035, 10301, 1040, 9260, 1250, 12251, 1057, 3050
+;fvar(12):= -2, 635, 625
+;fvar(13):= -2, 860, 410, 425, 435, 440, 641, 642, 643, 460, 1027, 1028, 1031, 1035, 10301, 1040, 1240, 9260, 1250, 1251, 12251, 3014, 3019, 3050
 ;fvar(14):= -2
 ;fvar(15):= 3050
-;fvar(17):= -2
-;fvar(18):= 690000, 690001
+;fvar(18):= 99
 ;fvar(19):= -2
 ;fvar(20):= -2
-;fvar(21):= -2, 1057
-;fvar(25):= -2, 200, 210, 211, 220, 205, 215, 225, 400, 420, 430, 425, 435, 440, 600, 610, 630, 620, 650, 635, 625, 645, 750, 755
-;fvar(28):= -2, 1055
-;fvar(35):= -3, 1000
+;fvar(21):= -2
+;fvar(25):= -2, 425, 435, 440, 635, 625, 645
+;fvar(28):= -2
+;fvar(35):= -3
+
+
 
 
 

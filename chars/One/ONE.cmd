@@ -268,6 +268,7 @@ trigger2 = var(1)
 [State 1050, 5S: Flip]
 type = ChangeState
 value = 1050
+triggerall = !map(NoJump)
 triggerall = command = "b"
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -483,7 +484,7 @@ triggerall = command = "buffer_y"
 triggerall = command = "holddown"
 triggerall = statetype != A 
 trigger1 = ctrl
-trigger2 = stateno = [400, 410]|| (stateno = [200,210])
+trigger2 = stateno = [400, 410]|| (stateno = [200,211])
 trigger2 = movecontact
 
 ;---------------------------------------------------------------------------

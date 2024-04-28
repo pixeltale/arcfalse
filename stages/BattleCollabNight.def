@@ -162,18 +162,16 @@ velocity = 0, 0
 tile = 0, 0
 tilespacing = 0, 0
 
-
-;[BG Mist]
-;type = normal
-;spriteno = 10,6
-;layerno = 0
-;start = 310,200;
-;delta = 0.40,0.40
-;velocity = -.35,0
-;tile = 1,0
-;trans = add
-;alpha = 50,80
-
+[BG Mist]
+type = normal
+spriteno = 10,6
+layerno = 0
+start = 310,180;
+delta = 0.40,0.40
+velocity = -.35,0
+tile = 1,0
+trans = add
+alpha = 70,256
 
 [BG 2 Floor]
 type  = anim

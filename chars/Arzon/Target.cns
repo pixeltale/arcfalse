@@ -1608,12 +1608,6 @@ movetype = H
 physics = N
 velset = 0,0
 
-[State 1027, No scroll]
-type = ScreenBound
-trigger1 = 1
-value = 1
-movecamera = 1,0
-
 ;[State 1317, Muteki]
 ;type = NotHitBy
 ;trigger1 = AnimElemTime(2)<0

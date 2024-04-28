@@ -127,6 +127,15 @@ trigger1 = animelem = 2
 x = 15
 y = 0
 
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = movehit = 1
+x = 10
+[State 0, PosAdd]
+type = VelAdd
+trigger1 = movehit = 1
+x = 10
+
 [State 0, veladd]
 type = velset
 trigger1 = animelem = 3
@@ -137,7 +146,7 @@ persistent = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboTimer)
 map 		= "StarterLevel"
-value 		= 1	;Medium Starter
+value 		= 1	;Short Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -170,7 +179,7 @@ animtype  = hard
 damage = 250*MAP(P4) + 100,25
 hitflag = MAFDP
 guardflag = MA
-pausetime = 50,50
+pausetime = 50,45
 guard.pausetime = 30,30
 sparkno = 13
 sparkxy = -15,-50
@@ -197,6 +206,14 @@ guard.slidetime = 20
 guard.ctrltime = 21
 getpower = 0
 p2stateno = 5300
+
+[State -2, Starter Level]
+type 		= MapSet
+triggerall	= Enemy, statetype = A
+trigger1 	= movehit = 1
+map 		= "spinoutcustomy"
+value 		= -8
+ignorehitpause 	= 0
 
 [State 0, PlayerPush]
 type = PlayerPush
@@ -296,7 +313,12 @@ keyctrl = 0
 ownpal = 1
 supermovetime = 1000
 pausemovetime = 1000
-ignorehitpause = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = p2dist x < 0
+trigger1 = movehit
+trigger1 = animelemno(0) = 11
 
 [State 200, 3]
 type = ChangeState

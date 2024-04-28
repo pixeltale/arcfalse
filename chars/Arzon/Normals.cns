@@ -75,7 +75,7 @@ ground.slidetime = 12
 ground.velocity = -4        
 airguard.velocity = -1.9,-.8     
 air.type = High                 
-air.velocity = -1.4,-3
+air.velocity = -1.4,-2
 air.fall = 1
 guard.hittime =10
 guard.slidetime = 8
@@ -358,7 +358,7 @@ trigger1 = !movecontact
 attr = S, NA
 animtype  = Hard
 air.animtype = back
-damage = 95*map(P4)
+damage = 110*map(P4)
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,14
@@ -372,7 +372,7 @@ ground.hittime  = 30-map(UntechDecay)
 air.hittime  = 60-map(UntechDecay)
 down.hittime = 56-map(UntechDecay)
 ground.velocity = -3.2
-air.velocity = -2.5,-3.5
+air.velocity = -2.5,-4
 envshake.time = 20
 envshake.freq = 180
 envshake.ampl = 2
@@ -525,7 +525,7 @@ trigger1 = !movecontact
 attr = S, NA
 animtype  = Hard
 air.animtype = back
-damage = 90*map(P4)
+damage = 120*map(P4)
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -536,10 +536,10 @@ guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 40-map(UntechDecay)
-air.hittime  = 60-map(UntechDecay)
-down.hittime = 56-map(UntechDecay)
-ground.velocity = -20,-6
-air.velocity = -20,-2
+air.hittime  	= 30-map(UntechDecay)
+down.hittime 	= 56-map(UntechDecay)
+ground.velocity = -20,-7
+air.velocity = -20,-3
 envshake.time = 20
 envshake.freq = 180
 envshake.ampl = 2
@@ -552,6 +552,14 @@ air.fall 		= 1
 p2stateno 	= 5220
 p2getp1state 	= 0
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 	= movehit = 1
+map 		= "wallbounce_boomerang"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1777,7 +1785,7 @@ trigger1 = !movecontact
 attr = S, NA
 animtype  = Hard
 air.animtype = back
-damage = 50*map(P4)
+damage = 150*map(P4)
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -1806,14 +1814,14 @@ getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
-trigger1 		= movehit
+trigger1 		= movehit = 1
 map 		= "wallbounce_boomerang"
 value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, Wallbounce Velocity Set]
 type 		= MapSet
-trigger1 		= movehit
+trigger1 		= movehit = 1
 map 		= "wallbounce_yvel"
 value 		= -1.5
 ignorehitpause 	= 1
@@ -1830,6 +1838,7 @@ trigger1 = movehit > 5
 value = 1
 ignorehitpause = 1
 ;persistent = 
+
 ;---------------------------------------------------------------------------
 ;4R
 [Statedef 1540]
