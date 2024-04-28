@@ -4507,7 +4507,7 @@ type = Helper
 trigger1 = animelem = 6
 helpertype = normal ;player
 name = "WindSaw"
-ID = 1102
+ID = 1101
 stateno = 1101
 pos = 20,-35
 postype = p1    ;p2,front,back,left,right

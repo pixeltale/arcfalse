@@ -159,7 +159,7 @@ Alicia, order=1
  ;
  ;Insert your stages below.
 
-stages/training_re.def, music = sound/GETBIGGER.mp3, zoom=0,music = sound/HEARTDONTSTANDACHANCE.mp3
+stages/training_re.def, music = sound/LINKUP.mp3, zoom=0,music = sound/TINTS.mp3
 stages/dojo.def, music = sound/ROCKTHEBEAT.mp3, zoom = 0
 stages/dojoout.def,
 stages/garden.def,zoom = 0
