@@ -4,6 +4,11 @@ type = S
 physics = S
 sprpriority = 0
 
+[State 52, 2]
+type = PosSet
+trigger1 = 1
+y = 0
+
 [State 0, VarSet]
 type = VarSet
 trigger1 = var(59)!=[1,4]
@@ -67,6 +72,7 @@ ctrl = 0
 type    = C
 physics = C
 anim = 10
+ctrl = 1
 [State 0, VarSet]
 type = VarSet
 trigger1 = time=0
@@ -573,6 +579,12 @@ trigger1 =pos y>= 0
 value = 0
 ctrl = 1
 
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = pos y >= 0
+value = 52
+
 ;--------------------------------------------------------------------------
 [Statedef 902]
 type    = A
@@ -664,6 +676,7 @@ trigger1 = 1
 [Statedef 52]
 type    = S
 physics = S
+velset = vel x
 ctrl = 0
 anim = 47
 facep2 = 1
@@ -675,18 +688,13 @@ y = 0
 
 [State 52, 2]
 type = PosSet
-trigger1 = Time = 0
+trigger1 = 1
 y = 0
 
 [State 52, 3]
 type = CtrlSet
 trigger1 = Time = 3
 value = 1
-
-[State 52, 4]
-type = VelSet
-trigger1 = abs(vel x) < Const(movement.stand.friction.threshold)
-x = 0
 
 [State 0, Explod]
 type = Explod
@@ -1053,6 +1061,12 @@ flag = NoWalk
 type = AssertSpecial
 trigger1 = 1
 flag = NoAutoTurn
+
+[State 100, 4]
+type = ChangeState
+trigger1 = time > 9 && command = "holddown"
+value = 10
+ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState

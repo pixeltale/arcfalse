@@ -2739,11 +2739,14 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0, Mapset]
-type = MapSet
-trigger1 = prevstateno != 1050
-map = "Invul_Air"
-value = 1
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall = enemy,statetype=A
+triggerall = enemy,movetype=A
+trigger1 = time<=15
+value = ,NA,SA,NT,ST
+time = 1
+ignorehitpause = 1
 persistent = 1
 
 [State 0, VelAdd]
@@ -3086,12 +3089,11 @@ palcontrast = 256,206,206
 trans = add1
 ignorehitpause = 1
 
-[State 0, Mapset]
-type = MapSet
-trigger1 = time <= 18
-map = "Invul_Full"
-value = 2
-persistent = 1
+[State 0, NotHitBy]
+type 		= NotHitBy
+trigger1 	= !time
+value 		= SCA
+time 		= 18
 
 [State -3, Win Voices] ;Win
 type = PlaySnd

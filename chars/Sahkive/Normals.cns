@@ -1387,6 +1387,13 @@ trigger1 = 1
 value = 5101
 ignorehitpause = 1
 
+[State 430, 3]
+type = ChangeState
+trigger1 = enemy, stateno != 441
+value = 999222
+ctrl = 0
+
+
 ;-----------------------------------------------------------------
 ;3H p2 state (thrown)
 [Statedef 446]
@@ -1428,7 +1435,6 @@ value = 5200
 type    = A
 movetype= A
 physics = N
-poweradd= 5
 ctrl = 0
 anim = 600
 sprpriority = 2
@@ -1526,7 +1532,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = N
-poweradd= 30
 ctrl = 0
 anim = 620
 sprpriority = 2
@@ -1627,7 +1632,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = A
-poweradd= 30
 ctrl = 0
 anim = 630
 sprpriority = 2

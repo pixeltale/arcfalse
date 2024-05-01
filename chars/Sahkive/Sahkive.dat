@@ -63,10 +63,10 @@ _EX EARTH SHATTERER	-		<#55ffff>(1 BAR)</> _D^Y
    <#bbbbbb>A low-hitting ranged attack. Launches the enemy.</>
 
 	<#55ffff>SUPER MOVES</>
-<#008928>The 7/11 Incident.</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+<#008928>The 7/11 Incident.</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
    <#bbbbbb>A command grab. If it lands, Sahkive beats down on
    the opponent with a flurry of punches.</>
-<#008928>LAST RIDE</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+<#008928>LAST RIDE</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
    <#bbbbbb>An overhead attack. Landing this move will put Sahkive into
    a special state where he must time each attack as the previous one 
    hits to continue the combo, and doing so with specific timing will 
@@ -75,7 +75,7 @@ FLY HIGH	^A_- ^B_- ^C_- ^A_- ^B_- ^C_- ^Z
         <#bbbbbb>A series of increasingly damaging attacks.
         The faster the attacks are performed in succession,
         the more damage they will deal.</>
-_!BURNOUT		_D_DF_F_-^Z
+_!BURNOUT		_D_DF_F_-^C
         <#bbbbbb>A powerful ender swing. Deals extra damage if 
         canceled from the very last hit of LAST RIDE.</>
 

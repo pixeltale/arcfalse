@@ -1135,7 +1135,7 @@ persistent         = 0
 type = HitDef 
 trigger1 = time%3 = 0
 attr = S, SP
-damage =15*(parent,map(P4)), 10
+damage =15*(root,map(P4)), 10
 hitflag = MAFP
 guardflag = MAF
 priority = 3
@@ -1163,8 +1163,6 @@ guard.slidetime = 25
 guard.hittime = 14
 guard.ctrltime = 21
 guard.cornerpush.veloff = -7
-ID = 220
-;p2stateno = 30000
 yaccel = .27
 getpower = (0)
 
@@ -3941,7 +3939,7 @@ time = -1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = map(HitCount) > 4
-trigger2 = time >= 100
+trigger2 = time >= 60
 value = 1103
 ctrl = 0
 

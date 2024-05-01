@@ -231,7 +231,7 @@ persistent         	= 0
 type = HitDef
 trigger1 = (anim = 3000 && animelem = 21)
 trigger2 = ((anim = 3001 + map(RaveStage)) && animelemno(0) > 2)
-attr = S,NA
+attr = S,HA
 p2facing = 1
 getpower = 0
 air.animtype = back
@@ -266,7 +266,7 @@ envshake.ampl = 4
 [State 1055, 5]
 type = HitDef
 trigger1 = anim = 3008 && animelemno(0) = 6 
-attr = S,NA
+attr = S,HA
 getpower = 0
 air.animtype = back
 damage = 10*MAP(P4) + 30, 0

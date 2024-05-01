@@ -181,7 +181,7 @@ trigger3 = stateno = 1001 && movecontact ;&& enemynear, movetype = H
 [State 1240, 6EX: Piercer: Tyrfing]
 type = ChangeState
 value = 2200
-triggerall = power>=1000
+triggerall = power>=1000 && !map(EX6S_Limiter)
 triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
 trigger1 = statetype != A
 trigger1 = ctrl

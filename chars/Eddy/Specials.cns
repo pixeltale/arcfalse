@@ -297,6 +297,7 @@ poweradd= 0
 ctrl = 0
 anim =1003
 sprpriority = 2
+facep2 = 1
 
 [State Cancel]
 type 		= mapset
@@ -1247,6 +1248,11 @@ p2stateno 	= cond(enemy, statetype = A, 5255, 5000)
 p2getp1state 	= 0
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
+[State Cancel]
+type = mapset
+trigger1 = !time
+map = "DCFH"
+value = 0
 [State Cancel]
 type = mapset
 trigger1 = movehit && !map(feintDCBurn)

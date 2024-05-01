@@ -260,6 +260,11 @@ type = MapSet
 trigger1 = enemy, movetype != H
 map = "j2H_UseCount"
 value = 0
+[State SP, MapSet]
+type = MapSet
+trigger1 = enemy, movetype != H
+map = "EX6S_Limiter"
+value = 0
 
 ;=============================================+
 ;Palette Stuff

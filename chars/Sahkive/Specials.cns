@@ -178,6 +178,7 @@ pos = 40,0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = numexplod(99856)<3
+triggerall = p2stateno = 1010
 triggerall = time < 50
 trigger1 = command = "x"
 trigger2 = command = "buffer_x"
@@ -187,6 +188,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = time < 50
+triggerall = p2stateno = 1010
 trigger1 = command = "y"
 trigger2 = command = "buffer_y"
 value = 1007
@@ -195,14 +197,16 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = time < 50
+triggerall = p2stateno = 1010
 trigger1 = command = "z"
 trigger2 = command = "buffer_z"
 value = 1008
 ctrl = 0
-;Knee
+;Release
 [State 0, ChangeState]
 type = ChangeState
 triggerall = time < 50
+triggerall = p2stateno = 1010
 trigger1 = command = "c"
 value = 1004
 ctrl = 0
@@ -2843,7 +2847,8 @@ persistent         	= 0
 [State 800, 1] ;With grab sound
 type = HitDef
 Trigger1 = !movecontact && p2stateno != [120,199]
-attr = S, ST, SA          ;Attributes: Standing, Normal Throw
+attr = S, ST, SA   
+guardflag = A       ;Attributes: Standing, Normal Throw
 hitflag = AFD          ;Affect only ground people who are not being hit
 pausetime = 0,50
 priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.

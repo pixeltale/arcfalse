@@ -66,7 +66,7 @@ triggerall = statetype != A
 triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
-trigger2 = ctrl
+trigger2 = ctrl || stateno = 100
 
 [State -1, JC]
 type = ChangeState

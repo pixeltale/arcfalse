@@ -1723,7 +1723,7 @@ getpower = (120)*(cond(var(var(3)) = 1, 1, .5))
 type 		= MapSet
 trigger1 		= movehit
 map 		= "wallbounce_boomerang"
-value 		= 1
+value 		= 1*(enemy, backedgedist > 10)
 ignorehitpause 	= 1
 persistent 		= 0
 
@@ -1741,7 +1741,7 @@ persistent = 0
 type 		= MapSet
 trigger1 		= movehit
 map 		= "wallbounce_yvel"
-value 		= -5.5
+value 		= -5.5 + -1*(enemy, backedgedist < 10)
 ignorehitpause 	= 1
 persistent 		= 0
 
@@ -2009,7 +2009,7 @@ pausemovetime = 0
 [State 0, VelSet]
 type = VelAdd
 trigger1 = time = [1,2]
-x = 7
+x = 5
 y = 0
 
 [State 200, 2]    ;EX Effects
@@ -2155,6 +2155,13 @@ trigger1 = time = 0
 trigger1 = !map(EN)
 map = "EnState"
 value = 0
+[State SP, MapSet]
+type = MapSet
+trigger1 = map(ComboStateCheck)
+trigger1 = movehit = 1
+map = "EX6S_Limiter"
+value = 1
+ignorehitpause = 1
 
 [State 200, 1]
 type = HitDef 
@@ -2634,7 +2641,7 @@ value = 5,0
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "jEXLim"
 value 		= 1
 ignorehitpause 	= 1
