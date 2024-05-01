@@ -1973,29 +1973,26 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 200, 1] ;ENHANCER - AIR HIT
+[State 200, 1] ;ENHANCER HIT
 type = HitDef 
 p2facing 	= 1
 triggerall 	= anim = 1521
-trigger1 	= enemy, (statetype != S || statetype != C)
 trigger1	= !movecontact && !movereversed
-hitonce 	= 1
-attr 	= A, SA
-damage 	= 100*MAP(P4), 10
+attr 		= S, NA
+damage 		= 100*MAP(P4), 10
 hitflag 	= MAFD
 guardflag	= MA
 pausetime 	= 15,15
-sparkno 		= 3
-sparkxy 		= -5,-35
+sparkno 	= 3
+sparkxy 	= -5,-35
 hitsound   	= 5,4
 guardsound 	= 6, 2
-animtype 		= hard
-guard.ctrltime	= 20
-getpower 		= 0
+animtype 	= hard
 air.velocity 	= -1,15
 ground.velocity = -1,15
 fall.xvelocity 	= -1
 fall.yvelocity 	= 0
+ground.hittime	= 19
 air.hittime 	= 38 - MAP(UntechDecay)
 down.hittime	= 38
 envshake.time 	= 45
@@ -2004,40 +2001,12 @@ envshake.ampl 	= 2
 envshake.phase 	= 1
 air.fall 	= 1
 fall 		= 1
+guard.velocity 	= 1
+guard.slidetime = 20
+guard.ctrltime	= 40
 airguard.velocity = 1, -3
 p2stateno 	= 5255
 p2getp1state 	= 0
-[State 200, 1] ;ENHANCER - GROUND HIT
-type = HitDef 
-p2facing 	= 1
-triggerall = anim = 1521
-trigger1 	= time = 0 && enemy, statetype != A
-attr 	= S, NA
-animtype  	= Hard
-damage 		= 100*map(P4), 10
-hitflag 		= MAF
-guardflag 	= HAFD
-guardsound 	= 6, 2
-pausetime 	= 16,16
-sparkno 		= 3
-sparkxy 		= -10,-80
-hitsound   	= 5,3
-guard.ctrltime	= 20
-ground.type 	= High
-ground.hittime  	= 35 - MAP(UntechTime)
-down.hittime	= 35
-ground.velocity 	= -3.8
-down.velocity	= 0, -6
-air.velocity 	= 0.5, 15
-fall.yvelocity	= 0
-air.fall 		= 1
-guard.velocity 	= 1
-guard.slidetime = 20
-envshake.time 	= 20
-envshake.freq 	= 80
-envshake.ampl 	= 6
-envshake.phase 	= 1
-getpower 		= (60)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
 type 		= AfterImage			        ;+

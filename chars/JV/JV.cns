@@ -255,6 +255,13 @@ flag = Nobardisplay
 
 [Statedef -2]
 
+[State 0, Jump Cancel]
+type 		= MapSet
+trigger1 	= stateno >= 1000
+map 		= "JC"
+value 		= 0
+ignorehitpause 	= 1
+
 [State 0, MAPSET]
 type = MapSet
 trigger1 = enemy, movetype != H

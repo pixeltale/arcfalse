@@ -806,7 +806,7 @@ p2facing = 1
 trigger1 = time = 0
 hitonce = 1
 attr = S, SA, HA
-damage = 100*MAP(P4) + 85, 10
+damage = 100*MAP(P4) + 55, 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 20,30
@@ -885,7 +885,7 @@ p2facing = 1
 trigger1 = time = 0
 hitonce = 1
 attr = S, SA
-damage = 120*MAP(P4) + 95, 15
+damage = 100*MAP(P4) + 65, 15
 hitflag = MAFD
 guardflag = MAF
 pausetime = 35,30
@@ -1052,7 +1052,7 @@ guardflag 	= MA
 pausetime 	= 3,3
 guard.pausetime 	= 2,2
 sparkno 		= 3
-sparkxy 		= enemy, pos x, enemy, pos y+-40 ;Bruh
+sparkxy 		= -p2dist x, enemy, pos y+-40 ;Bruh
 hitsound   	= 5,3
 guardsound 	= 6,2
 ground.type 	= high
