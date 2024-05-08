@@ -1,0 +1,25 @@
+Copy Paste common1.cns in Add004/SVC/Bs0 Folders to Data
+Change Config.json to read Add004 files accordingly to name 
+"CommonAir": [
+    "data/Add004CNS/common.air"
+  ],
+  "CommonCmd": [
+    "data/Add004CNS/common.cmd"
+  ],
+  "CommonConst": [
+    "data/Add004CNS/common.const"
+  ],
+  "CommonFx": [],
+  "CommonLua": [
+    "loop()"
+  ],
+  "CommonStates": [
+    "data/functions.zss",
+    "data/action.zss",
+    "data/dizzy.zss",
+    "data/guardbreak.zss",
+    "data/score.zss",
+    "data/Add004CNS/NegativeStates.cns",
+    "data/Add004CNS/common2.cns",
+    "data/Add004CNS/NegativeStates.zss",
+    "data/training.zss"

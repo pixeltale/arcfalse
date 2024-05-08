@@ -374,10 +374,10 @@ sprpriority = 2
 facep2 = 1
 poweradd=-2000
 
-;why the fuck was this so complicated its literally a joke palette
 [State -3, Win Voices] ;Win
 type = PlayBgm
 trigger1 = time = 0 && map(TREASURE)
+trigger1 = gamemode != "Training"
 bgm="sound\TREASURESUMMONED.wav"
 
 

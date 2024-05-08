@@ -1,0 +1,10 @@
+How does this tag work
+It uses add004 In Helper 90900
+In Statedef -2 you can find sysfvar(0) which gets the id of players I think
+var(15) is set to determine player id in helper 90900
+var(48) is set to determine when to change/assist or team hyper
+there is multiple null's set to determine id of the player when var(48) is a certain number
+In Statedef -2 there are varsets that detect var(48) in helper 90900 and they set a specific sysfvar(4) to a certain number
+In Statedef -1 there is a changestate that triggers when player is in landing state 190195 and if sysfvar(4) = 3 which means var(48) in 909000 helper is set 15,16,17 for each player which allows you to activate team hyper cancel
+In stateno 190193 there is a changestate that triggers sysfvar(4)=2 which means var(48) in helper 90900 which is set to 20,21,22 for each player(1,2,3) for a tag in attack
+There is a TagIn sctrl in Stateno 190191 and 190192 that lets portraits to change when tagged in,which is same as sysfvar(4) value in those states as well.

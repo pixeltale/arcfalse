@@ -1,0 +1,15 @@
+Ikemen Go is amazing. A lot of new features and stuff for players plus cool stuff for coders. Constants are great to customize easily any module. I implemented many constants in my TAG system so you can override any setting per character!!
+First, let’s learn how to declare constant. Open your char in Fighter Factory and go to the main CNS file of the char.
+Below the [Movement] parameters create a new section called [Constants]
+
+[Constants]
+; NegativeStates.cns states
+StateTagSuperAssist = 3000
+StateTagSuperAssist2  =3100
+StateTagAssist = 1000 
+superAttacksStartStateno = 3000 ; the stateno that starts super attacks
+superAttacksEndStateno = 3999 ; the stateno that ends super attacks
+AnimAerialAttack = 620
+SpecialAttackAIStartStateno =1000
+SpecialAttackAIEndStateno =1999
+MVCIActiveSwitch  = 0

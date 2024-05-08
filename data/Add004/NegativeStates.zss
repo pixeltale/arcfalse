@@ -1,0 +1,96 @@
+[Statedef -4]
+
+
+#get the ID of 3rd teammate in standby, var49 and var15 only count 2 people
+ignorehitpause if sysfvar(4)>0 && alive && ID!=(playerid(floor(sysfvar(0))),var(49)) 
+&& ID!=(playerid(floor(sysfvar(0))),var(15)) && PlayerID(map(partnerfortynine)),alive=0 {
+	mapset{map:"thirdguy" ;value:ID; RedirectID: floor(sysfvar(0))}
+}
+
+ignorehitpause if sysfvar(4)=3 && stateno=[const(superAttacksStartStateno),const(superAttacksEndStateno)] {
+	mapset{map:"dohyper";value:1;RedirectID:(playerid(floor(sysfvar(0))),var(15))}
+}
+
+ignorehitpause if stateno!=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && stateno!=[190193,190196]  {
+	mapset{map:"dohyper";value:0}
+}
+#get ID of enemy in tag
+teammapset{map:"mainIDTriple";value:PlayerID(floor(sysfvar(0))),var(16)}
+
+#get id of my main player
+teammapset{map:"mymainIDTriple";value:PlayerID(floor(sysfvar(0))),var(15)}
+
+##noturntarget stuff with enemy assists
+ignorehitpause if roundstate = 2 && map(alreadyjumping)=0 && stateno!=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && map(assist)=0 && stateno!=[190190,190196] && (enemynear,map(assist)>0 || target,map(assist)>0)  
+	&& PlayerID(map(mainIDTriple)),facing = -1 && facing = -1 && PlayerID(map(mainIDTriple)),movetype!=H && 
+	pos x < PlayerID(map(mainIDTriple)), pos x && (movetype!=A || (movetype=A && time=0 &&
+	(target,gethitvar(isbound)=0 && target,incustomstate=0))){
+		turn{}
+		mapset{map:"flag";value:map(flag)+1}
+}
+
+ignorehitpause if roundstate = 2 && map(alreadyjumping)=0 && stateno!=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && map(assist)=0 && stateno!=[190190,190196] && (enemynear,map(assist)>0 || target,map(assist)>0)  
+	&& PlayerID(map(mainIDTriple)),facing = 1 && facing = 1 && PlayerID(map(mainIDTriple)),movetype!=H && 
+	pos x > PlayerID(map(mainIDTriple)), pos x && (movetype!=A || (movetype=A && time=0 &&
+	(target,gethitvar(isbound)=0 && target,incustomstate=0))){
+		turn{}
+		mapset{map:"flag";value:map(flag)+1} #nothing functional, just shows in debug mode if it triggered and worked, it is working
+}
+
+##Exception continued from above, if already in jumping state when enemy assist is called, don't turn if enemy passes you
+if teammode = tag && stateno = 190193 && time = [0,1] && sysfvar(4)=1 && PlayerID(map(mainIDTriple)), stateno = [41,51] && facing = PlayerID(map(mainIDTriple)), facing {
+	mapset{map:"alreadyjumping"; value:1; RedirectID:map(mainIDTriple)}
+}
+
+if teammode = tag && stateno = 1251104 && time = [0,1] && sysvar(4)=2 && PlayerID(map(mainIDDuo)), stateno = [41,51] && facing = PlayerID(map(mainIDDuo)), facing {
+	mapset{map:"alreadyjumping"; value:1; RedirectID:map(mainIDDuo)}
+}
+
+if map(alreadyjumping)>0 && (pos y >= 0 || stateno!=[41,51]) {
+	mapset{map:"alreadyjumping"; value:0}
+}
+
+## FEEL FREE to delete this juggle if it doesn't affect you, i found I could infinite crouch attack a downed player
+## if you hit-cancel, so this is a custom juggle system when enemy is down and you tag cancel
+#prevent from being hit by continueous ground cancel's if lying down state when opponent switch cancels
+if teammode = tag && (stateno = [5080,5110] || gethitvar(fall)=1) && PlayerID(gethitvar(ID)),sysfvar(4)=2 && map(jugglemax) = 0 {
+	mapset{map:"jugglemax";value:1}
+}
+
+if teammode = simul && (stateno = [5080,5110] || gethitvar(fall)=1) && PlayerID(gethitvar(ID)),sysvar(4)=12 && map(jugglemax) = 0 {
+	mapset{map:"jugglemax";value:1}
+}
+
+if teammode = tag && map(jugglemax) = [1,2] && ((stateno = 5080 && time = 0)||(PlayerID(gethitvar(ID)),HitDefAttr = C, NA, SA && time=0)) {
+	mapadd{map:"jugglemax";value:1}
+}
+
+if teammode = simul && map(jugglemax) = [1,2] && ((stateno = 5080 && time = 0)||(PlayerID(gethitvar(ID)),HitDefAttr = C, NA, SA && time = 0)){
+	mapadd{map:"jugglemax";value:1}
+}
+##if juggle max on floor during cancel, not hit by anything
+if map(jugglemax) > 2 && (stateno = [5080,5110]||(PlayerID(gethitvar(ID)),HitDefAttr = C, NA, SA)) {
+	NotHitBy{value:SCA}
+}
+
+if map(jugglemax) > 0 && (stateno = [0,50] || stateno = 5120) {
+	mapset{map:"jugglemax";value:0}
+}
+
+#capture timeelapsed value since timer counts down AFTER roundstate =2, capture result is 329 value of map time elapsed when timelapsed is 210 timer. Not really needed anymore but saved in case timing changed
+if roundstate = 2 && timeelapsed=210 {
+	mapset{map:"capture";value:map(timeelapsed)}
+}
+##detects if is assist partner
+ignorehitpause if roundstate = 2 && playerid(floor(sysfvar(0))),var(48)=21  && statetype = A && stateno != [190190,190196] && prevstateno!= [190195,190196] { 
+	#changestate{value:51;ctrl:0} 
+	mapset{map:"assist"; value:1}
+	}
+
+ignorehitpause if roundstate = 2 && playerid(floor(sysfvar(0))),var(48)=21  && (statetype = S || statetype = C) && stateno != [190190,190196] && prevstateno!= [190195,190196] { 
+	#changestate{value:190190} 
+	mapset{map:"assist"; value:1}
+	}
+ignorehitpause if !ishelper && (stateno=190191 || stateno=[190193,190194] || (stateno=190195 && map(assist)=1) || (prevstateno = 190195 && Map(assist) = 1) || Map(assist) = 1) {
+		assertspecial {flag:NoTurnTarget;}
+	}

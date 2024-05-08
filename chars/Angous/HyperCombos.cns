@@ -1889,7 +1889,7 @@ loop = 0
 [State 0, PlaySnd] ;DURAGON INSTALLL voice
 type = PlayBgm
 trigger1 = animelem = 9 && palno = 9 && roundno = 3
-trigger2 = animelem = 9 && palno = 9 && gamemode = "Training"
+trigger2 = animelem = 9 && palno = 9 && gamemode != "Training"
 bgm = "sound\gabeinstall.mp3"
 
 [State 0, StopSnd]

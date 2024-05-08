@@ -172,8 +172,9 @@ persistent 		= 1
 type = TargetBind
 triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 1
-time = 50
+time = 1
 pos = 40,0
+ignorehitpause = 1
 ;Pummel
 [State 0, ChangeState]
 type = ChangeState
@@ -480,6 +481,7 @@ forcestand = 1
 ground.cornerpush.veloff = -7
 air.cornerpush.veloff = -7
 getpower = 25*var(2)
+kill = 0
 
 [State 0]
 type = hitdef 
@@ -580,8 +582,8 @@ trigger1 = animelem = 1
 attr = S,NA
 hitflag = MAFD
 sparkno = -1
-air.hittime = 999
-ground.hittime = 999
+air.hittime = 60
+ground.hittime = 60
 fall = 1
 
 [State 0, HitAdd]
@@ -595,7 +597,7 @@ persistent = 0
 [State 0, TargetBind]
 type = TargetBind
 trigger1 = animelem = 2
-time = 9999
+time = 60
 pos = 30, -14
 [State 0, TargetBind]
 type = TargetBind
@@ -634,8 +636,8 @@ time = 9999
 pos = -30, -70
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = animelem = 10
-time = 9999
+trigger1 = AnimElemNo(0) = 10
+time = 1
 pos = 60, -20
 
 [State 0, VelAdd]
@@ -3056,7 +3058,7 @@ absolute = 0
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = animelem = 7
-value = 25
+value = 150
 ;ignorehitpause = 
 ;persistent = 
 

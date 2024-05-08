@@ -3268,21 +3268,20 @@ color = 256
 
 [State 0, ChangeState]
 type = ChangeState
-trigger2 = time > 30
 trigger1 = animtime = 0
-trigger2 = prevstateno = 666999
+trigger2 = time >= 20 && teammode = Tag && prevstateno = 190195
 value = 562
 
 [State 0, ChangeState]
 type = ChangeState
 triggerall = time > 18
-trigger1 = command != "hold_c"
+trigger1 = command != "hold_c" && prevstateno != 190195
 value = 563
 
 [State 0, ChangeState]
 type = ChangeState
 triggerall = time = [24,26]
-trigger1 = command = "release_c"
+trigger1 = command = "release_c" && prevstateno != 190195
 value = 0
 ctrl = 1
 [State 0, PalFXWiz]

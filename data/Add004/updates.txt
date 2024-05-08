@@ -1,0 +1,21 @@
+Ver. 4.1(8 June 2016):
+- Added a little screen pause and shake in Tag Cancel move when hit.
+- Nerfed UNO Mode: a bit faster life drain
+
+Ver. 4.0(21 May 2016):
+- Make a little Adjustment to play with Type-S and Type-K partner
+- You can now partner Type-R with Type-S and Type-K tag system.
+- Fixed stuck lying down bug on Partner Assist.
+
+Ver. 3.1.1(09 May 2015):
+- Partner Assist leaving screen facing fixed
+- Standby position when partner's dead fixed
+
+Ver. 3.1.1:
+- Added blank animation for helpers.
+- Widescreen stages in Mugen 1.1 bug fixed.
+- Tag Cancel [type-R] power cost fixed + made some values adjustment.
+- Stuck on air glitch fixed
+
+Ver. 3.0.1:
+- Initial Release.

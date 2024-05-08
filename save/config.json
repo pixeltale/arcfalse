@@ -11,13 +11,16 @@
   "Borderless": false,
   "ComboExtraFrameWindow": 0,
   "CommonAir": [
-    "data/common.air"
+    "data/common.air",
+    "data/Add004/common.air"
   ],
   "CommonCmd": [
-    "data/common.cds"
+    "data/common.cds",
+    "data/Add004/common.cmd"
   ],
   "CommonConst": [
-    "data/common.const"
+    "data/common.const",
+    "data/Add004/common.const"
   ],
   "CommonFx": [],
   "CommonLua": [
@@ -29,7 +32,10 @@
     "data/dizzy.zss",
     "data/guardbreak.zss",
     "data/score.zss",
-    "data/tag.zss",
+    "data/Add004/NegativeStates.cns",
+    "data/Add004/common2.cns",
+    "data/Add004/NegativeStates.zss",
+    "data/training.zss",
     "data/training.zss"
   ],
   "ControllerStickSensitivity": 0.4,
@@ -58,15 +64,7 @@
   "GameFramerate": 60,
   "InputButtonAssistWindow": 1,
   "InputSOCDResolution": 1,
-  "IP": {
-    "Buster": "26.0.68.166",
-    "CUSES": "26.90.112.183",
-    "Luc": "26.35.237.168",
-    "Sonix": "26.210.10.172",
-    "Tommy": "26.165.214.130",
-    "blast harbour": "66.24.246.20",
-    "niggaballs": "12891"
-  },
+  "IP": {},
   "LifeMul": 130,
   "ListenPort": "7500",
   "LoseSimul": true,
@@ -228,15 +226,15 @@
         "12",
         "13",
         "11",
-        "0",
+        "-12",
         "1",
-        "5",
+        "0",
         "2",
         "3",
-        "-12",
+        "5",
         "7",
-        "4",
         "-10",
+        "4",
         "6"
       ]
     },

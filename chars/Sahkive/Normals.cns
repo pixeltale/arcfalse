@@ -2020,7 +2020,7 @@ removetime = -1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
-value         =  4
+value         =  3
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
@@ -2033,7 +2033,7 @@ ignorehitpause     = 1
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.85
+value         =  0.80
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
@@ -2049,7 +2049,7 @@ p2facing = 1
 trigger1 = animelem = 9
 hitonce = 1
 attr = S, SA
-damage = 110*MAP(P4), 0
+damage = 60*MAP(P4), 0
 animtype = hard
 hitflag = MAFD
 guardflag = HA
@@ -2091,7 +2091,7 @@ p2facing = 1
 trigger1 = animelem = 10
 hitonce = 1
 attr = S, SA
-damage = 110*MAP(P4), 0
+damage = 60*MAP(P4), 0
 animtype = hard
 hitflag = MAFD
 guardflag = HA
@@ -2109,7 +2109,7 @@ fall.yvelocity		= 0
 air.type 			= trip
 air.velocity 		= -0.7, 15
 ground.hittime  		= 25-MAP(untechDecay)
-air.hittime 		= 31-MAP(untechDecay)
+air.hittime 		= 29-MAP(untechDecay)
 down.hittime		= 36-MAP(untechDecay)
 air.fall 			= 1
 fall 			= 1
@@ -2219,11 +2219,13 @@ value = time
 [State 12, ChangeState]
 type = ChangeState
 trigger1 = command !="hold_c" && time = [14,36]
+trigger1 = partner, map(assist) = 0
 value = 511
 
 [State 13, ChangeState]
 type = changestate
 trigger1 = command ="hold_c" && time >= 36
+trigger2 = partner, map(assist) > 0 && time >= 36
 value = 512
 
 ;-----------------------------------------------

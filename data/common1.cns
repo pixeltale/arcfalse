@@ -4557,11 +4557,15 @@ type    = A
 movetype= H
 physics = N
 
-[State 5221 VelSet]
-type = velset
+[State 5222, Turn]
+type = Turn
+trigger1 = (Time = 0) && enemynear, p2dist x < 0
+
+[State 5231, Velocity]
+type = HitVelSet
 trigger1 = Time = 0
-x = gethitvar(xvel)*cond(enemy,facing=facing,1,-1)*cond(facing=1,-1,1)
-y = gethitvar(yvel)
+x = 1
+y = 1
 
 [State 5221, Gravity]
 type = VelAdd

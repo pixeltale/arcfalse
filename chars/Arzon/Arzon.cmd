@@ -164,7 +164,7 @@ type = ChangeState
 value = 1010
 triggerall=stateno!=40
 triggerall = power>=1000
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "b" && command = "c" || teammode != Tag && command = "EX"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
 triggerall = statetype != A
@@ -217,7 +217,7 @@ value = 1310
 triggerall=stateno!=40
 triggerall = stateno != 1310
 triggerall = power>=1000 && !map(EX4SLimiter)
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "b" && command = "c" || teammode != Tag && command = "EX"
 triggerall = command != "holddown"
 triggerall = command = "holdback"
 triggerall = statetype != A
@@ -279,7 +279,7 @@ triggerall=stateno!=40
 triggerall = numhelper(12050)=0
 triggerall = power>=1000  && !map(EX5SLimiter)
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "b" && command = "c" || teammode != Tag && command = "EX"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -340,7 +340,7 @@ triggerall=stateno!=40
 triggerall = NumprojID(1112) <= 0
 triggerall = power>=1000  && !map(EX6SLimiter)
 triggerall = fvar(23) = 0
-triggerall = command = "b" && command = "c"  || command = "EX"
+triggerall = command = "b" && command = "c"  || teammode != Tag && command = "EX"
 triggerall = command = "holdfwd"  && command != "holdback" && command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
@@ -364,7 +364,7 @@ value = 1410
 triggerall = NumprojID(1112) <= 0
 triggerall = power>=1000  && !map(EXj6SLimiter)
 triggerall = command != "holdback" && command = "holdfwd" && command != "holddown"
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "b" && command = "c" || teammode != Tag && command = "EX"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -389,7 +389,7 @@ value = 1440
 triggerall = numhelper(12050)=0
 triggerall = power>=1000  && !map(EXj5SLimiter)
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "b" && command = "c" || teammode != Tag && command = "EX"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
