@@ -3970,7 +3970,7 @@ ctrl = 1
 ; Downed get-hit (lying defeated)
 [Statedef 5150]
 type    = L
-movetype= H
+movetype= I
 physics = N
 sprpriority = -3
 ctrl = 0
