@@ -1893,7 +1893,7 @@ juggle = 0
 velset = vel x,0
 ctrl = 0
 anim = 2010
-poweradd = -1000
+poweradd = -1000*(prevstateno != 190195)
 sprpriority = 2
 
 [State -2, Starter Level]
@@ -2009,16 +2009,16 @@ pausemovetime = 0
 [State 0, VelSet]
 type = VelAdd
 trigger1 = time = [1,2]
-x = 5
+x = 5 * 0.5*(prevstateno = 190195)
 y = 0
 
 [State 200, 2]    ;EX Effects
 type = PlaySnd
-trigger1 = time = 0
+trigger1 = time = 0 && prevstateno != 190195
 value = 6800, 0
 [State 0, Explod]
 type = Explod
-trigger1 = time = 0
+trigger1 = time = 0 && prevstateno != 190195
 anim = 6950
 ID = 6950
 pos = 0,0
@@ -2040,7 +2040,7 @@ removeongethit = 0
 ignorehitpause = 0
 [State 0, Explod]
 type = Explod
-trigger1 = time = 0
+trigger1 = time = 0 && prevstateno != 190195
 anim = 6800
 ID = 6800
 pos = 0,0
@@ -2062,13 +2062,13 @@ removeongethit = 0
 ignorehitpause = 0
 [State 8000, PalFX]
 type = PalFX
-trigger1 = 1
+trigger1 = 1 && prevstateno != 190195
 add = 40, 30, -40
 time=10
 ignorehitpause = 1
 [State 3120, AfterImage]
 type = AfterImage
-trigger1 = Time = 0
+trigger1 = Time = 0 && prevstateno != 190195
 time = 20
 palbright = 40,30,-40
 palcontrast = 256,206,206
