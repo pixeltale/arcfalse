@@ -163,7 +163,7 @@ stages/training_re.def, music = sound/LINKUP.mp3, zoom=0,music = sound/TINTS.mp3
 stages/dojo.def, music = sound/ROCKTHEBEAT.mp3, zoom = 0
 stages/dojoout.def,
 stages/garden.def,zoom = 0
-stages/aegisdusk.def, zoom = 0, music=sound/MORALISTICCONFUSION.mp3
+stages/aegisdusk.def, zoom = 0, music=sound/MORALISTICCONFUSION.mp3, music=sound/SATURDAYS.mp3
 stages/aegisnight.def, zoom = 0, music=sound/DLNB.mp3
 stages/watercave.def, music = sound/LOVEDESIREAFFECTION.mp3,zoom=0
 stages/BattleCollab.def, music = sound/PUSHTHETEMPO.mp3,zoom=0
@@ -172,6 +172,7 @@ stages/ImitatorCollab.def,music = sound/FLAWLESS.mp3,zoom=0
 stages/OneVMany.def,music = sound/VAMPIRES.mp3,zoom=0
 stages/CTEAlley.def, zoom = 0
 stages/sakura.def, zoom=0
+stages/WaffleHouse.def,music = sound/LAME.mp3, music = sound/NAKEDGLOW.mp3, music = sound/FLESHTANGO.mp3, zoom=0
 stages/virtualbattleground.def, music = sound/MEDIUMPACE.mp3, music = sound/NIGGASINPARIS.mp3,  music = sound/NOTLIKEUS.mp3, zoom = 0
 stages/kno.def, music = sound/IMUNSTABLE.mp3, zoom=0, music = sound/GUESTSCAMEOVER.mp3 , music = sound/CHECKAGAIN.mp3
 

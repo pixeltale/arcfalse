@@ -468,7 +468,7 @@ value =1
 type = mapset
 trigger1 = time = 0
 map = "ADM" 			;AirDash Momentum Preserve
-value = 6
+value = -1
 
 [State 0, VarAdd]
 type = VarAdd

@@ -924,7 +924,7 @@ envshake.phase 	= 1
 fall.yvelocity 	= 0
 guard.ctrltime 	= 10
 air.fall 		= 1
-getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
+getpower 		= (25)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1785,7 +1785,7 @@ trigger1 = !movecontact
 attr = S, NA
 animtype  = Hard
 air.animtype = back
-damage = 150*map(P4)
+damage = 100*map(P4)
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12

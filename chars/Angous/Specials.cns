@@ -2872,7 +2872,7 @@ ctrl = 1
 type    = A
 movetype= A
 physics = A
-juggle  = 4
+juggle  = 0
 poweradd= 0
 ctrl = 0
 velset = vel x + 4,-9
@@ -3254,7 +3254,7 @@ ctrl = 1
 type    = A
 movetype= A
 physics = A
-juggle  = 4
+juggle  = 0
 poweradd= 0
 ctrl = 0
 velset = vel x + 4,-12
@@ -3382,7 +3382,8 @@ persistent = 1
 
 [State 1055, 6]
 type = ChangeState
-trigger1 = Vel Y > 0 && Pos Y >= 0
+trigger1 = Vel Y >= 0 && Pos Y >= 0
+ctrl = 0
 value = 1053
 
 
@@ -4322,7 +4323,7 @@ poweradd= 0
 ctrl = 0
 sprpriority = 2
 facep2 = 1
-anim = 10011
+anim = 10035
 
 [State 0, PalFX]
 type = PalFX
@@ -4435,13 +4436,8 @@ ignorehitpause = 0
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = animelem = 3
-x = 12
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = animelem = 7
-x = 1
+trigger1 = animelem = 6
+x = 18
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -4475,11 +4471,11 @@ type = hitdef
 p2facing = 1
 trigger1 = time = 0
 attr = S, SA
-damage = 85*MAP(P4),15
+damage = 125*MAP(P4),15
 animtype  =hard
 hitflag = MAFD
 guardflag = MA
-pausetime = 20,20
+pausetime = 25,25
 sparkno = 2
 sparkxy = -10,-50
 hitsound   = 5,2
@@ -4487,8 +4483,8 @@ guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
 ground.hittime  = 65 - MAP(untechDecay)
-air.hittime  = 20 - MAP(untechDecay)
-down.hittime = 20 - MAP(untechDecay)
+air.hittime  = 40 - MAP(untechDecay)
+down.hittime = 60 - MAP(untechDecay)
 ground.velocity = -2, -5
 air.velocity = -2,-4
 air.cornerpush.veloff = -16
@@ -4513,7 +4509,7 @@ ctrl = 1
 
 [State 0, Changestate]
 type = Changestate
-triggerall = movehit
+triggerall = movecontact
 trigger1 = command = "66" || teammode != Tag && command = "M66"
 value = 100
 ctrl = 1

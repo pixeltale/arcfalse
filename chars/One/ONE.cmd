@@ -17,7 +17,7 @@ var(1) = 0
 type = VarSet
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || stateno = 643
+trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || (stateno=643 && animelemtime(6) = [3,6])
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = stateno!=421 && stateno!= 453
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
@@ -171,7 +171,7 @@ triggerall = !var(50)
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = (stateno = [600,650]) && movehit
+trigger3 = (stateno = [600,650]) && movehit && stateno != [642,643]
 
 [State 1020, j6S: Shredder]
 type = ChangeState
@@ -182,8 +182,7 @@ triggerall = statetype = A
 triggerall = !var(50)
 trigger3 = var(1)
 trigger1 = ctrl
-trigger2 = (stateno = [600,650]) && movecontact ;&& enemynear, movetype = H
-trigger4 = stateno = 1053 && movecontact ;&& enemynear, movetype = H
+trigger2 = (stateno = [600,650]) && movecontact && stateno != [642,643]
 
 [State 1240, 6EX: EX Dash Slash]
 type = ChangeState
@@ -240,7 +239,7 @@ triggerall = var(38)<=0
 trigger1 = statetype = A
 triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
 trigger1 = ctrl
-trigger2 = (stateno = [600,650]) && movecontact = 1
+trigger2 = (stateno = [600,650]) && movecontact = 1 && stateno != [642,643]
 trigger4 = stateno = 1057 && movecontact = 1
 trigger5 = stateno = 1000 && movecontact
 
@@ -251,7 +250,7 @@ value = 1151
 trigger1 = statetype = A
 triggerall = command = "b"
 trigger1 = ctrl
-trigger2 = (stateno = [600,650]) && movecontact = 1
+trigger2 = (stateno = [600,650]) && movecontact && stateno != [642,643]
 
 
 [State 1250, 5EX: EX Flip]

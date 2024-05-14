@@ -1027,8 +1027,8 @@ value = 1009,0
 
 [State 100]
 type = VelSet
-trigger1 = time = [0,10]
-x = 8
+trigger1 = time = [0,8]
+x = 6
 
 [State 0, Explod]
 type = Explod

@@ -3961,7 +3961,7 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  1.2	;100% Starting DMG
+value 		=  1.1	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -4005,7 +4005,7 @@ damage = 0, 0
 hitflag = M
 guardflag = 
 priority = 3
-pausetime = 0,0
+pausetime = 1,1
 sparkno = 0
 sparkxy = -5,-35
 hitsound   = 5,0
@@ -4021,8 +4021,13 @@ air.velocity = 2,-3
 air.hittime = 24
 fall = 1
 getpower = 0
-p1stateno = 2005
 p2stateno = 3002
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit = 1
+value = 2005
+ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState
@@ -4258,20 +4263,20 @@ velset = 0,0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  2
+value 		=  3
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.89	;100% Starting DMG
+value 		=  1	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		=  0.90	;80% DMG For next hit
+value 		=  1.3	;LOL
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, P2 Accumulation - Scale]
@@ -6803,7 +6808,7 @@ animtype  = Hard
 damage = 55*MAP(P4), 0
 hitflag = MAF
 guardflag = 
-pausetime = 10,10
+pausetime = 10,50
 sparkno = 3
 sparkxy = -35,-34
 hitsound   = S5,1
@@ -6827,7 +6832,6 @@ guard.pausetime= 3,15
 guard.velocity = -7
 guard.dist = 20
 guard.slidetime = 30;
-p2stateno = 1457
 
 
 [State 0, ChangeState]

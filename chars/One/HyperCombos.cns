@@ -983,7 +983,7 @@ ignorehitpause = 0
 type = HitDef
 trigger1 = time = 0 && p2dist x>70
 attr = S, HA
-damage = ceil(cond(fvar(11) * 250 < 250, 250, fvar(11) * 250)),0
+damage = 250*map(P4) + 100
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA
@@ -1011,7 +1011,7 @@ getpower = 0
 type = HitDef
 trigger1 = time = 0 && p2dist x<70
 attr = S, HA
-damage = ceil(cond(fvar(11) * 300 < 300, 300, fvar(11) * 300)),0
+damage = 250*map(P4) + 150
 animtype  = Medium
 hitflag = MAFD
 guardflag = 
@@ -1035,21 +1035,6 @@ fall.envshake.freq = 0
 fall.envshake.ampl = 0
 getpower = 0
 
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 = movehit
-flag = Nobardisplay
-flag = timerfreeze
-flag2 = NoFG
-flag3 = Noshadow
-ignorehitpause = 1
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 = movehit
-flag = Nomusic
-ignorehitpause = 1
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = movehit = 1
@@ -1059,9 +1044,10 @@ value = 7
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = movehit = 1
+trigger1 = movehit
 v = 30    ;fv = 10
 value = 250
+ignorehitpause = 1
 
 [State 0, ChangeState]
 type = ChangeState

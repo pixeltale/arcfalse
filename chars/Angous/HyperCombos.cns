@@ -11,6 +11,21 @@ velset = 0,0
 anim =3001
 sprpriority = 16
 
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
 
 [State Meter Burn State, VarSet]
 type = VarSet
@@ -210,9 +225,9 @@ p2stateno = 5300
 [State -2, Starter Level]
 type 		= MapSet
 triggerall	= Enemy, statetype = A
-trigger1 	= movehit = 1
+trigger1 	= 1
 map 		= "spinoutcustomy"
-value 		= -8
+value 		= -9
 ignorehitpause 	= 0
 
 [State 0, PlayerPush]
@@ -405,29 +420,6 @@ time = 2
 [State 8990, DestroySelf]
 type = DestroySelf
 trigger1 = RoundState > 3
-;---------------------------------------------------------------------------
-[State -3, Hyper Finish Background]
-type = Helper
-triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
-trigger1 = WinKO
-name = "Hyper Finish B.G."
-id = 8990
-pos = 0,0
-postype = p1
-facing = 0
-stateno = 8990
-keyctrl = 0
-ownpal = 1
-supermovetime = 1000
-pausemovetime = 1000
-ignorehitpause = 1
-
-[State 200, 3]
-type = ChangeState
-trigger1 = time > 49
-value = 3002
-ctrl = 1
-
 ;---------------------------------------------------------------------------------------------
 ;Buster Hit Success
 [Statedef 3002]
@@ -506,9 +498,18 @@ velset = 0,0
 anim=3004
 sprpriority = 16
 
+[State -2, Starter Level]
+type 		= MapSet
+triggerall	= Enemy, statetype = A
+trigger1 	= 1
+map 		= "spinoutcustomy"
+value 		= -9
+ignorehitpause 	= 0
+
 [State 0, Zoom]
 type = zoom
 triggerall	= backedgebodydist<=100
+trigger1  = !WinKO
 trigger1 	= movehit
 trigger1 	= enemy,HitShakeOver = 0
 scale 	= 1.2
@@ -520,6 +521,7 @@ ignorehitpause	= 1
 [State 0, Zoom]
 type = zoom
 triggerall	= backedgebodydist>100
+trigger1  = !WinKO
 trigger1 	= movehit
 trigger1 	= enemy,HitShakeOver = 0
 scale 	= 1.5
@@ -1872,25 +1874,39 @@ trigger1 = time = 0
 v = 28    ;fv = 10
 value = 1
 
-[State 0, PlaySnd] ;DURAGON INSTALLL voice
+[State 0, PlaySnd] ;DURAGON INSTALLL
 type = PlaySnd
 trigger1 = animelem = 9 && palno = 10
 value = 3012,0
 channel = 99
 loop = 0
 
-[State 0, PlaySnd] ;DURAGON INSTALLL voice
+[State 0, PlaySnd] ;ENOUGH!
 type = PlaySnd
 trigger1 = animelem = 2 && palno = 9
 value = 3020,0
 channel = 99
 loop = 0
 
-[State 0, PlaySnd] ;DURAGON INSTALLL voice
+[State 0, PlaySnd] ;buster.
 type = PlayBgm
-trigger1 = animelem = 9 && palno = 9 && roundno = 3
-trigger2 = animelem = 9 && palno = 9 && gamemode != "Training"
-bgm = "sound\gabeinstall.mp3"
+trigger1 = animelem = 9 && palno = 5 && roundno = 3 && gamemode != "Training"
+bgm = "sound\ANGOUS\buster.wav"
+
+[State 0, PlaySnd] ;HATRED
+type = PlayBgm
+trigger1 = animelem = 9 && palno = 9 && roundno = 3 && gamemode != "Training"
+bgm = "sound\ANGOUS\gabeinstall.mp3"
+
+[State 0, PlaySnd] ;RATED R
+type = PlayBgm
+trigger1 = animelem = 9 && palno = 10 && roundno = 3 && gamemode != "Training"
+bgm = "sound\ANGOUS\RATEDR.wav"
+
+[State 0, PlaySnd] ;PEPSI
+type = PlayBgm
+trigger1 = animelem = 9 && palno = 11 && roundno = 3 && gamemode != "Training"
+bgm = "sound\ANGOUS\PEPSI.wav"
 
 [State 0, StopSnd]
 type = StopSnd
@@ -2010,7 +2026,7 @@ value = 3010,5
 
 [State 0, Explod]
 type = Explod
-trigger1 =animelem = 9
+trigger1 = animelem=9
 anim =13005
 ID = 13005
 pos = 0,0

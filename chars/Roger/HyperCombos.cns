@@ -431,6 +431,7 @@ velset = 0,0
 [State 0, Zoom]
 type = zoom
 triggerall=backedgebodydist<=100
+trigger1 = !winKO
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.2
@@ -442,6 +443,7 @@ ignorehitpause=1
 [State 0, Zoom]
 type = zoom
 triggerall=backedgebodydist>100
+trigger1 = !winKO
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.5

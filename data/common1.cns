@@ -3970,7 +3970,7 @@ ctrl = 1
 ; Downed get-hit (lying defeated)
 [Statedef 5150]
 type    = L
-movetype= I
+movetype= H
 physics = N
 sprpriority = -3
 ctrl = 0
@@ -4081,7 +4081,7 @@ removeongethit = 0
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time >= 0
-trigger1 = !(enemynear, name = "Sahkive" && enemynear, stateno = 3101)
+trigger1 = !(enemy, name = "Sahkive" && enemy, stateno = 3101)
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 time = 1
 
@@ -4089,7 +4089,7 @@ time = 1
 type = PalFX
 triggerall = map(_iksys_trainingCtrlDataDisp) != [2, 3] && enemy, map(_iksys_trainingCtrlDataDisp) != 1
 trigger1 = Time
-trigger1 = !(enemynear, name = "Sahkive" && enemynear, stateno = 3101)
+trigger1 = !(enemy, name = "Sahkive" && enemy, stateno = 3101)
 time = 1
 add = cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0)
 
@@ -4261,15 +4261,15 @@ persistent = 0
 type = VelSet
 trigger1 = Time = 0
 trigger1 = Command = "holdfwd"
-x = 3
-y = -5
+x = 2
+y = -5.5
 
 [State 5210, 2] ;Go back
 type = VelSet
 trigger1 = Time = 0
 trigger1 = Command = "holdback"
-x = -3
-y = -5
+x = -2
+y = -5.5
 
 [State 5210, 4]
 type = CtrlSet
@@ -4557,15 +4557,11 @@ type    = A
 movetype= H
 physics = N
 
-[State 5222, Turn]
-type = Turn
-trigger1 = (Time = 0) && enemynear, p2dist x < 0
-
-[State 5231, Velocity]
-type = HitVelSet
+[State 5221 VelSet]
+type = velset
 trigger1 = Time = 0
-x = 1
-y = 1
+x = gethitvar(xvel)*cond(enemy,facing=facing,1,-1)*cond(facing=1,-1,1)
+y = gethitvar(yvel)
 
 [State 5221, Gravity]
 type = VelAdd
@@ -7157,17 +7153,6 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
-
-;=============================++
-;Special Cancel On Armor       +
-;=============================++
-[State -1, Special Cancel on Armor]
-type = VarSet
-trigger1 = movereversed
-v = 1
-value = 1
-ignorehitpause = 1
-persistent = 1
 
 ;=============================++
 ;Wallbounce Angle Reset        +

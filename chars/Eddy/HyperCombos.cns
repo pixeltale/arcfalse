@@ -8,6 +8,11 @@ ctrl 		= 0
 anim 		= 33000
 sprpriority 	= 2
 
+[State Cancel]
+type = mapset
+trigger1 = !time
+map = "DCFH"
+value = 0
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -158,7 +163,7 @@ ground.hittime  = 88
 ground.velocity = 1
 air.velocity = 0,-1
 forcestand = 1
-forcenofall = 1
+air.fall = 1
 air.hittime = 88
 down.hittime = 88
 getpower = (0)*(cond(var(var(2)) = 1, 1, .5))
@@ -189,8 +194,8 @@ ground.hittime  = 88
 ground.velocity = 1
 air.velocity = 0,-1
 forcestand = 1
-forcenofall = 1
 air.hittime = 88
+air.fall = 1
 down.hittime = 88
 getpower = (0)*(cond(var(var(2)) = 1, 1, .5))
 
@@ -219,8 +224,8 @@ ground.hittime  = 88
 ground.velocity = 0
 air.velocity = 0,0
 air.hittime = 88
-forcenofall = 1
 forcestand = 1
+air.fall = 1
 getpower = (0)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 630, 2]
@@ -489,6 +494,7 @@ type = zoom
 triggerall=map(Big)<3
 triggerall=map(BigSide)<=1
 triggerall=backedgebodydist<=100
+trigger1 = !winKO
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.1
@@ -502,6 +508,7 @@ type = zoom
 triggerall=map(Big)<3
 triggerall=map(BigSide)<=1
 triggerall=backedgebodydist>100
+trigger1 = !winKO
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.1
@@ -742,6 +749,7 @@ velset = vel x*.8
 [State 0, Zoom]
 type = zoom
 triggerall	= backedgebodydist<=100
+trigger1  = !winKO
 trigger1 	= movehit
 trigger1 	= enemy,HitShakeOver = 0
 scale 	= 1.2
@@ -753,6 +761,7 @@ ignorehitpause	= 1
 [State 0, Zoom]
 type = zoom
 triggerall	= backedgebodydist>100
+trigger1  = !winKO
 trigger1 	= movehit
 trigger1 	= enemy,HitShakeOver = 0
 scale 	= 1.5
@@ -1063,7 +1072,7 @@ sparkxy = -5,-45
 hitsound   = 5,3
 guardsound = 6,2
 ground.type = Low
-air.type = trip
+air.type = low
 animtype = up
 ground.slidetime = 14
 ground.hittime  = 23
@@ -1125,6 +1134,7 @@ triggerall=map(Big)<3
 triggerall=map(BigSide)<=1
 triggerall=backedgebodydist<=100
 triggerall = time > 50
+trigger1  = !winKO
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.2

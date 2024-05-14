@@ -517,6 +517,15 @@ sinadd = 50,0,0,120 ;this part doesn't work and it's gonna make me fucking cry h
 invertall = 0
 color = 256
 
+;you may NOT use ground viper
+[State 0, EX Limiter]
+type 		= MapSet
+trigger1		= !map(ComboStateCheck)
+map 		= "EX5SLimiter"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+
 ;6S SKD Limiter
 [State 0, RemoveExplod]
 type = RemoveExplod

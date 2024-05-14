@@ -315,7 +315,7 @@ triggerall=stateno!=6013
 triggerall=stateno!=6014
 triggerall=stateno!=6015
 triggerall=stateno!=6016
-triggerall=power>=1000
+triggerall=power>=1000 && !map(EX5SLimiter)
 triggerall = numhelper(1025) != 1
 triggerall = stateno != 1025
 triggerall = stateno != 1020

@@ -358,7 +358,7 @@ trigger1 	= Time= 0
 attr 	= S, NA
 animtype 	= Hard
 air.animtype 	= back
-damage 		= 120*map(P4)
+damage 		= 100*map(P4)
 hitflag 		= MAF
 guardflag 	= MA
 pausetime 	= 15,15
@@ -1297,8 +1297,8 @@ ground.velocity 	= -6
 air.velocity 	= -1,-4;
 air.fall 		= 1
 guard.slidetime 	= 8
-guard.ctrltime 	= 8
-guard.hittime 	= 8
+guard.ctrltime 	= 12
+guard.hittime 	= 12
 getpower 		= (50)*(cond(var(var(3)) = 1, 1, .5)) 
 
 
@@ -1512,8 +1512,8 @@ ground.velocity 	= -2,16
 fall.yvelocity 		= 0
 air.velocity 		= -2,16 * map(GravMul)
 down.velocity 		= -2,16
-guard.slidetime 	= 10
-guard.ctrltime 		= 10
+guard.slidetime 	= 18
+guard.ctrltime 		= 18
 air.fall 		= 1
 fall 		= 1
 p2stateno 	= 5255

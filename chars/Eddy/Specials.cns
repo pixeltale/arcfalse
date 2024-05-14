@@ -1765,6 +1765,7 @@ ctrl = 0
 anim =1050
 sprpriority = 2
 velset = vel x, 0
+facep2 = 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1777,7 +1778,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.80	;100% Starting DMG
+value 		= 0.95	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1793,6 +1794,13 @@ map 		= "Accumulation"
 value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
+
+[State Cancel]
+type = mapset
+trigger1 = movehit && !map(DCBurn2S)
+map = "DCFH"
+value = 1
+ignorehitpause = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1813,11 +1821,11 @@ value = 669,6
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-trigger1 = time = 0&& (enemynear, stateno!= [5110,5119])
+trigger1 = time = 0
 hitonce = 1
 attr = S, SA
 damage = 50*MAP(P4), 5
-hitflag = MAF
+hitflag = MAFD
 guardflag = MA
 priority = 3
 pausetime = 18,18
@@ -1834,6 +1842,7 @@ ground.hittime  = 99 - MAP(untechDecay)
 air.hittime  = 99 - MAP(untechDecay)
 down.hittime = 99 - MAP(untechDecay)
 ground.velocity = -1,-12
+down.velocity = -1, -8
 air.velocity = -1,-5
 envshake.time = 15
 envshake.freq = 10
@@ -1862,6 +1871,12 @@ ctrl = 0
 anim =1051
 sprpriority = 2
 velset = 2,-6
+
+[State Cancel]
+type = mapset
+trigger1 = !time
+map = "DCFH"
+value = 0
 
 [State 700, Snd]
 type = playsnd
@@ -2127,6 +2142,7 @@ poweradd= -1000;(-1000)*(cond(var(var(2)) = 1, 1, .5))
 ctrl = 0
 anim =1050
 sprpriority = 2
+facep2 = 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -2316,7 +2332,7 @@ p2facing = 1
 trigger1 = time = 0&& (enemynear, stateno!= [5110,5119])
 hitonce = 1
 attr = S, SA
-damage = ceil(cond(fvar(11) *32 < 7, 7, fvar(11) * 32)), 5
+damage = 50*Map(P4) + 20, 5
 hitflag = MAFD
 guardflag = MA
 priority = 3
@@ -2331,7 +2347,7 @@ animtype = medium
 air.animtype = back
 ground.slidetime = 14
 ground.hittime  = 23
-ground.velocity = -1
+ground.velocity = p2dist x * 0.25
 air.velocity = -1,-4
 air.hittime = 24
 envshake.time = 40
@@ -2352,7 +2368,7 @@ value = 1311
 type    = A
 movetype= A
 physics = N
-poweradd = (0)*(cond(var(var(2)) = 1, 1, .5))
+poweradd = 0
 juggle  =0; 2
 ctrl = 0
 anim =10511

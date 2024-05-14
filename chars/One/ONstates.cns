@@ -397,6 +397,91 @@ trigger1 = Time = 0
 value = 69000+var(50)*20
 
 ;--------------------------------------
+;Super Jump Squat
+[Statedef 55] ;Superjumpsquat
+type    = A
+physics = S
+ctrl = 0
+velset = vel x,0
+anim = 40+var(50)*2
+
+[State 52, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 56
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Super Jump
+[Statedef 56] ;Superjump
+type    = A
+physics = A
+ctrl = 1
+anim = 41+var(50)
+facep2 = cond(Map(SJI) , 1, 0)
+
+
+[State 45, 2]
+type = ChangeAnim
+trigger1 = vel y < -2
+value = 41+var(50)*2
+
+[state 40, Vulnerability]
+type = hitby
+trigger1 = 1
+value = SCA, NA, SA, HA, NP, SP, HP ;Not hit by throws
+
+[state 40, MapSet]
+type = MapSet
+trigger1 = time = 0
+map = "SJI" ;Super Jump Install
+value = 1
+
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = command != "holdback"
+trigger1 = command != "holdfwd"
+sysvar(1) = 0
+
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+
+
+[State 45, 6]
+type = VelMul
+trigger1 = Time = 5
+y = 0.9
+[State 45, 6]
+type = VelSet
+trigger1 = Time = 0
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*0.5 + vel x * 0.5, const(velocity.jump.back.x)*0.5))*1.1
+y = -9.5
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 0
+statetype = A       ;S,A,C,L
+movetype = I        ;I,A,H
+physics = A         ;A,C,S,N
+
+[State 1220, Afterimage]
+type = AfterImage
+trigger1 = Time = 0
+length = 15
+TimeGap  = 2
+FrameGap = 1
+Trans = Add
+time = 60
+palbright = 1, 1, 1
+
+;---------------------------------------------------------------------------
 ;Backward Air Dash
 [Statedef 903]
 type    = A
@@ -1135,7 +1220,6 @@ ctrl = 1
 
 ;---------------------------------------------------------------------------
 ; RUN STOP
-; CNS difficulty: easy
 [Statedef 101]
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= I                      ;Move-type: A-attack, I-idle, H-gethit

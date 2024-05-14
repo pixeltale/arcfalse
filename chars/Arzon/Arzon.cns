@@ -146,18 +146,6 @@ down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing
 down.bounce.groundlevel = -4          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
 down.friction.threshold = .05         ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
 
-[Constants]
-; NegativeStates.cns states
-StateTagSuperAssist = 3000
-StateTagSuperAssist2  =3100
-StateTagAssist = 220
-superAttacksStartStateno = 3000 ; the stateno that starts super attacks
-superAttacksEndStateno = 3999 ; the stateno that ends super attacks
-AnimAerialAttack = 600
-SpecialAttackAIStartStateno =1000
-SpecialAttackAIEndStateno =1999
-MVCIActiveSwitch  = 0
-
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
 [Quotes]
@@ -453,6 +441,14 @@ ctrl = 1
 
 [Statedef -2]
 
+[State 0. MapSet]
+type 		= ParentMapSet
+trigger1 	= !numhelper(1204)
+map 		= "airball"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 1
+
 [State 0, MAPADD]
 type = MapSet
 trigger1 = !map(ComboStateCheck)
@@ -530,20 +526,6 @@ sinadd = 50,0,0,120 ;this part doesn't work and it's gonna make me fucking cry h
 invertall = 0
 color = 256
 
-;j.5H Limita
-[State 630, jH Limiter]
-type = Explod
-trigger1 =  p2stateno = 5101
-trigger1 = !numexplod(90101)
-anim = 90101
-ID = 90101
-ignorehitpause = 1
-removetime = -1
-
-[State 630, jH Limiter Remover]
-type = RemoveExplod
-trigger1 = !numtarget
-id = 90101
 
 [State 0, Pause]
 type = Pause
@@ -1084,52 +1066,6 @@ type=attackmulset
 trigger1 = var(57) >= 1
 value = 1.0;only for test;1.1;1.8;2;0.7
 ignorehitpause=0
-
-[State -2, Explod];Counter Explod for P1 Side.
-type = Explod
-triggerall = numenemy
-triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 1 ;Counter Ok, Explod has not played, P1 Side
-triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
-triggerall = stateno != [800,820] ;Does not activate during throws.
-triggerall = stateno != [950,951] ;Don't activate during throws.
-trigger1 = movehit ;Move hits
-trigger2 = projhit = 1 ;Projectile Hits
-anim = 13000
-pos = 65,196
-postype = left  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.5,0.5
-sprpriority = 0
-id = 13000
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
-
-[State -2, Explod];Counter Explod for P2 Side.
-type = Explod
-triggerall = numenemy
-triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 2 ;Counter Ok, Explod has not played, P2 Side
-triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
-triggerall = stateno != [800,820] ;Does not activate during throws.
-triggerall = stateno != [950,951] ;Don't activate during throws.
-trigger1 = movehit ;Move hits
-trigger2 = projhit = 1 ;Projectile Hits
-anim = 13001
-pos = -100,196
-postype = right  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.5,0.5
-sprpriority = 0
-id = 13000
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
 
 [State 0, PlaySnd]; NUTTERBUTTER FIRST HIT
 type = PlaySnd

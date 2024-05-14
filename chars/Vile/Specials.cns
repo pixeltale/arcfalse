@@ -842,6 +842,15 @@ trigger1 = time = 0
 v = 10
 value = 10
 
+[State 0, EX Limiter]
+type 		= MapSet
+trigger1		= movehit && map(ComboStateCheck)
+map 		= "EX5SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+
 ;EX Effects
 [State 200, 2]
 type = PlaySnd
@@ -4148,8 +4157,7 @@ type = HitDef
 trigger1 = p2statetype != A
 Trigger1 = time = 0 
 attr = S, NT          ;Attributes: Standing, Normal Throw
-hitflag = M-          ;Affect only ground people who are not being hit
-priority = 1, Miss    ;Throw has low priority, must be miss or dodge type.
+hitflag = M-
 sparkno = 1000
 sparkxy = P2BodyDist X - 40,-40          ;Yes spark
 p1sprpriority = 1     ;Draw p1's sprite in front of p2
@@ -5033,10 +5041,10 @@ value = 0
 ;   otherwise strange behavior can result.
 [State 800, 1] ;With grab sound
 type = HitDef
-trigger1 = p2statetype !=A && p2stateno != [120, 155]
+trigger1 = p2statetype !=A
 Trigger1 = time = 0 
 attr = S, ST          ;Attributes: Standing, Normal Throw
-hitflag = M         ;Affect only ground people who are not being hit
+hitflag = M-           ;Affect only ground people who are not being hit
 ;guardflag = MA
 priority = 4, Miss    ;Throw has low priority, must be miss or dodge type.
 sparkno = 1000
@@ -5066,7 +5074,7 @@ type = HitDef
 trigger1 = p2movetype = H
 Trigger1 = time = 0 
 attr = S, ST          ;Attributes: Standing, Normal Throw
-hitflag = MAFD         ;Affect only ground people who are not being hit
+hitflag = M+        ;Affect only ground people who are not being hit
 ;guardflag = MA
 priority = 4, Miss    ;Throw has low priority, must be miss or dodge type.
 sparkno = 1000

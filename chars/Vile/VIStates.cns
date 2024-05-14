@@ -887,31 +887,6 @@ value =52
 ctrl = 0
 
 ;-----------------------------
-[Statedef 994]
-type    = A
-movetype= A
-physics = N
-juggle  = 4
-poweradd= 11
-ctrl = 0
-velset = 0,0
-anim =994
-sprpriority = 2
-
-[State 0, BindToParent]
-type = BindToParent
-trigger1 = 1
-;time = 1
-;facing = 0
-;pos = 0,0
-;ignorehitpause = 
-;persistent = 
-
-[State 230, 3]
-type = Destroyself
-trigger1 = pos y >=0
-
-;---------------------------------------------------------------------------
 ; Run F
 [Statedef 100]
 type    = S

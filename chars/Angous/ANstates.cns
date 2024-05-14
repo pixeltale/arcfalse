@@ -957,6 +957,12 @@ type = VelSet
 trigger1 = abs(vel x) < Const(movement.stand.friction.threshold)
 x = 0
 
+[State 52, 5]
+type = ChangeState
+triggerall = enemy, movetype != H
+trigger1 = prevstateno = 1052 || prevstateno = 1055
+value = 1053
+ctrl = 1
 
 [State 52, 5]
 type = ChangeState

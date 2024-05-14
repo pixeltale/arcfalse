@@ -137,7 +137,7 @@ trigger2 = stateno = 510 && animelemno(0) >= 5
 [State -1, EX 6S: Quake Drop]
 type = ChangeState
 value = 1030
-triggerall = power>1000
+triggerall = power>1000 && !map(EX6S_Used)
 triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
 triggerall = statetype != A
 trigger1 = ctrl
@@ -183,7 +183,7 @@ trigger3 = stateno = [300, 305] || stateno = [100, 105]
 [State -1, 2EX: Malevolent Thrash]
 type = ChangeState
 value = 1035
-triggerall = power>1000
+triggerall = power>1000 && !map(EX2S_Used)
 triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") && teammode != Tag
 triggerall = statetype != A
 trigger1 = ctrl
@@ -203,7 +203,7 @@ trigger3 = stateno = [300, 305] || stateno = [100, 105]
 [State -1, EX 5S]
 type = ChangeState
 value = 1014
-triggerall = power>1000
+triggerall = power>1000 && !map(EX5S_Used)
 triggerall = (command = "b" && command = "c") || command = "EX" && teammode != Tag
 triggerall = command != "holdfwd"
 triggerall = command != "holddown"
@@ -246,7 +246,7 @@ triggerall = command = "c"
 triggerall = command != "b"
 triggerall = command = "holdfwd"
 triggerall = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = [500,520] && movecontact || stateno = 305
 trigger2 = var(1) && stateno != [500,520]
 trigger3 = stateno =100
 
@@ -258,7 +258,7 @@ triggerall = command = "c"
 triggerall = command != "b"
 triggerall = command = "holdback"
 triggerall = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = [500,520] && movecontact || stateno = 300 && time > 10
 trigger2 = var(1) && stateno != [500,520]
 trigger3 = stateno =100
 
@@ -401,7 +401,7 @@ value = 600
 triggerall = command = "buffer_x"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = movecontact && (stateno = [600 , 630])
+trigger2 = movecontact && (stateno = [600 , 650])
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 904 && time > 3
 ;---------------------------------------------------------------------------
@@ -412,7 +412,7 @@ value = 610
 triggerall = command = "y"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = stateno = 600 || stateno = 601  || stateno = 630
+trigger2 = stateno = 600 || stateno = 601  || stateno = 630 || stateno = 650
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 904 && time > 3
@@ -424,7 +424,7 @@ value = 630
 triggerall = command = "z"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = [600,610]) 
+trigger2 = (stateno = [600,610]) || stateno = 650
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 904 && time > 3

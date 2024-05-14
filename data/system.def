@@ -733,40 +733,294 @@ roundstowin = 5           ;Number of rounds to get win pose (lose pose otherwise
 
 ;-------------------------------------------------------------------
 ;Options screen definition
-[Option Info]
-cursor.move.snd = 100,0
-cursor.done.snd = 100,1
-cancel.snd = 100,2
+[Option Info] ;Ikemen feature
+	fadein.time = 10
+	fadeout.time = 10
 
-Unassigned keymenu.item parameters use corresponding menu.item values.
-keymenu.item.spacing = 0, 12
-keymenu.item.value.offset = 101, 0
-keymenu.item.value.active.offset = 101, 0
-keymenu.item.value.conflict.offset = 101, 0
-keymenu.item.info.offset = 101, 0
-keymenu.item.info.active.offset = 101, 0
-keymenu.boxcursor.coords = -5, -9, 106, 2
-keymenu.itemname.playerno = "PLAYER %i"
-keymenu.itemname.configall = "Config all"
-keymenu.itemname.up = "UP"
-keymenu.itemname.down = "DOWN"
-keymenu.itemname.left = "LEFT"
-keymenu.itemname.right = "RIGHT"
-keymenu.itemname.x = "LIGHT"
-keymenu.itemname.y = "MEDIUM"
-keymenu.itemname.z = "HEAVY"
-keymenu.itemname.c = "REMIX"
-keymenu.itemname.a = "FALSE"
-keymenu.itemname.b = "SPECIAL"
-keymenu.itemname.start = "START"
-keymenu.itemname.d = "EX (Macro)"
-keymenu.itemname.w = "DASH (Macro)"
-keymenu.itemname.menu = "MENU"
-keymenu.itemname.back = "BACK"
-keymenu.itemname.page = "PAGE"
+	title.offset = 159, 19
+	title.font = "f-6x9.def", 0, 0, 255, 255, 255, -1
+	title.scale = 1.0, 1.0
 
+	cursor.move.snd = 100, 0
+	cursor.done.snd = 100, 1
+	cancel.snd = 100, 2
 
+	; Ikemen features
+	; --------------------------------------------------------------------------
+	fadein.col = 0, 0, 0
+	fadein.anim = -1
+	fadeout.col = 0, 0, 0
+	fadeout.anim = -1
 
+	title.text = "OPTIONS"
+
+	; Refer to Notes at the beginning of this file.
+	menu.uselocalcoord = 0
+
+	; Refer to [Title Info] menu parameters for extra comments explaining how to
+	; define menus (unlike Mugen, where option screen look is hardcoded, Ikemen
+	; follows vanilla Mugen convention from Title Screen for building menus)
+
+	menu.pos = 85, 33
+
+	;menu.bg.<itemname>.anim = -1
+	;menu.bg.<itemname>.spr = 
+	;menu.bg.<itemname>.offset = 0, 0
+	;menu.bg.<itemname>.facing = 1
+	;menu.bg.<itemname>.scale = 1.0, 1.0
+	;menu.bg.active.<itemname>.anim = -1
+	;menu.bg.active.<itemname>.spr = 
+	;menu.bg.active.<itemname>.offset = 0, 0
+	;menu.bg.active.<itemname>.facing = 1
+	;menu.bg.active.<itemname>.scale = 1.0, 1.0
+
+	menu.item.offset = 0, 0
+	menu.item.font = "f-6x9.def", 0, 1, 191, 191, 191, -1
+	menu.item.scale = 1.0, 1.0
+
+	menu.item.active.offset = 0, 0
+	menu.item.active.font = "f-6x9.def", 0, 1, 255, 255, 255, -1
+	menu.item.active.scale = 1.0, 1.0
+
+	menu.item.selected.offset = 0, 0
+	menu.item.selected.font = "f-6x9.def", 0, 1, 0, 247, 247, -1
+	menu.item.selected.scale = 1.0, 1.0
+	menu.item.selected.active.offset = 0, 0
+	menu.item.selected.active.font = "f-6x9.def", 0, 1, 0, 247, 247, -1
+	menu.item.selected.active.scale = 1.0, 1.0
+
+	menu.item.value.offset = 150, 0
+	menu.item.value.font = "f-6x9.def", 0, -1, 191, 191, 191, -1
+	menu.item.value.scale = 1.0, 1.0
+
+	menu.item.value.active.offset = 150, 0
+	menu.item.value.active.font = "f-6x9.def", 0, -1, 255, 255, 255, -1
+	menu.item.value.active.scale = 1.0, 1.0
+
+	menu.item.value.conflict.offset = 150, 0
+	menu.item.value.conflict.font = "f-6x9.def", 0, -1, 247, 0, 0, -1
+	menu.item.value.conflict.scale = 1.0, 1.0
+
+	menu.item.info.offset = 150, 0
+	menu.item.info.font = "f-6x9.def", 0, -1, 247, 247, 0, -1
+	menu.item.info.scale = 1.0, 1.0
+	menu.item.info.active.offset = 150, 0
+	menu.item.info.active.font = "f-6x9.def", 0, -1, 247, 247, 0, -1
+	menu.item.info.active.scale = 1.0, 1.0
+
+	menu.item.spacing = 0, 14
+	menu.window.margins.y = 0, 0
+	menu.window.visibleitems = 13
+
+	menu.boxcursor.visible = 1
+	menu.boxcursor.coords = -5, -10, 154, 3
+	menu.boxcursor.col = 255, 255, 255
+	menu.boxcursor.alpharange = 10, 40, 2, 255, 255, 0
+	menu.boxbg.visible = 1
+	menu.boxbg.col = 0, 0, 0
+	menu.boxbg.alpha = 20, 100
+
+	menu.arrow.up.anim = -1
+	menu.arrow.up.spr = 
+	menu.arrow.up.offset = 0, 0
+	menu.arrow.up.facing = 1
+	menu.arrow.up.scale = 1.0, 1.0
+	menu.arrow.down.anim = -1
+	menu.arrow.down.spr = 
+	menu.arrow.down.offset = 0, 0
+	menu.arrow.down.facing = 1
+	menu.arrow.down.scale = 1.0, 1.0
+
+	menu.title.uppercase = 1
+	menu.valuename.none = "None"
+	menu.valuename.random = "Random"
+	menu.valuename.default = "Default"
+	menu.valuename.f = "(F%i)"
+	menu.valuename.esc = "(Esc)"
+	menu.valuename.page = "(Tab)"
+	menu.valuename.nokey = "Not used"
+	menu.valuename.yes = "Yes"
+	menu.valuename.no = "No"
+	menu.valuename.enabled = "Enabled"
+	menu.valuename.disabled = "Disabled"
+
+	keymenu.p1.pos = 39, 33
+	keymenu.p2.pos = 178, 33
+
+	;keymenu.bg.<itemname>.anim = -1
+	;keymenu.bg.<itemname>.spr = 
+	;keymenu.bg.<itemname>.offset = 0, 0
+	;keymenu.bg.<itemname>.facing = 1
+	;keymenu.bg.<itemname>.scale = 1.0, 1.0
+	;keymenu.bg.active.<itemname>.anim = -1
+	;keymenu.bg.active.<itemname>.spr = 
+	;keymenu.bg.active.<itemname>.offset = 0, 0
+	;keymenu.bg.active.<itemname>.facing = 1
+	;keymenu.bg.active.<itemname>.scale = 1.0, 1.0
+
+	keymenu.item.p1.offset = 52, 0
+	keymenu.item.p1.font = "f-6x9.def", 0, 0, 0, 247, 247, -1
+	keymenu.item.p1.scale = 1.0, 1.0
+	keymenu.item.p2.offset = 52, 0
+	keymenu.item.p2.font = "f-6x9.def", 0, 0, 247, 0, 0, -1
+	keymenu.item.p2.scale = 1.0, 1.0
+
+	; Unassigned keymenu.item parameters use corresponding menu.item values.
+	keymenu.item.spacing = 0, 12
+	keymenu.item.value.offset = 101, 0
+	keymenu.item.value.active.offset = 101, 0
+	keymenu.item.value.conflict.offset = 101, 0
+	keymenu.item.info.offset = 101, 0
+	keymenu.item.info.active.offset = 101, 0
+	keymenu.boxcursor.coords = -5, -9, 106, 2
+	keymenu.itemname.playerno = "PLAYER %i"
+	keymenu.itemname.configall = "Config all"
+	keymenu.itemname.up = "Up"
+	keymenu.itemname.down = "Down"
+	keymenu.itemname.left = "Left"
+	keymenu.itemname.right = "Right"
+	keymenu.itemname.a = "A"
+	keymenu.itemname.b = "B"
+	keymenu.itemname.c = "C"
+	keymenu.itemname.x = "X"
+	keymenu.itemname.y = "Y"
+	keymenu.itemname.z = "Z"
+	keymenu.itemname.start = "Start"
+	keymenu.itemname.d = "D"
+	keymenu.itemname.w = "W"
+	keymenu.itemname.menu = "Menu"
+	keymenu.itemname.back = "Back"
+	keymenu.itemname.page = "Page"
+
+	textinput.offset = 25, 32
+	textinput.font = "default-3x5.def", 0, 1, 191, 191, 191, -1
+	textinput.scale = 1.0, 1.0
+	textinput.port.text = "Type in Host Port, e.g. 7500.\nPress ENTER to accept.\nPress ESC to cancel."
+	textinput.reswidth.text = "Type in screen width.\nPress ENTER to accept.\nPress ESC to cancel."
+	textinput.resheight.text = "Type in screen height.\nPress ENTER to accept.\nPress ESC to cancel."
+	;textinput.overlay.window = 0, 0, localcoordX, localcoordY
+	textinput.overlay.col = 0, 0, 0
+	textinput.overlay.alpha = 20, 100
+
+	; https://github.com/K4thos/Ikemen_GO/wiki/Screenpack-features#submenus
+	; If custom menu is not declared, following menu is loaded by default:
+	menu.itemname.menugame = "Game Settings"
+	menu.itemname.menugame.difficulty = "Difficulty Level"
+	menu.itemname.menugame.roundtime = "Time Limit"
+	menu.itemname.menugame.lifemul = "Life"
+	menu.itemname.menugame.singlevsteamlife = "Single VS Team Life"
+	menu.itemname.menugame.gamespeed = "Game Speed"
+	menu.itemname.menugame.roundsnumsingle = "Rounds to Win (Single)"
+	menu.itemname.menugame.maxdrawgames = "Max Draw Games"
+	menu.itemname.menugame.credits = "Credits"
+	menu.itemname.menugame.aipalette = "Arcade Palette"
+	menu.itemname.menugame.aisurvivalpalette = "Survival Palette"
+	menu.itemname.menugame.airamping = "AI Ramping"
+	menu.itemname.menugame.quickcontinue = "Quick Continue"
+	menu.itemname.menugame.autoguard = "Auto-Guard"
+	menu.itemname.menugame.stunbar = "Dizzy"
+	menu.itemname.menugame.guardbar = "Guard Break"
+	menu.itemname.menugame.redlifebar = "Red Life"
+	menu.itemname.menugame.teamduplicates = "Team Duplicates"
+	menu.itemname.menugame.teamlifeshare = "Team Life Share"
+	menu.itemname.menugame.teampowershare = "Team Power Share"
+	menu.itemname.menugame.empty = ""
+	menu.itemname.menugame.menutag = "Tag Settings"
+	menu.itemname.menugame.menutag.roundsnumtag = "Rounds to Win (Tag)"
+	menu.itemname.menugame.menutag.losekotag = "Partner KOed Lose"
+	menu.itemname.menugame.menutag.empty = ""
+	menu.itemname.menugame.menutag.mintag = "Min Tag Chars"
+	menu.itemname.menugame.menutag.maxtag = "Max Tag Chars"
+	menu.itemname.menugame.menutag.empty = ""
+	menu.itemname.menugame.menutag.back = "Back"
+	menu.itemname.menugame.menusimul = "Simul Settings"
+	menu.itemname.menugame.menusimul.roundsnumsimul = "Rounds to Win (Simul)"
+	menu.itemname.menugame.menusimul.losekosimul = "Player KOed Lose"
+	menu.itemname.menugame.menusimul.empty = ""
+	menu.itemname.menugame.menusimul.minsimul = "Min Simul Chars"
+	menu.itemname.menugame.menusimul.maxsimul = "Max Simul Chars"
+	menu.itemname.menugame.menusimul.empty = ""
+	menu.itemname.menugame.menusimul.back = "Back"
+	menu.itemname.menugame.menuturns = "Turns Settings"
+	menu.itemname.menugame.menuturns.turnsrecoverybase = "Turns Recovery Base"
+	menu.itemname.menugame.menuturns.turnsrecoverybonus = "Turns Recovery Bonus"
+	menu.itemname.menugame.menuturns.empty = ""
+	menu.itemname.menugame.menuturns.minturns = "Min Turns Chars"
+	menu.itemname.menugame.menuturns.maxturns = "Max Turns Chars"
+	menu.itemname.menugame.menuturns.empty = ""
+	menu.itemname.menugame.menuturns.back = "Back"
+	menu.itemname.menugame.menuratio = "Ratio Settings"
+	menu.itemname.menugame.menuratio.ratiorecoverybase = "Ratio Recovery Base"
+	menu.itemname.menugame.menuratio.ratiorecoverybonus = "Ratio Recovery Bonus"
+	menu.itemname.menugame.menuratio.empty = ""
+	menu.itemname.menugame.menuratio.ratio1life = "Ratio 1 Life"
+	menu.itemname.menugame.menuratio.ratio1attack = "Ratio 1 Damage"
+	menu.itemname.menugame.menuratio.ratio2life = "Ratio 2 Life"
+	menu.itemname.menugame.menuratio.ratio2attack = "Ratio 2 Damage"
+	menu.itemname.menugame.menuratio.ratio3life = "Ratio 3 Life"
+	menu.itemname.menugame.menuratio.ratio3attack = "Ratio 3 Damage"
+	menu.itemname.menugame.menuratio.ratio4life = "Ratio 4 Life"
+	menu.itemname.menugame.menuratio.ratio4attack = "Ratio 4 Damage"
+	menu.itemname.menugame.menuratio.empty = ""
+	menu.itemname.menugame.menuratio.back = "Back"
+	menu.itemname.menugame.back = "Back"
+
+	menu.itemname.menuvideo = "Video Settings"
+	menu.itemname.menuvideo.resolution = "Resolution"
+
+	menu.itemname.menuvideo.resolution.640x480 = "640x480    (4:3 VGA)"
+	menu.itemname.menuvideo.resolution.960x720 = "960x720    (4:3 HD)"
+	menu.itemname.menuvideo.resolution.1280x960 = "1280x960   (4:3 HD+)"
+	menu.itemname.menuvideo.resolution.empty = ""
+	menu.itemname.menuvideo.resolution.customres = "Custom"
+	menu.itemname.menuvideo.resolution.back = "Back"
+	menu.itemname.menuvideo.fullscreen = "Fullscreen"
+	menu.itemname.menuvideo.vretrace = "VSync"
+	menu.itemname.menuvideo.msaa = "MSAA"
+	menu.itemname.menuvideo.shaders = "Shaders" ;reserved submenu
+	; This list is populated with shaders existing in 'external/shaders' directory
+	menu.itemname.menuvideo.shaders.empty = ""
+	menu.itemname.menuvideo.shaders.noshader = "Disable"
+	menu.itemname.menuvideo.shaders.back = "Back"
+	menu.itemname.menuvideo.empty = ""
+	menu.itemname.menuvideo.back = "Back"
+
+	menu.itemname.menuaudio = "Audio Settings"
+	menu.itemname.menuaudio.mastervolume = "Master Volume"
+	menu.itemname.menuaudio.bgmvolume = "BGM Volume"
+	menu.itemname.menuaudio.sfxvolume = "SFX Volume"
+	menu.itemname.menuaudio.audioducking = "Audio Ducking"
+	menu.itemname.menuaudio.stereoeffects = "Stereo Effects"
+	menu.itemname.menuaudio.panningrange = "Panning Range"
+	menu.itemname.menuaudio.empty = ""
+	menu.itemname.menuaudio.back = "Back"
+
+	menu.itemname.menuinput = "Input Settings"
+	menu.itemname.menuinput.keyboard = "Key Config"
+	menu.itemname.menuinput.gamepad = "Joystick Config"
+
+	menu.itemname.menuinput.empty = ""
+	menu.itemname.menuinput.inputdefault = "Default"
+	menu.itemname.menuinput.back = "Back"
+
+	menu.itemname.menuengine = "Engine Settings"
+	menu.itemname.menuengine.players = "Players"
+	menu.itemname.menuengine.debugkeys = "Debug Keys"
+	menu.itemname.menuengine.debugmode = "Debug Mode"
+	menu.itemname.menuengine.empty = ""
+	menu.itemname.menuengine.helpermax = "HelperMax"
+	menu.itemname.menuengine.projectilemax = "PlayerProjectileMax"
+	menu.itemname.menuengine.explodmax = "ExplodMax"
+	menu.itemname.menuengine.afterimagemax = "AfterImageMax"
+	menu.itemname.menuengine.empty = ""
+	menu.itemname.menuengine.back = "Back"
+
+	menu.itemname.empty = ""
+	menu.itemname.portchange = "Port Change"
+	menu.itemname.default = "Default Values"
+	menu.itemname.empty = ""
+	menu.itemname.savereturn = "Save and Return"
+	menu.itemname.return = "Return Without Saving"
 ;-------------------
 ;Options screen background
 [OptionBGdef] 

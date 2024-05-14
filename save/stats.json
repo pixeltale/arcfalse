@@ -4,13 +4,13 @@
       "playtime": 0
     },
     "versus": {
-      "playtime": 1665.77
+      "playtime": 2548.4
     },
     "netplayversus": {
-      "playtime": 131246.92
+      "playtime": 132598.13
     },
     "freebattle": {
-      "playtime": 180.3
+      "playtime": 132.88
     },
     "arcade": {
       "playtime": 913.02,
@@ -49,5 +49,5 @@
       ]
     }
   },
-  "playtime": 134006.01
+  "playtime": 136192.43
 }

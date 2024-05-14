@@ -11,16 +11,13 @@
   "Borderless": false,
   "ComboExtraFrameWindow": 0,
   "CommonAir": [
-    "data/common.air",
-    "data/Add004/common.air"
+    "data/common.air"
   ],
   "CommonCmd": [
-    "data/common.cds",
-    "data/Add004/common.cmd"
+    "data/common.cds"
   ],
   "CommonConst": [
-    "data/common.const",
-    "data/Add004/common.const"
+    "data/common.const"
   ],
   "CommonFx": [],
   "CommonLua": [
@@ -32,10 +29,7 @@
     "data/dizzy.zss",
     "data/guardbreak.zss",
     "data/score.zss",
-    "data/Add004/NegativeStates.cns",
-    "data/Add004/common2.cns",
-    "data/Add004/NegativeStates.zss",
-    "data/training.zss",
+    "data/tag.zss",
     "data/training.zss"
   ],
   "ControllerStickSensitivity": 0.4,
@@ -59,12 +53,21 @@
   "FullscreenRefreshRate": 60,
   "FullscreenWidth": -1,
   "FullscreenHeight": -1,
-  "GameWidth": 1280,
-  "GameHeight": 960,
+  "GameWidth": 960,
+  "GameHeight": 720,
   "GameFramerate": 60,
   "InputButtonAssistWindow": 1,
   "InputSOCDResolution": 1,
-  "IP": {},
+  "IP": {
+    "bust": "26.0.68.166",
+    "gao": "26.4.189.227",
+    "kira": "26.86.41.7",
+    "luck": "26.35.237.168",
+    "maple": "26.222.17.241",
+    "neo sonx": "26.192.120.38",
+    "pni": "26.65.18.31",
+    "sonx": "26.26.192.122"
+  },
   "LifeMul": 130,
   "ListenPort": "7500",
   "LoseSimul": true,
@@ -111,7 +114,7 @@
   "RatioRecoveryBonus": 20,
   "RoundsNumSimul": 2,
   "RoundsNumSingle": 2,
-  "RoundsNumTag": 1,
+  "RoundsNumTag": 2,
   "RoundTime": 99,
   "ScreenshotFolder": "",
   "StartStage": "stages/stage1.def",
@@ -119,8 +122,8 @@
   "System": "external/script/main.lua",
   "Team1VS2Life": 110,
   "TeamDuplicates": false,
-  "TeamLifeShare": false,
-  "TeamPowerShare": true,
+  "TeamLifeShare": true,
+  "TeamPowerShare": false,
   "TrainingChar": "",
   "TurnsRecoveryBase": 0,
   "TurnsRecoveryBonus": 20,

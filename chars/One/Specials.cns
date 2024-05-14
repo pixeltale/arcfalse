@@ -738,7 +738,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 7
 attr = A, SA
-damage = 100*MAP(P4),1
+damage = 80*MAP(P4),1
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -767,7 +767,7 @@ type = HitDef
 p2facing = 1
 trigger1 = (time = [23,50]) && time%3=0
 attr = A, SA
-damage = 40*MAP(P4),1
+damage = 25*MAP(P4),1
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -795,7 +795,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 21
 attr = A, SA
-damage = 100*MAP(P4),1
+damage = 85*MAP(P4),1
 animtype  = Medium
 air.animtype = back
 ground.velocity = -11,7
@@ -982,7 +982,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 7
 attr = A, SA
-damage = ceil(cond(fvar(11) * 90 < 5, 5, fvar(11) *90)),1
+damage = 90*MAP(P4)
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -1009,7 +1009,7 @@ type = HitDef
 p2facing = 1
 trigger1 = (time = [23,50]) && time%3=0
 attr = A, SA
-damage = ceil(cond(fvar(11) * 10 < 6, 6, fvar(11) * 10)),1
+damage = 10*MAP(P4)
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -1039,7 +1039,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 21
 attr = A, SA
-damage = ceil(cond(fvar(11) * 90 < 15, 15, fvar(11) * 90)),1
+damage = 90*MAP(P4)
 animtype  = Medium
 ground.velocity = -11,7
 air.velocity = -11,7
@@ -1164,12 +1164,41 @@ trigger1 = movehit = 1
 fv =13     ;fv = 
 value = 3.3
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "P1"
+value 		= 0.90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboTimer)
+map 		= "P2"
+value 		= 0.85	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+
 [State 410, 2]
 type = HitDef 
 p2facing = 1
 trigger1 = time = 0
 attr = A, SA
-damage = ceil(cond(fvar(11) * 100 < 7, 7, fvar(11) * 100)),12
+damage = 100*MAP(P4)
 animtype  = up
 hitflag = MAFD
 guardflag = MA
@@ -1180,9 +1209,9 @@ hitsound   = s8,1
 guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(1) *60< 6, 6, fvar(1) * 60))
-air.hittime  = ceil(cond(fvar(1) *60 < 6, 6, fvar(1) * 60))
-down.hittime = ceil(cond(fvar(1) *60 < 6, 6, fvar(1) * 60))
+ground.hittime  = 45 - map(untechDecay)
+air.hittime  = 36 - map(untechDecay)
+down.hittime = 36 - map(untechDecay)
 ground.velocity = -3.8,-7.5
 air.velocity = -1,-7
 down.velocity = -3.6,-7
@@ -1446,12 +1475,41 @@ ignorehitpause = 0
 
 
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "StarterLevel"
+value 		= 1
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboTimer)
+map 		= "P2"
+value 		= 0.85	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+
 [State 410, 2]
 type = HitDef 
 p2facing = 1
 trigger1 = time %1= 0
 attr = A, SA
-damage = ceil(cond(fvar(11) * 13 < 3, 3, fvar(11) * 13)),2
+damage = 15*map(P4)
 animtype  = up
 hitflag = MAF
 guardflag = MA
@@ -1861,12 +1919,41 @@ trigger1 = movehit = 1
 fv =13     ;fv = 
 value = 2
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "P1"
+value 		= 0.90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboTimer)
+map 		= "P2"
+value 		= 0.85	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+
 [State 410, 2]
 type = HitDef 
 p2facing = 1
 trigger1 = time = 0 && p2dist x>10 
 attr =S, SA
-damage = ceil(cond(fvar(11) * 90 < 7, 7, fvar(11) * 90)),10
+damage = 90*map(P4)
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA
@@ -2843,12 +2930,40 @@ removeongethit = 0
 ignorehitpause = 0
 
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2	;Very Long Starter
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= Root, movehit
+map 		= "Accumulation"
+value 		= root, Map(Accumulation) * root, map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 410, 2]
 type = HitDef 
 p2facing = 1
 trigger1 = time%2= 0 && time<35
 attr = A, SP
-damage = ceil(cond(root,fvar(11) * 8 < 1, 1, root,fvar(11) * 8)),3
+damage = 8*(root,MAP(P4))
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -2878,7 +2993,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 2
 attr = A, SP
-damage = ceil(cond(root,fvar(11) * 20 < 25, 25, root,fvar(11) * 20)),9
+damage = 20*root,MAP(P4), 5
 animtype  = Up
 hitflag = MAF
 guardflag = MA

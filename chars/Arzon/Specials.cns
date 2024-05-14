@@ -424,6 +424,7 @@ guard.slidetime = 25
 guard.hittime = 14
 guard.ctrltime = 21
 guard.cornerpush.veloff = -7
+getpower = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1102,6 +1103,15 @@ type = NotHitBy
 trigger1 = 1
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 999
+
+[State 0,	MapSet]
+type 		= RootMapSet
+trigger1		= movehit && enemy, movetype = H
+map 		= "EX4SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
  ;============================
 [State -2, Starter Level]
 type         = ParentMapSet
@@ -1133,13 +1143,13 @@ persistent         = 0
 ;============================
 [State 630, 2]
 type = HitDef 
-trigger1 = time%3 = 0
+trigger1 = time%5 = 0
 attr = S, SP
-damage =15*(root,map(P4)), 10
+damage =15*(root,map(P4)), 5
 hitflag = MAFP
 guardflag = MAF
 priority = 3
-pausetime = 0,10
+pausetime = 0,2
 sparkno = 1
 sparkxy = -10,-40
 hitsound   = 5,3
@@ -1159,9 +1169,9 @@ air.velocity = .5,-6
 envshake.freq = 25
 envshake.ampl = 5
 envshake.phase = 1
-guard.slidetime = 25
-guard.hittime = 14
-guard.ctrltime = 21
+guard.slidetime = 6
+guard.hittime = 6
+guard.ctrltime = 6
 guard.cornerpush.veloff = -7
 yaccel = .27
 getpower = (0)
@@ -1432,7 +1442,7 @@ pausetime = 6,6
 guard.ctrltime = 6
 sparkno = 1
 sparkxy = 0,0
-hitsound   = S1,4
+hitsound   = 1,4
 guardsound = S1,3
 ground.type = high
 animtype = medium
@@ -3069,7 +3079,7 @@ air.velocity = -2.75,vel y*(.7)
 airguard.velocity = -1,-.25
 air.hittime = 56
 air.fall = 1
-getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
+getpower = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3204,7 +3214,7 @@ guard.velocity = -6
 air.fall = 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = 0
 
 [State -2, Wallbounce Type Set]
 type 		= ParentMapSet
@@ -3321,7 +3331,7 @@ guard.ctrltime = 21
 guard.cornerpush.veloff = -7
 air.fall = 1
 fall = 1
-getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
+getpower = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3432,7 +3442,7 @@ guard.velocity = -6
 air.fall = 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = 0
 
 
 
@@ -3557,7 +3567,7 @@ guard.velocity = -6
 air.fall = 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = 0
 
 
 [State -2, Wallbounce Type Set]
@@ -3737,6 +3747,13 @@ shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
 
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 5
+x = 5
+ignorehitpause = 1
+
+
 [State 0, Helper]
 type = Helper
 trigger1 = animelem = 6
@@ -3899,10 +3916,10 @@ value = 1
 type = HitDef
 trigger1 = map(hitCount) < 3
 attr = S, SP
-damage = 35*root, map(P4), 5
+damage = 20*root, map(P4), 5
 hitflag = MAFD
 guardflag = MAF
-pausetime = 4,7
+pausetime = 4,6
 guard.ctrltime = 5
 sparkno = 0
 sparkxy = 0,0
@@ -3919,7 +3936,7 @@ fall.yvelocity = 0
 air.fall = 1
 air.velocity = -0.75,-1.6
 air.hittime = 30 - map(UntechDecay)
-getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (25)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, HitOverride]
 type = HitOverride
@@ -4019,12 +4036,12 @@ movetype= A
 physics = S
 ctrl = 0
 poweradd = -1000
-anim =1100
+anim 	= 1099
 sprpriority = 2
 
 [State 0,	MapSet]
 type 		= MapSet
-trigger1		= !time && map(ComboStateCheck)
+trigger1	= !time && map(ComboStateCheck)
 map 		= "EX6SLimiter"
 value 		= 1
 ignorehitpause 	= 1
@@ -4201,7 +4218,7 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  1
+value         =  0.88
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = MapSet
@@ -4246,7 +4263,7 @@ supermovetime = 0
 pausemovetime = 0
 hitonce = 1
 attr = S, SP
-damage = 45*map(P4), 25
+damage = 30*map(P4), 25
 hitflag = MAFD
 guardflag = MAF
 pausetime = 5,5
@@ -4264,37 +4281,8 @@ ground.hittime  = 20
 ground.velocity = -1.25,0
 air.velocity = -1.25,-1.25
 air.hittime = 45
-getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
+getpower = 0
 
- ;============================
-[State -2, Starter Level]
-type         = MapSet
-trigger1         = movehit && !map(ComboStateCheck)
-map         = "StarterLevel"
-value         =  2
-ignorehitpause     =  1
-
-[State -2, P1 Value Set]
-type         = MapSet
-trigger1         = movehit && !map(ComboStateCheck)
-map         = "P1"
-value         =  1
-ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
-[State -2, P2 Value Set]
-type         = MapSet
-trigger1         = movehit && map(ComboStateCheck)
-map         = "P2"
-value         =  0.90  ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
-ignorehitpause     = 1
-persistent         = 0
-[State -2, P2 Accumulation - Scale]
-type         = MapSet
-trigger1         = movehit
-map         = "Accumulation"
-value         = Map(Accumulation) * map(P2)
-ignorehitpause     = 1
-persistent         = 0
-;============================
 [State 0, Close Projectile]
 type = Projectile
 trigger1=frontedgedist<=70
@@ -4341,7 +4329,7 @@ ground.hittime  = 17
 ground.velocity = -1.25,0
 air.velocity = -1.25,-1.25
 air.hittime = 45
-getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
+getpower = 0
 
 
 [State 0, ChangeState]
@@ -4704,8 +4692,17 @@ movetype= A
 physics = N
 ctrl = 0
 poweradd = -1000
-anim =1110
+anim = 1099
 sprpriority = 2
+
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !time && map(ComboStateCheck)
+map 		= "EXj6SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
 
 [State 0, VelAdd]
 type = Velset
@@ -4938,7 +4935,7 @@ projhitanim = 1113
 velocity = 2,1
 remvelocity = 0,0
 accel = 0,0
-velmul = 0.98, 0.97
+velmul = 0.95, 0.97
 projhits = 5
 projmisstime = 5
 projpriority = 1
@@ -4953,7 +4950,7 @@ supermovetime = 0
 pausemovetime = 0
 hitonce = 1
 attr = S, SP
-damage = 35*map(P4)
+damage = 30*map(P4)
 hitflag = MAFD
 guardflag = MAF
 pausetime = 5,5
@@ -4971,7 +4968,7 @@ ground.velocity = -1.25,0
 air.fall = 1
 air.velocity = -1.25,-1.25
 air.hittime = 45
-getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
+getpower = 0
 ;============================
 [State -2, Starter Level]
 type         = MapSet
@@ -5029,7 +5026,7 @@ supermovetime = 0
 pausemovetime = 0
 hitonce = 1
 attr = S, SP
-damage = 35*map(P4)
+damage = 30*map(P4)
 hitflag = MAFD
 guardflag = MAF
 pausetime = 5,5
@@ -5047,6 +5044,7 @@ ground.velocity = -1.25,0
 air.fall = 1
 air.velocity = -1.25,-1.25
 air.hittime = 45
+getpower = 0
 
 [State 0, VelSet]
 type = VelSet
@@ -5082,6 +5080,40 @@ poweradd= 0
 ctrl = 0
 anim =1430
 sprpriority = 2
+
+
+[State 0, Cancel into DISABLE]
+type = Explod
+trigger1 = time = 0
+anim = 99999
+ID = 1200
+sprpriority = -3
+removetime = -1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+
+
+
+[State 0, Special Cancel NOT OKAY]
+type = RemoveExplod
+trigger1 = time = 0
+id = 1000
+ignorehitpause = 1
+persistent = 0
+
+
+[State 0, Special Cancel OKAY]
+type = Explod
+trigger1 = animelem = 5
+anim = 99999
+ID = 1000
+sprpriority = -3
+removetime = -1
+removeongethit = 1
+ignorehitpause = 1
+persistent = 1
+
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -5144,6 +5176,15 @@ map 		= "airball"
 value 		= 1
 ignorehitpause 	= 1
 persistent 		= 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movecontact = 1
+trigger2 = time >80
+trigger3 = frontedgedist < -1
+ignorehitpause = 1
+value = 1299
+ctrl = 0 
 
 [State 3001, blah]
 type = AngleSet
@@ -5220,24 +5261,6 @@ trigger2 = time >200
 trigger3 = frontedgedist<-3
 trigger4 = pos y>=-5
 value = 1299
-ctrl = 0 
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = root, stateno = 1560
-value = 1266
-ctrl = 0 
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = root, stateno = 1550
-value = 1256
-ctrl = 0 
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = root, stateno = 1540
-value = 1246
 ctrl = 0 
 
 [State 0, HitOverride]
@@ -5518,7 +5541,7 @@ air.velocity = -2.75,0
 airguard.velocity = -1,-.25
 air.hittime = 56
 air.fall = 1
-getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
+getpower = 0
  ;============================
 [State -2, Starter Level]
 type         = MapSet

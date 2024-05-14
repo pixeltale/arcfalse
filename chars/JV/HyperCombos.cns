@@ -139,6 +139,7 @@ air.hittime = 24
 envshake.time = 7
 fall = 0
 air.fall = 1
+kill= 0
 fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
@@ -171,6 +172,7 @@ air.hittime = 24
 envshake.time = 7
 fall = 1
 fall.yvelocity = 0
+kill= 0
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 4
@@ -232,6 +234,23 @@ type = VarSet
 trigger1 = movehit = 1
 v = 2
 value = 0
+
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -295,6 +314,7 @@ fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 4
+kill= 0
 getpower = 0
 
 
@@ -372,6 +392,24 @@ velset = 1.2,0
 anim = 3006
 sprpriority = 8
 poweradd = 0
+
+
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
 
 [State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
 type 		= AfterImage			        ;+
@@ -487,6 +525,7 @@ fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 4
+kill= 0
 getpower = 0
 
 [State 200, 1] ;Penultimate hit
@@ -514,6 +553,7 @@ fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 4
+kill= 0
 getpower = 0
 
 [State 200, 1] ;Final Hit
@@ -550,6 +590,7 @@ getpower = 0
 [State 0, Zoom]
 type = zoom
 triggerall	= backedgebodydist<=100
+trigger1  = !WinKO
 trigger1 	= movehit && animelemno(0) > 47
 trigger1 	= enemy,HitShakeOver = 0
 scale 	= 1.2
@@ -561,6 +602,7 @@ ignorehitpause	= 1
 [State 0, Zoom]
 type = zoom
 triggerall	= backedgebodydist>100
+trigger1  = !WinKO
 trigger1 	= movehit && animelemno(0) > 47
 trigger1 	= enemy,HitShakeOver = 0
 scale 	= 1.5
@@ -601,6 +643,24 @@ type = VarSet
 trigger1 = movehit = 1
 v = 2
 value = 0
+
+
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
 
 [State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
 type 		= AfterImage			        ;+
@@ -670,8 +730,8 @@ x = 6
 type = HitDef
 p2facing = 1 
 trigger1 = time = 0
-hitonce = 1
 attr = S, HA
+hitonce = 1
 damage = 25*MAP (P4) + 75, 10
 hitflag = MAFD
 guardflag = MA
@@ -694,6 +754,7 @@ guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 4
 p2facing = 1
+kill=cond(map(EN)=0, 1, 0)
 getpower = 0
 
  [State 1200, Shake Screen]
@@ -804,8 +865,8 @@ y = enemy, pos y
 type = HitDef
 p2facing = 1 
 trigger1 = time = 0
+attr = S, HA
 hitonce = 1
-attr = S, SA, HA
 damage = 100*MAP(P4) + 55, 10
 hitflag = MAFD
 guardflag = MA
@@ -827,6 +888,7 @@ fall.yvelocity = -6
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 4
+kill = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
@@ -876,15 +938,15 @@ persistent = 1
 trigger1 = time = 0
 type = posadd
 x = p2dist x - 90
-y = p2dist y + 20
+y = p2dist y + 70
 
 
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
 trigger1 = time = 0
+attr = S, HA
 hitonce = 1
-attr = S, SA
 damage = 100*MAP(P4) + 65, 15
 hitflag = MAFD
 guardflag = MAF
@@ -908,6 +970,22 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
 [State -2, Wallbounce Type Set]
 type 		= MapSet
 trigger1 		= movehit
@@ -919,12 +997,13 @@ persistent 		= 0
 [State 0, Zoom]
 type = zoom
 trigger1 = (movehit =1)
+trigger1 = !WinKO
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.2
 lag = 0
 stagebound = 1
-camerabound = 0
-pos = 60,-60
+camerabound = 1
+pos = 0,-45
 ignorehitpause=1
 
 [State 0, ChangeState]

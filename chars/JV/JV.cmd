@@ -191,7 +191,7 @@ trigger3 = stateno = 1001 && movecontact ;&& enemynear, movetype = H
 [State 1240, 2EX: Wrath of Aimless]
 type = ChangeState
 value = 2300
-triggerall = power>=1000
+triggerall = power>=1000 && !map(EX2S_Limiter)
 triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") && teammode != Tag
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -201,7 +201,7 @@ trigger3 = stateno = 1001 && movecontact ;&& enemynear, movetype = H
 [State 1240, 5EX: BERETTA, THE SUBTYPE]
 type = ChangeState
 value = 2100
-triggerall = power>=1000
+triggerall = power>=1000 && !map(EX5S_Limiter)
 triggerall = (command = "b" && command = "c") ||  (command = "EX") && teammode != Tag
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -300,7 +300,7 @@ trigger4 = stateno = 100 && time > 2
 type = changeState
 value = 2500
 triggerall = (command = "b" && command = "c") ||  (command = "EX") && teammode != Tag
-triggerall = statetype = A
+triggerall = statetype = A && !map(EXjS_Limiter)
 triggerall = power>=1000
 triggerall = !map(jEXLim)
 trigger1 = ctrl
