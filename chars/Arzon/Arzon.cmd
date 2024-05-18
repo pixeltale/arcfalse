@@ -235,7 +235,6 @@ triggerall = NumHelper(1303) <= 0
 triggerall=command!="c"
 triggerall = command = "b" && command="holdback"
 triggerall = statetype != A
-triggerall = !numexplod(1300)
 trigger1 = var(1)
 trigger2 = ctrl
 trigger3 = numexplod(1000) && (var(5) <= 2)
@@ -249,7 +248,6 @@ triggerall = NumHelper(1303) >= 1
 triggerall=command!="c"
 triggerall = command = "b" && command="holdback"
 triggerall = statetype != A
-triggerall = !numexplod(1301)
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)

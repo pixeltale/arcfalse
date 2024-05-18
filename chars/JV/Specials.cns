@@ -1016,7 +1016,7 @@ trigger1	= anim = 1101
 trigger1 	= enemy, statetype = A
 attr 	= S, NA
 animtype  	= Hard
-damage 		= 200*map(P4), 30
+damage 		= 160*map(P4), 30
 hitflag 		= AFD
 guardflag 	= HAFD
 guard.ctrltime 	= 32
@@ -2208,7 +2208,7 @@ trigger1 	= time = 0
 trigger1 	= enemy, statetype = A
 attr 	= S, NA
 animtype  	= Hard
-damage 		= 300*map(P4), 30
+damage 		= 180*map(P4), 30
 hitflag 		= MAFD
 guardflag 	= MAFD
 guard.ctrltime 	= 32

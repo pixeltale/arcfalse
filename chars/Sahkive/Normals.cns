@@ -2423,9 +2423,9 @@ fall.envshake.freq = 0
 fall.envshake.ampl = 0
 palfx.time = 28
 palfx.add = 100, 0,20
-guard.hittime = 10 + map(RChargeTime)
-guard.slidetime = 10 + map(RChargeTime)
-guard.ctrltime = 10 + map(RChargeTime)
+guard.hittime = 5 + map(RChargeTime)
+guard.slidetime = 5 + map(RChargeTime)
+guard.ctrltime = 5 + map(RChargeTime)
 getpower = 40*var(2)
 
 [State 410, 2]
@@ -2673,9 +2673,9 @@ fall.envshake.freq = 0
 fall.envshake.ampl = 0
 palfx.time 	= 28
 palfx.add 	= 100, 0,20
-guard.hittime 	= 12 + map(RChargeTime)
-guard.slidetime	= 12 + map(RChargeTime)
-guard.ctrltime 	= 12 + map(RChargeTime)
+guard.hittime 	= 5 + map(RChargeTime)
+guard.slidetime	= 5 + map(RChargeTime)
+guard.ctrltime 	= 5 + map(RChargeTime)
 getpower 	= 40*var(2)
 p2stateno 	= 5220
 p2getp1state 	= 0

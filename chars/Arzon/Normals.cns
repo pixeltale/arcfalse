@@ -28,7 +28,7 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.87    
+value         =  0.80    
 ignorehitpause     = 1    
 [State -2, P2 Value Set]
 type         = MapSet
@@ -168,7 +168,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.87	;90% Starting DMG
+value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -335,7 +335,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;100% Starting DMG
+value 		= 0.90	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -358,7 +358,7 @@ trigger1 = !movecontact
 attr = S, NA
 animtype  = Hard
 air.animtype = back
-damage = 110*map(P4)
+damage = 100*map(P4)
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,14
@@ -440,26 +440,6 @@ trigger1 = animelem = 1
 value = 2000, 0
 volumescale = 70
 
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 25   
-value = .75; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
-
 [State 0, Explod]
 type = Explod
 trigger1 = animelem = 4
@@ -521,7 +501,8 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = !movecontact
+triggerall = statetype != A
+trigger1 = !movecontact && !movereversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back
@@ -535,11 +516,11 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 40-map(UntechDecay)
-air.hittime  	= 30-map(UntechDecay)
+ground.hittime  = 30
+air.hittime  	= 50-(map(UntechDecay)*2)
 down.hittime 	= 56-map(UntechDecay)
-ground.velocity = -20,-7
-air.velocity = -20,-3
+ground.velocity = -20,-8
+air.velocity = -20,-2
 envshake.time = 20
 envshake.freq = 180
 envshake.ampl = 2
@@ -548,7 +529,45 @@ guard.hittime = 14
 guard.slidetime = 14
 guard.ctrltime = 14
 guard.velocity = -6
-air.fall 		= 1
+air.fall 	= 1
+fall 		= 1
+p2stateno 	= 5220
+p2getp1state 	= 0
+getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+triggerall = statetype = A
+trigger1 = !movecontact && !movereversed
+attr = S, NA
+animtype  = Hard
+air.animtype = back
+damage = 120*map(P4)
+hitflag = MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno = 2
+sparkxy = -15,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 30
+air.hittime  	= 30-(map(UntechDecay)*2)
+down.hittime 	= 56-map(UntechDecay)
+ground.velocity = -20,-8
+air.velocity = -20,-2
+envshake.time = 20
+envshake.freq = 180
+envshake.ampl = 2
+envshake.phase = 1
+guard.hittime = 14
+guard.slidetime = 14
+guard.ctrltime = 14
+guard.velocity = -6
+air.fall 	= 1
+fall 		= 1
 p2stateno 	= 5220
 p2getp1state 	= 0
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
@@ -745,7 +764,7 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.87    
+value         =  0.83    
 ignorehitpause     = 1    
 [State -2, P2 Value Set]
 type         = MapSet
@@ -1754,7 +1773,7 @@ x = (cond(command = "holdfwd" && command != "holdback", 0.1, -0.1))
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
-value         =  3    
+value         =  2    
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
@@ -2460,6 +2479,16 @@ sprpriority = 0
 anim = 1601
 ctrl = 0
 velset = 0,0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = numhelper(12050)
+statetype = S       ;S,A,C,L
+movetype = I        ;I,A,H
+physics = S         ;A,C,S,N
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0,	MapSet]
 type 		= MapSet

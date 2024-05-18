@@ -10,6 +10,22 @@ ctrl = 0
 anim = 3000
 sprpriority = 2
 
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= time = 0
+map 		= "RemixCancel"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time < 90
+value = SCA
+time = 1
+ignorehitpause = 0
+persistent = 1
+
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1
@@ -21,17 +37,6 @@ type = VarAdd
 trigger1 = time = 0
 v =  5
 value = 1
-
-[State 0, Special Cancel OKAY]
-type = Explod
-trigger1 = animelem = 23
-anim = 99999
-ID = 1000
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
 
 [State 0, Special Cancel NOT OKAY]
 type = RemoveExplod
@@ -242,7 +247,7 @@ physics = N
 poweradd= 0
 ctrl = 0
 anim =3010
-velset = 6
+velset = 10
 sprpriority = 7
 
 [State 0, ParentVarAdd]
@@ -265,30 +270,30 @@ time = 1
  ;============================
 ;Note: Always have ignorehitpause on all of these.
 [State -2, Starter Level]
-type         = ParentMapSet
+type         = RootMapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
-type         = ParentMapSet
-trigger1         = movehit && !map(ComboStateCheck)
+type         = RootMapSet
+trigger1         = movehit && ROOT, !map(ComboStateCheck)
 map         = "P1"
 value         =  1    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
-type         = ParentMapSet
-trigger1         = movehit && map(ComboStateCheck)
+type         = RootMapSet
+trigger1         = movehit && root, map(ComboStateCheck)
 map         = "P2"
 value         =  0.85  ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
 persistent         = 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
 [State -2, P2 Accumulation - Scale]
-type         = ParentMapSet
+type         = RootMapSet
 trigger1         = movehit
 map         = "Accumulation"
-value         = Map(Accumulation) * map(P2)
+value         = root, Map(Accumulation) * root, map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
@@ -435,6 +440,14 @@ poweradd= -4000
 ctrl = 0
 anim = 3500
 sprpriority = 2
+
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= time = 0
+map 		= "RemixCancel"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0, NotHitBy]
 type = NotHitBy

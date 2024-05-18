@@ -10,6 +10,7 @@ anim =3001
 sprpriority = 8
 poweradd = -2000
 
+
 [State 0, Targetbind]
 type = Targetbind
 trigger1 = movehit = 1

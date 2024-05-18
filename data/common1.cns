@@ -3452,7 +3452,7 @@ trigger1 = 1
 value = 5070
 
 [State 5070, 2]
-type = ChangeState
+type = SelfState
 trigger1 = HitShakeOver
 value = 5071
 
@@ -3484,7 +3484,7 @@ y = GetHitVar(yaccel)
 [State 5071, 3] ;Hit ground
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= Const(movement.air.gethit.trip.groundlevel)
-type = ChangeState
+type = SelfState
 value = 5110
 
 ;---------------------------------------------------------------------------
@@ -4546,7 +4546,7 @@ value = 5030
 ; ignorehitpause = 1
 
 [State 5220, State]
-type = ChangeState
+type = SelfState
 trigger1 = HitShakeOver = 1
 value = 5221
 
@@ -4577,7 +4577,7 @@ value = 1
 movecamera = 0,1
 
 [State 5221, Hit wall]
-type = ChangeState
+type = SelfState
 triggerall = Pos y < -15
 trigger1 = BackEdgeBodyDist <= 20
 trigger2 = FrontEdgeBodyDist <= 20
@@ -4642,7 +4642,7 @@ trigger1 = Time = 0
 value = F7,0
 
 [State 5222, State]
-type = ChangeState
+type = SelfState
 trigger1 = AnimTime = 0
 value = 5223
 
@@ -4725,7 +4725,7 @@ persistent = 0
 value = 5062
 
 [State 5050, 5]; Recover in mid air
-type = ChangeState
+type = SelfState
 triggerall = Vel Y > Const(movement.air.gethit.airrecover.threshold)
 triggerall = alive
 triggerall = gethitvar(hittime) = -1

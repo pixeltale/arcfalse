@@ -22,7 +22,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.87	;100% Starting DMG
+value 		= 0.85	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -245,7 +245,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1.20	;100% Starting DMG
+value 		= 1	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1438,6 +1438,7 @@ guard.ctrltime 	= 10
 air.fall 		= 1
 getpower 		= 100
 p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
+p2getp1state = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1474,7 +1475,7 @@ persistent = 0
 type = VelSet
 trigger1 = time = 8
 x = vel x
-y = 16
+y = 18
 ignorehitpause = 1
 persistent = 1
 
