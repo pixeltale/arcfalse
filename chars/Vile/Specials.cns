@@ -1034,7 +1034,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboTimer)
 map 		= "P2"
-value 		=  0.88	;80% DMG For next hit
+value 		=  0.90	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, P2 Accumulation - Scale]
@@ -1055,7 +1055,7 @@ damage = 10*MAP(P4) + 10,10
 animtype  = hard
 hitflag = MAFD
 guardflag = LA
-pausetime = 6,6
+pausetime = 6,10
 sparkno = 1
 sparkxy = -p2dist x * 0.25, p2dist y - 20
 hitsound   = 5,3
@@ -1065,7 +1065,7 @@ ground.hittime = 20
 guard.ctrltime = 5
 guard.velocity = -5
 ground.velocity = -2
-air.velocity = 0.5, -2
+air.velocity = 0.5, -1
 down.velocity = 0.5, -4 
 air.fall = 1
 envshake.time = 12
@@ -2073,8 +2073,8 @@ ground.slidetime = 12
 ground.hittime  = 40 - MAP(untechDecay)
 air.hittime  = 40 - MAP(untechDecay)
 down.hittime = 40 - MAP(untechDecay)
-ground.velocity = -2,-1
-air.velocity = -2,0
+ground.velocity = -1,-5
+air.velocity = -1,-5
 down.velocity = -0.8,1
 envshake.time = 9
 envshake.freq = 90
@@ -3181,6 +3181,12 @@ sprpriority = 1
 velset = 0,0
 poweradd = 0
 
+[State 0, CtrlSet]
+type = CtrlSet
+triggerall = time > 5
+trigger1 = map(ComboStateCheck)
+value = 1
+
 [State 0, RemoveExplod]
 type = RemoveExplod
 trigger1 = time = 0
@@ -3238,6 +3244,13 @@ velset = 0,0
 anim = 1020
 ctrl = 0
 sprpriority = 2
+
+[State -2, Grounded 6EX Set]
+type 		= MapSet
+trigger1 	= !time
+map 		= "Ground6EX"
+value 		=  1
+ignorehitpause 	= 1
 
 ;-----
 ;LIMITER // Only Allowed ONCE During a combo // Find in -2
@@ -3512,20 +3525,10 @@ type = AfterImage
 trigger1 =time = 0
 time = 19
 length = 12
-;palcolor = 256
-;palinvertall = 0
-;palbright = 30,30,30
-;palcontrast = 120,120,220
-;palpostbright = 0,0,0
-;paladd = 10,10,25
-;palmul = .65,.65,.75
 timegap = 0
 framegap = 0
-trans = add ;"none","add1","sub"
+trans = add
 ignorehitpause = 1
-;persistent =
-
-
 
 [State 1051, 1] ;Gravity
 type = VelAdd
@@ -3566,6 +3569,12 @@ ctrl = 0
 type = ChangeState
 trigger1 = Vel Y > 0 && Pos Y >= -10
 value = 1063
+
+[State 1051, 3] ;Change state when Vile is close to ground
+type = Ctrlset
+trigger1 = !map(Ground6EX)
+trigger1 = animelem = 7
+value = 1
 
 ;------------------
 ;6S: EX Rising Knee (2nd Hit)
@@ -3671,10 +3680,10 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 ;============================
-
 [State 0]
 type = HitDef
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
+trigger1 = map(Ground6EX)
 attr = A, SA
 damage = 45*MAP(P4), 5
 animtype = light
@@ -3709,6 +3718,46 @@ down.cornerpush.veloff 	= -8
 getpower 			= 0
 
 
+[State 0]
+type = HitDef
+trigger1 = !movecontact && !movereversed
+trigger1 = !map(Ground6EX)
+attr = A, SA
+damage = 45*MAP(P4), 5
+animtype = light
+guardflag = MA
+hitflag = MAFD
+priority = 4
+pausetime = 16,16
+guard.pausetime = 15,17
+sparkno = 3
+sparkxy = -26, -22
+hitsound = 5,4
+guardsound = 6, 2
+ground.type = high
+ground.slidetime = 0
+ground.hittime  = 30
+ground.velocity = -2.5,17
+airguard.velocity = -1,-.8
+air.type = trip
+air.velocity = -2,16
+air.hittime = 90
+fall = 1
+air.fall = 1
+fall.yvelocity 		= 0
+envshake.time 		= 15
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
+p2facing 			=1
+air.cornerpush.veloff 	= -8
+ground.cornerpush.veloff 	= -8
+down.cornerpush.veloff 	= -8
+getpower 			= 0
+p2stateno 		= 5255
+p2getp1state		= 0
+
+
 [State 1055, 6] ;Change state when KFM is close to ground
 type = ChangeState
 trigger1 = Vel Y > 0 && Pos Y >= -5
@@ -3724,6 +3773,11 @@ anim = 1023
 sprpriority = 1
 velset = 0,0
 poweradd =0 
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = map(ComboStateCheck)
+value = 1
 
 [State Meter Burn State, VarSet]
 type = VarSet
@@ -3793,6 +3847,13 @@ velset = 0,0
 anim = 1032
 ctrl = 0
 sprpriority = 2
+
+[State -2, Grounded 6EX Set]
+type 		= MapSet
+trigger1 	= !time
+map 		= "Ground6EX"
+value 		=  0
+ignorehitpause 	= 1
 
 ;-----
 ;LIMITER // Only Allowed ONCE During a combo // Find in -2
@@ -3869,20 +3930,20 @@ value = 2086, (0+(Random%2))
  ;============================
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		=  3
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
 value 		=  1	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
 value 		=  1	;80% DMG For next hit
 ignorehitpause 	= 1

@@ -937,7 +937,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.90 - 0.05*(anim = 1100)
+value 		= 0.85
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -966,7 +966,7 @@ sparkxy 		= -10,-40
 hitsound   	= 5,3
 guardsound 	= 6, 0
 ground.type 	= LOW
-air.type	= TRIP
+air.type	= LOW
 ground.hittime  	= 24 - MAP(untechDecay)
 air.hittime  	= 18
 ground.velocity 	= -3.8
@@ -1293,7 +1293,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;100% Starting DMG
+value 		= 0.95	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1420,7 +1420,7 @@ trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
 air.animtype = back
-damage = 120 * MAP(P4) + (120*map(CounterHit)), 0
+damage = 100 * MAP(P4) + (120*map(CounterHit)), 0
 pausetime = 20,20
 sparkno = 2
 sparkxy = -p2dist x * 0.25,-1
@@ -1452,7 +1452,7 @@ trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
 air.animtype = back
-damage = 120 * MAP(P4) + (120*map(CounterHit)), 0
+damage = 100 * MAP(P4) + (120*map(CounterHit)), 0
 pausetime = 20,20
 sparkno = 2
 sparkxy = -p2dist x * 0.25,-1

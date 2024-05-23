@@ -646,7 +646,7 @@ triggerall = var(29)>0
 triggerall = stateno !=904
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630)
+trigger2 = (stateno = [600,630])
 trigger2 = movehit
 ;trigger4 = stateno = 1052 && movehit ;airdash cancel on 2nd hit
 ;trigger4 = stateno = 1062 && movehit ;airdash cancel on EX 2nd hit
