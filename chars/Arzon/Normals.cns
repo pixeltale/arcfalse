@@ -328,7 +328,7 @@ removeongethit = 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3	;Very Long Starter
+value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -764,7 +764,7 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.83    
+value         =  0.80    
 ignorehitpause     = 1    
 [State -2, P2 Value Set]
 type         = MapSet
@@ -896,7 +896,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.87	;90% Starting DMG
+value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet

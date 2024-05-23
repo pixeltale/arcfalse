@@ -505,7 +505,7 @@ type = HitDef
 p2facing = 1 
 trigger1 = animelem = 2 || animelem = 5 || animelem = 10 || animelem = 14 || animelem = 19 || animelem = 23 || animelem = 25 || animelem = 28 || animelem = 32 || animelem = 35
 attr = S, HA
-damage = 10*MAP(P4) + 10, 10
+damage = 15*MAP(P4) + 15, 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 3,15
@@ -733,7 +733,7 @@ p2facing = 1
 trigger1 = time = 0
 attr = S, HA
 hitonce = 1
-damage = 25*MAP (P4) + 75, 10
+damage = 15*MAP (P4) + 25, 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 20,20
@@ -868,7 +868,7 @@ p2facing = 1
 trigger1 = time = 0
 attr = S, HA
 hitonce = 1
-damage = 100*MAP(P4) + 55, 10
+damage = 50*MAP(P4) + 55, 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 20,30
@@ -948,7 +948,7 @@ p2facing = 1
 trigger1 = time = 0
 attr = S, HA
 hitonce = 1
-damage = 100*MAP(P4) + 65, 15
+damage = 50*MAP(P4) + 65, 15
 hitflag = MAFD
 guardflag = MAF
 pausetime = 35,30

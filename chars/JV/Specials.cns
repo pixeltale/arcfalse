@@ -437,7 +437,7 @@ animtype 		= medium
 ground.slidetime 	= 14
 ground.hittime  	= 23
 ground.velocity 	= -2,-5
-air.velocity 	= -6.6,-1
+air.velocity 	= -6.6,-1 + (map(untechDecay) * 0.25)
 air.hittime 	= 24
 envshake.time 	= 7
 fall 		= 1
@@ -2543,13 +2543,13 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboTimer)
 map 		= "P1"
-value 		= 1.2	;100% Starting DMG
+value 		= 1	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboTimer)
 map 		= "P2"
-value 		= 0.89	;95% DMG For next hit
+value 		= 0.85	;95% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]

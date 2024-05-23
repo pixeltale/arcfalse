@@ -468,6 +468,13 @@ ctrl = 1
 
 [Statedef -2]
 
+[State SP, MapSet]
+type = MapSet
+trigger1 = enemy, movetype != H
+map = "EXj6S_Limiter"
+value = 0
+ignorehitpause = 1
+
 [State 0, Distance Display]
 type = DisplaytoClipboard
 trigger1 = 1

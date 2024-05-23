@@ -7154,6 +7154,12 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+[State 170, 1]
+type = HitBy
+trigger1 = enemy, map(SawnOff)
+value = SCA, HA
+time = 1
+
 ;=============================++
 ;Wallbounce Angle Reset        +
 ;=============================++

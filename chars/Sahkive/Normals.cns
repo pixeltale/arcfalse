@@ -155,7 +155,7 @@ ignorehitpause     = 1
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.90
+value         =  0.85
 ignorehitpause     = 1    
 persistent         = 0    
 [State -2, P2 Accumulation - Scale]
@@ -297,7 +297,7 @@ ignorehitpause     = 1
 type         = MapSet
 trigger1       		= movehit && map(ComboStateCheck)
 map         		= "P2"
-value         		=  0.95
+value         		=  0.90
 ignorehitpause  	= 1    
 persistent      	= 0    
 [State -2, P2 Accumulation - Scale]
@@ -419,7 +419,7 @@ ignorehitpause     	= 1
 type         = MapSet
 trigger1         	= movehit && map(ComboStateCheck)
 map         		= "P2"
-value         		=  0.95
+value         		=  0.90
 ignorehitpause     	= 1    
 persistent         	= 0    
 [State -2, P2 Accumulation - Scale]
@@ -432,7 +432,7 @@ persistent         	= 0
 ;============================
 [State 1055, 5]
 type = HitDef
-triggerall = !movecontact
+triggerall = !movecontact && !movereversed
 trigger1 = time = 0
 attr = S,NA
 getpower = 25
@@ -441,7 +441,6 @@ animtype = hard
 air.animtype = back
 guardflag = MA
 hitflag = MAF
-priority = 5
 pausetime = 16,16
 sparkno=3
 hitsound   = 5,3
@@ -453,7 +452,7 @@ guard.slidetime = 9
 guard.ctrltime = 10
 guard.velocity = -10
 ground.hittime  = 35-MAP(untechDecay)
-air.hittime  = 38-MAP(untechDecay)
+air.hittime  = 30-MAP(untechDecay)
 down.hittime = 48-MAP(untechDecay)
 ground.velocity = -3,-4.5
 air.velocity = -3,-4.5
@@ -734,7 +733,7 @@ ignorehitpause     = 1
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.85
+value         =  0.82
 ignorehitpause     = 1    
 persistent         = 0    
 [State -2, P2 Accumulation - Scale]
@@ -2035,7 +2034,7 @@ ignorehitpause     = 1
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.85
+value         =  0.88
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
@@ -2129,7 +2128,7 @@ ground.cornerpush.veloff 	= -1
 guard.ctrltime 		= 22
 guard.velocity 		= -8
 getpower 			= 70
-p2stateno 		= 5255
+p2stateno 		= cond(map(untechDecay) < 10, 5255, 5070)
 p2getp1state 		= 0
 
 [State 0, VarAdd]
@@ -2222,7 +2221,7 @@ persistent = 1
 
 [State 12, ChangeState]
 type = ChangeState
-trigger1 = command !="hold_c" && time = [14,36]
+trigger1 = command !="hold_c" && time = [18,36]
 value = 511
 
 [State 13, ChangeState]

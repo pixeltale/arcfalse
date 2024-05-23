@@ -48,24 +48,24 @@ ignorehitpause = 0
  ;============================
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		=  2
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
 value 		=  0.86	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		=  0.89	;80% DMG For next hit
+value 		= 0.90	;80% DMG For next hit
 ignorehitpause 	= 1
-persistent 		= 0
+persistent = 0
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
 trigger1 		= movehit
@@ -75,6 +75,14 @@ ignorehitpause 	= 1
 persistent 		= 0
 ;============================
 
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 	= 1
+map 		= "RapidDecay"
+value 		= 25*MAP(P4)-(time/8) -((var(30)>0))
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
@@ -82,12 +90,12 @@ trigger1 = animelem = 6
 trigger2 = animelem = 8
 trigger3 = animelem = 10
 attr = S, SA
-damage = 25*MAP(P4), 10
+damage = cond(map(RapidDecay) > 0, map(RapidDecay), 1) 10
 hitflag = MAF
 air.animtype = back
 guardflag = MA
 priority = 3
-pausetime = 3,9
+pausetime = 3,2
 sparkno = 11
 sparkxy = -15+random%20,-15-random%20
 hitsound   = s8,0
@@ -95,55 +103,52 @@ guardsound = 6,0
 ground.type = Low
 animtype = medium
 ground.slidetime = 14
-ground.hittime  = 30 - map(untechDecay)
+ground.hittime  = 25 - map(untechDecay)
 air.hittime  = 30 - map(untechDecay)
 down.hittime = 30 - map(untechDecay)
-ground.velocity = -1
-air.velocity = -1,-1
+ground.velocity = -0.5 - time * 0.25
+guard.ctrltime = 18
+guard.hittime  = 18
+air.velocity = -0.5,-0.5 + (map(untechDecay) * 0.1)
 envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
+ground.cornerpush.veloff = -2 - time * 0.3
+forcenofall = 1
+  palfx.time 		= 25
+  palfx.add 		= 10, 30, 10
 getpower = (40)*(cond(var(var(1)) = 1, 1, .5))
 
-[State 630, 2]
-type = HitDef 
-p2facing 		= 1 
-trigger1 		= animelem = 13
-hitonce 		= 1
-attr 		= S, SA
-damage 		= 40*MAP(P4), 12
-hitflag 		= MAF
-guardflag 	= HA
-priority 		= 3
-pausetime 	= 15,15
-sparkno 		= 12
-sparkxy 		= -5,-35
-hitsound   	= s8,2
-guardsound 	= 6,2
-ground.type 	= TRIP
-air.type		= TRIP
-animtype 		= medium
-ground.slidetime 	= 14
-ground.hittime  	= 60 - map(untechDecay)
-air.hittime  	= 30 - map(untechDecay)
-down.hittime 	= 30 - map(untechDecay)
-ground.velocity 	= 0.7, 4
-fall.yvelocity 	= -6
-air.velocity 	= 0.7,9
-fall 		= 1
-envshake.time 	= 15
-envshake.freq 	= 80
-envshake.ampl 	= 2
-envshake.phase 	= 1
-guard.ctrltime 	= 20
-guard.cornerpush.veloff = -8
-getpower 		= (75)*(cond(var(var(1)) = 1, 1, .5))
+[State 0, VelAdd]
+type = VelSet
+trigger1 = animelemno(0) = 6
+trigger2 = animelemno(0) = 8
+trigger3 = animelemno(0) = 10
+x = 1.5
+
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = movecontact = [1, 30]
+trigger1 = animelem = 12
+trigger1 = command = "holdb"
+value = 1000
+elem = 5
+ignorehitpause = 1
+;persistent = 
+
 
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0
+trigger1 = animelem = 14 && movecontact
+value = 0
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0 && !movecontact
 value = 0
 ctrl = 1
 
@@ -581,6 +586,23 @@ anim = 1022
 sprpriority = 2
 velset = 4,-5
 
+[State 0, Targetbind]
+type = Targetbind
+trigger1 = movehit = 1
+trigger1 = time < 20
+pos = 50, -3
+time = 1
+persistent = 1
+ignorehitpause = 1
+
+[State SP, MapSet]
+type = MapSet
+trigger1 = map(ComboStateCheck)
+trigger1 = movehit = 1
+map = "EXj6S_Limiter"
+value = 1
+ignorehitpause = 1
+
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1
@@ -697,7 +719,7 @@ y = -7.4
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 21
-y = -3.4
+y = 4.5
 
 
 [State 0, VelAdd]
@@ -707,20 +729,20 @@ y = .4
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3
+value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
 value 		= 0.89	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
 value 		= 0.89	;80% DMG For next hit
 ignorehitpause 	= 1
@@ -738,7 +760,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 7
 attr = A, SA
-damage = 80*MAP(P4),1
+damage = 50*MAP(P4),1
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -767,7 +789,7 @@ type = HitDef
 p2facing = 1
 trigger1 = (time = [23,50]) && time%3=0
 attr = A, SA
-damage = 25*MAP(P4),1
+damage = 15*MAP(P4),1
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -795,7 +817,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 21
 attr = A, SA
-damage = 85*MAP(P4),1
+damage = 50*MAP(P4),1
 animtype  = Medium
 air.animtype = back
 ground.velocity = -11,7

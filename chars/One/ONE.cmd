@@ -164,7 +164,7 @@ trigger2 = var(1)
 [State 1027, j6EX: EX Shredder]
 type = ChangeState
 value = 1027
-triggerall = power>=1000 
+triggerall = power>=1000 && !map(EXj6S_Limiter)
 triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
 triggerall = command = "holdfwd"
 triggerall = !var(50)

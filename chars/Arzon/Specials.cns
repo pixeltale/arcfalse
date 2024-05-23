@@ -406,6 +406,7 @@ hitflag = MAFD
 guardflag = MAF
 priority = 6
 pausetime = 22,22
+guard.pausetime = 22, 10
 sparkno = 3
 sparkxy = -10,-45
 hitsound   = 5,3
@@ -425,9 +426,9 @@ air.velocity = -8,-2
 envshake.freq = 110
 envshake.ampl = 7
 envshake.phase = 1
-guard.slidetime = 25
-guard.hittime = 14
-guard.ctrltime = 21
+guard.slidetime = 6
+guard.hittime = 6
+guard.ctrltime = 6
 guard.cornerpush.veloff = -7
 getpower = 0
 
@@ -454,35 +455,8 @@ ctrl = 0
 anim =1300
 sprpriority = 2
 
-[State 0, Far Set] ;Hold H or G
-type = Helper
-triggerall = var(17) = 2
-trigger1 = animelem = 4
-helpertype = normal ;player
-name = "Wind Trap"
-ID = 1303
-stateno = 1303
-pos = p2dist x,2
-postype = p1    ;p2,front,back,left,right
-facing = 1
-ownpal=1
-
-[State 0, Mid Set] ;Hold L or M
-type = Helper
-triggerall = var(17) = 1
-trigger1 = animelem = 4
-helpertype = normal ;player
-name = "Wind Trap"
-ID = 1303
-stateno = 1303
-pos = 125,2
-postype = p1    ;p2,front,back,left,right
-facing = 1
-ownpal=1
-
 [State 0, Close Set] ;Hold Nothing
 type = Helper
-triggerall = var(17) = 0
 trigger1 = animelem = 4
 helpertype = normal ;player
 name = "Wind Trap"
@@ -2507,7 +2481,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = movecontact = 1
-trigger2 = time >100
+trigger2 = time > 50
 trigger3 = frontedgedist<-60
 value = 1299
 ctrl = 0 
@@ -2633,7 +2607,7 @@ getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = movecontact = 1
-trigger2 = time >150
+trigger2 = time > 50
 trigger3 = frontedgedist<-60
 value = 1299
 ctrl = 0 

@@ -347,7 +347,7 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  1	;100% Starting DMG
+value 		=  0.90	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1896,14 +1896,14 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  3
+value 		=  2
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.90	;100% Starting DMG
+value 		=  0.88	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -2741,6 +2741,12 @@ trigger1 =pos y>= 0
 value = 52
 ctrl = 1
 
+[State 0, ChangeState]
+type = ChangeState
+trigger1 =animtime = 0 
+value = 50
+ctrl = 1
+
 
 
 ;---------------------------------------------------------------------------
@@ -2858,7 +2864,7 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.87	;100% Starting DMG
+value 		=  0.84	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -2894,8 +2900,8 @@ guardsound = 6,2
 animtype = Med
 ground.type = Low
 ground.slidetime 	= 12
-ground.hittime  	= 24 - MAP(untechDecay)
-air.hittime  	= 18 - MAP(untechDecay)
+ground.hittime  	= 18 - MAP(untechDecay)
+air.hittime  	= 20 - MAP(untechDecay)
 down.hittime 	= 24 - MAP(untechDecay)
 guard.ctrltime 	= 8
 ground.velocity 	= -2,0
@@ -2906,9 +2912,10 @@ air.fall 		= 1
 getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, ChangeState]
-type = ctrlSet
-trigger1 =animtime = 0
-value = 1
+type = ChangeState
+trigger1 =animtime = 0 
+value = 50
+ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState
@@ -2939,14 +2946,14 @@ value = 0, 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  3	;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+value 		=  2	;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.90	;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
+value 		=  0.87	;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause 	= 1	;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -2983,7 +2990,7 @@ guardsound 	= 6,0
 ground.type 	= High
 ground.slidetime 	= 6
 ground.hittime  	= 20 - MAP(untechDecay)
-air.hittime  	= 26 - MAP(untechDecay)
+air.hittime  	= 24 - MAP(untechDecay)
 down.hittime 	= 30 - MAP(untechDecay)
 ground.velocity 	= -4
 air.velocity 	= -4.1,-3
