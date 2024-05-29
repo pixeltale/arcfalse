@@ -1,7 +1,5 @@
-.\external\script\start.lua:1401: chars/shingouki_pots/shingouki_pots.def:
-chars\shingouki_pots/states/shinzss.zss
-states/shinzss.zss:51:
-Invalid key name: interpolation.time, interpolation.alpha
+.\external\script\start.lua:1401: ./chars/JOJO/Jojo.cmd:499:
+Command doesn't exist: buffdown
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

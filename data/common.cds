@@ -814,6 +814,11 @@ name = "236x"   ;Same name as above
 command = ~D, DF, F, z
 time = 15
 buffer.time = 4
+[Command]
+name = "236s"   ;Same name as above
+command = ~D, DF, F, s
+time = 15
+buffer.time = 4
 [Command] ;Duplicates for Case Sensitivity ==========
 name = "236X"
 command = ~D, DF, F, x
@@ -827,6 +832,10 @@ buffer.time = 4
 [Command]
 name = "236X"   ;Same name as above
 command = ~D, DF, F, z
+time = 15
+buffer.time = 4
+name = "236S"   ;Same name as above
+command = ~D, DF, F, s
 time = 15
 buffer.time = 4
 
@@ -884,6 +893,10 @@ name = "M44"
 command = /B, w
 time = 1
 [Command]
+name = "M44"
+command = /DB, w
+time = 1
+[Command]
 name = "M66"
 command = w
 time = 1
@@ -891,6 +904,11 @@ time = 1
 [Command]
 name = "EX"
 command = d
+time = 1
+buffer.time = 2
+[Command]
+name = "EX"
+command = b+c
 time = 1
 buffer.time = 2
 

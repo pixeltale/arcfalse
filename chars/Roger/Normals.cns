@@ -572,6 +572,7 @@ ignorehitpause 	= 1
 persistent 	= 1
 [State 0, ReversalDef]
 type = ReversalDef
+triggerall = !(enemy, map(ArmorBreak))
 triggerall = animelemno(0) = [3,6]
 trigger1 = map(ArmorPoints5H) > 0
 reversal.attr = SCA,NA,SA,NP,SP,HP,HA
@@ -1268,7 +1269,6 @@ envshake.phase = 1
 guard.slidetime = 12
 guard.ctrltime = 10
 p2stateno = 5300
-p2getp1state = 0
 getpower = (150)*(cond(var(var(2)) = 1, 1.5, 1)) 
 
 [State 0, ChangeState]

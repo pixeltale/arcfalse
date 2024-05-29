@@ -4309,7 +4309,7 @@ movetype= A
 physics = S
 juggle  = 0
 anim = 0
-poweradd = (-2000)
+poweradd = -2000
 ctrl = 0
 velset = vel x * 0.05,0
 sprpriority = 2
@@ -7129,7 +7129,29 @@ value = 52
 ;===========================================================================
 ;SYSTEM MECHANICS ----------------------------------------------------------
 ;===========================================================================
+;RECORD SCRATCH
+[State -1, RC Jasta]
+type = ChangeState
+value = 4000
+triggerall = !map(ScratchLockout) && enemy, Alive
+triggerall = power>=2000
+triggerall = stateno != 900 && stateno != 803
+triggerall = command = "SP"
+triggerall = statetype != A
+trigger1 = movecontact || moveguarded || movereversed
 
+;RECORD SCRATCH (AIR)
+[State -1, RC Jasta Air]
+type = ChangeState
+value = 4001
+ignorehitpause = 1
+triggerall = !map(ScratchLockout) && enemy, Alive
+triggerall = power>=2000
+triggerall = stateno !=750
+triggerall = stateno != 900
+triggerall = command = "SP"
+triggerall = statetype = A
+trigger1 = movecontact || moveguarded || movereversed
 
 ;ALPHA COUNTER
 [State -1, Recoil Guard]
@@ -7156,8 +7178,8 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 
 [State 170, 1]
 type = HitBy
-trigger1 = enemy, map(SawnOff)
-value = SCA, HA
+trigger1 = enemy, map(IgnoreInvul)
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 time = 1
 
 ;=============================++
@@ -7195,30 +7217,6 @@ trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP
 ;Wu support
 trigger2 = enemynear, numhelper(777)
 trigger2 = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
-
-;RECORD SCRATCH
-[State -1, RC Jasta]
-type = ChangeState
-value = 4000
-triggerall = !map(ScratchLockout) && enemy, Alive
-triggerall = power>=2000
-triggerall = stateno != 900 && stateno != 803
-triggerall = command = "SP"
-triggerall = statetype != A
-trigger1 = movecontact || moveguarded || movereversed
-
-;RECORD SCRATCH (AIR)
-[State -1, RC Jasta Air]
-type = ChangeState
-value = 4001
-ignorehitpause = 1
-triggerall = !map(ScratchLockout) && enemy, Alive
-triggerall = power>=2000
-triggerall = stateno !=750
-triggerall = stateno != 900
-triggerall = command = "SP"
-triggerall = statetype = A
-trigger1 = movecontact || moveguarded || movereversed
 
 
 ;====================================================================

@@ -1,0 +1,140 @@
+;===========================================================================
+;===========================================================================
+;===========================================================================
+;================================BREAKER===================================
+;======This constants contains all Breakers, Breakers are seperated by direction==============
+;===========================================================================
+;===========================================================================
+;===========================================================================
+
+
+;----------------------
+;Backwards Dodge
+[Statedef 700]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 1                      ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 650                      ;Change animation (Def: no change)
+poweradd = 10                    ;Power to add (Def: 0)
+sprpriority = -2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem =2
+value = 0, 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = S,NA
+;value2 = S,NA
+time = 10
+;ignorehitpause = 
+;persistent = 
+
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;----------------------
+;Forwards Dodge
+[Statedef 701]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 1                      ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 651                      ;Change animation (Def: no change)
+poweradd = 10                    ;Power to add (Def: 0)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem =2
+value = 0, 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = S,NA
+;value2 = S,NA
+time = 10
+;ignorehitpause = 
+;persistent = 
+
+[State 100, 1]
+type = VelSet
+trigger1 = time=[0,22]
+x = 4
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 2
+anim = 6700
+ID = 6700
+pos = 50,0
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.4,0.4
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 0
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;----------------------
+;Spot Dodge
+[Statedef 702]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 1                      ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 652                      ;Change animation (Def: no change)
+poweradd = 10                    ;Power to add (Def: 0)
+sprpriority = -2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem =2
+value = 0, 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,HA
+;value2 = S,NA
+time = 10
+;ignorehitpause = 
+;persistent = 
+
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

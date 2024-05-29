@@ -46,7 +46,7 @@ type = HitDef
 p2facing = 1
 trigger1 = time = 0 
 attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage 		= 50*map(P4)
+damage 		= 30*map(P4)
 animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype 	= back
 guardflag 	= MA

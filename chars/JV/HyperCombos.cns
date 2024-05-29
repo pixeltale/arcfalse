@@ -1193,7 +1193,7 @@ guard.velocity 	= -.4
 air.fall 		= 1
 fall 		= 1
 fall.yvelocity	= 0
-p2stateno	= cond(abs(camerapos x) > 260 && stagefrontedgedist < 800, 5225, 5220)
+p2stateno	= cond(abs(camerapos x) > 260 && frontedgedist < 800, 5225, 5220)
 p2getp1state	= 0
 getpower = (200)*(cond(var(var(2)) = 1, 1, .5))
 
