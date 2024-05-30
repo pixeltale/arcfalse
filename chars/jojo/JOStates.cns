@@ -696,6 +696,13 @@ anim = 100
 sprpriority = 1
 ctrl = 1
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 	= 1
+map 		= "DASH"
+value 		= 75
+ignorehitpause 	= 1
+
 [State 100, 1]
 type = VelSet
 trigger1 = time=[0,12]

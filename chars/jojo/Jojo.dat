@@ -1,19 +1,5 @@
 	<#bbbbbb>This move list assumes you are facing to the right.</>
 
-	<#49F43A>KNOCKOUT MECHANICS:</>
-	<#bbbbbb>KO characters have access to mechanics using the Desperation Gauge.
-	They also generally have more freedom in their combo options and movement.</>
-
-OVERHEAD	-		_F^B
-FORCE BLOCK (WHILE BLOCKING)	-		(10% DESP)</> ^B+^C
-RECOIL GUARD (WHILE BLOCKING)	-		(50% DESP)</> _F^B+^C
-RECORD SCRATCH (WHILE ATTACKING)	-		(50% DESP)</> ^Z+^X
-BURST (WHILE GETTING HIT)	-		^Z+^C
-PANIC BURST (WHILE GETTING HIT)	-		(100% DESP)</> ^Z+^C
-   <#ff0000>Using this PERMANENTLY disables your Desperation Gauge
-   for the rest of the game.</>
-ANTI-AIR	-		_D^C
-
 	<#790909>UNIQUE TRAIT: FATAL ART</>
 	Like any Fatal Art character, Jojo can cancel
 	normal special moves into EX Special moves.
@@ -24,6 +10,7 @@ ANTI-AIR	-		_D^C
 GRAVITY SHIFT	-		<#65b5ff>(AIR ONLY)</> _D^C
 FOOT MEETS FACE	-		_B^B
 DUST KICK	-		_B^C
+NIGGA SOLE	-		_DF^C
 
 1 AND 2	-		^A_-^A
 3 AND 4	-		^B_-^B
@@ -40,10 +27,11 @@ DUST BUSTER	-		<#aaffff>(GROUND OR AIR)</> _D^Y
 
 	<#790909>REMIX MOVES</>
 WEAVE	-		_B^Z/_D^Z/_F^Z
+SWAG GOD FIST 	-		_F^Z_-^C[JUST OK]
 
 	<#55ffff>SUPERS</>
 <#790909>MAJOR UPPERCUT</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
    <#bbbbbb>Can be cancelled into other moves on hit.</>
-<#790909>CRIPPLING COMBO</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+<#790909>FUNKY TOWN BREAKDOWN</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
 	</>
  

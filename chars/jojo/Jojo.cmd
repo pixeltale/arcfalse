@@ -17,6 +17,12 @@ s = s
 command.time = 15
 command.buffer.time = 3
 
+[Command]
+name = "holdfwd" ;Required (do not remove)
+command = /$F
+time = 1
+buffer.time = 0
+
 [Statedef -1]
 
 ;===========================================================================
@@ -282,7 +288,7 @@ triggerall = command != "b"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3=stateno=2000
+trigger3=stateno=[2000,2001]
 trigger3 = movecontact
 
 [State -1, 2R]
@@ -315,7 +321,7 @@ value = 100
 triggerall = command = "66" || teammode != Tag && command = "M66" && command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = [100, 105] && animelemno(0) > 3
+trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = 105 && animelemno(0) > 3
 
 ;Run Back
 [State -1, Run Back]
@@ -361,13 +367,13 @@ trigger1 = ctrl
 ;===========================================================================
 ;===========================================================================
 ;===========================================================================
-
+;6L
 [state -1, Forward L > M]
 type = changestate
 triggerall = statetype != A
 value = 201
 triggerall = command = "x"
-triggerall = command = "holdfwd"
+triggerall = command = "holdfwd" && command != "holdback"
 trigger1 = ctrl
 trigger2 = stateno = 200 && movecontact 
 trigger3 = stateno = 230 && movecontact 
@@ -405,7 +411,7 @@ trigger3 = stateno = 100
 
 [state -1, Enryu Haibi Follow]
 type = changestate
-triggerall = command = "buffer_x"
+triggerall = command = "x"
 triggerall = stateno = 200 && statetype != A
 trigger1 = time > 5
 value = 203

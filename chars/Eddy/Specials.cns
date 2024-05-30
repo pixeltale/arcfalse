@@ -2020,10 +2020,10 @@ value = 1303
 ;-----------------------------
 [Statedef 1303]
 type    = S
-movetype= I
+movetype= A
 physics = S
 poweradd=0
-ctrl = 0
+ctrl = map(ComboStateCheck)
 anim =1053
 sprpriority = 2
 velset = 0,0
@@ -2578,19 +2578,12 @@ value 	= 1313
 type    = S
 movetype= A
 physics = S
-juggle  =0; 2
 poweradd = 0
 ctrl = 0
 anim =1053
 sprpriority = 2
 velset = 0,0
 
-[State 0, PosSet]
-type = PosSet
-trigger1 = 1
-y = 0
-;ignorehitpause = 
-;persistent = 
 [State 200, 2]
 type = PlaySnd
 trigger1 = time = 0

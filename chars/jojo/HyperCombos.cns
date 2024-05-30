@@ -705,7 +705,18 @@ palfx.color = 0
 palfx.invertall = 1
 p2stateno = 43211
 
-
+[State -2, SPIN BITCH]
+type 		= MapSet
+trigger1	= !time
+map 		= "FUNKY"
+value 		= 0
+ignorehitpause 	= 0
+[State -2, SPIN BITCH]
+type 		= MapSet
+trigger1	= animelem = 93
+map 		= "FUNKY"
+value 		= 1
+ignorehitpause 	= 0
 
 
 
