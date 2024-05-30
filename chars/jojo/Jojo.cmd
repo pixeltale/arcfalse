@@ -268,7 +268,6 @@ triggerall = command != "b"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-triggerall = stateno != 105
 
 
 [State -1, 6R]
@@ -285,7 +284,6 @@ trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=2000
 trigger3 = movecontact
-triggerall = stateno != 105
 
 [State -1, 2R]
 type = ChangeState
@@ -298,7 +296,6 @@ triggerall = command != "b"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-triggerall = stateno != 105
 
 ;============================================================================================
 

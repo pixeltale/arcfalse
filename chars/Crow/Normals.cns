@@ -29,7 +29,7 @@ type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 trigger1		= prevstateno != 200 || prevstateno != 400
 map 		= "P2"
-value 		= 0.9	;85% DMG For next hit
+value 		= 0.85	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -132,7 +132,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1
+value 		= 0.90
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -311,6 +311,8 @@ ground.slidetime 	= 5
 ground.velocity 	= -6, -4
 air.velocity 		= -1.4,-1.8
 guard.ctrltime 		= 12
+guard.velocity		= -12
+guard.slidetime		= 20
 airguard.velocity 	= -1.9,-.8
 ;==============================================
 fall			= 1
@@ -357,6 +359,8 @@ ground.slidetime 	= 5
 ground.velocity 	= -6, -4
 air.velocity 		= -1.4,-1.8
 guard.ctrltime 		= 12
+guard.velocity		= -15
+guard.slidetime		= 20
 airguard.velocity 	= -1.9,-.8
 ;==============================================
 fall			= 1
@@ -406,6 +410,8 @@ ground.slidetime 	= 5
 ground.velocity 	= -10, -7
 air.velocity 		= -10,-6
 guard.ctrltime 		= 12
+guard.velocity		= -20
+guard.slidetime		= 20
 airguard.velocity 	= -1.9,-.8
 ;==============================================
 fall			= 1
@@ -586,8 +592,8 @@ air.animtype 		= back
 guardflag 		= HA
 hitflag 		= MAFD
 ;==============================================
-pausetime 		= 25, 25
-guard.pausetime		= 20, 20
+pausetime 		= 28, 28
+guard.pausetime		= 25, 25
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -599,11 +605,12 @@ air.type 		= High
 ground.hittime  	= 30
 air.hittime  		= 40
 down.hittime 		= 30
-ground.slidetime 	= 5
+ground.slidetime 	= 22
 ;==============================================
 ground.velocity 	= 0, -4
 air.velocity 		= 0,18
 guard.ctrltime 		= 22
+guard.velocity		= -9
 airguard.velocity 	= -1.9,-.8
 ;==============================================
 fall			= 1
@@ -635,7 +642,7 @@ air.animtype 		= back
 guardflag 		= HA
 hitflag 		= MAFD
 ;==============================================
-pausetime 		= 28, 28
+pausetime 		= 35, 35
 guard.pausetime		= 20, 20
 sparkno 		= 0
 sparkxy 		= -30, -59
@@ -670,6 +677,12 @@ p2stateno 		= cond((enemy, statetype = A || enemy, statetype = L),5255, 5000)
 p2getp1state		= 0
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
+[State 1200, Shake Screen]
+type 	= EnvShake
+trigger1 	= animelem = 5
+time 	= 4
+ampl 	= 3
+freq 	= 10
 
 [State 0, Jump Cancel]
 type 		= MapSet
@@ -1469,11 +1482,11 @@ ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
-trigger1 		= movehit
+trigger1 	= movehit
 map 		= "Accumulation"
 value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
-persistent 		= 0
+persistent 	= 0
 
 [State 630, 2]
 type = HitDef 
@@ -1498,7 +1511,7 @@ air.hittime  		= 99
 ground.velocity 	= -4, -5
 fall.yvelocity 		= 0
 air.velocity 		= -5,-3 * MAP(gravmul)
-guard.ctrltime 		= 10
+guard.ctrltime 		= 6
 air.fall 		= 1
 fall			= 1
 air.cornerpush.veloff	= -3 - (map(UntechDecay) * 0.5)
@@ -1515,7 +1528,7 @@ trigger1	= !movecontact && !movereversed
 trigger1 	= time > 16
 hitonce 	= 1
 attr 		= A, NA
-damage 		= 200*MAP(P4)
+damage 		= 175*MAP(P4)
 hitflag 	= MAFD
 guardflag 	= HA
 pausetime 	= 24,24
@@ -1525,13 +1538,14 @@ hitsound   	= 5,3
 guardsound 	= 6,2
 ground.type 	= high
 air.type		= high
-ground.slidetime 	= 6
 ground.hittime  	= 18 - MAP(UntechDecay)
 air.hittime  		= 999
 ground.velocity 	= -4, -5
 fall.yvelocity 		= 0
 air.velocity 		= -18,-3 * MAP(gravmul)
-guard.ctrltime 		= 10
+guard.ctrltime 		= 6
+guard.velocity		= -18
+guard.slidetime		= 18
 air.fall 		= 1
 fall			= 1
 air.cornerpush.veloff	= -3 - (map(UntechDecay) * 0.5)
@@ -1547,7 +1561,7 @@ p2getp1state 		= 0
 type 		= MapSet
 trigger1 	= movehit
 map 		= "wallbounce_yvel"
-value 		= -5 * map(GravMul)
+value 		= -4.5 * map(GravMul)
 ignorehitpause 	= 1
 persistent 		= 0
 

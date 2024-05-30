@@ -86,8 +86,9 @@ value = 0
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time >= 0
+trigger1 = time <= 52
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
-time = 45
+time = 1
 
 [State 200, 1]
 type = HitDef

@@ -36,7 +36,7 @@ trigger4 = stateno = 105
 var(1) = 1
 
 ;===========================================================================
-;236X - Judgement
+;236X - FUNERAL
 [State -1, 236x]
 type = ChangeState
 value = 3000
@@ -47,8 +47,7 @@ trigger1 = ctrl
 trigger2 = statetype != A
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = [100,101]
+trigger3 = stateno = 1310 || stateno = 1330
 
 ;214X- Strike Heaven
 ;[State -1, 214x]

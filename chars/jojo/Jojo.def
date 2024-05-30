@@ -3,8 +3,8 @@
 ;Stick Figure Information
 [Info]
 name = "JoJo"        ;Name of character
-displayname = "Jo-Jo (KO)" ;Name of character to display
-lifebarname = "KO Jo-Jo"
+displayname = "Jo-Jo" ;Name of character to display
+lifebarname = "Jo-Jo"
 versiondate = 4,18,2020    ;Version date of character (MM-DD-YYYY or X.XX)
 mugenversion = 1.0          ;Version of M.U.G.E.N character works on (X.XX)
 ikemenversion = 0.99
