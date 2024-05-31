@@ -482,7 +482,7 @@ down.hittime 		= 99
 ground.slidetime 	= 5
 ;==============================================
 ground.velocity 	= -10, -7
-air.velocity 		= -10,-6
+air.velocity 		= -8,-8
 guard.ctrltime 		= 12
 guard.velocity		= -20
 guard.slidetime		= 20
@@ -503,6 +503,14 @@ getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 p2stateno		= 5220
 p2getp1state		= 0
 ;++++++++++++++++++++++++++++++++++++++++++++++
+
+[State -2, Wallbounce Velocity Set]
+type 		= MapSet
+trigger1 	= movehit
+map 		= "wallbounce_yvel"
+value 		= -7.5 * map(GravMul)
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -790,23 +798,16 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 	= 1
 
-[State 0, PowerAdd]
-type = PowerAdd
-trigger1 = enemy, movereversed
-value = 500
-ignorehitpause = 1
-
 [State 0, ReversalDef]
 type = ReversalDef
 triggerall = p2dist x > 0
 trigger1 = animelemno(0) <= 3
-reversal.attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+reversal.attr = SCA,NA,SA,HA,NP,SP,HP
 pausetime = 1,10
 sparkno = S1500
 hitsound = S1,0
 ignorehitpause = 1
 p1stateno = 700
-
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -815,7 +816,6 @@ trigger1 = command = "holdb" && map(HoldTimer) < 35
 value = 1050
 elem = 3
 ignorehitpause = 1
-;persistent = 
 
 
 [State 0, ChangeState]
@@ -829,11 +829,11 @@ ctrl = 1
 type = S
 physics = S
 movetype = I
-anim = 700;702+random%3
+anim = 700
 velset = 0, 0
 ctrl = 0
 sprpriority = 2
-poweradd = 78
+poweradd = 100
 facep2 = 1
 
 [State 0, CtrlSet]
