@@ -1,5 +1,5 @@
-.\external\script\start.lua:1401: ./chars/JOJO/Jojo.cmd:376:
-Not enclosed in "
+.\external\script\start.lua:1401: ./chars/CROW/Crow.cmd:149:
+Nothing assigned
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

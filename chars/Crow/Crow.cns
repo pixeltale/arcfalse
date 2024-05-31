@@ -309,12 +309,18 @@ trigger1 = enemy, movetype != H
 map = "jH_UseCount"
 value = 0
 
+[State -2, SHOT USED]
+type 		= MapSet
+trigger1 	= roundstate = 0
+map 		= "ShotCount"
+value 		= 2
+ignorehitpause 	= 1
 
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "camerapos = %f frontedgedist = %d"
-params = camerapos x, frontedgedist
+text = "shotcount = %d"
+params = map(ShotCount)
 ignorehitpause = 1
 persistent = 1
 

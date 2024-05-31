@@ -2790,6 +2790,7 @@ time = 32
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = enemy, hitpausetime
+trigger1 = !movereversed
 value = 900
 elem = 1
 ignorehitpause = 1
@@ -2838,10 +2839,10 @@ ontop = 0
 [State 0]
 type = hitdef 
 p2facing 			= 1
-trigger1 			= time = 0
-attr 			= A, HA
-animtype  		= hard
-damage 			= 0,0
+trigger1 			= !movecontact && !movereversed
+attr 			    = A, HA
+animtype  		    = hard
+damage 			    = 0,0
 hitflag 			= MAF
 guardflag 		= MA
 pausetime 		= 10,10
@@ -7176,12 +7177,6 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
-[State 170, 1]
-type = HitBy
-trigger1 = enemy, map(IgnoreInvul)
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
-time = 1
-
 ;=============================++
 ;Wallbounce Angle Reset        +
 ;=============================++
@@ -7587,7 +7582,8 @@ value = map(BurstGauge) / 10
 [State 0, Explod] ;INDICATOR
 type = Explod
 triggerall = !numexplod(1005)
-trigger1 = map(counterhit) && movehit
+trigger1 = map(counterhit) && movehit && !movereversed
+trigger1 = enemy, movetype = H
 anim = F1005
 ID = 1005
 pos = 180, 125

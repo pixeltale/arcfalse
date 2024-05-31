@@ -33,6 +33,7 @@ trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = stateno!=421
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = 105
+trigger5 = stateno = 700
 var(1) = 1
 
 ;===========================================================================
@@ -48,34 +49,6 @@ trigger2 = statetype != A
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1310 || stateno = 1330
-
-;214X- Strike Heaven
-;[State -1, 214x]
-;type = ChangeState
-;value = 3100
-;triggerall = command = "214x"
-;triggerall = power >= 2000
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = statetype != A
-;trigger2 = stateno != [3000,3050)
-;trigger2 = movecontact ;&& enemynear, movetype = H
-;trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-;trigger4 = stateno = [100,101]
-
-;214S- Maw of Serpent
-[State -1, 214S]
-type = ChangeState
-value = 3500
-triggerall = command = "236s"
-triggerall = power >= 4000
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = statetype != A
-trigger2 = stateno != [3000,3050)
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = [100,101]
 
 ;===============================================================================
 ;---------------------------------------------------------------------------
@@ -121,8 +94,44 @@ trigger1 = ctrl
 trigger2 = stateno = 250
 
 ;===========================================================================
+;EX MOVES
+;===========================================================================
+[State -1, RELOADRELOAD]
+type = ChangeState
+value = 1030
+triggerall = command = "EX" && map(ShotCount) < 2
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
 
 ;===========================================================================
+;SPECIAL MOVES
+;===========================================================================
+[State -1, MALICIOUS PRESSURE CONSUMES YOU]
+type = ChangeState
+value = 1050
+triggerall = command = "b"
+triggerall = command = "holdfwd"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+[State -1, DEATHGRIPPED]
+type = ChangeState
+value = 1040
+triggerall = command = "b" && command = "holddown"
+triggerall = !numhelper(1045)
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+[State -1, ABSOLUTE ESSENCE OF SHOTGUN]
+type = ChangeState
+value = 1000
+triggerall = command = "b"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
 
 ;===========================================================================
 ;COMMAND NORMALS
