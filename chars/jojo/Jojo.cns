@@ -55,7 +55,7 @@ attack.dist = 0    ;Default attack distance
 proj.attack.dist =0 ;Default attack distance for projectiles
 proj.doscale = 0     ;Set to 1 to scale projectiles too
 head.pos = -5, -90   ;Approximate position of head
-mid.pos = -5, -60    ;Approximate position of midsection
+mid.pos = -5, -55    ;Approximate position of midsection
 shadowoffset = 0     ;Number of pixels to vertically offset the shadow
 draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
 
@@ -400,49 +400,6 @@ trigger2 = statetype=C
 v = 29    ;fv = 10
 value = 1
 
-;Ground Bounce Limiter
-[State 0, VarSet]
-type = VarSet
-trigger1 = numtarget = 0
-v = 6    ;fv = 10
-value = 0
-[State 0, TargetDrop]
-type = TargetDrop
-trigger1 = enemynear, stateno = 5110
-;----
-[State 0, VarSet]; 3H Limiter
-type = VarSet
-trigger1 = numtarget = 0
-v =7    ;fv = 10
-value = 0
-[State 0, TargetDrop]
-type = TargetDrop
-trigger1 = enemynear, stateno = 5110
-[State 0, VarSet]; M>(M) Limiter
-type = VarSet
-trigger1 = numtarget = 0
-v =8    ;fv = 10
-value = 0
-[State 0, TargetDrop]
-type = TargetDrop
-trigger1 = enemynear, stateno = 5110
-[State 0, VarSet]; L>(L) Limiter
-type = VarSet
-trigger1 = numtarget = 0
-v =16    ;fv = 10
-value = 0
-[State 0, TargetDrop]
-type = TargetDrop
-trigger1 = enemynear, stateno = 5110
-[State 0, VarSet]; 4M Limiter
-type = VarSet
-trigger1 = numtarget = 0
-v =14    ;fv = 10
-value = 0
-[State 0, TargetDrop]
-type = TargetDrop
-trigger1 = enemynear, stateno = 5110
-
 ;-----
 [State -2, EX 5S]
 type = varset
@@ -566,62 +523,7 @@ ignoreHitPause = 1
 ;fvar(13):= -2
 
 
-;===============================================================================
-; COUNTER HIT (Taken from FA)
-;Copy 13000 - 13101 ANIMS
-;Copy 13100 - 13100/2 SOUNDS
-;===============================================================================
-[State -2, Training stuff, it won't effect the gameplay]
-;also I'm tired of pressing the spacebar. :P
-type = AssertSpecial
-trigger1 = Enemy, Name = "Training"
-flag = timerfreeze
-ignorehitpause = 1
 
-[State -2, VarSet];Checks if opponent is in attack state
-type = VarSet
-triggerall = numenemy
-trigger1 = enemy, movetype = A
-var(56) = 1
-ignorehitpause = 1
-
-[State -2, VarSet];This resets the condition if counter not succesful and succesful
-type = VarSet
-triggerall = numenemy
-trigger1 = enemy, movetype = I || var(57) >= 1  ;Enemy is Idle | Counter was Succesful
-trigger2 = var(57) > 10 && enemy, movetype = H  ;10 ticks passed & enemy is on gethit state
-var(56) = 0
-ignorehitpause = 1
-
-[State -2, VarSet];Counter Hit Succesful
-type = VarSet
-trigger1 = var(56) = 1 && movehit ;Counter Check Ok, Move Hit Succesfully.
-trigger1 = stateno != [190,199] ;Does not activate during intros.
-trigger1 = stateno != [800,820] ;Does not activate during throws.
-trigger1 = stateno != [950,951] ;Don't activate during throws.
-trigger2 = var(56) = 1 && projhit = 1  ;Counter Check Ok, Projectile Hit Succesfully.
-var(57) = 1
-ignorehitpause = 1
-
-[State -2, VarAdd];Counter Hit Timer
-type = VarAdd
-trigger1 = var(57) >= 1 ;Counter was succesful
-var(57) = 1
-ignorehitpause = 1
-
-[State -2, VarSet];Counter Hit Reset
-type = VarSet
-trigger1 = var(57) >= 22 && movehit ;Reset if 22 ticks passed and move hit
-trigger2 = p2movetype != H ;Reset if P2 is no longer in gethit state
-trigger3 = movetype = H ;Reset if P1 is getting hit
-trigger4 = var(57) >= 22 && projhit = 1 ;Reset if 22 ticks passed and projectile hit
-var(57) = 0
-ignorehitpause = 1
-
-[State -2, AssertSpecial];This will award free juggles for Counter Hit.
-type = AssertSpecial
-trigger1 = var(57) > 0
-flag = nojugglecheck
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
@@ -643,34 +545,4 @@ triggerall = Time = 1
 trigger1 = stateno = 52 ;Jump land
 trigger2 = stateno = 106 ;Run-back land
 value = 40, 0
-;---------------------- Integer variable list ----------------------
-
-; var(1):= 105, -1
-; var(9):= 900
-;var(10):= 1000
-;var(13):= 0, 10, 11, 12
-;var(17):= 5900
-;var(20):= -2, 2053, 2063
-;var(21):= -2
-;var(27):= -2
-;var(30):= -2
-;var(31):= -2, 1011
-;var(32):= -2, 1060, 1064
-;var(34):= -2, 2059
-;var(40):= 40, 4000
-;var(44):= -2
-;var(45):= -3, 45
-;var(50):= -2
-;var(56):= -2
-;var(57):= -2
-;var(59):= 191, 0
-
-;---------------------- Float variable list ----------------------
-
-; fvar(6):= 4000, 4001
-; fvar(8):= -2
-;fvar(10):= -2
-;fvar(11):= -2
-;fvar(13):= -2
-;fvar(17):= -2
 

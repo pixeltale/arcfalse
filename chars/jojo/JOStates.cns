@@ -700,7 +700,7 @@ ctrl = 1
 type 		= MapSet
 trigger1 	= 1
 map 		= "DASH"
-value 		= 75
+value 		= 1
 ignorehitpause 	= 1
 
 [State 100, 1]

@@ -49,7 +49,7 @@ x = 3
 
 [State 1110, 3]
 type = HitDef
-trigger1 = time = 0
+trigger1 = !movereversed && !movecontact
 attr = S, SA
 getpower = 50
 animtype  = Up
@@ -370,7 +370,7 @@ x = 3
 
 [State 1110, 3]
 type = HitDef
-trigger1 = time=0
+trigger1 = time=0 && !movereversed
 attr = S, SA
 getpower = 0
 animtype  = Up
@@ -508,7 +508,7 @@ removeongethit = 0
 
 [State 1110, 3]
 type = HitDef
-trigger1 = time%5=0
+trigger1 = time%5=0 && !movereversed
 attr = S, SA
 getpower = 0
 animtype  = Up
@@ -798,7 +798,7 @@ x = 6
 [State 410, 2]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movereversed && !movecontact
 attr = S, SA
 damage = 70 * Map(P4) + 70 * map(CounterHit)
 animtype  = Medium
@@ -894,7 +894,7 @@ x = 20
 [State 410, 2]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movereversed && !movecontact
 attr = S, SA
 damage = 100 + 100 * MAP(CounterHit)
 animtype  = Medium
@@ -1294,16 +1294,6 @@ velset = 0,0
 anim = 2070
 sprpriority = 2
 
-[State 0, NotHitBy]
-type = NotHitBy
-triggerall = map(PERFECT)
-trigger1 = !time
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 10
-ignorehitpause = 1
-persistent = 1
-
-
 [State 0, ChangeAnim]
 type = ChangeAnim
 triggerall = map(PERFECT)
@@ -1420,12 +1410,11 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall	 	= enemy, statetype != C
 trigger1 		= !movereversed && !movecontact
 trigger1		= !map(PERFECT)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 100*map(P4), 10
+damage 			= 80*map(P4), 10
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1466,12 +1455,11 @@ getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall	 	= enemy, statetype != C
 trigger1 		= !movereversed && !movecontact
 trigger1		= map(PERFECT)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 120*map(P4) + 100 * map(CounterHit) + map(DASH), 50
+damage 			= 100*map(P4) + 100 * map(CounterHit) + map(DASH)*95, 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1495,7 +1483,7 @@ ground.slidetime 	= 5
 ground.cornerpush.veloff = -5
 ;==============================================
 ground.velocity 	= -1,-6 - 2 * map(CounterHit)
-air.velocity 		= -4,-4*(map(GravMul)*0.9) - 1 * map(CounterHit)
+air.velocity 		= -4,-4*(map(GravMul)*0.9) - (1 * map(CounterHit))
 down.velocity		= -1, -8*map(GravMul)
 guard.ctrltime 		= 12
 guard.slidetime		= 20

@@ -562,7 +562,7 @@ trigger1 = !animtime
 type    = S
 movetype= A
 physics = S
-poweradd= 0
+poweradd= -1000
 ctrl = 0
 velset = vel x,0
 anim = 1030
@@ -806,6 +806,7 @@ sparkno = S1500
 hitsound = S1,0
 ignorehitpause = 1
 p1stateno = 700
+
 
 [State 0, ChangeAnim]
 type = ChangeAnim

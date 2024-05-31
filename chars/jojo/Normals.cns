@@ -242,7 +242,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-trigger1 		= !movehit && !movecontact
+trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
 damage 			= 50*map(P4)
@@ -387,7 +387,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-trigger1 		= !movehit && !movecontact
+trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
 damage 			= 75*map(P4)
@@ -519,7 +519,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-trigger1 		= !movehit && !movecontact
+trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
 damage 			= 75*map(P4)
@@ -678,7 +678,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-trigger1 		= !movehit && !movecontact
+trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
 damage 			= 90*map(P4)
@@ -1107,7 +1107,7 @@ persistent 		= 0
 
 [State 200, 1]
 type = HitDef
-trigger1 = time = 0
+trigger1 = !movereversed && !movecontact
 attr = S, NA
 animtype  = hard
 damage = 120*MAP(P4), 2
@@ -1295,7 +1295,7 @@ persistent 		= 0
 
 [State 410, 3]
 type = HitDef
-trigger1 = time = 0
+trigger1 = !movereversed && !movecontact
 attr = C, NA
 damage = 65 * MAP(P4), 0
 animtype  = light
@@ -1464,7 +1464,7 @@ persistent 		= 0
 
 [State 0]
 type = HitDef
-trigger1 = Time= 0
+trigger1 = !movereversed && !movecontact
 attr = S, NA
 animtype  = Hard
 damage = 90*MAP(P4), 0
@@ -1686,7 +1686,7 @@ persistent 		= 0
 
 [State 200, 1]
 type = HitDef
-trigger1 = time = 0 
+trigger1 = !movereversed && !movecontact
 attr = S, NA                     ;Attribute: Standing, Normal Attack
 damage = 200*MAP(P4), 0
 animtype = hard                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -1780,7 +1780,7 @@ persistent 		= 0
 
 [State 600, 2]
 type = HitDef
-trigger1 = Time = 0
+trigger1 = !movereversed && !movecontact
 attr = A, NA
 damage = 20*MAP(P4), 0
 guardflag = MA
@@ -1865,7 +1865,7 @@ persistent 		= 0
 
 [State 610, 3]
 type = HitDef
-trigger1 = Time = 0
+trigger1 = !movereversed && !movecontact
 attr = A, NA
 damage = 50*MAP(P4), 0
 guardflag = HA
@@ -2156,7 +2156,7 @@ x = 1.5
 
 [State 0]
 type = HitDef
-trigger1 = time=0
+trigger1 = !movereversed && !movecontact
 attr = A, NA
 animtype  = Medium
 damage = ceil(cond(fvar(11) *50 < 4, 4, fvar(11) * 50)), 5
@@ -2561,12 +2561,6 @@ ctrl = 0
 anim = 800
 sprpriority = 2
 
-; Notes: The '-' symbol in the hitflag field means that it only affects
-;   players who are not in a hit state. This prevents KFM from combo-ing
-;   into the throw. The priority should be set to a low number, such as
-;   1 or 2, so that the throw does not take precedence over normal attacks.
-;   The type of priority must always be set to "Miss" or "Dodge" for throws,
-;   otherwise strange behavior can result.
 [State 800, 1] ;With grab sound
 type = HitDef
 trigger1 = p2statetype != A
@@ -2574,9 +2568,8 @@ Trigger1 = time = 0
 attr = S, NT          ;Attributes: Standing, Normal Throw
 hitflag = M-          ;Affect only ground people who are not being hit
 priority = 1, Miss    ;Throw has low priority, must be miss or dodge type.
-sparkno = -1          ;No spark
-p1sprpriority = 1     ;Draw p1's sprite in front of p2
-                      ;p2's sprite priority is set to 0 by default
+sparkno = -1
+p1sprpriority = 1
 p1facing = 1
 hitsound = S669,0 ;Throw Hit
 p2facing = 1          ;Force p2 to face KFM
