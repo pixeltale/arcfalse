@@ -200,6 +200,7 @@ trigger3 = stateno = 1017 && movecontact ;&& enemynear, movetype = H
 trigger4=stateno=105
 
 
+
 [State -1, 2S: Acid Stomp]
 type = ChangeState
 value = 1010
@@ -207,7 +208,7 @@ triggerall=!numhelper(2054)||Helper(2054),rootdist x != [-100,100]
 triggerall=stateno!=40
 triggerall = stateno !=1017
 triggerall = command = "b"
-triggerall=command!="c"
+triggerall = command!="c"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
 triggerall = statetype != A
@@ -229,6 +230,21 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=105
+
+[State -1, 1S: Acid Stomp - During Puddle]
+type = ChangeState
+value = 1010
+triggerall=Helper(2054),rootdist x = [-100,100]
+triggerall=stateno!=40
+triggerall = stateno !=1017
+triggerall = command = "b"
+triggerall = command != "c"
+triggerall = command = "holddown"
+triggerall = command = "holdback"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+trigger3 = stateno=105
 
 ;-------------------------------------------------------------------------
 

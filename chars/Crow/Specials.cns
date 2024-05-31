@@ -873,14 +873,6 @@ type = posfreeze
 trigger1 = 1
 value = 1
 
-[State 700, Pause]
-type = pause
-trigger1 = !time && numenemy
-time = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-movetime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-endcmdbuftime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-pausebg = 1
-
 [State 700, Flash]
 type = palfx
 trigger1 = !time
@@ -902,6 +894,78 @@ trigger1 = 1
 flag = nowalk
 
 [State 700, End]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;4S - CROWD CONTROL
+[Statedef 1060]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1060
+sprpriority = 2
+facep2 = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelemno(0) = [2,4]
+x = 7
+ignorehitpause = 1
+
+[State 200, 1] ;++++++++++++++++++++++++++++++++++
+type 		= HitDef 
+p2facing 		= 1
+trigger1 		= !movereversed && !movecontact
+;==============================================
+attr 			= S, NA                     
+damage 			= 100*map(P4), 50
+animtype 		= light
+air.animtype 		= back
+;==============================================
+guardflag 		= MA
+hitflag 		= MAFD
+;==============================================
+pausetime 		= 18, 18
+guard.pausetime		= 20, 20
+sparkno 		= 0
+sparkxy 		= -30, -59
+hitsound 		= 5, 1
+guardsound 		= 6, 0
+;==============================================
+ground.type 		= TRIP
+air.type 		= High
+;==============================================
+ground.hittime  	= 30
+air.hittime  		= 26
+down.hittime 		= 30-map(UntechDecay)
+ground.slidetime 	= 5
+;==============================================
+ground.velocity 	= -6, -5
+air.velocity 		= -1.4,-1.8
+guard.ctrltime 		= 12
+guard.velocity		= -12
+guard.slidetime		= 20
+airguard.velocity 	= -1.9,-.8
+;==============================================
+fall			= 1
+air.fall 		= 1
+fall.yvelocity 		= 0
+;==============================================
+envshake.time		= 20
+envshake.freq 	= 100
+envshake.ampl 	= 1
+envshake.phase 	= 1
+;==============================================
+getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+;++++++++++++++++++++++++++++++++++++++++++++++
+
+[State 1060, End]
 type = changestate
 trigger1 = animtime = 0
 value = 0

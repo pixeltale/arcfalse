@@ -4677,20 +4677,23 @@ type = VelSet
 triggerall = enemy, map(wallbounce_boomerang)
 trigger1 = Time = 0
 x = p2dist x * 0.02
+
 [State -2, Wallbounce Type Set]
 type 		= MapSet
 trigger1 	= time = 1
-map 		= "wallbounce_hit"
-value 		= 2
+map 		= "wallbounce_yvel"
+value 		= -6
 ignorehitpause 	= 1
 persistent 		= 1
+redirectid      = enemynear, id
 [State -2, Wallbounce Type Set]
-type 		= MapAdd
-trigger1 	= map(wallbounce_hit)
-map 		= "wallbounce_hit"
-value 		= -1
+type 		= MapSet
+trigger1 	= time = 1
+map 		= "wallbounce_boomerang"
+value 		= 0
 ignorehitpause 	= 1
 persistent 		= 1
+redirectid      = enemynear, id
 
 [State 5223, Gravity]
 type = VelAdd
@@ -7176,24 +7179,6 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
-
-;=============================++
-;Wallbounce Angle Reset        +
-;=============================++
-[State -2, Wallbounce Velocity Set]
-type 		= MapSet
-trigger1 	= enemy, map(wallbounce_hit)
-map 		= "wallbounce_yvel"
-value 		= -6
-ignorehitpause 	= 1
-persistent 		= 1
-[State -2, Wallbounce Type Set]
-type 		= MapSet
-trigger1 	= enemy, map(wallbounce_hit)
-map 		= "wallbounce_boomerang"
-value 		= 0
-ignorehitpause 	= 1
-persistent 		= 1
 
 ;====================================================================
 ;System Mechanics

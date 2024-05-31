@@ -9,6 +9,13 @@ anim = 3000
 sprpriority = 8
 poweradd = -2000
 
+[State 170, 1]
+type = HitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
+time = 1
+redirectid = enemy, id
+
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = animelem = 3

@@ -107,6 +107,17 @@ trigger2 = var(1)
 ;===========================================================================
 ;SPECIAL MOVES
 ;===========================================================================
+;4S
+[State -1, MALICIOUS PRESSURE CONSUMES YOU]
+type = ChangeState
+value = 1060
+triggerall = command = "b"
+triggerall = command = "holdback"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+;6S
 [State -1, MALICIOUS PRESSURE CONSUMES YOU]
 type = ChangeState
 value = 1050
@@ -116,6 +127,7 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
+;2S
 [State -1, DEATHGRIPPED]
 type = ChangeState
 value = 1040
@@ -125,6 +137,7 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
+;5S
 [State -1, ABSOLUTE ESSENCE OF SHOTGUN]
 type = ChangeState
 value = 1000
