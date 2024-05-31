@@ -299,8 +299,6 @@ flag = Nobardisplay
 ;========================================
 ; States that are always executed (use statedef -2)        ||
 ;========================================
-
-
 [Statedef -2]
 
 [State 0, MAPSET]
