@@ -102,7 +102,7 @@ value = 1030
 triggerall = command = "EX" && map(ShotCount) < 2
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) || stateno = 1000
 
 ;===========================================================================
 ;SPECIAL MOVES

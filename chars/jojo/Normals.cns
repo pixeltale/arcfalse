@@ -155,7 +155,7 @@ guard.ctrltime 	= 12
 ground.velocity = -4
 airguard.velocity = -1.9,-.8
 air.type = High
-air.velocity = -1.4,-2
+air.velocity = -1.4,-1
 air.hittime = 35
 envshake.time = 0;
 air.fall = 1
@@ -165,7 +165,7 @@ air.fall = 1
 type = PosAdd
 trigger1 = animelem = 2
 trigger2 = animelem = 3
-x = 4
+x = 6
 
 [State 0, Explod]
 type = Explod
@@ -252,7 +252,7 @@ air.animtype 		= back
 guardflag 		= MA
 hitflag 		= MAFD
 ;==============================================
-pausetime 		= 12, 14
+pausetime 		= 12, 12
 guard.pausetime		= 10, 12
 sparkno 		= 1
 sparkxy 		= -30, -59
@@ -269,7 +269,7 @@ ground.slidetime 	= 5
 ground.cornerpush.veloff = -5
 ;==============================================
 ground.velocity 	= -2
-air.velocity 		= -2.4,-2.8
+air.velocity 		= -2.4,-2.8*map(GravMul)
 guard.ctrltime 		= 12
 airguard.velocity 	= -1.9,-.8
 ;==============================================

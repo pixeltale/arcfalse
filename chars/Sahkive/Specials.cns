@@ -131,9 +131,9 @@ air.velocity=0,30
 pausetime=0,0
 guard.pausetime = 12,12
 guard.velocity = -5
-guard.hittime = 12
-guard.ctrltime = 11
-guard.slidetime = 15
+guard.hittime = 8
+guard.ctrltime = 8
+guard.slidetime = 8
 
 [State 0, ChangeState]
 type = ChangeState
@@ -600,11 +600,11 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 	= 1
 
-[State 0, MAPSET]
+[State 0, RC LOCKOUT]
 type 		= MapSet
-trigger1 		= animelemno(0) < 10
+trigger1 		= 1
 map 		= "ScratchLockout"
-value 		= 2
+value 		= 20
 ignorehitpause 	= 1
 persistent		= 1
 
@@ -2229,7 +2229,7 @@ movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S
 velset = vel x*0.5,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 1030                       ;Change animation (Def: no change)
+anim = 1030 + 5*(map(ComboStateCheck) > 0)                       ;Change animation (Def: no change)
 sprpriority = 0                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 0, EnvShake]

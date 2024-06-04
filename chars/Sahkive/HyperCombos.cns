@@ -430,7 +430,7 @@ type = HitDef
 trigger1 = time = 0
 attr = S, HA
 animtype  = hard
-damage = (50+(map(HitCount) * 4))*MAP(P4) + 200,25
+damage = (50+(map(HitCount) * 12))*MAP(P4) + 200,25
 hitflag = MAFDP
 guardflag = MA
 pausetime = 40,40

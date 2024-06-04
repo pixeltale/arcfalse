@@ -317,8 +317,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "shotcount = %d"
-params = map(ShotCount)
+text = "campos = %f frontedgedist = %i"
+params = abs(camerapos x), frontedgedist
 ignorehitpause = 1
 persistent = 1
 
