@@ -180,7 +180,7 @@ p2facing 		= 1
 trigger1 		= animelem = 1
 ;==============================================
 attr 			= S, NA                     
-damage 			= 100 + 100*MAP(COUNTERHIT) - p2dist x, 150
+damage 			= 150 + 100*MAP(COUNTERHIT) - p2dist x*0.25, 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -320,7 +320,7 @@ p2facing 		= 1
 trigger1 		= animelem = 1
 ;==============================================
 attr 			= S, NA                     
-damage 			= 100 + 100*MAP(COUNTERHIT) - p2dist x, 150
+damage 			= 150 + 100*MAP(COUNTERHIT) - p2dist x*0.25, 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -460,7 +460,7 @@ p2facing 		= 1
 trigger1 		= animelem = 1
 ;==============================================
 attr 			= S, NA                     
-damage 			= 100 + 100*MAP(COUNTERHIT) - p2dist x, 150
+damage 			= 150 + 100*MAP(COUNTERHIT) - p2dist x*0.25, 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
