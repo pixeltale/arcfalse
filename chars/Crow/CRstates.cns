@@ -987,12 +987,13 @@ type    = A
 physics = A
 anim 	= 100
 sprpriority = 1
-velset = 4, -4.5
+velset = 3, -4.5
 ctrl = 0
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = vel x > 15
+trigger1 = prevstateno = 4000
 x = 15
 
 [State 0, AfterImage] ;Post RC Afterimages        ============ ++

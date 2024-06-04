@@ -944,7 +944,7 @@ hitsound 		= 5, 1
 guardsound 		= 6, 0
 ;==============================================
 ground.type 		= TRIP
-air.type 		= High
+air.type 		= TRIP
 ;==============================================
 ground.hittime  	= 30
 air.hittime  		= 26

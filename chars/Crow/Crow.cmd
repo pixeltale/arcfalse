@@ -99,7 +99,7 @@ trigger2 = stateno = 250
 [State -1, RELOADRELOAD]
 type = ChangeState
 value = 1030
-triggerall = command = "EX" && map(ShotCount) < 2
+triggerall = command = "EX" && map(ShotCount) < 2 && power > 1000
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1) || stateno = 1000
@@ -285,7 +285,7 @@ triggerall = command = "y"
 triggerall = statetype = A
 trigger1 = ctrl || stateno = 100
 trigger2 = movecontact && stateno!= 610
-trigger2 = stateno = [630,640] && movehit || stateno = 600 && movecontact
+trigger2 = stateno = [620,630] && movehit || stateno = 600 && movecontact
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 60
 
