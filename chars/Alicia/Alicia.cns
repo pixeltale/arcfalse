@@ -279,12 +279,6 @@ ignorehitpause = 1
 ;=============================================+
 ;Palette Stuff
 [State 0, MapSet]
-type = RemapPal
-trigger1 = roundstate = 0
-source = 1, 1
-dest = 1, palno + map(AltPal)
-
-[State 0, MapSet]
 type = MapSet
 trigger1 = roundsexisted = 0
 trigger1 = roundstate = 0
@@ -292,6 +286,13 @@ trigger1 = command = "holds"
 map = "AltPal"
 value = 12
 ignorehitpause = 1
+persistent = 1
+
+[State 0, MapSet]
+type = RemapPal
+trigger1 = roundstate = 0
+source = 1, 1
+dest = 1, palno + map(AltPal)
 ;=============================================+
 
 ;=============================================+

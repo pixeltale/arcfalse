@@ -515,7 +515,7 @@ facep2 = 1
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = animelem = 3
+trigger1 = !animtime
 value = 1
 
 [State 0, Explod]
@@ -616,8 +616,9 @@ facep2 = 1
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = animelem = 3
+trigger1 = !animtime
 value = 1
+
 [State 700, Snd]
 type = playsnd
 trigger1 = !time
@@ -699,8 +700,9 @@ facep2 = 1
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = animelem = 3
+trigger1 = !animtime
 value = 1
+
 [State 700, Snd]
 type = playsnd
 trigger1 = !time
@@ -2784,7 +2786,7 @@ color = 256
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time = 0
-value = ,NA,SA,HA,NP,SP,HP
+value = SCA
 time = 32
 
 [State 0, ChangeAnim]
@@ -6477,13 +6479,14 @@ value = 0
 type    = S
 movetype= A
 physics = S
-juggle  = 0
-poweradd= 0
+poweradd	= -2000
 ctrl = 0
 anim = 7000
 sprpriority = 2
 velset = 0,0
 facep2 = 1
+
+
 
 [State 0. MapSet]
 type 		= MapSet
@@ -6602,7 +6605,7 @@ velset 		=    0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl 		= 0                         ;Set ctrl (Def: no change)
 anim 		= 7001                      ;Change animation (Def: no change)
 sprpriority 	= 2
-poweradd		= -2000
+
 
 [State 0, Pause]
 type = Pause
@@ -6610,6 +6613,11 @@ trigger1 = movehit = 1
 time = 8
 ignorehitpause = 1  
 persistent = 0
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = movehit = 1
+value = 1000
 
 [State 0]
 type = hitdef 
@@ -7148,7 +7156,6 @@ trigger1 = movecontact || moveguarded || movereversed
 [State -1, RC Jasta Air]
 type = ChangeState
 value = 4001
-ignorehitpause = 1
 triggerall = !map(ScratchLockout) && enemy, Alive
 triggerall = power>=2000
 triggerall = stateno !=750
@@ -7156,16 +7163,6 @@ triggerall = stateno != 900
 triggerall = command = "SP"
 triggerall = statetype = A
 trigger1 = movecontact || moveguarded || movereversed
-
-;ALPHA COUNTER
-[State -1, Recoil Guard]
-type = ChangeState
-value = 7000
-trigger1 = stateno = [150,153]
-triggerall = command = "holdfwd" 
-triggerall = command = "SP"
-triggerall = statetype != A
-triggerall = power >= 2000
 
 [State -1, Grab] ;Throw
 type = ChangeState
@@ -7179,6 +7176,47 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+
+
+;=========
+;
+;=========
+[State -2, LOW]
+type 		    = MapSet
+trigger1 	    = name = "Alicia" && (stateno = [400, 410] || stateno = 430)
+trigger1 	    = name = "Angous" && (stateno = 410 || stateno = 431)
+trigger1 	    = name = "Arzon" && (stateno = [400, 410])
+trigger1 	    = name = "Crow" && (stateno = 410 || stateno = 430)
+trigger1        = name = "Eddy" && (stateno = 410 || stateno = 430 || stateno = 1002)
+trigger1        = name = "Grandmaster Wu" && (stateno = 410 || stateno = 430)
+trigger1 	    = name = "Jojo" && (stateno = [400, 410] || stateno = 431)
+trigger1 	    = name = "JV" && (stateno = 410 || stateno = 430 || stateno = [702, 703] || stateno = 707)
+trigger1 	    = name = "One" && (stateno = 420 || stateno = 440)
+trigger1 	    = name = "Roger" && (stateno = 410 || stateno = 430 || stateno = 562)
+trigger1 	    = name = "Sahkive" && (stateno = [400, 410] || stateno = 440 || stateno = 1034)
+trigger1 	    = name = "Vile" && (stateno = 200 || stateno = [400, 410] || stateno = 430 || stateno = [1010, 1011])
+map 		    = "Low"
+value 		    = 1
+ignorehitpause 	= 1
+persistent      = 1
+
+[State -2, LOW]
+type 		    = MapSet
+trigger1 	    = name = "Alicia" && !(stateno = [400, 410] || stateno = 430)
+trigger1 	    = name = "Angous" && !(stateno = 410 || stateno = 431)
+trigger1 	    = name = "Arzon" && !(stateno = [400, 410])
+trigger1 	    = name = "Crow" && !(stateno = 410 || stateno = 430)
+trigger1        = name = "Eddy" && !(stateno = 410 || stateno = 430 || stateno = 1002)
+trigger1        = name = "Grandmaster Wu" && !(stateno = 410 || stateno = 430)
+trigger1 	    = name = "Jojo" && !(stateno = [400, 410] || stateno = 431)
+trigger1 	    = name = "JV" && !(stateno = 410 || stateno = 430 || stateno = [702, 703] || stateno = 707)
+trigger1 	    = name = "One" && !(stateno = 420 || stateno = 440)
+trigger1 	    = name = "Roger" && !(stateno = 410 || stateno = 430 || stateno = 562)
+trigger1 	    = name = "Sahkive" && !(stateno = [400, 410] || stateno = 440 || stateno = 1034)
+trigger1 	    = name = "Vile" && !(stateno = 200 || stateno = [400, 410] || stateno = 430 || stateno = [1010, 1011])
+map 		    = "Low"
+value 		    = 0
+ignorehitpause 	= 1
 
 ;====================================================================
 ;System Mechanics
@@ -7649,16 +7687,18 @@ type = Pause
 triggerall = map(slowdownTime)
 trigger1 = time % 2 = 0
 time = 1
-movetime = 1
+movetime = 40
 ignorehitpause = 1
 pausebg = 1
 
 [State -2, RC Speed Boost]
 type = Changestate
+triggerall = time > 0
 trigger1 = stateno = 4000 && (command = "fwd" || command = "holdfwd")
 value = 100
 [State -2, RC Speed Boost]
 type = Changestate
+triggerall = time > 0
 trigger1 = stateno = 4000 && (command = "back" || command = "holdback")
 value = 105
 [State -2, RC Speed Boost]
@@ -8884,3 +8924,14 @@ value = 0
 
 
 [statedef -4]
+
+
+;ALPHA COUNTER
+[State -1, Recoil Guard]
+type = ChangeState
+value = 7000
+trigger1 = stateno = [150,153]
+triggerall = command = "holdfwd" 
+triggerall = command = "SP"
+triggerall = statetype != A
+triggerall = power >= 2000

@@ -273,6 +273,14 @@ scale = 0.84,0.84
 removeongethit = 0
 ignorehitpause = 1
 persistent = 0
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = anim = 1005 && map(chargeLvl)
+value = 1000, 1
+ignorehitpause = 1
+persistent = 0
+volumescale = 160
+
 
 
 [State 0, ChangeAnim] ;Beretta

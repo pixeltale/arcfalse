@@ -501,7 +501,7 @@ triggerall = command = "y"
 triggerall = command = "holdfwd" && command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = [400,430] || stateno = [200,230]
+trigger2 = stateno = [400,420] || stateno = [200,230]
 trigger2 = movecontact
 
 ;5M: Standing Medium

@@ -1,0 +1,71 @@
+;===========================================================================
+;===========================================================================
+;=================================Grandmaster Wu======================================
+;======================Original Character by Dillonator13============================
+;==========================Animated by Dillonator13=============================
+;====================Coded by MedioTaffy, Z and Bonehouse=========================
+;===========================================================================
+;============Bonehouse says, "i aints ya ging ging, and ya aints ma bing bing!"=============
+;==============="if you dont get that reference then what even are you?"================
+;===========================================================================
+;==========================Taffy Says, "your mom"===========================
+;===========================================================================
+;===========================================================================
+;==================Z Says, "They'll never find your body."==================
+;===========================================================================
+
+;Last Edit: 12:16 PM EST (Z)
+; - made lv2 and lv3 tatsus rekkas
+; - flame normal attacks now deal more damage based on wu's mojo level
+; - 2S: Astral Rise has been added
+; - new color 7 (patented Z color)
+
+;Stick Figure Information
+[Info]
+name = "Grandmaster Wu"        ;Name of character
+displayname = "Grandmaster Wu" ;Name of character to display
+versiondate = 4,18,2020    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.0
+ikemenversion = 0.99
+author = "Animated by Dillonator13 | Programmed by Taffy, Z, Kaiba, & Bonehouse"         ;Character author nam
+pal.defaults = 1,5,9,13, 17, 21, 25, 29, 33, 37, 41, 45      ;Default palettes in order of preference (up to 4)
+                            ;Numbering starts from 1
+localcoord = 280,240        ;Local coordinate space width and height
+
+
+; Files for the player
+[Files]
+cmd     = Grandmaster Wu.cmd                    ;Command set
+cns     = Grandmaster Wu.cns                        ;Constants
+st      = Grandmaster Wu.cns                          ;States
+st1      = Normals.cns                ;Normals
+st2      = Specials.cns                ;Specials
+st3      = HyperCombos.cns     ;Supers
+st4      = Target.cns                   ;Target
+st5      = Helpers.cns                 ;Helpers
+st6     = WUStates.cns
+stcommon = common1.cns     ;Common states (from data/ or motif)
+sprite  = Grandmaster Wu.sff                        ;Sprite
+anim    = Grandmaster Wu.air                       ;Animation
+sound   = Grandmaster Wu.snd                    ;Sound
+ai      = TempAI.ai   
+pal2    = 2.act
+pal3    = 3.act
+pal4    = 4.act
+pal5    = 5.act
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+x = 1 ;Press button X to select palette 1, etc.
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+x2 = 7 ;Hold Start and press button X for palette 7, etc.
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+

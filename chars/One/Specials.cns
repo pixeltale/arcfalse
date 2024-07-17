@@ -120,14 +120,6 @@ forcenofall = 1
   palfx.add 		= 10, 30, 10
 getpower = (40)*(cond(var(var(1)) = 1, 1, .5))
 
-[State 0, VelAdd]
-type = VelSet
-trigger1 = animelemno(0) = 6
-trigger2 = animelemno(0) = 8
-trigger3 = animelemno(0) = 10
-x = 1.5
-
-
 [State 0, ChangeAnim]
 type = ChangeAnim
 triggerall = movecontact = [1, 30]
@@ -136,9 +128,6 @@ trigger1 = command = "holdb"
 value = 1000
 elem = 5
 ignorehitpause = 1
-;persistent = 
-
-
 
 [State 0, ChangeState]
 type = ChangeState

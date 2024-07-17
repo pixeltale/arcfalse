@@ -196,37 +196,6 @@ trigger1 = ctrl
 trigger2 = var(1)
 
 ;-------------------------------------------------------------------------
-
-;[State -1, EX 4S: xxx]
-;type = ChangeState;
-;value = 2059
-;triggerall=stateno!=6000
-;triggerall=stateno!=6010
-;triggerall=stateno!=6011
-;triggerall=stateno!=6012
-;triggerall=stateno!=6013
-;triggerall=stateno!=6014
-;triggerall=stateno!=6015
-;triggerall=stateno!=6016
-;triggerall = numhelper(2053)!=1
-;triggerall = var(34)<=0 ;Limiter - Only Allowed to use ONCE during a combo
-;triggerall = power>500
-;triggerall = command = "b" && command="holdback" && command = "c"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = stateno = 1010
-;trigger3 = movecontact
-
-
-;[State -1, 4S: Acid Grab]
-;type = ChangeState;
-;value = 2050
-;triggerall = command = "b" && command="holdback"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-
-;-------------------------------------------------------------------------
 [State -1, 5S: EX Upper]
 type = ChangeState
 value = 1010
