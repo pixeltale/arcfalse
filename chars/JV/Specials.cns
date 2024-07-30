@@ -893,19 +893,19 @@ removeongethit = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "x" || command = "holdx"
-trigger1 = cond(map(EnState), time > 5, movecontact)
+trigger1 = cond(map(EnState), time > 2, movecontact)
 value = 1110
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "y" || command = "holdy"
-trigger1 = cond(map(EnState), time > 5, movecontact)
+trigger1 = cond(map(EnState), time > 2, movecontact)
 value = 1120
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "z" || command = "holdz"
-trigger1 = cond(map(EnState), time > 5, movecontact)
+trigger1 = cond(map(EnState), time > 2, movecontact)
 value = 1130
 ctrl = 0
 
@@ -1378,7 +1378,7 @@ ctrl 	= 1
 value 	= 0
 
 ;================================
-;6S > H: God Crusher
+;6S > H: Yggdrasil
 ;-----------------------------
 [Statedef 1130]
 type    = S
@@ -1428,7 +1428,7 @@ trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
 air.animtype = back
-damage = 100 * MAP(P4) + (120*map(CounterHit)), 0
+damage = 100 * MAP(P4) + (40*map(CounterHit)), 0
 pausetime = 20,20
 sparkno = 2
 sparkxy = -p2dist x * 0.25,-1
@@ -1460,7 +1460,7 @@ trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
 air.animtype = back
-damage = 100 * MAP(P4) + (120*map(CounterHit)), 0
+damage = 100 * MAP(P4) + (40*map(CounterHit)), 0
 pausetime = 20,20
 sparkno = 2
 sparkxy = -p2dist x * 0.25,-1

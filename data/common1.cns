@@ -7178,9 +7178,9 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 [Statedef -2]
 
 
-;=========
-;
-;=========
+;=============
+;Low Detector
+;=============
 [State -2, LOW]
 type 		    = MapSet
 trigger1 	    = name = "Alicia" && (stateno = [400, 410] || stateno = 430)

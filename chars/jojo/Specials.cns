@@ -1375,6 +1375,13 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause = 1
 
+[State -2, Vel Limiter]
+type 		= MapAdd
+trigger1 	= movehit && map(ComboStateCheck)
+map 		= "SwagFistLimiter"
+value 		= 1
+ignorehitpause 	= 1
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -1430,7 +1437,7 @@ ground.hittime  	= 99
 air.hittime  		= 99
 down.hittime 		= 99
 ground.slidetime 	= 5
-ground.cornerpush.veloff = -5
+ground.cornerpush.veloff = -7 - map(SwagFistLimiter) * 0.30
 ;==============================================
 ground.velocity 	= -1, -5
 air.velocity 		= -4,-4*(map(GravMul)*0.8)
@@ -1476,7 +1483,7 @@ ground.hittime  	= 99
 air.hittime  		= 99
 down.hittime 		= 99
 ground.slidetime 	= 5
-ground.cornerpush.veloff = -5
+ground.cornerpush.veloff = -6 - map(SwagFistLimiter) * 0.30
 ;==============================================
 ground.velocity 	= -1,-6 - 2 * map(CounterHit)
 air.velocity 		= -4,-4*(map(GravMul)*0.9) - (1 * map(CounterHit))

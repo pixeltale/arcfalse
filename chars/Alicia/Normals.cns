@@ -564,6 +564,7 @@ ignorehitpause = 1
 [State 0, DestroySelf]
 type = SelfState
 trigger1 = root, map(EyeKill)
+trigger2 = root, stateno = 900
 value = 251
 ignorehitpause = 1
 
@@ -1771,7 +1772,7 @@ air.hittime  	= 30-map(untechDecay)
 down.hittime 	= 99
 ground.velocity = -4
 fall.yvelocity 	= 0
-air.velocity 	= -3,-1
+air.velocity 	= -3,0
 down.velocity 	= -2,-10
 guard.ctrltime 	= 10
 air.fall 	= 1

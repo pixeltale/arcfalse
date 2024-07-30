@@ -944,7 +944,7 @@ ctrl = 1
 ;============================================
 ;Knife Projectile
 [Statedef 1031]
-type    = U
+type    = A
 movetype= I
 physics = N
 velset = -15, -10
@@ -1032,8 +1032,8 @@ physics = N         ;A,C,S,N
 [State 0, VelMul]
 type = VelSet
 trigger1 = time < 5
-x = vel x * 0.95
-y = vel y * 0.95
+x = vel x * 0.98
+y = vel y * 0.98
 ignorehitpause = 1
 
 [State 0, VelMul]
@@ -1046,22 +1046,26 @@ ignorehitpause = 1
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time <= 5
-x = -p2dist x * 0.005
-y = (p2dist y - 10) * 0.0005
+x = -3
+y = -1
 ignorehitpause = 1
 [State 0, VelAdd]
 type = VelAdd
 triggerall = time % 4 = 0
 trigger1 = time > 5
 x = p2dist x * 0.015
-y = (p2dist y - 10) * 0.008
+y = (p2dist y - 10) * 0.01
 ignorehitpause = 1
 
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time = [5,20]
-x = p2dist x * 0.1
-y = (p2dist y - 19) * 0.095
+x = 1 + vel x * 0.2
+ignorehitpause = 1
+[State 0, VelAdd]
+type = VelSet
+trigger1 = time = [5, 8]
+y = -2
 ignorehitpause = 1
 
 [State 210, 2]
@@ -1105,7 +1109,7 @@ type = destroyself
 trigger1 = animtime = 0 || movehit
 trigger2 = parent, movetype = H
 trigger2 = parent, stateno != [120, 155]
-trigger3 = pos y >= 0
+trigger3 = pos y >= 0 || frontedgedist <= 10
 
 ;---------------------------------------------------------------------------
 ;236M
@@ -1130,6 +1134,12 @@ ctrl 	= 0
 anim 	= 1080
 sprpriority = 2
 velset 	= 0, 0
+
+[State -2, NoFlyZone] ;Limiter to prevent nonsensical flying around.
+type = MapSet
+trigger1 = prevstateno = 1038
+map = "NoLumenWaltz"
+value = 1
 
 [State 0, PlayerPush]
 type = PlayerPush
@@ -1442,14 +1452,6 @@ elem = 3
 ignorehitpause = 1
 ;persistent = 
 
-
-[State 0, Mapset]
-type = MapSet
-trigger1 = time <= 10
-map = "Invul_Full"
-value = 1
-persistent = 1
-
 [State 0, PlayerPush]
 type = PlayerPush
 trigger1 = 1
@@ -1459,7 +1461,12 @@ ignorehitpause = 1
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = time = [0, 5]
-y = -5 + (-5 * time)
+y = -5 + (-2.5 * time)
+ignorehitpause = 1
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = [0, 10]
+y = -time
 ignorehitpause = 1
 
 [State 0, VelMul]
@@ -1508,8 +1515,8 @@ air.animtype 	= back
 damage 		= 60, 2
 hitflag 		= MAFD
 guardflag 		= HA
-guard.pausetime		= 5, 5
-pausetime		= 15, 15
+guard.pausetime		= 10, 10
+pausetime		= 8, 8
 sparkno 		= 2
 sparkxy 		= -30,-35
 hitsound   		= 5,1
@@ -2179,7 +2186,7 @@ value = 0
 
 [State 0, Helper] ;Summon the Silence
 type = Helper
-trigger1 = animelemno(0) >= 4 && (time % 5) = 0
+trigger1 = animelemno(0) >= 4 && (time % 8) = 0
 helpertype = normal
 name = "Beneath my Skin"
 ID = 2051
@@ -2227,8 +2234,8 @@ removeongethit = 0
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 0
-x = (root, time % 6) + 2
-y = (root, time % 3) - 2
+x = (p2dist x * 0.01)
+y = -atan(root, time % 3) + (p2dist y * 0.05)
 ignorehitpause = 1
 
 
@@ -2236,7 +2243,7 @@ ignorehitpause = 1
 type = VelAdd
 trigger1 = time
 x = p2dist x * 0.005
-y = -0.5
+y = -0.5 * sin(root, time)
 ignorehitpause = 1
 
 [State 0, VelMul]
@@ -2247,7 +2254,7 @@ x = 1.01
 [State 0, VelMul]
 type = PosAdd
 trigger1 = time
-y = sin(parent, time * 0.1/ 4)
+y = sin(root, -time) * 2
 ignorehitpause = 1
 
 [State 3001, blah]
@@ -2286,7 +2293,7 @@ trigger1 		= map(HitCount)
 attr 		= S, NA
 animtype  	= Light
 air.animtype 	= back
-damage 		= 30*root,map(P4), 3
+damage 		= 10*root,map(P4), 3
 pausetime	= 1, 18
 hitflag 		= MAFD
 guardflag 		= MA
@@ -2294,11 +2301,12 @@ sparkno 		= 2
 sparkxy 		= -30,-35
 hitsound   		= 5,1
 guardsound 		= 6,0
-ground.hittime  	= 22 - map(UntechDecay)
-air.hittime  		= 22 - map(UntechDecay)
-down.hittime 		= 22 - map(UntechDecay)
+ground.hittime  	= 10
+air.hittime  		= 10
+down.hittime 		= 10
 ground.velocity 	= -2.5
-guard.ctrltime 		= 5
+guard.ctrltime 		= 6
+pausetime		= 3, 3
 air.velocity 		= -1.5,-2
 air.fall 		= 1
 fall.yvelocity 		= 0

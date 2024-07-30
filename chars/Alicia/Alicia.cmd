@@ -145,7 +145,7 @@ var(1) = 1
 [State -1, Super Jump]
 type = ChangeState
 value = 55
-triggerall = statetype != A
+triggerall = statetype != A && anim != 1086
 triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
@@ -267,7 +267,7 @@ type = ChangeState
 value = 1040
 triggerall = map(236) && command = "x"
 triggerall = !numhelper(250) && !map(EXE)
-trigger1 = ctrl
+trigger1 = ctrl && !map(NoLumenWaltz)
 trigger2 = var(1)
 ;236M - Leuchtend Walzen
 [State -1, Luminous Danser M]
@@ -275,7 +275,7 @@ type = ChangeState
 value = 1038
 triggerall = map(236) && command = "y"
 triggerall = !numhelper(251) && !map(EXE)
-trigger1 = ctrl
+trigger1 = ctrl && !map(NoLumenWaltz)
 trigger2 = var(1)
 ;236H - Leuchtend Walzen
 [State -1, Luminous Danser H]

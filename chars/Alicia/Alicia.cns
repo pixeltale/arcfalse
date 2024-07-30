@@ -208,13 +208,20 @@ ctrl = 1
 ;=============================================================================
 [Statedef -2]
 
-
-
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
 text = "P1 = %f P2 = %f"
 params = map(HeavyCharge), map(P2)
+
+;=====================
+;Lumen Waltz Limiter
+;=====================
+[State -2, EyeCounter]
+type = MapSet
+trigger1 = movehit || statetype != A
+map = "NoLumenWaltz"
+value = 0
 
 ;=============================================+
 ;236X Eye Spawns

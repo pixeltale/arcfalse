@@ -205,22 +205,7 @@ name = "holds"
 command = /s
 time = 1
 
-[Command]
-name = "holdx"
-command = /z
-time = 1
-[Command]
-name = "holda"
-command = /z
-time = 1
-[Command]
-name = "holdy"
-command = /c
-time = 1
-[Command]
-name = "holdb"
-command = /c
-time = 1
+
 
 ;-| Hold Button |--------------------------------------------------------------
 [Command]

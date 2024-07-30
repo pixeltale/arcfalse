@@ -139,8 +139,8 @@ trans=add1
 [BG Black]
 type  = anim
 actionno=15
-start = -220, -300
-velocity=0.3,0.3
+start =220, -300
+velocity=-0.3,0.3
 tile= 1,1
 tilespacing = 2000,9000
 delta = .15,.80
@@ -153,14 +153,14 @@ spriteno=1,1
 start = 0.3,0.9
 delta = .21,1.2
 tile = 1,1
-velocity = 0.1,0.1
+velocity = -0.1,0.1
 TRANS=add
 
 [BG 1]
 type = anim
 actionno=1
 start = 0,340
-delta = 0,1.4
+delta = 0,1.ccec4
 tile = 1,0
 velocity = 0,0
 mask = 1
@@ -188,7 +188,7 @@ spriteno = 4,1
 start = 32.5,310
 delta = .25, 1;.25, .35
 tile = 1, 1
-velocity=-0.4,0
+velocity=0.4,0
 tilespacing = 0, 0
 width = 65, 330
 ;yscalestart = 100
@@ -252,5 +252,5 @@ LoopStart
 2,0, 0,0, 5, , AS150D256
 
 [Begin Action 15]
-9,0, 0,0, 15, , A
-9,1, 0,0, 15, , AS240D256
+9,0, 0,0, 15, H, A
+9,1, 0,0, 15, H, AS240D256

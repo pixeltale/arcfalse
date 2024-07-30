@@ -10,12 +10,6 @@ ctrl = 0
 anim = 3000
 sprpriority = 2
 
-[State 4000, NotHitBy]
-type = NotHitBy
-trigger1 = time = 0
-value = SCA
-time = 20
-
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = !time && !map(Perfektwelt)

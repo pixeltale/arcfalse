@@ -234,6 +234,25 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
+[State -2, Vel Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "SwagFistLimiter"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, SKD Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "HLimiter"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, MM Stick Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "MM_Limiter"
+value 		= 0
+ignorehitpause 	= 1
+
 [State 0, MAPSET]
 type = MapSet
 trigger1 = enemy, movetype != H
