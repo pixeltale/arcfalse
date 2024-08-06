@@ -277,7 +277,7 @@ ignorehitpause = 1
 ;=================
 [State 0, MapSet]
 type = MapSet
-trigger1 = pos y >= 0
+trigger1 = pos y >= 0 || movetype = H
 map = "Float"
 value = 0
 ignorehitpause = 1

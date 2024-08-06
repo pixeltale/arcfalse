@@ -244,7 +244,6 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
-
 [State -1, 6R]
 type = ChangeState
 value = 701

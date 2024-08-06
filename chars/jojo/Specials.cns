@@ -793,7 +793,7 @@ type = PosAdd
 trigger1 = animelem=3
 trigger2= animelem=4
 trigger3 = animelem=5
-x = 6
+x = 2
 
 [State 410, 2]
 type = hitdef 
@@ -815,6 +815,8 @@ ground.slidetime = 12
 ground.hittime  = 35
 ground.velocity = -2,22
 air.velocity = -2,22
+down.hittime = 50
+down.velocity = -1, -8
 fall.yvelocity = -6
 fall  = 1
 air.fall = 1
@@ -889,7 +891,7 @@ type = PosAdd
 trigger1 = animelem=3
 trigger2= animelem=4
 trigger3 = animelem=5
-x = 20
+x = 4
 
 [State 410, 2]
 type = hitdef 
@@ -986,7 +988,7 @@ type = PosAdd
 trigger1 = animelem=3
 trigger2= animelem=4
 trigger3 = animelem=5
-x = 20
+x = 5
 
 [State 410, 2]
 type = hitdef 
@@ -1462,7 +1464,7 @@ trigger1 		= !movereversed && !movecontact
 trigger1		= map(PERFECT)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 75*map(P4) + 125 * map(CounterHit) + map(DASH)*95, 50
+damage 			= 75*map(P4) + 75 * map(CounterHit) + map(DASH)*75, 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1484,11 +1486,12 @@ air.hittime  		= 99
 down.hittime 		= 99
 ground.slidetime 	= 5
 ground.cornerpush.veloff = -6 - map(SwagFistLimiter) * 0.30
+guard.cornerpush.veloff = -8
 ;==============================================
 ground.velocity 	= -1,-6 - 2 * map(CounterHit)
 air.velocity 		= -4,-4*(map(GravMul)*0.9) - (1 * map(CounterHit))
 down.velocity		= -1, -5*map(GravMul)
-guard.ctrltime 		= 10
+guard.ctrltime 		= 6
 guard.slidetime		= 20
 guard.velocity		= -10
 airguard.velocity 	= -1.9,-.8
@@ -2141,7 +2144,7 @@ guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    ;Flags of conditions that move can hit
 priority = 3, Hit                
 pausetime = 15, 15
-guard.pausetime = 1, 18
+guard.pausetime = 10, 8
 sparkno = 2
 sparkxy = -14, -45
 hitsound = 5, 3                  ;Sound to play on hit
@@ -2165,14 +2168,14 @@ getpower=0
 type = HitDef
 trigger1 = animelem=21
 attr = A, NA
-damage = 70*MAP(P4), 0  
+damage = 100*MAP(P4), 0  
 getpower = 0
 animtype = light
 guardflag = HA
 hitflag = MAFD
-priority = 4, Hit
 pausetime = 20,20
-guard.pausetime = 1,27
+guard.pausetime = 15,15
+guard.ctrltime = 40
 sparkno = 3
 sparkxy = -26, -22
 hitsound = 5,4
