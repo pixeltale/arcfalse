@@ -824,6 +824,12 @@ darken = 0
 p2defmul = 1
 unhittable = 1
 
+[State 0, PowerSet]
+type = PowerSet
+trigger1 = var(30) > 0
+value = 0
+ignorehitpause = 1
+
 [State 8990, AssertSpecial]
 type = AssertSpecial
 trigger1 =  var(30)>0

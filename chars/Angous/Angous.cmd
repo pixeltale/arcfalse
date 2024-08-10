@@ -265,7 +265,7 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)  
 
-[State -1, 3S: Brawler Rush] ;Install 6SB MANUAL
+[State -1, 3S: Brawler Rush] ;Install 6SC MANUAL
 type = ChangeState
 value = 20022
 triggerall = var(28)

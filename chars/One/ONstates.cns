@@ -593,7 +593,6 @@ value = 14
 type = VelSet
 trigger1 = 1
 x = 6
-y = 0
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -642,10 +641,13 @@ triggerall = !var(50)
 triggerall = power>500
 trigger1 = command = "b" && command = "c" && time>12
 
-[State 0, ChangeState]
-type = Changestate
-trigger1 = animelem = 3
-value =1
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = vel y > 2
+value = 41
+elem = 4
+ignorehitpause = 1
+persistent = 0
 ;---------------------------------------------------------------------------
 ; Jump Down (empty state for compatibility)
 [Statedef 51]

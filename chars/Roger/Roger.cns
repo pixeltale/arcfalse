@@ -730,15 +730,11 @@ trigger1 =  GetHitVar(fall) = 1
 v = 50    ;fv = 10
 value = 0
 
-
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
 text = "P1 = %f"
-params = map(P1)
-;persistent = 
-
-
+params = map(wallbounce_yvel)
 
 [State 0, PalFXWiz]
 type = PalFX

@@ -285,7 +285,7 @@ trigger1 = anim = 3008 && animelemno(0) = 6
 attr = S,HA
 getpower = 0
 air.animtype = back
-damage = 30*MAP(P4) + 130, 0
+damage = 30*MAP(P4) + 70, 0
 animtype = hard
 guardflag = MA
 hitflag = MAFD
@@ -430,7 +430,7 @@ type = HitDef
 trigger1 = time = 0
 attr = S, HA
 animtype  = hard
-damage = (50+(map(HitCount) * 12))*MAP(P4) + 200,25
+damage = (50+(map(HitCount) * 10))*MAP(P4) + 100,25
 hitflag = MAFDP
 guardflag = MA
 pausetime = 40,40

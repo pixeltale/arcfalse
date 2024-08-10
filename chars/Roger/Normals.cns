@@ -2804,7 +2804,7 @@ getpower 	= (100)*(cond(var(var(2)) = 1, 1, .5))
 type 		= MapSet
 trigger1 		= movehit
 map 		= "wallbounce_yvel"
-value 		= -3
+value 		= -3 - map(CounterHit) * 2
 ignorehitpause 	= 1
 persistent 		= 0
 
@@ -3040,7 +3040,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 type 		= MapSet
 trigger1 		= movehit
 map 		= "wallbounce_yvel"
-value 		= -4
+value 		= -4 - map(CounterHit) * 2
 ignorehitpause 	= 1
 persistent 		= 0
 

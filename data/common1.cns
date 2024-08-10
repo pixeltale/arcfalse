@@ -2852,19 +2852,19 @@ sparkno 			= -1
 sparkxy 			= -10,0
 hitsound   		= 5,3
 guardsound 		= 6,2
-ground.type 		= low
-air.type 			= high 
+ground.type 		= HIGH
+air.type 			= HIGH
 airguard.velocity   = -2*(cond(p2dist x >= 0, 1, -1))
-ground.slidetime 		= 12
-ground.hittime  		= 40
-air.hittime  		= 40
-ground.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)),-7
-air.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)), -6
+ground.slidetime 		= 9999
+ground.hittime  		= 9999
+air.hittime  		    = 9999
+ground.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)),-5
+air.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)), -5
 down.velocity 		= -1*(cond(p2dist x >= 0, 1, -1)),0
 ground.cornerpush.veloff 	= 0
 down.cornerpush.veloff 	= 0
 air.cornerpush.veloff 	= 0
-guard.hittime 		= 15
+guard.hittime 		= 10
 guard.pausetime		= 12,12
 guard.velocity 		= -3*(cond(p2dist x >= 0, 1, -1))
 guard.dist 		    = 20
@@ -2880,7 +2880,7 @@ poweradd            = 0
 type = SelfState
 trigger1 = animtime = 0 
 value = 69002
-ctrl = 1
+ctrl = 0
 
 ;---------------------------------------------------------------------------
 ; Stand get-hit (shaking)
@@ -3004,6 +3004,54 @@ value = 1
 
 [State 5001, 6]
 type = ChangeState
+trigger1 = HitOver
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Stand get-hit (knocked back) RESTAND
+[Statedef 5002]
+type    = S
+movetype= H
+physics = S
+
+[State 5002, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = time = 0
+value = 5012
+elem = 2
+[State , Sound - Grond Impact - Land]
+type = PlaySnd
+freqmul = 1 + fvar(28)
+trigger1 = time = 0
+value = 40,0
+volumescale = 100
+channel = 10
+
+[State , PosSet]
+type = PosSet
+trigger1 = Pos y >= 0
+y = 0
+[State , 4]
+type = VelSet
+trigger1 = 1
+y = 0
+[State 5002, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+[State 5002, 4]
+type = VelSet
+trigger1 = HitOver
+x = 0
+
+;[State 5002, 5]
+;type = DefenceMulSet
+;trigger1 = HitOver
+;value = 1
+
+[State 5002, 6]
+type = SelfState
 trigger1 = HitOver
 value = 0
 ctrl = 1
@@ -3280,6 +3328,14 @@ trigger1 = HitOver
 trigger2 = Vel Y > 0    ;Hit ground
 trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
 value = 5050 ;HITA_FALL
+
+[State 5030, 5]
+type = ChangeState
+triggerall = !HitFall
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
+value = 5002 ;RESTAND
 
 [State 5030, 6]
 type = ChangeState
@@ -4682,7 +4738,7 @@ x = p2dist x * 0.02
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
-trigger1 	= time = 1
+trigger1 	= time = 0
 map 		= "wallbounce_yvel"
 value 		= -6
 ignorehitpause 	= 1
@@ -4690,7 +4746,7 @@ persistent 		= 1
 redirectid      = enemynear, id
 [State -2, Wallbounce Type Set]
 type 		= MapSet
-trigger1 	= time = 1
+trigger1 	= time = 0
 map 		= "wallbounce_boomerang"
 value 		= 0
 ignorehitpause 	= 1
@@ -7123,18 +7179,41 @@ value = 1
 ;-----------------------------
 [Statedef 69002]
 type    = A
-movetype= I
-physics = A
+movetype= A
+physics = N
 juggle  = 0
 poweradd= 0
 ctrl =0
-anim =69000
 sprpriority = -1
+
+[State 0, VelSet]
+type = Veladd
+trigger1 = 1
+y = .2
 
 [State 1055, 6] ;Change state when KFM is close to ground
 type = ChangeState
-trigger1 = Vel Y > 0 && Pos Y >= -10
-value = 52
+trigger1 = pos y>=0 && vel y>=0
+value = 69003
+
+;-----------------------------
+;Burst Landing Recovery
+[Statedef 69003] 
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim = 11
+sprpriority = -1
+velset = 0, 0
+
+[State 1055, 6] ;Change state when KFM is close to ground
+type = ChangeState
+trigger1 = time = 10
+value = 0
+ctrl = 1
 
 [Statedef -1] ;Common CMD actions. Mostly utilized for system mechanics and universal actions.
 
@@ -7235,26 +7314,6 @@ trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP
 ;Wu support
 trigger2 = enemynear, numhelper(777)
 trigger2 = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
-
-
-;====================================================================
-;RC Lockouts
-;====================================================================
-[State 0, RC LOCKOUT]
-type 		= TeamMapSet
-trigger1 	= map(ScratchLockout)
-map 		= "ScratchLockout"
-value 		= 1
-ignorehitpause 	= 1
-persistent		= 1
-[State 0, RC LOCKOUT]
-type 		= TeamMapSet
-trigger1 	= !map(ScratchLockout)
-map 		= "ScratchLockout"
-value 		= 0
-ignorehitpause 	= 1
-persistent		= 1
-
 
 ;====================================================================
 ;Alicia Power Drain
@@ -8321,13 +8380,22 @@ ignorehitpause = 1
 persistent = 1
 
 ;-----------------------------------------------------
+;Throw Protection
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = (stateno = [120,155])
+value = ,NT,ST,HT
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+;-----------------------------------------------------
 ;Block Attacks In Midair after jumping over
 [State 0, AttackDist]
 type = Turn
-trigger1 = ctrl
+trigger1 = ctrl && (stateno != [903,904] && stateno != [60,61])
 trigger1 = enemy, movetype = A
 trigger1 = p2dist x < 0 && statetype = A
-trigger1 = command = "holdfwd" || command = "fwd"
 
 ;================================================
 ;Start with Meter

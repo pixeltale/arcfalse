@@ -1174,9 +1174,9 @@ guardsound 	= 6,2
 ground.type 	= trip
 air.type		= trip
 ground.slidetime 	= 14
-ground.hittime  	= 999
-air.hittime 	= 999
-down.hittime 	= 999
+ground.hittime  	= 30
+air.hittime 	= 30
+down.hittime 	= 30
 ground.velocity 	= -10,-3
 down.velocity 	= -10,-3
 air.velocity 	= -10,-3
@@ -1193,9 +1193,9 @@ guard.velocity 	= -.4
 air.fall 		= 1
 fall 		= 1
 fall.yvelocity	= 0
-p2stateno	= cond(abs(camerapos x) > 260 && frontedgedist < 800, 5225, 5220)
+p2stateno	= 5220
 p2getp1state	= 0
-getpower = (200)*(cond(var(var(2)) = 1, 1, .5))
+getpower 	= 0
 
 [State 0, ChangeState]
 type = ChangeState

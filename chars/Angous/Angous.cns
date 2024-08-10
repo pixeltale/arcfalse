@@ -556,9 +556,9 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
-;=================================
-;Gravity Scaling		+
-;===============================
+;======================================================
+;Glaggle Craze is Forever. (Gravity Scaling)
+;======================================================
 [State 0, VelSet]
 type = MapAdd
 trigger1 = map(ComboStateCheck) && enemy, statetype = A
@@ -573,9 +573,9 @@ value = 0
 ignorehitpause = 0
 [State 0, VelSet]
 type = MapAdd
-trigger1 = map(JuggleTimer) = 100 || map(JuggleTimer) = 150 || map(JuggleTimer) = 200
+trigger1 = map(JuggleTimer) = 50 || map(JuggleTimer) = 100 || map(JuggleTimer) = 140 || map(JuggleTimer) = 180 || map(JuggleTimer) = 220
 map = "gravMul"
-value = -0.10
+value = -0.12
 ignorehitpause = 0
 persistent = 0
 [State 0, VelSet]
@@ -584,7 +584,6 @@ trigger1 = !map(ComboStateCheck)
 map = "gravMul"
 value = 1
 ignorehitpause = 0
-
 ;===========================
 
 [State 0, DisplayToClipboard]
@@ -607,7 +606,7 @@ persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= stateno = 0
+trigger1 	= stateno != [1062, 1063]
 map 		= "armorElement"
 value 		= 1
 ignorehitpause 	= 1

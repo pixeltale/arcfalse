@@ -87,15 +87,13 @@ persistent 		= 0
 type = HitDef 
 p2facing = 1 
 trigger1 = animelem = 6
-trigger2 = animelem = 8
-trigger3 = animelem = 10
 attr = S, SA
 damage = cond(map(RapidDecay) > 0, map(RapidDecay), 1) 10
 hitflag = MAF
 air.animtype = back
 guardflag = MA
 priority = 3
-pausetime = 3,2
+pausetime = 8,8
 sparkno = 11
 sparkxy = -15+random%20,-15-random%20
 hitsound   = s8,0
@@ -116,28 +114,46 @@ envshake.ampl = 2
 envshake.phase = 1
 ground.cornerpush.veloff = -2 - time * 0.3
 forcenofall = 1
-  palfx.time 		= 25
-  palfx.add 		= 10, 30, 10
 getpower = (40)*(cond(var(var(1)) = 1, 1, .5))
 
-[State 0, ChangeAnim]
-type = ChangeAnim
-triggerall = movecontact = [1, 30]
-trigger1 = animelem = 12
-trigger1 = command = "holdb"
-value = 1000
-elem = 5
-ignorehitpause = 1
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+trigger1 = animelem = 8
+attr = S, SA
+damage = cond(map(RapidDecay) > 0, map(RapidDecay), 1) 10
+hitflag = MAF
+air.animtype = back
+guardflag = MA
+priority = 3
+pausetime = 12,12
+sparkno = 11
+sparkxy = -15+random%20,-15-random%20
+hitsound   = s8,0
+guardsound = 6,0
+ground.type = Low
+animtype = medium
+ground.slidetime = 14
+ground.hittime  = 25 - map(untechDecay)
+air.hittime  = 30 - map(untechDecay)
+down.hittime = 30 - map(untechDecay)
+guard.ctrltime = 18
+guard.hittime  = 18
+guard.velocity = p2dist x * 0.05
+airguard.velocity = p2dist x * 0.02, -2
+ground.velocity = p2dist x * 0.05
+air.velocity = p2dist x * 0.05,-0.5 + (map(untechDecay) * 0.1)
+envshake.time = 8
+envshake.freq = 10
+envshake.ampl = 2
+envshake.phase = 1
+ground.cornerpush.veloff = -1
+forcenofall = 1
+getpower = (40)*(cond(var(var(1)) = 1, 1, .5))
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animelem = 14 && movecontact
-value = 0
-ctrl = 1
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = animtime = 0 && !movecontact
+trigger1 = !animtime
 value = 0
 ctrl = 1
 
@@ -414,7 +430,7 @@ y = -11
 x = 1
 
 ;---------------------------------------------------------------------------
-;j.4S: AirShredder
+;j.6S: AirShredder
 ;---------------------------------------------------------------------------
 [Statedef 1020]
 type    = A
@@ -1097,6 +1113,7 @@ physics = S
 ctrl = 0
 anim =1030
 sprpriority = 2
+facep2 = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1288,6 +1305,7 @@ poweradd= (-1000)*(cond(var(var(2)) = 1, 1, .5))
 ctrl = 0
 anim =1030
 sprpriority = 2
+facep2 = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -3956,6 +3974,21 @@ trigger1 = animelem = 4
 x = 0
 y = 12
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 	= !time
+map 		= "SkewerHit"
+value 		= 0
+ignorehitpause 	= 1
+persistent		= 1
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 	= movehit
+map 		= "SkewerHit"
+value 		= 1
+ignorehitpause 	= 1
+persistent		= 1
+
 [State 00, ChangeState]
 type = ChangeState
 trigger1 = pos y>0
@@ -3973,7 +4006,7 @@ anim =1053
 velset = 0,0
 poweradd = (100)*(cond(var(var(1)) = 1, 1, 1))
 sprpriority = 2
-facep2 = 0
+facep2 = map(SkewerHit)
 
  ;============================
 [State -2, Starter Level]
@@ -4246,11 +4279,18 @@ trigger1 = time = 0
 value = A, HA
 time = 12
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = enemy, (stateno = [120,199] || prevstateno = [120,199])
+movetype = I        ;I,A,H
+ignorehitpause = 1
+persistent = 1
+
+
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0 
-trigger1 = p2stateno != [120,199]
+trigger1 = enemy, (stateno != [120,199] && prevstateno != [120,199])
 attr = A, ST
 animtype  = hard
 damage = 5, 0
@@ -4279,8 +4319,7 @@ getpower = 0
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1
-y = .5 
-
+y = .5
 
 [State 0, ChangeState]
 type = ChangeState

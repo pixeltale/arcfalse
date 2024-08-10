@@ -474,6 +474,14 @@ trigger1 = time = 0
 map = "DJCL"
 value = -1
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = vel y > 2
+value = 41
+elem = 4
+ignorehitpause = 1
+persistent = 0
+
 
 [State - Airdash Momentum Preserve]
 type = mapset

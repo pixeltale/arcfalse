@@ -360,7 +360,7 @@ ctrl = 0
 ;Dash Super Air
 ;-----------------------------
 [Statedef 3013]
-type    = U
+type    = A
 movetype= A
 physics = N
 juggle  = 0
@@ -369,18 +369,19 @@ ctrl = 0
 anim = 3011
 sprpriority = 8
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
+
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1
 v = 2
 value = 0
-
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time = 0
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
-;value2 = S,NA
-time = 15
 
 [State 1002, 1]
 type = velmul
@@ -463,6 +464,14 @@ poweradd= 0
 ctrl = 0
 anim = 3015
 sprpriority = 2
+
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
 
 [State 0, PosSet]
 type = PosSet
@@ -553,7 +562,7 @@ ctrl = 0
 ;Dash Super Inv+hit
 ;---------------------------------------------------------------------------
 [Statedef 3011]
-type    = U
+type    = A
 movetype= A
 physics = N
 juggle  = 0
@@ -562,6 +571,14 @@ ctrl = 0
 anim = 9999
 sprpriority = 2
 velset = 0,0
+
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
 
 [State 0, Helper]
 type = Helper
@@ -590,7 +607,7 @@ ctrl = 0
 ;Dash Slashes
 ;---------------------------------------------------------------------------
 [Statedef 3012]
-type    = U
+type    = A
 movetype= A
 physics = N
 juggle  = 0
@@ -598,6 +615,14 @@ poweradd= 0
 ctrl = 0
 anim = 3018
 sprpriority = 2
+
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
 
 [State 0, VarRandom]
 type = VarRandom
@@ -742,35 +767,34 @@ x = 10
 
 [State 630, 2]
 type = HitDef 
-p2facing 		= 1 
-trigger1 		= time = 0
+p2facing 	= 1 
+trigger1 	= time = 0
 attr 		= S, HA
 damage 		= 40*root, map(P4) + 20, 3
-hitflag 		= MAFD
+hitflag 	= MAFD
 air.animtype 	= back
 guardflag 	= MA
-priority 		= 3, Hit
+priority 	= 3, Hit
 pausetime 	= 22,22
-sparkno 		= 13
-sparkxy 		= -15+random%20,-50
+sparkno 	= 13
+sparkxy 	= -15+random%20,-50
 hitsound   	= s8,0
 guardsound 	= 6,0
-ground.type 	= Low
-animtype 		= medium
-ground.slidetime 	= 14
-ground.hittime  	= 30
+ground.type 	= TRIP
+air.type	= TRIP
+animtype 	= medium
+ground.slidetime= 14
+ground.hittime  = 30
 air.hittime 	= 48 - map(untechDecay)
-ground.velocity 	= -3
+ground.velocity = -3
 air.velocity 	= -0.5,16
-air.fall 		= 1
-p2stateno 	= 5255
-p2getp1state 	= 0
+air.fall 	= 1
 air.hittime 	= 24
 envshake.time 	= 8
 envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
-getpower 		= 0
+getpower 	= 0
 
 
 [State 0, VarAdd]
@@ -983,7 +1007,7 @@ ignorehitpause = 0
 type = HitDef
 trigger1 = time = 0 && p2dist x>70
 attr = S, HA
-damage = 250*map(P4) + 100
+damage = 200*map(P4) + 50
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA
@@ -1011,7 +1035,7 @@ getpower = 0
 type = HitDef
 trigger1 = time = 0 && p2dist x<70
 attr = S, HA
-damage = 200*map(P4) + 100
+damage = 200*map(P4) + 50
 animtype  = Medium
 hitflag = MAFD
 guardflag = 

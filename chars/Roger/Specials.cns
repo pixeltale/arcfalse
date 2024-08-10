@@ -3849,7 +3849,6 @@ value = 10058
 type    = S
 movetype= A
 physics = S
-juggle  = 2
 poweradd=-1000
 ctrl = 0
 anim =10010
@@ -3865,6 +3864,15 @@ type = VarSet
 trigger1 = movehit = 1
 v = 2
 value = 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 4
+x = 5
+y = 0
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -6505,6 +6513,14 @@ type = VelSet
 trigger1 = animelem = 5
 x = 7
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 90
+ignorehitpause 	= 1
+persistent		= 1
+
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
@@ -6522,6 +6538,14 @@ ctrl = 0
 anim =1301
 sprpriority = 2
 velset = 9,0
+
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
 
 [State Meter Burn State, VarSet]
 type = VarSet

@@ -161,7 +161,7 @@ trigger2 = var(1)
 ;trigger3 = (stateno = 610)||(stateno = 620)||(stateno = 630) 
 ;trigger3 = movecontact ;&& enemynear, movetype = H
 
-[State 1027, j6EX: EX Shredder]
+[State 1027, j6EX: Acid Shredder]
 type = ChangeState
 value = 1027
 triggerall = power>=1000 && !map(EXj6S_Limiter)
@@ -173,11 +173,11 @@ trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = (stateno = [600,650]) && movehit && stateno != [642,643]
 
-[State 1020, j6S: Shredder]
+[State 1020, j6S: Acid Bypass]
 type = ChangeState
 value = 1020
 triggerall = command = "b"
-triggerall = command = "holdfwd"
+triggerall = command = "holdfwd" && command != "holddown"
 triggerall = statetype = A
 triggerall = !var(50)
 trigger3 = var(1)
@@ -323,8 +323,7 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 250 && time > 12
 trigger3 = stateno = [111250,111251] && time>17
-trigger4 = stateno = 251 && movecontact ;5R ~R Hit
-trigger5 = stateno = 1010 && movecontact
+trigger4 = stateno = 1010 && movehit
 
 
 
@@ -471,7 +470,7 @@ triggerall = command = "buffer_x"
 triggerall = command = "holddown"
 triggerall = statetype != A 
 trigger1 = ctrl
-trigger2 = stateno = 200
+trigger2 = stateno = 200 || stateno = 400 && prevstateno != 400
 trigger2 = movecontact ;&& enemynear, movetype = H
 
 ;---------------------------------------------------------------------------
