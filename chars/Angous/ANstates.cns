@@ -1424,7 +1424,7 @@ removeongethit = 0
 
 [State 0, Explod]
 type = Explod
-trigger1 = time = 8
+trigger1 = !time
 anim = 6951
 ID = 6951
 pos = 0,-10

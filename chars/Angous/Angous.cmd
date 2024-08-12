@@ -201,7 +201,7 @@ trigger3=stateno=630&&movecontact
 type = ChangeState
 value = 9971
 triggerall = command = "b"  && command="buffer_c"|| (command = "EX") && teammode != Tag
-triggerall=power>=1000
+triggerall = power >= 1000 && !map(jEX_Limiter)
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger2=stateno=[600,610]&&movecontact
@@ -348,7 +348,7 @@ value = 1041
 [State -1, EX 5S: Big Fist]
 type = ChangeState
 value = 9090
-triggerall = power>1000
+triggerall = power >= 1000 && !map(NEX_Limiter)
 triggerall = var(53)<=0
 triggerall = stateno != 230
 triggerall = stateno != 431
@@ -407,7 +407,7 @@ trigger2 = var(1)
 [State -1, EX 4S: Brutaller Angrier Pisseder Fucker You Grab]
 type = ChangeState
 value = 10414
-triggerall = power>1000
+triggerall = power >= 1000 && !map(BEX_Limiter)
 triggerall = stateno != 431
 triggerall = var(31)<=0
 triggerall = stateno != 230

@@ -557,6 +557,28 @@ ctrl = 1
 [Statedef -2]
 
 ;======================================================
+;EX Limiters
+;======================================================
+[State 0, EX Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "jEX_Limiter"
+value 		= 0
+ignorehitpause 	= 1
+[State 0, 4EX Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "BEX_Limiter"
+value 		= 0
+ignorehitpause 	= 1
+[State 0, 5EX Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "NEX_Limiter"
+value 		= 0
+ignorehitpause 	= 1
+
+;======================================================
 ;Glaggle Craze is Forever. (Gravity Scaling)
 ;======================================================
 [State 0, VelSet]
@@ -589,8 +611,8 @@ ignorehitpause = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "ArmorElement: %f armorPointsIN: %f combotimer: %f"
-params = MAP(armorElement), MAP(armorPoints4RIN), map(combotimer)
+text = "WBYVel: %f"
+params = map(wallbounce_yvel)
 
 ;=============================
 ;ARMOR POINTS ASSIGNMENT
@@ -606,7 +628,7 @@ persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= stateno != [1062, 1063]
+trigger1 	= stateno != [1062, 1063] || stateno = 0
 map 		= "armorElement"
 value 		= 1
 ignorehitpause 	= 1
@@ -630,7 +652,7 @@ persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapAdd
-trigger1 		= enemy, moveReversed
+trigger1 	= enemy, moveReversed
 map 		= "armorPoints4RIN"
 value 		= -1
 ignorehitpause 	= 0

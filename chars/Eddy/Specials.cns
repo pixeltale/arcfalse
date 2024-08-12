@@ -1825,7 +1825,7 @@ trigger1 = time = 0
 hitonce = 1
 attr = S, SA
 damage = 50*MAP(P4), 5
-hitflag = MAFD
+hitflag = MAF
 guardflag = MA
 priority = 3
 pausetime = 18,18

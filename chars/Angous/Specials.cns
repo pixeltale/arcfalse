@@ -1136,6 +1136,13 @@ map 		= "ScratchLockout"
 value 		= 40
 ignorehitpause 	= 1
 
+[State 0, EX Limiter]
+type 		= MapSet
+trigger1 	= map(ComboStateCheck)
+map 		= "BEX_Limiter"
+value 		= 1
+ignorehitpause 	= 1
+
 [State 0, AttackDist]
 type = AttackDist
 trigger1 = 1
@@ -5779,6 +5786,13 @@ map 		= "ScratchLockout"
 value 		= 30
 ignorehitpause 	= 1
 
+[State 0, EX Limiter]
+type 		= MapSet
+trigger1 	= map(ComboStateCheck) && Movehit
+map 		= "jEX_Limiter"
+value 		= 1
+ignorehitpause 	= 1
+
 [State 0, DP Start]
 type 		= MapSet
 trigger1 	= prevstateno = 1055
@@ -6706,6 +6720,13 @@ poweradd= -1000
 ctrl = 0
 anim = 1097
 sprpriority = 2
+
+[State 0, EX Limiter]
+type 		= MapSet
+trigger1 	= map(ComboStateCheck)
+map 		= "NEX_Limiter"
+value 		= 1
+ignorehitpause 	= 1
 
 [State Meter Burn State, VarSet]
 type = VarSet
