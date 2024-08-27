@@ -221,8 +221,7 @@ value = 9000
 triggerall = power>1000
 triggerall = stateno != 230
 triggerall = stateno != 431
-triggerall = var(32)<=0
-triggerall = !var(28)
+triggerall = !map(EX6S_Limiter)
 triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
 triggerall = statetype != A
 trigger1 = ctrl
@@ -232,8 +231,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 9100
 triggerall = power>1000
-triggerall = var(32)<=0
-triggerall = var(28)
+triggerall = !map(EX6S_Limiter)
 triggerall = stateno != 230
 triggerall = stateno != 431
 triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
@@ -407,7 +405,7 @@ trigger2 = var(1)
 [State -1, EX 4S: Brutaller Angrier Pisseder Fucker You Grab]
 type = ChangeState
 value = 10414
-triggerall = power >= 1000 && !map(BEX_Limiter)
+triggerall = power >= 1000 && !map(EX4S_Limiter)
 triggerall = stateno != 431
 triggerall = var(31)<=0
 triggerall = stateno != 230
@@ -525,21 +523,13 @@ triggerall = command = "holdfwd"
 triggerall = stateno != 230 && stateno != 225
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = [1000,1001]
+trigger2 = var(1) && stateno != 1072
+trigger3 = stateno = [1000,1001] || stateno = [9000,9001] || stateno = [2000,2001] || stateno = [9100,9101]
 trigger3 = movecontact
-trigger4 = stateno = [9000,9001]
+trigger4 = stateno = 10011 || stateno = 20011 || stateno = 90011 || stateno = 91011
 trigger4 = movecontact
-trigger5 = stateno = [2000,2001]
-trigger5 = movecontact
-trigger6 = stateno = [9100,9101]
-trigger6 = movecontact
-trigger7 = stateno = 10011 && movecontact
-trigger8 = stateno = 20011 && movecontact
-trigger9 = stateno = 90011 && movecontact
-trigger10 = stateno = 91011 && movecontact
-trigger11 = stateno = 110 && time > 7
-trigger12 = stateno = 111
+trigger5 = stateno = 110 && time > 7
+trigger6 = stateno = 111
 ;===========================================================================
 ;---------------------------------------------------------------------------
 ;Taunt

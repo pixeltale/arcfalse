@@ -119,7 +119,7 @@ ignorehitpause = 1
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 3
-x = 7
+x = vel x + 7
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 6
@@ -536,7 +536,7 @@ ignorehitpause 	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboStateCheck)
+trigger1 		= !time
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
@@ -1129,18 +1129,18 @@ ctrl = 0
 anim = 10414
 sprpriority = 2
 
+[State -2, EX 4S Limiter]
+type 		= MapSet
+trigger1 	= !time
+map 		= "EX4S_Limiter"
+value 		= 1
+ignorehitpause 	= 1
+
 [State 0, RC LOCKOUT]
 type 		= MapSet
 trigger1 		= 1
 map 		= "ScratchLockout"
 value 		= 40
-ignorehitpause 	= 1
-
-[State 0, EX Limiter]
-type 		= MapSet
-trigger1 	= map(ComboStateCheck)
-map 		= "BEX_Limiter"
-value 		= 1
 ignorehitpause 	= 1
 
 [State 0, AttackDist]
@@ -1150,7 +1150,7 @@ value = 0
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboStateCheck)
+trigger1 	= !time
 map 		= "StarterLevel"
 value 		= 3
 ignorehitpause 	= 1
@@ -3924,7 +3924,7 @@ ctrl = 1
 type    = S
 movetype= A
 physics = S
-juggle  = 0
+velset	= vel x
 anim = 10000
 ctrl = 0
 sprpriority = 2
@@ -4066,7 +4066,7 @@ ignorehitpause = 1
 [State 0, VelSet]
 type = VelAdd
 trigger1 = animelem = 3
-x = 9
+x = vel x + 9
 
 [State 0, ChangeState]
 type = ChangeState
@@ -6108,6 +6108,7 @@ movetype= A
 physics = S
 juggle  = 0
 poweradd= -1000
+anim	= 1000
 ctrl = 0
 sprpriority = 2
 facep2 = 1
@@ -6118,39 +6119,6 @@ trigger1 = movehit = 1
 v = 2
 value = 0
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-fv = 6  ;fv = 10
-value = 1000 ;State of this attack
-;ignorehitpause = 
-;persistent = 
-
-;Armor
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = time = 0 && anim!=1000 ;Animation of this state
-value = 1000
-elem = 1
-
-
-[State 0, HitOverride]
-type = HitOverride
-triggerall = var(28)>0
-triggerall = movetype != H
-trigger1=  1
-attr = SCA,NA,SA,NP,SP
-slot = 0
-stateno = 666999 
-time = 1
-forceair = 0
-
 [State 0, PalFXWiz]
 type = PalFX
 trigger1 = time = 0
@@ -6160,13 +6128,6 @@ mul = 256,256,256
 sinadd = 150,100,0,30
 invertall = 0
 color = 256
-
-[State 8000, Varadd]
-type = VarAdd
-trigger1 = time = 0
-v = 32   ;fv = 10
-value = 1
-persistent = 0
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -6283,6 +6244,13 @@ x = 7
 type = VelSet
 trigger1 = animelem = 6
 x = 0
+
+[State -2, EX 6S Limiter]
+type 		= MapSet
+trigger1 	= movehit
+map 		= "EX6S_Limiter"
+value 		= 1
+ignorehitpause 	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -7220,6 +7188,12 @@ type = VelSet
 trigger1 = animelem = 6
 x = 0
 
+[State -2, EX 6S Limiter]
+type 		= MapSet
+trigger1 	= movehit
+map 		= "EX6S_Limiter"
+value 		= 1
+ignorehitpause 	= 1
 
 [State 410, 2]
 type = hitdef 

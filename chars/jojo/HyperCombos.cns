@@ -190,6 +190,17 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 3001                       ;Change animation (Def: no change)
 sprpriority = -2                  ;Set p1's sprite layering priority to 2 (in front)
 
+[State 0, Zoom]
+type = zoom
+trigger1 = time
+trigger1 = !WinKO
+scale = 1.1
+lag = 0
+stagebound = 1
+camerabound = 1
+pos = 0,-10
+ignorehitpause=1
+
 [State 0, SprPriority]
 type = SprPriority
 trigger1 = animelem = 12

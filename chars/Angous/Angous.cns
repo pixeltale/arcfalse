@@ -565,16 +565,22 @@ trigger1 	= !map(ComboStateCheck)
 map 		= "jEX_Limiter"
 value 		= 0
 ignorehitpause 	= 1
-[State 0, 4EX Limiter]
-type 		= MapSet
-trigger1 	= !map(ComboStateCheck)
-map 		= "BEX_Limiter"
-value 		= 0
-ignorehitpause 	= 1
 [State 0, 5EX Limiter]
 type 		= MapSet
 trigger1 	= !map(ComboStateCheck)
 map 		= "NEX_Limiter"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, EX 6S Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "EX6S_Limiter"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, EX 4S Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "EX4S_Limiter"
 value 		= 0
 ignorehitpause 	= 1
 

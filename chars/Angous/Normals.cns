@@ -3852,10 +3852,9 @@ ctrl = 1
 type    = S
 movetype= A
 physics = S
-juggle  = 0
 poweradd= 0
 ctrl = 0
-velset = 0,0
+velset = vel x,0
 anim = 1062
 sprpriority = -1
 facep2 = 0
@@ -3864,7 +3863,7 @@ facep2 = 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3
+value 		= 4
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -3913,12 +3912,12 @@ value = 9505, (0+(Random%5))
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = animelem =1
-x = 15
+trigger1 = animelem = 3
+x = 20
 
 [State 0, VelMul]
 type = VelMul
-trigger1 = time>20
+trigger1 = animelemno(0) = 8
 x = .5
 
 [State 0, Explod]
@@ -3977,7 +3976,6 @@ attr = S, SA
 damage = 150*MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
-priority = 3
 pausetime = 20,20
 sparkno = 2
 sparkxy = -25,-44
@@ -3995,8 +3993,10 @@ envshake.time = 7
 guard.slidetime = 12
 guard.hittime = 18
 guard.ctrltime = 12
-palfx.time = 12
-palfx.add = 100, 0,20
+envshake.time 	= 20
+envshake.freq 	= 80
+envshake.ampl 	= 5
+envshake.phase 	= 1
 fall = 1
 air.fall = 1
 getpower = 100*var(2)

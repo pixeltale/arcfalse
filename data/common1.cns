@@ -7764,14 +7764,14 @@ removeongethit = 0
 ignorehitpause = 1
 
 ;================================
-;Attack Level Indicator
+;Attack Level Indicator / Starter Level Indicator
 ;================================
 [State 0, Explod] ;Level 1 INDICATOR
 type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
 triggerall = enemy, !isHelper
 trigger1 = movehit = 1
-trigger1 = map(StarterLevel) = 1
+trigger1 = map(StarterLevel) = 1 && !map(Counterhit_Flag)
 anim = F1020
 ID = 1020
 pos = p2dist x, p2dist y - 40
@@ -7789,7 +7789,7 @@ type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
 triggerall = enemy, !isHelper
 trigger1 = movehit = 1
-trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) = 2 && !map(Counterhit_Flag) || map(StarterLevel) = 1 && map(Counterhit_Flag)
 anim = F1021
 ID = 1021
 pos = p2dist x, p2dist y - 40
@@ -7807,7 +7807,7 @@ type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
 triggerall = enemy, !isHelper
 trigger1 = movehit = 1
-trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) = 3 && !map(Counterhit_FLag) || map(StarterLevel) = 2 && map(Counterhit_Flag)
 anim = F1022
 ID = 1022
 pos = p2dist x, p2dist y - 40
@@ -7825,7 +7825,7 @@ type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
 triggerall = enemy, !isHelper
 trigger1 = movehit = 1
-trigger1 = map(StarterLevel) = 4 || map(StarterLevel) = 3 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) = 4 && !map(Counterhit_Flag) || map(StarterLevel) = 3 && map(Counterhit_Flag)
 anim = F1023
 ID = 1023
 pos = p2dist x, p2dist y - 40
