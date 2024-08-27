@@ -1,6 +1,6 @@
-.\external\script\start.lua:1401: chars\Alicia/Specials.cns:2259:
-sin
-y: Missing '(' after sin
+.\external\script\start.lua:1401: chars\TUI/Specials.cns:552:
+1007, (0+(Random%3)
+value: Missing ')' before 
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

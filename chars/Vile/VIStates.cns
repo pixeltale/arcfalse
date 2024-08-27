@@ -577,6 +577,10 @@ y = vel y * 0.9
 type = VelAdd
 trigger1 = time < 8
 y = .40
+[State 0, VelAdd]
+type = VelSet
+trigger1 = time >= 8
+y = -.40
 
 [State 200, 2]
 type = PlaySnd

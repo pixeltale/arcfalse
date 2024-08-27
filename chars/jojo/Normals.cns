@@ -14,8 +14,7 @@ type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 200                       ;Change animation (Def: no change)
-poweradd = 10
+anim = 200
 sprpriority = 2
 
 [State 200, 2]
@@ -27,7 +26,7 @@ value = 0, 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -98,8 +97,7 @@ type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 203                       ;Change animation (Def: no change)
-poweradd = 10                    ;Power to add (Def: 0)
+anim = 203
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 200, 2]
@@ -202,8 +200,7 @@ type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      ;Physics: S-stand, C-crouch, A-air
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 201                       ;Change animation (Def: no change)
-poweradd = 10                    ;Power to add (Def: 0)
+anim = 201             ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 200, 2]
@@ -347,8 +344,7 @@ type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 202                       ;Change animation (Def: no change)
-poweradd = 10                    ;Power to add (Def: 0)
+anim = 202
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 200, 2]
@@ -471,7 +467,6 @@ ctrl = 1
 type    = S
 movetype= A
 physics = S
-poweradd= 30
 ctrl = 0
 anim = 210
 sprpriority = -1
@@ -492,7 +487,7 @@ y = 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3
+value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -743,8 +738,7 @@ type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 212                      ;Change animation (Def: no change)
-poweradd = 10                    ;Power to add (Def: 0)
+anim = 212
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 200, 2]
@@ -860,7 +854,6 @@ ctrl = 1
 type    = S
 movetype= A
 physics = S
-poweradd= 30
 ctrl = 0
 anim = 220
 sprpriority = 2
@@ -917,7 +910,7 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 4
+value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -998,7 +991,6 @@ type    = S
 movetype= A
 physics = S
 juggle  = 4
-poweradd= 30
 ctrl = 0
 velset = 0,0
 anim = 222
@@ -1064,7 +1056,7 @@ accel = 0,0
 random = 0,0
 scale =0.7,0.7
 sprpriority = 3
-ontop = 1
+ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
@@ -1084,7 +1076,7 @@ accel = 0,0
 random = 0,0
 scale =1,1
 sprpriority =2
-ontop = 1
+ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
@@ -1193,8 +1185,6 @@ ctrl = 1
 type    = C
 movetype= A
 physics = C
-juggle  = 5
-poweradd= 8
 ctrl = 0
 anim = 400
 sprpriority = 2
@@ -1267,7 +1257,6 @@ ctrl = 1
 type    = C
 movetype= A
 physics = C
-poweradd= 25
 ctrl = 0
 anim = 410
 sprpriority = 2
@@ -1365,7 +1354,6 @@ ctrl = 1
 type    = C
 movetype= A
 physics = C
-poweradd= 11
 ctrl = 0
 anim = 420
 sprpriority = 2
@@ -1523,8 +1511,7 @@ type    = C                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
 physics = C                      
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 430                      ;Change animation (Def: no change)
-poweradd = 10                    ;Power to add (Def: 0)
+anim = 430
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 200, 2]
@@ -1590,8 +1577,7 @@ type    = C                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics =C                      
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 431                      ;Change animation (Def: no change)
-poweradd = 10                    ;Power to add (Def: 0)
+anim = 431
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 200, 2]
@@ -1751,7 +1737,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = A
-poweradd= 5
 ctrl = 0
 anim = 600
 sprpriority = 2
@@ -1836,7 +1821,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = A
-poweradd= 30
 ctrl = 0
 anim = 620
 sprpriority = 2
@@ -1922,7 +1906,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = A
-poweradd= 30
 ctrl = 0
 anim = 630
 sprpriority = 2
@@ -2020,8 +2003,6 @@ ctrl = 1
 type    = A
 movetype= I
 physics = A
-juggle  = 0
-poweradd= 5
 ctrl = 0
 anim = 631
 sprpriority = 2
@@ -2193,8 +2174,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = N
-juggle  = 4
-poweradd= 30
 ctrl = 0
 anim = 640
 sprpriority = 2
@@ -2415,15 +2394,22 @@ physics = S
 velset = -1,0
 ctrl = 0
 anim = 652
-poweradd = 10
 sprpriority = -2
 
 [State 0, ReversalDef]
 type = ReversalDef
-trigger1 = 1
+trigger1 = enemy, stateno != 900
 reversal.attr = SCA,NA,SA,HA,NT,ST,HT
 pausetime = 10,99
-pausetime = 10,35
+sparkxy = 10,-10 ;offset
+hitsound = S1,0
+p1stateno = 703
+
+[State 0, ReversalDef]
+type = ReversalDef
+trigger1 = enemy, stateno = 900
+reversal.attr = SCA,NA,SA,HA,NT,ST,HT
+pausetime = 1,20
 sparkxy = 10,-10 ;offset
 hitsound = S1,0
 p1stateno = 703
@@ -2474,8 +2460,7 @@ movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      
 velset = 6,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 651                      ;Change animation (Def: no change)
-poweradd = 10                    ;Power to add (Def: 0)
+anim = 651
 sprpriority = 2
 
 [State -2, Starter Level]

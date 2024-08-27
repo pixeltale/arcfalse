@@ -234,6 +234,13 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
+[State -2, EX 5S Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "EX5S_Limiter"
+value 		= 0
+ignorehitpause 	= 1
+
 [State -2, Vel Limiter]
 type 		= MapSet
 trigger1 	= !map(ComboStateCheck)
@@ -289,21 +296,12 @@ map = "gravMul"
 value = 1
 ignorehitpause = 0
 
-
-
-
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
-trigger1 = 1 
-text = "Map(Win) = %d"
-params = Map(Win)
-
-[State 0, LifeAdd]
-type = LifeAdd
-triggerall = time%2 = 0
-trigger1 = enemy, name = "Bog (ACB)" && enemy, map(acid) >= 1
-value = -1
-kill = 0
+trigger1 = 1
+text = "StarterLevel = %f comboTimer = %f"
+params = map(EX5S_Limiter), map(combotimer)
+ignorehitpause = 1
 
 [State 0, VarSet]
 type = VarSet

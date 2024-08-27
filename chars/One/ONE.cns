@@ -478,27 +478,27 @@ ignorehitpause = 1
 [State 0, Distance Display]
 type = DisplaytoClipboard
 trigger1 = 1
-text = "swordDistX= %f, frontedgedist= %d, noflip = %f"
-params = map(swordDistX), frontedgedist, map(NoJump)
+text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, noflip = %f"
+params = map(swordDistX), frontedgedist, backedgedist, map(NoJump)
 
-[State 0. MapAdd]
+[State 0. MapSet]
 type 		= MapSet
-triggerall	= numhelper(260)
+triggerall	= var(50)
 trigger1 	= map(swordDistX) > frontedgedist
-trigger2	= map(swordDistX) < backedgedist
+trigger1	= map(swordDistX) > backedgedist
 map 		= "noJump"
 value 		= 1
 ignorehitpause 	= 1
-persistent 	= 0
-[State 0. MapAdd]
+persistent	= 1
+[State 0. MapSet]
 type 		= MapSet
+triggerall	= var(50)
 trigger1 	= map(swordDistX) < frontedgedist
-trigger1	= map(swordDistX) > backedgedist
-trigger2	= !numhelper(260)
+trigger1	= map(swordDistX) < backedgedist
 map 		= "noJump"
 value 		= 0
 ignorehitpause 	= 1
-persistent 	= 0
+persistent	= 1
 
 [State 0. MapAdd]
 type 		= MapAdd
@@ -618,41 +618,6 @@ type = VarAdd
 trigger1 = fvar(18) >0 
 fv = (18)
 value = -1
-
-[State 0, Explod] ;BURST EXPLOD
-type = Explod
-triggerall = !numexplod(900)
-trigger1 = var(15) = 1000 && teamside = 1
-anim =F905
-ID = 900
-pos = -3,18
-postype = left  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -1
-pausemovetime = 0
-scale =0.60,0.60
-sprpriority = 8
-ontop = 1
-ignorehitpause = 1
-[State 0, Explod]
-type = Explod
-triggerall = !numexplod(900)
-trigger1 = var(15) = 1000 && teamside = 2
-anim =F906
-ID = 900
-pos = -53,18
-postype = right  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -1
-pausemovetime = 0
-scale = 0.64,0.64
-sprpriority = 8
-ontop = 1
-ignorehitpause = 1
 
 
 ;------------------------------------

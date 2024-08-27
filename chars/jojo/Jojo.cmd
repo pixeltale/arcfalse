@@ -199,7 +199,7 @@ trigger2 = var(1)
 [State -1, 5S: EX Upper]
 type = ChangeState
 value = 1010
-triggerall = var(30)<=0 ;Limiter - Only Allowed to use ONCE during a combo
+triggerall = !map(EX5S_Limiter)
 triggerall = power>1000
 triggerall = command = "EX"
 triggerall = command != "holdback" 
@@ -208,10 +208,6 @@ triggerall = command != "holdfwd"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno =1000
-trigger3 = movecontact
-trigger4=stateno=2000
-trigger4=movecontact
 
 [State -1, 5S: Upper]
 type = ChangeState

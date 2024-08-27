@@ -742,7 +742,7 @@ physics = S
 juggle  =0; 2
 poweradd= -2000;(0)*(cond(var(var(2)) = 1, 1, .5))
 ctrl = 0
-anim =1050
+anim = 3010
 sprpriority = 2
 velset = vel x*.8
 

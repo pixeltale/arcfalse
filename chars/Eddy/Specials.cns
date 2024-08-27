@@ -191,6 +191,7 @@ p2getp1state 	= 0
 [State 630, 2]
 type 	= HitDef 
 p2facing 		= 1 
+triggerall		= enemy, statetype != L
 trigger1 		= !map(Counterhit) && movecontact = 0 && movereversed = 0
 attr 		= S, SA
 damage 		= 150*map(P4) + 20, 20
@@ -221,6 +222,40 @@ envshake.phase 	= 1
 guard.velocity 	= -6
 guard.ctrltime 	= 20
 id 		= 99855
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
+[State 630, 2]
+type 	= HitDef 
+p2facing 		= 1 
+triggerall		= enemy, statetype = L
+trigger1 		= !map(Counterhit) && movecontact = 0 && movereversed = 0
+attr 		= S, SA
+damage 		= 150*map(P4) + 20, 20
+hitflag 		= MAFD
+guardflag 	= HA
+priority		= 3
+pausetime 	= 30,30
+sparkno 		= 3
+sparkxy 		= -5,-20
+hitsound   	= 5,4
+guardsound 	= 6,2
+ground.type 	= Trip
+air.type 	 	= Trip
+animtype 		= hard
+air.animtype 	= back
+ground.slidetime 	= 14
+ground.hittime  	= 30
+down.hittime		= 40
+ground.velocity 	= -3,12
+air.velocity 	= -3,12
+down.velocity 	= -1,-6
+air.hittime 	= 9999
+fall  		= 1
+envshake.time 	= 30
+envshake.freq 	= 10
+envshake.ampl 	= 3
+envshake.phase 	= 1
+guard.velocity 	= -6
+guard.ctrltime 	= 20
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
 ;Explod Limiter Trigger

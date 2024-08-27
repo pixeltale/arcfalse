@@ -597,7 +597,7 @@ ignorehitpause = 0
 type = MapAdd
 trigger1 = map(JuggleTimer) = 50 || map(JuggleTimer) = 100 || map(JuggleTimer) = 140 || map(JuggleTimer) = 180 || map(JuggleTimer) = 220
 map = "gravMul"
-value = -0.12
+value = -0.10
 ignorehitpause = 0
 persistent = 0
 [State 0, VelSet]

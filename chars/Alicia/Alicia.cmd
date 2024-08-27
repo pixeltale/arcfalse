@@ -181,6 +181,17 @@ trigger1 = movecontact ;&& enemynear, movetype = H
 trigger1 = hitdefattr = A, NA && stateno != 900
 trigger2 = stateno = 1005 && statetype = A
 
+[State -1,DJC] ;Float
+type = ChangeState
+value = 110
+triggerall = statetype = A && pos y < -15
+triggerall =  command = "holdc" 
+triggerall = Map(DJCL) > 0 && stateno != 110 && !map(Float)
+trigger1 = movecontact ;&& enemynear, movetype = H
+trigger1 = hitdefattr = A, NA && stateno != 900
+trigger2 = stateno = 1005 && statetype = A
+trigger3 = ctrl
+
 
 ;---------------------------------------------------------------------------
 ;Malice Call

@@ -271,7 +271,7 @@ triggerall = !map(NoJump)
 triggerall = command = "b"
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) ;|| (stateno = 111250 || stateno = 450 || stateno = 640) && time > 10
 trigger3 = stateno = 101
 ;trigger4 = stateno = 100
 

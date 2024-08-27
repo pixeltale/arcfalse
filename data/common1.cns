@@ -6332,10 +6332,10 @@ value = 5030
 [State 30000, Bounce]
 type = ChangeState
 trigger1 = hitShakeOver
-value = 30001
+value = 5301
 
 ;Horizon Buster Custom State (Flipping)
-[Statedef 30001]
+[Statedef 5301]
 type = A
 movetype = H
 physics = N
@@ -6353,22 +6353,13 @@ value = 6160
 
 [State 30001, Velset]
 type = VelSet
-trigger1 = time = 0 && enemy, !map(SpinoutCustomX)
-x = -1.1
+trigger1 = time = 0
+x = gethitvar(xvel)*facing
 
 [State 30001, Velset]
 type = VelSet
-trigger1 = time = 0 && enemy, !map(SpinoutCustomY)
-y = -11
-
-[State 30001, Velset]
-type = VelSet
-trigger1 = time = 0 && enemy, map(SpinoutCustomX)
-x = enemy, map(SpinoutCustomX)
-[State 30001, Velset]
-type = VelSet
-trigger1 = time = 0 && enemy, map(SpinoutCustomY)
-y = enemy, map(SpinoutCustomY)
+trigger1 = time = 0
+y = gethitvar(yvel)
 
 [State 30001, AngleDraw]
 type = AngleDraw
@@ -6377,6 +6368,10 @@ trigger1 = 1
 type = AngleAdd
 trigger1 = Time%2 = 0
 value = 45
+[State 30001, ChangeAnim]
+type = ChangeAnim
+trigger1 = 1
+value = 6160
 
 [State 30001, Gravity]
 type = VelAdd
@@ -7179,11 +7174,12 @@ value = 1
 ;-----------------------------
 [Statedef 69002]
 type    = A
+anim    = 69000
 movetype= A
 physics = N
 juggle  = 0
 poweradd= 0
-ctrl =0
+ctrl    =0
 sprpriority = -1
 
 [State 0, VelSet]
@@ -7200,7 +7196,7 @@ value = 69003
 ;Burst Landing Recovery
 [Statedef 69003] 
 type    = S
-movetype= I
+movetype= A
 physics = S
 juggle  = 0
 poweradd= 0
@@ -7214,6 +7210,47 @@ type = ChangeState
 trigger1 = time = 10
 value = 0
 ctrl = 1
+
+;---------------------------------------------------------------------------
+;Slow-Mo Helper
+[Statedef 6140]
+movetype= I
+anim = 99999
+
+[State , Sound - HUD - Slow-Mo]
+type = PlaySnd
+trigger1 = time = 0
+value = F40,1
+volumescale = 50
+channel = 25
+ignorehitpause = 1
+persistent = 1
+
+[State 6140, Slow-mo increase]
+type = VarAdd
+trigger1 = time = 0
+fv = 0
+value = 3
+
+[State 6140, Pause]
+type = Pause
+trigger1 = 1
+time = 		fvar(0)
+movetime = 0
+endcmdbuftime = 	fvar(0)
+pausebg = 1
+ignorehitpause = 1
+persistent = 1
+
+[State 6140, DestroySelf]
+type = DestroySelf
+trigger1 = time = 30
+ignorehitpause = 1
+persistent = 1
+[State 6140, SelfState]
+type = SelfState
+trigger1 = time = 1
+value = 6140
 
 [Statedef -1] ;Common CMD actions. Mostly utilized for system mechanics and universal actions.
 
@@ -7256,6 +7293,54 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+
+;The slow-mo helper spawns if both you, and your closest enemy are within' 1-10 value.
+;... And if the helper already doesn't exist.
+; It asks if your percent of HP is 30% or lower.
+;... OR if the M.A.T.(METER Attack Tracker) Var isn't 0
+;... OR if the H.A.T.(Heavy Attack Tracker) Var isn't 0
+; [State , Helper]
+; type = Helper
+; triggerall = map(starterlevel) = 4 && map(CounterHit)
+; triggerall = numhelper(6140) = 0				;Slow Mo Helper Alive?
+; trigger1 = movehit
+; helpertype = normal
+; name = "Slow-Mo"
+; ID = 6140
+; stateno = 6140
+; pos = 0,0
+; postype = p1
+; facing = 1
+; ownpal = 1
+; supermovetime = 0
+; pausemovetime = 0
+
+;========================================
+;Counterhit Starter Afterimage
+;========================================
+[State 0, Explod]
+type = Explod
+triggerall = map(CHStarter)
+trigger1 = time%5=0
+anim = anim
+animelem = animelemno(0)
+animelemlooped = 1
+ID = 1000
+postype = p1
+bindtime = 1
+supermovetime = 0
+pausemovetime = 0
+scale = const(size.xscale),const(size.yscale)
+sprpriority = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+trans = add
+removetime = 40
+palfx.time = 40
+palfx.sinmul = -255,-255,-255,160
+removeongethit = 0
+ignorehitpause = 1
 
 ;=============
 ;Low Detector
@@ -7678,6 +7763,83 @@ facing = 0
 removeongethit = 0
 ignorehitpause = 1
 
+;================================
+;Attack Level Indicator
+;================================
+[State 0, Explod] ;Level 1 INDICATOR
+type = Explod
+triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
+triggerall = enemy, !isHelper
+trigger1 = movehit = 1
+trigger1 = map(StarterLevel) = 1
+anim = F1020
+ID = 1020
+pos = p2dist x, p2dist y - 40
+postype = p1
+scale = 0.5,0.5
+sprpriority = 999
+ontop = 1
+ownpal = 1
+facing = 0
+removeongethit = 0
+ignorehitpause = 1
+persistent = 0
+[State 0, Explod] ;Level 2 INDICATOR
+type = Explod
+triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
+triggerall = enemy, !isHelper
+trigger1 = movehit = 1
+trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag)
+anim = F1021
+ID = 1021
+pos = p2dist x, p2dist y - 40
+postype = p1
+scale = 0.5,0.5
+sprpriority = 999
+ontop = 1
+ownpal = 1
+facing = 0
+removeongethit = 0
+ignorehitpause = 1
+persistent = 0
+[State 0, Explod] ;Level 3 INDICATOR
+type = Explod
+triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
+triggerall = enemy, !isHelper
+trigger1 = movehit = 1
+trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag)
+anim = F1022
+ID = 1022
+pos = p2dist x, p2dist y - 40
+postype = p1
+scale = 0.5,0.5
+sprpriority = 999
+ontop = 1
+ownpal = 1
+facing = 0
+removeongethit = 0
+ignorehitpause = 1
+persistent = 0
+[State 0, Explod] ;Level 4 INDICATOR
+type = Explod
+triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
+triggerall = enemy, !isHelper
+trigger1 = movehit = 1
+trigger1 = map(StarterLevel) = 4 || map(StarterLevel) = 3 && map(Counterhit_Flag)
+anim = F1023
+ID = 1023
+pos = p2dist x, p2dist y - 40
+postype = p1
+scale = 0.5,0.5
+sprpriority = 999
+ontop = 1
+ownpal = 1
+facing = 0
+removeongethit = 0
+ignorehitpause = 1
+persistent = 0
+
+
 ;=============================
 ;ARMOR POINTS REPLENISH
 ;=============================
@@ -7941,7 +8103,7 @@ triggerall = movetype != H && !map(SlowdownTime) && !map(SlowdownTimeB) && !map(
 trigger1 = vel x > 0
 trigger1 = !(name = "Roger" && (Stateno = 1403 || stateno = [1453,1456]))
 trigger1 = !(name = "Vile" && (Stateno = [1050,1061] || stateno = 2059 || stateno = 1020))
-trigger1 = !(name = "ONE" && (Stateno = 1051))
+trigger1 = !(name = "ONE" && (Stateno = 1051 || stateno = 1151))
 trigger1 = !(stateno = [3000,4000]) && stateno != 5610
 value = vel x * 0.75
 
@@ -8520,6 +8682,12 @@ ignorehitpause = 0
 ;===============================================================================
 ; ------- COMBO TIMER - Tick Up --------
 ;===============================================================================
+[State -2, Combo Timer Start Delay]
+type = MapSet
+trigger1 = !map(comboTimer)
+map = "StartDelay"
+value = 2
+ignorehitpause = 0
 
 [State -2, Timer Start Delay]
 type = MapAdd						
@@ -8540,20 +8708,28 @@ map = "ComboTimer"
 value = 60
 ignorehitpause = 1
 
-[State -2, Combo Timer - Lvl 2 Starter - Normal] 	;This code makes the combo timer
+[State -2, Combo Timer - Tick] 	;This code makes the combo timer
 type = MapAdd			
 triggerall = !map(startDelay)                   	;tick up once every frame while
 trigger1 = enemy, movetype = H			            ;the opponent is in hitstun.
-trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(CounterHit) || !map(StarterLevel)
 map = "ComboTimer"
 value = 1
+ignorehitpause = 1
+
+[State -2, Combo Timer - LVL 2 Starter - Normal] 
+type = MapSet			
+triggerall = !map(startDelay) && !map(HasLevel)		
+trigger1 = enemy, movetype = H				
+trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag)
+map = "ComboTimer"
+value = -1
 ignorehitpause = 1
 
 [State -2, Combo Timer - LVL 3 Starter - Long] 
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(CounterHit)
+trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag)
 map = "ComboTimer"
 value = -120
 ignorehitpause = 1
@@ -8562,7 +8738,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) >= 4 || map(StarterLevel) = 3 && map(CounterHit)
+trigger1 = map(StarterLevel) >= 4 || map(StarterLevel) = 3 && map(Counterhit_Flag)
 map = "ComboTimer"
 value = -240
 ignorehitpause = 1
@@ -8579,12 +8755,6 @@ type = MapSet
 trigger1 = enemy, movetype != H
 map = "ComboTimer"
 value = 0
-ignorehitpause = 0
-[State -2, Combo Timer Reset]
-type = MapSet
-trigger1 = !map(comboTimer)
-map = "StartDelay"
-value = 2
 ignorehitpause = 0
 
 [State -2, Combo State Check]
@@ -8769,6 +8939,13 @@ value = 1
 ;---------------------------------------------------------------------------------
 [Statedef -3]
 
+[State 0, VarSet] ;Stop Old code from interfering
+type = VarSet
+trigger1 = var(15)
+v = 15  
+value = 0
+ignorehitpause = 1
+
 [State 0, Explod] ;BURST EXPLOD
 type = Explod
 trigger1 = !numexplod(900)
@@ -8811,6 +8988,7 @@ ignorehitpause = 1
 type = RemoveExplod
 trigger1 = stateno = 900 || map(BurstGauge) < 1000
 ignorehitpause = 1
+persistent = 1
 id = 900
 
 ;============================

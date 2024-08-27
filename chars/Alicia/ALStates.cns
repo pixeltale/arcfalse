@@ -365,6 +365,7 @@ type = ChangeAnim
 triggerall = anim != 44
 trigger1 = Time = 0 || prevstateno = 50
 value = 44
+
 ;---------------------------------------------------------------------------
 ; Jump Up
 [Statedef 50]
@@ -372,156 +373,24 @@ type    = A
 physics = A
 ctrl = 1
 
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = map(Float)
-flag = noairguard
-ignorehitpause = 1
+[State 50, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
 
 [State 50, 2]
 type = ChangeAnim
 trigger1 = Time = 0
-value = 41
-
-;Float Check
-[State Air Dash]
-type 		= mapset
-trigger1 	= 1
-map 		= "Float"
-value 		= (prevstateno = 46) || prevstateno = [200, 430]
-
-[State 0, VelMul]
-type = VelMul
-triggerall = map(Float)
-trigger1 = time < 5
-y = 0.6
-ignorehitpause = 1
-
-[State 0, VelSet]
-type = VelSet
-triggerall = map(Float)
-trigger1 = time >= 5
-y = 0
-ignorehitpause = 1
-[State 0, VelSet]
-type = VelMul
-triggerall = map(Float)
-trigger1 = time && command != "holdfwd" && command != "holdback"
-x = 0.8
-ignorehitpause = 1
-[State 0, VelSet]
-type = VelAdd
-triggerall = time >= 5
-triggerall = map(Float)
-trigger1 = command = "holdfwd"
-x = 1
-ignorehitpause = 1
-[State 0, VelSet]
-type = VelAdd
-triggerall = time >= 5
-triggerall = map(Float)
-trigger1 = command = "holdback"
-x = -1
-ignorehitpause = 1
-[State 0, VelSet]
-type = VelSet
-triggerall = time >= 5
-triggerall = map(Float)
-trigger1 = vel x >= 6
-x = 6
-ignorehitpause = 1
-[State 0, VelSet]
-type = VelSet
-triggerall = time >= 5
-triggerall = map(Float)
-trigger1 = vel x <= -6
-x = -6
-ignorehitpause = 1
-
-[State 20, 3]
-type = ChangeAnim
-triggerall = map(Float)
-trigger1 = vel x > 1
-value = 20
-[State 20, 3]
-type = ChangeAnim
-triggerall = map(Float)
-trigger1 = vel x <= 1
-trigger2 = vel x >= -1
-value = 0
-[State 20, 4]
-type = ChangeAnim
-triggerall = map(Float)
-trigger1 = vel x < -1
-value = 21
-
-;Cancel Type - Reset
-[State Cancel]
-type 		= mapset
-trigger1 	= time = [0, 5]
-map 		= "FCancel"
-value 		= 0
-;Cancel Type 1
-[State Cancel]
-type 		= mapset
-triggerall	= time >= 5
-trigger1 	= command = "down"
-map 		= "FCancel"
-value 		= 1
-;Cancel Type 1
-[State Cancel]
-type 		= mapset
-triggerall	= time >= 5
-trigger1 	= command = "up"
-map 		= "FCancel"
-value 		= 2
-;Cancel Type 1
-[State Cancel]
-type 		= mapset
-triggerall	= time >= 5
-trigger1 	= command = "66" || command = "M66"
-map 		= "FCancel"
-value 		= 2
-
-[State 20, 4]
-type = Changestate
-triggerall = map(Float)
-trigger1 = map(FCancel) = [1,2]
-value = 47
-[State 20, 4]
-type = Changestate
-triggerall = map(Float)
-trigger1 = map(FCancel) = 3
-value = 62
-
-[State 0, Explod] ;Magic Circle
-type = Explod
-triggerall = time % 8 = 0
-trigger1 = prevstateno = 46 && map(Float)
-anim = 640
-ID = 50
-pos = 0,10
-postype = p1
-bindtime = 1
-removetime = -2
-pausemovetime = 0
-scale = 1,1
-sprpriority = 0
-ontop = 0
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 1
-ignorehitpause =1
+value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
 
 [State 50, 3]
-type = changestate
-trigger1 = command = "holdfwd" && prevstateno = 101 && time > 10
-value = 102
+type = ChangeAnim
+trigger1 = Vel y > Const720p(-8)
+trigger1 = SelfAnimExist(anim + 3)
+trigger1 = anim >= 41 && anim <= 43
+persistent = 0
+value = Anim + 3
 
-[State 50, 3]
-type = changestate
-trigger1 = enemy, !alive
-value = 47
 ;---------------------------------------------------------------------------
 ; Air Dash Fwd
 [Statedef 60]
@@ -867,8 +736,8 @@ value = 1
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time >= 0
-x = 0.75
-y = -0.85
+x = 0.45
+y = -0.8
 [State 0, VelSet]
 type = VelSet
 trigger1 = vel x > 7
@@ -1145,3 +1014,152 @@ type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
+
+;---------------------------------------------------------------------------
+;Float
+[Statedef 110]
+type    = A
+physics = A
+ctrl = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = map(Float)
+flag = noairguard
+ignorehitpause = 1
+
+[State 50, 2]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 41
+
+;Float Check
+[State Air Dash]
+type 		= mapset
+trigger1 	= 1
+map 		= "Float"
+value 		= 1
+
+[State 0, VelMul]
+type = VelMul
+triggerall = map(Float)
+trigger1 = time < 5
+y = 0.6
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+triggerall = map(Float)
+trigger1 = time >= 5
+y = 0
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelMul
+triggerall = map(Float)
+trigger1 = time && command != "holdfwd" && command != "holdback"
+x = 0.5
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+triggerall = time >= 5
+triggerall = map(Float)
+trigger1 = command = "holdfwd"
+x = 4.5
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+triggerall = time >= 5
+triggerall = map(Float)
+trigger1 = command = "holdback"
+x = -4.5
+ignorehitpause = 1
+
+[State 20, 3]
+type = ChangeAnim
+triggerall = map(Float)
+trigger1 = vel x > 1
+value = 20
+[State 20, 3]
+type = ChangeAnim
+triggerall = map(Float)
+trigger1 = vel x <= 1
+trigger2 = vel x >= -1
+value = 0
+[State 20, 4]
+type = ChangeAnim
+triggerall = map(Float)
+trigger1 = vel x < -1
+value = 21
+
+;Cancel Type - Reset
+[State Cancel]
+type 		= mapset
+trigger1 	= time = [0, 5]
+map 		= "FCancel"
+value 		= 0
+;Cancel Type 1
+[State Cancel]
+type 		= mapset
+triggerall	= time >= 5
+trigger1 	= command = "down"
+map 		= "FCancel"
+value 		= 1
+;Cancel Type 1
+[State Cancel]
+type 		= mapset
+triggerall	= time >= 5
+trigger1 	= command = "up"
+map 		= "FCancel"
+value 		= 2
+;Cancel Type 1
+[State Cancel]
+type 		= mapset
+triggerall	= time >= 5
+trigger1 	= command = "66" || command = "M66"
+map 		= "FCancel"
+value 		= 2
+
+[State 20, 4]
+type = Changestate
+triggerall = map(Float)
+trigger1 = map(FCancel) = 1
+value = 47
+[State 20, 4]
+type = Changestate
+triggerall = map(Float)
+trigger1 = map(FCancel) = 2
+value = 45
+[State 20, 4]
+type = Changestate
+triggerall = map(Float)
+trigger1 = map(FCancel) = 3
+value = 62
+
+[State 0, Explod] ;Magic Circle
+type = Explod
+triggerall = time % 4 = 0
+trigger1 = map(Float)
+anim = 640
+ID = 50
+pos = -1 + time % 3,10 + time % 5
+postype = p1
+bindtime = 1
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause =1
+
+[State 50, 3]
+type = changestate
+trigger1 = command = "holdfwd" && prevstateno = 101 && time > 10
+value = 102
+
+[State 50, 3]
+type = changestate
+trigger1 = enemy, !alive
+value = 47

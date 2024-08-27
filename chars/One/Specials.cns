@@ -3186,8 +3186,9 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = var(50) && time < 10
-x = map(swordDistX)*0.03 + 5
+x = -map(swordDistX)*0.03 + 5
 y = -map(SwordDistY)*0.05 - 3
+
 
 [State 0, VelSet]
 type = VelSet
@@ -3307,7 +3308,7 @@ elem = 1
 [State 0, VelSet]
 type = VelSet
 trigger1 = var(50) && time < 16
-x = map(swordDistX)*0.09 + 5
+x = -map(swordDistX)*0.09 + 5
 y = -map(SwordDistY)*0.05 - 3
 
 [State 0, VelSet]

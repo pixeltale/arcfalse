@@ -2007,18 +2007,18 @@ ownpal = 0
 removeongethit = 0
 
 ;Reflection
-[State 0, Helper]
-type = Helper
-trigger1 = animelem = 2
-helpertype = Normal
-name = "Reflect HB"
-ID = 500
-stateno = 524
-pos = 0,0
-postype = P1
-facing = 1
-keyctrl = 0
-ownpal = 1
+;[State 0, Helper]
+;type = Helper
+;trigger1 = animelem = 2
+;helpertype = Normal
+;name = "Reflect HB"
+;ID = 500
+;stateno = 524
+;pos = 0,0
+;postype = P1
+;facing = 1
+;keyctrl = 0
+;ownpal = 1
 
 
 [State -2, Starter Level]
@@ -2220,18 +2220,18 @@ ownpal = 0
 removeongethit = 0
 
 ;Reflection
-[State 0, Helper]
-type = Helper
-trigger1 = animelem = 2
-helpertype = Normal
-name = "Reflect HB"
-ID = 500
-stateno = 524
-pos = 0,0
-postype = P1
-facing = 1
-keyctrl = 0
-ownpal = 1
+;[State 0, Helper]
+;type = Helper
+;trigger1 = animelem = 2
+;helpertype = Normal
+;name = "Reflect HB"
+;ID = 500
+;stateno = 524
+;pos = 0,0
+;postype = P1
+;facing = 1
+;keyctrl = 0
+;ownpal = 1
 
 
 [State -2, Starter Level]

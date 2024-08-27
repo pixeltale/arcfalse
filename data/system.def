@@ -273,10 +273,10 @@ mask = 1
 [Select Info]
 fadein.time = 10
 fadeout.time = 10
-rows = 3
+rows = 4
 columns = 4
 wrapping = 1              ;1 to let cursor wrap around
-pos = 95,170              ;Position to draw to
+pos = 95,100              ;Position to draw to
 showemptyboxes = 0        ;1 to show empty boxes
 moveoveremptyboxes = 0    ;1 to allow cursor to move over empty boxes
 cell.size = 27,27         ;x,y size of each cell (in pixels)
