@@ -909,8 +909,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "helperc = %f"
-params = map(RCHelper)
+text = "p4 = %f"
+params = map(P4)
 
 
 

@@ -33,7 +33,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0      
 
@@ -282,7 +282,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
@@ -427,7 +427,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
@@ -573,7 +573,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
@@ -780,11 +780,10 @@ ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
 type 		= RootMapSet
-trigger1 		= movehit
+trigger1 	= movehit = 1
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
-ignorehitpause 	= 1
-persistent 	= 0   
+value 		= root, Map(Accumulation) * root, map(P2)
+ignorehitpause 	= 1   
 
 [State 200, 1]
 type = HitDef
@@ -1042,7 +1041,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
@@ -1193,7 +1192,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
@@ -1508,7 +1507,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
@@ -1667,7 +1666,7 @@ persistent = 0
 type 		= RootMapSet
 trigger1 		= movehit
 map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
+value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 

@@ -480,6 +480,15 @@ triggerall = command = "SP"
 triggerall = statetype = A
 trigger1 = !map(ScratchLockout)
 
+;Super Jump
+[State -1, Super Jump]
+type = ChangeState
+value = 55
+triggerall = statetype != A
+triggerall = command = "28" || command = "27" || command = "29"
+trigger1 = ctrl
+trigger2 = Map(JC)
+
 ;---------------------------------------------------------------------------
 ;EX 6S Ground Detonation
 [State -1, Light Kung Fu Palm]
