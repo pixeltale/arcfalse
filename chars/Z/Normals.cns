@@ -1938,7 +1938,7 @@ ctrl = 1
 [Statedef 630]
 type    = A
 movetype= A
-physics = N
+physics = A
 ctrl = 0
 anim = 620
 sprpriority = 2
@@ -1956,11 +1956,6 @@ channel = 3
 type = PlaySnd
 trigger1 = animelemtime(3)=0
 value = 10, (0+(Random%2))
-
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = 1
-y = 0.36
 
 ;Make them float a lil 
 [State 0, VelAdd]
