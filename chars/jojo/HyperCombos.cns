@@ -103,21 +103,48 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause = 1
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= .90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.88	;90% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 200, 1]
 type = HitDef
 triggerall=statetype=A
 triggerall=statetype!=S
 trigger1 = time=0
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(ifElse(fvar(11) * 70 < 60, 60, fvar(11) * 70)), 10                   ;Damage that move inflicts, guard damage
+damage = 10*map(P4) + 60, 10                   ;Damage that move inflicts, guard damage
 animtype = up                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    
 pausetime = 45, 55                 ;Time attacker pauses, time opponent shakes
 p1stateno=3001
 sparkno = 3                      ;Spark anim no (Def: set above)
-sparkxy = -5, -30               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = -5, -30
 hitsound = 5,3                 ;Sound to play on hit
 guardsound = 6, 2             ;Sound to play on guard
 ground.type = High               ;Type: High, Low, Trip (def: Normal)
@@ -140,7 +167,7 @@ type = HitDef
 triggerall=statetype=S
 trigger1 = time=0
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(ifElse(fvar(11) * 70 < 60, 60, fvar(11) * 70)), 10                   ;Damage that move inflicts, guard damage
+damage = 10*map(P4) + 60, 10                   ;Damage that move inflicts, guard damage
 animtype = up               ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    ;Flags of conditions that move can hit
@@ -183,23 +210,11 @@ ctrl = 1
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      ;Physics: S-stand, C-crouch, A-air
-juggle  = 0                      ;Number of air juggle points move takes
-;Commonly-used controllers:
+juggle  = 0
 velset = 0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 3001                       ;Change animation (Def: no change)
 sprpriority = -2                  ;Set p1's sprite layering priority to 2 (in front)
-
-[State 0, Zoom]
-type = zoom
-trigger1 = time
-trigger1 = !WinKO
-scale = 1.1
-lag = 0
-stagebound = 1
-camerabound = 1
-pos = 0,-10
-ignorehitpause=1
 
 [State 0, SprPriority]
 type = SprPriority
@@ -462,16 +477,14 @@ ignorehitpause = 0
 type = HitDef
 trigger1 = animelem= 5
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *7 < 4, 4, fvar(11) * 7)), 0
+damage = 3*map(P4) + 4, 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFD                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFD
+priority = 3, Hit
 pausetime = 35, 35               ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;Spark anim no (Def: set above)
-sparkxy = -14, -55               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = -14, -55
 hitsound = 5, 3                 ;Sound to play on hit
 guardsound = 6, 2               ;Sound to play on guard
 ground.type = low            ;Type: High, Low, Trip (def: Normal)

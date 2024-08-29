@@ -469,6 +469,17 @@ triggerall = command = "SP"
 triggerall = statetype != A
 trigger1 = !map(ScratchLockout)
 
+;RC Helper Hits?
+[State -1, RC Jasta]
+type = ChangeState
+value = 4001
+triggerall = map(RCHelper) && !map(ScratchLockout) && enemy, Alive
+triggerall = power >= 2000
+triggerall = stateno != 900 && stateno != 803 && stateno != 4000 && stateno != 100
+triggerall = command = "SP"
+triggerall = statetype = A
+trigger1 = !map(ScratchLockout)
+
 ;---------------------------------------------------------------------------
 ;EX 6S Ground Detonation
 [State -1, Light Kung Fu Palm]

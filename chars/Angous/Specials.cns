@@ -3849,6 +3849,7 @@ down.hittime = 40
 ground.velocity = -6.6
 air.velocity = -6,-4
 air.fall = 1
+fall = 1
 fall.yvelocity = 0
 guard.slidetime = 12
 guard.hittime = 30
@@ -3907,6 +3908,7 @@ fall.xvelocity = -2
 fall.yvelocity = 0
 air.velocity = -5,-1
 air.hittime = 34
+air.fall = 1
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 
 

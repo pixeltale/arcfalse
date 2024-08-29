@@ -75,7 +75,7 @@ air.velocity = -1.4,-1*map(GravMul)
 air.hittime = 60
 envshake.time = 0;
 air.fall = 1
- 
+getpower 	= (25)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, ChangeState]
 type = ChangeState
@@ -122,7 +122,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.9	;84% DMG For next hit
+value 		= 0.8	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -157,13 +157,13 @@ air.velocity = -1.4,-1
 air.hittime = 35
 envshake.time = 0;
 air.fall = 1
-
+getpower 	= (25)*(cond(var(var(2)) = 1, 1, .5))
  
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelem = 2
 trigger2 = animelem = 3
-x = 6
+x = 8
 
 [State 0, Explod]
 type = Explod
@@ -279,7 +279,7 @@ envshake.freq 		= 10
 envshake.ampl 		= 1
 envshake.phase 		= 0.8
 ;==============================================
-getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State 0, Explod]
@@ -422,7 +422,7 @@ envshake.freq 		= 10
 envshake.ampl 		= 1
 envshake.phase 		= 0.8
 ;==============================================
-getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 ;++++++++++++++++++++++++++++++++++++++++++++++
  
 [State 0, Explod]
@@ -553,7 +553,7 @@ envshake.freq 		= 10
 envshake.ampl 		= 1
 envshake.phase 		= 0.8
 ;==============================================
-getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State 0, ChangeState]
@@ -718,7 +718,7 @@ envshake.freq 		= 10
 envshake.ampl 		= 1
 envshake.phase 		= 0.8
 ;==============================================
-getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 ;==============================================
 p2stateno		= cond((enemy, statetype = A), cond(!map(MM_Limiter),5225,5220), 5000)
 p2getp1state		= 0
@@ -840,6 +840,7 @@ envshake.ampl = 2
 envshake.phase = 100
 fall=1
 air.fall=1
+getpower 	= (75)*(cond(var(var(2)) = 1, 1, .5))
 
 
 [State 200, 3]
@@ -1243,6 +1244,7 @@ ground.velocity = -4
 guard.ctrltime 	= 12
 air.velocity = -1.5,-1
 air.fall = 1
+getpower 	= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 400, 4]
 type = ChangeState
@@ -1317,6 +1319,7 @@ envshake.freq = 120
 envshake.ampl = 2
 envshake.phase = 4
 air.fall = 1
+getpower 	= (75)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, Explod]
 type = Explod
@@ -1714,6 +1717,7 @@ fall			= 1
 air.fall		= 1
 p2stateno 		= 5220
 p2getp1state 		= 0
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
@@ -1916,26 +1920,58 @@ type = PlaySnd
 trigger1 = animelem = 5
 value = 1004, (0+(Random%6))
 
+[State -2, jH_Charged?]
+type 		= MapSet
+trigger1 	= !time
+map 		= "jH_Charged"
+value 		= 0
+ignorehitpause 	= 1
+persistent 	= 0
+[State -2, jH_Charged?]
+type 		= MapSet
+trigger1 	= animelemno(0) = 3 && time >= 10
+map 		= "jH_Charged"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 0
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3
+value 		= 3 + (time >= 10)
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
+triggerall	= !map(jH_Charged)
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
 value 		= 0.87	;90% Starting DMG
 ignorehitpause 	= 1
+[State -2, P1 Value Set]
+type 		= MapSet
+triggerall	= map(jH_Charged)
+trigger1 	= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;90% Starting DMG
+ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboStateCheck)
+triggerall	= !map(jH_Charged)
+trigger1 	= movehit && map(ComboStateCheck)
 map 		= "P2"
 value 		= 0.84	;84% DMG For next hit
 ignorehitpause 	= 1
-persistent = 0
+persistent 	= 0
+[State -2, P2 Value Set]
+type 		= MapSet
+triggerall	= map(jH_Charged)
+trigger1 	= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.95	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent 	= 0
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
 trigger1 		= movehit
@@ -1944,8 +1980,35 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = animelemno(0) = 3
+trigger1 = command = "holdz"
+value = 630
+elem = 3
+ignorehitpause = 1
+
+[State 8000, flash]
+type = PalFX
+trigger1 = map(jH_Charged)
+add = 50+time, 20+time, 20+time
+time=1
+ignorehitpause = 1
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = map(jH_Charged)
+time = 10
+freq = 60
+ampl = -4
+phase = 90
+persistent = 0
+;ignorehitpause = 
+;persistent = 
+
+
 [State 610, 3]
 type = HitDef
+triggerall = !map(jH_Charged)
 trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage = 100*MAP(P4), 0  
@@ -1973,6 +2036,42 @@ fall.yvelocity = 0
 envshake.time = 15
 envshake.freq = 90
 envshake.ampl = -6
+envshake.phase = 100
+air.fall 	= 1
+p2stateno 	= 5255
+p2getp1state	= 0
+guard.hittime	= 18
+
+[State 610, 3]
+type = HitDef
+triggerall = map(jH_Charged)
+trigger1 = !movecontact && !movereversed
+attr = A, NA
+damage = 150*MAP(P4) + TIME, 0  
+getpower = 15
+animtype = light
+guardflag = HA
+hitflag = MAFD
+priority = 4, Hit
+pausetime = 20,20
+sparkno = 3
+sparkxy = -26, -22
+hitsound = 5,3
+guardsound = 6, 2
+ground.type = high
+ground.slidetime = 0
+ground.hittime  = 99
+ground.velocity = -1,18
+airguard.velocity = -1,-.8
+air.type = high
+air.velocity = -1,16 * map(GravMul) - map(jH_UseCount)
+air.hittime = 99
+fall = 1
+down.bounce = 0
+fall.yvelocity = 0
+envshake.time = 15
+envshake.freq = 90
+envshake.ampl = -6.5
 envshake.phase = 100
 air.fall 	= 1
 p2stateno 	= 5255
@@ -2547,7 +2646,7 @@ ignorehitpause = 0
 [State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 11
 ctrl = 1
 
 ;----------------------

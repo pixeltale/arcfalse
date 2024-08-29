@@ -7,7 +7,35 @@ physics = N
 velset = 0,0                     
 ctrl = 0                         
 poweradd = 0                    
-sprpriority = 2          
+sprpriority = 2    
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0      
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
@@ -91,7 +119,7 @@ type = HitDef
 p2facing = 1
 trigger1 = fvar(8) = 0 && movecontact = 0 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 75 < 5, 5, root,fvar(15) * 75)),15
+damage = 80 * root, map(P4),15
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -136,13 +164,12 @@ type = HitDef
 p2facing = 1
 trigger1 = fvar(8) = 1 && movecontact = 0 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 75 < 5, 5, root,fvar(15) * 75)),15
+damage = 100 * root, map(P4),15
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = HAFD                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+priority = 2, Hit
 pausetime = 0, 58               ;Time attacker pauses, time opponent shakes
 guard.pausetime = 0,12
 sparkno = 3
@@ -223,15 +250,41 @@ trigger3 = !animtime
 [Statedef 1550]
 type    = U                      ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
-physics = N                      ;Physics: S-stand, C-crouch, A-air
-;Commonly-used controllers:
+physics = N
 velset = 0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1009                      ;Change animation (Def: no change)
 poweradd = 0                    ;Power to add (Def: 0)
-sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
-;facep2=1
+sprpriority = 2
 poweradd = 0
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
@@ -271,19 +324,16 @@ type = HitDef
 p2facing = 1
 trigger1 = time = 0 
 attr = S, AP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 75 < 5, 5, root,fvar(15) * 75)),15
+damage = 80 * root, map(p4), 15
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFD                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFD
 pausetime = 0, 24               ;Time attacker pauses, time opponent shakes
 guard.pausetime = 0,8
 sparkno = 3
-sparkxy = 0,0               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
-hitsound = 5,2                ;Sound to play on hit
+sparkxy = 0,0
+hitsound = 5,2
 guardsound = 6, 2                ;Sound to play on guard
 ground.type = high           ;Type: High, Low, Trip (def: Normal)
 ground.slidetime = 5             ;Time that the opponent slides back
@@ -303,6 +353,7 @@ envshake.freq = 90
 envshake.ampl = 2
 fall.yvelocity = 0
 air.fall = 1
+fall = 1
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -352,6 +403,34 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 ;facep2=1
 poweradd = 0
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
+
 [State 0, RC On Helper Hit]
 type = RootMapSet
 trigger1 = movecontact
@@ -391,13 +470,11 @@ type = HitDef
 p2facing = 1
 trigger1 = time%5=0 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 35 < 5, 5, root,fvar(15) * 35)),7
+damage = 40 * root, map(P4),7
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = HAFD                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = HAFD                    
 pausetime = 0, 60               ;Time attacker pauses, time opponent shakes
 guard.pausetime = 0,8
 sparkno = 3
@@ -472,6 +549,34 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 ;facep2=1
 poweradd = 0
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
+
 [State 0, RC On Helper Hit]
 type = RootMapSet
 trigger1 = movecontact
@@ -510,7 +615,7 @@ type = HitDef
 p2facing = 1
 trigger1 = time%5=0 
 attr = S, AP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 35 < 5, 5, root,fvar(15) * 35)),7
+damage = 40 * map(P4),7
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -539,6 +644,7 @@ envshake.freq = 90
 envshake.ampl = 2
 fall.yvelocity = 0
 air.fall = 1
+fall = 1
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -652,11 +758,39 @@ time = -1
 ;facing = 0
 pos = 80,-49
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
+
 [State 200, 1]
 type = HitDef
 trigger1 = time % 8=0 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 10 < 3, 3, root,fvar(15) * 10)),3
+damage = 15 * root, map(P4),3
 air.animtype = back
 animtype = hard                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -884,25 +1018,50 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause = 1
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
+
 ;Manual 6S SPREAD
 [State 200, 1]
 type = HitDef
 p2facing = 1
-;triggerall = !prevstateno = 1114
 triggerall = prevstateno = 1110
 trigger1 = !movecontact 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 55 < 5, 5, root,fvar(15) * 55)),12
+damage = 55 * root, map(P4),12
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+priority = 2, Hit
 pausetime = 0, 16               ;Time attacker pauses, time opponent shakes
 sparkno = 13
-sparkxy = 0,-20               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = 0,-20
 hitsound = 5,2                ;Sound to play on hit
 guardsound = 6, 2                ;Sound to play on guard
 ground.type = high           ;Type: High, Low, Trip (def: Normal)
@@ -936,31 +1095,27 @@ getpower = 50
 [State 200, 1]
 type = HitDef
 p2facing = 1 
-;triggerall = !prevstateno = 1110
 triggerall = prevstateno = 1114
 trigger1 = !movecontact 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 120 < 5, 5, root,fvar(15) * 120)),12
+damage = 125 * root, map(P4),12
 animtype  = up
 air.animtype = up
-guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFD                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
-pausetime = 0, 16               ;Time attacker pauses, time opponent shakes
+guardflag = MA
+hitflag = MAFD
+priority = 2, Hit
+pausetime = 0, 16
 sparkno = 13
-sparkxy = 0,-20               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
-hitsound = 5,2                ;Sound to play on hit
-guardsound = 6, 2                ;Sound to play on guard
-ground.type = high           ;Type: High, Low, Trip (def: Normal)
+sparkxy = 0,-20
+hitsound = 5,2
+guardsound = 6, 2
+ground.type = high
 ground.slidetime = 5             ;Time that the opponent slides back
 ground.hittime  = 60             ;Time opponent is in hit state
 ground.velocity = 0,-7             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.velocity = 0,-7             ;Type: High, Low, Trip (def: same as ground.type)
 down.velocity = 0,-7
-;Y-velocity at which opponent is pushed
 air.hittime = 60
 down.hittime = 60                 ;Time before opponent regains control in air
 envshake.time = 16
@@ -983,7 +1138,6 @@ getpower = (0)*(cond(var(var(2)) = 1, 1, .65))
 
 [State 1006, Shock Particles]
 type = Helper
-;trigger1 = !(EnemyNear, SelfAnimExist(7696)) && !(EnemyNear, SelfAnimExist(9010))
 trigger1 = !NumHelper(8155)
 trigger1 = !numhelper(8415)
 trigger1 = MoveHit = 1 && NumTarget
@@ -1012,9 +1166,36 @@ velset = 1,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1203                      ;Change animation (Def: no change)
 poweradd = 0                    ;Power to add (Def: 0)
-sprpriority = -1                  ;Set p1's sprite layering priority to 2 (in front)
-;facep2=1
+sprpriority = -1
 poweradd = 0
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
@@ -1041,21 +1222,6 @@ type = NotHitBy
 trigger1 = 1
 value = SCA
 time = 1
-
-;[State 1900, dust]
-;type = explod
-;trigger1 = animelemtime(1)=0
-;anim = 6800
-;id = 6800
-;pos = 0,-floor(pos y)
-;scale = .6,.6
-;sprpriority = 3
-;bindtime = -1
-;ownpal = 1
-;removeongethit = 1
-;ignorehitpause = 1
-;facing = -1
-;removetime = -1
 
 [State 8500, Assert: NoShadow]
 type = AssertSpecial
@@ -1092,84 +1258,10 @@ trigger1 = vel y >-0.5
 trigger1 = p2dist y<0
 y = -.2
 
-;[State 0, Veladd]
-;type = Veladd
-;trigger1 = p2dist y>20
-;y = .1
-
-;[State 0, Veladd]
-;type = Veladd
-;trigger1 = p2dist y<20
-;y = -.1
-
 [State 0, VelSet]
 type = VelSet
 trigger1 = abs(vel x)>2
 x = cond(vel x<0, -2, 2)
-
-;[State 0, VelSet]
-;type = VelSet
-;trigger1 = abs(vel y)>3
-;y = cond(vel y<0, -2, 2)
-
-;[State 0, VelMul]
-;type = VelMul
-;trigger1 = p2dist y = [20,60]
-;y = .1
-
-;[State 0, BindToParent]
-;type = BindToParent
-;trigger1 = time = 0
-;time = -1
-;facing = 0
-;pos = 80,-49
-
-;[State 200, 1]
-;type = HitDef
-;p2facing = 1
-;trigger1 = time = 0 
-;attr = S, SP                     ;Attribute: Standing, Normal Attack
-;damage = ceil(cond(root,fvar(15) * 120 < 5, 5, root,fvar(15) * 120)),12
-;animtype  = back
-;air.animtype = back
-;guardflag = MA                   ;Flags on how move is to be guarded against
-;hitflag = HAFDP                    ;Flags of conditions that move can hit
-;priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
-;pausetime = 0, 16               ;Time attacker pauses, time opponent shakes
-;sparkno = 13
-;sparkxy = 0,-20               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
-;hitsound = 5,2                ;Sound to play on hit
-;guardsound = 6, 2                ;Sound to play on guard
-;ground.type = high           ;Type: High, Low, Trip (def: Normal)
-;ground.slidetime = 5             ;Time that the opponent slides back
-;ground.hittime  = 25             ;Time opponent is in hit state
-;ground.velocity = -5,-3             ;Velocity at which opponent is pushed
-;airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
-;air.velocity = -5,-1.9             ;Type: High, Low, Trip (def: same as ground.type)
-;down.velocity = -5,-1.9
-;Y-velocity at which opponent is pushed
-;air.hittime = 60
-;down.hittime = 60                 ;Time before opponent regains control in air
-;envshake.time = 16
-;envshake.freq = 100
-;envshake.ampl = 6
-;fall.yvelocity = 0
-;air.fall = 1
-;ground.cornerpush.veloff = 0
-;guard.cornerpush.veloff = 0
-;air.cornerpush.veloff = 0
-;airguard.cornerpush.veloff = 0
-;yaccel = .26
-;getpower = (100)*(cond(var(var(2)) = 1, 1, .65))
-
-;[State 3302, NotHitBy]
-;type = NotHitBy
-;trigger1 = Time >= 0
-;time = 1
-;value = SCA, NA, SA, HA, NT, ST, HT
-;ignorehitpause = 1
 
 [State 0, changestate]
 type = changestate
@@ -1177,12 +1269,6 @@ triggerall = parent,stateno !=[130,155]
 trigger1 = parent,movetype = H
 trigger2 = time >= 500
 value = 1111
-
-;contact/offscreen changestate
-;[State 0, ChangeState]
-;type = ChangeState
-;trigger1 = movecontact || frontedgedist <-80
-;value = 1115
 
 ;detonation changestate
 [State 0, ChangeState]
@@ -1315,22 +1401,6 @@ type = PlaySnd
 trigger1 = animelemtime(3)=0
 value = 1300, 1
 
-;Ground indicator
-;[State 1900, explod]
-;type = explod
-;trigger1 = animelemtime(1)=0
-;anim = 1306
-;id = 1306
-;pos = 0,0
-;scale = .5,.6
-;sprpriority = -1
-;bindtime = -1
-;ownpal = 1
-;removeongethit = 1
-;ignorehitpause = 1
-;facing = -1
-;removetime = -1
-
 ;Ground indicator alt 2 (for modifyexplod)
 [State 1900, explod]
 type = explod
@@ -1414,12 +1484,40 @@ time = 1
 value = SCA, NA, SA, HA, NT, ST, HT
 ignorehitpause = 1
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
+
 [State 200, 1]
 type = HitDef
 trigger1 = !movecontact 
 trigger1 = enemy,movetype!=A
 attr = S, AP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 75 < 5, 5, root,fvar(15) * 75)),15
+damage = 75 * root, map(P4),15
 air.animtype = back
 animtype = hard                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -1463,7 +1561,7 @@ type = HitDef
 trigger1 = !movecontact 
 trigger1 = enemy,movetype=A
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 75 < 5, 5, root,fvar(15) * 75)),15
+damage = 75 * root, map(P4),15
 air.animtype = back
 animtype = hard                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -1544,6 +1642,34 @@ trigger1 = movecontact
 map = "RCHelper"
 value = 30
 ignorehitpause = 0
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
 
 ;helper damage scaling
 [State 0, ParentVarAdd]
@@ -1630,7 +1756,7 @@ ignorehitpause = 1
 type = HitDef
 trigger1 = time = 0 
 attr = S, AP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 45 < 5, 5, root,fvar(15) * 45)),7
+damage = 50 * root, map(P4),7
 air.animtype = back
 animtype = back                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against

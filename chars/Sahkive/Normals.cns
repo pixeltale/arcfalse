@@ -1721,7 +1721,7 @@ value = 52
 ctrl = 1
 
 
-;jR
+;j.R
 [Statedef 650]
 type    = A
 movetype= A
@@ -2478,8 +2478,6 @@ ctrl = 1
 type    = S
 movetype= A
 physics = N
-juggle  = 0
-poweradd= 50;*var(2)
 ctrl = 0
 velset = 0,0
 anim = 511
@@ -2671,9 +2669,9 @@ fall.envshake.freq = 0
 fall.envshake.ampl = 0
 palfx.time 	= 28
 palfx.add 	= 100, 0,20
-guard.hittime 	= 5 + map(RChargeTime)
-guard.slidetime	= 5 + map(RChargeTime)
-guard.ctrltime 	= 5 + map(RChargeTime)
+guard.hittime 	= 13
+guard.slidetime	= 13
+guard.ctrltime 	= 13
 getpower 	= 40*var(2)
 p2stateno 	= 5220
 p2getp1state 	= 0
@@ -2711,9 +2709,9 @@ fall.envshake.freq = 0
 fall.envshake.ampl = 0
 palfx.time = 28
 palfx.add = 100, 0,20
-guard.hittime = 28
-guard.slidetime = 19
-guard.ctrltime = 27
+guard.hittime 	= 13
+guard.slidetime	= 13
+guard.ctrltime 	= 13
 getpower = 40*var(2)
 p2stateno = map(CornerSplat)
 p2getp1state = 0

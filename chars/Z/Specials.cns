@@ -1281,13 +1281,41 @@ type = RemoveExplod
 trigger1 = 1
 id = 421
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
+
 [State 200, 1]
 type = hitdef 
 trigger1 = time = 0
 attr = S, SA
 animtype  = back
 air.animtype = back
-damage = ceil(cond(fvar(11) *50 < 10, 10, fvar(11) * 50)), 6
+damage = 55 * map(P4), 6
 hitflag = AF
 guardflag = MA
 pausetime = 12,18
@@ -1445,6 +1473,34 @@ postype = p1    ;p2,front,back,left,right
 ownpal = 0
 facing=1
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 	= 0   
+
 [State 0]
 type = HitDef 
 p2facing = 1
@@ -1453,7 +1509,7 @@ trigger1 = !movecontact
 attr = A, SA
 animtype  = Hard
 air.animtype = back
-damage = ceil(cond(fvar(11) *80 < 10, 10, fvar(11) * 80)), 5
+damage = 90 * map(P4), 5
 hitflag = MAF
 guardflag = MA
 pausetime = 12,16
@@ -4828,8 +4884,7 @@ damage = ceil(cond(root,fvar(15) * 0< 0, 0, root,fvar(15) * 0)),0
 air.animtype = back
 animtype = up                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = M                   ;Flags on how move is to be guarded against
-hitflag = MAFD                   ;Flags of conditions that move can hit
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFD
 pausetime = 0, 0               ;Time attacker pauses, time opponent shakes
 sparkno = 2
 sparkxy = -20,-20             ;X-offset for the "hit spark" rel. to p2,
@@ -4851,6 +4906,7 @@ envshake.freq = 90
 envshake.ampl = 2
 yaccel = .18
 air.fall = 1
+fall = 1
 guard.hittime = 6
 guard.slidetime = 6
 guard.ctrltime = 6

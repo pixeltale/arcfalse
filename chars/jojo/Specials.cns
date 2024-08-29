@@ -13,7 +13,7 @@ movetype= A
 physics = S
 ctrl = 0
 velset = 0,0
-anim = 1000 + 1 * (prevstateno = 12)
+anim = 1000 + 1 * (prevstateno = [11,12])
 sprpriority = 2
 
 [State -3, Win Voices] ;Win
@@ -34,7 +34,7 @@ x = 3
 
 [State 8000, flash]
 type = PalFX
-triggerall = prevstateno = 12
+triggerall = prevstateno = [11,12]
 trigger1 = !TIME
 add = 90, 30, 40
 time=1
@@ -42,7 +42,7 @@ ignorehitpause = 1
 
 [State 3120, Train]
 type = AfterImage
-triggerall = prevstateno = 12
+triggerall = prevstateno = [11,12]
 trigger1 = !TIME
 time = 8
 palbright = 90,20,90
@@ -1217,7 +1217,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 4
+value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -1908,22 +1908,45 @@ removeongethit = 0
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboStateCheck)
+triggerall	= Animelem = 3
+trigger1 	= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		= 2
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= MapSet
+triggerall	= Animelem = 11
+trigger1 	= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= MapSet
+triggerall	= Animelem = 21
+trigger1 	= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 4
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboStateCheck)
+triggerall	= animelem != 21
+trigger1 	= movehit && !map(ComboStateCheck)
 map 		= "P1"
 value 		= 0.90	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P1 Value Set]
+type 		= MapSet
+triggerall	= animelem = 21
+trigger1 	= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1.2	;120% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.90	;84% DMG For next hit
+value 		= 0.90	;90% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
