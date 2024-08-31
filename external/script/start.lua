@@ -3373,7 +3373,7 @@ function start.f_victory()
 	--draw layerno = 1 backgrounds
 	bgDraw(motif.victorybgdef.bg, true)
 	--draw fadein / fadeout
-	if main.fadeType == 'fadein' and ((start.t_victory.textend and start.t_victory.counter - start.t_victory.textcnt >= motif.victory_screen.time) or main.f_input(main.t_players, {'pal', 's'})) then
+	if main.fadeType == 'fadein' and ((start.t_victory.textend and start.t_victory.counter - start.t_victory.textcnt >= motif.victory_screen.time) or (main.f_input(main.t_players, {'pal', 's'}) and ik_rematch.rematchend())) then
 		main.f_fadeReset('fadeout', motif.victory_screen)
 	end
 	main.f_fadeAnim(motif.victory_screen)

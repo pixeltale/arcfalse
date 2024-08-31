@@ -371,11 +371,6 @@ type = ChangeAnim
 trigger1 = vel y < -2
 value = 41
 
-[state 40, Vulnerability]
-type = hitby
-trigger1 = 1
-value = SCA, NA, SA, HA, NP, SP, HP ;Not hit by throws
-
 [state 40, MapSet]
 type = MapSet
 trigger1 = time = 0
@@ -407,7 +402,7 @@ y = 0.9
 type = VelSet
 trigger1 = Time = 0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*0.5 + vel x * 0.5, const(velocity.jump.back.x)*0.5))*1.1
-y = -9.5
+y = -9.5 - 1 * (name = "Z")
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -7293,27 +7288,38 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+;========================================
+;Custom Wallbounce Velocity Fix
+;========================================
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 	= !map(Wallbounce_yvel)
+map 		= "wallbounce_yvel"
+value 		= -6
+ignorehitpause 	= 1
 
-;The slow-mo helper spawns if both you, and your closest enemy are within' 1-10 value.
-;... And if the helper already doesn't exist.
-; It asks if your percent of HP is 30% or lower.
-;... OR if the M.A.T.(METER Attack Tracker) Var isn't 0
-;... OR if the H.A.T.(Heavy Attack Tracker) Var isn't 0
-; [State , Helper]
-; type = Helper
-; triggerall = map(starterlevel) = 4 && map(CounterHit)
-; triggerall = numhelper(6140) = 0				;Slow Mo Helper Alive?
-; trigger1 = movehit
-; helpertype = normal
-; name = "Slow-Mo"
-; ID = 6140
-; stateno = 6140
-; pos = 0,0
-; postype = p1
-; facing = 1
-; ownpal = 1
-; supermovetime = 0
-; pausemovetime = 0
+;========================================
+;Rematch Darken
+;========================================
+[State 0, Explod]
+type = Explod
+triggerall = !numexplod(8000)
+trigger1 = map(ik_rematch)
+anim = F8000
+animelem = animelemno(0)
+animelemlooped = 1
+ID = 8000
+postype = none
+pos = 100, 100
+bindtime = 1
+supermovetime = 0
+pausemovetime = 0
+scale = 2, 2
+sprpriority = 99999
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+ignorehitpause = 1
 
 ;========================================
 ;Counterhit Starter Afterimage

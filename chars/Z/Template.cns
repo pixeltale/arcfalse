@@ -448,6 +448,13 @@ trigger1 = time = 148
 
 [Statedef -2]
 
+[State 0, RC On Helper Hit]
+type = RootMapSet
+trigger1 = stateno = [4000,4001]
+map = "RCHelper"
+value = 0
+ignorehitpause = 1 
+
 [State 0, RC Lockout]
 type = MapSet
 trigger1 = stateno = [900,902] || stateno = [8012,8013]

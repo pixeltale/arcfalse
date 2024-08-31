@@ -2507,7 +2507,7 @@ p1stateno = 703
 [State 0, ReversalDef]
 type = ReversalDef
 trigger1 = enemy, stateno = 900
-reversal.attr = SCA,NA,SA,HA,NT,ST,HT
+reversal.attr = SCA,NA,SA,HA
 pausetime = 1,20
 sparkxy = 10,-10 ;offset
 hitsound = S1,0

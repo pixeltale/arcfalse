@@ -521,6 +521,11 @@ LoopStart
 7000,3, 0,0, 3
 7000,4, 0,0, 2
 
+; Rematch Darken
+[Begin Action 8000]
+LoopStart
+1030,0, 0,0, 10, , AS256D200
+
 [Begin Action 99999]
 -1,0, 0,0, 10
 

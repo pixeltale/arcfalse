@@ -1021,6 +1021,7 @@ roundstowin = 5           ;Number of rounds to get win pose (lose pose otherwise
 	menu.itemname.empty = ""
 	menu.itemname.savereturn = "Save and Return"
 	menu.itemname.return = "Return Without Saving"
+
 ;-------------------
 ;Options screen background
 [OptionBGdef] 
@@ -1033,4 +1034,58 @@ tile  = 1,1
 velocity = 0, -0.25
 
 
+;REMATCH CODE - BY KAMEKAZE
+;---------------------------------------
+;to override this set "ik_rematch.override" to true in a lua mod file.
+[Rematch]
+enabled = 1
+accept.key = "a&b&c&x&y&z&s"
+;if 1, game will pause when rematch appears, use map "ik_rematch" to detect 
+;when rematch screen is active.
+pausegame = 0
+starttime = 0
+rematch.text = "Run it Back?"
+rematch.offset = 150,70
+;you can adjust the offset for any given gamemode with the format
+;<gamemode>.rematch.offset example below:
+;versus.rematch.offset =220,150
+rematch.font = 3,0,0
+rematch.scale = 2,2
+;This will call the rematch screen on the victory screen instead of the end of match.
+victoryscreen = 0
+p1.font = 2,0,0,128,128,128
+p1.active.font = 3,0,0,255,0,0
+p1.offset = 80,150
+p1.spacing = 0,20
+;you can adjust the offset for any given gamemode with the format
+;<gamemode>.p1.offset example below:
+;versus.p1.offset =220,150
+;versus.p1.spacing =0,10
+p1.scale = 1,1
+p1.yes.text = "Yeah!"
+p1.no.text = "Nah"
+p1.cursor.snd = 100,0
+p1.done.snd = 100,1
 
+p2.font = 2,0,0,128,128,128
+p2.active.font = 3,0,0,0,0,255
+p2.offset = 220,150
+p2.spacing = 0,20
+;you can adjust the offset for any given gamemode with the format
+;<gamemode>.p2.offset example below:
+;versus.p2.offset =220,150
+;versus.p2.spacing =0,10
+p2.yes.text = "Yeah!"
+p2.no.text = "Nah."
+p2.scale = 1,1
+p2.cursor.snd = 100,0
+p2.done.snd = 100,1
+
+;enter all game modes rematch will trigger on. 
+;All modes enabled if omitted.
+;enabledmodes = "arcade","freebattle","teamcoop","versuscoop","versus"
+
+[RematchBGdef] 
+spr = ""
+bgclearcolor = 0, 0, 0
+```

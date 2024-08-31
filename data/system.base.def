@@ -1146,7 +1146,7 @@
 	; for example to display game over screen integrated with the same anim).
 	; Refer to default screenpack for a working example how to use this feature.
 	counter.endtime = 0
-	counter.starttime = 0
+	counter.starttime = 120
 	counter.anim = -1
 	counter.spr = 
 	counter.offset = 0, 0

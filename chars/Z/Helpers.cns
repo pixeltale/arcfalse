@@ -793,9 +793,7 @@ damage = 15 * root, map(P4),3
 air.animtype = back
 animtype = hard                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFD                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAF
 pausetime = 0, 6               ;Time attacker pauses, time opponent shakes
 sparkno = 2
 sparkxy = -10-random%20,-random%20            ;X-offset for the "hit spark" rel. to p2,
@@ -810,7 +808,7 @@ air.type = High
 air.velocity = -3,0       
 down.velocity = -3,0
 air.hittime = 32
-down.hittime = 32                 
+down.hittime = 32 - root, map(UntechDecay)          
 yaccel = .32
 air.fall = 1
 envshake.time = 8
@@ -1196,6 +1194,39 @@ value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = time = 0
+attr = S, NA
+animtype  = med
+air.animtype = back
+damage = 45* root, MAP(P4), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 10,10
+sparkno = 1
+sparkxy = -20,-43
+hitsound   = 5,1
+guardsound = 6,1
+ground.type 	= LOW
+air.type	= TRIP
+ground.slidetime = 12
+ground.hittime  = 22
+air.hittime  = 30
+down.hittime =  30
+ground.velocity = -2.5
+air.velocity = -1.5,-2
+down.velocity = -1.5,-2
+palfx.time = 12
+palfx.add = 100, 0,20
+guard.hittime = 25
+guard.slidetime = 6
+guard.ctrltime = 19
+guard.cornerpush.veloff = -10
+air.fall = 1
+getpower = (50)*(cond(var(var(2)) = 1, 1, .65)) 
+
 [State 0, RC On Helper Hit]
 type = RootMapSet
 trigger1 = movecontact
@@ -1381,13 +1412,6 @@ map = "RCHelper"
 value = 30
 ignorehitpause = 0
 
-;helper damage scaling
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 13
-value = 1
-
 ;Don't go into prox guard
 [State 0, AttackDist]
 type = AttackDist
@@ -1520,9 +1544,7 @@ damage = 75 * root, map(P4),15
 air.animtype = back
 animtype = hard                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFDP                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFDP
 pausetime = 12, 12               ;Time attacker pauses, time opponent shakes
 sparkno = 3
 sparkxy = -20,-60             ;X-offset for the "hit spark" rel. to p2,
@@ -1542,7 +1564,6 @@ envshake.time = 15
 envshake.freq = 90
 envshake.ampl = 2
 yaccel = .26
-fall = 1
 air.fall = 1
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
@@ -1624,16 +1645,20 @@ trigger2 = animtime = 0
 [Statedef 1303]
 type    = U                      ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
-physics = N                      ;Physics: S-stand, C-crouch, A-air
-juggle  = 1                      ;Number of air juggle points move takes
-;Commonly-used controllers:
-velset = 0,0                     ;Set velocity (x,y) (Def: no change)
-ctrl = 0                         ;Set ctrl (Def: no change)
+physics = N
+velset = 0,0
+ctrl = 0
 anim = 1303                      ;Change animation (Def: no change)
 poweradd = 0                    ;Power to add (Def: 0)
-sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
-;facep2=1
+sprpriority = 2
 poweradd = 0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 1 || animelem = 2
+x = p2dist x * 0.5
+y = 0
+ignorehitpause = 1
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
@@ -1670,13 +1695,6 @@ value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 	= 0   
 
-;helper damage scaling
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 13
-value = 1
-
 ;Don't go into prox guard
 [State 0, AttackDist]
 type = AttackDist
@@ -1688,6 +1706,12 @@ value = 0
 type = PlaySnd
 trigger1 = animelemtime(2)=0
 value = 1300, 1
+
+[State 1900, slowly move]
+type = modifyexplod
+trigger1 = numexplod(1307)
+scale = .01*(time-60),.01*(time-60)
+ID = 1307
 
 ;transparent shockwave
 [State 1900, dust]
@@ -1769,7 +1793,7 @@ guardsound = 6, 2
 ground.type = high           
 ground.slidetime = 5             
 ground.hittime  = 25             
-ground.velocity = -6,-3   
+ground.velocity = -6   
 guard.velocity = -2.6         
 airguard.velocity = -1.9,-.8     
 air.type = High     
@@ -1782,7 +1806,6 @@ envshake.freq = 90
 envshake.ampl = 2
 yaccel = .38
 air.fall = 1
-fall = 1
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0

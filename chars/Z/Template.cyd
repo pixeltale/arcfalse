@@ -524,10 +524,11 @@ trigger3 = movecontact
 
 
 ;EX 4S: Capacitor Turnout
-[State -1, Light Kung Fu Palm]
+[State -1, 4EX]
 type = ChangeState
 value = 8300
-triggerall = !numexplod(924686) ;ex limiter works but not in the way i want it to
+triggerall = !numexplod(924686)
+triggerall = !numhelper(1303)
 triggerall = power>=1000
 triggerall = command ="EX"
 triggerall = command != "holdfwd"
@@ -540,7 +541,7 @@ trigger2 = var(1)
 trigger3 = stateno = 105
 ;-----------------------------------------------------------------
 ;EX 6S: Static Wave
-[State -1, Light Kung Fu Palm]
+[State -1, 6EX]
 type = ChangeState
 value = 8104
 triggerall = !numexplod(924687) ;ex limiter works but not in the way i want it to
@@ -1343,13 +1344,12 @@ trigger3 = stateno = 2000 && time >=10
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdupb"
+triggerall = command = "holdupb" && stateno != 56 || stateno = 56 && command = "up"
 triggerall = stateno!=45 && stateno!=46 
 triggerall = stateno!=2000 && stateno!=20000
 triggerall = var(45)>0
 triggerall = stateno!=904
-triggerall = stateno!=903  
-;triggerall = var(29)>0
+triggerall = stateno!=903
 trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 
 trigger2 = movecontact && enemynear, movetype = H && stateno !=420
 trigger2 = hitdefattr = A,NA
@@ -1370,7 +1370,6 @@ triggerall = command != "b"
 triggerall = command != "c"
 trigger1 = stateno=904
 trigger2 = stateno=903  
-;triggerall = var(45)>0
 triggerall = var(45)>0
 
 ;5M Jump Cancel

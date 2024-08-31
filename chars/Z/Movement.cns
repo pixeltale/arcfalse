@@ -323,20 +323,11 @@ type = VarSet
 trigger1 = command = "holdback"
 sysvar(1) = -1
 
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time=0
-v = 40    ;fv = 10
-value = const(velocity.jump.y)
-;ignorehitpause = 
-;persistent = 
-
 [State 40, 4]
 type = VelSet
 trigger1 = animtime=0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
-y = var(40)
+y = const(velocity.jump.y)
 
 [State 40, 5]
 type = VelSet

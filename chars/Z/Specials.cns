@@ -1572,6 +1572,7 @@ air.velocity = -2, 10
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
+air.type = trip
 fall = 1
 fall.yvelocity = 0
 guard.hittime = 24
@@ -5987,7 +5988,7 @@ removeongethit = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 13
+trigger1 = time = 5
 name = "Tracking Bolt 1"
 ID = 1303
 stateno = 1303
@@ -6000,7 +6001,7 @@ facing=1
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 20
+trigger1 = time = 15
 name = "Tracking Bolt 2"
 ID = 1303
 stateno = 1303
@@ -6013,7 +6014,7 @@ facing=1
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 27
+trigger1 = time = 25
 name = "Tracking Bolt 3"
 ID = 1303
 stateno = 1303
@@ -6164,7 +6165,7 @@ removeongethit = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 19
+trigger1 = time = 5
 name = "Tracking Bolt 1"
 ID = 1303
 stateno = 1303
@@ -6178,7 +6179,7 @@ persistent = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 28
+trigger1 = time = 15
 name = "Tracking Bolt 2"
 ID = 1303
 stateno = 1303
@@ -6192,7 +6193,7 @@ persistent = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 37
+trigger1 = time = 25
 name = "Tracking Bolt 3"
 ID = 1303
 stateno = 1303
@@ -6988,19 +6989,6 @@ trigger1 = time <=14
 value = SCA
 time = 1
 
-;[State 0, Helper]
-;type = Helper
-;trigger1 = animelemtime(3)=1
-;name = "Tracking Bolt"
-;ID = 1014
-;stateno = 1014
-;pos = 0,0
-;size.xscale = 1
-;size.yscale = 1
-;postype = p1    ;p2,front,back,left,right
-;ownpal = 0
-;facing=1
-
 ;non ch
 [State 0]
 type = HitDef 
@@ -7009,10 +6997,11 @@ trigger1 = movecontact = 0
 attr = S, SA
 animtype  = back
 air.animtype = back
-damage = ceil(cond(fvar(11) *120 < 5, 5, fvar(11) * 120)), 5
+damage = 120 * MAP(P4), 5
 hitflag = MAFD
 guardflag = MA
 pausetime = 14,14
+guard.pausetime = 14, 10
 sparkno = 3
 sparkxy = -15,-30
 hitsound   = 5,4
