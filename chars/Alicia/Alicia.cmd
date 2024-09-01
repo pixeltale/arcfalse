@@ -181,13 +181,13 @@ trigger1 = movecontact ;&& enemynear, movetype = H
 trigger1 = hitdefattr = A, NA && stateno != 900
 trigger2 = stateno = 1005 && statetype = A
 
-[State -1,DJC] ;Float
+[State -1, FLOAT] ;Float
 type = ChangeState
 value = 110
 triggerall = statetype = A && pos y < -15
 triggerall =  command = "holdc" 
-triggerall = Map(DJCL) > 0 && stateno != 110 && !map(Float)
-trigger1 = movecontact ;&& enemynear, movetype = H
+triggerall = Map(DJCL) > 0 && stateno != 110 && !map(Float) && map(CanFloat)
+trigger1 = movecontact
 trigger1 = hitdefattr = A, NA && stateno != 900
 trigger2 = stateno = 1005 && statetype = A
 trigger3 = ctrl
@@ -495,8 +495,8 @@ triggerall = stateno!=105
 type = ChangeState
 value = 200
 triggerall = command = "x"
-triggerall = command != "holddown" && var(59) !=4
-trigger1 = statetype = S
+triggerall = command != "holddown"
+trigger1 = statetype != A || map(Float)
 trigger1 = ctrl
 trigger2 = command = "x"
 trigger2 = movecontact =1 ;&& enemynear, movetype = H
@@ -510,7 +510,7 @@ type 	= ChangeState
 value 	=  240
 triggerall = command = "y"
 triggerall = command = "holdfwd" && command != "holddown"
-triggerall = statetype != A
+triggerall = statetype != A || map(Float)
 trigger1 = ctrl
 trigger2 = stateno = [400,420] || stateno = [200,230]
 trigger2 = movecontact
@@ -521,7 +521,7 @@ type = ChangeState
 value =  210
 triggerall = command = "y"
 triggerall = command != "holddown"
-triggerall = statetype != A
+triggerall = statetype != A || map(Float)
 trigger1 = ctrl
 trigger2 = (stateno = 200) && movecontact
 trigger3 = stateno = 400 && movecontact
@@ -533,7 +533,7 @@ type = ChangeState
 value = 430
 triggerall = command = "z"
 triggerall = command = "holddown" && command = "holdfwd"
-triggerall = statetype != A
+triggerall = statetype != A || map(Float)
 trigger1 = ctrl
 trigger2 = stateno = [400,410] || stateno = [200,210] 
 trigger2 = movecontact
@@ -542,7 +542,7 @@ trigger2 = movecontact
 [State -1, 5H]
 type = ChangeState
 value =  220
-triggerall = statetype != A
+triggerall = statetype != A || map(Float)
 triggerall = command = "z"
 triggerall = command != "holddown"
 trigger1 = ctrl
@@ -555,7 +555,7 @@ type = ChangeState
 value = 400
 triggerall = command = "x"
 triggerall = command = "holddown"
-triggerall = statetype != A
+triggerall = statetype != A || map(Float)
 trigger1 = ctrl
 trigger2 = stateno = 200 && movecontact ;5L
 trigger3 = stateno = 400 && movecontact ;2L
@@ -567,7 +567,7 @@ type = ChangeState
 value = 410
 triggerall = command = "y"
 triggerall = command = "holddown" || command = "down"
-triggerall = statetype != A
+triggerall = statetype != A || map(Float)
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 200)  || (stateno = 210) 
 trigger2 = (movecontact)
@@ -581,7 +581,7 @@ value = 420
 triggerall = command = "z"
 triggerall = command = "holddown" || command = "down"
 triggerall = command != "holdfwd"
-triggerall = statetype != A
+triggerall = statetype != A || map(Float)
 trigger1 = ctrl
 trigger2 = stateno = [400,410] || stateno = [200,210]
 trigger2 = movecontact
@@ -594,7 +594,7 @@ type = ChangeState
 value = 600
 triggerall = command = "x"
 triggerall = statetype = A
-trigger1 = ctrl || map(Float)
+trigger1 = ctrl
 trigger2 = stateno = 600 && movecontact
 trigger3 = movehit && stateno = [600, 630]
 
@@ -636,12 +636,31 @@ trigger2 = stateno = [600,610] && movecontact
 trigger3 = movehit && stateno = [600, 630]
 ;--------------------------------------------------------------------------
 
-;Taunt
-;[State -1, Taunt]
-;type = ChangeState
-;value = 195
-;triggerall = command = "start"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = stateno = 300 || stateno = 301
-;trigger2 = time>10
+;Float Cancels
+[State 20, 4]
+type = Changestate
+value = 115
+triggerall = map(Float)
+triggerall = command = "down" || command = "holddown"
+triggerall = command = "c"
+trigger1 = movecontact || movehit
+trigger2 = ctrl
+ignorehitpause = 1
+
+[State 20, 4]
+type = Changestate
+value = 120
+triggerall = map(Float) && stateno != 115
+triggerall = command != "down"
+triggerall = command = "c" && time > 5
+trigger1 = movecontact
+trigger2 = ctrl
+
+
+[State 20, 4]
+type = Changestate
+value = 45
+triggerall = map(Float)
+triggerall = command = "up"
+trigger1 = movecontact
+trigger2 = ctrl

@@ -1328,7 +1328,7 @@ physics = S
 sprpriority = 1
 ctrl = 0
 anim = 110
-velset = 4, 0
+velset = 6, 0
 
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -1343,7 +1343,7 @@ value = 0, 1
 [State 100, 1]
 type = VelSet
 trigger1 = time % 2 = 0
-x = 4.5+var(28)
+x = 6.5+var(28)
 
 [State -3, Win Voices] ;Win
 type = PlaySnd

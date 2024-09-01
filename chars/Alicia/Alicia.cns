@@ -215,6 +215,28 @@ text = "P1 = %f P2 = %f"
 params = map(HeavyCharge), map(P2)
 
 ;=====================
+;Float Explod
+;=====================
+[State 0, Explod] ;Magic Circle
+type = Explod
+triggerall = time % 4 = 0
+trigger1 = map(Float)
+anim = 640
+ID = 50
+pos = -1 + time % 3,10 + time % 5
+postype = p1
+bindtime = 1
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause =1
+
+;=====================
 ;Lumen Waltz Limiter
 ;=====================
 [State -2, EyeCounter]
@@ -275,12 +297,21 @@ value = 0
 ignorehitpause = 1
 
 ;=================
+;Float Limiters
+
 [State 0, MapSet]
 type = MapSet
-trigger1 = pos y >= 0 || movetype = H
+trigger1 = pos y >= 0 || movetype = H || stateno = 45 && prevstateno = 110
 map = "Float"
 value = 0
 ignorehitpause = 1
+
+;Float Limiter
+[State Air Dash]
+type 		= mapset
+trigger1 	= statetype != A
+map 		= "CanFloat"
+value 		= 1
 
 
 ;=============================================+

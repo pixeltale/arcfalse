@@ -2000,7 +2000,7 @@ helpertype = normal
 name = "My Ally, My Enemy"
 ID = 2021
 stateno = 2021 + map(CharacterValue)
-pos = 10, 0
+pos = 10, root, pos y + root, -pos y
 postype = p1
 facing = 0
 keyctrl = 0
@@ -2009,11 +2009,10 @@ ignorehitpause = 1
 size.xscale = .84
 size.yscale = .84
 
-
-[State 0, ChangeState]
+[State 200, 3]
 type = ChangeState
-trigger1 = animtime = 0
-value = 0
+trigger1 = AnimTime = 0
+value = 0 + 110*map(Float)
 ctrl = 1
 
 ;---------------------------------------------------------------------------

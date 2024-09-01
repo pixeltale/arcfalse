@@ -11,6 +11,10 @@ facep2 		= 1
 poweradd 	= 0
 sprpriority 	= 2 
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -85,7 +89,7 @@ getpower 		= 60
 [State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0 + 50*map(Float)
+value = 0 + 110*map(Float)
 ctrl = 1
 
 ;---------------------------------------------------------------------------
@@ -101,6 +105,11 @@ velset = vel x,0
 anim = 210
 sprpriority = 2
 facep2 = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -184,10 +193,10 @@ air.fall 		= 1
 fall.yvelocity 		= 0
 getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
-[State 210, 5]
+[State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 0 + 110*map(Float)
 ctrl = 1
 
 
@@ -195,16 +204,20 @@ ctrl = 1
 ;5H
 ;---------------------------------------------------------------------------
 [Statedef 220]
-facep2 = 1
 type    = S
 movetype= A
 physics = S
-juggle  = 4
 facep2 = 1
 ctrl = 0
 velset = vel x,0
 anim = 225
 sprpriority = 3
+facep2 = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -353,16 +366,15 @@ ignorehitpause = 1
 ;persistent = 
 
 
-[State 0, ChangeState]
+[State 200, 3]
 type = ChangeState
-trigger1 = animtime = 0
-value = 0
+trigger1 = AnimTime = 0
+value = 0 + 110*map(Float)
 ctrl = 1
 
 ;---------------------------------------------------------------------------
 ;6M
 [Statedef 240]
-facep2 = 1
 type    = S
 movetype= A
 physics = S
@@ -372,6 +384,12 @@ ctrl = 0
 velset = vel x + 3,0
 anim = 240
 sprpriority = 2
+facep2 = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
 
 ;============================
 [State -2, Starter Level]
@@ -406,6 +424,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
+triggerall = !map(Float)
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
@@ -438,11 +457,47 @@ envshake.phase = 1
 p2stateno = 5255
 p2getp1state = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+triggerall = map(Float)
+trigger1 = movecontact = 0 && movereversed = 0
+attr = S, NA
+animtype  = Heavy
+air.animtype = back
+damage = 80 * MAP(P4), 0
+pausetime = 18,18
+sparkno = 2
+sparkxy = -p2dist x * 0.25,-1
+hitsound   = 5,3
+guardsound = 6,2
+hitflag = MAFD
+guardflag = MA
+guard.ctrltime 	= 18
+guard.pausetime = 14, 18
+guard.velocity 	= -2
+ground.type 	= TRIP
+ground.hittime  = 18
+air.hittime	= 30 - map(UntechDecay)
+down.hittime	= 40 - map(UntechDecay)
+ground.velocity = -3, 18
+air.type	= TRIP
+air.velocity = 1,16
+air.fall = 1
+fall = 1
+fall.yvelocity = 0
+envshake.time = 15
+envshake.freq = 80
+envshake.ampl = 2
+envshake.phase = 1
+p2stateno = 5255
+p2getp1state = 0
+getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 
-[State 210, 5]
+[State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 0 + 110*map(Float)
 ctrl = 1
 
 ;================================================
@@ -1018,6 +1073,12 @@ velset 	= vel x, 0
 ctrl = 0
 anim = 400
 sprpriority = 2
+facep2 = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1113,14 +1174,8 @@ getpower 		= 30
 
 [State 200, 3]
 type = ChangeState
-trigger1 = AnimTime = 0 && numexplod(88888)>0
-value = 301
-ctrl = 1
-
-[State 200, 3]
-type = ChangeState
-trigger1 = AnimTime = 0 && numexplod(88888)=0
-value = 11
+trigger1 = AnimTime = 0
+value = 11 + 99*map(Float)
 ctrl = 1
  
 
@@ -1134,6 +1189,12 @@ velset 	= vel x + 5, 0
 ctrl = 0
 anim = 410
 sprpriority = 2
+facep2 = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
 
  ;============================
 [State -2, Starter Level]
@@ -1168,6 +1229,7 @@ persistent 		= 0
 [State 410, 3]
 type = HitDef 
 p2facing = 1
+triggerall = !map(Float)
 trigger1 = animelem = 4
 attr = C, NA
 damage = 25*MAP(P4), 0
@@ -1195,6 +1257,7 @@ getpower = (20)*(cond(var(var(2)) = 1, 1, 1))
 [State 410, 3]
 type = HitDef 
 p2facing = 1
+triggerall = !map(Float)
 trigger1 = animelem = 7 || animelem = 8 || animelem = 9
 trigger2 = animelem = 10 || animelem = 11 || animelem = 12
 attr = C, NA
@@ -1221,17 +1284,69 @@ sparkno = 2
 guard.ctrltime = 6
 getpower = (10)*(cond(var(var(2)) = 1, 1, 1))
 
+[State 410, 3]
+type = HitDef 
+p2facing = 1
+triggerall = map(Float)
+trigger1 = animelem = 4
+attr = C, NA
+damage = 25*MAP(P4), 0
+animtype  = Light
+air.animtype = back
+hitflag = MAFD
+guardflag = MA
+pausetime = 8,8
+sparkxy = -15,-3
+hitsound   = 5,2
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 22 - MAP(untechDecay)
+air.hittime  = 25 - MAP(untechDecay)
+down.hittime = 25 - MAP(untechDecay)
+ground.velocity = -3
+air.velocity = -3,-4;
+fall.yvelocity = 0
+air.fall = 1
+fall.yvelocity = 0
+sparkno = 2
+guard.ctrltime = 10
+getpower = (20)*(cond(var(var(2)) = 1, 1, 1))
+[State 410, 3]
+type = HitDef 
+p2facing = 1
+triggerall = map(Float)
+trigger1 = animelem = 7 || animelem = 8 || animelem = 9
+trigger2 = animelem = 10 || animelem = 11 || animelem = 12
+attr = C, NA
+damage = 15*MAP(P4), 0
+animtype  = Light
+air.animtype = back
+hitflag = MAFD
+guardflag = MA
+pausetime = 3,3
+sparkxy = -15,-3
+hitsound   = 5,2
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 18 - MAP(untechDecay)
+air.hittime  = 25 - MAP(untechDecay)
+down.hittime = 25 - MAP(untechDecay)
+ground.velocity = cond(animelemno(0) % 2 = 0, -p2dist x * 0.075, p2dist x * 0.05)
+air.velocity = -3,-1;
+fall.yvelocity = 0
+air.fall = 1
+fall.yvelocity = 0
+sparkno = 2
+guard.ctrltime = 6
+getpower = (10)*(cond(var(var(2)) = 1, 1, 1))
+
  
 [State 200, 3]
 type = ChangeState
-trigger1 = AnimTime = 0 && numexplod(88888)>0
-value = 301
-ctrl = 1
-
-[State 200, 3]
-type = ChangeState
-trigger1 = AnimTime = 0 && numexplod(88888)=0
-value = 0
+trigger1 = AnimTime = 0
+value = 11 + 99*map(Float)
 ctrl = 1
 
 ;---------------------------------------------------------------------------
@@ -1246,6 +1361,11 @@ anim = 420
 sprpriority = 2
 facep2 = 1
 velset = vel x, vel y
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1331,7 +1451,7 @@ value = 1, 2
 [State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 11
+value = 11 + 99*map(Float)
 ctrl = 1
 
 ;-----------------------------
@@ -1365,6 +1485,11 @@ ctrl = 0
 anim = 430
 sprpriority = 2
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -1396,12 +1521,44 @@ persistent 		= 0
 [State 430, 2]
 type 	= HitDef 
 p2facing 	= 1
+triggerall	= !map(Float)
 trigger1 	=  !movehit && !movereversed && !movecontact
 attr 		= C, NA
 damage 		= 100*map(P4), 0
 animtype  	= Hard
 hitflag 		= MAF
 guardflag 	= LA
+pausetime 	= 18,18
+sparkno 		= 2
+sparkxy 		= -p2dist x * 0.25,-1
+hitsound   	= 5,2
+guardsound 	= 6,1
+air.type	= TRIP
+ground.type 	= TRIP
+ground.slidetime 	= 25
+ground.hittime  	= 31-map(untechDecay)
+air.hittime  		= 31-map(untechDecay)
+down.hittime 		= 31-map(untechDecay)
+ground.velocity 	= -1,-3
+fall 			= 1
+air.velocity 	= -1,1
+fall.yvelocity 	= 0
+down.velocity 	= -2,0
+down.hittime 	= 22
+guard.ctrltime 	= 6
+guard.velocity	= -5
+guard.cornerpush.veloff = -6
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, 1))
+[State 430, 2]
+type 	= HitDef 
+p2facing 	= 1
+triggerall	= map(Float)
+trigger1 	=  !movehit && !movereversed && !movecontact
+attr 		= C, NA
+damage 		= 100*map(P4), 0
+animtype  	= Hard
+hitflag 		= MAF
+guardflag 	= MA
 pausetime 	= 18,18
 sparkno 		= 2
 sparkxy 		= -p2dist x * 0.25,-1
@@ -1476,7 +1633,7 @@ x = 10
 [State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 0 + 110*map(Float)
 ctrl = 1
 
 
