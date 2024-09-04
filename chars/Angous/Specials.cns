@@ -3043,7 +3043,7 @@ movetype= A
 physics = S
 poweradd= -1000
 ctrl = 0
-velset = vel x + 4,0
+velset = vel x,0
 anim = 1032
 sprpriority = -1
 facep2 = 1
@@ -3266,7 +3266,7 @@ physics = A
 juggle  = 0
 poweradd= 0
 ctrl = 0
-velset = vel x + 4,-12
+velset = vel x + 2,-12
 anim = 10322
 sprpriority = 2
 
@@ -3347,7 +3347,8 @@ p2facing = 1
 trigger1 = time
 attr = S, SA
 animtype  = up
-triggerall = enemy, statetype != S
+triggerall = p2dist x > 0
+triggerall = enemy, statetype = A
 damage = 10*MAP(P4), 6
 hitflag = MAF
 guardflag = MA
@@ -3590,7 +3591,7 @@ freq = 90   ;A frequency of 180 shakes the screen rapidly
 [State 200, 1]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SA
 damage = 120*MAP(P4), 35
@@ -3828,7 +3829,7 @@ persistent 		= 0
 [State 200, 1]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SA
 damage = 200*MAP(P4), 15
@@ -3910,9 +3911,6 @@ air.velocity = -5,-1
 air.hittime = 34
 air.fall = 1
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
-
-
-
 
 [State 0, ChangeState]
 type = ChangeState

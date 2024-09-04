@@ -81,7 +81,6 @@ triggerall = command = "66" || teammode != Tag && command = "M66"
 triggerall = stateno!=100
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = stateno = 1000 && time > 5
 
 ;Backdash
 [State -1, Backdash]

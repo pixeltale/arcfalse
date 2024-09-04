@@ -69,7 +69,7 @@ hitsound 		= 5, 0
 guardsound 	= 6, 0
 ground.type 	= High
 ground.slidetime 	= 5
-ground.hittime  	= 15 - MAP(untechDecay)
+ground.hittime  	= 15
 air.hittime  	= 20 - MAP(untechDecay)
 down.hittime 	= 60 - MAP(untechDecay)
 ground.velocity 	= -3.2
@@ -153,7 +153,7 @@ value 	= 8501, (0+(Random%5))
 [State 210, 2]
 type 		= hitdef 
 p2facing 	= 1
-trigger1 	= time=0
+trigger1 	= !movecontact && !movereversed
 attr 		= S, NA
 animtype  	= Light
 damage 		= 90*MAP(P4), 0
@@ -166,7 +166,7 @@ hitsound   	= 5,1
 guardsound 	= 6,1
 ground.type 	= low
 ground.slidetime 	= 12
-ground.hittime  	= 19-MAP(untechDecay)
+ground.hittime  	= 19
 air.hittime  	= 60
 down.hittime	= 60-MAP(untechDecay)
 ground.velocity 	= -2.5
@@ -297,7 +297,7 @@ ignorehitpause = 1
 [State 200, 1]
 type = hitdef 
 p2facing 	= 1
-trigger1 	= time = 0
+trigger1 	= !movecontact && !movereversed
 attr 	= S, NA
 animtype 	= hard
 damage 		= 120*MAP(P4), 0
@@ -715,7 +715,7 @@ removetime = -1
 type 	= hitdef 
 p2facing 	= 1
 trigger1 	= numexplod(90101) <= 1
-trigger1 	= time = 0
+trigger1 	= !movecontact && !movereversed
 attr 	= A, NA
 animtype 	= hard
 damage 		= 100*MAP(P4), 0
@@ -756,7 +756,7 @@ p2getp1state 	= 0
 type = hitdef 
 p2facing 	= 1
 trigger1 	= numexplod(90101) > 1
-trigger1 	= time = 0
+trigger1 	= !movecontact && !movereversed
 attr 	= A, NA
 animtype 	= hard
 damage 		= 100*map(P4), 10
@@ -862,12 +862,12 @@ persistent 		= 0
 [State 400, 2]
 type 		= hitdef 
 p2facing 		= 1
-trigger1 		= Time = 0
+trigger1 		= !movecontact && !movereversed
 attr 			= C, NA
 damage 			= 35*MAP(P4), 0
 priority  			= 3
 animtype  		= Light
-hitflag 			= MAF
+hitflag 			= MAFD
 guardflag 		= MA
 pausetime 		= 10,10
 sparkno 			= 0
@@ -957,7 +957,7 @@ persistent 		= 0
 [State 410, 3]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = C, NA
 damage 		= 75*MAP(P4), 0
 animtype  	= Light
@@ -1116,7 +1116,7 @@ persistent 		= 0
 [State 410, 2]
 type = hitdef 
 p2facing 	= 1
-trigger1 	= time = 0 
+trigger1 	= !movecontact && !movereversed
 attr 	= S, NA
 damage 		= 90*MAP(P4), 0
 animtype  	= hard
@@ -1242,17 +1242,21 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0, Mapset]
-type = MapSet
-trigger1 = 1
-map = "Invul_Air"
-value = 1
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall=enemy,statetype=A
+triggerall=enemy,movetype=A
+trigger1 = time>=4
+trigger1 = time<=16
+value = ,NA,SA,NT,ST
+time = 1
+ignorehitpause = 1
 persistent = 1
 
 [State 410, 2]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0 
+trigger1 = !movecontact && !movereversed
 attr = S, NA
 damage = 100*MAP(P4), 0
 animtype  = Medium
@@ -1523,7 +1527,7 @@ persistent 		= 0
 [State 410, 2]
 type 	= hitdef 
 p2facing 	= 1
-trigger1 	= time = 0 && map(SweepCharge) < 20
+trigger1 	= !movecontact && !movereversed && map(SweepCharge) < 20
 attr 	= S, NA
 damage 		= 120*MAP(P4)
 animtype  	= Medium
@@ -1560,7 +1564,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 410, 2]
 type 	= hitdef 
 p2facing 	= 1
-trigger1 	= time = 0 && map(SweepCharge) >= 15
+trigger1 	= !movecontact && !movereversed && map(SweepCharge) >= 15
 attr 		= S, NA
 damage 		= 150*MAP(P4)
 animtype  	= Medium
@@ -1735,7 +1739,7 @@ value = 1, 0
 [State 600, 2]
 type 	= hitdef 
 p2facing 	= 1
-trigger1 	= Time = 0
+trigger1 	= !movecontact && !movereversed
 attr 		= A, NA
 damage 		= 30*MAP(P4),0
 guardflag 	= HA
@@ -1843,7 +1847,7 @@ persistent 		= 0
 [State 610, 3]
 type = hitdef 
 p2facing = 1
-trigger1 = Time = 0
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage 		= 60*MAP(P4), 0
 guardflag 	= HA
@@ -1888,7 +1892,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = N
-juggle  = 4
 poweradd= 0
 ctrl = 0
 sprpriority = 2
@@ -1934,7 +1937,7 @@ persistent = 0
 [State 0]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage 			= 100*MAP(P4), 0
 animtype 			= hard
@@ -1955,6 +1958,7 @@ airguard.velocity 		= -3,-.8
 air.type 			= high
 air.velocity 		= -3,15
 air.hittime 		= 60
+down.hittime		= 90
 fall 			= 1 
 fall.yvelocity		 = 0
 down.bounce 		= 0
@@ -2818,7 +2822,11 @@ ctrl = 0
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = 1
-value = time*.12
+value = cond(time < 50, 5, time*.2)
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = !time
+value = 30
 
 [State 4500, 2];long sound
 type = PlaySnd

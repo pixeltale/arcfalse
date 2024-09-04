@@ -1949,6 +1949,7 @@ value = 140
 type = U
 physics = U
 ctrl = 1
+facep2 = 1
 [State 140, Anim]
 type = changeanim
 trigger1 = !time
@@ -1994,6 +1995,7 @@ type = S
 movetype = H
 physics = N
 velset = 0,0
+facep2 = 1
 [State 150, Anim]
 type = changeanim
 trigger1 = 1
@@ -2130,6 +2132,7 @@ type=C
 movetype=H
 physics=N
 velset=0,0
+facep2 = 1
 [State 152, Anim]
 type=changeanim
 trigger1= 1
@@ -7279,6 +7282,14 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+
+;=======================================
+;Lose iframes after countered
+[State 170, 1]
+type = HitBy
+trigger1 = movereversed
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
+time = 1
 
 ;========================================
 ;Custom Wallbounce Velocity Fix
