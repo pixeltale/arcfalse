@@ -1873,7 +1873,7 @@ persistent 		= 0
 [State 610, 3]
 type = HitDef 
 p2facing = 1
-triggerall = !movecontact && !movereversed
+triggerall = !movereversed
 trigger1 = animelem = 4
 trigger2 = animelem = 6
 trigger3 = animelem = 8
@@ -2654,7 +2654,7 @@ type = HitDef
 trigger1 = root,map(gcounter)=0
 trigger1 = !movecontact && !movereversed
 attr = S, NT                     ;Attribute: Standing, Normal Attack
-damage = 150 & map(p4),10
+damage = 150,10
 air.animtype = back
 animtype = back                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -2701,7 +2701,7 @@ type = HitDef
 trigger1 = root,map(gcounter)=1
 trigger1 = !movecontact && !movereversed
 attr = S, NT                     ;Attribute: Standing, Normal Attack
-damage = 150 * map(P4),10
+damage = 150,10
 air.animtype = back
 animtype = back                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against

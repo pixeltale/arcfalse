@@ -2442,12 +2442,6 @@ mul= 256, 250, 250
 add= 150,150,150
 time=1
 
-[State 0, NotHitBy]
-type = HitBy
-trigger1 = time<=7
-value = SCA,NT,ST,HT
-time = 1
-
 [State 0, ReversalDef]
 type = ReversalDef
 trigger1 = time = 0
