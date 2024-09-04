@@ -1305,7 +1305,7 @@ persistent 		= 0
 [State 600, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = Time = 0
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage 		= 50*map(P4)
 hitflag 		= MAF

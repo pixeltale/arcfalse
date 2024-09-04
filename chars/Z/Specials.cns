@@ -6398,13 +6398,41 @@ type = RemoveExplod
 trigger1 = 1
 id = 421
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 200, 1]
 type = hitdef 
-trigger1 = !movecontact && !movereversed
+trigger1 = !movereversed
 attr = S, SA
 animtype  = back
 air.animtype = back
-damage = ceil(cond(fvar(11) *90 < 10, 10, fvar(11) * 90)), 6
+damage = 90*map(P4), 6
 hitflag = AF
 guardflag = MA
 pausetime = 18,24
