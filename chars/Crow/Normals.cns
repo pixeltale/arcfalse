@@ -286,7 +286,7 @@ trigger1 		= !movereversed && !movecontact
 trigger1		= !map(CounterHit)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 120*map(P4), 100
+damage 			= 120*map(P4), 20
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -592,7 +592,7 @@ trigger1 		= !movereversed && !movecontact
 trigger1		= !map(CounterHit)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 150*map(P4), 150
+damage 			= 150*map(P4), 30
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -642,7 +642,7 @@ trigger1 		= !movereversed && !movecontact
 trigger1		= map(CounterHit)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 350*map(P4)
+damage 			= 200*map(P4)
 animtype 		= light
 air.animtype 		= back
 ;==============================================

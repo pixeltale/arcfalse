@@ -7381,7 +7381,7 @@ trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP
 ;Wu support
 trigger2 = enemynear, numhelper(777)
 trigger2 = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
-trigger3 = enemynear, numhelper
+trigger3 = enemynear, numhelper(1110)
 
 ;====================================================================
 ;Alicia Power Drain

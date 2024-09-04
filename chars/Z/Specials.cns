@@ -1806,7 +1806,7 @@ type = VelSet
 triggerall = p2movetype = H
 trigger1 = enemy, BackEdgeBodyDist <=0
 trigger1 = animelemtime(6)=0 ;&& P2MoveType = H
-x = -2*3*var(7)
+x = -3*3*var(7)
 ignorehitpause = 1
 
 [State 200, 3]
@@ -6554,7 +6554,7 @@ channel = 3
 [State 610, 3]
 type = HitDef 
 p2facing = 1
-triggerall = !movecontact && !movereversed
+triggerall = !movereversed
 trigger1 = anim = 1110
 trigger1 = time % 6 = 0
 attr = A, SA
@@ -6621,7 +6621,7 @@ channel = 3
 [State 0]
 type = HitDef 
 p2facing = 1
-triggerall = !movecontact && !movereversed
+triggerall = !movereversed
 triggerall = anim !=1110
 trigger1 = anim = 1111
 trigger1 = animelem = 2
@@ -6718,7 +6718,7 @@ value = 1011, 1
 [State 0]
 type = HitDef 
 p2facing = 1
-triggerall = !movecontact && !movereversed
+triggerall = !movereversed
 trigger1 = anim = 1111
 trigger1 = animelem = 12
 attr = A, SA
