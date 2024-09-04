@@ -102,8 +102,8 @@ shadowoffset = 0     ;Number of pixels to vertically offset the shadow
 draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
 
 [Velocity]
-walk.fwd  = 2      ;Walk forward
-walk.back = -2     ;Walk backward
+walk.fwd  = 3      ;Walk forward
+walk.back = -3     ;Walk backward
 run.fwd  = 5.6, 0    ;Run forward (x, y)
 run.back = -3.5,-3.8 ;Hop backward (x, y)
 jump.neu = 0,-7    ;Neutral jumping velocity (x, y)
@@ -128,8 +128,8 @@ airjump.height = 35   ;Minimum distance from ground before you can air jump (opt
 yaccel = .39          ;Vertical acceleration
 stand.friction = .85  ;Friction coefficient when standing
 crouch.friction = .82 ;Friction coefficient when crouching
-stand.friction.threshold = 2          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
-crouch.friction.threshold = .01       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+stand.friction.threshold = 3          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = 1       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
 air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
 air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
 air.gethit.groundrecover.groundlevel = 0   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
@@ -301,11 +301,13 @@ flag = Nobardisplay
 ;========================================
 [Statedef -2]
 
-[State 0, MAPSET]
+[State 0, MAPADD]
 type = MapSet
 trigger1 = enemy, movetype != H
-map = "jH_UseCount"
+map = "limiter_4S"
 value = 0
+ignorehitpause = 1
+persistent = 0
 
 [State -2, SHOT USED]
 type 		= MapSet
@@ -317,17 +319,10 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "campos = %f frontedgedist = %i"
-params = abs(camerapos x), frontedgedist
+text = "campos = %f stfrontedgedist = %f stbackedgedist = %f"
+params = camerapos x, stagefrontedgedist, stagebackedgedist
 ignorehitpause = 1
 persistent = 1
-
-[State -2, Starter Level]
-type 		= MapSet
-trigger1 	= 1
-map 		= "IgnoreInvul"
-value 		= 0
-ignorehitpause 	= 1
 
 [State 0, Jump Cancel]
 type 		= MapSet
@@ -399,7 +394,7 @@ ignorehitpause = 0
 type = MapAdd
 trigger1 = map(JuggleTimer) = 60 || map(JuggleTimer) = 120 || map(JuggleTimer) = 180 || map(JuggleTimer) = 240
 map = "gravMul"
-value = -0.15
+value = -0.12
 ignorehitpause = 0
 persistent = 0
 [State 0, VelSet]
@@ -408,23 +403,6 @@ trigger1 = !map(ComboStateCheck)
 map = "gravMul"
 value = 1
 ignorehitpause = 0
-
-;========================================
-; EXCEESSIVE MALICE                    []
-;=======================================
-[State 0, AttackMulSet]
-type = AttackMulSet
-trigger1 = map(CounterHit)
-value = 1.2
-ignorehitpause = 1
-persistent = 1
-[State 0, AttackMulSet]
-type = AttackMulSet
-trigger1 = !map(CounterHit)
-value = 1
-ignorehitpause = 1
-persistent = 1
-
 
 ;==============================================================================
 ; Magic Pixel Check                                                          []

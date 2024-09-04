@@ -476,6 +476,11 @@ velset = 0,0
 anim = 160
 ctrl = 1
 
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
+
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time =0
@@ -503,14 +508,6 @@ y = 0.6
 type = VelSet
 trigger1 = animelem = 6
 x = 0
-
-
-;[State 0, StateTypeSet]
-;type = StateTypeSet
-;trigger1 = animelem = 5
-;statetype = A       ;S,A,C,L
-;movetype = I        ;I,A,H
-;physics = A         ;A,C,S,N
 
 
 [State 200, 2]
@@ -555,6 +552,11 @@ physics = A
 velset = 0,0
 anim = 161
 ctrl = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
 
 [State 0, RemoveExplod]
 type = RemoveExplod

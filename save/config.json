@@ -11,13 +11,16 @@
   "Borderless": false,
   "ComboExtraFrameWindow": 1,
   "CommonAir": [
-    "data/common.air"
+    "data/common.air",
+    "data/Add004/common.air"
   ],
   "CommonCmd": [
-    "data/common.cds"
+    "data/common.cds",
+    "data/Add004/common.cmd"
   ],
   "CommonConst": [
-    "data/common.const"
+    "data/common.const",
+    "data/Add004/common.const"
   ],
   "CommonFx": [],
   "CommonLua": [
@@ -29,7 +32,10 @@
     "data/dizzy.zss",
     "data/guardbreak.zss",
     "data/score.zss",
-    "data/tag.zss",
+    "data/Add004/NegativeStates.cns",
+    "data/Add004/common2.cns",
+    "data/Add004/NegativeStates.zss",
+    "data/training.zss",
     "data/training.zss"
   ],
   "ControllerStickSensitivity": 0.4,
@@ -123,7 +129,7 @@
   "Team1VS2Life": 110,
   "TeamDuplicates": false,
   "TeamLifeShare": true,
-  "TeamPowerShare": false,
+  "TeamPowerShare": true,
   "TrainingChar": "",
   "TurnsRecoveryBase": 0,
   "TurnsRecoveryBonus": 20,

@@ -661,17 +661,10 @@ trigger1 = time =0
 v = 29     ;fv = 
 value = -1
 
-;[State 0, AfterImage]
-;type = AfterImage
-;trigger1 = time = 0
-;time = 37
-;length = 14
-
-;[State 0, VelSet]
-;type = VelSet
-;trigger1 = animelem = 2
-;x = 3
-;y = -3
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
 
 [State 0, VelAdd]
 type = VelAdd
@@ -756,6 +749,11 @@ trigger1 = animelem = 4
 statetype = A       ;S,A,C,L
 movetype = I        ;I,A,H
 physics = A         ;A,C,S,N
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
 
 
 [State 0, ChangeState]

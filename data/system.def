@@ -879,15 +879,15 @@ roundstowin = 5           ;Number of rounds to get win pose (lose pose otherwise
 	keymenu.itemname.down = "Down"
 	keymenu.itemname.left = "Left"
 	keymenu.itemname.right = "Right"
-	keymenu.itemname.a = "A"
-	keymenu.itemname.b = "B"
-	keymenu.itemname.c = "C"
-	keymenu.itemname.x = "X"
-	keymenu.itemname.y = "Y"
-	keymenu.itemname.z = "Z"
+	keymenu.itemname.x = "LIGHT"
+	keymenu.itemname.y = "MEDIUM"
+	keymenu.itemname.z = "HEAVY"
+	keymenu.itemname.a = "FALSE"
+	keymenu.itemname.b = "SPECIAL"
+	keymenu.itemname.c = "REMIX"
 	keymenu.itemname.start = "Start"
-	keymenu.itemname.d = "D"
-	keymenu.itemname.w = "W"
+	keymenu.itemname.d = "EX/TAG BUTTON"
+	keymenu.itemname.w = "DASH MACRO"
 	keymenu.itemname.menu = "Menu"
 	keymenu.itemname.back = "Back"
 	keymenu.itemname.page = "Page"
@@ -1083,7 +1083,7 @@ p2.done.snd = 100,1
 
 ;enter all game modes rematch will trigger on. 
 ;All modes enabled if omitted.
-;enabledmodes = "arcade","freebattle","teamcoop","versuscoop","versus"
+enabledmodes = "arcade","freebattle","teamcoop","versuscoop","versus"
 
 [RematchBGdef] 
 spr = ""

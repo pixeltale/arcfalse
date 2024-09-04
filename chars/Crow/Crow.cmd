@@ -81,7 +81,7 @@ triggerall = command = "66" || teammode != Tag && command = "M66"
 triggerall = stateno!=100
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = stateno = 250
+trigger2 = stateno = 1000 && time > 5
 
 ;Backdash
 [State -1, Backdash]
@@ -91,7 +91,7 @@ triggerall = command = "44" || teammode != Tag && command = "M44"
 triggerall = stateno!=105
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = stateno = 250
+trigger2 = stateno = 1000 && time > 5
 
 ;===========================================================================
 ;EX MOVES
@@ -164,16 +164,16 @@ trigger2 = stateno = [200,420] && stateno != 225 && stateno != 415 && stateno !=
 
 ;---------------------------------------------------------------------------
 ;3M: Linker
-[State -1, 3H]
-type = ChangeState
-value = 415
-triggerall = command = "y"
-triggerall = command = "holddown"
-triggerall = command = "holdback"
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = movecontact
-trigger2 = stateno = [200,420] && stateno != 225 && stateno != 415 && stateno != 430
+;[State -1, 3H]
+;type = ChangeState
+;value = 425
+;triggerall = command = "y"
+;triggerall = command = "holddown"
+;triggerall = command = "holdback"
+;triggerall = statetype != A
+;trigger1 = ctrl
+;trigger2 = movecontact
+;trigger2 = stateno = [200,420] && stateno != 225 && stateno != 415 && stateno != 430
 
 ;---------------------------------------------------------------------------
 ;6H: SKELE-TON!!!
@@ -222,7 +222,7 @@ triggerall = command = "z"
 triggerall = command != "holddown"
 trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = 400 || stateno = 200
+trigger2 = stateno = [400,420] || stateno = [200,210]
 
 ;---------------------------------------------------------------------------
 ;---------------------------------------------------------------------------
@@ -260,7 +260,7 @@ triggerall = command != "holdfwd"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = 400 || stateno = 200
+trigger2 = stateno = [400,410] || stateno = [200,210]
 
 ;---------------------------------------------------------------------------
 ;---------------------------------------------------------------------------

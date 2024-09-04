@@ -469,7 +469,7 @@ ctrl = 1
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = 1
+trigger1 = time <= 20
 flag = noairguard
 
 [State 0, VarAdd]
@@ -542,7 +542,7 @@ value = 8
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = 1
+trigger1 = time <= 20
 flag = noairguard
 
 [State 0, VarAdd]

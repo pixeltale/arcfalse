@@ -458,6 +458,11 @@ sprpriority = 1
 ctrl = 0
 velset = 0, 0
 
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
+
 [State 100, 1]
 type = VelSet
 trigger1 = time = 0
@@ -525,6 +530,11 @@ anim = 61
 sprpriority = 1
 ctrl = 0
 velset = 0, -4
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
 
 [State 100, 1]
 type = VelSet

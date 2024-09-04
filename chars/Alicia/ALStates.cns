@@ -413,6 +413,10 @@ type = PlayerPush
 trigger1 = 1
 value = 1
 
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
 
 [State 100, 1]
 type = VelSet
@@ -457,6 +461,11 @@ anim = 61
 sprpriority = 1
 ctrl = 1
 velset = -6, vel y
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
 
 [State - Airdash Momentum Preserve]
 type = mapset

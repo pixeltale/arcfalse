@@ -4614,7 +4614,7 @@ physics = N
 [State 5221 VelSet]
 type = velset
 trigger1 = Time = 0
-x = gethitvar(xvel)*cond(enemy,facing=facing,1,-1)*cond(facing=1,-1,1)
+x = gethitvar(xvel)*cond(enemynear,facing=facing,1,-1)*cond(facing=1,-1,1)
 y = gethitvar(yvel)
 
 [State 5221, Gravity]
@@ -4859,7 +4859,7 @@ trigger1 = !Time
 x = 1
 y = 1
 
-[State 5231, Hit wall]
+[State 5231, Hit CORNER Wall]
 type = ChangeState
 triggerall = Pos y < -15*(prevstateno = [5226, 5228])
 triggerall = time > 5
@@ -4977,7 +4977,6 @@ player = 5,0
 type = VelSet
 trigger1 = 1
 x = 0
-
 
 [State 0, VelAdd]
 type = VelAdd
@@ -6309,9 +6308,6 @@ type = PosFreeze
 trigger1 = 1
 x = 0
 y = 0
-[State 5232, Stop moving]
-type = Pause
-trigger1 = 1
 
 [State 30000, Width]
 type = Width
@@ -6346,14 +6342,10 @@ type = ChangeAnim
 trigger1 = !Time
 value = 6160
 
-[State 30001, Velset]
-type = VelSet
-trigger1 = time = 0
+[State 5221 VelSet]
+type = velset
+trigger1 = Time = 0
 x = gethitvar(xvel)*facing
-
-[State 30001, Velset]
-type = VelSet
-trigger1 = time = 0
 y = gethitvar(yvel)
 
 [State 30001, AngleDraw]
@@ -7476,7 +7468,7 @@ persistent	= 0
 type 		= MapSet
 trigger1 	= 1
 map 		= "cornerSplat"
-value 		= cond(abs(camerapos x) > 230 && abs(stagefrontedgedist) < 800, 5225, 5220)
+value 		= cond((abs(camerapos x) > 260 && frontedgedist < 250) && (stagefrontedgedist < stagebackedgedist), 5225, 5220)
 ignorehitpause 	= 0
 persistent	= 0
 

@@ -77,13 +77,6 @@ value = 7
 v = 30
 trigger1 = time = 0
 
-[State -2, Starter Level]
-type 		= MapSet
-trigger1 	= time
-map 		= "IgnoreInvul"
-value 		= 1
-ignorehitpause 	= 1
-
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1

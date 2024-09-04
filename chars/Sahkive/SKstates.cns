@@ -424,6 +424,11 @@ velset = vel x,0
 anim = 160
 ctrl = 0
 
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
+
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time = 0 
@@ -492,6 +497,11 @@ physics = N
 velset = -5,-5
 anim = 161
 ctrl = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time <= 20
+flag = noairguard
 
 [State 0, VarAdd]
 type = VarAdd

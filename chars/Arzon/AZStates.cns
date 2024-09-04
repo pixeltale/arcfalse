@@ -444,6 +444,7 @@ trigger1 = anim >= 41 && anim <= 43
 persistent = 0
 value = Anim + 3
 ;--------------------------------------
+;B Airdash
 [Statedef 903]
 type    = A
 movetype= I
@@ -454,7 +455,7 @@ ctrl = 0
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = 1
+trigger1 = time <= 20
 flag = noairguard
 
 [State 0, VarAdd]
@@ -545,7 +546,7 @@ value = 1000, 1
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = 1
+trigger1 = time <= 20
 flag = noairguard
 
 [State 0, VarAdd]

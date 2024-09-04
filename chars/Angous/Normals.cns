@@ -480,7 +480,7 @@ sprpriority = -1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 1
+value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -512,7 +512,7 @@ attr = S, NA
 animtype  	= hard
 damage 		= 100*map(P4), 10
 hitflag 		= MAFD
-guardflag 	= HA
+guardflag 	= MA
 pausetime 	= 20,30
 guard.pausetime = 12,12
 sparkno 		= 3

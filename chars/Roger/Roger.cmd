@@ -401,17 +401,17 @@ trigger4 = (stateno = [400,420]) && movecontact =1
 
 
 ;---------------------------------------------------------------------------
-;Crouching Light Punch
+;2L
 [State -1, Crouching Light Punch]
 type = ChangeState
 value = 400
-triggerall=stateno!=40
-triggerall = command = "buffer_x"
+triggerall = stateno!=40
+triggerall = command = "x"
 triggerall = command = "holddown"
 trigger1 = statetype = C
 trigger1 = ctrl
-trigger2 = (stateno = 400) || (stateno = 200)
-trigger2 = movecontact = 1
+trigger2 = (stateno = 400) || (stateno = [200,201])
+trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
 ;Crouching Strong Punch
