@@ -58,7 +58,7 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0 
+trigger1 = !movecontact && !movereversed 
 attr = S, NA                     ;Attribute: Standing, Normal Attack
 damage 		= 30*map(P4)
 animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -157,7 +157,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, NA
 animtype  = med
 air.animtype = back
@@ -277,7 +277,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = !movecontact
+trigger1 = !movecontact && !movereversed
 attr = S, NA
 animtype  = med
 air.animtype = back
@@ -423,7 +423,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = !movecontact
+trigger1 = !movecontact && !movereversed
 attr = S, NA
 animtype  = med
 air.animtype = back
@@ -625,7 +625,7 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 0 && movecontact = 0
+trigger1 = fvar(8) = 0 && !movecontact && !movereversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back
@@ -666,7 +666,7 @@ p2sprpriority = -1
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 1 && movecontact = 0
+trigger1 = fvar(8) = 1 && !movecontact && !movereversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back
@@ -913,6 +913,7 @@ facing=1
 [State 0]
 type = HitDef 
 p2facing = 1
+triggerall = !movecontact && !movereversed
 trigger1 = Time= 0 && (enemynear, stateno!= [5110,5119])
 attr = C, NA
 animtype  = med
@@ -1101,7 +1102,7 @@ persistent = 0
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 0 && movecontact = 0
+trigger1 = fvar(8) = 0 && !movecontact && !movereversed
 attr = A, NA
 animtype  = up
 air.animtype = up
@@ -1152,7 +1153,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .65))
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 1 && movecontact = 0
+trigger1 = fvar(8) = 1 && !movecontact && !movereversed
 attr = A, NA
 animtype  = up
 air.animtype = up
@@ -1343,7 +1344,7 @@ ignorehitpause = 0
 type = HitDef 
 p2facing = 1
 triggerall=enemy,statetype!=A
-trigger1 = fvar(8) = 0 && movecontact = 0
+trigger1 = fvar(8) = 0 && !movecontact && !movereversed
 attr = C, NA
 damage = ceil(cond(fvar(11) *75 < 4, 4, fvar(11) * 75)), 0
 animtype  = hard
@@ -1387,7 +1388,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .65))
 type = HitDef 
 p2facing = 1
 triggerall=enemy,statetype=A
-trigger1 = fvar(8) = 0 && movecontact = 0
+trigger1 = fvar(8) = 0 && !movecontact && !movereversed
 attr = C, NA
 damage = ceil(cond(fvar(11) *75 < 4, 4, fvar(11) * 75)), 0
 animtype  = hard
@@ -1430,7 +1431,7 @@ getpower = (50)*(cond(var(var(2)) = 1, 1, .65))
 [State 430, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 1 && movecontact = 0
+trigger1 = fvar(8) = 1 && !movecontact && !movereversed
 attr = C, NA
 damage = ceil(cond(fvar(11) *75 < 4, 4, fvar(11) * 75)), 0
 animtype  = hard
@@ -1636,7 +1637,7 @@ persistent 		= 0
 type = HitDef 
 p2facing = 1
 trigger1 = vel y < 0
-trigger1 = !movecontact
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage = 25*map(p4), 0
 guardflag = MA
@@ -1666,7 +1667,7 @@ air.fall = 1
 type = HitDef 
 p2facing = 1
 trigger1 = vel y >= 0
-trigger1 = !movecontact
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage = 25*map(p4), 0
 guardflag = HA
@@ -1872,6 +1873,7 @@ persistent 		= 0
 [State 610, 3]
 type = HitDef 
 p2facing = 1
+triggerall = !movecontact && !movereversed
 trigger1 = animelem = 4
 trigger2 = animelem = 6
 trigger3 = animelem = 8
@@ -2085,7 +2087,7 @@ persistent 		= 0
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 0 && movecontact = 0
+trigger1 = fvar(8) = 0 && !movecontact && !movereversed
 attr = A, NA
 animtype  = Hard
 air.animtype = back
@@ -2128,7 +2130,7 @@ getpower = (80)*(cond(var(var(2)) = 1, 1, .65))
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 1 && movecontact = 0
+trigger1 = fvar(8) = 1 && !movecontact && !movereversed
 attr = A, NA
 animtype  = Hard
 air.animtype = back
@@ -2363,7 +2365,7 @@ ignorehitpause=1
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, NT
 animtype  = hard
 damage = 0;ceil(cond(fvar(11) *150 < 4, 4, fvar(11) * 150)), 0
@@ -2481,7 +2483,7 @@ pos = 55,0
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, NT
 animtype  = hard
 damage = 0;ceil(cond(fvar(11) *150 < 4, 4, fvar(11) * 150)), 0
@@ -2650,9 +2652,9 @@ ignorehitpause = 1
 [State 200, 1]
 type = HitDef
 trigger1 = root,map(gcounter)=0
-trigger1 = time = 0 
+trigger1 = !movecontact && !movereversed
 attr = S, NT                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 150 < 4, 4, root,fvar(15) * 150)),10
+damage = 150 & map(p4),10
 air.animtype = back
 animtype = back                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -2697,17 +2699,16 @@ ignorehitpause=1
 [State 200, 1]
 type = HitDef
 trigger1 = root,map(gcounter)=1
-trigger1 = time = 0 
+trigger1 = !movecontact && !movereversed
 attr = S, NT                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(15) * 150 < 4, 4, root,fvar(15) * 150)),10
+damage = 150 * map(P4),10
 air.animtype = back
 animtype = back                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFDP                    ;Flags of conditions that move can hit
-;Hit/Miss/Dodge type (Def: Hit)
-pausetime = 1, 3               ;Time attacker pauses, time opponent shakes
+hitflag = MAFDP
+pausetime = 1, 3
 sparkno = 3
-sparkxy = -20,-60             ;X-offset for the "hit spark" rel. to p2,
+sparkxy = -20,-60
 hitsound = 5,2                
 guardsound = 6, 2                
 ground.type 	= TRIP

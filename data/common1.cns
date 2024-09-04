@@ -7313,34 +7313,6 @@ shadow = 0,0,0
 ownpal = 1
 ignorehitpause = 1
 
-;========================================
-;Counterhit Starter Afterimage
-;========================================
-[State 0, Explod]
-type = Explod
-triggerall = map(CHStarter)
-trigger1 = time%5=0
-anim = anim
-animelem = animelemno(0)
-animelemlooped = 1
-ID = 1000
-postype = p1
-pos = random % 3, random % 2
-bindtime = 1
-supermovetime = 0
-pausemovetime = 0
-scale = const(size.xscale),const(size.yscale)
-sprpriority = -1
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-trans = add
-removetime = 40
-palfx.time = 40
-palfx.sinmul = -10,-255,-255,160
-removeongethit = 0
-ignorehitpause = 1
-
 ;=============
 ;Low Detector
 ;=============
