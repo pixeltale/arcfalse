@@ -784,7 +784,18 @@ sparkno = 1
 hitsound = S1,0
 p1stateno = 1046
 ignorehitpause = 1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = enemy, movetype = A
+attr = SCA,NA,SA,HA,NP,SP,HP
+slot = 0
+stateno = 1046
+time = 1
+forceair = 0
+ignorehitpause = 1
 ;persistent = 
+
 
 [State 0, ChangeAnim]
 type = ChangeAnim
