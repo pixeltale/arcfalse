@@ -1482,6 +1482,7 @@ flag2 = nocrouchguard
 
 [State 100, 4]
 type = ChangeState
+trigger1 = command!= "holdfwd" && time > 7
 trigger1 = cond((prevstateno = 20011 || prevstateno = [1062, 1063]) && command != "holdfwd", time >= 14, time >= 7) 
 value = 111
 
