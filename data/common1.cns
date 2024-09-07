@@ -7284,7 +7284,19 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 [Statedef -2]
 
 ;=======================================
+;Cant instantly block after jumping
+;=======================================
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = enemynear, statetype = S
+triggerall = stateno = 50
+trigger1 = time<=2
+flag = noairguard
+ignorehitpause = 1
+
+;=======================================
 ;Lose iframes after countered
+;=======================================
 [State 170, 1]
 type = HitBy
 trigger1 = movereversed

@@ -571,10 +571,6 @@ ctrl = 1
 
 ;=============================================================================
 [Statedef -2]
-
-
-
-
 ;=============================
 ;ARMOR POINTS ASSIGNMENT
 ;=============================
@@ -733,8 +729,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "P1 = %f"
-params = map(wallbounce_yvel)
+text = "movereversed = %i gethitdmg = %i"
+params = enemy, movereversed, gethitvar(hitdamage)
 
 [State 0, PalFXWiz]
 type = PalFX
@@ -794,11 +790,6 @@ ontop = 1
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
-;ignorehitpause =
-;trans = 
-;persistent =
-;supermove = 0
-;pausemove = 0
 
 ;EX vulcan hoist reset var
 [State -2, Reset var when the opponent recovers]

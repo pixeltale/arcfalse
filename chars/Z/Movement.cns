@@ -496,12 +496,6 @@ type    = A
 physics = A
 ctrl = 1
 
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = time<=2
-flag = noairguard
-ignorehitpause = 1
-
 [State 50, 1]
 type = VarSet
 trigger1 = Time = 0

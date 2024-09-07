@@ -3053,7 +3053,7 @@ persistent 		= 1
 type = ReversalDef
 trigger1 = map(ArmorPoints4R) > 0
 trigger1 = animelemno(0) = [2,11]
-reversal.attr = SCA,NA,SA,NP,SP,HP,HA
+reversal.attr = SCA,NA,SA,NP,SP
 pausetime = 10,10
 sparkno = 1000
 hitsound = 5,3
@@ -3342,7 +3342,7 @@ type = ReversalDef
 triggerall = animelemno(0) != 11
 trigger1 = map(ArmorPoints4RIN) > 0
 trigger1 = animelemno(0) = [1,10]
-reversal.attr = SCA,NA,SA,NP,SP,HP,HA
+reversal.attr = SCA,NA,SA,NP,SP
 pausetime = 10,10
 sparkno = 1000
 hitsound = 5,3

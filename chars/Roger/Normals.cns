@@ -575,13 +575,27 @@ type = ReversalDef
 triggerall = !(enemy, map(ArmorBreak))
 triggerall = animelemno(0) = [3,6]
 trigger1 = map(ArmorPoints5H) > 0
-reversal.attr = SCA,NA,SA,NP,SP,HP,HA
+reversal.attr = SCA,NA,SA,NP,SP
 pausetime = 10,10
 sparkno = 1000
 hitsound = 5,3
 p1stateno = 220
 persistent = 0
 ;=======================================
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = enemy, movetype = A
+movetype = H
+ignorehitpause = 1
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = enemy, movereversed > 1
+value = -gethitvar(hitdamage)
+kill = 1
+ignorehitpause = 1
+persistent = 0
 
 [State 100, 2] ;Prevent run from canceling into walk
 type = AssertSpecial
@@ -2586,7 +2600,7 @@ persistent 		= 1
 [State 0, ReversalDef]
 type = ReversalDef
 trigger1 = map(ArmorPoints4R) > 0
-reversal.attr = SCA,NA,SA,NP,SP,HP,HA
+reversal.attr = SCA,NA,SA,NP,SP
 pausetime = 10,10
 sparkno = 1000
 hitsound = 5,3
