@@ -95,17 +95,62 @@ trigger2 = stateno = 1000 && time > 5
 ;===========================================================================
 ;EX MOVES
 ;===========================================================================
+;2EX
+[State -1, SKULLSPLITTER]
+type = ChangeState
+value = 1090
+triggerall = power > 1000
+triggerall = command = "EX" && command = "holddown"
+triggerall = !map(Limiter_2EX)
+trigger1 = ctrl || stateno = 100
+trigger2 = var(1) || stateno = [600,620] && movecontact
+
+;6EX
+[State -1, MALICIOUS PRESSURE]
+type = ChangeState
+value = 1050
+triggerall = power > 1000
+triggerall = command = "EX"
+triggerall = command = "holdfwd"
+trigger1 = statetype != A
+trigger1 = stateno = [120,155]
+
+;4EX
+[State -1, bombos]
+type = ChangeState
+value = 1070
+triggerall = power > 1000
+triggerall = command = "EX" 
+triggerall = command = "holdback"
+triggerall = !map(Limiter_4EX)
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+;5EX
 [State -1, RELOADRELOAD]
 type = ChangeState
 value = 1030
-triggerall = command = "EX" && map(ShotCount) < 2 && power > 1000
+triggerall = power > 1000
+triggerall = command = "EX" && map(ShotCount) < 2
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1) || stateno = 1000
 
+
+
 ;===========================================================================
 ;SPECIAL MOVES
 ;===========================================================================
+;2S
+[State -1, SKULLSPLITTER]
+type = ChangeState
+value = 1080
+triggerall = stateno != 1090
+triggerall = command = "b" && command = "holddown"
+trigger1 = ctrl || stateno = 100
+trigger2 = var(1) || stateno = [600,620] && movecontact
+
 ;4S
 [State -1, MALICIOUS PRESSURE CONSUMES YOU]
 type = ChangeState
@@ -122,16 +167,6 @@ type = ChangeState
 value = 1050
 triggerall = command = "b"
 triggerall = command = "holdfwd"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-
-;2S
-[State -1, DEATHGRIPPED]
-type = ChangeState
-value = 1040
-triggerall = command = "b" && command = "holddown"
-triggerall = !numhelper(1045)
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -198,8 +233,6 @@ triggerall = command = "x"
 triggerall = command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 400 && movecontact
-trigger3 = stateno = [100,101] 
  
 ;5M: Standing Medium
 [State -1, Standing Medium]
@@ -233,8 +266,6 @@ triggerall = command = "buffer_x"
 triggerall = command = "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 200 && movecontact
-trigger3 = stateno = [100,101] 
 
 ;---------------------------------------------------------------------------
 ;2M: Crouching Medium
@@ -274,7 +305,7 @@ triggerall = statetype = A
 trigger1 = ctrl || stateno = 100
 trigger2 = stateno = 1350
 trigger3 = stateno = 60
-trigger4 = stateno = [600, 640] && movehit || stateno = 600 && movecontact
+trigger4 = stateno = [610, 640] && movehit
 ;---------------------------------------------------------------------------
 ;j.5M: Jumping Medium
 [State -1, Jumping Medium]
@@ -285,19 +316,6 @@ triggerall = statetype = A
 trigger1 = ctrl || stateno = 100
 trigger2 = movecontact && stateno!= 610
 trigger2 = stateno = [620,630] && movehit || stateno = 600 && movecontact
-trigger3 = stateno = 1350 ;Air blocking
-trigger4 = stateno = 60
-
-;---------------------------------------------------------------------------
-;j.2H: Jumping Heavy
-[State -1, Jumping Heavy]
-type = ChangeState
-value = 630
-triggerall = command = "z"
-triggerall = command = "holddown"
-triggerall = statetype = A
-trigger1 = ctrl || stateno = 100
-trigger2 = stateno = [600, 630] && movecontact
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 60
 

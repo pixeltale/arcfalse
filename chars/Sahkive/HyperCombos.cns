@@ -514,7 +514,7 @@ ignorehitpause = 1
 type 		= NotHitBy
 trigger1 	= !time
 value 		= SCA,NA,SA,HA,NP,SP,HP
-time 		= 18
+time 		= 11
 
 [State 0, AttackMulSet]
 type = AttackMulSet

@@ -1,5 +1,5 @@
-.\external\script\start.lua:1401: chars\roger/Normals.cns:588:
-Invalid data: 
+.\external\script\start.lua:1401: chars\CROW/Crow.cns:306:
+Missing ')' before 
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

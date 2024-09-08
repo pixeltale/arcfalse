@@ -1334,10 +1334,6 @@ getpower 		= 30
 type = PlaySnd
 trigger1 = animelem = 2
 value = 0, 0
-[State 600, 3]
-type = CtrlSet
-trigger1 = Time = 17
-value = 1
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1408,7 +1404,7 @@ animtype 	= Med
 air.animtype 	= back
 ground.type 	= Low
 ground.slidetime 	= 12
-ground.hittime  	= 18
+ground.hittime  	= 18 - map(UntechDecay)
 air.hittime  		= 90
 down.hittime 		= 18
 ground.velocity 	= 6

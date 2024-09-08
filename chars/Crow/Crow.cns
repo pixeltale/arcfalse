@@ -301,13 +301,19 @@ flag = Nobardisplay
 ;========================================
 [Statedef -2]
 
-[State 0, MAPADD]
-type = MapSet
-trigger1 = enemy, movetype != H
-map = "limiter_4S"
-value = 0
-ignorehitpause = 1
-persistent = 0
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "Limiter_4EX"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "Limiter_2EX"
+value 		= 0
+ignorehitpause 	= 1
+
 
 [State -2, SHOT USED]
 type 		= MapSet
