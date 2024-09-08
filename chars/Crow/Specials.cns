@@ -913,15 +913,15 @@ movetype= A
 physics = S
 poweradd= 0
 ctrl = 0
-velset = -1,0
+velset = 0,0
 anim = 1060
 sprpriority = 2
 facep2 = 1
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = animelemno(0) = [1,4]
-x = 5
+trigger1 = animelemno(0) = [1,3]
+x = 6
 ignorehitpause = 1
 
 [State -2, Starter Level]
@@ -979,7 +979,7 @@ envshake.time 	= 20
 envshake.freq 	= 80
 envshake.ampl 	= 5
 envshake.phase 	= 1
-guard.ctrltime 	= 10
+guard.ctrltime 	= 14
 guard.velocity 	= -3.5
 air.fall 		= 1
 getpower 		= (75)*(cond(var(var(2)) = 1, 1, .5))
