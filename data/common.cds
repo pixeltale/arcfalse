@@ -423,6 +423,12 @@ buffertime = 15
 
 [Command]
 name = "66"
+command = F, n, F
+time = 10
+buffertime = 5
+
+[Command]
+name = "66"
 command = ~F, F
 time = 5
 buffertime = 5
@@ -466,10 +472,12 @@ buffertime = 15
 [Command]
 name = "28"
 command = D, U
+time = 5
 buffer.time = 10
 [Command]
 name = "28"
 command = D, N, U
+time = 5
 buffer.time = 10
 [Command]
 name = "29"

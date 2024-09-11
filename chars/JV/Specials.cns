@@ -790,7 +790,7 @@ movetype= A
 physics = S
 juggle  = 0
 ctrl = 0
-anim =1050
+anim =1050 + 1 * (map(EN) > 0)
 sprpriority = 2
 
 [State 0, Explod]

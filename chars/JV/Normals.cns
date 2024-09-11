@@ -2168,9 +2168,9 @@ persistent 	= 0				        ;+
 [State 0, NotHitBy]
 type = NotHitBy
 triggerall = anim = 1531
-trigger1 = time = 0 
+trigger1 = time = 4 
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
-time = 18
+time = 14
 
 [State -2, Starter Level]
 type 		= MapSet

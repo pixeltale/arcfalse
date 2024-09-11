@@ -2787,16 +2787,9 @@ trigger1 = time = 0
 value = SCA
 time = 32
 
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = enemy, hitpausetime
-trigger1 = !movereversed
-value = 900
-elem = 1
-ignorehitpause = 1
+
 [State 0, VelSet]
 type = VelSet
-triggerall = !hitpausetime
 trigger1 = animelem = 1
 y = -1
 [State 0, VelSet]
