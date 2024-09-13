@@ -7339,7 +7339,7 @@ persistent 	= 1
 
 [State -2, Reset Armorbreak Map]        ;Resets armor break property at the start of a new state
 type 		= MapSet
-trigger1 	= map(ArmorBreak) && !time
+trigger1 	= map(ArmorBreak)
 map 		= "ArmorBreak"
 value 		= 0
 ignorehitpause 	= 0

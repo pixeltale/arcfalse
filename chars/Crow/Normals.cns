@@ -502,7 +502,7 @@ trigger1 	= 1
 map 		= "ArmorBreak"
 value 		= 1
 ignorehitpause 	= 0
-persistent 	= 0
+persistent 	= 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim

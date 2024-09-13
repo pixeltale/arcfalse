@@ -325,8 +325,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "ch? = %f chvar = %i"
-params = map(CounterHit), var(2)
+text = "armorbreak = %f armoractive = %f"
+params = map(ArmorBreak), map(ArmorActive)
 ignorehitpause = 1
 persistent = 1
 

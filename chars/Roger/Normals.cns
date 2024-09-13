@@ -2821,8 +2821,8 @@ persistent 		= 0
 type = HitDef 
 p2facing = 1
 triggerall= enemy, !map(ArmorActive)
-triggerall=enemy,movetype!=A
-trigger1 = time = 0
+triggerall= enemy,movetype!=A
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 125*MAP(P4),10
@@ -2861,8 +2861,8 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 type = HitDef 
 p2facing = 1
 triggerall= enemy, !map(ArmorActive)
-triggerall=enemy,movetype=A
-trigger1 = time = 0
+triggerall= enemy,movetype=A
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 125*MAP(P4),10
@@ -2903,7 +2903,7 @@ getpower 	= (100)*(cond(var(var(2)) = 1, 1, .5))
 type = HitDef 
 p2facing = 1
 triggerall= enemy, map(ArmorActive)
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 125*MAP(P4),10
@@ -2919,24 +2919,24 @@ fall.yvelocity = 0
 air.fall = 1
 fall = 1
 ground.slidetime = 12
-ground.hittime  = 999
-air.hittime = 999
+ground.hittime  = 60 - MAP(untechDecay)
+air.hittime = 30 - MAP(untechDecay)
 down.hittime = 999
 ground.velocity = -8.7,-6
-air.velocity = -8.7,-6
+air.velocity = -8.7,-4.5
 palfx.time = 12
 palfx.add = 100, 0,20
 envshake.time = 7
 envshake.freq =50
 fall.envshake.time = 0
-guard.hittime = 34
-guard.pausetime= 18,18
-guard.velocity = -7
+guard.ctrltime = 22
+guard.pausetime= 14,14
+guard.velocity = -9
 airguard.velocity = -7,-2
-guard.dist = 20
-guard.slidetime = 30;
 ground.cornerpush.veloff = -22
-getpower 	= (100)*(cond(var(var(2)) = 1, 1, .5))
+p2stateno 	= 5220
+p2getp1state 	= 0
+getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State -2, Wallbounce Velocity Set]
 type 		= MapSet
@@ -3060,7 +3060,7 @@ p2facing = 1
 triggerall= enemy, !map(ArmorActive)
 triggerall=var(25)=0
 triggerall = enemy, movetype!=A 
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 200*MAP(P4),20
@@ -3101,7 +3101,7 @@ p2facing = 1
 triggerall= enemy, !map(ArmorActive)
 triggerall=var(25)>0
 triggerall = enemy, movetype!=A 
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 200*MAP(P4),20
@@ -3142,7 +3142,7 @@ type = HitDef
 p2facing = 1
 triggerall= enemy, !map(ArmorActive)
 triggerall = enemy, movetype=A 
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 200*MAP(P4),20
@@ -3181,7 +3181,8 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 type = HitDef 
 p2facing = 1
 triggerall= enemy, map(ArmorActive)
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
+attr = S, SA
 attr = S, SA
 animtype  = Light
 damage = 200*MAP(P4),20
@@ -3196,16 +3197,14 @@ ground.type = low
 ground.slidetime = 12
 ground.hittime  = 999
 air.hittime = 999
-ground.velocity = -15.5 ,-7
+ground.velocity = -15.5 ,-6.5
 air.velocity = -15.5,-5
 fall = 1
 fall.yvelocity = 0
 palfx.time = 12
 palfx.add = 100, 0,20
 envshake.time = 16
-envshake.freq =50
-p2stateno 	= 5220
-p2getp1state 	= 0
+envshake.freq = 50
 fall.envshake.time = 0
 airguard.velocity = -10,-3
 guard.hittime = 34
@@ -3339,7 +3338,7 @@ persistent 		= 0
 type = HitDef 
 p2facing = 1
 triggerall = enemy, !map(ArmorActive)
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 330*MAP(P4), 30
@@ -3372,7 +3371,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 type = HitDef 
 p2facing = 1
 triggerall = enemy, map(ArmorActive)
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
 damage = 330*MAP(P4), 30
@@ -3398,8 +3397,6 @@ guard.ctrltime  = 34
 airguard.ctrltime = 48
 getpower = 70*var(2)
 ground.cornerpush.veloff = -30
-p2stateno = map(CornerSplat)
-p2getp1state = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, Zoom]
