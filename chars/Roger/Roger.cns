@@ -571,49 +571,6 @@ ctrl = 1
 
 ;=============================================================================
 [Statedef -2]
-;=============================
-;ARMOR POINTS ASSIGNMENT
-;=============================
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= ctrl = 1
-map 		= "armorPoints4R"
-value 		= 4
-ignorehitpause 	= 1
-persistent 	= 1
-
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= ctrl = 1
-map 		= "armorPoints5H"
-value 		= 1
-ignorehitpause 	= 1
-persistent 	= 1
-
-[State 0. MapSet]
-type 		= MapAdd
-trigger1 	= enemy, moveReversed
-map 		= "armorPoints4R"
-value 		= -1
-ignorehitpause 	= 0
-persistent 	= 1
-
-[State 0. MapSet]
-type 		= MapAdd
-trigger1 	= enemy, moveReversed
-map 		= "armorPoints5H"
-value 		= -1
-ignorehitpause 	= 0
-persistent 	= 1
-
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= ctrl = 1
-map 		= "armorElement"
-value 		= 1
-ignorehitpause 	= 1
-persistent 	= 1
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = enemynear,movetype!=H
@@ -729,8 +686,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "movereversed = %i gethitdmg = %i"
-params = enemy, movereversed, gethitvar(hitdamage)
+text = "ArmorElement = %f"
+params = map(armorelement)
 
 [State 0, PalFXWiz]
 type = PalFX
@@ -1044,50 +1001,5 @@ trigger1 = stateno = 52 ;Jump land
 trigger2 = stateno = 106 ;Run-back land
 value = 40, 0
 
-;---------------------- Integer variable list ----------------------
 
-; var(1):= -1
-; var(2):= -2, 10050, 1150, 1151, 1350, 1351, 1352, 1354, 1325, 1450, 1451, 1452, 1453, 1455, 1456, 1458, 1605, 1606, 3000, 3050
-;var(12):= 10020, 10120, 10124, 10125, 10220, 10221, 1022500
-;var(13):= 0
-;var(15):= 690000, 690001, -2, 501, 502, 503, 551, 552, 553, 900, -1
-;var(23):= -3
-;var(25):= -3, 551, 552, 553
-;var(26):= -2, 615
-;var(27):= -2
-;var(30):= -3, 3050, 1000020
-;var(31):= -2, 1150
-;var(32):= -2, 1325
-;var(33):= -2, 1350, 1320
-;var(40):= 40, 4000
-;var(41):= 550
-;var(44):= -2
-;var(45):= 666999, -3, 45
-;var(47):= -3, 1458
-;var(50):= -2
-;var(51):= -2, 1100
-;var(55):= 500
-;var(56):= -2
-;var(57):= -2
-;var(58):= -2
-;var(59):= 191, 0
-
-;---------------------- Float variable list ----------------------
-
-; fvar(6):= 200, 201, 210, 211, 220, 400, 410, 411, 420, 430, 600, 610, 615, 630, 500, 502, 503, 550, 553, 1600, 1601, 1605, 1606, 3050, 0, 10, 11, 12, 20, 40, 50, 52, 4000, 4001, 100, 105
-; fvar(8):= -2
-;fvar(10):= -2
-;fvar(11):= -2
-;fvar(13):= 690000, 690001, -2, 200, 201, 210, 211, 400, 410, 411, 420, 600, 610, 615, 552, 553, 1354, 1304, 1458, 3050
-;fvar(15):= -2
-;fvar(16):= -2, 200, 201, 210, 211, 220, 400, 410, 411, 420, 430, 600, 610, 615, 630
-;fvar(17):= -2
-;fvar(18):= 690000, 690001
-;fvar(20):= -3, 10051
-;fvar(21):= -3, 1151
-;fvar(22):= -3, 1350
-;fvar(23):= -3, 1325
-;fvar(24):= -3, 1453
-;fvar(25):= -3, 1605
-;fvar(26):= -3
-
+[statedef -4]

@@ -333,6 +333,7 @@ triggerall = stateno!=105
 
 ;===========================================================================
 ;---------------------------------------------------------------------------
+;4L
 [State -1, Stand Strong Punch]
 type = ChangeState
 value =  200
@@ -343,6 +344,7 @@ trigger1 = statetype = S
 trigger1 = ctrl
 ;trigger2 = (stateno = 200) && movecontact =1
 
+;5L
 [State -1, Stand Strong Punch]
 type = ChangeState
 value =  201
@@ -351,9 +353,9 @@ triggerall = command = "x"
 triggerall = command != "holddown"
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = (stateno = 400) && movecontact =1
+trigger2 = stateno = 400 && movecontact
 
-;Stand Strong Punch
+;5M
 [State -1, Stand Strong Punch]
 type = ChangeState
 value =  210
@@ -362,29 +364,28 @@ triggerall = command = "y"
 triggerall = command != "holddown"
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = (stateno = 201) && movecontact =1
+trigger2 = stateno = [200,201] && movecontact
 
+;5M
 [State -1, Stand Strong Punch]
 type = ChangeState
 value =  210
 triggerall=stateno!=40
 triggerall = command = "y" || command = "hold_y"
 triggerall = command != "holddown"
-trigger1 = (prevstateno!= 210 && stateno = 410) && movecontact =1
+trigger1 = (prevstateno!= 210 && stateno = 410) && movecontact
 
+;2M
 [State -1, Stand Strong Punch]
 type = ChangeState
 value =  410
 triggerall=stateno!=40
 triggerall = command = "y" || command = "hold_y"
 triggerall = command = "holddown"
-trigger1 =  (prevstateno!= 410 && stateno = 210)  && movecontact =1
-trigger2 = stateno = 200 && movecontact = 1
-trigger3 = stateno = 201 && movecontact = 1
+trigger1 =  (prevstateno!= 410 && stateno = 210)  && movecontact
+trigger2 = stateno = [200,201]
 
-
-
-;Stand Strong Punch
+;5H
 [State -1, Stand Strong Punch]
 type = ChangeState
 value =  220
@@ -393,12 +394,8 @@ trigger1 = statetype = S
 triggerall = command = "z"
 triggerall = command != "holddown"
 trigger1 = ctrl
-trigger2 = (stateno = 201) && movecontact =1
-trigger3 = (stateno = 210 || stateno=211)&& movecontact =1
-trigger4 = (stateno = [400,420]) && movecontact =1
-
-
-
+trigger2 = (stateno = [200, 211])&& movecontact
+trigger3 = (stateno = [400,420]) && movecontact
 
 ;---------------------------------------------------------------------------
 ;2L
@@ -414,8 +411,8 @@ trigger2 = (stateno = 400) || (stateno = [200,201])
 trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
-;Crouching Strong Punch
-[State -1, Crouching Strong Punch]
+;2M
+[State -1, 2m]
 type = ChangeState
 value = 410
 triggerall=stateno!=40
@@ -423,11 +420,11 @@ triggerall = command = "y"
 triggerall = command = "holddown"
 trigger1 = statetype = C
 trigger1 = ctrl
-trigger2 = (stateno = 400) 
+trigger2 = (stateno = 400)
 trigger2 = (movecontact)
 ;---------------------------------------------------------------------------
-;Crouching Light Kick
-[State -1, Crouching Light Kick]
+;3H
+[State -1, 3H]
 type = ChangeState
 value = 430
 triggerall=stateno!=40
@@ -436,12 +433,12 @@ triggerall = command = "holddown"
 triggerall = command = "holdfwd"
 trigger1 = statetype = C
 trigger1 = ctrl
-trigger2 = (stateno = 400) || (stateno = 200)|| (stateno = 210)|| (stateno = 410)|| (stateno = 420)
-trigger2 = (movecontact)
+trigger2 = stateno = [400, 420] || stateno = [200, 210]
+trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
-;Crouching Light Kick
-[State -1, Crouching Light Kick]
+;2H
+[State -1, 2H]
 type = ChangeState
 value = 420
 triggerall=stateno!=40
@@ -449,39 +446,33 @@ triggerall = command = "z"
 triggerall = command = "holddown"
 trigger1 = statetype = C
 trigger1 = ctrl
-trigger2 = (stateno = 400) || (stateno = 200)|| (stateno = 210)|| (stateno = 410) || (stateno = 211) || (stateno = 411)
-trigger2 = (movecontact)
+trigger2 = stateno = [400,411] || stateno = [200, 211]
+trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
-;Jump Light Punch
+;jL
 [State -1, Jump Light Punch]
 type = ChangeState
 value = 600
 triggerall = command = "buffer_x"
 triggerall = statetype = A
 trigger1 = ctrl
-;trigger2 = movecontact && stateno = 600
-trigger2 = stateno = 1350 ;Air blocking
-trigger3 = stateno = 100
-trigger4 = stateno = 615 && movehit
-trigger5 = stateno = 610 && movehit
-trigger6 = stateno = 600 && movehit
-;---------------------------------------------------------------------------
+trigger2 = stateno = [600, 615] && movehit
 
-;Jump Strong Punch
+;---------------------------------------------------------------------------
+;jM
 [State -1, Jump Strong Punch]
 type = ChangeState
 value = 610
 triggerall = command = "y"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = stateno = 600 || stateno = 601  ;jump_x or jump_a
+trigger2 = stateno = [600, 601]
 trigger2 = movecontact
-trigger3 = stateno = 1350 ;Air blocking
-trigger4 = stateno = 100
-trigger5 = stateno = 615 && movehit
+trigger3 = stateno = 615 && movehit
+
 ;---------------------------------------------------------------------------
-;Jump Strong Kick
+;jH
 [State -1, Jump Strong Kick]
 type = ChangeState
 value = 615
@@ -490,6 +481,5 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = (stateno = [600,610]) 
 trigger2 = movecontact
-trigger3 = stateno = 1350 ;Air blocking
-trigger4 = stateno = 100
+
 ;---------------------------------------------------------------------------

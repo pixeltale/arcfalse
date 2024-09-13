@@ -89,7 +89,7 @@ p2facing = 1
 trigger1 = time = 0
 hitonce = 1
 attr = S, HA
-damage = 400*MAP(P4), 10
+damage = 350*MAP(P4) + 50, 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 45,45

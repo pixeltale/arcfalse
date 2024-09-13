@@ -436,6 +436,14 @@ p2stateno = map(CornerSplat)
 p2getp1state = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
+
 [State -3, Angous Voices]
 type = PlaySnd
 trigger1 = animelem = 3
@@ -4814,6 +4822,14 @@ p2stateno = map(CornerSplat)
 p2getp1state = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
+
 [State -2, Wallbounce Type Set]
 type 		= MapSet
 trigger1 		= movehit
@@ -5141,6 +5157,13 @@ paladd		= 191, 64, 64			        ;+
 trans 		= add				        ;+
 persistent 	= 0				        ;+
 ;==================================================++
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
 
 [State 1200, Shake Screen]
 type = EnvShake

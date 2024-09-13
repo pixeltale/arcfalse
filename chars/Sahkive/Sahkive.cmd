@@ -47,7 +47,7 @@ triggerall = command = "236X"
 triggerall = power >= 2000
 trigger1 = ctrl || stateno = 100 || stateno = [300, 305]
 trigger2 = var(1)
-trigger3 = stateno = [1006,1007] || stateno = 1008 && animelemno(0) > 10  || stateno = 1022 || stateno = 1032 || stateno = [1043,1044]
+trigger3 = stateno = [1006,1007] || stateno = 1008 && animelemno(0) > 10  || stateno = 1022 || stateno = [1032, 1034] || stateno = [1043,1044]
 trigger3 = movecontact
 
 ;214X - Senator Armstrong
@@ -59,7 +59,7 @@ triggerall = command = "214X"
 triggerall = power >= 2000
 trigger1 = ctrl || stateno = 100 || stateno = [300, 305]
 trigger2 = var(1)
-trigger3 = stateno = [1006,1007] || stateno = 1008 && animelemno(0) > 10  || stateno = 1022 || stateno = 1032  || stateno = [1043,1044]
+trigger3 = stateno = [1006,1007] || stateno = 1008 && animelemno(0) > 10  || stateno = 1022 || stateno = [1032, 1034] || stateno = [1043,1044]
 trigger3 = movecontact
 
 ;Super Jump

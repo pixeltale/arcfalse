@@ -157,6 +157,7 @@ value = 1
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1 
+triggerall	= enemy, !map(ArmorActive)
 trigger1	 	= map(Counterhit) && movecontact = 0
 attr 		= S, SA
 damage 		= 300*map(P4), 15
@@ -191,6 +192,7 @@ p2getp1state 	= 0
 [State 630, 2]
 type 	= HitDef 
 p2facing 		= 1 
+triggerall	= enemy, !map(ArmorActive)
 triggerall		= enemy, statetype != L
 trigger1 		= !map(Counterhit) && movecontact = 0 && movereversed = 0
 attr 		= S, SA
@@ -226,8 +228,43 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 630, 2]
 type 	= HitDef 
 p2facing 		= 1 
+triggerall	= enemy, !map(ArmorActive)
 triggerall		= enemy, statetype = L
 trigger1 		= !map(Counterhit) && movecontact = 0 && movereversed = 0
+attr 		= S, SA
+damage 		= 150*map(P4) + 20, 20
+hitflag 		= MAFD
+guardflag 	= HA
+priority		= 3
+pausetime 	= 30,30
+sparkno 		= 3
+sparkxy 		= -5,-20
+hitsound   	= 5,4
+guardsound 	= 6,2
+ground.type 	= Trip
+air.type 	 	= Trip
+animtype 		= hard
+air.animtype 	= back
+ground.slidetime 	= 14
+ground.hittime  	= 30
+down.hittime		= 40
+ground.velocity 	= -3,12
+air.velocity 	= -3,12
+down.velocity 	= -1,-6
+air.hittime 	= 9999
+fall  		= 1
+envshake.time 	= 30
+envshake.freq 	= 10
+envshake.ampl 	= 3
+envshake.phase 	= 1
+guard.velocity 	= -6
+guard.ctrltime 	= 20
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
+[State 630, 2]
+type 	= HitDef 
+p2facing 		= 1 
+triggerall	= enemy, map(ArmorActive)
+trigger1 		= movecontact = 0 && movereversed = 0
 attr 		= S, SA
 damage 		= 150*map(P4) + 20, 20
 hitflag 		= MAFD
@@ -1449,6 +1486,7 @@ ignorehitpause =0
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
+triggerall 		= enemy, !map(ArmorActive)
 trigger1 		= !MAP(counterHit) && movecontact = 0 && movereversed = 0
 hitonce 		= 1
 attr 		= S, SA
@@ -1479,6 +1517,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
+triggerall 		= enemy, !map(ArmorActive)
 trigger1 = MAP(counterhit) = 1 && movecontact = 0 && movereversed = 0
 hitonce = 1
 attr = S, SA
@@ -1501,7 +1540,7 @@ yaccel = .14
 air.hittime = 999
 envshake.time = 7
 fall = 1
-p2stateno = cond(abs(camerapos x) > 260 && stagefrontedgedist < 800, 5225, 5220)
+p2stateno = map(CornerSplat)
 p2getp1state = 0
 fall.yvelocity = 0
 guard.slidetime = 12
@@ -1509,6 +1548,37 @@ guard.hittime = 21
 guard.ctrltime = 20
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+triggerall = enemy, map(ArmorActive)
+trigger1 = MAP(counterhit) = 1 && movecontact = 0 && movereversed = 0
+hitonce = 1
+attr = S, SA
+damage = 120*MAP(P4), 10
+hitflag = MAFD
+guardflag = MA
+priority = 3
+pausetime = 22,22
+sparkno = 2
+sparkxy = -25,-44
+hitsound   = 5,1
+guardsound = 6,1
+ground.type = Low
+animtype = medium
+ground.slidetime = 14
+ground.hittime  = 999
+ground.velocity = -12,-7
+air.velocity = -12,-7
+yaccel = .14
+air.hittime = 999
+envshake.time = 7
+fall = 1
+fall.yvelocity = 0
+guard.slidetime = 12
+guard.hittime = 21
+guard.ctrltime = 20
+getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1737,6 +1807,7 @@ ignorehitpause =0
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1 
+triggerall	= enemy, !map(ArmorActive)
 trigger1 	= time = 0
 hitonce 	= 1
 attr 	= S, SA
@@ -1769,6 +1840,41 @@ guard.velocity  = -3
 ground.cornerpush.veloff = -20
 p2stateno 	= 5220
 p2getp1state 	= 0
+
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1 
+triggerall	= enemy, map(ArmorActive)
+trigger1 	= time = 0
+hitonce 	= 1
+attr 	= S, SA
+damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
+hitflag 	= MAFD
+guardflag = MA
+priority 	= 3
+pausetime 	= 24,28
+guard.pausetime 	= 20,20
+sparkno 		= 3
+sparkxy 		= -5,-45
+hitsound   	= 5,4
+getpower 		= 0
+guardsound 	= 6,2
+ground.type 	= Low
+animtype 		= medium
+air.animtype 	= back
+ground.slidetime 	= 14
+ground.hittime  	= 80
+ground.velocity 	= -11,-7 * map(GravMul)
+air.velocity 	= -11,-7 * map(GravMul)
+air.hittime 	= 80
+down.hittime	= 80
+envshake.time 	= 7
+fall 		= 1
+air.fall		= 1
+fall.yvelocity	= 0
+guard.ctrltime 	= 8
+guard.velocity  = -3
+ground.cornerpush.veloff = -20
 
 [State -2, Wallbounce Velocity Set]
 type 		= MapSet

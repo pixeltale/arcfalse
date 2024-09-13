@@ -143,6 +143,7 @@ getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 2, Counter Hit]
 type = HitDef 
+triggerall = enemy, !map(ArmorActive)
 trigger1 = Map(CounterHit) && movecontact = 0 && movereversed = 0
 hitonce = 1
 attr = S, SA
@@ -158,13 +159,49 @@ guardsound = 6,2
 ground.type = Low
 animtype = hard
 ground.slidetime = 14
-;p2stateno = 915020
 ground.hittime  = 40
 air.hittime  = 40
 down.hittime = 34
 ground.velocity = -.6,-6.9
-air.velocity = -2.8,-5.1;
- envshake.time = 30
+air.velocity = -2.8,-5.1
+envshake.time = 30
+envshake.freq = 180
+envshake.ampl = 5
+envshake.phase = 1
+guard.slidetime = 25
+guard.hittime = 14
+guard.ctrltime = 21
+guard.cornerpush.veloff = -7
+ID = 220
+p2stateno = 30000
+yaccel = .27
+fall = 1
+getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
+
+[State 2, Counter Hit]
+type = HitDef 
+triggerall = enemy, map(ArmorActive)
+trigger1 = movecontact = 0 && movereversed = 0
+hitonce = 1
+attr = S, SA
+damage = 200*map(P4)
+hitflag = MAF
+guardflag = MAF
+priority = 3
+pausetime = 30,30
+sparkno = 3
+sparkxy = -10,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = hard
+ground.slidetime = 14
+ground.hittime  = 40
+air.hittime  = 40
+down.hittime = 34
+ground.velocity = -.6,-6.9
+air.velocity = -2.8,-5.1
+envshake.time = 30
 envshake.freq = 180
 envshake.ampl = 5
 envshake.phase = 1
@@ -3162,6 +3199,14 @@ value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
+
 [State 200, 1]
 type = HitDef 
 p2facing = 1
@@ -3282,6 +3327,14 @@ value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
+
 [State 2, Counter Hit]
 type = HitDef 
 trigger1 = time = 0
@@ -3391,6 +3444,14 @@ map 		= "Accumulation"
 value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
+
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
 
 [State 200, 1]
 type = HitDef 
@@ -3518,6 +3579,14 @@ map 		= "Accumulation"
 value 		= root, Map(Accumulation) * root, map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
+
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
 
 [State 200, 1]
 type = HitDef 

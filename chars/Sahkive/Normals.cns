@@ -473,6 +473,7 @@ guard.slidetime = 18
 ;Enhanced 6H code
 [State 1055, 5]
 type = HitDef
+triggerall		= enemy, !map(ArmorActive)
 triggerall 		= prevstateno = 100 && time = 0
 trigger1 		= !movecontact
 attr 		= S,NA
@@ -512,6 +513,47 @@ guard.ctrltime 		= 18
 guard.slidetime 		= 18
 p2stateno 		= 5220
 p2getp1state 		= 0
+
+[State 1055, 5]
+type = HitDef
+triggerall		= enemy, map(ArmorActive)
+triggerall 		= prevstateno = 100 && time = 0
+trigger1 		= !movecontact
+attr 		= S,NA
+getpower 		= 25
+damage 		= 125*MAP(P4), 0
+animtype 			= hard
+air.animtype 		= back
+guardflag		 	= MA
+hitflag 			= MAFD
+priority 			= 5
+pausetime 		= 21,21
+guard.pausetime 		= 14, 14
+sparkno			=3
+hitsound   		= 5,3
+sparkxy 			= -19,-45
+guardsound 		= 6,2
+ground.type 		= low
+ground.slidetime 		= 25
+guard.velocity 		= -10
+ground.hittime  		= 39-MAP(untechDecay)
+air.hittime  		= 48-MAP(untechDecay)
+down.hittime 		= 48-MAP(untechDecay)
+ground.velocity 		= -20,-5
+air.velocity 		= -20,-4
+airguard.velocity 		= -2.6,-1.8
+air.type 			= high
+p2facing 			= 1
+fall 			= 1
+fall.yvelocity 		= 0
+ground.cornerpush.veloff 	= -7
+air.cornerpush.veloff 	= -7
+envshake.time		 = 10
+envshake.freq 		= 80
+envshake.ampl 		= 4
+guard.hittime 		= 18
+guard.ctrltime 		= 18
+guard.slidetime 		= 18
 
 [State -2, Wallbounce Velocity Set]
 type 		= MapSet
@@ -795,28 +837,14 @@ x = 2
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time = 0
-value = A,NA
-;value2 = S,NA
-time = 18
-;ignorehitpause = 
-;persistent = 
-[State 0, HitBy]
-type = HitBy
-trigger1 = time = 0
-trigger1 = P2StateType = A
-value = A,SA,HA,HP,HT
-;value2 = SC,AA,AT,AP
-time = 18
-;ignorehitpause = 
-;persistent = 
-[State 0, HitBy]
-type = HitBy
-trigger1 = time = 0
-trigger1 = P2StateType != A
-value = SC,AA,AT,AP,HA,HP,HT
-;value2 = A,SA,HA,AT,AP
-time = 18
+triggerall=enemy,statetype=A
+triggerall=enemy,movetype=A
+trigger1 = time>=4
+trigger1 = time<=16
+value = ,NA,SA,NT,ST
+time = 1
+ignorehitpause = 1
+persistent = 1
 
 [State -3, Vile Voices]
 type = PlaySnd
@@ -2088,6 +2116,7 @@ getpower 			= 70
 [State 610, 3]
 type = hitdef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 trigger1 = animelem = 10
 hitonce = 1
 attr = S, SA
@@ -2129,6 +2158,49 @@ guard.velocity 		= -8
 getpower 			= 70
 p2stateno 		= cond(map(untechDecay) < 10, 5255, 5070)
 p2getp1state 		= 0
+[State 610, 3]
+type = hitdef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = animelem = 10
+hitonce = 1
+attr = S, SA
+damage = 100*MAP(P4), 60
+animtype = hard
+hitflag = MAFD
+guardflag = HA
+priority = 3
+pausetime = 20,20
+guard.pausetime = 16,16
+sparkno = 3
+sparkxy = -19, -22
+hitsound   = 5,4
+guardsound = 6,2
+ground.slidetime 		= 30
+ground.velocity 		= -0.7, 18
+airguard.velocity 		= -1,-.8
+fall.yvelocity		= 0
+air.type 			= trip
+air.velocity 		= -0.7, 15 - (map(UntechDecay)/2.3)
+ground.hittime  		= 31-MAP(untechDecay)
+air.hittime 		= 31
+down.hittime		= 31
+air.fall 			= 1
+fall 			= 1
+envshake.time 		= 35
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
+  palfx.time 		= 16
+  palfx.add 		= 40, 30, -40
+palfx.sinadd 		= 50,50,50,16
+p2facing 			= 1
+palfx.time 		= 35
+palfx.add 			= 100, 0,20
+ground.cornerpush.veloff 	= -1
+guard.ctrltime 		= 22
+guard.velocity 		= -8
+getpower 		= 70
 
 [State 0, VarAdd]
 type = VarAdd
@@ -2429,6 +2501,7 @@ getpower = 40*var(2)
 [State 410, 2]
 type = hitdef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 trigger1 = !movecontact && !movereversed && map(CounterHit)
 attr = S, SA
 damage = (200 + map(RChargeTime) + time*1.2) *MAP(P4), 10
@@ -2463,6 +2536,44 @@ guard.slidetime = 19
 guard.ctrltime = 27
 p2stateno = map(CornerSplat)
 p2getp1state = 0
+getpower = 40*var(2)
+
+[State 410, 2]
+type = hitdef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = S, SA
+damage = (200 + map(RChargeTime) + time*1.2) *MAP(P4), 10
+animtype  = Medium
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 18,18
+sparkno = 3
+sparkxy = -10,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 65
+air.hittime = 65
+ground.velocity = -20,-7
+air.velocity = -20,-5 + (map(UntechDecay)/3 - 2)
+airguard.velocity = -6,0
+fall.yvelocity = 0
+fall  = 1
+air.fall = 1
+envshake.time = 14
+envshake.freq = 70
+envshake.ampl = 8
+fall.envshake.time = 0
+fall.envshake.freq = 0
+fall.envshake.ampl = 0
+palfx.time = 28
+palfx.add = 100, 0,20
+guard.hittime = 28
+guard.slidetime = 19
+guard.ctrltime = 27
 getpower = 40*var(2)
 
 
@@ -2679,6 +2790,7 @@ p2getp1state 	= 0
 [State 410, 2]
 type = hitdef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 trigger1 = map(CounterHit)
 trigger1 = !movecontact && !movereversed
 attr = S, SA
@@ -2715,6 +2827,44 @@ guard.ctrltime 	= 13
 getpower = 40*var(2)
 p2stateno = map(CornerSplat)
 p2getp1state = 0
+
+[State 410, 2]
+type = hitdef 
+p2facing = 1
+trigger1 = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = S, SA
+damage = (200 + map(RChargeTime)*1.2)*MAP(P4), 0
+animtype  = Medium
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 48,48
+sparkno = 3
+sparkxy = -10,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 3000
+air.hittime = 3000
+ground.velocity = -20,-8
+air.velocity = -20,-8
+airguard.velocity = -6,0
+fall.yvelocity = 0
+fall  = 1
+air.fall = 1
+envshake.time = 22
+envshake.freq = 90
+envshake.ampl = 8
+fall.envshake.time = 0
+fall.envshake.freq = 0
+fall.envshake.ampl = 0
+palfx.time = 28
+palfx.add = 100, 0,20
+guard.hittime 	= 13
+guard.slidetime	= 13
+guard.ctrltime 	= 13
+getpower = 40*var(2)
 
 [State 0, AfterImage]
 type = AfterImage

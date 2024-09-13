@@ -135,7 +135,7 @@ type = ChangeState
 value = 40
 triggerall = command = "holdup" && stateno != [55,56]
 trigger1 = Map(JC)
-trigger2 = stateno = [100,111]
+trigger2 = stateno = [100,111] && stateno != 105
 
 ;Forward Airdash
 [State -1, Run Fwd]
@@ -482,7 +482,6 @@ trigger10 = stateno = [200, 220] && movecontact
 trigger11 = stateno = [400,421] && movecontact
 trigger12 = stateno = 110 && time > 7 
 trigger13 = stateno = 111
-trigger14 = stateno = 105
 
 [State -1, Install 4R: Overhead]
 type = ChangeState
@@ -511,7 +510,6 @@ trigger10 = stateno = [200, 220] && movecontact
 trigger11 = stateno = [400,421] && movecontact
 trigger12 = stateno = 110 && time > 7 
 trigger13 = stateno = 111
-trigger14 = stateno = 105
 
 [State -1, 6R: Twirl]
 type = ChangeState

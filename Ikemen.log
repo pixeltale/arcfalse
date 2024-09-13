@@ -1,10 +1,13 @@
-.\external\script\options.lua:2173: <game end>
+.\external\script\start.lua:1401: chars/roger/roger.def:
+./data/armor.zss
+data/armor.zss:131:
+Wrong token: expected ), got {
 stack traceback:
-	[G]: in function 'refresh'
-	.\external\script\options.lua:2173: in function 'f_keyCfg'
-	.\external\script\options.lua:1008: in function <.\external\script\options.lua:1002>
-	.\external\script\options.lua:1244: in function 'loop'
-	.\external\script\options.lua:1251: in function 'f'
+	[G]: in function 'game'
+	.\external\script\start.lua:1401: in function 'f_game'
+	.\external\script\start.lua:1834: in function 'launchFight'
+	external/script/default.lua:2: in function <external/script/default.lua:0>
+	.\external\script\start.lua:1455: in function 'f'
 	external/script/main.lua:3105: in function 'loop'
 	external/script/main.lua:4156: in main chunk
 	[G]: ?

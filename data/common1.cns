@@ -7275,6 +7275,103 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+;======================================
+;Custom State TargetStates
+;======================================
+[State 0, TargetState] ;cORNER-ONLY WALLSPLAT. MIDSCREEN WALLBOUNCE
+type = TargetState
+trigger1 = MoveHit = 1
+value = map(CornerSplat)
+id = map(CornerSplat)
+persistent = 1
+ignorehitpause = 1
+
+[State 0, TargetState] ;SPINOUT
+type = TargetState
+trigger1 = MoveHit = 1
+id = 5300
+value = 5300
+persistent = 1
+ignorehitpause = 1
+
+;======================================
+;Armor Points
+;======================================
+[State 0. MapSet]
+type 		= MapAdd
+trigger1 	= movehit = 1
+map 		= "armorPoints"
+value 		= -1
+ignorehitpause 	= 0
+persistent      = 0
+redirectid      = enemynear, ID
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= ctrl = 1
+map 		= "armorElement"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 1
+
+[State -2, Reset Armorbreak Map]        ;Resets armor break property at the start of a new state
+type 		= MapSet
+trigger1 	= map(ArmorBreak) && !time
+map 		= "ArmorBreak"
+value 		= 0
+ignorehitpause 	= 0
+persistent 		= 0
+
+[State 0. MapSet]				;Does nothing to the performance of the armor.
+type 		= MapSet			;This value is used for enemy characters
+trigger1 	= map(armorActive)	;To see if armor is currently active or not.
+map 		= "armorActive"
+value 		= 0
+ignorehitpause 	= 1
+
+;ARMOR ============================++++
+; [State 0, ChangeAnim]
+; type 	= ChangeAnim
+; trigger1 = enemy, movehit = 1
+; value 	= anim
+; elem 	= map(armorElement)
+; ignorehitpause = 1
+; [State 0. MapSet]
+; type 		= MapSet
+; trigger1 	= !time
+; map 		= "armorPoints"
+; value 		= 2
+; ignorehitpause 	= 1
+; persistent 	= 1
+; [State 0. MapSet]
+; type 		= MapSet
+; trigger1 	= animelemno(0) > map(armorElement)
+; map 		= "armorElement"
+; value 		= animelemno(0)
+; ignorehitpause 	= 1
+; [State 0, HitOverride]
+; type = HitOverride
+; triggerall = !(enemy, map(ArmorBreak))		;"Armor Break" Attacks will bypass
+; triggerall = animelemno(0) = [3,5]		;Active Frame Range
+; trigger1 = map(ArmorPoints) > 0			;Withstand a Certain Hitcount. Armorpoints tick down with enemy attacks.
+; attr = SCA,NA,SA,NP,SP
+; slot = 0
+; stateno = stateno
+; time = 1
+; ignorehitpause = 0
+; [State 666, PosFreeze]
+; type = PosFreeze
+; trigger1 = enemy, movehit = 1
+; value = 1
+; [State 0, PalFXWiz]
+; type = PalFX
+; trigger1 = enemy, movehit
+; time = 10
+; add = 150,100,0
+; mul = 256,256,256
+; sinadd = 150,100,0,30
+; invertall = 0
+; color = 256
+;=======================================
 
 ;=======================================
 ;Cant instantly block after jumping
@@ -7283,7 +7380,7 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 type = AssertSpecial
 triggerall = enemynear, statetype = S
 triggerall = stateno = 50
-trigger1 = time<=2
+trigger1 = time <= 1
 flag = noairguard
 ignorehitpause = 1
 
@@ -7826,18 +7923,6 @@ facing = 0
 removeongethit = 0
 ignorehitpause = 1
 persistent = 0
-
-
-;=============================
-;ARMOR POINTS REPLENISH
-;=============================
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	    = stateno = 0
-map 		    = "armorElement"
-value 		    = 2
-ignorehitpause 	= 1
-persistent 		= 1
 
 ;==============================================
 ;Enemy Attack Checks (For Training Mode Stuff)
@@ -8633,7 +8718,7 @@ value = 0
 type = MapSet	                        ;attacking or not
 trigger1 = numenemy				
 map = "CounterHit"
-value = (EnemyNear, MoveType = A)
+value = (EnemyNear, MoveType = A) && enemy, !map(ArmorPoints)
 ignorehitpause = 1
 persistent = 1
 

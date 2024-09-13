@@ -112,6 +112,7 @@ envshake.phase 		= 100
 [State 1110, 3]
 type 			= HitDef
 triggerall 		= anim = 1001
+triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 attr 			= S, SA
 getpower 		= 50
@@ -143,6 +144,39 @@ envshake.ampl 		= -6
 envshake.phase 		= 100
 p2stateno 		= 5300
 p2getp1state 		= 0
+[State 1110, 3]
+type 			= HitDef
+triggerall 		= anim = 1001
+triggerall		= enemy, map(ArmorActive)
+trigger1 		= !movereversed && !movecontact
+attr 			= S, SA
+getpower 		= 50
+animtype  		= Up
+damage    		= 120*map(P4), 20
+guardflag 		= MA
+hitflag 		= MAFD
+pausetime 		= 16,16
+guard.pausetime 	= 18,18
+sparkxy 		= 0,-60
+hitsound   		= 5,3
+guardsound 		= 6,2
+ground.type 		= Low
+ground.slidetime 	= 15
+ground.hittime 		= 200
+ground.velocity		= -2,-3
+air.velocity 		= -1,-2
+down.velocity		= -1, -6
+guard.velocity 		= -6
+airguard.velocity 	= -4,-4.5
+p2facing 		= 1
+fall 			= 1
+fall.yvelocity		= -4
+yaccel 			= .2
+fall.recover 		= 0
+envshake.time 		= 15
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
 
 [State 1000, 1]
 type = PlaySnd
@@ -1547,7 +1581,6 @@ type = PlaySnd
 trigger1 = animelem =14
 value = 0, 2
 
-
 [State 100, 1]
 type = VelSet
 trigger1 = time=[0,15]
@@ -1556,8 +1589,6 @@ x = 0.6
 type = VelSet
 trigger1 = time=[20,35]
 x = 1.8
-
-
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -2018,6 +2049,7 @@ envshake.phase = 100
 getpower=0
 [State 610, 3]
 type = HitDef
+triggerall = enemy, !map(ArmorActive)
 trigger1 = animelem=21
 attr = A, NA
 damage = 100*MAP(P4), 0  
@@ -2048,6 +2080,38 @@ envshake.ampl = -6
 envshake.phase = 100
 p2stateno 	= 5255
 p2getp1state 	= 0
+getpower=0
+[State 610, 3]
+type = HitDef
+triggerall = enemy, map(ArmorActive)
+trigger1 = animelem=21
+attr = A, NA
+damage = 100*MAP(P4), 0  
+getpower = 0
+animtype = light
+guardflag = HA
+hitflag = MAFD
+pausetime = 20,20
+guard.pausetime = 15,15
+guard.ctrltime = 40
+sparkno = 3
+sparkxy = -26, -22
+hitsound = 5,4
+guardsound = 6, 2
+ground.type = high
+ground.slidetime = 0
+ground.hittime  = 66
+ground.velocity = -1,22
+airguard.velocity = -1,-.8
+air.type = high
+air.velocity = -1,22
+air.hittime = 66
+fall = 1
+fall.yvelocity = -10
+envshake.time = 25
+envshake.freq = 90
+envshake.ampl = -6
+envshake.phase = 100
 getpower=0
 
 

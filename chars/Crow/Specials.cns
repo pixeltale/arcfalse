@@ -170,10 +170,63 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
+triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
 damage 			= (100 - p2dist x*0.25)*map(P4), 50
+animtype 		= light
+air.animtype 		= back
+;==============================================
+guardflag 		= MA
+hitflag 		= MAFD
+;==============================================
+pausetime 		= 2, 3
+guard.pausetime		= 2, 3
+sparkno 		= 0
+sparkxy 		= -30, -59
+hitsound 		= 5, 1
+guardsound 		= 6, 0
+;==============================================
+ground.type 		= High
+air.type 		= High
+;==============================================
+ground.hittime  	= 99
+air.hittime  		= 99
+down.hittime 		= 99
+ground.slidetime 	= 5
+;==============================================
+ground.velocity 	= -10, -7
+air.velocity 		= -10,-6
+guard.ctrltime 		= 12
+guard.velocity		= -100 / (p2dist x * 0.1)
+guard.slidetime		= 20
+airguard.velocity 	= -1.9,-.8
+ground.cornerpush.veloff= 0
+;==============================================
+fall			= 1
+air.fall 		= 1
+fall.yvelocity 		= 0
+;==============================================
+envshake.time		= 20
+envshake.freq 		= 120
+envshake.ampl 		= 6
+envshake.phase 		= 0.5
+;==============================================
+getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+;==============================================
+p2stateno		= map(CornerSplat)
+p2getp1state		= 0
+;++++++++++++++++++++++++++++++++++++++++++++++
+;++++++++++++++++++++++++++++++++++++++++++++++
+[State 200, 1] ;++++++++++++++++++++++++++++++++++
+type 		= HitDef 
+p2facing 		= 1
+triggerall		= enemy, map(ArmorActive)
+trigger1 		= !movereversed && !movecontact
+;==============================================
+attr 			= S, NA                     
+damage 			= (100 - p2dist x*0.25), 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -310,6 +363,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
+triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
@@ -356,6 +410,55 @@ getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 ;==============================================
 p2stateno		= 5255
 p2getp1state		= 0
+;++++++++++++++++++++++++++++++++++++++++++++++
+;++++++++++++++++++++++++++++++++++++++++++++++
+[State 200, 1] ;++++++++++++++++++++++++++++++++++
+type 		= HitDef 
+p2facing 		= 1
+triggerall		= enemy, map(ArmorActive)
+trigger1 		= !movereversed && !movecontact
+;==============================================
+attr 			= S, NA                     
+damage 			= (100 - p2dist x*0.25)*map(P4), 50
+animtype 		= light
+air.animtype 		= back
+;==============================================
+guardflag 		= MA
+hitflag 		= MAFD
+;==============================================
+pausetime 		= 2, 3
+guard.pausetime		= 2, 3
+sparkno 		= 0
+sparkxy 		= -30, -59
+hitsound 		= 5, 1
+guardsound 		= 6, 0
+;==============================================
+ground.type 		= High
+air.type 		= High
+;==============================================
+ground.hittime  	= 99
+air.hittime  		= 99
+down.hittime 		= 99
+ground.slidetime 	= 5
+;==============================================
+ground.velocity 	= -10, 16
+air.velocity 		= -10, 16
+guard.ctrltime 		= 12
+guard.velocity		= -150 / (p2dist x * 0.1)
+guard.slidetime		= 20
+airguard.velocity 	= -1.9,-.8
+ground.cornerpush.veloff= 0
+;==============================================
+fall			= 1
+air.fall 		= 1
+fall.yvelocity 		= -4
+;==============================================
+envshake.time		= 20
+envshake.freq 		= 120
+envshake.ampl 		= 6
+envshake.phase 		= 0.5
+;==============================================
+getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State 0, CtrlSet]
@@ -497,6 +600,55 @@ getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 ;==============================================
 p2stateno		= 5220
 p2getp1state		= 0
+;++++++++++++++++++++++++++++++++++++++++++++++
+;++++++++++++++++++++++++++++++++++++++++++++++
+[State 200, 1] ;++++++++++++++++++++++++++++++++++
+type 		= HitDef 
+p2facing 		= 1
+triggerall		= enemy, map(ArmorActive)
+trigger1 		= !movereversed && !movecontact
+;==============================================
+attr 			= S, NA                     
+damage 			= (100 - p2dist x*0.25)*map(P4), 50
+animtype 		= light
+air.animtype 		= back
+;==============================================
+guardflag 		= MA
+hitflag 		= MAFD
+;==============================================
+pausetime 		= 2, 3
+guard.pausetime		= 2, 3
+sparkno 		= 0
+sparkxy 		= -30, -59
+hitsound 		= 5, 1
+guardsound 		= 6, 0
+;==============================================
+ground.type 		= High
+air.type 		= High
+;==============================================
+ground.hittime  	= 99
+air.hittime  		= 99
+down.hittime 		= 99
+ground.slidetime 	= 5
+;==============================================
+ground.velocity 	= -10, 16
+air.velocity 		= -10, 16
+guard.ctrltime 		= 12
+guard.velocity		= -150 / (p2dist x * 0.1)
+guard.slidetime		= 20
+airguard.velocity 	= -1.9,-.8
+ground.cornerpush.veloff= 0
+;==============================================
+fall			= 1
+air.fall 		= 1
+fall.yvelocity 		= -4
+;==============================================
+envshake.time		= 20
+envshake.freq 		= 120
+envshake.ampl 		= 6
+envshake.phase 		= 0.5
+;==============================================
+getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State -2, Wallbounce Velocity Set]
@@ -811,94 +963,201 @@ type = DestroySelf
 trigger1 = !animtime
 
 ;---------------------------------------------------------------------------
-;6S - Parry Thing
+;6S - Command Run
 [Statedef 1050]
 type    = S
 movetype= A
 physics = S
 juggle  = 0
-poweradd= 0 + -1000*(prevstateno = [120,155])
+poweradd= 0
 ctrl = 0
 velset = 0,0
-anim = 1050
+anim = 1090
 sprpriority = 2
 facep2 = 1
 
-[State -2, Hold Timer - Tick Up]
-type 		= MapSet
-trigger1 	= !time || enemy, movereversed
-map 		= "HoldTimer"
-value 		= 0
-ignorehitpause 	= 0
-persistent 	= 0
-[State -2, Hold Timer - Tick Up]
-type 		= MapAdd
-trigger1 	= 1
-map 		= "HoldTimer"
-value 		= 1
-ignorehitpause 	= 1
-persistent 	= 1
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 4 || animelem = 5
+x = 3
 
-[State 0, ReversalDef]
-type = ReversalDef
-triggerall = enemy, !map(Low)
-triggerall = p2dist x > 0
-trigger1 = animelemno(0) <= 3
-reversal.attr = SCA,NA,SA,HA
-pausetime = 5,10
-sparkno = 1
-hitsound = S1,0
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelemno(0) >= 5
+x = 6
+y = 0
 ignorehitpause = 1
-p1stateno = 700
-
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = animelemno(0) = 3
-trigger1 = command = "holdb" && map(HoldTimer) < 35
-value = 1050
-elem = 3
-ignorehitpause = 1
-
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = !animtime
+triggerall = animelemno(0) >= 5
+trigger1 = command = "x" || command = "y" || command = "z"
+value = 1051
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = time >= 180 || enemy, !alive
+trigger2 = command = "b"
+trigger2 = animelemno(0) >= 5
+value = 1052
+ctrl = 0
+
+;6S > Attack
+[Statedef 1051]
+type = S
+physics = S
+movetype = A
+anim = 1095
+velset = vel x * 0.25, 0
+ctrl = 0
+sprpriority = 2
+poweradd = 0
+facep2 = 1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 4
+x = 20
+[State 0, PosAdd]
+type = VelAdd
+trigger1 = animelem = 4
+x = 7
+[State 0, VelAdd]
+type = VelSet
+trigger1 = animelemno(0) = 5
+x = 7
+y = 0
+ignorehitpause = 1
+
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "P1"
+value         =  0.90
+ignorehitpause     = 1
+[State -2, P2 Value Set]
+type         = MapSet
+trigger1         = movehit && map(ComboStateCheck)
+map         = "P2"
+value         =  0.93
+ignorehitpause     = 1
+persistent         = 0
+[State -2, P2 Accumulation - Scale]
+type         = MapSet
+trigger1         = movehit
+map         = "Accumulation"
+value         = Map(Accumulation) * map(P2)
+ignorehitpause     = 1
+persistent         = 0
+
+[State 410, 2]
+type = hitdef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed && !map(CounterHit)
+attr = S, SA
+damage = 100 * MAP(P4), 20
+animtype  = Medium
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 18,18
+sparkno = 3
+sparkxy = -10,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = TRIP
+ground.slidetime = 12
+ground.hittime  = 65
+air.hittime = 65
+down.hittime = 65
+ground.velocity = -10,-4
+air.velocity = -10,-3 + (map(UntechDecay)/3 - 2)
+airguard.velocity = -6,0
+fall.yvelocity = 0
+fall  = 1
+air.fall = 1
+envshake.time = 14
+envshake.freq = 70
+envshake.ampl = 8
+fall.envshake.time = 0
+fall.envshake.freq = 0
+fall.envshake.ampl = 0
+guard.hittime = 22
+guard.slidetime = 22
+guard.ctrltime = 22
+getpower = 40
+
+[State 410, 2]
+type = hitdef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed && map(CounterHit)
+attr = S, SA
+damage = 150 * MAP(P4), 10
+animtype  = Medium
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 18,18
+sparkno = 3
+sparkxy = -10,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 65
+air.hittime = 65
+ground.velocity = -20,-7
+air.velocity = -20,-5 + (map(UntechDecay)/3 - 2)
+airguard.velocity = -6,0
+fall.yvelocity = 0
+fall  = 1
+air.fall = 1
+envshake.time = 14
+envshake.freq = 70
+envshake.ampl = 8
+fall.envshake.time = 0
+fall.envshake.freq = 0
+fall.envshake.ampl = 0
+palfx.time = 28
+palfx.add = 100, 0,20
+guard.hittime = 28
+guard.slidetime = 19
+guard.ctrltime = 27
+p2stateno 	= 5220
+p2getp1state 	= 0
+getpower	= 40
+
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_boomerang"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 700, End]
+type = changestate
+trigger1 = animtime = 0
 value = 0
 ctrl = 1
 
-;Stand Parry
-[Statedef 700]
+;6S > Cancel
+[Statedef 1052]
 type = S
 physics = S
 movetype = I
-anim = 700
-velset = 0, 0
+anim = 1096
+velset = vel x, 0
 ctrl = 0
 sprpriority = 2
-poweradd = 100
-facep2 = 1
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = 1
-value = 1
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-
-[State 700, Flash]
-type = palfx
-trigger1 = !time
-add = 255, 50, 255
-sinadd = 0, -50, -255, 60
-time = 15
-
-[State 700, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
+poweradd = 0
+facep2 = 0
 
 [State 700, End]
 type = changestate
@@ -1076,6 +1335,7 @@ ignorehitpause = 1
 
 [State 1110, 3]
 type 			= HitDef
+triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 attr 			= S, SA
 animtype  		= Up
@@ -1105,6 +1365,37 @@ envshake.ampl 		= -6
 envshake.phase 		= 100
 p2stateno 		= 5300
 p2getp1state 		= 0
+
+[State 1110, 3]
+type 			= HitDef
+triggerall		= enemy, map(ArmorActive)
+trigger1 		= !movereversed && !movecontact
+attr 			= S, SA
+animtype  		= Up
+damage    		= 120, 20
+guardflag 		= MA
+hitflag 		= MAFD
+pausetime 		= 16,16
+guard.pausetime 	= 15,10
+sparkxy 		= 0,-60
+hitsound   		= 5,3
+guardsound 		= 6,2
+ground.type 		= Low
+ground.slidetime 	= 15
+ground.hittime 		= 200
+ground.velocity		= -1,-10
+air.velocity 		= -1,-9
+down.velocity		= -1, -7
+guard.velocity 		= -6
+airguard.velocity 	= -4,-4.5
+p2facing 		= 1
+fall 			= 1
+fall.yvelocity		= 0
+fall.recover 		= 0
+envshake.time 		= 15
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
 
 [State 1060, End]
 type = changestate
@@ -1139,6 +1430,14 @@ statetype = A       ;S,A,C,L
 movetype = A        ;I,A,H
 physics = A         ;A,C,S,N
 ignorehitpause = 1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = enemy, statetype = L
+value = 0
+ignorehitpause = 1
+;persistent = 
+
 
 [State 40, 1]
 type = VarSet
@@ -1427,7 +1726,7 @@ ignorehitpause = 1
 type = VelSet
 triggerall = prevanim != 1070
 trigger1 = anim = 1075 && animelem = 1
-x = p2dist x * 0.02
+x = vel x + (p2dist x * 0.03)
 y = -2.5
 ignorehitpause = 0
 
@@ -1481,6 +1780,7 @@ persistent 		= 0
 [State 230, 1]
 type 	= hitdef 
 p2facing 	= 1
+triggerall	= enemy, !map(ArmorActive)
 trigger1 	= !movecontact && !movereversed
 attr 		= A, NA
 animtype 	= hard
@@ -1488,7 +1788,7 @@ damage 		= 120*MAP(P4), 10
 hitflag 	= MAF
 guardflag 	= HA
 pausetime 	= 20,28
-guard.pausetime	= 20,22
+guard.pausetime	= 20,20
 sparkno 	= 3
 sparkxy 	= -15,-40
 hitsound   	= 5,2
@@ -1498,7 +1798,7 @@ ground.slidetime = 12
 ground.hittime 	= 27
 air.hittime  	= 80
 down.hittime 	= 80
-ground.velocity 	= -2.4
+ground.velocity = -2.4
 down.velocity 	= -1,15
 air.velocity 	= -1,15
 air.cornerpush.veloff = -8
@@ -1509,14 +1809,49 @@ envshake.ampl 	= 5
 envshake.phase 	= 1
 palfx.time 	= 12
 palfx.add 	= 100, 0,20
-guard.hittime 	= 22
-guard.slidetime = 40
-guard.ctrltime 	= 28
+guard.ctrltime 	= 20
 guard.velocity 	= -8
 fall.yvelocity 	= 0
 air.fall 	= 1
 p2stateno 	= cond(enemy, statetype = A , 5255, 5000)
 p2getp1state	= 0
+
+[State 230, 1]
+type 	= hitdef 
+p2facing 	= 1
+triggerall	= enemy, map(ArmorActive)
+trigger1 	= !movecontact && !movereversed
+attr 		= A, NA
+animtype 	= hard
+damage 		= 120*MAP(P4), 10
+hitflag 	= MAF
+guardflag 	= HA
+pausetime 	= 20,28
+guard.pausetime	= 20,20
+sparkno 	= 3
+sparkxy 	= -15,-40
+hitsound   	= 5,2
+guardsound 	= 6,2
+ground.type 	= low
+ground.slidetime = 12
+ground.hittime 	= 27
+air.hittime  	= 80
+down.hittime 	= 80
+ground.velocity = -2.4
+down.velocity 	= -1,15
+air.velocity 	= -1,15
+air.cornerpush.veloff = -8
+guard.cornerpush.veloff = -15
+envshake.time	= 40
+envshake.freq 	= 120
+envshake.ampl 	= 5
+envshake.phase 	= 1
+palfx.time 	= 12
+palfx.add 	= 100, 0,20
+guard.ctrltime 	= 20
+guard.velocity 	= -8
+fall.yvelocity 	= 0
+air.fall 	= 1
 
 [State 0, ChangeState]
 type = ChangeState

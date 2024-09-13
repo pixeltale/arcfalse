@@ -501,6 +501,7 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 triggerall = statetype != A
 trigger1 = !movecontact && !movereversed
 attr = S, NA
@@ -538,6 +539,7 @@ getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 [State 200, 1]
 type = HitDef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 triggerall = statetype = A
 trigger1 = !movecontact && !movereversed
 attr = S, NA
@@ -570,6 +572,41 @@ air.fall 	= 1
 fall 		= 1
 p2stateno 	= 5220
 p2getp1state 	= 0
+getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = S, NA
+animtype  = Hard
+air.animtype = back
+damage = 120*map(P4)
+hitflag = MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno = 2
+sparkxy = -15,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 30
+air.hittime  	= 30-(map(UntechDecay)*2)
+down.hittime 	= 56-map(UntechDecay)
+ground.velocity = -20,-8
+air.velocity = -20,-2
+envshake.time = 20
+envshake.freq = 180
+envshake.ampl = 2
+envshake.phase = 1
+guard.hittime = 14
+guard.slidetime = 14
+guard.ctrltime = 14
+guard.velocity = -6
+air.fall 	= 1
+fall 		= 1
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State -2, Wallbounce Type Set]

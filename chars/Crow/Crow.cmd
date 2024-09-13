@@ -33,7 +33,6 @@ trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = stateno!=421
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = 105
-trigger5 = stateno = 700
 var(1) = 1
 
 ;===========================================================================
@@ -86,11 +85,11 @@ trigger1 = ctrl
 [State -1, Backdash]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || teammode != Tag && command = "M44" || stateno = 1050
 triggerall = stateno!=105
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = stateno = 1000 && time > 5
+trigger2 = stateno = 1000 && time > 5 || stateno = 1050 && animelemno(0) >= 6 && command = "holdback"
 
 ;===========================================================================
 ;EX MOVES
@@ -104,16 +103,6 @@ triggerall = command = "EX" && command = "holddown"
 triggerall = !map(Limiter_2EX)
 trigger1 = ctrl || stateno = 100
 trigger2 = var(1) || stateno = [600,620] && movecontact
-
-;6EX
-[State -1, MALICIOUS PRESSURE]
-type = ChangeState
-value = 1050
-triggerall = power > 1000
-triggerall = command = "EX"
-triggerall = command = "holdfwd"
-trigger1 = statetype != A
-trigger1 = stateno = [120,155]
 
 ;4EX
 [State -1, bombos]
@@ -162,7 +151,7 @@ trigger1 = ctrl
 trigger2 = var(1)
 
 ;6S
-[State -1, MALICIOUS PRESSURE CONSUMES YOU]
+[State -1, ABSOLUTE ESSENCE OF SHOTGUN]
 type = ChangeState
 value = 1050
 triggerall = command = "b"
@@ -179,6 +168,19 @@ triggerall = command = "b"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
+
+
+;===========================================================================
+;REMIX
+;===========================================================================
+;5R
+[State -1, MALICIOUS PRESSURE CONSUMES YOU]
+type = ChangeState
+value = 700
+triggerall = command = "c"
+trigger1 = statetype != A
+trigger1 = ctrl || prevstateno = [120,155] || stateno = 701
+trigger2 = var(1) && stateno != 105
 
 ;===========================================================================
 ;COMMAND NORMALS

@@ -282,6 +282,13 @@ persistent = 0
 volumescale = 160
 
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= map(ChargeLvl) > 0 
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 0
+persistent 	= 0
 
 [State 0, ChangeAnim] ;Beretta
 type = ChangeAnim
@@ -1455,6 +1462,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
+triggerall  	= enemy, !map(ArmorActive)
 triggerall = enemy, statetype = A || enemy, statetype = L
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
@@ -1488,6 +1496,42 @@ envshake.ampl 		= -6
 envshake.phase 		= 100
 p2stateno 	= 5255
 p2getp1state	= 0
+getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
+
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+triggerall  	= enemy, map(ArmorActive)
+trigger1 = movecontact = 0 && movereversed = 0
+attr = S, NA
+animtype  = Heavy
+air.animtype = back
+damage = 100 * MAP(P4) + (40*map(CounterHit)), 0
+pausetime = 20,20
+sparkno = 2
+sparkxy = -p2dist x * 0.25,-1
+hitsound   = 5,3
+guardsound = 6,2
+hitflag = MAFD
+guardflag = LA
+guard.ctrltime 	= 20
+guard.velocity 	= -5
+guard.slidetime = 18
+ground.type 	= TRIP
+ground.hittime  = 18
+air.hittime	= 42 - map(UntechDecay)
+down.hittime	= 48 - map(UntechDecay)
+ground.velocity = -3, 18
+air.type	= TRIP
+air.velocity = 1,16
+down.velocity = 1, 16
+air.fall = 1
+fall = 1
+fall.yvelocity = 0
+envshake.time 		= 35
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 
 [State 0, Zoom]
@@ -1675,7 +1719,7 @@ persistent 	= 0				        ;+
 [State 630, 2];Sour Spot
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x > 45
+triggerall = p2dist x > 45 || enemy, map(ArmorActive)
 trigger1 = time = 0
 attr = S, SA
 damage = 80*MAP(P4), 10
@@ -1701,7 +1745,7 @@ guard.ctrltime = 2
 [State 630, 2] ;Clean Hit
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x <= 45
+triggerall = p2dist x <= 45 || enemy, !map(ArmorActive)
 trigger1 = time = 0
 attr = S, SA
 damage = 150*Map(P4)+5, 10
@@ -1943,6 +1987,7 @@ ignorehitpause = 1
 [State 630, 2]
 type = HitDef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 trigger1 = movecontact = 0 && enemy, statetype = A
 attr = S, NA
 animtype  = Light
@@ -1957,7 +2002,7 @@ hitsound   = 5,3
 guardsound = 6,2
 air.velocity = -12,-9
 fall = 1
- envshake.time = 15
+envshake.time = 15
 envshake.freq = 80
 envshake.ampl = 2
 envshake.phase = 1
@@ -1969,6 +2014,35 @@ fall.yvelocity = 0
 getpower = 0
 p2stateno = 5220
 p2getp1state = 0
+
+[State 630, 2]
+type = HitDef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = movecontact = 0 && enemy, statetype = A
+attr = S, NA
+animtype  = Light
+air.animtype = back
+damage = (100+((abs(p2dist x * 1.2) + abs(p2dist y))/1.1))*MAP(P4), 10 + abs(p2dist x * 0.9)	;Deals extra damage the longer distance your shot is lmao
+hitflag = MAFDP
+guardflag = MA
+pausetime = 18,22
+sparkno = 2
+sparkxy = -35,-45
+hitsound   = 5,3
+guardsound = 6,2
+air.velocity = -12,-9
+fall = 1
+envshake.time = 15
+envshake.freq = 80
+envshake.ampl = 2
+envshake.phase = 1
+air.hittime = 999
+guard.hittime = 45
+airguard.hittime = 45
+guard.ctrltime = 17
+fall.yvelocity = 0
+getpower = 0
 
 [State 200, 2]
 type = PlaySnd
@@ -2182,6 +2256,7 @@ ignorehitpause = 1
 [State 200, 1]
 type = HitDef 
 p2facing 	= 1
+triggerall  	= enemy, !map(ArmorActive)
 trigger1 	= time = 0
 trigger1 	= enemy, statetype != A
 attr 	= S, NA
@@ -2212,6 +2287,7 @@ getpower = 0
 [State 200, 1]
 type = HitDef 
 p2facing 	= 1
+triggerall  	= enemy, !map(ArmorActive)
 trigger1 	= time = 0
 trigger1 	= enemy, statetype = A
 attr 	= S, NA
@@ -2241,6 +2317,37 @@ envshake.phase 	= 1
 getpower = 0
 p2stateno 	= 5255
 p2getp1state 	= 0
+
+[State 200, 1]
+type = HitDef 
+p2facing 	= 1
+trigger1 	= time = 0
+trigger1 	= enemy, map(ArmorActive)
+attr 	= S, NA
+animtype  	= Hard
+damage 		= 200*map(P4), 30
+hitflag 		= MAFD
+guardflag 	= MAFD
+guard.ctrltime 	= 20
+guard.slidetime	= 20
+guard.hittime	= 20
+guard.velocity	= -5
+pausetime 	= 35,35
+sparkno 		= 3
+sparkxy 		= -10,-40
+hitsound   	= 5,3
+ground.slidetime 	= 12
+ground.hittime  	= 35 - map(untechTime)
+air.hittime	= 50 - map(untechTime)
+ground.velocity 	= -1, -7
+air.fall 		= 1
+fall 		= 1
+fall.yvelocity 	= 0
+envshake.time 	= 20
+envshake.freq 	= 80
+envshake.ampl 	= 6
+envshake.phase 	= 1
+getpower = 0
 
 [State 200, 2]    ;EX Effects
 type = PlaySnd
@@ -2516,9 +2623,14 @@ fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 5
-p2stateno	= cond((enemy, statetype = A), 5230, 5000)
-p2getp1state	= 0
 getpower = 0
+
+[State 0, Changestate]
+type = Changestate
+triggerall = movehit
+trigger1 = command = "fwd" || teammode != Tag && command = "M66"
+value = 100
+ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState
@@ -2579,6 +2691,7 @@ ignorehitpause = 1
 [State 630, 2] ;Always Clean Hit
 type = HitDef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 trigger1 = time = 0
 hitonce = 1
 attr = S, SA
@@ -2611,6 +2724,40 @@ envshake.phase 	= 1
 getpower 		= 0
 p2stateno 	= 5220
 p2getp1state 	= 0
+[State 630, 2] ;Armor Hit
+type = HitDef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = time = 0
+hitonce = 1
+attr = S, SA
+damage = 120*Map(P4), 10
+hitflag = MAFD
+guardflag = MAF
+pausetime 	= 25,25
+sparkno 		= 3
+sparkxy 		= -10,-45
+hitsound   	= 5,4
+guardsound 	= 6,2
+ground.type 	= TRIP
+air.type	= TRIP
+animtype 		= medium
+ground.slidetime 	= 14
+ground.hittime  	= 33
+ground.velocity 	= -20,-6
+air.velocity 	= -20,-6
+air.hittime 	= 999-MAP(UntechDecay)
+fall 		= 1
+fall.yvelocity 	= 0
+guard.slidetime 	= 12
+getpower 		= 100
+guard.hittime 	= 21
+guard.ctrltime 	= 10
+envshake.time 	= 8
+envshake.freq 	= 10
+envshake.ampl 	= 5
+envshake.phase 	= 1
+getpower 		= 0
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet

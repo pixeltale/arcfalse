@@ -1008,6 +1008,15 @@ trigger1 = vel x > 15
 trigger1 = prevstateno = 4000
 x = 15
 
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = !time
+trigger1 = prevstateno = 4000
+y = -2
+ignorehitpause = 1
+;persistent = 
+
+
 [State 0, AfterImage] ;Post RC Afterimages        ============ ++
 type 		= AfterImage
 triggerall 		= time >= 0			        ;+
@@ -1209,7 +1218,7 @@ y = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
-triggerall = prevstateno != 1000
+triggerall = prevstateno != 1000 && prevstateno != 1050
 trigger1 = time <= 5
 value = SCA
 time = 1
