@@ -85,11 +85,11 @@ trigger1 = ctrl
 [State -1, Backdash]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44" || stateno = 1050
+triggerall = command = "44" || teammode != Tag && command = "M44"
 triggerall = stateno!=105
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = stateno = 1000 && time > 5 || stateno = 1050 && animelemno(0) >= 6 && command = "holdback"
+trigger2 = stateno = 1000 && time > 5 || stateno = 1050 && animelemno(0) >= 5
 
 ;===========================================================================
 ;EX MOVES

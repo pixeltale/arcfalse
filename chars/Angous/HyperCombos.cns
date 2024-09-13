@@ -187,8 +187,9 @@ persistent 		= 0
 
 ;Hitdef
 [State 200, 1]
+triggerall = enemy, !map(ArmorActive)
 type = HitDef
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S, HA
 animtype  = hard
 damage = 250*MAP(P4) + 100,25
@@ -221,6 +222,42 @@ guard.slidetime = 20
 guard.ctrltime = 21
 getpower = 0
 p2stateno = 5300
+
+[State 200, 1]
+type = HitDef
+triggerall = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = S, HA
+animtype  = hard
+damage = 250*MAP(P4) + 100,25
+hitflag = MAFDP
+guardflag = MA
+pausetime = 50,45
+guard.pausetime = 30,30
+sparkno = 13
+sparkxy = -15,-50
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 19
+air.hittime  = 25
+ground.velocity = -2,-10
+air.velocity = -2,-6
+envshake.time = 50
+envshake.freq = 120
+envshake.ampl = 7
+guard.cornerpush.veloff = 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.fall = 1
+fall=1
+fall.yvelocity = 0
+guard.velocity = -9
+guard.hittime = 22
+guard.slidetime = 20
+guard.ctrltime = 21
+getpower = 0
 
 [State -2, Starter Level]
 type 		= MapSet

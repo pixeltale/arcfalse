@@ -1110,17 +1110,10 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State -2, P2 Accumulation - Scale]
-type 		= MapSet
-trigger1 	= 1
-map 		= "customstate_choice"
-value 		= cond((enemy, statetype = A || enemy, statetype = L),5255, 5000)
-ignorehitpause 	= 1
-persistent 	= 0
-
 [State 0]
 type 		= HitDef 
 p2facing 		= 1
+triggerall	 	= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 attr 			= S, NA
 animtype  		= Light
@@ -1156,8 +1149,47 @@ envshake.phase 		= 1
 fall.yvelocity 		= 0
 air.fall 			= 1
 getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5)) 
-p2stateno 		= map(Customstate_choice)
+p2stateno 		= cond((enemy, statetype = A || enemy, statetype = L),5255, 5000)
 p2getp1state		= 0
+[State 0]
+type 		= HitDef 
+p2facing 		= 1
+triggerall		= enemy, map(ArmorActive)
+trigger1 		= !movereversed && !movecontact
+attr 			= S, NA
+animtype  		= Light
+air.animtype 		= back
+damage 			= 100*MAP(P4)
+hitflag 		= MAFD
+guardflag 		= MA
+pausetime 		= 25,25
+sparkno 		= 2
+sparkxy 		= -10,-50
+hitsound   		= 5,3
+guardsound 		= 6,2
+ground.type 		= high
+ground.slidetime 	= 12
+ground.hittime  	= 28
+air.hittime  		= 60
+down.hittime 		= 30
+ground.velocity 	= -6,0
+air.velocity 		= -2, 22
+down.velocity 		= -1.5, 24
+ground.cornerpush.veloff 	= -9
+down.cornerpush.veloff 	= 0
+air.cornerpush.veloff 	= 0
+guard.hittime 		= 20
+guard.pausetime		= 15,15
+guard.velocity 		= -9
+guard.slidetime 	= 20
+guard.ctrltime 		= 20
+envshake.time		= 20
+envshake.freq 		= 120
+envshake.ampl 		= 2
+envshake.phase 		= 1
+fall.yvelocity 		= 0
+air.fall 		= 1
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1763,20 +1795,20 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 ;5R - Dodge/Parry
 [Statedef 700]
-type    = S
-movetype= I
-physics = S
-juggle  = 0
-poweradd= 0
-ctrl = 0
-velset = 0,0
-anim = 700
-sprpriority = 2
-facep2 = 1
+type    	= S
+movetype	= I
+physics 	= S
+juggle  	= 0
+poweradd	= 0
+ctrl 		= 0
+velset 		= 0,0
+anim 		= 700
+sprpriority 	= 2
+facep2 		= 1
 
 [State -2, Hold Timer - Tick Up]
 type 		= MapSet
-trigger1 	= !time || enemy, movereversed
+trigger1 	= !time || enemy, movehit
 map 		= "HoldTimer"
 value 		= 0
 ignorehitpause 	= 0
@@ -1790,35 +1822,69 @@ ignorehitpause 	= 1
 persistent 	= 1
 
 [State 0, HitOverride]
-type = HitOverride
-triggerall = p2dist x > 0
-trigger1 = animelemno(0) <= 3
-attr = SCA,NA,SA,HA,NP,SP,HA
-slot = 0
-stateno = 701
-time = 1
-ignorehitpause = 1
+type 		= HitOverride
+triggerall 	= p2dist x > 0
+trigger1 	= prevstateno != [120, 155]
+trigger1 	= animelemno(0) <= 3
+trigger2 	= prevstateno = [120, 155]
+trigger2 	= animelemno(0) = [2, 3]
+attr 		= SCA,NA,SA,HA,NP,SP,HA
+slot 		= 0
+stateno 	= 700 + 1*(command = "holdfwd" || command = "holdback" || command = "holddown")
+time 		= 1
+ignorehitpause 	= 1
+[State 0. MapSet]				;This state isnt actually "armored"
+type 		= MapSet			;This is just so custom states dont whiff on it.
+trigger1 	= prevstateno != [120, 155]
+trigger1 	= animelemno(0) <= 3
+trigger2 	= prevstateno = [120, 155]
+trigger2 	= animelemno(0) = [2, 3]	
+map 		= "armorActive"
+value 		= 1
+ignorehitpause 	= 1
+[State 0. MapSet]				;This state isnt actually "armored"
+type 		= MapSet			;This is just so custom states dont whiff on it.
+trigger1 	= prevstateno != [120, 155]
+trigger1 	= animelemno(0) <= 3
+trigger2 	= prevstateno = [120, 155]
+trigger2 	= animelemno(0) = [2, 3]	
+map 		= "ParryActive"
+value 		= 1
+ignorehitpause 	= 1
 
 [State 0, ChangeAnim]
-type = ChangeAnim
-triggerall = prevstateno != [120,155]
-trigger1 = animelemno(0) = 3
-trigger1 = ( command = "holdc" || command = "c" ) && map(HoldTimer) < 35
-value = 700
-elem = 3
+type 		= ChangeAnim
+triggerall 	= prevstateno != [120,155]
+trigger1 	= animelemno(0) = 3 || enemy, movehit = 1
+trigger1 	= ( command = "holdc" || command = "c" ) && map(HoldTimer) < 35
+value 		= 700
+elem 		= 3
+ignorehitpause 	= 1
+[State 700, Flash]
+type 		= palfx
+trigger1 	= enemy, movehit = 1
+add 		= 0, 50, 255
+sinadd 		= 0, -50, -255, 60
+time 		= 15
+
+[State 0, VelAdd]
+type = VelSet
+trigger1 = enemy, movehit = 1
+trigger1 = hitshakeover
+x = gethitvar(xvel) * 0.5 * facing
 ignorehitpause = 1
 
 [State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = animelemno(0) > 3
-movetype = A
+type 		= StateTypeSet
+trigger1 	= animelemno(0) > 3
+movetype 	= A
 
 
 [State 0, ChangeState]
-type = ChangeState
-trigger1 = !animtime
-value = 0
-ctrl = 1
+type 		= ChangeState
+trigger1 	= !animtime
+value 		= 0
+ctrl 		= 1
 
 ;ESCAPE!!
 [Statedef 701]
@@ -1831,6 +1897,23 @@ ctrl = 0
 sprpriority = 5
 poweradd = 100
 facep2 = 1
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = anim = 701
+value = 10
+ignorehitpause = 1
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = anim = 701
+value = 4
+ignorehitpause = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
 
 [State 0, Explod]
 type = Explod
@@ -1883,8 +1966,8 @@ x = 9
 ignorehitpause = 1
 [State 0, VelSet]
 type = VelAdd
-trigger1 = sysvar(1) = -1
 trigger1 = time = 2
+trigger1 = sysvar(1) = -1
 x = -9
 ignorehitpause = 1
 

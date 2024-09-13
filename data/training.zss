@@ -19,6 +19,31 @@ if playerId($pid),ctrl = 0 {
 	mapAdd{map: "_iksys_trainingDummyCounter"; value: 1; redirectId: playerId($pid),id}
 }
 
+
+[Statedef +1]
+# Buffer Option - After Guard
+ignorehitpause if map(_iksys_trainingPunish) = 1 && (stateno = [120, 155] || prevstateno = [120, 155] || stateno = 140) && ctrl = 1{
+	if map(_iksys_trainingButtonJam) = 1 {
+		assertInput{flag: a}
+	} else if map(_iksys_trainingButtonJam) = 2 {
+		assertInput{flag: b}
+	} else if map(_iksys_trainingButtonJam) = 3 {
+		assertInput{flag: c}
+	} else if map(_iksys_trainingButtonJam) = 4 {
+		assertInput{flag: x}
+	} else if map(_iksys_trainingButtonJam) = 5 {
+		assertInput{flag: y}
+	} else if map(_iksys_trainingButtonJam) = 6 {
+		assertInput{flag: z}
+	} else if map(_iksys_trainingButtonJam) = 7 {
+		assertInput{flag: s}
+	} else if map(_iksys_trainingButtonJam) = 8 {
+		assertInput{flag: d}
+	} else if map(_iksys_trainingButtonJam) = 9 {
+		assertInput{flag: w}
+	}
+} 
+
 #===============================================================================
 # Global states (not halted by Pause/SuperPause, no helper limitations)
 #===============================================================================
