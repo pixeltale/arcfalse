@@ -88,12 +88,10 @@ down.bounce.groundlevel = -4          ;Y-position at which player bouncing off t
 down.friction.threshold = .05     ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
 
 [Constants]
-StateTagAssistF = 1402
-StateTagAssistD = 1405
-StateTagAssistB = 1300
-StateTagSuperAssist = 3000
-StateTagSuperAssist2  = 3000
-MVCIActiveSwitch  = 1
+StateTagAssist 		= 1005
+StateTagSuperAssist 	= 3000
+StateTagSuperAssist2  	= 3000
+MVCIActiveSwitch  	= 0
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.

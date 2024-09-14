@@ -10,6 +10,13 @@ anim =3001
 sprpriority = 8
 poweradd = -2000
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 	= movehit
+map 		= "ScratchLockout"
+value 		= 10
+ignorehitpause 	= 1
+persistent		= 1
 
 [State 0, Targetbind]
 type = Targetbind
@@ -556,6 +563,14 @@ guard.hittime = 21
 guard.ctrltime = 4
 kill= 0
 getpower = 0
+
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 	= animelemno(0) < 48
+map 		= "ScratchLockout"
+value 		= 10
+ignorehitpause 	= 1
+persistent		= 1
 
 [State 200, 1] ;Final Hit
 type = HitDef

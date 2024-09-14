@@ -706,8 +706,8 @@ persistent 		= 0
 
 [State 1055, 5]
 type = HitDef
-triggerall = time = 0
-trigger1 = !map(CounterHIT) && movecontact = 0
+triggerall = enemy, !map(ArmorActive)
+trigger1 = !map(CounterHIT) && !movecontact && !movereversed
 hitonce = 1
 attr = S, NA
 damage = 120*MAP(P4), 0
@@ -742,7 +742,8 @@ yaccel = .27
 
 [State 1055, 5]
 type = HitDef
-trigger1 = map(CounterHit)
+triggerall = enemy, !map(ArmorActive)
+trigger1 = map(CounterHit) && !movecontact && !movereversed
 attr = S, NA
 damage = 150*MAP(P4), 0
 animtype = up
@@ -758,8 +759,8 @@ ground.type = low
 ground.hittime  = 44 - MAP(untechDecay)
 air.hittime  = 40 - MAP(untechDecay)
 down.hittime = 40 - MAP(untechDecay)
-ground.velocity = -.4,-6.2
-air.velocity = -1.1,-4.5;
+ground.velocity = -.4,-9.2
+air.velocity = -1.1,-8.5;
 air.fall = 1
 fall = 1
 palfx.time = 30
@@ -776,6 +777,43 @@ envshake.time = 20
 envshake.freq = 120
 envshake.ampl = 6
 p2stateno = 5300
+p2getp1state = 0
+yaccel = .27
+
+[State 1055, 5]
+type = HitDef
+triggerall = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+hitonce = 1
+attr = S, NA
+damage = 120*MAP(P4), 0
+animtype = up
+guardflag = MA
+hitflag = MAFD
+priority = 2
+pausetime = 14,14
+sparkno = 3
+sparkxy = 0, enemy, pos y + -22
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = low
+ground.hittime  = 80 - map(untechDecay)
+air.hittime  = 80 - map(untechDecay)
+down.hittime = 80
+ground.velocity = -0.7,-6.2
+air.velocity = -0.7,-5.9;
+air.fall = 1
+fall = 1
+p2facing = 1
+ground.cornerpush.veloff = -8
+guard.ctrltime = 13
+guard.hittime = 13
+guard.velocity = -3
+getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
+p2facing = 1
+envshake.time = 20
+envshake.freq = 90
+envshake.ampl = 4
 yaccel = .27
 
 [State 200, 2]

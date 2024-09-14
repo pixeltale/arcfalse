@@ -1937,6 +1937,7 @@ persistent = 0
 [State 0]
 type = hitdef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage 			= 100*MAP(P4), 0
@@ -1972,6 +1973,45 @@ air.cornerpush.veloff 	= -7
 guard.ctrltime 		= 16
 getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5))
 p2stateno 		= cond(!map(jH_useCount), 915020, (cond(map(jH_UseCount) <= 1, 5255, 5070)))
+
+[State 0]
+type = hitdef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = A, NA
+damage 			= 100*MAP(P4), 0
+animtype 			= hard
+hitflag 			= MAFD
+guardflag 		= HA
+priority 			= 3
+pausetime 		= 15,15
+sparkno 			= 3
+sparkxy 			= -19, -22
+hitsound   		= 5,4
+guardsound 		= 6,2
+ground.type 		= low
+ground.slidetime 		= 16
+guard.slidetime 		= 9
+ground.hittime  		= 30 - MAP(UntechDecay)
+ground.velocity 		= -3,9
+airguard.velocity 		= -3,-.8
+air.type 			= high
+air.velocity 		= -3,15
+air.hittime 		= 60
+down.hittime		= 90
+fall 			= 1 
+fall.yvelocity		 = 0
+down.bounce 		= 0
+envshake.time 		= 30
+envshake.freq 		= 100
+envshake.ampl 		= 8
+envshake.phase 		= 10
+p2facing 			= 1
+ground.cornerpush.veloff 	= -7
+air.cornerpush.veloff 	= -7
+guard.ctrltime 		= 16
+getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 200, 2]
 type = PlaySnd

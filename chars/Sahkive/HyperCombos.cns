@@ -302,22 +302,23 @@ guard.ctrltime = 17
 ground.hittime  = 48
 air.hittime  = 48
 down.hittime = 48
-ground.velocity = -5, -2
+ground.velocity = -5, -9
 fall.yvelocity = 0
-air.velocity = -5,-1.8
+air.velocity = -5,-9
 air.type = TRIP
 air.fall = 1
 fall = 1
-p2stateno = 5300
 ground.cornerpush.veloff = -7
 air.cornerpush.veloff = -7
 envshake.time = 10
 envshake.freq = 80
 envshake.ampl = 4
+p2stateno = 5300
+p2getp1state = 0
 
 [State 0, Pause]
 type = Pause
-trigger1 = movehit = 1
+trigger1 = movehit = 1 && anim != 3008
 time = 1
 movetime = 0
 ignorehitpause = 1

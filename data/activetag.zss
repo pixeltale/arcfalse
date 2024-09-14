@@ -197,7 +197,7 @@ if backEdgeDist >= 0 {
 # StateTagLeavingScreen
 #===============================================================================
 
-[StateDef 5610;
+[StateDef const(StateTagLeavingScreen);
 	type: S;
 	moveType: I;
 	physics: N;
@@ -278,7 +278,7 @@ if backEdgeDist < const240p(-80) || frontEdgeDist < const240p(-80) || time >= 18
 # StateTagWaitingOutside
 #===============================================================================
 
-[StateDef 5611;
+[StateDef const(StateTagWaitingOutside);
 	type: A; # For compatibility with legacy tag codes
 	moveType: I;
 	physics: N;

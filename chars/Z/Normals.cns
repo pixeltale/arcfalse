@@ -604,7 +604,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1 + 1*map(CounterHit)	;90% Starting DMG
+value 		= 1 + 0.2*map(CounterHit)	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1098,15 +1098,45 @@ value = 1; You can make this whatever you want to increase stun scaling per move
 ignorehitpause = 1
 persistent = 0
 
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.8 + 0.2*map(CounterHit)	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.9	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 ;non CH
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = fvar(8) = 0 && !movecontact && !movereversed
+trigger1 = enemy, statetype != C || map(ComboStateCheck)
+trigger1 = !map(CounterHit) && !movecontact && !movereversed
 attr = A, NA
 animtype  = up
 air.animtype = up
-damage = ceil(cond(fvar(11) *75 < 5, 5, fvar(11) * 75)), 0
+damage = 80 * map(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -1116,18 +1146,15 @@ hitsound   = 5,3
 guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *34 < 5, 5, fvar(15) * 34))
-air.hittime  = ceil(cond(fvar(15) *34 < 5, 5, fvar(15) * 34))
-down.hittime = ceil(cond(fvar(15) *34 < 5, 5, fvar(15) * 34))
+ground.hittime  = 24 - map(untechDecay)
+air.hittime  = 24 - map(untechDecay)
+down.hittime = 24 - map(untechDecay)
 ground.velocity = -5,-6
 air.velocity = -5,-4;
 guard.cornerpush.veloff = -8
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
-;envshake.freq =
-;envshake.ampl = 
-;envshake.phase =
 guard.hittime = 10
 guard.pausetime= 16,16
 guard.velocity = -7
@@ -1157,7 +1184,7 @@ trigger1 = fvar(8) = 1 && !movecontact && !movereversed
 attr = A, NA
 animtype  = up
 air.animtype = up
-damage = ceil(cond(fvar(11) *75 < 5, 5, fvar(11) * 75)), 0
+damage = 75*map(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,22
@@ -1167,18 +1194,15 @@ hitsound   = 5,3
 guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *46 < 10, 10, fvar(15) * 46))
-air.hittime  = ceil(cond(fvar(15) *46 < 10, 10, fvar(15) * 46))
-down.hittime = ceil(cond(fvar(15) *46 < 10, 10, fvar(15) * 46))
+ground.hittime  = 40
+air.hittime  = 40
+down.hittime = 40
 ground.velocity = -2.5,-7
 air.velocity = -2.5,-5;
 guard.cornerpush.veloff = -8
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
-;envshake.freq =
-;envshake.ampl = 
-;envshake.phase =
 guard.hittime = 18
 guard.pausetime= 16,16
 guard.velocity = -7
@@ -1339,12 +1363,40 @@ ownpal = 0
 removeongethit = 1
 ignorehitpause = 0
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.9	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 ;non cH
 [State 430, 2]
 type = HitDef 
 p2facing = 1
 triggerall=enemy,statetype!=A
-trigger1 = fvar(8) = 0 && !movecontact && !movereversed
+trigger1 = !map(CounterHit) && !movecontact && !movereversed
 attr = C, NA
 damage = ceil(cond(fvar(11) *75 < 4, 4, fvar(11) * 75)), 0
 animtype  = hard
@@ -1360,10 +1412,9 @@ ground.slidetime = 25
 ground.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
 air.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
 down.hittime = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-ground.velocity = -3,-3.2;,cond(var(2)=0, -6,-2)
+ground.velocity = -3,-3.2
 fall =1
-;yaccel = cond(p2statetype = S, .8, 1)
-air.velocity = -3,-3.2;,cond(var(2)=0, -6,-2)
+air.velocity = -3,-3.2
 fall.yvelocity = 0
 down.velocity = -3,-3.2
 down.hittime = 22
@@ -1386,9 +1437,9 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .65))
 ;non cH
 [State 430, 2]
 type = HitDef 
-p2facing = 1
-triggerall=enemy,statetype=A
-trigger1 = fvar(8) = 0 && !movecontact && !movereversed
+p2facing 	= 1
+triggerall	= enemy,statetype=A
+trigger1 	= !map(CounterHit) && !movecontact && !movereversed
 attr = C, NA
 damage = ceil(cond(fvar(11) *75 < 4, 4, fvar(11) * 75)), 0
 animtype  = hard
@@ -1401,16 +1452,15 @@ hitsound   = 5,2
 guardsound = 6,1
 ground.type = trip
 ground.slidetime = 25
-ground.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-air.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-down.hittime = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-ground.velocity = -3,-3.2;,cond(var(2)=0, -6,-2)
-fall =1
-;yaccel = cond(p2statetype = S, .8, 1)
-air.velocity = -3,0;,cond(var(2)=0, -6,-2)
-fall.yvelocity = 0
-down.velocity = -3,0
-down.hittime = 22
+ground.hittime  = 30 - (map(untechDecay) * 2)
+air.hittime  = 30 - (map(untechDecay) * 2)
+down.hittime = 30 - (map(untechDecay) * 2)
+ground.velocity = -3,-3.2
+fall 		= 1
+air.velocity 	= -3,0
+fall.yvelocity 	= 0
+down.velocity 	= -3,0
+down.hittime 	= 22
 guard.slidetime = 10
 guard.ctrltime = 11
 guard.hittime = 9
@@ -1433,7 +1483,7 @@ type = HitDef
 p2facing = 1
 trigger1 = fvar(8) = 1 && !movecontact && !movereversed
 attr = C, NA
-damage = ceil(cond(fvar(11) *75 < 4, 4, fvar(11) * 75)), 0
+damage = 80 * map(P4), 0
 animtype  = hard
 hitflag = MAF
 guardflag = LA
@@ -1444,13 +1494,12 @@ hitsound   = 5,2
 guardsound = 6,1
 ground.type = trip
 ground.slidetime = 25
-ground.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-air.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-down.hittime = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-ground.velocity = -3,-3.2;,cond(var(2)=0, -6,-2)
+ground.hittime  = 32
+air.hittime  = 32
+down.hittime = 32
+ground.velocity = -3,-3.2
 fall =1
-;yaccel = cond(p2statetype = S, .8, 1)
-air.velocity = -3,-3.2;,cond(var(2)=0, -6,-2)
+air.velocity = -3,-3.2
 fall.yvelocity = 0
 down.velocity = -3,-3.2
 guard.slidetime = 10
@@ -3071,3 +3120,366 @@ type = VelSet
 trigger1 = time=0
 y = -1.6
 
+;Assist A-1: Bolt Primer
+[Statedef 1005]
+type    = S                      
+movetype= A                      
+physics = S                                     
+ctrl = 0                         
+anim = 1000                       
+poweradd = 0                   
+sprpriority = 0                 
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelemtime(7)=0
+value = 1000, 0
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelemtime(5)=0
+value = 1000, 1
+
+;Damage Scaling 
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+fv =13     ;fv = 
+value = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelemtime(7)=0
+time = 8
+freq = 100
+ampl = 6
+
+[State 200, VarAdd]
+type = VarAdd
+trigger1 = !fvar(1)
+trigger1 = movehit
+fv = 25  
+value = 0.5; You can make this whatever you want to increase stun scaling per move
+ignorehitpause = 1
+persistent = 0
+
+;Lightning Storage Variable
+[State 1000]
+Type = VarSet
+Trigger1 = animelem = 7
+V  = 4
+Value = 1
+
+;Idle Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 4
+
+;5M-2 Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 212
+
+;5H Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 221
+
+;3H Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 431
+
+;5S-1 Lightning FX
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 6
+anim = 1003
+ID = 1003
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+accel = 0,0
+random = 0,0
+scale =0.84,0.84
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 0
+
+;5S-1 Body FX
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 7
+anim = 1002
+ID = 1002
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+accel = 0,0
+random = 0,0
+scale =0.84,0.84
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 7
+anim = 6800
+ID = 6900
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.7,0.8
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+;non ch
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = fvar(8) = 0 && movecontact = 0 && movereversed = 0
+attr = S, SA
+animtype  = hard
+air.animtype = back
+damage = ceil(cond(fvar(11) *30 < 4, 4, fvar(11) * 30)), 0
+hitflag = MAF
+guardflag = MA
+pausetime = 10,10
+sparkno = 2
+sparkxy = -20,-43
+hitsound   = 5,1
+guardsound = 6,1
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = ceil(cond(fvar(15) *24 < 12, 12, fvar(15) * 24))
+air.hittime  = ceil(cond(fvar(15) *48 < 24, 24, fvar(15) * 48))
+down.hittime = ceil(cond(fvar(15) *48 < 24, 24, fvar(15) * 48))
+ground.velocity = -7
+air.velocity = -1.5,-4
+down.velocity = -1.5,-4
+envshake.time = 8
+envshake.freq = 10
+envshake.ampl = 2
+envshake.phase = 1
+guard.hittime = 25
+guard.slidetime = 6
+guard.ctrltime = 19
+guard.cornerpush.veloff = -10
+air.fall = 1
+yaccel = .26
+getpower = (50)*(cond(var(var(2)) = 1, 1, .65)) 
+palfx.color=256
+palfx.mul=128,128,128
+palfx.add=0,0,0
+palfx.sinadd=256,256,256,10
+palfx.time=32
+
+;CH
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = fvar(8) = 1 && movecontact = 0 && movereversed = 0
+attr = S, SA
+animtype  = hard
+air.animtype = back
+damage = ceil(cond(fvar(11) *50 < 4, 4, fvar(11) * 50)), 0
+hitflag = MAF
+guardflag = MA
+pausetime = 10,20
+sparkno = 1
+sparkxy = -20,-43
+hitsound   = 5,1
+guardsound = 6,1
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 32
+air.hittime  = 60
+down.hittime = 60
+ground.velocity = -7
+air.velocity = -1.5,-4
+down.velocity = -1.5,-4
+envshake.time = 8
+envshake.freq = 10
+envshake.ampl = 2
+envshake.phase = 1
+guard.hittime = 25
+guard.slidetime = 6
+guard.ctrltime = 19
+guard.cornerpush.veloff = -10
+air.fall = 1
+yaccel = .26
+getpower = 100 
+palfx.color=256
+palfx.mul=128,128,128
+palfx.add=0,0,0
+palfx.sinadd=256,256,256,10
+palfx.time=62
+
+;counter hit shock ring
+[State 0, Helper]
+type = Helper
+triggerall = !numhelper(8500)
+triggerall = numenemy
+triggerall = enemy, stateno !=900
+;triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
+trigger1 = var(56)=1 && movehit
+name = "Counter Hit Spark"
+ID = 8500
+stateno = 8500
+pos = 0,-50
+size.xscale = .46
+size.yscale = .46
+postype = p2    ;p2,front,back,left,right
+ownpal = 0
+facing=1
+ignorehitpause = 1
+
+;shock particles
+[State 1006, Shock Particles]
+type = Helper
+;trigger1 = !(EnemyNear, SelfAnimExist(7696)) && !(EnemyNear, SelfAnimExist(9010))
+trigger1 = !NumHelper(8155)
+trigger1 = !numhelper(8415)
+trigger1 = MoveHit = 1 && NumTarget
+trigger1 = !(Target, HitShakeOver)
+trigger1 = var(43) := (Target, ID)
+helperType = normal
+stateNo = 8155
+ID = 8155
+name = "Shock Particles"
+posType = P2
+ownPal = 1
+ignoreHitPause = 1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = !time
+trigger1 = var(4)
+value = 1006
+ctrl = 1
+
+
+;--------------------------------------------------------------
+;Assist A-2: Bolt Shot
+[Statedef 1006]
+type    = S                      
+movetype= A                      
+physics = S                      
+juggle  = 0                      
+;Commonly-used controllers:                
+ctrl = 0                         
+anim = 1004                       
+poweradd = 0                   
+sprpriority = 0                  
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelemtime(5)=0
+anim = 6700
+ID = 6700
+pos = 10,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelemtime(4)=0
+value = 1000,3
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = time = 0
+v = 4     
+value = -1
+
+[State 210, Width]
+type = Width
+trigger1 = (AnimElemTime (3) >= 0) && (AnimElemTime (10) < 0)
+value = 50,0
+
+;Idle Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 4
+
+;5M-2 Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 212
+
+;5H Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 221
+
+;3H Explod Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 431
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 2
+name = "Bolt Fire"
+ID = 1500
+stateno = 1500
+pos = 0,0
+size.xscale = .84
+size.yscale = .84
+postype = p1    ;p2,front,back,left,right
+ownpal = 0
+facing=1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

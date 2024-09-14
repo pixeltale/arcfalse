@@ -128,6 +128,18 @@ down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing
 down.bounce.groundlevel = -4          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
 down.friction.threshold = .05         ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
 
+[Constants]
+; NegativeStates.cns states
+StateTagSuperAssist = 3000
+StateTagSuperAssist2  =3100
+StateTagAssist = 1000 
+superAttacksStartStateno = 3000 ; the stateno that starts super attacks
+superAttacksEndStateno = 3999 ; the stateno that ends super attacks
+AnimAerialAttack = 620
+SpecialAttackAIStartStateno =1000
+SpecialAttackAIEndStateno =1999
+MVCIActiveSwitch  = 0
+
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
 [Quotes]

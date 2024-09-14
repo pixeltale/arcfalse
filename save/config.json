@@ -32,9 +32,7 @@
     "data/dizzy.zss",
     "data/guardbreak.zss",
     "data/score.zss",
-    "data/Add004/NegativeStates.cns",
-    "data/Add004/common2.cns",
-    "data/Add004/NegativeStates.zss",
+    "data/activetag.zss",
     "data/training.zss"
   ],
   "ControllerStickSensitivity": 0.4,

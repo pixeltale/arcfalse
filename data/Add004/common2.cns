@@ -2301,19 +2301,18 @@ ctrl=0
 ;==========================
 ; out screen ; (‰æ–ÊŠO‚Ö)
 [statedef 190190]
-type=a
-movetype=i
+type=u
+movetype=u
 physics=n
 anim=40
 sprpriority=-2
 velset=0,0
 ctrl=0
-facep2=0
  
 [state 0]
-	type=assertspecial
-	trigger1=map(assist)>0
-	flag=NoTurnTarget
+	type = assertspecial
+	trigger1 = 1
+	flag = NoTurnTarget
  
 ;---
 ;sys::partner_life-recover1
@@ -2405,9 +2404,9 @@ y = .628;sys::partner_jump-vel1
 ;---
 ;sys::player_type_change1
 [state 0]
-	type=varset
-	trigger1=1
-	sysfvar(4)=1 ;; (0:main / 1:assist)
+	type = varset
+	trigger1 = 1
+	sysfvar(4) = 1  ;; (0:main / 1:assist)
 ;---
 ;sys::face_d_clear
 [state 0]
@@ -2449,6 +2448,81 @@ anim=909601 ;; empty
 velset=0,0
 ctrl=0
 ;---
+
+[State 0]
+type = text
+trigger1 = time<=20
+triggerall = teamside = 1
+removetime = 1
+layerno = 2
+text = "Switch OK."
+font = F3
+align = 0
+pos = 90,44
+ignorehitpause = 1
+[State 0]
+type = text
+trigger1 = time<=20
+triggerall = teamside = 2
+removetime = 1
+layerno = 2
+text = "Switch OK."
+font = F3
+align = 0
+pos = 230,44
+ignorehitpause = 1
+
+[State 0]
+type = text
+trigger1 = time>20
+trigger1 = time<=40
+triggerall = teamside = 1
+removetime = 1
+layerno = 2
+text = "Switch OK.."
+font = F3
+align = 0
+pos = 90,44
+ignorehitpause = 1
+[State 0]
+type = text
+trigger1 = time>20
+trigger1 = time<=40
+triggerall = teamside = 2
+removetime = 1
+layerno = 2
+text = "Switch OK.."
+font = F3
+align = 0
+pos = 230,44
+ignorehitpause = 1
+
+[State 0]
+type = text
+trigger1 = time>40
+trigger1 = time<60
+triggerall = teamside = 1
+removetime = 1
+layerno = 2
+text = "Switch OK..."
+font = F3
+align = 0
+pos = 90,44
+ignorehitpause = 1
+[State 0]
+type = text
+trigger1 = time>40
+trigger1 = time<60
+triggerall = teamside = 2
+removetime = 1
+layerno = 2
+text = "Switch OK..."
+font = F3
+align = 0
+pos = 230,44
+ignorehitpause = 1
+
+
 [state 0]
 	type=screenbound
 	trigger1=1
@@ -2528,6 +2602,30 @@ ctrl=0
 	trigger1=1
 	flag=noshadow
 ;---
+
+[State 0]
+type = text
+trigger1 = time<=60
+triggerall = teamside = 1
+removetime = 1
+layerno = 2
+text = "Assist OK"
+font = F3
+align = 0
+pos = 90,44
+ignorehitpause = 1
+[State 0]
+type = text
+trigger1 = time<=60
+triggerall = teamside = 2
+removetime = 1
+layerno = 2
+text = "Assist OK"
+font = F3
+align = 0
+pos = 230,44
+ignorehitpause = 1
+
 ;sys::partner_life-recover3
 [state 0]
 	type=lifeadd
@@ -2712,7 +2810,7 @@ ctrl = 0
 [state 0]
 	type=velset
 	trigger1=sysvar(0)>0 && playeridexist(sysvar(0))
-	x=abs(pos x-playerid(sysvar(0)),pos x)*0.05
+	x=abs(pos x-playerid(sysvar(0)),pos x)*0.065
 	y=abs(pos y)*0.05
 ;sys::partner-out-vel3
 [state 0]
@@ -2843,19 +2941,17 @@ hitsound                = 5,2
 guardsound              = 6,0
 ground.type             = High
 ground.slideTime        = 3
-ground.hitTime          = 24
+ground.hitTime          = 25
 guard.hitTime 			= 22
 ground.velocity         = -0.25, 0
 airguard.velocity       = -2.5, -1.85
 air.type                = high
 air.velocity            = -2, -5
-air.hitTime             = 30
+air.hitTime             = 25
 getpower                = 0
 givepower      			= 25
 fall                    = 0
-fall.recover            = 0
 air.fall                = 1
-air.recover             = 0
 down.bounce 			= 0
 down.velocity			= -1,-6
 guard.kill = 0

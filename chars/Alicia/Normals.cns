@@ -2192,3 +2192,138 @@ type = ChangeState
 trigger1 = Vel Y > 0 && Pos Y >= -10
 value = 52
 
+;---------------------------------------------------------------------------
+;Assist A - 2M
+[Statedef 415]
+type    = C
+movetype= A
+physics = C
+velset 	= vel x + 5, 0
+ctrl = 0
+anim = 410
+sprpriority = 2
+facep2 = 1
+
+ ;============================
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		=  1
+ignorehitpause 	=  1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		=  0.90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		=  0.90	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent 		= 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+;============================
+
+[State 410, 3]
+type = HitDef 
+p2facing = 1
+triggerall = !map(Float)
+trigger1 = animelem = 4
+attr = C, NA
+damage = 25*MAP(P4), 0
+animtype  = Light
+air.animtype = back
+hitflag = MAFD
+guardflag = LA
+pausetime = 8,8
+sparkxy = -15,-3
+hitsound   = 5,2
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 22 - MAP(untechDecay)
+air.hittime  = 25 - MAP(untechDecay)
+down.hittime = 25 - MAP(untechDecay)
+ground.velocity = -3
+air.velocity = -3,-4;
+fall.yvelocity = 0
+air.fall = 1
+fall.yvelocity = 0
+sparkno = 2
+guard.ctrltime = 10
+getpower = (20)*(cond(var(var(2)) = 1, 1, 1))
+[State 410, 3]
+type = HitDef 
+p2facing = 1
+triggerall = !map(Float)
+trigger1 = animelem = 7 || animelem = 8 || animelem = 9
+trigger2 = animelem = 10 || animelem = 11 || animelem = 12
+attr = C, NA
+damage = 15*MAP(P4), 0
+animtype  = Light
+air.animtype = back
+hitflag = MAFD
+guardflag = LA
+pausetime = 3,3
+sparkxy = -15,-3
+hitsound   = 5,2
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 18 - MAP(untechDecay)
+air.hittime  = 25 - MAP(untechDecay)
+down.hittime = 25 - MAP(untechDecay)
+ground.velocity = cond(animelemno(0) % 2 = 0, -p2dist x * 0.075, p2dist x * 0.05)
+air.velocity = -3,-1;
+fall.yvelocity = 0
+air.fall = 1
+fall.yvelocity = 0
+sparkno = 2
+guard.ctrltime = 6
+getpower = (10)*(cond(var(var(2)) = 1, 1, 1))
+
+[State 410, 3]
+type = HitDef 
+p2facing = 1
+triggerall = map(Float)
+trigger1 = animelem = 4
+attr = C, NA
+damage = 25*MAP(P4), 0
+animtype  = Light
+air.animtype = back
+hitflag = MAFD
+guardflag = MA
+pausetime = 8,8
+sparkxy = -15,-3
+hitsound   = 5,2
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 22 - MAP(untechDecay)
+air.hittime  = 25 - MAP(untechDecay)
+down.hittime = 25 - MAP(untechDecay)
+ground.velocity = -3
+air.velocity = -3,-4;
+fall.yvelocity = 0
+air.fall = 1
+fall.yvelocity = 0
+sparkno = 2
+guard.ctrltime = 10
+getpower = (20)*(cond(var(var(2)) = 1, 1, 1))
+
+ 
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1

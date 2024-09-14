@@ -2958,11 +2958,6 @@ type    = S
 movetype= H
 physics = S
 
-[State 0, VelAdd]
-type = PosSet
-trigger1 = !time
-y = 0
-
 [State 5001, slide scaling]
 type = veladd
 trigger1 = time && hitshakeover
@@ -3025,7 +3020,7 @@ trigger1 = Pos y >= 0
 y = 0
 [State , 4]
 type = VelSet
-trigger1 = 1
+trigger1 = pos y = 0
 y = 0
 [State 5002, 1]
 type = HitVelSet
@@ -3043,7 +3038,7 @@ x = 0
 
 [State 5002, 6]
 type = SelfState
-trigger1 = HitOver
+trigger1 = pos y = 0 && hitover
 value = 0
 ctrl = 1
 
@@ -3426,7 +3421,7 @@ physics = N
 
 [State 5100, 4]
 type = PosSet
-trigger1 = enemy, name = "Sahkive" && enemy, stateno = 3101
+trigger1 = enemynear, name = "Sahkive" && enemynear, stateno = 3101
 y = 0
 
 [State 5111, 11]
@@ -4131,7 +4126,7 @@ removeongethit = 0
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time >= 0
-trigger1 = !(enemy, name = "Sahkive" && enemy, stateno = 3101)
+trigger1 = !(enemynear, name = "Sahkive" && enemynear, stateno = 3101)
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 time = 1
 
@@ -4139,7 +4134,7 @@ time = 1
 type = PalFX
 triggerall = map(_iksys_trainingCtrlDataDisp) != [2, 3] && enemy, map(_iksys_trainingCtrlDataDisp) != 1
 trigger1 = Time
-trigger1 = !(enemy, name = "Sahkive" && enemy, stateno = 3101)
+trigger1 = !(enemynear, name = "Sahkive" && enemy, stateno = 3101)
 time = 1
 add = cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0)
 
@@ -4610,7 +4605,7 @@ physics = N
 [State 5221 VelSet]
 type = velset
 trigger1 = Time = 0
-x = gethitvar(xvel)*cond(enemynear,facing=facing,1,-1)*cond(facing=1,-1,1)
+x = gethitvar(xvel)*facing
 y = gethitvar(yvel)
 
 [State 5221, Gravity]
@@ -9219,7 +9214,6 @@ type = mapset
 trigger1 = movetype != A
 map = "Low"
 value = 0
-
 
 [statedef -4]
 

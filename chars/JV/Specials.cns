@@ -70,7 +70,7 @@ persistent 		= 0
 [State 200, 1]
 type 	= HitDef
 p2facing 	= 1
-triggerall = anim = 1000
+triggerall 	= anim = 1000
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
 attr 		= S, SA
@@ -87,11 +87,13 @@ animtype 		= medium
 ground.slidetime 	= 14
 ground.hittime  	= 26 - MAP(untechDecay)
 ground.velocity 	= -2,-5
-air.velocity 	= -6.6,-1
-air.hittime 	= 24
+air.velocity 	= -1,-1
+air.hittime 	= 24 - map(UntechDecay)
 envshake.time 	= 7
 fall 		= 1
 fall.yvelocity 	= 0
+air.fall	= 0
+forcenofall	= 1
 guard.ctrltime 	= 20
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = 0
@@ -2192,6 +2194,180 @@ value = 16
 type = DestroySelf
 trigger1 = animtime = 0
 ignorehitpause = 1
+
+
+;===================================================
+; Kanon Driver Assist
+[Statedef 2105]
+type = S
+movetype = A
+Physics = S
+juggle = 0
+velset = 0,0
+ctrl = 0
+anim = 2010
+poweradd = -1000
+sprpriority = 2
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3	;Heavy Starter
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.80	;87% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State SP, MapSet]
+type = MapSet
+trigger1 = map(ComboStateCheck)
+trigger1 = movehit = 1
+map = "EX5S_Limiter"
+value = 1
+ignorehitpause = 1
+
+[State 630, 2]
+type = HitDef 
+p2facing = 1
+triggerall = enemy, !map(ArmorActive)
+trigger1 = movecontact = 0 && enemy, statetype = A
+attr = S, NA
+animtype  = Light
+air.animtype = back
+damage = (100+((abs(p2dist x * 1.2) + abs(p2dist y))/1.1))*MAP(P4), 10 + abs(p2dist x * 0.9)	;Deals extra damage the longer distance your shot is lmao
+hitflag = MAFDP
+guardflag = MA
+pausetime = 18,22
+sparkno = 2
+sparkxy = -35,-45
+hitsound   = 5,3
+guardsound = 6,2
+air.velocity = -12,-9
+fall = 1
+envshake.time = 15
+envshake.freq = 80
+envshake.ampl = 2
+envshake.phase = 1
+air.hittime = 999
+guard.hittime = 45
+airguard.hittime = 45
+guard.ctrltime = 17
+fall.yvelocity = 0
+getpower = 0
+p2stateno = 5220
+p2getp1state = 0
+
+[State 630, 2]
+type = HitDef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = movecontact = 0 && enemy, statetype = A
+attr = S, NA
+animtype  = Light
+air.animtype = back
+damage = (100+((abs(p2dist x * 1.2) + abs(p2dist y))/1.1))*MAP(P4), 10 + abs(p2dist x * 0.9)	;Deals extra damage the longer distance your shot is lmao
+hitflag = MAFDP
+guardflag = MA
+pausetime = 18,22
+sparkno = 2
+sparkxy = -35,-45
+hitsound   = 5,3
+guardsound = 6,2
+air.velocity = -12,-9
+fall = 1
+envshake.time = 15
+envshake.freq = 80
+envshake.ampl = 2
+envshake.phase = 1
+air.hittime = 999
+guard.hittime = 45
+airguard.hittime = 45
+guard.ctrltime = 17
+fall.yvelocity = 0
+getpower = 0
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 700, 0
+channel = 0
+
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_boomerang"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+;[State 0, Explod]
+;type = Explod
+;trigger1 = animelem = 5
+;anim = 1008
+;ID = 1008
+;pos = 20,-60
+;postype = p1  ;p2,front,back,left,right
+;facing = 1
+;vfacing = 1
+;bindtime = 1
+;vel = 0.1,0
+;accel = 0,0
+;random = 0,0
+;removetime = -2
+;pausemovetime = 1
+;scale = 1.5,0.5
+;sprpriority = 0
+;ontop = 1
+;shadow = 10,10,0
+;ownpal = 0
+;removeongethit = 0
+;ignorehitpause = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 5
+helpertype = normal ;player
+name = "AngledDriver"
+ID = 2101
+stateno = 2101 
+pos = 10,-70
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VelSet]
+type = VelAdd
+trigger1 = time = [1,2]
+x = 1
+y = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
 
 ;==================================================================
 ;[EX] 6S

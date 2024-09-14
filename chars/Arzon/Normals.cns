@@ -1895,6 +1895,227 @@ value = 1
 ignorehitpause = 1
 ;persistent = 
 
+;Assist A: 2S
+;-----------------------------
+[Statedef 1005]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim =1000
+sprpriority = 2
+
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= time = 0
+map 		= "RemixCancel"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= movecontact
+map 		= "RemixCancel"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 1001
+ID = 1001
+pos = 0,0
+postype = p1
+removetime = -2
+pausemovetime = 0
+scale = .82,.82
+sprpriority = 3
+removeongethit = 1
+bindtime = 999
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time>=15
+trigger1 = time<23
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
+time = 1
+
+[State 0, Special Counter UP]
+type = VarAdd
+trigger1 = time = 0
+v =  5
+value = 1
+
+[State 1, Environmental Shake]
+type = EnvShake
+trigger1 = animelem = 7
+time = 20
+freq = 100
+ampl = 8
+
+[State 1, Arzon Voice SFX]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 1004, 0
+
+
+[State 1, Arzon Voice SFX]
+type = PlaySnd
+trigger1 = animelem = 6
+value = 2000, 1
+
+[State 1, Hit Woosh SFX]
+type = PlaySnd
+trigger1 = animelem = 6
+value = 0, 4
+volumescale = 65
+
+ ;============================
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "P1"
+value         =  1.10
+ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
+[State -2, P2 Value Set]
+type         = MapSet
+trigger1         = movehit && map(ComboStateCheck)
+map         = "P2"
+value         =  0.95
+ignorehitpause     = 1
+persistent         = 0
+[State -2, P2 Accumulation - Scale]
+type         = MapSet
+trigger1         = movehit
+map         = "Accumulation"
+value         = Map(Accumulation) * map(P2)
+ignorehitpause     = 1
+persistent         = 0
+;============================
+[State 2, Regular Hit]
+type = HitDef 
+trigger1 = !MAP(CounterHit) && movecontact = 0 && movereversed = 0
+hitonce = 1
+p2facing = 0
+attr = S, SA
+air.animtype = back
+damage = 150*map(P4), 30
+hitflag = MAFD
+guardflag = MAF
+priority = 3
+pausetime = 18,18
+sparkno = 3
+sparkxy = -10,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = hard
+ground.slidetime = 14
+ground.hittime  = 999
+air.hittime  = 999
+down.hittime = 999
+air.fall = 1
+ground.velocity = -5,-5.4
+ground.cornerpush.veloff = -15
+air.velocity = -6,-3.5
+envshake.time = 20
+envshake.freq = 110
+envshake.ampl = 7
+envshake.phase = 1
+guard.slidetime = 25
+guard.hittime = 9
+guard.ctrltime = 21
+guard.cornerpush.veloff = -7
+fall = 1
+getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
+
+[State 2, Counter Hit]
+type = HitDef 
+triggerall = enemy, !map(ArmorActive)
+trigger1 = Map(CounterHit) && movecontact = 0 && movereversed = 0
+hitonce = 1
+attr = S, SA
+damage = 200*map(P4)
+hitflag = MAF
+guardflag = MAF
+priority = 3
+pausetime = 30,30
+sparkno = 3
+sparkxy = -10,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = hard
+ground.slidetime = 14
+ground.hittime  = 40
+air.hittime  = 40
+down.hittime = 34
+ground.velocity = -.6,-6.9
+air.velocity = -2.8,-5.1
+envshake.time = 30
+envshake.freq = 180
+envshake.ampl = 5
+envshake.phase = 1
+guard.slidetime = 25
+guard.hittime = 14
+guard.ctrltime = 21
+guard.cornerpush.veloff = -7
+ID = 220
+p2stateno = 30000
+yaccel = .27
+fall = 1
+getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
+
+[State 2, Counter Hit]
+type = HitDef 
+triggerall = enemy, map(ArmorActive)
+trigger1 = movecontact = 0 && movereversed = 0
+hitonce = 1
+attr = S, SA
+damage = 200*map(P4)
+hitflag = MAF
+guardflag = MAF
+priority = 3
+pausetime = 30,30
+sparkno = 3
+sparkxy = -10,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+animtype = hard
+ground.slidetime = 14
+ground.hittime  = 40
+air.hittime  = 40
+down.hittime = 34
+ground.velocity = -.6,-6.9
+air.velocity = -2.8,-5.1
+envshake.time = 30
+envshake.freq = 180
+envshake.ampl = 5
+envshake.phase = 1
+guard.slidetime = 25
+guard.hittime = 14
+guard.ctrltime = 21
+guard.cornerpush.veloff = -7
+yaccel = .27
+fall = 1
+getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
 ;---------------------------------------------------------------------------
 ;4R
 [Statedef 1540]
