@@ -402,8 +402,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "camerapos = %f frontedgedist = %d"
-params = camerapos x, frontedgedist
+text = "trials_powertimer = %f trials_lifeTimer = %f"
+params = enemy, map(_iksys_trialsPowerTimer), enemy, map(_iksys_trialsLifeTimer)
 ignorehitpause = 1
 persistent = 1
 
@@ -736,6 +736,12 @@ removeongethit = 0
 
 [State 0, VarSet]
 type = VarSet
+trigger1 = 1
+v = 5
+value = map(EN)
+
+[State 0, VarSet]
+type = VarSet
 trigger1 = !numtarget
 v = 23    ;fv = 10
 value = 0
@@ -781,3 +787,29 @@ triggerall = Time = 1
 trigger1 = stateno = 52 ;Jump land
 trigger2 = stateno = 106 ;Run-back land
 value = 40, 0
+
+
+;---------------------- Integer variable list ----------------------
+
+; var(1):= 105, -1
+; var(2):= 3005, 3010, 3100, 3200
+; var(3):= -2, 3000
+;var(13):= 0, 10, 11, 12
+;var(23):= -3, 45
+;var(25):= -3
+;var(27):= -3, 45
+;var(29):= -3
+;var(30):= 2300, 3000
+;var(40):= 106
+;var(44):= -2
+;var(45):= -3, 45
+;var(50):= -2
+;var(59):= 0
+
+;---------------------- Float variable list ----------------------
+
+; fvar(6):= 106, 107
+;fvar(17):= -2
+;fvar(18):= 99
+;fvar(20):= -3
+

@@ -33,7 +33,8 @@
     "data/guardbreak.zss",
     "data/score.zss",
     "data/activetag.zss",
-    "data/training.zss"
+    "data/training.zss",
+    "external/mods/trials/trials.zss"
   ],
   "ControllerStickSensitivity": 0.4,
   "Credits": 10,

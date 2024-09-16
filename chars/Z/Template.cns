@@ -1,6 +1,6 @@
 [Data]
 ;Amount of life to start with
-life = 1500
+life = 1300
 ;attack power (more is stronger)
 attack = 100
 ;defensive power (more is stronger)
@@ -462,7 +462,7 @@ ignorehitpause = 0
 
 [State 0, RC Lockout]
 type = MapSet
-trigger1 = stateno = 2006 || stateno = 2002
+trigger1 = stateno = 2006 || stateno = 2002 || statetype = A
 map = "ZGauge_Lockout"
 value = 1
 ignorehitpause = 0
@@ -660,13 +660,21 @@ value = 0
 [State 0, RemoveExplod]
 type = RemoveExplod
 Trigger1 = anim = 3002
+trigger2 = stateno = 4001
 id = 10042
 
 ;blown fuse shockwave removal
 [State 0, RemoveExplod]
 type = RemoveExplod
 Trigger1 = anim = 3002
+trigger2 = stateno = 4001
 id = 10043
+
+;blown fuse shockwave removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno = 4001
+id = 3003
 
 ;Disable Holding for DJ
 [State 45, Explod]

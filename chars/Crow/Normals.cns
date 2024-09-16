@@ -648,6 +648,7 @@ x = 1
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
+triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 trigger1		= !map(CounterHit)
 ;==============================================
@@ -698,6 +699,7 @@ p2getp1state		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
+triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 trigger1		= map(CounterHit)
 ;==============================================
@@ -742,6 +744,53 @@ getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 ;==============================================
 p2stateno 		= cond((enemy, statetype = A || enemy, statetype = L),5255, 5000)
 p2getp1state		= 0
+;++++++++++++++++++++++++++++++++++++++++++++++
+
+[State 200, 1] ;++++++++++++++++++++++++++++++++++
+type 		= HitDef 
+p2facing 		= 1
+trigger1 		= !movereversed && !movecontact
+trigger1		= enemy, map(ArmorActive)
+;==============================================
+attr 			= S, NA                     
+damage 			= 200*map(P4)
+animtype 		= light
+air.animtype 		= back
+;==============================================
+guardflag 		= HA
+hitflag 		= MAFD
+;==============================================
+pausetime 		= 35, 35
+guard.pausetime		= 20, 20
+sparkno 		= 0
+sparkxy 		= -30, -59
+hitsound 		= 5, 1
+guardsound 		= 6, 0
+;==============================================
+ground.type 		= High
+air.type 		= High
+;==============================================
+ground.hittime  	= 999
+air.hittime  		= 999
+down.hittime 		= 90
+ground.slidetime 	= 5
+;==============================================
+ground.velocity 	= 0, -8
+air.velocity 		= 0,18
+guard.ctrltime 		= 22
+airguard.velocity 	= -1.9,-.8
+;==============================================
+fall			= 1
+air.fall 		= 1
+fall.yvelocity 		= 0
+;==============================================
+envshake.time		= 20
+envshake.freq 		= 125
+envshake.ampl 		= 6
+envshake.phase 		= 1
+;==============================================
+getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+;==============================================
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State 1200, Shake Screen]
@@ -1132,7 +1181,7 @@ ground.hittime  	= 28
 air.hittime  		= 60
 down.hittime 		= 30
 ground.velocity 	= -6,0
-air.velocity 		= -2, 22
+air.velocity 		= -2, 22 * map(GravMul)
 down.velocity 		= -1.5, 24
 ground.cornerpush.veloff 	= -9
 down.cornerpush.veloff 	= 0
@@ -1486,7 +1535,7 @@ p2facing = 1
 trigger1 = !movereversed && !movecontact
 attr = A, NA
 damage 		= 90*map(P4)
-guardflag 	= MA
+guardflag 	= HA
 hitflag 	= MAFD
 pausetime 	= 15,15
 sparkno 	= 1
@@ -1866,13 +1915,6 @@ trigger1 	= enemy, movehit = 1
 add 		= 0, 50, 255
 sinadd 		= 0, -50, -255, 60
 time 		= 15
-
-[State 0, VelAdd]
-type = VelSet
-trigger1 = enemy, movehit = 1
-trigger1 = hitshakeover
-x = gethitvar(xvel) * 0.5 * facing
-ignorehitpause = 1
 
 [State 0, StateTypeSet]
 type 		= StateTypeSet

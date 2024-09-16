@@ -92,8 +92,7 @@ air.hittime 	= 24 - map(UntechDecay)
 envshake.time 	= 7
 fall 		= 1
 fall.yvelocity 	= 0
-air.fall	= 0
-forcenofall	= 1
+air.fall	= 1
 guard.ctrltime 	= 20
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = 0
@@ -533,6 +532,7 @@ value = 5,0
 
 [State 0, Changestate]
 type = Changestate
+triggerall = time
 trigger1 = command = "fwd" || teammode != Tag && command = "M66"
 value = 100
 ctrl = 1

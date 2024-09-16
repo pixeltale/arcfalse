@@ -7,7 +7,7 @@
       "playtime": 5820.16
     },
     "netplayversus": {
-      "playtime": 196435.93
+      "playtime": 208504.82
     },
     "freebattle": {
       "playtime": 132.88
@@ -47,7 +47,10 @@
           "consecutive": 4
         }
       ]
+    },
+    "trials": {
+      "playtime": 0
     }
   },
-  "playtime": 203301.99
+  "playtime": 215370.88
 }

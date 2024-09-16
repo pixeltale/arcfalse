@@ -453,6 +453,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
+triggerall = !map(ArmorActive)
 trigger1 = animelemno(0) = 6
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
@@ -497,6 +498,7 @@ ignorehitpause = 1
 [State 210, 2]
 type = HitDef 
 p2facing = 1
+triggerall = enemy, !map(ArmorActive)
 trigger1 = animelemno(0) = 6
 trigger1 = map(CounterHit) && !movecontact && !movereversed
 attr = S, NA
@@ -524,6 +526,37 @@ guard.ctrltime = 18
 fall.yvelocity = 0
 p2stateno = map(CornerSplat)
 p2getp1state = 0
+getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
+
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+triggerall = enemy, map(ArmorActive)
+trigger1 = animelemno(0) = 6
+trigger1 = !movecontact && !movereversed
+attr = S, NA
+animtype  = Light
+damage = 150*MAP(P4), 0
+hitflag = MAFDP
+guardflag = MA
+pausetime = 25,25
+sparkno = 3
+sparkxy = -10,-34
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = low
+ground.slidetime = 12
+ground.hittime  = 150
+air.hittime = 150
+ground.velocity = -15.5,-10
+air.velocity = -15.5,-9.5
+fall = 1
+envshake.time = 20
+envshake.freq = 100
+envshake.ampl = 5
+envshake.phase = 1
+guard.ctrltime = 18
+fall.yvelocity = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 
 [State -2, Wallbounce Type Set]

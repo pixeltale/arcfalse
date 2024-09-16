@@ -711,7 +711,7 @@ ctrl = 0
 velset = 1,0
 anim = root,stateno + 10
 sprpriority = 2
-facep2 = 1
+facep2 = 0
 
 [State 0, ChangeState]
 type = DestroySelf
@@ -1013,7 +1013,7 @@ velset = vel x * 0.25, 0
 ctrl = 0
 sprpriority = 2
 poweradd = 0
-facep2 = 1
+facep2 = 0
 
 [State 0, PosAdd]
 type = PosAdd

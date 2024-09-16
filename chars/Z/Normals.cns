@@ -659,6 +659,7 @@ palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
 getpower = (100)*(cond(var(var(2)) = 1, 1, .65)) 
+forcestand = 1
 p1sprpriority = 0
 p2sprpriority = -1
 
@@ -685,8 +686,6 @@ air.hittime  = 55-map(untechDecay)
 down.hittime = 55-map(untechDecay)
 ground.velocity = -4
 air.velocity = -2.5,-4
-;yaccel = .24
-;p2stateno = 615020
 envshake.time = 12
 envshake.freq = 90
 envshake.ampl = 3
@@ -704,6 +703,7 @@ palfx.time=54
 getpower = 100
 p1sprpriority = 0
 p2sprpriority = -1
+forcestand = 1
 
 ;counter hit shock ring
 [State 0, Helper]

@@ -110,7 +110,7 @@ guard.slidetime = 15
 type = HitDef
 triggerall = enemy, movetype = H
 Trigger1 = !movecontact
-attr = S, ST
+attr = S, SA
 hitflag = MFD
 guardflag = MA
 priority = 3,Hit
@@ -1435,7 +1435,7 @@ persistent         = 0
 [State 800, 1] ;With grab sound
 type 	= HitDef
 Trigger1 	= !movecontact 
-attr 		= S, ST
+attr 		= S, ST, SA
 hitflag 		= MAFD
 guardflag 		= MA
 sparkno 		= 1000
@@ -2126,24 +2126,24 @@ value = 1.5
 ;Note: Always have ignorehitpause on all of these.
 [State -2, Starter Level]
 type         = MapSet
-trigger1         = movehit && !map(ComboTimer)
+trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = MapSet
-trigger1         = movehit && !map(ComboTimer)
+trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
 value         =  1    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
-type         = MapSet
-trigger1         = movehit && map(ComboTimer)
-map         = "P2"
-value         =  1    ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
-ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
-persistent         = 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
+type         		= MapSet
+trigger1         	= movehit && map(ComboStateCheck)
+map         		= "P2"
+value         		=  0.90    ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
+ignorehitpause     	= 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
+persistent         	= 0    ;Lights are sometimes from 80-85%, though most have atleast an 83% Scaling Value.
 [State -2, P2 Accumulation - Scale]
 type         = MapSet
 trigger1         = movehit
@@ -2155,7 +2155,7 @@ persistent         = 0
 type = hitdef 
 trigger1 = time = 0
 attr = S, ST
-damage = 125*MAP(P4)+ 150, 0
+damage = 100*MAP(P4)+ 100, 0
 animtype  = Hard
 hitflag = MAF
 air.type = TRIP
@@ -2784,9 +2784,9 @@ fall.yvelocity = 0
 envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 6
-guard.velocity = -6
+guard.velocity = p2dist x * 0.03
 guard.hittime = 25
-guard.slidetime = 19
+guard.slidetime = 90
 guard.ctrltime = 15
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
@@ -2805,7 +2805,7 @@ hitflag = MAFD
 air.animtype = back
 guardflag = MA
 pausetime = 14,14
-guard.pausetime = 15,15
+guard.pausetime = 15,10
 sparkno = 3
 sparkxy = -20,-10
 hitsound   = 5,4
@@ -2822,9 +2822,9 @@ fall.yvelocity = 0
 envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 6
-guard.velocity = -6
+guard.velocity = p2dist x * 0.05
 guard.hittime = 25
-guard.slidetime = 19
+guard.slidetime = 95
 guard.ctrltime = 15
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
