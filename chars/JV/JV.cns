@@ -311,6 +311,19 @@ flag = Nobardisplay
 
 [Statedef -2]
 
+[State 0, 5RL Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "En5RL_UseCount"
+value 		= 0
+ignorehitpause 	= 1
+[State 0, 5H Limiter]
+type 		= MapSet
+trigger1 	= !map(ComboStateCheck)
+map 		= "H_UseCount"
+value 		= 0
+ignorehitpause 	= 1
+
 [State 0, Jump Cancel]
 type 		= MapSet
 trigger1 	= stateno >= 1000
@@ -402,8 +415,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "trials_powertimer = %f trials_lifeTimer = %f"
-params = enemy, map(_iksys_trialsPowerTimer), enemy, map(_iksys_trialsLifeTimer)
+text = "SJI = %f"
+params = map(SJI)
 ignorehitpause = 1
 persistent = 1
 

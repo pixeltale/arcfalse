@@ -3610,6 +3610,7 @@ type    = L
 movetype= H
 physics = N
 
+
 [State 5100, 2004.04.14 behavior]
 type = null;VelSet
 trigger1 = Time = 0
@@ -3883,6 +3884,7 @@ value = 5120
 type    = NotHitBy
 triggerall  = !map(FromSKD)
 trigger1    = time >= 15 - enemy, MAP(UntechDecay)
+trigger2    = prevstateno = 5228
 value       = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time        = 10
 [State 5111, 11]
@@ -4880,24 +4882,11 @@ map = "pos_x"
 value = pos x
 ignorehitpause = 1
 
-[State 0, VelMul]
-type = PosAdd
-triggerall = statetype = A && BackEdgeBodyDist > 10
-triggerall = gethitvar(HitShakeTime) > 10
-trigger1 = !HitShakeOver && time
-x = cos(time*10/4)*(100/time)
-ignorehitpause = 1
-
 [State 0, PosSet]
 type = PosSet
 trigger1 = HitShakeOver
 x = map(pos_x)
 ignorehitpause = 1
-
-[State 210, Width]
-type = Width
-trigger1 = AnimElemTime (1) >= 0
-player = 15,0
 
 [State 5232, Stop moving]
 type = PosFreeze
@@ -4959,11 +4948,6 @@ shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
 
-[State 210, Width]
-type = Width
-trigger1 = AnimElemTime (1) >= 0
-player = 5,0
-
 [State 0, VelSet]
 type = VelSet
 trigger1 = 1
@@ -4983,7 +4967,7 @@ x = .7
 [State 1028, Hit ground]
 type = SelfState
 trigger1 = (Vel y > 0) && (Pos y >= 0)
-value = 5100
+value = 5111
 
 
 ;------------------

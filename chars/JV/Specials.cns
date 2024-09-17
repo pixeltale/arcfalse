@@ -970,14 +970,14 @@ persistent 		= 0
 type = HitDef 
 p2facing 	= 1
 triggerall 	= !movehit && !moveguarded && !movereversed
-trigger1 	= time = 0 && anim = 1100
+trigger1 	= anim = 1100
 attr 		= S, NA
 animtype  	= Hard
 damage 		= 100*map(P4), 10
 hitflag 	= MAF
 guardflag 	= MAFD
 guard.ctrltime 	= 8
-pausetime 	= 14,14
+pausetime 	= 14,14 + 10 * map(CounterHit)
 sparkno 		= 1
 sparkxy 		= -10,-40
 hitsound   	= 5,3
@@ -1028,10 +1028,10 @@ getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
 [State 200, 1]
 type = HitDef 
 p2facing 	= 1
-triggerall = !movehit && !moveguarded && !movereversed
+triggerall 	= !movecontact && !movereversed
 trigger1	= anim = 1101
 trigger1 	= enemy, statetype = A
-attr 	= S, NA
+attr 		= S, NA
 animtype  	= Hard
 damage 		= 160*map(P4), 30
 hitflag 		= AFD
@@ -1350,7 +1350,7 @@ air.hittime  		= 30
 down.hittime 		= 30-map(UntechDecay)
 ;==============================================
 ground.velocity 	= -6, -5
-air.velocity 		= -6,-5
+air.velocity 		= -6, -4
 guard.slidetime 	= 10
 guard.ctrltime 		= 10
 guard.velocity		= -8
@@ -1536,6 +1536,65 @@ envshake.ampl 		= -6
 envshake.phase 		= 100
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 
+;ARMOR ============================++++
+[State 0, ChangeAnim]
+type 	= ChangeAnim
+trigger1 = enemy, movehit = 1
+trigger2 = animelem = 1 && map(ArmorElement) > 1
+value 	= anim
+elem 	= map(armorElement)
+ignorehitpause = 1
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= !time
+map 		= "armorPoints"
+value 		= 2
+ignorehitpause 	= 1
+persistent 	= 1
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= animelemno(0) > map(armorElement)
+map 		= "armorElement"
+value 		= animelemno(0)
+ignorehitpause 	= 1
+[State 0, HitOverride]
+type = HitOverride
+triggerall = !(enemy, map(ArmorBreak))		;"Armor Break" Attacks will bypass
+triggerall = animelemno(0) = [1,5]		;Active Frame Range
+trigger1 = map(ArmorPoints) > 0			;Withstand a Certain Hitcount. Armorpoints tick down with enemy attacks.
+attr = SCA,NA,SA,NP,SP
+slot = 0
+stateno = stateno
+time = 1
+ignorehitpause = 0
+[State 0. MapSet]				;Does nothing to the performance of the armor.
+type 		= MapSet			;This value is used for enemy characters
+trigger1 	= animelemno(0) = [1, 5]	;To see if armor is currently active or not.
+map 		= "armorActive"
+value 		= 1
+ignorehitpause 	= 1
+[State 666, PosFreeze]
+type = PosFreeze
+trigger1 = enemy, movehit = 1
+value = 1
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = enemy, movehit
+time = 10
+add = 150,100,0
+mul = 256,256,256
+sinadd = 150,100,0,30
+invertall = 0
+color = 256
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = enemy, movehit = 1
+value = -gethitvar(damage)
+kill = 1
+absolute = 0
+ignorehitpause = 1
+;=======================================
+
 [State 0, Zoom]
 type = zoom
 trigger1 = (movehit =1)
@@ -1549,13 +1608,8 @@ ignorehitpause=1
 
 [State 0, VelSet]
 type= VelSet
-triggerall = p2dist x > 50
 trigger1 = animelem = 4
-x = 20
-[State 0, VelSet]
-type= VelSet
-trigger1 = animelem = 4
-x = p2dist x * 0.15
+x = 10
 [State 0, VelSet]
 type= VelMul
 trigger1 = animelemno(0) >= 5
@@ -2437,7 +2491,7 @@ trigger1 	= time = 0
 trigger1 	= enemy, statetype != A
 attr 	= S, NA
 animtype  	= Hard
-damage 		= 300*map(P4), 30
+damage 		= 150*map(P4), 30
 hitflag 		= MAFD
 guardflag 	= MAFD
 guard.ctrltime 	= 20
@@ -2451,7 +2505,7 @@ hitsound   	= 5,3
 ground.slidetime 	= 12
 ground.hittime  	= 35 - map(untechTime)
 air.hittime	= 50 - map(untechTime)
-ground.velocity 	= -1, -7
+ground.velocity 	= -1, -4
 air.fall 		= 1
 fall 		= 1
 fall.yvelocity 	= 0
@@ -2468,7 +2522,7 @@ trigger1 	= time = 0
 trigger1 	= enemy, statetype = A
 attr 	= S, NA
 animtype  	= Hard
-damage 		= 180*map(P4), 30
+damage 		= 150*map(P4), 30
 hitflag 		= MAFD
 guardflag 	= MAFD
 guard.ctrltime 	= 32
@@ -2935,13 +2989,6 @@ envshake.ampl 	= 5
 envshake.phase 	= 1
 getpower 		= 0
 
-[State -2, Wallbounce Type Set]
-type 		= MapSet
-trigger1 		= movehit
-map 		= "wallbounce_boomerang"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 0
 
 [State 0, EnvShake]
 type = EnvShake
