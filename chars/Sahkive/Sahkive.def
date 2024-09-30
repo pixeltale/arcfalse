@@ -32,6 +32,7 @@ anim    	= Sahkive.air           ;Animation
 sound   	= Sahkive.snd           ;Sound
 ai      	= Template.ai            ;AI hints data (not used)
 movelist 		= Sahkive.dat
+trials			= trials.def
 pal2    	= 2.act
 pal3    	= 3.act
 pal4    	= 4.act

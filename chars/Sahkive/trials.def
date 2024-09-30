@@ -1,0 +1,118 @@
+; SAHKIVE TRIALS LIST ---------------------------
+
+[TrialDef, 5S L into M Follow-up]
+
+trial.dummymode = stand
+trial.guardmode = all
+trial.dummybuttonjam = none
+trialstep.1.glyphs = ^Y
+trialstep.1.stateno = 1005
+trialstep.1.isnohit = true
+trialstep.2.glyphs = ^A
+trialstep.2.stateno = 1006
+trialstep.2.isnohit = true
+trialstep.2.numofhits = 4
+trialstep.3.glyphs = ^B
+trialstep.3.stateno = 1007
+
+[TrialDef, 5S into H Follow-up]
+trial.dummymode = stand
+trial.guardmode = all
+trial.dummybuttonjam = none
+trialstep.1.text = 5S (Successful)
+trialstep.1.glyphs = ^Y
+trialstep.1.stateno = 1005
+trialstep.1.isnohit = true
+trialstep.2.text = 5S>L(x3)
+trialstep.2.glyphs = ^Y
+trialstep.2.stateno = 1006
+trialstep.2.isnohit = true
+trialstep.2.numofhits = 4
+trialstep.3.text = 5S>H
+trialstep.3.glyphs = ^Y
+trialstep.3.stateno = 1008
+trialstep.3.isnohit = true
+
+
+[TrialDef, 6H]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+
+trialstep.1.text = 6H (Normal)
+trialstep.1.glyphs = ^Y
+trialstep.1.stateno = 250
+
+[TrialDef, Dashing 6H]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+
+trialstep.1.text = Dash
+trialstep.1.glyphs = ^Y
+trialstep.1.stateno = 100
+trialstep.1.isnohit = true
+trialstep.1.numofhits = 0
+trialstep.1.validuntilnexthit = true
+trialstep.2.text = 6H (Enhanced)
+trialstep.1.glyphs = ^Y
+trialstep.2.stateno = 250
+trialstep.2.anim = 252
+
+[TrialDef, Basic ground chain]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+
+trialstep.1.text = 5L > 5M > 5H > 6H
+trialstep.1.glyphs = ^Y
+trialstep.1.stateno = 200, 210, 220, 250
+
+[TrialDef, Air combo]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+
+trialstep.1.text = 5L > 5M > 5H > 6H
+trialstep.1.glyphs = ^Y
+trialstep.1.stateno = 200, 210, 220, 250
+
+trialstep.2.text = Jump Cancel
+trialstep.2.glyphs = ^Y
+trialstep.2.stateno = 40
+trialstep.2.isnohit = true
+trialstep.2.validuntilnexthit = true
+
+trialstep.3.text = j.5M > j.5H
+trialstep.3.glyphs = ^Y
+trialstep.3.stateno = 610, 630
+
+trialstep.4.text = Double Jump Cancel
+trialstep.4.glyphs = ^Y
+trialstep.4.stateno = 45
+trialstep.4.isnohit = true
+trialstep.4.validuntilnexthit = true
+
+trialstep.5.text = j.5M > j.5H > j.R
+trialstep.5.glyphs = ^Y
+trialstep.5.stateno = 610, 630, 650
+
+trialstep.6.text = 5S (Successful)
+trialstep.6.glyphs = ^Y
+trialstep.6.stateno = 1005
+trialstep.6.isthrow = true
+
+trialstep.7.text = 5S>L(x3)
+trialstep.7.glyphs = ^Y
+trialstep.7.stateno = 1006
+trialstep.7.isnohit = true
+trialstep.7.numofhits = 4
+
+trialstep.8.text = 5S>H
+trialstep.8.glyphs = ^Y
+trialstep.8.stateno = 1008
+trialstep.8.isnohit = true
