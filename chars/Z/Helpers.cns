@@ -9,12 +9,6 @@ ctrl = 0
 poweradd = 0                    
 sprpriority = 2    
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
@@ -96,7 +90,7 @@ ignoreHitPause = 1
 [State 0, BindToParent]
 type = BindToParent
 trigger1 = time = 0
-time = -1
+time = 5
 ;facing = 0
 pos = 0,0
 
@@ -258,12 +252,6 @@ poweradd = 0                    ;Power to add (Def: 0)
 sprpriority = 2
 poweradd = 0
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
@@ -403,13 +391,6 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 ;facep2=1
 poweradd = 0
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
-
 [State -2, P1 Value Set]
 type 		= RootMapSet
 trigger1 	= movehit && root, !map(ComboStateCheck)
@@ -454,8 +435,7 @@ ignoreHitPause = 1
 [State 0, BindToParent]
 type = BindToParent
 trigger1 = time = 0
-time = -1
-;facing = 0
+time = 5
 pos = 0,0
 
 [State 3302, NotHitBy]
@@ -549,12 +529,6 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 ;facep2=1
 poweradd = 0
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
@@ -1010,13 +984,6 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause = 1
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
-
 [State -2, P1 Value Set]
 type 		= RootMapSet
 trigger1 	= movehit && root, !map(ComboStateCheck)
@@ -1160,13 +1127,6 @@ anim = 1203                      ;Change animation (Def: no change)
 poweradd = 0                    ;Power to add (Def: 0)
 sprpriority = -1
 poweradd = 0
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
@@ -1507,13 +1467,6 @@ time = 1
 value = SCA, NA, SA, HA, NT, ST, HT
 ignorehitpause = 1
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
-
 [State -2, P1 Value Set]
 type 		= RootMapSet
 trigger1 	= movehit && root, !map(ComboStateCheck)
@@ -1670,13 +1623,6 @@ trigger1 = movecontact
 map = "RCHelper"
 value = 30
 ignorehitpause = 0
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet

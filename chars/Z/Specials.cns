@@ -3185,6 +3185,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = Ctrlset
+triggerall = time >= 5
 trigger1 = var(5)<=0
 value = 1
 ;----------------------------------------------------------------------------------------------------------------------
@@ -3193,7 +3194,7 @@ value = 1
 type    = A                      
 movetype= A                      
 physics = N                                          
-ctrl = 1                         
+ctrl = 0                       
 anim = 2001                       
 poweradd = 0                   
 sprpriority = 1 

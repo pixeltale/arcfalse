@@ -1179,7 +1179,7 @@ type = HitDef
 triggerall = anim = 3051
 trigger1 = !movecontact
 attr = A, HA
-damage = 200 * map(P4) + 100
+damage = 100 * map(P4) + 150
 animtype = up
 guardflag = MA
 hitflag = MAF
@@ -1355,7 +1355,7 @@ type = HitDef
 triggerall = anim = 3052
 trigger1 = animelem=73
 attr = A, HA
-damage =200*map(P4) + 100
+damage = 100*map(P4) + 100
 animtype = Hard
 guardflag = MA
 hitflag = MAF
@@ -1419,7 +1419,7 @@ type = HitDef
 triggerall = anim = 3052
 trigger1 = animelem=168
 attr = A, HA
-damage = 342
+damage = 100 * map(P4) + 100
 animtype = Hard
 guardflag = MA
 hitflag = MAF

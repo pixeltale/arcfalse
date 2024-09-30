@@ -1363,9 +1363,7 @@ triggerall = command = "buffer_x"
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = 2000 && time >=10
-trigger3 = stateno = 610 && movehit
-trigger4 = stateno = 630 && movehit
-trigger5 = movehit && stateno = 600 ;&& enemynear, movetype = H
+trigger3 = stateno = [600, 630] && movehit
 ;---------------------------------------------------------------------------
 ;jM
 [State -1, jM]

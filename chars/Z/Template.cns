@@ -1,33 +1,15 @@
 [Data]
-;Amount of life to start with
 life = 1300
-;attack power (more is stronger)
 attack = 100
-;defensive power (more is stronger)
 defence = 100
-;Percentage to increase defense everytime player is knocked down
 fall.defence_up = 0
-;Time which player lies down for, before getting up
 liedown.time = 60
-;Number of points for juggling
 airjuggle = 20
-;Default hit spark number for HitDefs
 sparkno = 2
-;Default guard spark number
 guard.sparkno = 40
-;1 to enable echo on KO
 KO.echo = 0
-;Volume offset (negative for softer)
 volume = 0
-
-power = 4010
-;Variables with this index and above will not have their values
-;reset to 0 between rounds or matches. There are 60 int variables,
-;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
-;If omitted, then it defaults to 60 and 40 for integer and float
-;variables repectively, meaning that none are persistent, i.e. all
-;are reset. If you want your variables to persist between matches,
-;you need to override state 5900 from common1.cns.
+power = 4000
 IntPersistIndex = 60
 FloatPersistIndex = 39
 
@@ -842,14 +824,14 @@ Value = 0
 [State 0, Varadd]
 type = Varadd
 triggerall = !enemynear, name = "Training"
-triggerall = var(59)!=0 && !map(ZGauge_Lockout)
+triggerall = var(59)!=0 && !map(ZGauge_Lockout) && !map(ComboStateCheck)
 Triggerall=Var(5)<150
 TriggerAll=NumExplod(924680)=0
 triggerall = stateno != 2000
 triggerall = stateno != 20000
 triggerall = stateno !=2010
 TriggerAll=Enemy,StateNo!=[150,155]
-Trigger1=Var(5)<150 && GameTime%4=0 && !movetype = H
+Trigger1 = Var(5)<150 && GameTime % 3 = 0 && !movetype = H
 v = 5
 value = 1 
 ignorehitpause = 1
