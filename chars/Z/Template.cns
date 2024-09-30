@@ -578,6 +578,24 @@ trigger1 = var(4)=0
 Trigger2 = RoundState !=2
 id = 7051
 
+[State 0, RemoveExplod]
+type = RemoveExplod
+Trigger1 = RoundState != 2
+trigger2 =enemynear,name="Z"
+trigger2 = enemynear,stateno = 3051&&enemynear,anim=3052
+trigger3 = stateno = 3051&&anim=3052
+id = 7050
+ignorehitpause=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = var(4)=0
+Trigger1 = RoundState != 2
+trigger2 =enemynear,name="Z"
+trigger2 = enemynear,stateno = 3051&&enemynear,anim=3052
+trigger3 = stateno = 3051&&anim=3052
+id = 7051
+ignorehitpause=1
+
 ;j6S SKD Limiter
 [State 0, RemoveExplod]
 type = RemoveExplod

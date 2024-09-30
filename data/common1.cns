@@ -8984,6 +8984,7 @@ trigger1 = map(BurstGauge) >= 1000 && teamside = 1
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = !(enemy, (map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC)))
 anim = F905
+ownpal = 1
 ID = 900
 pos = -3,18
 postype = left  ;p2,front,back,left,right
@@ -9003,6 +9004,7 @@ trigger1 = !numexplod(900)
 trigger1 = map(BurstGauge) >= 1000 && teamside = 2
 anim = F906
 ID = 900
+ownpal = 1
 pos = -53,18
 postype = right  ;p2,front,back,left,right
 facing = 1
@@ -9254,3 +9256,14 @@ triggerall = command = "holdfwd"
 triggerall = command = "SP"
 triggerall = statetype != A
 triggerall = power >= 2000
+
+;How can I make this about Z...?
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = enemynear,name="Z"
+trigger1 = enemynear,stateno = 3051&&enemynear,anim=3052
+trigger2 = name="Z"
+trigger2 = stateno = 3051&&anim=3052
+id = 900
+ignorehitpause=1
+persistent=1

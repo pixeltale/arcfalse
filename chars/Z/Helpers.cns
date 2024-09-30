@@ -385,7 +385,7 @@ ignoreHitPause = 1
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = parent,movetype = H
-trigger2 = parent,stateno = [3000,3001]
+trigger2 = parent,stateno = [3000,3101]
 trigger3 = animtime = 0
 
 ;----------------------
@@ -759,13 +759,6 @@ time = -1
 ;facing = 0
 pos = 80,-49
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2
-ignorehitpause 	= 1
-
 [State -2, P1 Value Set]
 type 		= RootMapSet
 trigger1 	= movehit && root, !map(ComboStateCheck)
@@ -854,7 +847,7 @@ ignoreHitPause = 1
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = parent,movetype = H 
-trigger2 = parent,stateno = [3000,3001]
+trigger2 = parent,stateno = [3000,3101]
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1302,6 +1295,11 @@ trigger1 = parent,movetype = H
 trigger2 = time >= 500
 value = 1111
 
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno=3050&&parent,movehit
+ignorehitpause=1
+
 ;detonation changestate
 [State 0, ChangeState]
 type = ChangeState
@@ -1642,6 +1640,10 @@ type = DestroySelf
 trigger1 = parent,movetype = H
 trigger2 = animtime = 0
 
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno = [3050,3101]
+trigger2 = animtime = 0
 ;----------------------
 ;EX 4S Bolt
 [Statedef 1303]
@@ -1650,7 +1652,7 @@ movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = N
 velset = 0,0
 ctrl = 0
-anim = 1303                      ;Change animation (Def: no change)
+anim = 1302                      ;Change animation (Def: no change)
 poweradd = 0                    ;Power to add (Def: 0)
 sprpriority = 2
 poweradd = 0
@@ -1702,6 +1704,29 @@ persistent 	= 0
 type = AttackDist
 trigger1 = 1
 value = 0
+
+;Ground indicator alt 2 (for modifyexplod)
+[State 1900, explod]
+type = explod
+triggerall = time=0
+trigger1 = enemy,movetype!=H
+trigger2=enemy,stateno=5111
+trigger3=enemy,stateno=5120
+anim = 1307
+id = 1307
+pos = 0,0
+scale = .001,.001
+sprpriority = -1
+bindtime = -1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+facing = 1
+vfacing = -1
+removetime = -2
+postype=p1
+ignorehitpause = 1
+ontop = cond(StageVar(info.name) = "ANGOUS VS ARZON",1,0)
 
 ;Startup Sound
 [State 200, 2]
@@ -2144,6 +2169,16 @@ ignorehitpause = 1
 Type=RemoveExplod
 Trigger1 = RoundState != [2,3]
 trigger2 = winko
+
+
+[State 0]
+Type=RemoveExplod
+Trigger1 = RoundState != [2,3]
+trigger2 = winko
+trigger3 =enemynear,name="Z"
+trigger3 = enemynear,stateno = 3051&&enemynear,anim=3052
+trigger4 = root,stateno = 3051&&root,anim=3052
+ignorehitpause=1
 
 ;=========================================================================
 ;Electricity

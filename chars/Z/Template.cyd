@@ -413,7 +413,7 @@ trigger1 = statetype = A
 trigger1 = ctrl
 trigger2 = statetype = A
 trigger2 = hitdefattr = A, NA, SA
-trigger2 = stateno != [3000,3050)
+trigger2 = stateno != [3000,3101)
 trigger2 = movecontact
 trigger3 = stateno = 1010|| stateno = 1011
 trigger3 = enemy,movetype=H
@@ -432,7 +432,58 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA
-trigger2 = stateno != [3000,3050)
+trigger2 = stateno != [3000,3101]
+trigger2 = movecontact
+trigger3 = stateno = 1101
+trigger3 = enemy,movetype=H
+;trigger3 = stateno = [1100,1103] || stateno = 1001 || stateno = 1300 || stateno = 8001 || stateno = 8104 || stateno = 1105
+;---------------------------------------------------------------------------
+
+;Super 2: the jarms one
+[State -1,QCB+LMH]
+type = ChangeState
+value = 3100
+triggerall = command="QCB_x" || command="QCB_y" || command="QCB_z"
+triggerall = power >= 2000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = statetype != A
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3000,3101]
+trigger2 = movecontact
+trigger3 = stateno = 1101
+trigger3 = enemy,movetype=H
+;trigger3 = stateno = [1100,1103] || stateno = 1001 || stateno = 1300 || stateno = 8001 || stateno = 8104 || stateno = 1105
+
+;Super 3: the dillon one (air)
+[State -1,QCF+S]
+type = ChangeState
+value = 3050
+triggerall = command="QCF_b"
+triggerall = power >= 4000
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = statetype = A
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3000,3101]
+trigger2 = movecontact
+trigger3 = stateno = 1010|| stateno = 1011
+trigger3 = enemy,movetype=H
+;trigger3 = stateno = [1100,1103] || stateno = 1001 || stateno = 1300 || stateno = 8001 || stateno = 8104 || stateno = 1105
+
+;---------------------------------------------------------------------------
+
+;Super 3: the dillon one (Ground)
+[State -1,QCF+S]
+type = ChangeState
+value = 3050
+triggerall = command="QCF_b"
+triggerall = power >= 4000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = statetype != A
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3000,3101]
 trigger2 = movecontact
 trigger3 = stateno = 1101
 trigger3 = enemy,movetype=H

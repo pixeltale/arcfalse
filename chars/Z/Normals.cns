@@ -593,12 +593,13 @@ shadow = 0,0,0
 ownpal = 1
 removeongethit = 0
 
+
 [State -2, Starter Level]
-type 		= MapSet
-trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 3
-ignorehitpause 	= 1
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3    
+ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type 		= MapSet

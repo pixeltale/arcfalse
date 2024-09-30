@@ -131,7 +131,7 @@
   "TrainingChar": "",
   "TurnsRecoveryBase": 0,
   "TurnsRecoveryBonus": 20,
-  "VolumeBgm": 90,
+  "VolumeBgm": 0,
   "VolumeMaster": 75,
   "VolumeSfx": 65,
   "VRetrace": 0,
@@ -233,7 +233,7 @@
         "12",
         "13",
         "11",
-        "4",
+        "-12",
         "1",
         "0",
         "2",
@@ -241,7 +241,7 @@
         "5",
         "7",
         "-10",
-        "-12",
+        "4",
         "6"
       ]
     },
