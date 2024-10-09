@@ -268,7 +268,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.9
+value 		= 1
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -283,7 +283,7 @@ persistent 		= 0
 type = hitdef 
 trigger1 = anim = 3001
 trigger1 = time % 6 = 0
-damage = 25 * map(P4) + 5, 6
+damage = 25 * map(P4), 6
 attr = A, HA
 animtype  = hard
 air.animtype = back               ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -362,7 +362,7 @@ type = hitdef
 triggerall = anim !=3001
 trigger1 = anim = 3002
 trigger1 = animelem = 1
-damage = 25 * map(P4) + 5, 6
+damage = 25, 6
 attr = A, HA
 animtype  = hard
 air.animtype = back               ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -761,12 +761,39 @@ volumescale = 30
 channel = -1
 ignorehitpause=1
 
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  2    
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 1
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 200, 1]
 type = hitdef 
 trigger1 = anim = 3001
 trigger1 = time % 6 = 0
-damage = ceil(cond(fvar(11) *21 < 5, 5, fvar(11) * 21)), 6
+damage = 25 * map(P4), 6
 attr = A, HA
 animtype  = hard
 air.animtype = back               ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -788,7 +815,6 @@ down.velocity = cond(p2dist x>0,0.8,-0.8),cond(p2dist y<-55,1,-1)
 air.hittime = 32
 down.hittime = 32                 
 yaccel = .32
-forcenofall = 1
 envshake.time = 8
 envshake.freq = 100
 envshake.ampl = 1
@@ -805,6 +831,7 @@ palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
 p2facing = 1
+air.fall = 1
 
 [State 0, PlayerPush]
 type = PlayerPush
@@ -886,7 +913,7 @@ type = hitdef
 triggerall = anim !=3001
 trigger1 = anim = 3002
 trigger1 = animelem = 1
-damage = ceil(cond(fvar(11) *27 < 10, 10, fvar(11) * 27)), 6
+damage = 25, 6
 attr = A, HA
 animtype  = hard
 air.animtype = back               ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -909,7 +936,7 @@ down.velocity = cond(p2dist x>0,-7,7),-7
 air.hittime = 60
 down.hittime = 60                 
 yaccel = .44
-forcenofall = 1
+air.fall = 1
 envshake.time = 12
 envshake.freq = 100
 envshake.ampl = 6

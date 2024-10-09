@@ -1536,65 +1536,6 @@ envshake.ampl 		= -6
 envshake.phase 		= 100
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 
-;ARMOR ============================++++
-[State 0, ChangeAnim]
-type 	= ChangeAnim
-trigger1 = enemy, movehit = 1
-trigger2 = animelem = 1 && map(ArmorElement) > 1
-value 	= anim
-elem 	= map(armorElement)
-ignorehitpause = 1
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= !time
-map 		= "armorPoints"
-value 		= 2
-ignorehitpause 	= 1
-persistent 	= 1
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= animelemno(0) > map(armorElement)
-map 		= "armorElement"
-value 		= animelemno(0)
-ignorehitpause 	= 1
-[State 0, HitOverride]
-type = HitOverride
-triggerall = !(enemy, map(ArmorBreak))		;"Armor Break" Attacks will bypass
-triggerall = animelemno(0) = [1,5]		;Active Frame Range
-trigger1 = map(ArmorPoints) > 0			;Withstand a Certain Hitcount. Armorpoints tick down with enemy attacks.
-attr = SCA,NA,SA,NP,SP
-slot = 0
-stateno = stateno
-time = 1
-ignorehitpause = 0
-[State 0. MapSet]				;Does nothing to the performance of the armor.
-type 		= MapSet			;This value is used for enemy characters
-trigger1 	= animelemno(0) = [1, 5]	;To see if armor is currently active or not.
-map 		= "armorActive"
-value 		= 1
-ignorehitpause 	= 1
-[State 666, PosFreeze]
-type = PosFreeze
-trigger1 = enemy, movehit = 1
-value = 1
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = enemy, movehit
-time = 10
-add = 150,100,0
-mul = 256,256,256
-sinadd = 150,100,0,30
-invertall = 0
-color = 256
-[State 0, LifeAdd]
-type = LifeAdd
-trigger1 = enemy, movehit = 1
-value = -gethitvar(damage)
-kill = 1
-absolute = 0
-ignorehitpause = 1
-;=======================================
-
 [State 0, Zoom]
 type = zoom
 trigger1 = (movehit =1)
@@ -2922,7 +2863,7 @@ ignorehitpause = 1
 type = HitDef 
 p2facing = 1
 triggerall = enemy, !map(ArmorActive)
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SA
 damage = 120*Map(P4), 10
@@ -2939,7 +2880,7 @@ animtype 		= medium
 ground.slidetime 	= 14
 ground.hittime  	= 33
 ground.velocity 	= -20,-6
-air.velocity 	= -20,-6
+air.velocity 	= -20,-2
 air.hittime 	= 999-MAP(UntechDecay)
 fall 		= 1
 fall.yvelocity 	= 0
@@ -2958,7 +2899,7 @@ p2getp1state 	= 0
 type = HitDef 
 p2facing = 1
 triggerall = enemy, map(ArmorActive)
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SA
 damage = 120*Map(P4), 10

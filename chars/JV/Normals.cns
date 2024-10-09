@@ -1443,7 +1443,7 @@ guard.slidetime 	= 18
 guard.hittime 	= 20
 guard.ctrltime 	= 10
 air.fall 		= 1
-getpower 		= 100
+getpower 		= 50
 p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
 p2getp1state = 0
 
@@ -1556,6 +1556,7 @@ poweradd= 0
 ctrl = 0
 anim =1501
 sprpriority = 2
+facep2 = 1
 
 [State 0, PalFX]
 type = PalFX

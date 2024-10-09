@@ -43,7 +43,7 @@ persistent 		= 0
 [State 200, 1]
 type 	= HitDef 
 p2facing 	= 1
-trigger1 	= time = 0 
+trigger1 	= !movecontact && !movereversed
 attr 		= S, NA                     ;Attribute: Standing, Normal Attack
 damage 		= 50*map(P4)
 animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -170,7 +170,7 @@ ground.hittime  	= 16-map(UntechDecay)
 air.hittime  	= 20-map(UntechDecay)
 down.hittime 	= 20-map(UntechDecay)
 ground.velocity 	= -2.5
-guard.ctrltime 	= 12
+guard.ctrltime 	= 14
 air.velocity 	= -1.5,-2 * map(GravMul)
 air.fall 		= 1
 palfx.time 	= 12
@@ -1126,6 +1126,7 @@ poweradd= 0
 ctrl = 0
 anim = 600
 sprpriority = 2
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1226,6 +1227,7 @@ poweradd		= 0
 ctrl 		= 0
 anim 		= 610
 sprpriority 	= 2
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1328,6 +1330,7 @@ poweradd= 0
 ctrl = 0
 anim = 620
 sprpriority = 2
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1438,6 +1441,7 @@ poweradd= 0
 ctrl = 0
 anim = 630
 sprpriority = 2
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet

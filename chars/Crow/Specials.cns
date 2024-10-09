@@ -1151,7 +1151,7 @@ elem 	= map(armorElement)
 ignorehitpause = 1
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= !time
+trigger1 	= !time && prevstateno != 5000
 map 		= "armorPoints"
 value 		= 1
 ignorehitpause 	= 1

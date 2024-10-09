@@ -5129,6 +5129,7 @@ poweradd= 0
 ctrl = 0
 anim =1430
 sprpriority = 2
+facep2 = map(SJI)
 
 
 [State 0, Cancel into DISABLE]
@@ -5335,6 +5336,7 @@ ctrl = 0
 anim =1430
 sprpriority = 2
 poweradd = -1000
+facep2 = map(SJI)
 
 [State 0,	MapSet]
 type 		= MapSet
@@ -5711,6 +5713,7 @@ anim=1450
 velset=(vel x),-2
 ctrl = 1
 sprpriority = 1
+facep2 = map(SJI)
 
 [State 0, VelMul]
 type = VelMul

@@ -7606,7 +7606,7 @@ ctrl = 1
 type    = S
 movetype= I
 physics = S
-juggle  = 2
+velset = vel x
 anim = 1308
 ctrl = 0
 sprpriority = 2
@@ -7635,13 +7635,8 @@ value = 40, 0
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = animelem = 4
-trigger2 = animelem = 5
-x = 7
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = animelem = 5
+trigger1 = animelem = 2
+trigger2 = animelem = 3
 x = 7
 
 [State 0, ChangeState]

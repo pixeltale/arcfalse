@@ -34,7 +34,8 @@
     "data/score.zss",
     "data/activetag.zss",
     "data/training.zss",
-    "external/mods/trials/trials.zss"
+    "external/mods/trials/trials.zss",
+    "data/dramaticzoom.zss"
   ],
   "ControllerStickSensitivity": 0.4,
   "Credits": 10,
@@ -131,7 +132,7 @@
   "TrainingChar": "",
   "TurnsRecoveryBase": 0,
   "TurnsRecoveryBonus": 20,
-  "VolumeBgm": 0,
+  "VolumeBgm": 60,
   "VolumeMaster": 75,
   "VolumeSfx": 65,
   "VRetrace": 0,

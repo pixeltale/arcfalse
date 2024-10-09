@@ -7705,14 +7705,14 @@ value = 1000
 type = MapAdd
 trigger1 = movetype = H && !map(BurstGauge_Lockout)
 map = "BurstGauge"
-value = gethitvar(damage) * 0.35 + (enemy, (map(ComboStateCheck)))
+value = gethitvar(damage) * 0.35 + 2 * (enemy, (map(ComboStateCheck)))
 ignorehitpause = 1
 persistent = 0
 
 [State 0, MapAdd] ;Build Burst over time
 type = MapAdd
 triggerall = roundstate > 0 
-triggerall = time % 15 = 0
+triggerall = time % 12 = 0
 trigger1 = !map(BurstGauge_Lockout)
 map = "BurstGauge"
 value = 1
@@ -8175,7 +8175,9 @@ trigger1 = vel x > 0
 trigger1 = !(name = "Roger" && (Stateno = 1403 || stateno = [1453,1456]))
 trigger1 = !(name = "Vile" && (Stateno = [1050,1061] || stateno = 2059 || stateno = 1020))
 trigger1 = !(name = "ONE" && (Stateno = 1051 || stateno = 1151))
+trigger1 = !(name = "Z" && (stateno = [2000,2008]))
 trigger1 = !(stateno = [3000,4000]) && stateno != 5610
+trigger1 = !(map(untechDecay) >= 2)
 value = vel x * 0.75
 
 ;==================================================================================================

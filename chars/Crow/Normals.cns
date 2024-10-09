@@ -1415,6 +1415,7 @@ ctrl = 0
 anim = 600
 sprpriority = 2
 velset = vel x, vel y
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1500,6 +1501,7 @@ ctrl = 0
 anim = 610
 sprpriority = 2
 velset = vel x, vel y
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1595,6 +1597,7 @@ ctrl = 0
 anim = 620
 sprpriority = 2
 velset = vel x, vel y
+facep2 = map(SJI)
 
 [State 200, 2]
 type = PlaySnd
@@ -1757,7 +1760,7 @@ ctrl = 0
 anim = 630
 sprpriority = 2
 velset = vel x, vel y
-facep2 = 1
+facep2 = map(SJI)
 
 [State 200, 2]
 type = PlaySnd

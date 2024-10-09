@@ -12,13 +12,10 @@ velset = vel x, 0
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 6
-trigger2 = animelem = 10
-trigger3 = animelem = 16
 value = 0, 0
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 8
-trigger2 = animelem = 12
 value = 0, 1
 
 [State 0, Explod]
@@ -1397,10 +1394,10 @@ guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 45 - map(untechDecay)
-air.hittime  = 36 - map(untechDecay)
+air.hittime  = 40 - map(untechDecay)
 down.hittime = 36 - map(untechDecay)
 ground.velocity = -3.8,-7.5
-air.velocity = -1,-7
+air.velocity = -1,-5
 down.velocity = -3.6,-7
 air.fall = 1
 fall = 1
@@ -3339,7 +3336,7 @@ physics = N
 poweradd= 0
 ctrl = 0
 anim =1051 +((var(50)*20))
-velset = 0,-12 - 5 *(var(50))
+velset = vel x,-12 - 5 *(var(50))
 sprpriority = 2
 
 [State 0, VelSet]
@@ -3466,17 +3463,26 @@ elem = 1
 
 [State 0, VelSet]
 type = VelSet
+triggerall = map(swordDistX) && map(swordDistY)
 trigger1 = var(50) && time < 16
 x = -map(swordDistX)*0.09 + 5
 y = -map(SwordDistY)*0.05 - 3
 
 [State 0, VelSet]
 type = VelSet
+triggerall = map(swordDistX) && map(swordDistY)
 triggerall = var(50)
 trigger1 = map(swordDistX) < 10 && map(swordDistX) > - 10
 trigger1 = map(swordDistY) < 0
 x = vel x * 0.5
 y = 15
+
+[State 0, VelSet]
+type = VelSet
+triggerall = !time && var(50)
+trigger1 = !map(swordDistX) && !map(swordDistY)
+x = 7
+y = -5
 
 [State 0, VelSet]
 type = VelAdd
@@ -4060,7 +4066,7 @@ physics = N
 ctrl = 0
 anim =1052
 velset = 2,-5 
-facep2 = 1
+facep2 = 0
 sprpriority = 2
 
 [State 0, PlaySnd]
@@ -4219,7 +4225,7 @@ ground.hittime  = 40  - map(untechDecay)
 air.hittime  = 60  - map(untechDecay)
 down.hittime = 60 - map(untechDecay)
 ground.velocity = -1.5, 0
-air.velocity = -1.5,-4
+air.velocity = -1.5,-2
 air.fall = 1
 envshake.time = 15
 envshake.freq = 100

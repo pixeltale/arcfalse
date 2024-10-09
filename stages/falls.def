@@ -1,0 +1,170 @@
+;Art by J4RMS31
+;Implementation by Ace's Hi
+
+[Info]
+name = "MOUNTAINTOP FALLS"
+round1def = stages/falls.def
+round2def = stages/falls2.def
+round3def = stages/falls3.def
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -330
+boundright = 330
+boundhigh = -62
+boundlow = 0
+verticalfollow = 0
+tension = 100
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+
+[shadow]
+Intensity = 50
+color = 0,0,0
+yscale = .4
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+[BGdef]
+spr = falls.sff
+
+[BG sky]
+type  = normal
+spriteno = 0,6
+start = 0, 0
+delta=0.05,0
+
+[BG clouds]
+type  = normal
+spriteno = 0,1
+start = 0, 0
+velocity=-.1,0
+tile=1,0
+delta=0.1,0
+
+[BG trees]
+type  = normal
+spriteno = 10,0
+start = 0, 0
+delta=0.37,0
+
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40,70
+delta = 0.38,0
+mask = 1
+velocity = -1.2, 0
+tile = 1, 0
+id=3
+
+[BG falls]
+type  = anim
+actionno=1
+start = 0, 0
+delta=0.4,0
+
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40, 130
+delta =  0.45,0
+mask = 1
+velocity = 3, 0
+tile = 1, 0
+id=2
+trans=add
+alpha=256,100
+
+[BG backmist]
+type  = normal
+spriteno = 0,3
+start = 0, 0
+velocity = -.4,0
+tile = 1,0
+trans = add
+alpha = 150,100
+delta=0.5,0
+
+[BG fmist]
+type  = normal
+spriteno = 0,4
+start = 0, 0
+velocity = .5,0
+tile = 1,0
+trans = add
+alpha = 130,150
+delta=0.5,0
+
+[BG cliffs]
+type  = normal
+spriteno = 0,5
+start = 0, 0
+delta=0.6,0
+
+[BG Heaven]
+type  =normal
+spriteno=3011,0
+start = -40, 170
+delta = .8, 0
+mask = 1
+velocity = -10, 0
+tile = 1, 0
+id=1
+trans=add
+alpha=256,200
+
+[BG ground]
+type  = normal
+spriteno = 0, 2
+start = 0, 0
+
+[BGCtrlDef Heaven]
+looptime = -1
+ctrlID = 1,2,3
+[BGCtrl Heaven]
+type = enable
+time = 0,1,1
+value=0
+sctrlid=1
+
+
+[Begin Action 1]
+0,7, 0,0, 10
+0,8, 0,0, 10
+0,9, 0,0, 10
+0,10, 0,0, 10
+0,11, 0,0, 10
+

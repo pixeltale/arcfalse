@@ -1698,7 +1698,7 @@ poweradd= 0
 ctrl = 0
 sprpriority = 2
 anim = 600
-;velset = vel x, vel y
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1897,6 +1897,7 @@ ctrl = 0
 sprpriority = 2
 velset = vel x, vel y
 anim = 620
+facep2 = map(SJI)
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -2064,6 +2065,7 @@ ctrl 	= 0
 sprpriority = 2
 anim	= 630
 velset 	= vel x, vel y -.6
+facep2 = map(SJI)
 
 [State 200, 2]
 type = PlaySnd
@@ -3094,7 +3096,7 @@ elem 	= map(armorElement)
 ignorehitpause = 1
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= !time
+trigger1 	= !time && prevstateno != 5000
 map 		= "armorPoints"
 value 		= 4
 ignorehitpause 	= 1
@@ -3417,7 +3419,7 @@ elem 	= map(armorElement)
 ignorehitpause = 1
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= !time
+trigger1 	= !time && prevstateno != 5000
 map 		= "armorPoints"
 value 		= 999
 ignorehitpause 	= 1

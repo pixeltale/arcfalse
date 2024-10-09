@@ -518,7 +518,7 @@ triggerall = power >= 2000
 triggerall = stateno != 900 && stateno != 803 && stateno != 4000 && stateno != 100
 triggerall = command = "SP"
 triggerall = statetype != A
-trigger1 = !map(ScratchLockout)
+trigger1 = !map(ScratchLockout) && prevstateno != 4000
 
 ;RC Helper Hits?
 [State -1, RC Jasta]
@@ -529,7 +529,7 @@ triggerall = power >= 2000
 triggerall = stateno != 900 && stateno != 803 && stateno != 4000 && stateno != 100
 triggerall = command = "SP"
 triggerall = statetype = A
-trigger1 = !map(ScratchLockout)
+trigger1 = !map(ScratchLockout) && prevstateno != 4001
 
 ;Super Jump
 [State -1, Super Jump]

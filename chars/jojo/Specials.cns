@@ -2607,6 +2607,7 @@ ctrl = 0
 anim = 2062
 sprpriority = 2
 velset = 1,-2
+facep2 = map(SJI)
 
 [State 0, VelSet]
 type = VelSet

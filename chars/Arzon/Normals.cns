@@ -1291,7 +1291,7 @@ ctrl = 0
 anim = 600
 sprpriority = 2
 velset = vel x, vel y
-facep2 = 1
+facep2 = map(SJI)
 
 ;jH Explod Removal (thx z lol im an idiot)
 [State 0, RemoveExplod]
@@ -1421,7 +1421,7 @@ ctrl = 0
 anim = 610
 sprpriority = 2
 velset = vel x, vel y
-facep2 = 1
+facep2 = map(SJI)
 
 ;jH Explod Removal (thx z lol im an idiot)
 [State 0, RemoveExplod]
@@ -1578,7 +1578,7 @@ ctrl = 0
 anim = 620
 sprpriority = 2
 velset = vel x, vel y
-facep2 = 1
+facep2 = map(SJI)
 
 [State 0, Explod]
 type = Explod
@@ -1716,6 +1716,7 @@ ctrl = 0
 velset = (vel x)-1, (vel y*0.3) - 0.2
 anim = 640
 sprpriority = 2
+facep2 = map(SJI)
 
 ;5M Explod Removal (thx z lol im an idiot (ur not :) -z))
 [State 0, RemoveExplod]

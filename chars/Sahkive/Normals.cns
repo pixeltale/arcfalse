@@ -1465,6 +1465,7 @@ ctrl = 0
 anim = 600
 sprpriority = 2
 velset = vel x, vel y
+facep2 = map(SJI)
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1562,6 +1563,7 @@ ctrl = 0
 anim = 620
 sprpriority = 2
 velset = vel x, vel y
+facep2 = map(SJI)
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1662,6 +1664,7 @@ ctrl = 0
 anim = 630
 sprpriority = 2
 velset = vel x, vel y
+facep2 = map(SJI)
 
 [State -3, Vile Voices]
 type = PlaySnd
@@ -1758,6 +1761,7 @@ anim = 650
 ctrl = 0
 sprpriority = 2
 velset = vel x, vel y
+facep2 = map(SJI)
 
 [State 0, VelAdd]
 type = VelAdd

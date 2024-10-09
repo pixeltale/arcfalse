@@ -622,8 +622,8 @@ ignorehitpause = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "WBYVel: %f"
-params = map(wallbounce_yvel)
+text = "armorPoints: %f prevstateno = %i"
+params = map(armorpoints), prevstateno
 
 ;=============================
 ;ARMOR POINTS ASSIGNMENT

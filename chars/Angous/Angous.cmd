@@ -387,19 +387,19 @@ triggerall = command != "holdback"
 triggerall = command != "c"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) && stateno != 230
 trigger3 = movecontact && stateno = 421
 ignorehitpause = 1
 
 [State -1, EX 2S: Raging Counter]
 type = ChangeState
 value = 1054
-triggerall = power>1000
+triggerall = power > 1000
 triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
 triggerall = command = "holddown"
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) && stateno != 230
 
 
 [State -1, EX 4S: Brutaller Angrier Pisseder Fucker You Grab]
@@ -627,14 +627,14 @@ trigger6 = stateno = 100 && time > 3
 trigger7 = stateno = 110
 trigger8 = stateno = 111
 
-[State -1, Hmash]
+[State -1, 2R]
 type = ChangeState
 value = 225
 triggerall = statetype != A && stateno != 421
 triggerall = command = "c" && (command = "holddown" || command = "down")
 trigger1 = ctrl
-trigger2 = stateno = [200,421] & movecontact
-trigger2 = stateno != [225,227] & movecontact
+trigger2 = stateno = [200,421] && movecontact
+trigger2 = stateno != [225,230]
 trigger3 = stateno = 220 
 
 ;-----------------------------------------------------------------------------------------------------------
