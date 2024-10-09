@@ -187,7 +187,6 @@ persistent 		= 0
 
 ;Hitdef
 [State 200, 1]
-triggerall = enemy, !map(ArmorActive)
 type = HitDef
 trigger1 = !movecontact && !movereversed
 attr = S, HA
@@ -225,6 +224,7 @@ p2stateno = 5300
 
 [State 200, 1]
 type = HitDef
+triggerall = enemy, name = "Crow"
 triggerall = enemy, map(ArmorActive)
 trigger1 = !movecontact && !movereversed
 attr = S, HA

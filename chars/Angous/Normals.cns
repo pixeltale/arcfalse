@@ -3140,6 +3140,8 @@ color = 256
 
 [State 0, PosAdd]
 type = PosAdd
+triggerall = !hitpausetime
+persistent = 0
 trigger1 = animelem = 1
 trigger2 = animelem = 2
 trigger3 = animelem = 3
@@ -3147,16 +3149,19 @@ x = 10
 
 [State 0, PosAdd]
 type = PosAdd
+triggerall = !hitpausetime
 trigger1 = animelem = 4
 x = 3
 
 [State 100, 1]
 type = VelSet
+triggerall = !hitpausetime
 trigger1 = time=[37,53]
 x =1
 
 [State 0, PosAdd]
 type = PosAdd
+triggerall = !hitpausetime
 trigger1 = animelem =12
 trigger2 = animelem = 13
 trigger3 = animelem = 14
@@ -3164,6 +3169,7 @@ x = 5
 
 [State 0, PosAdd]
 type = PosAdd
+triggerall = !hitpausetime
 trigger1 = animelem = 15
 trigger2 = animelem = 16
 trigger3 = animelem = 17
@@ -3463,16 +3469,16 @@ color = 256
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = hitshakeover
+triggerall = !hitpausetime
+persistent = 0
 trigger1 = animelem = 1
 trigger2 = animelem = 2
 trigger3 = animelem = 3
 x = 10
-ignorehitpause = 0
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = hitshakeover
+triggerall = !hitpausetime
 trigger1 = animelem = 4
 x = 3
 ignorehitpause = 0
@@ -3484,7 +3490,7 @@ x =1
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = hitshakeover
+triggerall = !hitpausetime
 trigger1 = animelem =12
 trigger2 = animelem = 13
 trigger3 = animelem = 14
@@ -3493,7 +3499,7 @@ ignorehitpause = 0
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = hitshakeover
+triggerall = !hitpausetime
 trigger1 = animelem = 15
 trigger2 = animelem = 16
 trigger3 = animelem = 17
