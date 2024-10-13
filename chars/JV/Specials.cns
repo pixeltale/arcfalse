@@ -1066,7 +1066,7 @@ trigger1	= anim = 1101
 trigger1 	= enemy, statetype = A
 attr 		= S, NA
 animtype  	= Hard
-damage 		= 160*map(P4), 30
+damage 		= 120*map(P4), 30
 hitflag 		= AFD
 guardflag 	= HAFD
 guard.ctrltime 	= 32
@@ -1080,7 +1080,7 @@ ground.hittime  	= 35
 air.hittime  	= 99
 down.hittime	= 99
 ground.velocity 	= -1, -8
-air.velocity 	= -2, 12 - map(sSenUSE)
+air.velocity 	= -2, 10 - map(sSenUSE)
 down.velocity 	= -1, 13
 air.fall 		= 1
 fall 		= 1
@@ -2703,7 +2703,7 @@ type    = S
 movetype= A
 physics = S
 ctrl = 0
-poweradd = -1000
+poweradd = -1000 * prevstateno != 5000
 anim = 1055
 sprpriority = 2
 facep2 = 1
