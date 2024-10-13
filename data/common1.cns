@@ -3963,6 +3963,7 @@ value = 5120
 type    = L
 movetype= I
 physics = N
+facep2  = 1
 
 [State 5120, 1a] ;Get up anim (normal)
 type = ChangeAnim

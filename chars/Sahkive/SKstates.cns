@@ -1176,20 +1176,17 @@ removeongethit = 0
 [State 100, 1]
 type = VelSet
 trigger1 = time=[4,13]
-x = -6.5
+x = -5.5
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = time=[14,20]
 x = -3
 y = 0
-;ignorehitpause = 
-;persistent = 
-
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time <= 12
+trigger1 = time <= 10
 value = SCA
 time = 1
 ignorehitpause = 1

@@ -1043,7 +1043,7 @@ sprpriority = 2
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = 1
+trigger1 = movehit
 value = 0
 ignorehitpause = 1
 ;persistent = 

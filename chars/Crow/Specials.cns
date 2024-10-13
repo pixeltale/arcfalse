@@ -94,9 +94,11 @@ value = 1016
 type = ChangeState
 triggerall = anim != 1000
 trigger1 = command = "b" && time > 10
-trigger2 = enemy, !alive
 value = 1020
-
+[State 0, ChangeAnim]
+type = ChangeState
+trigger1 = roundstate = 3
+value = 1020
 ;---------------------------------------------------------------------------
 ;---------------------------------------------------------------------------
 ;5S - FIRE STRAIGHT
