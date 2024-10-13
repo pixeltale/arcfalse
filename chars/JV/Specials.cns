@@ -2703,7 +2703,7 @@ type    = S
 movetype= A
 physics = S
 ctrl = 0
-poweradd = -1000 * prevstateno != 5000
+poweradd = -1000 * (prevstateno != 5000)
 anim = 1055
 sprpriority = 2
 facep2 = 1
