@@ -2706,7 +2706,7 @@ ctrl = 0
 poweradd = -1000 * (prevstateno != 5000)
 anim = 1055
 sprpriority = 2
-facep2 = 1
+facep2 = 1 * (prevstateno != 5000)
 
 [State 0, VelSet]
 type= VelAdd
@@ -2790,20 +2790,20 @@ value = 5,0
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.85	;100% Starting DMG
+value 		= 0.80	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
 value 		= 0.9	;85% DMG For next hit
 ignorehitpause 	= 1

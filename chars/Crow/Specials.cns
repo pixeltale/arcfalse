@@ -116,7 +116,7 @@ facep2 = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = !time
+trigger1 = animelem = 2
 helpertype = normal ;player
 name = "Muzzle Flash"
 ID = 1025
@@ -310,7 +310,7 @@ facep2 = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = !time
+trigger1 = animelem = 2
 helpertype = normal ;player
 name = "Muzzle Flash"
 ID = 1025
@@ -500,7 +500,7 @@ facep2 = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = !time
+trigger1 = animelem = 2
 helpertype = normal ;player
 name = "Muzzle Flash"
 ID = 1025
@@ -1607,7 +1607,7 @@ animtype 	= hard
 damage 		= 100*MAP(P4), 10
 hitflag 	= MAF
 guardflag 	= HA
-pausetime 	= 20,20
+pausetime 	= 20,20 + 8*(enemy, movetype = A)
 sparkno 	= 3
 sparkxy 	= -15,-40
 hitsound   	= 5,2

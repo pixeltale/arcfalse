@@ -333,8 +333,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "roundstate = %i"
-params = roundstate
+text = "cornersplat = %f"
+params = map(CornerSplat)
 ignorehitpause = 1
 persistent = 1
 
