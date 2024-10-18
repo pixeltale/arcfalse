@@ -415,8 +415,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "SJI = %f"
-params = map(SJI)
+text = "p2distx = %f"
+params = p2dist x
 ignorehitpause = 1
 persistent = 1
 

@@ -1215,7 +1215,7 @@ type = HitDef
 p2facing = 1
 triggerall = enemy, !map(ArmorActive)
 trigger1 = !movecontact && !movereversed
-trigger1 = p2dist x < 149
+trigger1 = p2dist x < 84
 attr = S, NA                     ;Attribute: Standing, Normal Attack
 damage 		= 50*map(P4), 5
 animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -1257,7 +1257,7 @@ type = HitDef
 p2facing 	= 1 
 triggerall 	= enemy, !map(ArmorActive)
 trigger1 	= !movecontact && !movereversed
-trigger1	= p2dist x >= 149 || enemy, movetype = A
+trigger1	= p2dist x >= 84
 getpower 	= 100
 attr 	= S, SA
 damage 	= 90*MAP(P4), 50
@@ -2709,10 +2709,9 @@ sprpriority = 2
 facep2 = 1 * (prevstateno != 5000)
 
 [State 0, VelSet]
-type= VelAdd
-trigger1 = animelemno(0) = [1,3]
-trigger2 = animelemno(0) = 6
-x = 1.5
+type= VelSet
+trigger1 = animelem = 1 || animelem = 2 || animelem = 3 || animelem = 6
+x = 5.5
 
 [State 0, Varadd]
 type= VarAdd
