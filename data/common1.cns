@@ -2738,7 +2738,7 @@ ctrl = 1
 ;Burst Mechanic
 [Statedef 900]
 type    = A
-movetype= A
+movetype= H
 physics = N
 poweradd = 0
 ctrl = 0
@@ -2791,7 +2791,7 @@ time = 32
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 1
-y = -2
+y = -1
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem =2

@@ -538,12 +538,6 @@ sprpriority = 2
 facep2 = 1
 anim = 1052
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = movecontact && command = "EX" && power>1000
-value = 1054
-ctrl = 0
-
 [State 0, Explod]
 type = Explod
 trigger1 = animelem = 3
@@ -658,12 +652,6 @@ ctrl = 0
 sprpriority = 2
 anim = 1052
 facep2 = 1
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = movecontact && command = "EX" && power>1000
-value = 1054
-ctrl = 0
 
 [State 0, Explod]
 type = Explod
@@ -780,12 +768,6 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 anim = 1052
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = movecontact && command = "EX" && power>1000
-value = 1054
-ctrl = 0
 
 [State 0, Explod]
 type = Explod
@@ -1161,10 +1143,10 @@ ignorehitpause = 1
 
 [State 0, Explod]
 type = Explod
-trigger1 = !time && !numexplod(2071)
+trigger1 = !time
 anim = 2071
 ID = 2017
-pos = 25,5
+pos = 32,5
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -2432,35 +2414,6 @@ palfx.add = 100, 0,20
 guard.hittime = 28
 guard.slidetime = 19
 guard.ctrltime = 27
-
-;SP > EX Cancels
-[State 0, ChangeState]
-type = ChangeState
-triggerall = command != "holdfwd" && command != "holdback" && command != "holddown"
-trigger1 = movecontact && command = "EX" && power > 1000
-value = 1010
-ctrl = 0
-;SP > EX Cancels
-[State 0, ChangeState]
-type = ChangeState
-triggerall = command != "holdfwd" && command != "holdback" && command = "holddown"
-trigger1 = movecontact && command = "EX" && power > 1000
-value = 2080
-ctrl = 0
-;SP > EX Cancels
-[State 0, ChangeState]
-type = ChangeState
-triggerall = command != "holdfwd" && command = "holdback" && command != "holddown"
-trigger1 = movecontact && command = "EX" && power > 1000
-value = 2090
-ctrl = 0
-;SP > EX Cancels
-[State 0, ChangeState]
-type = ChangeState
-triggerall = command = "holdfwd" && command != "holdback" && command != "holddown"
-trigger1 = movecontact && command = "EX" && power > 1000
-value = 2050
-ctrl = 0
 
 [State 200, 3]
 type = ChangeState

@@ -111,12 +111,7 @@ triggerall = command = "EX"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 1010
-trigger3 = movecontact
-trigger4 = stateno=1000
-trigger4 = movecontact
-trigger5 = stateno=2000
-trigger5 = movecontact
+trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] || stateno = 2070 || stateno = 2074) && movecontact
 
 [State -1, 4EX]
 type = ChangeState
@@ -127,6 +122,7 @@ triggerall = command = "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
+trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] || stateno = 2070 || stateno = 2074) && movecontact
 
 [State -1, 2EX]
 type = ChangeState
@@ -138,6 +134,7 @@ triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
+trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] || stateno = 2070 || stateno = 2074) && movecontact
 
 [State -1, 5S: EX Demontime]
 type = ChangeState

@@ -638,25 +638,26 @@ value = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "b" && animelemno(0) > 6
+trigger1 = command = "b" || command = "holdb"
+trigger1 = animelemno(0) > 6
 value = 1015
 ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "x"
+trigger1 = command = "x" || command = "holdx"
 trigger1 = animelemno(0) > 6
 value = 1110
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "y"
+trigger1 = command = "y" || command = "holdy"
 trigger1 = animelemno(0) > 6
 value = 1120
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "z"
+trigger1 = command = "z" || command = "holdz"
 trigger1 = animelemno(0) > 6
 value = 1130
 ctrl = 0
@@ -1158,25 +1159,25 @@ value 	= 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "b"
+trigger1 = command = "b" || command = "holdb"
 trigger1 = movecontact
 value = 1015
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "x"
+trigger1 = command = "x" || command = "holdx"
 trigger1 = movecontact
 value = 1110
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "y"
+trigger1 = command = "y" || command = "holdy"
 trigger1 = movecontact
 value = 1120
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "z"
+trigger1 = command = "z" || command = "holdz"
 trigger1 = movecontact
 value = 1130
 ctrl = 0
@@ -2929,25 +2930,25 @@ ignorehitpause 	= 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "b"
+trigger1 = command = "b" || command = "holdb"
 trigger1 = movecontact
 value = 1015
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "x"
+trigger1 = command = "x" || command = "holdx"
 trigger1 = movecontact
 value = 1110
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "y"
+trigger1 = command = "y" || command = "holdy"
 trigger1 = movecontact
 value = 1120
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "z"
+trigger1 = command = "z" || command = "holdz"
 trigger1 = movecontact
 value = 1130
 ctrl = 0
