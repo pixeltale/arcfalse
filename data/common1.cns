@@ -7168,6 +7168,11 @@ anim = 11
 sprpriority = -1
 velset = 0, 0
 
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
 [State 1055, 6] ;Change state when KFM is close to ground
 type = ChangeState
 trigger1 = time = 10
@@ -7494,9 +7499,9 @@ triggerall = statetype != L
 triggerall = map(BurstGauge)>=1000
 triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1)
 triggerall = command = "SP" && command = "b" || command = "z" && command = "c"
-triggerall = movetype = H
+triggerall = movetype = H && enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
 ;Average battle
-trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP || movetype = H
+trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP
 ;Wu support
 trigger2 = enemynear, numhelper(777)
 trigger2 = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT

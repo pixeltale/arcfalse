@@ -383,6 +383,14 @@ guard.slidetime = 21
 guard.hittime = 21
 getpower = 0
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 	= animelemno(0) < 41
+map 		= "ScratchLockout"
+value 		= 2
+ignorehitpause 	= 1
+persistent		= 1
+
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
