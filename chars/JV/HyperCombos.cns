@@ -769,8 +769,8 @@ animtype = hard
 ground.hittime  = 999
 air.hittime = 999
 down.hittime = 999
-ground.velocity = -5,-9
-air.velocity = -5,-8
+ground.velocity = -2,-9
+air.velocity = -2,-8
 envshake.time = 30
 fall = 1
 fall.yvelocity = 0
@@ -881,7 +881,7 @@ persistent = 1
 [State 0, VelSet] ;Movement
 trigger1 = time = 0
 type = posadd
-x = p2dist x + 90
+x = p2dist x
 y = enemy, pos y 
 
 

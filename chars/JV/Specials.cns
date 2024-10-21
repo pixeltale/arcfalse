@@ -937,26 +937,27 @@ removeongethit = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "b"
-trigger1 = map(EnState) && time > 4
+triggerall = command != "down"
+trigger1 = command = "b" || command = "holdx" 
+trigger1 = anim = 1051 && time > 4
 value = 1015
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "x" || command = "holdx"
-trigger1 = map(EnState) && time > 4
+trigger1 = anim = 1051 && time > 4
 value = 1110
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "y" || command = "holdy"
-trigger1 = map(EnState) && time > 4
+trigger1 = anim = 1051 && time > 4
 value = 1120
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "z" || command = "holdz"
-trigger1 = map(EnState) && time > 4
+trigger1 = anim = 1051 && time > 4
 value = 1130
 ctrl = 0
 

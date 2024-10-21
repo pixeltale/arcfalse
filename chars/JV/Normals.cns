@@ -762,7 +762,7 @@ envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 fall.yvelocity 	= 0
-guard.ctrltime 	= 10
+guard.ctrltime 	= 8
 air.fall 		= 1
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
