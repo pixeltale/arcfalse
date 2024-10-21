@@ -540,7 +540,7 @@ ground.slidetime 	= 5
 ground.cornerpush.veloff = -5
 ;==============================================
 ground.velocity 	= -2
-air.velocity 		= -1,-2.4 * map(GravMul)
+air.velocity 		= -2,-2.4 * map(GravMul)
 guard.ctrltime 		= 12
 airguard.velocity 	= -1.9,-.8
 ;==============================================

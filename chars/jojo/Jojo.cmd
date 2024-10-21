@@ -18,7 +18,7 @@ command.time = 15
 command.buffer.time = 3
 
 [Command]
-name = "holdfwd" ;Required (do not remove)
+name = "custom_holdfwd" ;Required (do not remove)
 command = /$F
 time = 1
 buffer.time = 0
@@ -118,7 +118,40 @@ trigger4 = movecontact
 trigger5 = stateno=2000
 trigger5 = movecontact
 
+[State -1, 4EX]
+type = ChangeState
+value = 2090
+triggerall=stateno!=2073 && !map(EX4S_LIMITER)
+triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "holdback"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
 
+[State -1, 2EX]
+type = ChangeState
+value = 2080
+triggerall=stateno!=2073 && !map(EX2S_LIMITER)
+triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "holddown"
+triggerall = command != "holdback"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+[State -1, 5S: EX Demontime]
+type = ChangeState
+value = 1010
+triggerall = !map(EX5S_Limiter)
+triggerall = power>1000
+triggerall = command = "EX"
+triggerall = command != "holdback" 
+triggerall = command != "holddown" 
+triggerall = command != "holdfwd" 
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] || stateno = 2070 || stateno = 2074) && movecontact
 
 [State -1, 6S: Flurry]
 type = ChangeState
@@ -169,10 +202,7 @@ trigger2 = var(1)
 ;trigger3 = movecontact
 ;trigger3 = stateno = 1010
 
-
-
-
-[State -1, J2S: Acid Stomp]
+[State -1, J2S]
 type = ChangeState
 value = 2073
 triggerall=stateno!=2070
@@ -184,7 +214,7 @@ triggerall = statetype != S
 trigger1 = ctrl
 trigger2 = var(1)
 
-[State -1, 2S: Acid Stomp]
+[State -1, 2S]
 type = ChangeState
 value = 2070
 triggerall=stateno!=2073
@@ -195,19 +225,10 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
+
+
 ;-------------------------------------------------------------------------
-[State -1, 5S: EX Upper]
-type = ChangeState
-value = 1010
-triggerall = !map(EX5S_Limiter)
-triggerall = power>1000
-triggerall = command = "EX"
-triggerall = command != "holdback" 
-triggerall = command != "holddown" 
-triggerall = command != "holdfwd" 
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
+
 
 [State -1, 5S: Upper]
 type = ChangeState
@@ -337,7 +358,7 @@ type = changestate
 triggerall = statetype != A
 value = 201
 triggerall = command = "x"
-triggerall = command = "holdfwd" && command != "holdback"
+triggerall = command = "custom_holdfwd" && command != "holdback"
 trigger1 = ctrl
 trigger2 = stateno = 200 && movecontact 
 trigger3 = stateno = 230 && movecontact 

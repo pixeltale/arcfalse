@@ -2791,7 +2791,7 @@ time = 32
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 1
-y = -1
+y = -2
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem =2
@@ -7496,7 +7496,7 @@ triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1)
 triggerall = command = "SP" && command = "b" || command = "z" && command = "c"
 triggerall = movetype = H
 ;Average battle
-trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP
+trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP || movetype = H
 ;Wu support
 trigger2 = enemynear, numhelper(777)
 trigger2 = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT

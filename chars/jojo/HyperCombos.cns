@@ -161,6 +161,7 @@ palfx.add = 30,-40,-140
 palfx.sinadd = 60,60,50,10
 palfx.color = 0
 palfx.invertall = 1
+getpower = 0
 kill=0
 [State 200, 1]
 type = HitDef
@@ -817,11 +818,36 @@ juggle  = 0
 poweradd= -2000
 ctrl = 0
 velset = 0,0
-anim = 1000
+anim = 1002
 sprpriority = 2
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
 
-
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.80	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.95	;90% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0, SuperPause]
 type = SuperPause
@@ -942,7 +968,7 @@ type    = A
 movetype= A
 physics = A
 anim = 1003
-velset = 5,-13
+velset = 5,-9
 ctrl=0
 
 [State 1000, 1]
@@ -984,9 +1010,37 @@ type = CtrlSet
 trigger1 = movehit
 value = 1
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.80	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.95	;90% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 1110, 3]
 type = HitDef
-trigger1 = time%3=0 && time<40
+trigger1 = time%3=0
 attr = S, SA
 getpower = 0
 animtype  = Up
@@ -994,7 +1048,7 @@ damage    = 10
 priority  = 5
 guardflag = MA
 hitflag = MAFD
-pausetime = 5,5
+pausetime = 4,5
 guard.pausetime = 18,18
 sparkxy = 0,-60
 sparkno=2
@@ -1003,6 +1057,7 @@ guardsound = 6,2
 ground.type = high
 ground.slidetime = 15
 ground.hittime  = 20
+air.hittime = 80
 ground.velocity = -0.1,-9
 guard.velocity = -6
 air.velocity = -0.1,-8
@@ -1011,13 +1066,39 @@ ground.cornerpush.veloff = -1
 air.cornerpush.veloff = -1
 p2facing = 1
 fall = 1
-fall.recovertime = 50
+air.fall = 1
 yaccel = .4
-fall.recover = 0
 envshake.time = 10
 envshake.freq = 10
 envshake.ampl = 3
 envshake.phase = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = !numexplod(1005) && !time
+anim = 1005
+ID = 1005
+pos = -65,-10
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 100
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.83,0.83
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 1
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
 
 
 
@@ -1036,7 +1117,7 @@ movetype= I
 physics = S
 ctrl = 0
 velset = 0,0
-anim = 1002
+anim = 1004
 
 [State 1030, 0]
 type = PosSet

@@ -570,7 +570,7 @@ value = -1
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 0
-x = 5.5
+x = 6.5
 y = 0
 
 [State 0, VelSet]
@@ -600,7 +600,7 @@ physics = A         ;A,C,S,N
 [State 0, VelMul]
 type = VelMul
 trigger1 = animelemno(0) = [3,7]
-x = .95
+x = 0.95
 y = .9
 
 
@@ -1189,9 +1189,17 @@ type = VelSet
 trigger1 = time = [0,8]
 x = 6
 
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = !time
+x = 6
+ignorehitpause = 1
+;persistent = 
+
+
 [State 0, Explod]
 type = Explod
-trigger1 = time = 8
+trigger1 = time = 0
 anim = 6951
 ID = 6951
 pos = 0,-10

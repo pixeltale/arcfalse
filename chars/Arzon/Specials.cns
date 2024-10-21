@@ -24,6 +24,15 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
 
+[State 0,	MapSet]
+type 		= MapAdd
+trigger1	= movehit = 1 && map(ComboStateCheck)
+map 		= "UseCount_2S"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 0
+
+
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0
@@ -87,7 +96,7 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  1.10
+value         =  0.95
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = MapSet
@@ -115,7 +124,7 @@ damage = 150*map(P4), 30
 hitflag = MAFD
 guardflag = MAF
 priority = 3
-pausetime = 18,18
+pausetime = 18,14
 sparkno = 3
 sparkxy = -10,-45
 hitsound   = 5,3
@@ -127,9 +136,9 @@ ground.hittime  = 999
 air.hittime  = 999
 down.hittime = 999
 air.fall = 1
-ground.velocity = -5,-5.4
+ground.velocity = -5,-4.4
 ground.cornerpush.veloff = -15
-air.velocity = -6,-3.5
+air.velocity = -6,-2.5
 envshake.time = 20
 envshake.freq = 110
 envshake.ampl = 7
@@ -1188,9 +1197,15 @@ envshake.phase = 1
 guard.slidetime = 6
 guard.hittime = 6
 guard.ctrltime = 6
-guard.cornerpush.veloff = -7
 yaccel = .27
 getpower = (0)
+
+[State 0, PosFreeze]
+type = PosFreeze
+trigger1 = 1
+value = 1
+ignorehitpause = 1
+;persistent = 
 
 
 [State 0, DestroySelf]
@@ -5129,6 +5144,7 @@ poweradd= 0
 ctrl = 0
 anim =1430
 sprpriority = 2
+velset = vel x, -2
 facep2 = map(SJI)
 
 
@@ -5186,7 +5202,7 @@ helpertype = normal ;player
 name = "Arzonball Z"
 ID = 1204
 stateno = 1435
-pos = 20,-45
+pos = 30,-35
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -5226,15 +5242,6 @@ map 		= "airball"
 value 		= 1
 ignorehitpause 	= 1
 persistent 		= 1
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = movecontact = 1
-trigger2 = time >80
-trigger3 = frontedgedist < -1
-ignorehitpause = 1
-value = 1299
-ctrl = 0 
 
 [State 3001, blah]
 type = AngleSet
@@ -5308,9 +5315,9 @@ getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = movecontact = 1
-trigger2 = time >200
-trigger3 = frontedgedist<-3
-trigger4 = pos y>=-5
+trigger2 = time > 80
+trigger3 = frontedgedist < -10
+trigger4 = pos y >= -5
 value = 1299
 ctrl = 0 
 

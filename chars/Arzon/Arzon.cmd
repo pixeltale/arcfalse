@@ -114,6 +114,7 @@ triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = ctrl
 trigger2 = movehit
 trigger2 = stateno = [200,220] || stateno = 420
+trigger3 = stateno = 1550 && map(ComboStateCheck)
 
 [State -1,DJC]
 type = ChangeState
@@ -383,7 +384,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1440
 triggerall = numhelper(12050)=0
-triggerall = power>=1000  && !map(EXj5SLimiter)
+triggerall = power>=1000  && !map(EXj5SLimiter) && stateno != 1430
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = statetype = A

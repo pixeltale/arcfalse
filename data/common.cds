@@ -250,26 +250,32 @@ time = 1
 name = "holdfwd" ;Required (do not remove)
 command = /$F
 time = 1
+buffer.time = 0
 [Command]
 name = "holddown" ;Required (do not remove)
 command = /$D
 time = 1
+buffer.time = 0
 [Command]
 name = "holdback" ;Required (do not remove)
 command = /$B
 time = 1
+buffer.time = 0
 [Command]
 name = "holdup" ;Required (do not remove)
 command = /$U
 time = 1
+buffer.time = 0
 [Command]
 name = "holdup" ;Required (do not remove)
 command = /UF
 time = 1
+buffer.time = 0
 [Command]
 name = "holdup" ;Required (do not remove)
 command = /UB
 time = 1
+buffer.time = 0
 
 [Command]
 name = "holdfwd_r" ; Raw hold forward (REQUIRED for command buffering)

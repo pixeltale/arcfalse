@@ -297,7 +297,7 @@ y = var(40)
 type = VelSet
 triggerall = prevstateno = 702
 trigger1 = animtime=0
-x = 8
+x = 6
 y = -7
 
 [State 40, 5]

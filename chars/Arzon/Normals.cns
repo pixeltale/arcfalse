@@ -80,7 +80,7 @@ air.fall = 1
 guard.hittime =10
 guard.slidetime = 8
 guard.ctrltime = 10
-getpower = (10)*(cond(var(var(5)) = 1, 1, .5)) 
+getpower = (20)*(cond(var(var(5)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -214,7 +214,7 @@ guard.slidetime = 15
 guard.ctrltime = 8
 guard.cornerpush.veloff = -5
 air.fall = 1
-getpower = (25)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (35)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -354,7 +354,7 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = !movecontact
+trigger1 = !movecontact && !movereversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back
@@ -369,10 +369,10 @@ guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 30-map(UntechDecay)
-air.hittime  = 60-map(UntechDecay)
-down.hittime = 56-map(UntechDecay)
+air.hittime  = 50-map(UntechDecay)
+down.hittime = 50-map(UntechDecay)
 ground.velocity = -3.2
-air.velocity = -2.5,-4
+air.velocity = -2.5,-2.5
 envshake.time = 20
 envshake.freq = 180
 envshake.ampl = 2
@@ -382,7 +382,7 @@ guard.slidetime = 14
 guard.ctrltime = 14
 guard.velocity = -10
 air.fall = 1
-getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (75)*(cond(var(var(2)) = 1, 1, 1)) 
 ground.cornerpush.veloff = -2
 
 [State 0, ChangeState]
@@ -534,7 +534,7 @@ air.fall 	= 1
 fall 		= 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 200, 1]
 type = HitDef 
@@ -572,7 +572,7 @@ air.fall 	= 1
 fall 		= 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 200, 1]
 type = HitDef 
@@ -607,7 +607,7 @@ guard.ctrltime = 14
 guard.velocity = -6
 air.fall 	= 1
 fall 		= 1
-getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
@@ -845,7 +845,7 @@ air.velocity = -1.5,-3
 guard.hittime = 10
 guard.slidetime = 10
 guard.ctrltime = 11
-getpower = (10)*(cond(var(var(5)) = 1, 1, .5)) 
+getpower = (20)*(cond(var(var(5)) = 1, 1, .5)) 
 
 [State 400, 4]
 type = ChangeState
@@ -926,7 +926,7 @@ value = 1001, (0+(Random%7))
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -980,7 +980,7 @@ envshake.phase 	= 1
 fall.yvelocity 	= 0
 guard.ctrltime 	= 10
 air.fall 		= 1
-getpower 		= (25)*(cond(var(var(2)) = 1, 1, .5)) 
+getpower 		= (55)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1198,7 +1198,7 @@ envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
-getpower = (65)*(cond(var(var(2)) = 1, 1, 1))
+getpower = (75)*(cond(var(var(2)) = 1, 1, 1))
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1346,13 +1346,13 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.80    
+value         =  0.85   
 ignorehitpause     = 1    
 [State -2, P2 Value Set]
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.83   
+value         =  0.87   
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
@@ -1390,7 +1390,7 @@ down.hittime 	= 18 - MAP(UntechDecay)
 ground.velocity = -4
 air.velocity = -1.3,-3
 air.fall = 1
-getpower = (10)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (25)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 600, 3]
 type = CtrlSet
@@ -1510,7 +1510,7 @@ ignorehitpause     = 1
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.85   
+value         =  0.89   
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
@@ -1551,7 +1551,7 @@ envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
-getpower = (20)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1634,13 +1634,13 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.90    
+value         =  1   
 ignorehitpause     = 1    
 [State -2, P2 Value Set]
 type         = MapSet
 trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
-value         =  0.90   
+value         =  0.95 
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
@@ -1654,7 +1654,7 @@ persistent         = 0
 [State 0]
 type = HitDef 
 p2facing = 1
-triggerall = !movecontact
+triggerall = !movecontact && !movereversed && enemy, !map(ArmorActive)
 trigger1 = !movereversed
 attr = A, NA
 animtype  = Medium
@@ -1671,7 +1671,7 @@ ground.type 	= HIGH
 air.type		= TRIP
 ground.slidetime = 12
 ground.hittime  = 18
-air.hittime  = 30 - MAP(UntechDecay)/2
+air.hittime  = 30
 down.hittime =40 - MAP(UntechDecay)
 ground.velocity = -2.4
 down.velocity = -1,6
@@ -1690,10 +1690,50 @@ envshake.freq = 85
 envshake.ampl = 2
 envshake.phase = 1
 air.fall = 1
-p2stateno = cond((enemy, statetype = A), cond(map(jH_useCount) < 2, 5255,  5070), 5000)
+p2stateno = cond((enemy, statetype = A), cond(map(jH_useCount) < 1, 5255,  5070), 5000)
 p2getp1state = 0
-getpower = (30)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (70)*(cond(var(var(3)) = 1, 1, .5))
 
+[State 0]
+type = HitDef 
+p2facing = 1
+triggerall = !movecontact && !movereversed && enemy, map(ArmorActive)
+trigger1 = !movereversed
+attr = A, NA
+animtype  = Medium
+air.animtype = back
+damage = 70*map(P4)
+hitflag = MAFD
+guardflag = HA
+pausetime = 18,18
+sparkno = 3
+sparkxy = -15,-40
+hitsound   = 5,2
+guardsound = 6,2
+ground.type 	= HIGH
+air.type		= TRIP
+ground.slidetime = 12
+ground.hittime  = 18
+air.hittime  = 30
+down.hittime = 40
+ground.velocity = -2.4
+down.velocity = -1,6
+air.velocity = -1,14
+fall.yvelocity = -6
+ground.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.ctrltime = 10
+guard.pausetime= 14,14
+guard.velocity = -7
+guard.dist = 5
+guard.slidetime = 30;
+envshake.time = 23
+envshake.freq = 85
+envshake.ampl = 2
+envshake.phase = 1
+air.fall = 1
+getpower = (70)*(cond(var(var(3)) = 1, 1, .5))
 
 
 [State 0, ChangeState]
@@ -2695,7 +2735,7 @@ pausetime = 0, 0
 sparkno = -1                      
 sparkxy = -18, -60              
 ground.hittime  = 999;ceil(cond(fvar(14) *15 < 9, 9, fvar(14) * 15))
-air.hittime  = 40 - root, map(untechDecay);ceil(cond(fvar(15) *18 < 5, 5, fvar(15) * 18))
+air.hittime  = 30 - root, map(untechDecay);ceil(cond(fvar(15) *18 < 5, 5, fvar(15) * 18))
 down.hittime = 999;ceil(cond(fvar(15) *15 < 10, 10, fvar(15) * 15)) 
 hitsound = 0, 0                  
 guardsound = 0, 0                
