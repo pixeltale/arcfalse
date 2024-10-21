@@ -79,14 +79,7 @@ KO.echo = 0
 ;Volume offset (negative for softer)
 volume = 0
 
-power = 4010
-;Variables with this index and above will not have their values
-;reset to 0 between rounds or matches. There are 60 int variables,
-;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
-;If omitted, then it defaults to 60 and 40 for integer and float
-;variables repectively, meaning that none are persistent, i.e. all
-;are reset. If you want your variables to persist between matches,
-;you need to override state 5900 from common1.cns.
+power = 4000
 IntPersistIndex = 60
 FloatPersistIndex = 40
 
@@ -99,7 +92,7 @@ air.back = 12        ;Player width (back, air)
 air.front = 12       ;Player width (front, air)
 height = 50          ;Height of player (for opponent to jump over)
 attack.dist = 160    ;Default attack distance
-proj.attack.dist = 90 ;Default attack distance for projectiles
+proj.attack.dist = 0 ;Default attack distance for projectiles
 proj.doscale = 0     ;Set to 1 to scale projectiles too
 head.pos = -5, -90   ;Approximate position of head
 mid.pos = -5, -60    ;Approximate position of midsection

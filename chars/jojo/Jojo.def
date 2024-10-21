@@ -5,6 +5,7 @@
 name = "JoJo"        ;Name of character
 displayname = "Jo-Jo" ;Name of character to display
 versiondate = 4,18,2020    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.0
 ikemenversion = 0.99
 author = "Programmed by Taffy, Z & Bonehouse"         ;Character author nam
 pal.defaults = 1,2,3,4      ;Default palettes in order of preference (up to 4)

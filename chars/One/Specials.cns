@@ -4207,7 +4207,8 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0  && p2stateno != 5110
+triggerall = p2dist x > 0
+trigger1 = !movecontact && !movereversed && p2stateno != 5110
 attr = A, SA
 animtype  = hard
 air.animtype = back
