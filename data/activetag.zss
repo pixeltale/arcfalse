@@ -869,57 +869,57 @@ ignorehitpause {
 		# Uses debug font for compatibility purposes
 		if roundstate = [1, 2] && (player(teamleader), map(_potstag_lastchar) = 0) {
 
-			# Shadow layer
-			if teamside = 1 {
-				text{
-					font: -1; # Edit this line to change the Tag gauge font
-					text: "TAG x %d%%";
-					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
-					removetime: 1;
-					layerno: 1;
-					align: 1;
-					pos: map(_potstag_cfg_gaugex) + 1, map(_potstag_cfg_gaugey) + 1;
-					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
-					color: 0, 0, 0;
-				}
-			} else {
-				text{
-					font: -1; # Edit this line to change the Tag gauge font
-					text: "%d%% x TAG";
-					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
-					removetime: 1;
-					layerno: 1;
-					align: -1;
-					pos: 321 - map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey) + 1;
-					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
-					color: 0, 0, 0;
-				}
-			}
+			# # Shadow layer
+			# if teamside = 1 {
+			# 	text{
+			# 		font: -1; # Edit this line to change the Tag gauge font
+			# 		text: "TAG x %d%%";
+			# 		params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+			# 		removetime: 1;
+			# 		layerno: 1;
+			# 		align: 1;
+			# 		pos: map(_potstag_cfg_gaugex) + 1, map(_potstag_cfg_gaugey) + 1;
+			# 		scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+			# 		color: 0, 0, 0;
+			# 	}
+			# } else {
+			# 	text{
+			# 		font: -1; # Edit this line to change the Tag gauge font
+			# 		text: "%d%% x TAG";
+			# 		params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+			# 		removetime: 1;
+			# 		layerno: 1;
+			# 		align: -1;
+			# 		pos: 321 - map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey) + 1;
+			# 		scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+			# 		color: 0, 0, 0;
+			# 	}
+			# }
 
-			# Main text
-			if teamside = 1 {
-				text{
-					font: -1; # Edit this line to change the Tag gauge font
-					text: "TAG x %d%%";
-					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
-					removetime: 1;
-					layerno: 1;
-					align: 1;
-					pos: map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey);
-					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
-					}
-			} else {
-				text{
-					font: -1; # Edit this line to change the Tag gauge font
-					text: "%d%% x TAG";
-					params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
-					removetime: 1;
-					layerno: 1;
-					align: -1;
-					pos: 320 - map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey);
-					scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
-				}
-			}
+			# # Main text
+			# if teamside = 1 {
+			# 	text{
+			# 		font: -1; # Edit this line to change the Tag gauge font
+			# 		text: "TAG x %d%%";
+			# 		params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+			# 		removetime: 1;
+			# 		layerno: 1;
+			# 		align: 1;
+			# 		pos: map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey);
+			# 		scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+			# 		}
+			# } else {
+			# 	text{
+			# 		font: -1; # Edit this line to change the Tag gauge font
+			# 		text: "%d%% x TAG";
+			# 		params: floor(100 * (player(teamside), map(_potstag_taggauge)) / (player(teamside), map(_potstag_taggaugemax)));
+			# 		removetime: 1;
+			# 		layerno: 1;
+			# 		align: -1;
+			# 		pos: 320 - map(_potstag_cfg_gaugex), map(_potstag_cfg_gaugey);
+			# 		scale: map(_potstag_cfg_gaugescale), map(_potstag_cfg_gaugescale);
+			# 	}
+			# }
 		}
 	}
 

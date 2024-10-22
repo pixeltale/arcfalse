@@ -1,6 +1,5 @@
-.\external\script\start.lua:1401: data/common1.cns:2749:
-N
-movetype: Invalid value: N
+.\external\script\start.lua:1401: data/common1.cns:7787:
+Invalid data: triggerall
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'
