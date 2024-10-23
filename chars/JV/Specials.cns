@@ -2239,6 +2239,14 @@ palcontrast = 256,206,206
 trans = add1
 ignorehitpause = 1
 
+[State 0, Changestate]
+type = Changestate
+triggerall = command = "66" || command = "M66"
+triggerall = anim = 1005
+trigger1 = movehit
+value = 100
+ctrl = 0
+
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
