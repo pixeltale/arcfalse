@@ -938,7 +938,7 @@ removeongethit = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = command != "down"
-trigger1 = command = "b" || command = "holdx" 
+trigger1 = command = "b" || command = "holdb" 
 trigger1 = anim = 1051 && time > 4
 value = 1015
 ctrl = 0
@@ -2242,7 +2242,6 @@ ignorehitpause = 1
 [State 0, Changestate]
 type = Changestate
 triggerall = command = "66" || command = "M66"
-triggerall = anim = 1005
 trigger1 = movehit
 value = 100
 ctrl = 0

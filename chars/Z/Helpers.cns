@@ -1980,7 +1980,7 @@ ctrl = 0
 sprpriority = 5
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = roundstate!=2
+trigger1 = roundstate!=2 || map(trailerMode)
 flag = invisible
 
 ;p1 side

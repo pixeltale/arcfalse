@@ -909,41 +909,6 @@ trigger1 = var(28) <=0 && palno = 11
 channel = 100
 ;---------------------------------------
 
-[State 0, Explod] ;BURST EXPLOD
-type = Explod
-triggerall = !numexplod(900)
-trigger1 = var(15) = 1000 && teamside = 1
-anim =F905
-ID = 900
-pos = -3,18
-postype = left  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -1
-pausemovetime = 0
-scale =0.60,0.60
-sprpriority = 8
-ontop = 1
-ignorehitpause = 1
-[State 0, Explod]
-type = Explod
-triggerall = !numexplod(900)
-trigger1 = var(15) = 1000 && teamside = 2
-anim =F906
-ID = 900
-pos = -53,18
-postype = right  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -1
-pausemovetime = 0
-scale = 0.64,0.64
-sprpriority = 8
-ontop = 1
-ignorehitpause = 1
-
 [State 0, RemoveExplod]
 type = RemoveExplod
 trigger1 = stateno = 900
