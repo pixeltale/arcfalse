@@ -671,3 +671,7 @@ shutter.col = 0, 0, 0      ;Ikemen feature: skip intro fade color (default: 0,0,
 89,4, -8,-19, 1, , A
 -1,0, 0,0, -1
 
+
+; Super Kill
+[Begin Action 999]
+999,0, 0,0, 69

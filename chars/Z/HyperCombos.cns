@@ -322,6 +322,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
+kill = 0
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -832,6 +833,7 @@ palfx.sinadd=256,256,256,10
 palfx.time=32
 p2facing = 1
 air.fall = 1
+kill = 0
 
 [State 0, PlayerPush]
 type = PlayerPush

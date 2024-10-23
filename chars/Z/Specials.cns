@@ -6429,7 +6429,7 @@ persistent 		= 0
 
 [State 200, 1]
 type = hitdef 
-trigger1 = !movereversed
+trigger1 = !movereversed && !moveguarded
 attr = S, SA
 animtype  = back
 air.animtype = back
@@ -6555,7 +6555,7 @@ channel = 3
 [State 610, 3]
 type = HitDef 
 p2facing = 1
-triggerall = !movereversed
+triggerall = !movereversed && !moveguarded
 trigger1 = anim = 1110
 trigger1 = time % 6 = 0
 attr = A, SA
@@ -6622,7 +6622,7 @@ channel = 3
 [State 0]
 type = HitDef 
 p2facing = 1
-triggerall = !movereversed
+triggerall = !movereversed && !moveguarded
 triggerall = anim !=1110
 trigger1 = anim = 1111
 trigger1 = animelem = 2
@@ -6719,7 +6719,7 @@ value = 1011, 1
 [State 0]
 type = HitDef 
 p2facing = 1
-triggerall = !movereversed
+triggerall = !movereversed && !moveguarded
 trigger1 = anim = 1111
 trigger1 = animelem = 12
 attr = A, SA

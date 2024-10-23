@@ -6696,13 +6696,13 @@ time = 999
 [State 8990, PlaySnd]
 type = PlaySnd
 trigger1 = Time = 0
-value = 8991,0
+value = F999,0
 channel = 5
 
 [State 8990, PlaySnd]
 type = PlaySnd
 trigger1 = Time = 1
-value = 8991,10
+value = 8991, 0
 channel = 6
 
 [State 8990, AssertSpecial]
@@ -6734,30 +6734,30 @@ phase = 90
 [State 8990, Explod]
 type = Explod
 trigger1 = Time = 0
-anim = 8992
+anim = F999
 id = 8992
 pos = 160,120
-scale = .5,.5
-postype = Left
+scale = 20,20
+postype = P1
 bindtime = -1
 removetime = 60
 sprpriority = -16
 ownpal = 1
 supermovetime = -1
 
-[State 8990, Explod]
-type = Explod
-trigger1 = Time = 53
-anim = 8991
-id = 8991
-pos = 160,120
-scale = .5,.5
-postype = Left
-bindtime = -1
-removetime = -2
-sprpriority = -15
-ownpal = 1
-supermovetime = -1
+; [State 8990, Explod]
+; type = Explod
+; trigger1 = Time = 53
+; anim = 8991
+; id = 8991
+; pos = 160,120
+; scale = .5,.5
+; postype = Left
+; bindtime = -1
+; removetime = -2
+; sprpriority = -15
+; ownpal = 1
+; supermovetime = -1
 
 [State 8990, DestroySelf]
 type = DestroySelf
@@ -7280,9 +7280,37 @@ facing = 0
 removeongethit = 0
 ignorehitpause = 1
 
+;======================================
+;ARCFALSE HYPER KO DARKNESS
+;======================================
+[State 0, PalFX]
+type = PalFX
+trigger1 = WinKO
+trigger1 = stateno = [3000,3999]
+time = 5
+add = -300,-300,-300
+mul = 256,256,256
+invertall = 0
+color = 256
+ignorehitpause = 1
+persistent = 1
+
+
+
 ;------------------------------------------------------------------------------
 [Statedef -2]
-
+[State 0, PalFX]
+type = PalFX
+trigger1 = WinKO
+trigger1 = hitdefattr = SCA, HA, HP, NT, ST, HT
+time = 5
+add = -300,-300,-300
+mul = 256,256,256
+invertall = 0
+color = 256
+ignorehitpause = 1
+persistent = 1
+redirectid = enemynear, id
 ;======================================
 ;TRAILER MODE
 ;======================================
@@ -7290,7 +7318,7 @@ ignorehitpause = 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 1
+VALUE = 0
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)

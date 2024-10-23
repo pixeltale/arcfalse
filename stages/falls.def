@@ -14,8 +14,8 @@ boundleft = -330
 boundright = 330
 boundhigh = -62
 boundlow = 0
-verticalfollow = 0
-tension = 100
+verticalfollow = 0.2
+tension = 300
 
 [PlayerInfo]
 p1startx = -70
@@ -78,7 +78,7 @@ delta=0.1,0
 type  = normal
 spriteno = 10,0
 start = 0, 0
-delta=0.37,0
+delta=0.37,0.05
 
 [BG Heaven]
 type  =normal
@@ -94,7 +94,7 @@ id=3
 type  = anim
 actionno=1
 start = 0, 0
-delta=0.4,0
+delta=0.4,0.1
 
 [BG Heaven]
 type  =normal
@@ -132,7 +132,7 @@ delta=0.5,0
 type  = normal
 spriteno = 0,5
 start = 0, 0
-delta=0.6,0
+delta=0.6,0.4
 
 [BG Heaven]
 type  =normal

@@ -11,8 +11,8 @@ boundleft = -330
 boundright = 330
 boundhigh = -62
 boundlow = 0
-verticalfollow = 0
-tension = 100
+verticalfollow = 0.2
+tension = 300
 
 [PlayerInfo]
 p1startx = -70
@@ -68,7 +68,7 @@ delta=.1,.1
 [BG bclouds]
 type  = normal
 spriteno = 0, 1
-start = 0, 0
+start = 0, -10
 delta=.1,.1
 velocity=.3,0
 tile=1,0
@@ -76,7 +76,7 @@ tile=1,0
 [BG clouds]
 type  = normal
 spriteno = 0, 2
-start = 0, 0
+start = 0, -10
 delta=.15,.15
 velocity=-.3,0
 tile=1,0
@@ -158,8 +158,9 @@ start = 0, 0
 type  = anim
 actionno=1
 start = 0, -2
+delta = 1, -1
 trans=add
-alpha = 130,150
+alpha = 100,100
 layerno=1
 
 [BGCtrlDef Heaven]
