@@ -7794,7 +7794,7 @@ triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
-triggerall = !map(TrailerMode)
+triggerall = !map(TrailerMode) && roundstate = 2
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -7815,7 +7815,7 @@ triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 trigger1 = map(_potstag_taggauge) = map(_potstag_taggaugemax)
 triggerall = playerno = teamleader
-triggerall = !map(TrailerMode)
+triggerall = !map(TrailerMode) && roundstate = 2
 removetime = 1
 layerno = 2
 text = "Tag OK"
@@ -7833,7 +7833,7 @@ triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
-triggerall = !map(TrailerMode)
+triggerall = !map(TrailerMode) && roundstate = 2
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -7853,7 +7853,7 @@ triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
-triggerall = !map(TrailerMode)
+triggerall = !map(TrailerMode) && roundstate = 2
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -7890,7 +7890,7 @@ triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
-triggerall = !map(TrailerMode)
+triggerall = !map(TrailerMode) && roundstate = 2
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -9054,7 +9054,7 @@ trigger1 = map(BurstGauge) >= 1000 && teamside = 1
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = !(enemy, (map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC)))
 triggerall = playerno = teamleader
-triggerall = !map(TrailerMode)
+triggerall = !map(TrailerMode) && roundstate = 2
 anim = F905
 ownpal = 1
 ID = 900
@@ -9077,7 +9077,7 @@ trigger1 = map(BurstGauge) >= 1000 && teamside = 2
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = !(enemy, (map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC)))
 triggerall = playerno = teamleader
-triggerall = !map(TrailerMode)
+triggerall = !map(TrailerMode) && roundstate = 2
 anim = F906
 ID = 900
 ownpal = 1
@@ -9095,7 +9095,7 @@ ignorehitpause = 1
 
 [State 0, RemoveExplod]
 type = RemoveExplod
-trigger1 = stateno = 900 || map(BurstGauge) < 1000
+trigger1 = stateno = 900 || map(BurstGauge) < 1000 || roundstate = 3
 ignorehitpause = 1
 persistent = 1
 id = 900
