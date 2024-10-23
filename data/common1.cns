@@ -6742,9 +6742,9 @@ supermovetime = -1
 
 [State 0, PalFX]
 type = PalFX
-trigger1 = root, hitpausetime
-time = 10
-add = -100,-100,-100
+trigger1 = root, hitpausetime || parent, hitpausetime
+time = 30
+add = -300,-300,-300
 mul = 256,256,256
 invertall = 0
 color = 256
@@ -6754,9 +6754,9 @@ redirectid = root, id
 
 [State 0, PalFX]
 type = PalFX
-trigger1 = root, hitpausetime
-time = 10
-add = -100,-100,-100
+trigger1 = root, hitpausetime || parent, hitpausetime
+time = 30
+add = -300,-300,-300
 mul = 256,256,256
 invertall = 0
 color = 256
