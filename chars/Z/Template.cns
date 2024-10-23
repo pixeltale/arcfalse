@@ -468,6 +468,7 @@ ignorehitpause = 0
 ;background
 [State 0, Explod] ;p1 side
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 1 && RoundState=[2,3]
 trigger1= !NumExplod(7050)
 anim =7050
@@ -488,6 +489,7 @@ ignorehitpause = 1
 ;foreground
 [State 0, Explod] ;p1 side
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 1 && RoundState=[2,3]
 triggerall= !NumExplod(7051)
 trigger1 = var(4)=1
@@ -510,6 +512,7 @@ ignorehitpause = 1
 ;background
 [State 0, Explod] ;p2 side
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 2 && RoundState=[2,3]
 trigger1= !NumExplod(7050)
 anim =7050
@@ -530,6 +533,7 @@ ignorehitpause = 1
 ;foreground
 [State 0, Explod] ;p2 side
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 2 && RoundState=[2,3]
 triggerall= !NumExplod(7051)
 trigger1 = var(4)=1
@@ -791,6 +795,7 @@ IgnoreHitPause=1
 ;Everything Regarding Volt Meter (Taken from HDBZ)
 [State -2, Volt Bar]
 type = Helper
+triggerall = !map(TrailerMode)
 trigger1 = !NumHelper(7010)&&RoundState=2
 stateNo = 7010
 ID = 7010

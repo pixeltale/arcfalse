@@ -1986,6 +1986,7 @@ flag = invisible
 ;p1 side
 [State -2, Explod];Volt Background
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 1
 ;TriggerAll=Root,NumExplod(991901)=0 && Enemy,NumExplod(991901)=0
 trigger1 = !NumExplod(7002)
@@ -2005,6 +2006,7 @@ pausemovetime = 999999
 supermovetime = 999999
 [State -2, Explod];Volt Bar Meter
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 1
 ;TriggerAll=Root,NumExplod(991901)=0 && Enemy,NumExplod(991901)=0
 trigger1 = !NumExplod(7001)
@@ -2024,6 +2026,7 @@ pausemovetime = 999999
 supermovetime = 999999
 [State -2, Explod];Volt Bar Frame
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 1
 ;TriggerAll=Root,NumExplod(991901)=0 && Enemy,NumExplod(991901)=0
 trigger1 = !NumExplod(7000)
@@ -2043,6 +2046,7 @@ pausemovetime = 999999
 supermovetime = 999999
 [State -2, Explod];Scaling The Inside Bar
 type =ModifyExplod
+triggerall = !map(TrailerMode)
 Trigger1=TeamSide=1
 trigger1 = NumExplod(7001)
 scale = .6 * Root,Var(5)/150,.6
@@ -2054,6 +2058,7 @@ ignorehitpause = 1
 ;p2 side
 [State -2, Explod];Volt Background
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 2
 ;TriggerAll=Root,NumExplod(991901)=0 && Enemy,NumExplod(991901)=0
 trigger1 = !NumExplod(7002)
@@ -2073,6 +2078,7 @@ pausemovetime = 999999
 supermovetime = 999999
 [State -2, Explod];Volt Bar Meter
 type = Explod
+triggerall = !map(TrailerMode)
 triggerall = teamside = 2
 ;TriggerAll=Root,NumExplod(991901)=0 && Enemy,NumExplod(991901)=0
 trigger1 = !NumExplod(7001)

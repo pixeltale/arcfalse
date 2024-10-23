@@ -2702,6 +2702,12 @@ value = 0
 
 [State 0, ChangeState]
 type = ChangeState
+trigger1 = command = "b" || command = "holdb"
+trigger1 = movecontact
+value = 1015
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
 trigger1 = command = "x"
 trigger1 = movecontact
 value = 1110
