@@ -498,11 +498,6 @@ LoopStart
 ; Arcfalse Super KO
 [Begin Action 999]
 999,0, 0,0, 60
-999,0, 0,0, 2, , AS256D50
-999,0, 0,0, 1, , AS256D100
-999,0, 0,0, 1, , AS200D150
-999,0, 0,0, 1, , AS200D200
-999,0, 0,0, 1, , AS150D250
 
 ; FX: Dash
 [Begin Action 6951]

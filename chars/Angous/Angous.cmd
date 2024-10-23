@@ -23,7 +23,7 @@ var(1) = 0
 type = VarSet
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || stateno = 656 || stateno = 1072
+trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || stateno = 656
 trigger2 = movecontact && !enemy, movereversed
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = 105

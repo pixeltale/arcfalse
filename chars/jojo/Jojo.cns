@@ -241,6 +241,7 @@ ctrl = 1
 ; States that are executed when in self's state file (use statedef -3)
 ;---------------------------------------------------------------------------
 [Statedef -2]
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 	= !map(ComboStateCheck)
@@ -319,7 +320,7 @@ ignorehitpause = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "EX2SLim = %f comboTimer = %f"
-params = map(EX2S_Limiter), map(combotimer)
+params = map(ArmorBreak), map(combotimer)
 ignorehitpause = 1
 
 [State 0, VarSet]

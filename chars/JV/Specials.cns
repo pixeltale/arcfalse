@@ -315,15 +315,6 @@ ignorehitpause = 1
 persistent = 0
 volumescale = 160
 
-
-[State -2, Reset Armorbreak Map]
-type 		= MapSet
-trigger1 	= map(ChargeLvl) > 0 
-map 		= "ArmorBreak"
-value 		= 1
-ignorehitpause 	= 0
-persistent 	= 0
-
 [State 0, ChangeAnim] ;Beretta
 type = ChangeAnim
 trigger1 = command = "hold_b" && time = 10

@@ -2601,11 +2601,19 @@ ctrl = 0
 anim = 652
 sprpriority = -2
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 4
+ignorehitpause 	= 0
+persistent 	= 0
+
 [State 0, ReversalDef]
 type = ReversalDef
 trigger1 = enemy, stateno != 900
 reversal.attr = SCA,NA,SA,HA
-pausetime = 10,99
+pausetime = 10,50
 sparkxy = 10,-10 ;offset
 hitsound = S1,0
 p1stateno = 703
@@ -2618,6 +2626,7 @@ pausetime = 1,20
 sparkxy = 10,-10 ;offset
 hitsound = S1,0
 p1stateno = 703
+
 
 [State 0, VarSet]
 type = VarSet
@@ -2816,6 +2825,14 @@ ctrl 	= 0
 anim 	= 653
 sprpriority = -2
 velset = -4
+
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 1
 
 [State -2, Starter Level]
 type 		= MapSet

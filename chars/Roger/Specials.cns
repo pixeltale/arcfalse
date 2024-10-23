@@ -1983,6 +1983,14 @@ ctrl = 0
 anim =1005
 sprpriority = 2
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 4
+ignorehitpause 	= 0
+persistent 	= 0
+
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = animelem = 1
@@ -2293,6 +2301,14 @@ anim = 999
 poweradd = -1000
 sprpriority = 2
 
+[State -2, Reset Armorbreak Map]
+type 		= MapSet
+trigger1 	= 1
+map 		= "ArmorBreak"
+value 		= 90
+ignorehitpause 	= 0
+persistent 	= 0
+
 [State 0, AttackDist]
 type = AttackDist
 trigger1 = 1
@@ -2438,11 +2454,11 @@ persistent 		= 0
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 hitonce = 1
-attr = S, ST, SA
+attr = S, ST
 damage = 0, 0
-hitflag = MAFD
+hitflag = MAF
 guardflag = MA
 priority = 3
 pausetime = 0,0
