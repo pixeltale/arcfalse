@@ -938,7 +938,7 @@ removeongethit = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = command != "down"
-trigger1 = command = "b" || command = "holdb" 
+trigger1 = command = "b"
 trigger1 = anim = 1051 && time > 4
 value = 1015
 ctrl = 0
