@@ -1276,11 +1276,6 @@ posType = P2
 ownPal = 1
 ignoreHitPause = 1
 
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = movehit
-value = 1
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0

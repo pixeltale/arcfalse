@@ -1747,7 +1747,7 @@ value =0
 ctrl = 1
 
 ;----------------------------------------------------------------------------
-;Fetid Furball Boom
+;Acrid Blodshed Explosion
 ;---------------------------------------------------------------------------
 [Statedef 3075]
 type    = U
@@ -1795,12 +1795,7 @@ ignorehitpause 	= 1
 persistent 		= 0
 ;============================
 
-[State 0, Pause]
-type = Pause
-trigger1 = movehit = 1
-time = 26
-ignorehitpause = 1  
-persistent = 0
+
 [State 0, Pause]
 type = Pause
 trigger1 = moveguarded = 1
@@ -1818,7 +1813,7 @@ air.animtype = up
 damage = 270*(parent, MAP(P4)) + 60, 0
 hitflag = MAFD
 guardflag = MAFD
-pausetime 		= 0, 0
+pausetime 		= 10, 10
 guard.pausetime 		= 0,0
 sparkno 			= 3
 sparkxy 			= -p2dist x * 0.25, p2dist y - 20
@@ -1917,67 +1912,24 @@ trigger1 = time = 0
 time = 15
 freq = 60
 ampl = -4
-;phase = 90
-;ignorehitpause = 
-;persistent = 
 
-[State 0, PlaySnd]
-type = PlaySnd
+[State -3, Hyper Finish Background]
+type = Helper
 triggerall = WinKO
-trigger1 = time = 5
-value = 8991,5
-channel = 0
-ignorehitpause = 1
-
-[State 0, PlaySnd]
-type = PlaySnd
-triggerall = WinKO
-trigger1 = time = 6
-value = 8991,5
-channel = 1
-ignorehitpause = 1
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
 trigger1 = WinKO
-flag = Nobardisplay
-flag2 = NoFG
-flag3 = Noshadow
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 = WinKO
-flag = Nomusic
-
-[State 8990, Explod]
-type = Explod
-triggerall = WinKO
-trigger1 = Time = 0
-anim = 8990
+name = "Hyper Finish B.G."
 id = 8990
-pos = 160,120
-scale = .5,.5
-postype = Left
-bindtime = -1
-removetime = 35
-sprpriority = -16
+stateno = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
 ownpal = 1
-supermovetime = -1
-
-[State 8990, Explod]
-type = Explod
-triggerall = WinKO
-trigger1 = time = 40
-anim = 8991
-id = 8991
-pos = 160,120
-scale = .5,.5
-postype = Left
-bindtime = -1
-removetime = -2
-sprpriority = -15
-ownpal = 1
-supermovetime = -1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+persistent = 0
 
 [State 8990, DestroySelf]
 type = DestroySelf

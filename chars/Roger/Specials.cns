@@ -238,7 +238,8 @@ time = 1
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-trigger1 = time = 0
+triggerall = p2dist x > 0
+trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, ST
 damage = 0, 0
@@ -4021,6 +4022,7 @@ timegap = 1
 
 [State 630, 2]
 type = HitDef 
+triggerall = p2dist x > 0
 trigger1 = p2stateno != [120,199]
 trigger1 = p2stateno != [40, 43]
 hitonce = 1

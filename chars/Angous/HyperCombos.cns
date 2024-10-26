@@ -2061,26 +2061,6 @@ type = PlaySnd
 trigger1 = animelem = 9
 value = 3010,5
 
-[State 0, Explod]
-type = Explod
-trigger1 = animelem=9
-anim =13005
-ID = 13005
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 1,1
-sprpriority = 1
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
-ontop=1
-
 [State 200, 1]
 type = hitdef 
 p2facing = 1
@@ -2119,6 +2099,24 @@ guard.velocity = -3.5
 air.fall = 1
 fall=1
 getpower = 0
+
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+stateno = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+persistent = 0
 
  [State 1200, Shake Screen]
 type = EnvShake

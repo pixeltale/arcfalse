@@ -734,7 +734,7 @@ value = 50
 ctrl = 1
  
 ;---------------------------------------------------------------------------
-;j.4S: EX AirShredder
+;j.6EX: EX AirShredder
 ;---------------------------------------------------------------------------
 [Statedef 1027]
 type    = A
@@ -880,7 +880,7 @@ y = -7.4
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 21
-y = 4.5
+y = 3.5
 
 
 [State 0, VelAdd]
@@ -934,6 +934,7 @@ ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 999
 air.hittime = 999
+guard.ctrltime = 5
 ground.velocity = -3,-4
 guard.velocity = -10
 air.velocity = -3,-5.2
@@ -984,8 +985,9 @@ air.animtype = back
 ground.velocity = -11,7
 air.velocity = -11,7
 hitflag = MAF
-guardflag = HA
+guardflag = MA
 pausetime = 12,12
+guard.pausetime = 12, 10
 sparkno = 1
 sparkxy = -10,0
 hitsound   = s8,2
@@ -993,8 +995,7 @@ guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 999
-guard.hittime = 20
-guard.ctrltime = 19
+guard.ctrltime = 5
 air.hittime = 999
 p2stateno = 915020
 fall  = 1

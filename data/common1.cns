@@ -6698,19 +6698,13 @@ type = PlaySnd
 trigger1 = Time = 0
 value = F999,0
 channel = 5
-
-[State 8990, PlaySnd]
-type = PlaySnd
-trigger1 = Time = 1
-value = 8991, 0
-channel = 6
+volumescale = 50
 
 [State 8990, AssertSpecial]
 type = AssertSpecial
 trigger1 = Time < 70
 flag = Nobardisplay
 flag2 = NoFG
-flag3 = Noshadow
 
 [State 8990, AssertSpecial]
 type = AssertSpecial
@@ -6740,10 +6734,17 @@ sprpriority = -16
 ownpal = 1
 supermovetime = -1
 
+[State 0, Pause]
+type = Pause
+trigger1 = !time
+time = 20
+ignorehitpause = 1  
+persistent = 0
+
 [State 0, PalFX]
 type = PalFX
-trigger1 = root, hitpausetime || parent, hitpausetime
-time = 30
+trigger1 = 1
+time = 1
 add = -300,-300,-300
 mul = 256,256,256
 invertall = 0
@@ -6751,6 +6752,18 @@ color = 256
 ignorehitpause = 0
 persistent = 1
 redirectid = root, id
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 1
+add = -300,-300,-300
+mul = 256,256,256
+invertall = 0
+color = 256
+ignorehitpause = 0
+persistent = 1
+redirectid = parent, id
 
 [State 0, PalFX]
 type = PalFX
@@ -8976,16 +8989,6 @@ movecamera = 0,0
 ignorehitpause = 0
 persistent = 0
 ;=====================================================================
-
-[State 0, PalFX] ;Magic Pixel Check
-type = PalFX
-trigger1 = life = 1
-time = 2
-add = (80 + 20 + 50 * sin(2 * pi * gametime / 160)),0,0 ;sinadd but manual
-mul = 256,256,256
-sinadd = 50,0,0,120 ;this part doesn't work and it's gonna make me fucking cry holy shit
-invertall = 0
-color = 256
 
 ;-----------------------------------------------
 ;Throw Teching
