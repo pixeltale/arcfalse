@@ -1984,6 +1984,14 @@ sprpriority = 2
 poweradd=-2000
 velset = 0,0
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
+
 ;Idle Explod Removal
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -2284,6 +2292,14 @@ movetype= A
 physics = A
 ctrl = 0
 sprpriority = 2
+
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
 
 [State LTG]
 type = PlaySnd

@@ -7276,6 +7276,7 @@ trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430
 
 
 [Statedef +1]
+
 ;=================================
 ;Counter-Hit Indicator
 ;=================================
@@ -7299,6 +7300,48 @@ ignorehitpause = 1
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+
+;======================================
+;Armor Points
+;======================================
+[State 0. MapSet]
+type 		= MapAdd
+trigger1 	= movehit = 1
+map 		= "armorPoints"
+value 		= -1
+ignorehitpause 	= 0
+persistent      = 0
+redirectid      = enemynear, id
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= ctrl = 1
+map 		= "armorElement"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 1
+
+[State -2, Reset Armorbreak Map]        ;Resets armor break property at the start of a new state
+type 		= MapSet
+trigger1 	= map(ArmorBreak) && time = 1
+map 		= "ArmorBreak"
+value 		= 0
+ignorehitpause 	= 0
+persistent 		= 0
+
+[State 0. MapSet]				;Does nothing to the performance of the armor.
+type 		= MapSet			;This value is used for enemy characters
+trigger1 	= map(armorActive)	;To see if armor is currently active or not.
+map 		= "armorActive"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 0. MapSet]				;Does nothing to the performance of the armor.
+type 		= MapSet			;This value is used for enemy characters
+trigger1 	= map(ParryActive)	;To see if a hitoverride parry is active
+map 		= "ParryActive"
+value 		= 0
+ignorehitpause 	= 1
+
 
 ;======================================
 ;TRAILER MODE
@@ -7344,46 +7387,6 @@ value = 5300
 persistent = 1
 ignorehitpause = 1
 
-;======================================
-;Armor Points
-;======================================
-[State 0. MapSet]
-type 		= MapAdd
-trigger1 	= movehit = 1
-map 		= "armorPoints"
-value 		= -1
-ignorehitpause 	= 0
-persistent      = 0
-redirectid      = enemynear, ID
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= ctrl = 1
-map 		= "armorElement"
-value 		= 1
-ignorehitpause 	= 1
-persistent 	= 1
-
-[State -2, Reset Armorbreak Map]        ;Resets armor break property at the start of a new state
-type 		= MapSet
-trigger1 	= map(ArmorBreak) && time = 1
-map 		= "ArmorBreak"
-value 		= 0
-ignorehitpause 	= 0
-persistent 		= 0
-
-[State 0. MapSet]				;Does nothing to the performance of the armor.
-type 		= MapSet			;This value is used for enemy characters
-trigger1 	= map(armorActive)	;To see if armor is currently active or not.
-map 		= "armorActive"
-value 		= 0
-ignorehitpause 	= 1
-
-[State 0. MapSet]				;Does nothing to the performance of the armor.
-type 		= MapSet			;This value is used for enemy characters
-trigger1 	= map(ParryActive)	;To see if a hitoverride parry is active
-map 		= "ParryActive"
-value 		= 0
-ignorehitpause 	= 1
 
 ;ARMOR ============================++++
 ; [State 0, ChangeAnim]

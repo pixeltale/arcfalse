@@ -352,7 +352,7 @@ phase = 60
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = animelem = 5
-value = 150
+value = 100
 ignorehitpause = 1
 ;persistent = 
 
@@ -1196,20 +1196,20 @@ removeongethit = 0
 ;Note: Always have ignorehitpause on all of these.
 [State -2, Starter Level]
 type         = MapSet
-trigger1         = movehit && !map(ComboTimer)
+trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = MapSet
-trigger1         = movehit && !map(ComboTimer)
+trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
 value         =  1    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = MapSet
-trigger1         = movehit && map(ComboTimer)
+trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
 value         =  0.90    ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
@@ -1634,20 +1634,20 @@ ignorehitpause = 1
 ;Note: Always have ignorehitpause on all of these.
 [State -2, Starter Level]
 type         = MapSet
-trigger1         = movehit && !map(ComboTimer)
+trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = MapSet
-trigger1         = movehit && !map(ComboTimer)
+trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
 value         =  1    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = MapSet
-trigger1         = movehit && map(ComboTimer)
+trigger1         = movehit && map(ComboStateCheck)
 map         = "P2"
 value         =  0.90    ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;Typically speaking, "harder hitting" mid combo attacks are in the 90-99% rage, and middling ones are in the 85-89% range.
@@ -2888,20 +2888,20 @@ value = 0, 3
 
 [State -2, Starter Level]
 type         		= MapSet
-trigger1         	= movehit && !map(ComboTimer)
+trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "StarterLevel"
 value         		=  3
 ignorehitpause     	=  1
 
 [State -2, P1 Value Set]
 type         		= MapSet
-trigger1         	= movehit && !map(ComboTimer)
+trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "P1"
 value         		=  1
 ignorehitpause     	= 1
 [State -2, P2 Value Set]
 type         		= MapSet
-trigger1         	= movehit && map(ComboTimer)
+trigger1         	= movehit && map(ComboStateCheck)
 map         		= "P2"
 value        		= 1
 ignorehitpause     	= 1
@@ -3131,7 +3131,7 @@ absolute = 0
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = animelem = 7
-value = 150
+value = 100
 ;ignorehitpause = 
 ;persistent = 
 
@@ -3938,20 +3938,20 @@ value = 0, 3
 
 [State -2, Starter Level]
 type         		= MapSet
-trigger1         	= movehit && !map(ComboTimer)
+trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "StarterLevel"
 value         		=  3
 ignorehitpause     	=  1
 
 [State -2, P1 Value Set]
 type         		= MapSet
-trigger1         	= movehit && !map(ComboTimer)
+trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "P1"
 value         		=  1
 ignorehitpause     	= 1
 [State -2, P2 Value Set]
 type         		= MapSet
-trigger1         	= movehit && map(ComboTimer)
+trigger1         	= movehit && map(ComboStateCheck)
 map         		= "P2"
 value        		= 1
 ignorehitpause     	= 1

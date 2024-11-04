@@ -1774,7 +1774,11 @@ ignorehitpause =0
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = time = 0
-x = 20
+x = 10
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 1
+x = 10
 
 [State 0, VelSet]
 type = VelSet

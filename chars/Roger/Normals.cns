@@ -65,7 +65,7 @@ air.hittime = 24 - map(untechDecay)
 envshake.time = 0;
 guard.hittime = 25
 guard.ctrltime = 4
-getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1))  
+getpower = (25)*(cond(var(var(2)) = 1, 1.5, 1))  
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -272,7 +272,7 @@ envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 guard.ctrltime 	= 12
-getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 210, 1]
 type = PlaySnd
@@ -726,9 +726,9 @@ hitsound   = 5,0
 guardsound = 6,0
 ground.type = Low
 ground.slidetime = 4
-ground.hittime  = 22 * MAP(P4)
-air.hittime  = 22 * MAP(P4)
-down.hittime = 22 * MAP(P4)
+ground.hittime  = 22 - map(untechDecay)
+air.hittime  = 22 - map(untechDecay)
+down.hittime = 22 - map(untechDecay)
 ground.velocity = -5.5
 air.velocity = -1.5,-3;
 guard.hittime = 25
@@ -851,7 +851,7 @@ guard.ctrltime = 7
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
-getpower = (110)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 0, Explod]
 type = Explod
@@ -1302,7 +1302,7 @@ envshake.ampl = 2
 envshake.phase = 1
 guard.slidetime = 12
 guard.ctrltime = 10
-getpower = (110)*(cond(var(var(2)) = 1, 1.5, 1)) 
+getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 
 [State 430, 2]
 type = HitDef 
@@ -1527,7 +1527,7 @@ envshake.ampl = 2
 envshake.phase = 1
 air.fall = 1
 fall.yvelocity = 0
-getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
 
 
 
@@ -2679,7 +2679,7 @@ ampl = -7
 [State 0, ChangeAnim]
 type 	= ChangeAnim
 trigger1 = enemy, movehit = 1
-trigger2 = animelem = 1 && map(ArmorElement) > 1
+trigger2 = animelem = 1 && map(ArmorElement) > 1 && prevstateno != 220
 value 	= 1010
 elem 	= map(armorElement)
 ignorehitpause = 1

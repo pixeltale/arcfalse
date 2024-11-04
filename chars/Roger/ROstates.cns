@@ -1199,9 +1199,8 @@ removeongethit = 0
 
 [State 100, 1]
 type = VelSet
-trigger1 = time=0
-x = -4
-
+trigger1 = animelem = 1
+x = -6
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 2
@@ -1209,7 +1208,7 @@ x = -5
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time <= 15
+trigger1 = time <= 10
 value = SCA
 time = 1
 ignorehitpause = 1

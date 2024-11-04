@@ -1878,11 +1878,11 @@ ground.hittime  = 20
 air.hittime  = 16;ceil(cond(fvar(15) *18 < 9, 9, fvar(15) * 18))
 down.hittime = 16;ceil(cond(fvar(15) *18 < 9, 9, fvar(15) * 18))
 ground.velocity = -5
-air.velocity = -1.5,-3;
-airguard.velocity = -1.5,-3
+air.velocity = 1.5,-3;
+airguard.velocity = 1.5,-3
 ;p2stateno = cond(enemynear, statetype !=A, 15000,715020)
 fall.yvelocity = 0
-forcenofall = 1
+air.fall = 1
 guard.slidetime = 5
 guard.hittime = 10
 guard.ctrltime = 4
