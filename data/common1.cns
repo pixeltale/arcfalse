@@ -4103,6 +4103,10 @@ physics = N
 anim  = 5101
 velset = vel x,0
 
+[State 5210, 2] ;Turn if not facing opponent
+type = Turn
+trigger1 = p2dist X < 0
+
 [State 0, Explod]
 type = Explod
 trigger1 = time%2 = 0
@@ -4164,6 +4168,10 @@ type    = A
 movetype= I
 physics = A
 anim = 5200
+
+[State 5210, 2] ;Turn if not facing opponent
+type = Turn
+trigger1 = p2dist X < 0
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -4269,7 +4277,6 @@ add = cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - tim
 
 [State 5210, 2] ;Turn if not facing opponent
 type = Turn
-trigger1 = !time
 trigger1 = p2dist X < 0
 
 [State 5210, 1.0 behavior 1]

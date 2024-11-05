@@ -1552,7 +1552,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 type = HitDef 
 p2facing = 1 
 triggerall = enemy, map(ArmorActive)
-trigger1 = MAP(counterhit) = 1 && movecontact = 0 && movereversed = 0
+trigger1 = movecontact = 0 && movereversed = 0
 hitonce = 1
 attr = S, SA
 damage = 120*MAP(P4), 10
@@ -1849,7 +1849,7 @@ p2getp1state 	= 0
 type = HitDef 
 p2facing 	= 1 
 triggerall	= enemy, map(ArmorActive)
-trigger1 	= time = 0
+trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
 attr 	= S, SA
 damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5

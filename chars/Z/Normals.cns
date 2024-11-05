@@ -1203,7 +1203,7 @@ air.animtype = up
 damage = 75*map(P4), 0
 hitflag = MAFD
 guardflag = MA
-pausetime = 12,22
+pausetime = 12,25
 sparkno = 2
 sparkxy = -10,-60
 hitsound   = 5,3
@@ -1214,7 +1214,7 @@ ground.hittime  = 40
 air.hittime  = 40
 down.hittime = 40
 ground.velocity = -2.5,-7
-air.velocity = -2.5,-5;
+air.velocity = -2.5,-4;
 guard.cornerpush.veloff = -8
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
@@ -1775,7 +1775,7 @@ juggle  = 0
 ctrl = 0
 anim = 610
 sprpriority = 2
-facep2 = map(SJI)
+facep2 = 1
 
 [State 200, 2]
 type = PlaySnd
