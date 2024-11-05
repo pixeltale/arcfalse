@@ -119,7 +119,7 @@ triggerall = command != "holdback"
 triggerall = command = "66" || teammode != Tag && command = "M66"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 510 && animelemno(0) >= 5
+trigger2 = stateno = 510 && time >= 18
 
 ;---------------------------------------------------------------------------
 ;Run Back
@@ -130,7 +130,7 @@ triggerall = command = "44"|| teammode != Tag && command = "M44"
 triggerall = statetype != A
 triggerall = stateno!=105
 trigger1 = ctrl
-trigger2 = stateno = 510 && animelemno(0) >= 5
+trigger2 = stateno = 510 && time >= 18
 
 ;================================
 
@@ -239,7 +239,7 @@ trigger3 = stateno = 1350
 trigger4 = stateno = 904 && time > 3
 
 ;6R
-[State -1, Run Fwd]
+[State -1, 6R]
 type = ChangeState
 value = 300
 triggerall = command = "c"
@@ -251,7 +251,7 @@ trigger2 = var(1) && stateno != [500,520]
 trigger3 = stateno =100
 
 ;4R
-[State -1, Backdash]
+[State -1, 4R]
 type = ChangeState
 value = 305
 triggerall = command = "c"

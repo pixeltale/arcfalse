@@ -1052,8 +1052,7 @@ sprpriority = 2
 
 [State -3, Hyper Finish Background]
 type = Helper
-triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
-trigger1 = WinKO
+trigger1 = WinKO && !NumHelper(8990)
 name = "Hyper Finish B.G."
 id = 8990
 pos = 0,0

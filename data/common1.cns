@@ -6724,7 +6724,7 @@ phase = 90
 type = Explod
 trigger1 = Time = 0
 anim = F999
-id = 8992
+id = 999
 pos = 160,120
 scale = 20,20
 postype = P1
@@ -6734,46 +6734,28 @@ sprpriority = -16
 ownpal = 1
 supermovetime = -1
 
-[State 0, Pause]
-type = Pause
-trigger1 = !time
-time = 20
-ignorehitpause = 1  
-persistent = 0
 
 [State 0, PalFX]
 type = PalFX
-trigger1 = 1
+trigger1 = numexplod(999)
 time = 1
 add = -300,-300,-300
 mul = 256,256,256
 invertall = 0
 color = 256
-ignorehitpause = 0
+ignorehitpause = 1
 persistent = 1
 redirectid = root, id
 
 [State 0, PalFX]
 type = PalFX
-trigger1 = 1
+trigger1 = numexplod(999)
 time = 1
 add = -300,-300,-300
 mul = 256,256,256
 invertall = 0
 color = 256
-ignorehitpause = 0
-persistent = 1
-redirectid = parent, id
-
-[State 0, PalFX]
-type = PalFX
-trigger1 = root, hitpausetime || parent, hitpausetime
-time = 30
-add = -300,-300,-300
-mul = 256,256,256
-invertall = 0
-color = 256
-ignorehitpause = 0
+ignorehitpause = 1
 persistent = 1
 redirectid = enemynear, id
 

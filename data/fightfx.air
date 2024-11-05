@@ -497,7 +497,7 @@ LoopStart
 
 ; Arcfalse Super KO
 [Begin Action 999]
-999,0, 0,0, 60
+999,0, 0,0, 50
 
 ; FX: Dash
 [Begin Action 6951]

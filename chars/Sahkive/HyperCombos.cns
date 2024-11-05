@@ -391,6 +391,14 @@ sprpriority = 2
 facep2 = 1
 poweradd=-2000
 
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 = movehit
+value = 3019,0+random%2
+volumescale=200
+ignorehitpause=1
+persistent=0
+
 [State -3, Win Voices] ;Win
 type = PlayBgm
 trigger1 = time = 0 && map(TREASURE)
@@ -681,6 +689,14 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 3101                      ;Change animation (Def: no change)
 sprpriority = -5            ;Set p1's sprite layering priority to 2 (in front)
 facep2 = 1
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 = !time
+value = 3019,0+random%2
+volumescale=200
+ignorehitpause=1
+persistent=0
 
 [State 0. MapSet]
 type 		= MapSet

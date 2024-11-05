@@ -578,8 +578,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "armorpoints = %f"
-params = map(ArmorPoints)
+text = "roundstate = %i"
+params = roundstate
 ignorehitpause = 1
 persistent = 1
 

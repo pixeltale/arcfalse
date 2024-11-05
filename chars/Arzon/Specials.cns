@@ -837,7 +837,7 @@ attr = S, SP
 air.animtype = up
 damage = 75*(parent,map(P4)), 30
 hitflag = MAFD
-guardflag = LAF
+guardflag = MAF
 priority = 3
 pausetime = 0,10
 sparkno = 1
@@ -847,13 +847,12 @@ guardsound = 6,2
 ground.type = Low
 animtype = up
 ground.slidetime = 15
-;p2stateno = 915020
 ground.hittime  = 999
 air.hittime  = 999
 down.hittime = 999
 ground.velocity = .5,-6
 air.velocity = .5,-5
- envshake.time = 30
+envshake.time = 30
 fall.yvelocity = 0
 air.fall = 1
 fall = 1
@@ -864,8 +863,8 @@ guard.slidetime = 25
 guard.hittime = 8
 guard.ctrltime = 4
 guard.cornerpush.veloff = -7
+guard.dist = 0
 ID = 220
-;p2stateno = 30000
 yaccel = .27
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 
@@ -1197,6 +1196,7 @@ envshake.phase = 1
 guard.slidetime = 6
 guard.hittime = 6
 guard.ctrltime = 6
+guard.dist = 0
 yaccel = .27
 getpower = (0)
 
@@ -3255,6 +3255,7 @@ guard.velocity = -6
 air.fall = 1
 p2stateno 	= 5220
 p2getp1state 	= 0
+guard.dist = 0
 getpower = 0
 
 [State -2, Wallbounce Type Set]
@@ -3381,6 +3382,7 @@ guard.ctrltime = 21
 guard.cornerpush.veloff = -7
 air.fall = 1
 fall = 1
+guard.dist = 0
 getpower = 0
 
 [State 0, ChangeState]
@@ -3502,6 +3504,7 @@ air.fall = 1
 fall = 1
 p2stateno 	= 5255
 p2getp1state 	= 0
+guard.dist 	= 0
 getpower = 0
 
 
@@ -3605,7 +3608,7 @@ persistent 	= 0
 
 [State 200, 1]
 type = HitDef 
-p2facing = 1
+p2facing = 0
 trigger1 = !movecontact
 attr = S, NA
 animtype  = Hard
@@ -3621,22 +3624,23 @@ guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 999
-air.hittime  = 999
-down.hittime = 999
-ground.velocity = 20,-8
-air.velocity = 20,-6
-envshake.time = 20
-envshake.freq = 180
-envshake.ampl = 2
-envshake.phase = 1
-guard.hittime = 14
+air.hittime  	= 999
+down.hittime 	= 999
+ground.velocity = -20,-8
+air.velocity 	= -20,-6
+envshake.time 	= 20
+envshake.freq 	= 180
+envshake.ampl 	= 2
+envshake.phase 	= 1
+guard.hittime 	= 14
 guard.slidetime = 14
-guard.ctrltime = 14
-guard.velocity = -6
-air.fall = 1
+guard.ctrltime 	= 14
+guard.velocity 	= -6
+air.fall 	= 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = 0
+guard.dist 	= 0
+getpower 	= 0
 
 
 [State -2, Wallbounce Type Set]
@@ -4006,6 +4010,7 @@ fall.yvelocity = 0
 air.fall = 1
 air.velocity = -0.75,-1.6
 air.hittime = 30 - map(UntechDecay)
+guard.dist = 0
 getpower = (25)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, NotHitBy]
@@ -5310,6 +5315,7 @@ air.fall = 1
 fall.yvelocity = 0
 airguard.velocity = -1,-.25
 air.hittime = 24-root,map(UntechDecay)
+guard.dist = 0
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, ChangeState]
