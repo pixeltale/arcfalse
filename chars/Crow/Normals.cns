@@ -156,7 +156,7 @@ p2facing 		= 1
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= 60*map(P4)
+damage 			= 80*map(P4)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -361,8 +361,8 @@ air.hittime  		= 26
 down.hittime 		= 30-map(UntechDecay)
 ground.slidetime 	= 5
 ;==============================================
-ground.velocity 	= -10, -7
-air.velocity 		= -10,-5
+ground.velocity 	= -10, -5
+air.velocity 		= -10, -2
 guard.ctrltime 		= 12
 guard.velocity		= -15
 guard.slidetime		= 20
@@ -932,7 +932,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.80	;90% Starting Prorate
+value 		= 0.85	;90% Starting Prorate
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -954,7 +954,7 @@ type = HitDef
 p2facing 	= 1
 trigger1 	= time = 0
 attr 		= C, NA
-damage 		= 45*MAP(P4)
+damage 		= 80*MAP(P4)
 animtype  	= Light
 air.animtype 	= back
 hitflag 		= MAFD
@@ -1885,7 +1885,7 @@ trigger2 	= prevstateno = [120, 155]
 trigger2 	= animelemno(0) = [2, 3]
 attr 		= SCA,NA,SA,HA,NP,SP,HA
 slot 		= 0
-stateno 	= 700 + 1*(command = "holdfwd" || command = "holdback" || command = "holddown")
+stateno 	= 700 + 1*(command = "buffered_holdfwd" || command = "buffered_holdback" || command = "buffered_holddown")
 time 		= 1
 ignorehitpause 	= 1
 [State 0. MapSet]				;This state isnt actually "armored"
@@ -1921,6 +1921,14 @@ trigger1 	= enemy, movehit = 1
 add 		= 0, 50, 255
 sinadd 		= 0, -50, -255, 60
 time 		= 15
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = enemy, movehit = 1
+value = 100
+ignorehitpause = 1
+;persistent = 
+
 
 [State 0, StateTypeSet]
 type 		= StateTypeSet

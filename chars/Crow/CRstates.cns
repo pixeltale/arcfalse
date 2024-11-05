@@ -778,6 +778,12 @@ ctrl = 0
 anim = 47
 facep2 = 1
 
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = prevstateno = 105
+value = 107
+ctrl = 0
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
@@ -999,8 +1005,8 @@ type    = A
 physics = A
 anim 	= 100
 sprpriority = 1
-velset = 3, -4.5
-ctrl = 0
+velset = 4, -3.5
+ctrl = 1
 
 [State 0, VelSet]
 type = VelSet
@@ -1110,6 +1116,18 @@ type = PlaySnd
 trigger1 = time = 0
 value = 5,0
 
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = (enemy, statetype = L) || (enemy, statetype = C)
+value = 0
+ignorehitpause = 1
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = !(enemy, statetype = L) && !(enemy, statetype = C)
+value = 1
+ignorehitpause = 1
+;persistent = 
+
 [State 100, 3] ;Prevent from turning
 type = AssertSpecial
 trigger1 = 1
@@ -1138,29 +1156,64 @@ value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------
-;Backdash
+; Backdash
 [Statedef 105]
-type    = S
-physics = S
-ctrl = 0
-anim = 105
+type    = A
+physics = A
+anim 	= 105
 sprpriority = 1
+velset 	= -4, -3.5
+ctrl 	= 1
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = 1
-v = 1    ;fv = 10
-value = 1
-;ignorehitpause = 
-;persistent = 
-[State 200, 2]
-type = PlaySnd
-trigger1 = time = 0
-value = 0, 1
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 4
-value = 20, 0
+[State 0, VelSet]
+type 		= VelSet
+trigger1 	= vel x > 15
+trigger1 	= prevstateno = 4000
+x 		= 15
+
+[State 0, VelAdd]
+type 		= VelAdd
+trigger1 	= !time
+trigger1 	= prevstateno = 4000
+y 		= -2
+ignorehitpause 	= 1
+
+
+[State 0, AfterImage] ;Post RC Afterimages        ============ ++
+type 		= AfterImage
+triggerall 		= time >= 0			        ;+
+trigger1		= prevstateno = 4000 || prevstateno = 2000;+
+time 		= 24				        ;+
+length 		= 25   				        ;+
+timegap 		= 1				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 255, 64, 64			        ;+
+trans 		= add				        ;+
+persistent 	= 1				        ;+
+;==================================================++
+
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = F201
+ID = 206
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .6,.6
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
 
 [State 0, Explod]
 type = Explod
@@ -1169,7 +1222,7 @@ anim = 6951
 ID = 6951
 pos = 0,-10
 postype = p1  ;p2,front,back,left,right
-facing = -1
+facing = 1
 vfacing = 1
 bindtime = 1
 vel = 0,0
@@ -1183,6 +1236,15 @@ ontop = 0
 shadow = 0,0,0
 ownpal = 1
 removeongethit = 0
+[State 200, 2]
+type = PlaySnd
+trigger1 = time = 0
+value = 0, 1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 6
+trigger2 = animelem = 10
+value = 20,0
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0
@@ -1190,7 +1252,7 @@ anim = 6700
 ID = 6700
 pos = 10,0
 postype = p1  ;p2,front,back,left,right
-facing = -1
+facing = 1
 vfacing = 1
 bindtime = 1
 vel = 0,0
@@ -1205,40 +1267,51 @@ shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
 
-[State 100, 1]
-type = VelSet
-trigger1 = time=[2,7]
-x = -5
+[State 200, 2]
+type = PlaySnd
+trigger1 = time = 0
+value = 5,0
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = time =13
-x = -3
-y = 0
-
-[State 0, NotHitBy]
-type = NotHitBy
-triggerall = prevstateno != 1000 && prevstateno != 1050
-trigger1 = time <= 5
-value = SCA
-time = 1
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = (enemy, statetype = L) || (enemy, statetype = C)
+value = 0
 ignorehitpause = 1
-;persistent = 
-
-
-
-[State 100, 2] ;Prevent run from canceling into walk
-type = AssertSpecial
-trigger1 = 1
-flag = NoWalk
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = !(enemy, statetype = L) && !(enemy, statetype = C)
+value = 1
+ignorehitpause = 1
 
 [State 100, 3] ;Prevent from turning
 type = AssertSpecial
 trigger1 = 1
 flag = NoAutoTurn
 
-[State 100, 4]
+[State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0
+triggerall = time >= 10
+trigger1 = pos y >= 0
+value = 52
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Backdash Recovery
+[Statedef 107]
+type    = A
+physics = A
+anim 	= 106
+sprpriority = 1
+velset 	= 0
+ctrl 	= 0
+
+[State 10, 3]
+type = ChangeState
+trigger1 = command = "holddown"
+value = 10
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !animtime
 value = 0
 ctrl = 1

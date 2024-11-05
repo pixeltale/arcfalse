@@ -714,6 +714,7 @@ removetime = -1
 [State 230, 1]
 type 	= hitdef 
 p2facing 	= 1
+triggerall	= !map(ArmorActive)
 trigger1 	= numexplod(90101) <= 1
 trigger1 	= !movecontact && !movereversed
 attr 	= A, NA
@@ -755,6 +756,50 @@ p2getp1state 	= 0
 [State 230, 1]
 type = hitdef 
 p2facing 	= 1
+triggerall	= !map(ArmorActive)
+trigger1 	= numexplod(90101) > 1
+trigger1 	= !movecontact && !movereversed
+attr 	= A, NA
+animtype 	= hard
+damage 		= 100*map(P4), 10
+hitflag 		= MAFD
+guardflag 	= HA
+pausetime 	= 20,25
+sparkno 		= 3
+sparkxy 		= -15,-40
+hitsound   	= 5,2
+guardsound 	= 6,2
+air.type		= trip
+ground.type 	= trip
+ground.slidetime 	= 12
+ground.hittime  	= 26
+air.hittime  	= 60 - MAP(untechDecay)
+down.hittime 	= 60 - MAP(untechDecay)
+ground.velocity 	= -2.4
+down.velocity 	= -1,15
+air.velocity 	= -1,15
+air.cornerpush.veloff = -10
+guard.cornerpush.veloff = -15
+envshake.time 	= 40
+envshake.freq 	= 120
+envshake.ampl 	= 5
+envshake.phase 	= 1
+palfx.time 	= 12
+palfx.add 		= 100, 0,20
+guard.hittime 	= 22
+guard.slidetime	= 40
+guard.ctrltime 	= 28
+guard.velocity 	= -8
+guard.dist 	= 2
+fall.yvelocity 	= 0
+fall  		= 1
+air.fall 		= 1
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, 1))
+
+[State 230, 1]
+type = hitdef 
+p2facing 	= 1
+triggerall	= map(ArmorActive)
 trigger1 	= numexplod(90101) > 1
 trigger1 	= !movecontact && !movereversed
 attr 	= A, NA
@@ -3009,6 +3054,7 @@ persistent 		= 0
 [State 610, 3]
 type = hitdef 
 p2facing 		= 1
+triggerall		= !map(ArmorActive)
 trigger1		= animelemno(0) = 11
 attr 		= S, SA
 damage 			= 150*MAP(P4),11
@@ -3044,6 +3090,44 @@ ground.cornerpush.veloff 	= -1
 getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5))
 p2stateno 		= 5255
 p2getp1state 		= 0
+
+[State 610, 3]
+type = hitdef 
+p2facing 		= 1
+triggerall		= map(ArmorActive)
+trigger1		= animelemno(0) = 11
+attr 		= S, SA
+damage 			= 150*MAP(P4),11
+animtype 			= hard
+hitflag 			= MAFD
+priority 			= 999
+pausetime 		= 35,35
+sparkno 			= 3
+sparkxy 			= -19, -22
+hitsound   		= 5,4
+ground.slidetime 		= 0
+ground.velocity 		= -1,18
+air.type 			= high
+air.velocity 		= -1,18  - (map(UntechDecay)/5)
+air.hittime 		= 9999
+ground.hittime 		= 9999
+down.hittime		= 9999
+air.fall 			= 1
+fall 			= 1 
+fall.yvelocity 		= 0
+envshake.time 		= 35
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
+ palfx.time 		= 16
+ palfx.add 		= 40, 30, -40
+palfx.sinadd 		= 50,50,50,16
+p2facing 			= 1
+guard.dist			= 0
+palfx.time 			= 35
+palfx.add 			= 100, 0,20
+ground.cornerpush.veloff 	= -1
+getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State -2, Reset Armorbreak Map]
 type 		= MapSet
