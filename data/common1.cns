@@ -1474,43 +1474,12 @@ postype =p1
 ontop = 1
 bindtime = 9999
 pausemovetime = 999999999
+
 [State 0, Pause]
 type = Pause
 trigger1 = time = 0
-time = 5
+time = 10
 movetime = 0
-[State -2, Explod];THROW TECH Explod for P1 Side.
-type = Explod
-trigger1 = time = 0
-anim = 13102
-pos = 40,186
-postype = left  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.53,0.53
-sprpriority = 0
-id = 13102
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
-[State -2, Explod];throw tech Explod for P2 Side.
-type = Explod
-trigger1 = time = 0
-anim = 13103
-pos = -130,186
-postype = right  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.53,0.53
-sprpriority = 0
-id = 13103
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
 
 [State 0, TargetState]
 type = TargetState

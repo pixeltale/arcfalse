@@ -1113,7 +1113,7 @@ value = 3102
 ; 5S: Upper (Land)
 [Statedef 3102]
 type    = S
-movetype= I
+movetype= A
 physics = S
 ctrl = 0
 velset = 0,0

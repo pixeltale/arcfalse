@@ -2826,6 +2826,17 @@ anim 	= 653
 sprpriority = -2
 velset = -4
 
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall = enemy, stateno != 900
+trigger1 = !movehit && !movecontact
+trigger1 = animelemno(0) <= 15
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+ignorehitpause = 1
+;persistent = 
+
+
 [State -2, Reset Armorbreak Map]
 type 		= MapSet
 trigger1 	= 1
