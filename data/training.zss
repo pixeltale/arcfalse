@@ -188,10 +188,9 @@ if aiLevel = 0 && map(_iksys_trainingDummyControl) = 0 {
 		}
 
 	
-	# Hold Direction
-	if map(_iksys_trainingHoldDir) != 0 && map(_iksys_trainingPunish) && 
-	((prevstateno = [120, 155] && ctrl = 1) || 
-	(prevstateno = 5120 && ctrl) || (prevstateno = 5201)) {
+	# Buffer Direction
+	if map(_iksys_trainingHoldDir) != 0 && ((prevstateno = [120, 155] && ctrl = 1)
+	|| (prevstateno = 5120 && ctrl = 1) || (prevstateno = 5201 || stateno = 5210)) {
 		# Forward
 		if map(_iksys_trainingHoldDir) = 1{
 			if facing = 1 {
