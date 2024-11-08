@@ -19,7 +19,7 @@ _!CRUSH!	-		^A/^B/^C
 	<#008928>SPECIAL MOVES</>
 C'MERE	-		^Y
    <#bbbbbb>A command grab with follow-up attacks.
-   Can grab opponents out of a sliding knockdown or OTG.</>
+   Can grab opponents off the ground.</>
 _!KIDNEY PUNCH	-		^A
         <#bbbbbb>A damaging pummel.</>
 _!OUT BACK, WITH THE TRASH	-		^B
@@ -27,8 +27,7 @@ _!OUT BACK, WITH THE TRASH	-		^B
 _!EAT DIRT	-		^C
         <#bbbbbb>A heavy slam.</>
 DDT!	-		_F^Y
-   <#bbbbbb>A long-range lunging attack. Sahkive slams the enemy if it hits.
-   Can be spaced to become plus on block.</>
+   <#bbbbbb>A long-range lunging attack. Sahkive slams the enemy if it hits.</>
 WHY ARE YOU JUMPING!?	-		_B^Y
    <#bbbbbb>An anti-air command grab with follow-up attacks.</>
 _!PIÑATA	-		^A
@@ -79,20 +78,24 @@ _!BURNOUT		_D_DF_F_-^C
         <#bbbbbb>A powerful ender swing. Deals extra damage if 
         canceled from the very last hit of LAST RIDE.</>
 
-	UNIVERSAL MOVES
+	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further.</>   
+   <#bbbbbb>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne enemies.</>
 FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
    <#bbbbbb>Can push the enemy away while you block.</>
 RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
    <#bbbbbb>A fullscreen-ranged reversal that knocks the
-   enemy down and beats projectiles.</>
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
    Holding a direction while you perform it will redirect
    you to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
-   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.
+   </>
    </>

@@ -1,0 +1,80 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#25de00>UNIQUE TRAIT: VOLT CHARGE</>
+	Z has a special resource called the Volt Bar, indicated by the
+	bar above his power meter. The Volt Bar will fill overtime while
+	he remains grounded, and he can use it to enable his midair flight
+	techniques. He can charge it faster by using 5EX. He can also empower
+	his 5S and 4S using a Z Charge, which is indicated by the lightning
+	bolt beside the Volt Bar.
+
+	<#25de00>UUNIQUE MOVES</>
+SECOND IMPACT	-		^B_-^B
+SUDDEN FLASH	-		_B_-^B
+THUNDERBOLT	-		_DF^C
+
+	<#25de00>SPECIAL MOVES</>
+BOLT PRIMER	-		<#aaffff>(GROUND OR AIR)</> ^Y
+   <#bbbbbb>Using this move gives you a Z Charge.</>
+BOLT SHOT	-		<#aaffff>(GROUND OR AIR)</> ^Y
+   <#bbbbbb>This move requires a Z Charge to use.
+   Air version can be canceled into _F^Y on hit.</>
+STATIC WAVE	-		_F^Y
+_!DETONATE	-		^Y
+THUNDER CRASH	-		<#65b5ff>(AIR ONLY)</> _F^Y
+CAPACITOR TURNOUT	-		<#aaffff>(GROUND OR AIR)</> _B^Y
+   <#bbbbbb>A Z charge can be used to cast this move a second time.</>
+BREWING SHOCKWAVE	-		_D^Y
+   <#bbbbbb>A counter. Does not beat projectiles or grabs.</>
+
+	<#19cf2c>REMIX MOVES</>
+SONIC JUMP	-		^Z/_D^Z
+   <#bbbbbb>Holding down lowers the jump height.
+   This move will launch enemies during a combo.</>
+STATIC HOVER	-		<#65b5ff>(AIR ONLY)</> (HOLD) ^Z
+   <#bbbbbb>This move requires Volt Bar to use.</>
+IMPETUS SURGE	-		<#65b5ff>(AIR ONLY)</> (ANY DIRECTION)+^Z
+   <#bbbbbb>This move requires Volt Bar to use.</>
+
+	<#ffef0f>EX MOVES</>
+_EX BOLT PRIMER	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>Using this move gives you a Z Charge and
+   refills the Volt Bar.</>
+_EX BOLT SHOT	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>This move requires a Z Charge to use.
+   Air version can be canceled into _F^Y on hit.</>
+_EX STATIC WAVE	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+_!DETONATE	-		<#aaffff>(GROUND OR AIR)</> _F^Y
+_EX THUNDER CRASH	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> _F^Y+^Z
+_EX CAPACITOR TURNOUT	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>This move is faster when used during a combo.</>
+_EX ACTIVE SHOCKWAVE	-		<#55ffff>(1 BAR)</> _D^Y+^Z
+   <#bbbbbb>An invincible reversal attack.</>
+
+	<#55ffff>SUPERS</>
+<#19cf2c>OVERLOAD</>		<#aaffff>(GROUND OR AIR)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+<#19cf2c>RISING CURRENT</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+<#19cf2c>MAXIMUM OUTPUT: SUPERCONDUCTOR</>		<#aaffff>(GROUND OR AIR)<#55ffff>(4 BARS)</> _D_DF_F_-^Y
+   <#bbbbbb>A powerful, invincible attack. Show them how strong you really are.</>
+
+	SYSTEM MECHANICS
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.
+   </>
+   </>

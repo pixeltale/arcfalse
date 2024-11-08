@@ -554,7 +554,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0 && prevstateno = 3013
+trigger1 = animtime = 0 && prevstateno = 3013 || pos y < 0 && !animtime
 value = 3018
 ctrl = 0
 ;---------------------------------------------------------------------------

@@ -4952,7 +4952,7 @@ Type = VarSet
 Trigger1 = animelem = 7
 V  = 4
 Value = 1
-;Battery Drain Variable
+;Battery Fill Variable
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = animelem = 7

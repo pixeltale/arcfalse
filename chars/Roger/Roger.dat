@@ -36,23 +36,18 @@ HELL DELIVERY	-		_D^Y/_DF^Y
 	<#964317>REMIX MOVES</>
 VITRIOL COALESCENCE	-		(CAN BE HELD) ^Z
    <#bbbbbb>A clap attack that's safe on block.
-   Holding the button increases the power and number of hits.
-   Hitting any projectile with it creates a large,
-   powerful fireball that beats enemy projectiles.</>
+   Holding the button increases the power and number of hits.</>
 HEAT DEATH KNUCKLE	-		(CAN BE HELD) _B^Z
-   <#bbbbbb>A large, powerful punch.
-   Pressing the button causes a sliding knockdown.
-   Holding the button for a moment increases the power
-   and causes a wallbounce.
-   Fully holding the button for a long time adds even more power.</>
+   <#bbbbbb>A large, powerful punch. Has armor while charging.</>
 SEISMIC SCRUTINY	-			 _D (HOLD)^Z
    <#bbbbbb>A fullscreen low-hitting attack that launches the enemy.</>
 _!SECOND THOUGHT	-		LET GO OF ^Z
-        <#bbbbbb>Letting go of the button cancels the attack.</>
+        <#bbbbbb>Letting go of the button cancels the attack. If perfectly timed,
+        the feint will recover instantly.</>
 
 	<#ffef0f>EX MOVES</>
 _EX GUARDIAN SLAMMER	-		<#55ffff>(1 BAR)</> ^Y+^Z
-   <#bbbbbb>A faster, more powerful command grab.</>
+   <#bbbbbb>A slower command grab with more range.</>
 _EX FLYING GUARDIAN SLAMMER	-		<#65b5ff>(AIR ONLY)</><#55ffff>(1 BAR)</> ^Y+^Z
    <#bbbbbb>An airborne command grab that launches the enemy.</>
 _EX GOD CRUSH	-		<#55ffff>(1 BAR)</> _F^Y+^Z
@@ -70,20 +65,24 @@ _EX HELL DELIVERY	-		<#55ffff>(1 BAR)</> _D^Y+^Z/_DF^Y+^Z
 <#964317>STAY STILL.</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
    <#bbbbbb>A powerful anti-air command grab.</>
 
-	UNIVERSAL MOVES
+	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further.</>   
+   <#bbbbbb>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne enemies.</>
 FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
    <#bbbbbb>Can push the enemy away while you block.</>
 RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
    <#bbbbbb>A fullscreen-ranged reversal that knocks the
-   enemy down and beats projectiles.</>
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
    Holding a direction while you perform it will redirect
    you to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
-   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.
+   </>
    </>

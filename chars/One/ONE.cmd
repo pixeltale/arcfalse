@@ -30,7 +30,7 @@ type = ChangeState
 value = 3013
 triggerall = command = "236X"
 triggerall = power >= 2000
-trigger1 = statetype = A
+trigger1 = statetype = A || var(50)
 trigger1 = ctrl
 trigger2 = statetype = A
 trigger2 = hitdefattr = A, NA, SA
@@ -61,7 +61,7 @@ type = ChangeState
 value = 3010
 triggerall = command = "236X"
 triggerall = power >= 2000
-trigger1 = statetype != A
+trigger1 = statetype != A || !var(50)
 trigger1 = ctrl
 trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA

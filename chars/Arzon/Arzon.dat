@@ -18,9 +18,8 @@ _!TYPHOON FOLLOWUP	-		^Y
         Can be manipulated with ^Z moves.</>
 TYPHOON DISK		<#aaffff>(GROUND OR AIR)</> _F^Y/
    <#bbbbbb>A large, multi-hitting projectile.</>
-TORNADO TRAP	-		_B^Y/+^A/+^B/+^C
-   <#bbbbbb>Creates a trap on the ground.
-   Holding ^A,^B, or ^C changes it's placement.</>
+TORNADO TRAP	-		_B^Y
+   <#bbbbbb>Creates a trap on the ground.</>
 _!TYPHOON UPPERCUT	-		<#aaffff>(GROUND OR AIR)</> _B^Y
         <#bbbbbb>Activates the trap. A launching attack. Can be jump canceled.</>
 TYPHOON SHIELD	-		_D^Y
@@ -43,12 +42,10 @@ _EX WIND BOOMERANG	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> ^Y+^Z
 _!BOOMERANG GUIDANCE	-		(AS THE MOVE STARTS) _U/_F/_B/_D
         <#bbbbbb>Holding a direction as the move comes out
         can change the speed and direction of the projectile.</>
-_EX TYPHOON DISK		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _F^Y+^Z/+^A/+^B/+^C
-   <#bbbbbb>A large, multi-hitting projectile.
-   Holding ^A,^B, or ^C changes it's speed and direction.</>
-_EX TORNADO TRAP	-		<#55ffff>(1 BAR)</> _B^Y+^Z/+^A/+^B/+^C
-   <#bbbbbb>Creates an automatically activated trap on the ground. 
-   Holding ^A,^B, or ^C changes it's placement.</>
+_EX TYPHOON DISK		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _F^Y
+   <#bbbbbb>A large, multi-hitting projectile.</>
+_EX TORNADO TRAP	-		<#55ffff>(1 BAR)</> _B^Y
+   <#bbbbbb>Creates an automatically activated trap on the ground.</>
 _EX TYPHOON SHIELD	-		<#55ffff>(1 BAR)</> _D^Y+^Z
   <#bbbbbb>A large, invincible reversal. You can only cancel into this move
   if the enemy is currently getting hit. Cannot be canceled on block.</>
@@ -78,5 +75,6 @@ RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    you to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
    <#bbbbbb>A large reversal that can be used while you're getting hit.
-   Be careful not to get it baited.</>
+   Be careful not to get it baited.
+   </>
    </>

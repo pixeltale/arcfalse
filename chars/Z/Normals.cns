@@ -2625,16 +2625,20 @@ ctrl = 1
 [Statedef 804]
 type    = U                      ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
-physics = N                      ;Physics: S-stand, C-crouch, A-air
-juggle  = 1                      ;Number of air juggle points move takes
-;Commonly-used controllers:
-velset = 0,0                     ;Set velocity (x,y) (Def: no change)
-ctrl = 0                         ;Set ctrl (Def: no change)
-anim = 815                      ;Change animation (Def: no change)
-poweradd = 0                    ;Power to add (Def: 0)
-sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
-;facep2=1
+physics = N                      
+velset = 0,0
+ctrl = 0
+anim = 815
 poweradd = 0
+sprpriority = 2
+poweradd = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+v = 5     
+value = 150
+redirectid = root, id
 
 ;Startup Sound
 [State 200, 2]

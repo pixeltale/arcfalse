@@ -38,6 +38,7 @@ sprite  =z.sff           ;Sprite
 anim    = z.air           ;Animation
 sound   = Template.snd           ;Sound
 ai      = Template.ai            ;AI hints data (not used)
+movelist= Z.dat
 ;pal2    = blueztreak.act
 ;pal3    = 3.act
 ;pal4    = 4.act

@@ -4,15 +4,15 @@
 	One has a different set of moves when he isn't holding his sword.
 	His Remix Moves make him throw his sword, and he can pick it back up
 	by touching it. Doing any variant of 5S while swordless will prompt
-   ONE to fly to his sword.
+   ONE to jump to his sword.
 
 	<#24ff24>SWORD UNIQUE MOVES</>
 VERTICAL	-		_B^B
    <#bbbbbb>An uppercut.</>
 SWEEP	-		_DF^C
-   <#bbbbbb>A low-hitting sweep.</>
+   <#bbbbbb>A low-hitting sweep. Can be jump-canceled on hit.</>
 SPIKE	-		<#65b5ff>(AIR ONLY)</> _D^C
-   <#bbbbbb>An aerial spike. Causes a sliding knockdown.</>
+   <#bbbbbb>A heavy downward cut that causes a sliding knockdown.</>
 
 	<#0f43ff>SWORDLESS UNIQUE MOVE</>
 SWEEP	-		_DF^C
@@ -26,20 +26,21 @@ ACID FLIP	-		<#aaffff>(GROUND OR AIR)</> ^Y
 _!PEDESTAL	-		^A
         <#bbbbbb>Drops straight down with an overhead attack.</>
 _!CUT	-		^B
-        <#bbbbbb>A large sword attack.
-        Can be canceled into _B^Y on hit.</>
+        <#bbbbbb>A large sword attack. Can be jump-canceled on hit.</>
 _!GRAPPLE	-		^C
-        <#bbbbbb>An airborne command grab.</>
+        <#bbbbbb>An airborne command grab. Will not hit opponents who
+        are crouching.</>
 ACID DASH	-		_F^Y
    <#bbbbbb>A forward moving attack that causes a sliding knockdown.</>
-RAPID	-		_B^Y
-   <#bbbbbb>A multi-hitting attack.</>
-INCISION	-		<#65b5ff>(AIR ONLY)</> _B^Y
+CHOP	-		_B^Y
+   <#bbbbbb>A two-hit sword slash. Restands opponents.</>
+INCISION	-		<#65b5ff>(AIR ONLY)</> _F^Y
    <#bbbbbb>A strong, advancing cut that is great for extending
    airborne combos.</>
-RISE	-		<#aaffff>(GROUND OR AIR)</> _D^Y
-   <#bbbbbb>An invincible uppercut.
-   The airborn version has no invincibility.</>
+RISE	-		 _D^Y
+   <#bbbbbb>An uppercut.
+   Only invincible to airborne attacks. 
+   Can start or extend combos on hit.</>
 
 	<#0f43ff>SWORDLESS SPECIAL MOVES</>
 FLIP	-		<#aaffff>(GROUND OR AIR)</> ^Y
@@ -59,9 +60,9 @@ ROUNDABOUT	-		(HOLD) ^Z
    <#bbbbbb>One throws a spinning sword that travels fullscreen and back.</>
 _!AIM	-		(AS THE MOVE STARTS) _U
         <#bbbbbb>Holding up makes One throw the sword upwards.</>
-UP THROW	-		_D^Z
+SWORD THROW	-		_D^Z
    <#bbbbbb>One throws his sword diagonally upwards.</>
-   Can be canceled into other ^Z moves.</>
+   Hold down-forward or dow-back to angle the throw.</>
 
 	<#0f43ff>SWORDLESS REMIX MOVES</>
 AXE	-		<#65b5ff>(AIR ONLY)</> ^Z
@@ -89,7 +90,7 @@ _EX RISE	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _D^Y+^Z
    The airborn version has no invincibility.</>
 
 	<#55ffff>SWORD SUPERS</>
-<#24ff24>ACIDIC REVENGE</>		<#aaffff>(GROUND OR AIR)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+<#24ff24>ACIDIC JUDGEMENT</>		<#aaffff>(GROUND OR AIR)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
    <#bbbbbb>A multi-hitting sword barrage.</>
 <#24ff24>TIME STOP</>	-		<#55ffff>(4 BARS)</> _D_DB_B_-^A/^B/^C
    <#bbbbbb>One raises his sword and stops time for a few moments.
@@ -97,23 +98,27 @@ _EX RISE	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _D^Y+^Z
 
 	<#0f43ff>SWORDLESS SUPER</>
 <#0f43ff>REVENGE</>		<#aaffff>(GROUND OR AIR)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
-   <#bbbbbb>A multi-hitting sword barrage. Hits fullscreen
-   along the ground, even if used in the air.</>
+   <#bbbbbb>A multi-hitting sword barrage. Teleports to the location
+   of ONE's sword onscreen.</>
 
-	UNIVERSAL MOVES
+	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further.</>   
+   <#bbbbbb>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne enemies.</>
 FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
    <#bbbbbb>Can push the enemy away while you block.</>
 RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
    <#bbbbbb>A fullscreen-ranged reversal that knocks the
-   enemy down and beats projectiles.</>
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
    Holding a direction while you perform it will redirect
    you to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
-   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.
+   </>
    </>

@@ -7281,6 +7281,14 @@ ignorehitpause = 1
 [Statedef -2]
 
 ;======================================
+;No Landing Recovery
+;======================================
+[state 52, Control]
+type = ctrlset
+trigger1 = stateno = 52
+value = 1
+
+;======================================
 ;Armor Points
 ;======================================
 [State 0. MapSet]
@@ -7329,7 +7337,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 1
+VALUE = 0
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)

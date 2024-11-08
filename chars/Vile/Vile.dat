@@ -31,8 +31,9 @@ LOOPHOLD	-		_B^Y
    <#bbbbbb>A command grab.</>
    <#aaff00>IN PUDDLE: Does more damage.</>
 CURB STOMP	-		_D^Y
-   <#bbbbbb>A low hitting attack.</>
-   <#aaff00>IN PUDDLE: Has much more range and launches the enemy.</>
+   <#bbbbbb>A low hitting attack that knocks down.</>
+   <#aaff00>IN PUDDLE: Has much more range and launches the enemy.
+   Input the normal version by holding down-back.</>
 
 	<#009d20>REMIX MOVES</>
 ACIDIC SPAWN		<#aaffff>(GROUND OR AIR)</>^Z/_F^Z/_B^Z, <#65b5ff>(AIR ONLY)<#55ffff>_D^Z
@@ -77,20 +78,24 @@ _EX CURB STOMP	-		<#55ffff>(1 BAR)</> _D^Y+^Z
    These bubbles can hit the enemy whenever the enemy is blocking or
    taking damage. They disappear if Vile blocks or takes damage.</>
 
-	UNIVERSAL MOVES
+	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further.</>   
+   <#bbbbbb>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne enemies.</>
 FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
    <#bbbbbb>Can push the enemy away while you block.</>
 RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
    <#bbbbbb>A fullscreen-ranged reversal that knocks the
-   enemy down and beats projectiles.</>
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
    Holding a direction while you perform it will redirect
    you to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
-   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.
+   </>
    </>
