@@ -26,6 +26,7 @@ stcommon = common1.cns
 sprite  	= Angous.sff           ;Sprites
 anim    	= Angous.air           ;Animation
 sound   	= Angous.snd           ;Sound
+Sound2		= Angous.snd
 ai      	= Angous.ai            ;AI hints data (not used)
 movelist 		= Angous.dat
 pal1    	= 1.act

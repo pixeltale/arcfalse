@@ -1066,9 +1066,13 @@ velset = vel x,0
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time = 5
-value = A,NA
-time = 11
+triggerall= enemy, statetype = A && enemy, movetype = A
+trigger1 = time>=4
+trigger1 = time<=16
+value = ,NA,SA,NT,ST
+time = 1
+ignorehitpause = 1
+persistent = 1
 
 [State 1200, Shake Screen]
 type = EnvShake
@@ -1289,10 +1293,9 @@ persistent 		= 0
 
 [State 0, NotHitBy]
 type = NotHitBy
-triggerall=enemy,statetype=A
-triggerall=enemy,movetype=A
-trigger1 = time>=4
-trigger1 = time<=16
+triggerall= enemy, statetype = A && enemy, movetype = A
+trigger1 = time>=0
+trigger1 = time<=8
 value = ,NA,SA,NT,ST
 time = 1
 ignorehitpause = 1
@@ -1479,10 +1482,8 @@ value = 0
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time%3=0
-v = 10     ;fv = 
+v = 10
 value = 2
-;ignorehitpause = 
-;persistent = 
 
 [State -3, Angous Voices]
 type = PlaySnd

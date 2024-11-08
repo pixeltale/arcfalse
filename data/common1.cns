@@ -3278,6 +3278,7 @@ y = cond((enemy, map(ComboTimer) < 1000), gethitvar(yvel), gethitvar(yvel) * (10
 
 [State 5030, 5]
 type = ChangeState
+triggerall = alive
 triggerall = HitFall
 trigger1 = HitOver
 trigger2 = Vel Y > 0    ;Hit ground
@@ -3286,11 +3287,21 @@ value = 5050 ;HITA_FALL
 
 [State 5030, 5]
 type = ChangeState
+triggerall = alive
 triggerall = !HitFall
 trigger1 = HitOver
 trigger2 = Vel Y > 0    ;Hit ground
 trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
 value = 5002 ;RESTAND
+
+[State 5030, 5]
+type = ChangeState
+triggerall = !alive
+triggerall = !HitFall
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
+value = 5150
 
 [State 5030, 6]
 type = ChangeState
@@ -4761,8 +4772,18 @@ value = 5210
 
 [State 1026, Hit ground]
 type = SelfState
+triggerall = alive
 trigger1 = (Vel y > 0) && (Pos y >= 0)
 value = 5200
+
+[State 5030, 5]
+type = ChangeState
+triggerall = alive
+triggerall = !HitFall
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
+value = 5002 ;RESTAND
 
 ;------------------
 ;Wall Slide - Shake
@@ -7308,7 +7329,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 0
+VALUE = 1
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)

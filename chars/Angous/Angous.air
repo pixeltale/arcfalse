@@ -174,6 +174,15 @@ Clsn2: 2
   Clsn2[1] = -13, -78, 35, -40
 1030,24, 0,0, 1
 
+; Intro charge
+[Begin Action 48]
+Clsn2Default: 1
+  Clsn2[0] = -34, -80, 36, -1
+1035,17, 0,0, 5
+1035,18, 0,0, 5
+1035,19, 0,0, 5
+1035,20, 0,0, 5
+
 ; Air Forward Dash
 [Begin Action 100]
 Clsn2Default: 1

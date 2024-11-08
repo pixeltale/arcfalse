@@ -3,11 +3,12 @@
 	<#790909>UNIQUE TRAIT: FATAL ART</>
 	Like any Fatal Art character, Jojo can cancel
 	normal special moves into EX Special moves.
-	He also has strings, another mechanic
+	He also has unique normal-to-normal cancels
+	in the form of strings, another mechanic
 	held over from Fatal Art.
 
 	<#790909>UNIQUE MOVES</>
-GRAVITY SHIFT	-		<#65b5ff>(AIR ONLY)</> _D^C
+GRAVITY SHIFT: WORLDSTAR	-		<#65b5ff>(AIR ONLY)</> _D^C
 FOOT MEETS FACE	-		_B^B
 DUST KICK	-		_B^C
 NIGGA SOLE	-		_DF^C
@@ -18,7 +19,7 @@ PUNCH SABOT	-		_F^A_-^B
 KICK SALVO 	-		_B^C_-_B^B
 
 	<#790909>SPECIAL MOVES</>
-RISING FIST (_EXOK)	-		^Y
+DEMON TIME FIST (_EXOK)	-		^Y
    <#bbbbbb>_EXversion can be cancelled into other moves on hit.</>
 PULVERIZE (_EXOK)	-		_F^Y
    <#bbbbbb>Can be canceled into ^Y or _B^C</>
@@ -35,3 +36,23 @@ SWAG GOD FIST 	-		_F^Z_-^C[JUST OK]
 <#790909>FUNKY TOWN BREAKDOWN</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
 	</>
  
+ 	SYSTEM MECHANICS
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.</>
+   </>

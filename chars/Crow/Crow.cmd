@@ -163,7 +163,7 @@ type = ChangeState
 value = 1060
 triggerall = command = "b"
 triggerall = command = "holdback"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -173,7 +173,7 @@ type = ChangeState
 value = 1050
 triggerall = command = "b"
 triggerall = command = "holdfwd"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -182,7 +182,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1000
 triggerall = command = "b"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 

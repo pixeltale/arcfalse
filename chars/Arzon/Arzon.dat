@@ -28,7 +28,8 @@ TYPHOON SHIELD	-		_D^Y
 WHIRLWIND HOVER	-		<#65b5ff>(AIR ONLY)</> _D^Y
    <#bbbbbb>This move stops Arzon's vertical movement, allowing
    him to hover and drift side-to-side for a moment.
-   This move does not obey Arzon's FREE AS THE WIND trait.</>
+   This move does not obey Arzon's FREE AS THE WIND trait.
+   It can be jump </>
 
 	<#7f7f7f>REMIX MOVES</>
 JETSTREAM	-		^Z/_F^Z/_B^Z/_D^Z
@@ -59,20 +60,23 @@ _EX TYPHOON SHIELD	-		<#55ffff>(1 BAR)</> _D^Y+^Z
 <#7f7f7f>TYPHOON STRIKE</>	-		<#55ffff>(4 BARS)</> _D_DB_B_-^A/^B/^C
    <#bbbbbb>A powerful fullscreen barrage.</>
 
-	UNIVERSAL MOVES
+	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further.</>   
+   <#bbbbbb>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne enemies.</>
 FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
    <#bbbbbb>Can push the enemy away while you block.</>
 RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
    <#bbbbbb>A fullscreen-ranged reversal that knocks the
-   enemy down and beats projectiles.</>
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
    Holding a direction while you perform it will redirect
    you to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
-   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.</>
    </>
