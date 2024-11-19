@@ -1,0 +1,89 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#383371>UNIQUE TRAIT: HEAVY HANDS, LIGHT FEET</>
+	Eddy's special attacks can all be Dash-Canceled once per combo
+   and grant much larger rewards on counter-hit.
+
+	<#383371>UNIQUE MOVES</>
+REAR UPPER	-		_B^B
+   <#bbbbbb>A short-range uppercut.</>
+LOW HOOK	-		_DF^C
+   <#bbbbbb>A low-hitting sweep.</>
+DOWNWARD CROSS	-		<#65b5ff>(AIR ONLY)</> _D^C
+   <#bbbbbb>A quick aerial attack.</>
+
+
+	<#383371>SPECIAL MOVES</>
+GENTLEMAN'S BODY BLOW	-		^Y
+   <#bbbbbb>A fast-moving straight punch.
+   Wallbounces on counter-hit.</>
+GENTLEMAN'S STEP	-		_F^Y
+   <#bbbbbb>A step forward with unique followups. Can be interrupted
+   with a dash to serve as a low-recovery feint cancel.</>
+_!GENTLEMAN'S LAUNCHER	-		^A/^B/^C
+        <#bbbbbb>A launcher.</>
+_!GENTLEMAN'S GATTLING	-		^Y
+        <#bbbbbb>A multi-hitting attack.
+        Can be canceled into _D^Z.</>
+GENTLEMAN'S DANCE	-		_B^Y
+   <#bbbbbb>A backsway with unique followups.</>
+_!GENTLEMAN'S HAIRCUT	-		^A/^B/^C
+        <#bbbbbb>An overhead strike that causes a sliding knockdown.
+        Bounces the enemy on counter-hit.</>
+_!GENTLEMAN'S SHOESHINE	-		^Y
+        <#bbbbbb>A low-hitting sweep.
+        Stuns the enemy on counter-hit.</>
+GENTLEMAN'S UPPER	-		</> _D^Y
+   <#bbbbbb>An invincible uppercut.</>
+_!GENTLEMAN'S OPPRESSOR	-		^Y
+        <#bbbbbb>A followup overhead dunk.
+        Bounces the enemy on counter-hit.</>
+
+	<#383371>REMIX MOVES</>
+GENTLEMAN'S PARRY	-		^Z
+   <#bbbbbb>Eddy enters a stance. If he's hit during this stance,
+   he will counter the attack, launching the enemy.</>
+_!GENTLEMAN'S QUICKDRAW	-		^Z
+        <#bbbbbb>Interrupts the stance early, performing a
+        long-range punch. Launches the enemy on counter-hit.</>
+GENTLEMAN'S NECESSITY	-		_D^Z
+   <#bbbbbb>Eddy tosses his comb in the air. Best used after
+   a knockdown. Causes a restand on air hit.</>
+
+	<#ffef0f>EX MOVES</>
+_EX GENTLEMAN'S BODY BLOW	-		<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>A fast-moving straight punch that ignores projectiles.</>
+_EX GENTLEMAN'S STEP	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+   <#bbbbbb>A large step backwards. Is invincible to normal attacks.
+   Can be canceled into other special moves or remix.</>
+_EX GENTLEMAN'S DANCE	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>A quick step forward that can pass through the enemy.</>
+_EX GENTLEMAN'S UPPER	-		<#55ffff>(1 BAR)</> _D^Y+^Z
+   <#bbbbbb>An invincible uppercut.</>
+_!GENTLEMAN'S OPPRESSOR	-		^Y
+        <#bbbbbb>A followup overhead dunk that bounces the enemy.
+        Happens automatically if the uppercut hits.</>
+
+	<#55ffff>SUPERS</>
+<#383371>VIOLENT GATTLING</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A high-damage barrage of punches.</>
+<#383371>VIOLENT UPPER</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>An invincible uppercut. Bounces the enemy on counter-hit.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>
