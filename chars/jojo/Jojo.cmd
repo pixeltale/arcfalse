@@ -314,29 +314,26 @@ trigger1 = ctrl
 trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = [100, 105] && animelemno(0) > 3
 
 ;---------------------------------------------------------------------------
-
-
-;Air F Dash
-[State -1, Run Fwd]
-type = ChangeState
-value =904
-triggerall = stateno!=904
-triggerall = var(29)>0
-triggerall = pos y<-30
-triggerall = command = "66" || teammode != Tag && command = "M66"
-trigger1 = statetype = A
-trigger1 = ctrl
-
-
-;---------------------------------------------------------------------------
 ;Air B Dash
-[State -1, Run Fwd]
+[State -1, ADB]
 type = ChangeState
 value =903
 triggerall = stateno!=903
 triggerall = var(29)>0
 triggerall = pos y<-30
 triggerall = command = "44" || teammode != Tag && command = "M44"
+trigger1 = statetype = A
+trigger1 = ctrl
+
+
+;Air F Dash
+[State -1, ADF]
+type = ChangeState
+value =904
+triggerall = stateno!=904
+triggerall = var(29)>0
+triggerall = pos y<-30
+triggerall = command = "66" || teammode != Tag && command = "M66"
 trigger1 = statetype = A
 trigger1 = ctrl
 
