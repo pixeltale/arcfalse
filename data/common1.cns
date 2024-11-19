@@ -7280,6 +7280,16 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+;==============================================
+;MAIDEN SUPER CAMERA PUSSY LOCK #AWESOME
+[State 0, ScreenBound]
+type = ScreenBound
+triggerall = enemy,name="MAIDEN"
+trigger1 = enemy,stateno=[252,399]
+value = 1
+movecamera = 0,0
+;---------------------------------------------------------------------------------
+
 ;======================================
 ;No Landing Recovery
 ;======================================
