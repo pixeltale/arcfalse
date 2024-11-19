@@ -150,6 +150,20 @@ trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] || stateno = 2070 || stateno = 2074) && movecontact
 
+[State -1, 623 Mist Step (Formerly 6R)]
+type = ChangeState
+value = 701
+triggerall = stateno != 701
+triggerall = command!="holddown" 
+triggerall = command!="holdback"
+triggerall = command!="holddown" 
+triggerall = command = "MistStep"
+trigger1 = statetype != A
+trigger1 = ctrl || stateno = 100
+trigger2 = var(1)
+trigger3 = stateno=[2000,2001]
+trigger3 = movecontact
+
 [State -1, 6S: Flurry]
 type = ChangeState
 value = 2001
@@ -257,20 +271,6 @@ triggerall = command != "b"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-
-[State -1, 623 Mist Step (Formerly 6R)]
-type = ChangeState
-value = 701
-triggerall = stateno != 701
-triggerall = command!="holddown" 
-triggerall = command!="holdback"
-triggerall = command!="holddown" 
-triggerall = command = "MistStep"
-trigger1 = statetype != A
-trigger1 = ctrl || stateno = 100
-trigger2 = var(1)
-trigger3 = stateno=[2000,2001]
-trigger3 = movecontact
 
 [State -1, 2R]
 type = ChangeState
