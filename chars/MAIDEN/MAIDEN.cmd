@@ -388,7 +388,6 @@ trigger1 = ctrl
 trigger2 = stateno = [400, 410] || stateno = [200, 211]
 trigger2 = movecontact
 trigger3 = stateno = 1203 && time > 5
-trigger4 = stateno = [100, 111] && time > 11
 
 ;---------------------------------------------------------------------------
 ;2H

@@ -3294,14 +3294,11 @@ trigger2 = Vel Y > 0    ;Hit ground
 trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
 value = 5002 ;RESTAND
 
-[State 5030, 5]
-type = ChangeState
+[State 1028, Hit ground]
+type = SelfState
 triggerall = !alive
-triggerall = !HitFall
-trigger1 = HitOver
-trigger2 = Vel Y > 0    ;Hit ground
-trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
-value = 5150
+trigger1 = (Vel y >= 0) && (Pos y >= 0)
+value = 5100
 
 [State 5030, 6]
 type = ChangeState
@@ -4784,6 +4781,12 @@ trigger1 = HitOver
 trigger2 = Vel Y > 0    ;Hit ground
 trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
 value = 5002 ;RESTAND
+
+[State 1028, Hit ground]
+type = SelfState
+triggerall = !alive
+trigger1 = (Vel y >= 0) && (Pos y >= 0)
+value = 5100
 
 ;------------------
 ;Wall Slide - Shake

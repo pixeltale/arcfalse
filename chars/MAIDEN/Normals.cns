@@ -15,7 +15,7 @@ sprpriority 	= 2
 type 		= MapSet
 trigger1 	= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 1
+value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -111,7 +111,7 @@ sprpriority = -1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -204,7 +204,7 @@ sprpriority = -1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2	;Heavy Starter
+value 		= 3	;Heavy Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -294,7 +294,7 @@ sprpriority = -1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 4
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -416,7 +416,7 @@ velset = vel x,0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 1	;Light Starter
+value 		= 2	;Light Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -518,7 +518,7 @@ velset = vel x,0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 1	;Medium Starter
+value 		= 2	;Medium Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -676,13 +676,13 @@ persistent 	= 0
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = animelem = 5 && (enemynear, stateno!= [5110,5119])
+trigger1 = animelem = 5
 attr = S, NA
 animtype  	= Light
 air.animtype 	= back
 damage 		= 50*MAP(P4)
-hitflag 		= MD
-guardflag 	= MA
+hitflag 		= MAFD
+guardflag 	= MAFD
 pausetime 	= 8,8
 sparkno 		= 2
 sparkxy 		= -10,-50
@@ -819,7 +819,7 @@ velset = vel x,0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3	;Heavy Starter
+value 		= 4	;Heavy Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -1610,6 +1610,17 @@ trigger1 = pos Y < TopEdge
 map = "ClingTime"
 value = -5
 
+[State 0, PosAdd]
+type = PosAdd
+triggerall = !time
+trigger1 = abs(p2dist x) < 5 
+x = 30
+y = 0
+redirectid = enemynear, id
+;ignorehitpause = 
+;persistent = 
+
+
 [State 0, ScreenBound]
 type = ScreenBound
 trigger1 = 1
@@ -1810,12 +1821,13 @@ hitsound 	= 5, 1
 guardsound 	= 6, 0
 ground.type 	= High
 ground.slidetime= 5
+ground.cornerpush.veloff = 0
 ;==============================================
 ground.hittime  = 40-map(UntechDecay)
 air.hittime  	= 40-map(UntechDecay)
 down.hittime 	= 40-map(UntechDecay)
 ;==============================================
-ground.velocity = -2,-3
+ground.velocity = 2,-3
 air.velocity 	= 3,-2
 guard.slidetime = 8
 guard.hittime 	= 16
@@ -1938,6 +1950,7 @@ guardsound 	= 6, 0
 ground.type 	= trip
 air.type 	= trip
 ground.slidetime= 5
+ground.cornerpush.veloff = 0
 ;==============================================
 ground.hittime  = 50
 air.hittime  	= 50
