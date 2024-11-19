@@ -523,6 +523,12 @@ trigger1 = !map(comboStateCheck)
 map = "divekicklimiter"
 value = 0
 
+[State 200, MapSet]
+type = MapSet
+trigger1 = !map(comboStateCheck)
+map = "jHlimiter"
+value = 0
+
 [State 0, MapSet]
 type = MapSet
 trigger1 = statetype = S
@@ -1009,8 +1015,8 @@ ignoreHitPause = 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "StarterLevel = %f comboTimer = %f clingtime = %f && j.Rusecount = %f"
-params = map(StarterLevel), map(combotimer), map(ClingTime), map(jRuse)
+text = "StarterLevel = %f comboTimer = %f clingtime = %f j.Rusecount = %f variable 45 = %v"
+params = map(StarterLevel), map(combotimer), map(ClingTime), map(jRuse), var(45)
 ignorehitpause = 1
 
 ;This controller plays a sound everytime KFM lands from a jump, or

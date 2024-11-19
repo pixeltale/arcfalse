@@ -216,10 +216,25 @@ trigger1 = ctrl
 trigger2 = var(1)
 ;trigger3 = stateno = 100
 
+[State -1, UP HUNT]
+type = ChangeState
+value = 251
+triggerall = command = "c"
+triggerall = command = "holdfwd"
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = (stateno=[200,230])
+trigger2 = movecontact =1 ;&& enemynear, movetype = H
+trigger3 = (stateno = 1203) 
+trigger3 = stateno = 100 
+trigger4 = (stateno = [400,499]) 
+trigger4 = movecontact =1 ;&& enemynear, movetype = H
+
 [State -1, HUNT]
 type = ChangeState
 value = 250
 triggerall = command = "c"
+triggerall = command != "holdfwd"
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = (stateno=[200,230])
@@ -510,23 +525,3 @@ trigger2 = stateno = 1350 || stateno = 60
 trigger3 = stateno = [600,610]
 trigger3 = movecontact
 trigger4 = movecontact && stateno = 630
-
-;---------------------------------------------------------------------------
-[State 100, Forward Dash Cancel]
-type = ChangeState
-value = 100
-triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
-triggerall = movehit
-triggerall = statetype != A
-triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300 || stateno % 100 = 20 
-
-[State 100, Back Dash Cancel]
-type = ChangeState
-value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
-triggerall = movehit
-triggerall = statetype != A
-triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300 || stateno % 100 = 20
