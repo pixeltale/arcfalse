@@ -2180,8 +2180,8 @@ ground.hittime  = 50-map(UntechDecay)
 air.hittime  	= 50-map(UntechDecay)
 down.hittime 	= 50
 ;==============================================
-ground.velocity = 2,3
-air.velocity 	= 2,3
+ground.velocity = -2,3
+air.velocity 	= -2,3
 down.velocity   = 0,20
 guard.slidetime = 8
 guard.hittime 	= 16

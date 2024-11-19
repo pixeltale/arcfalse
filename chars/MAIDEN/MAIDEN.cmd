@@ -207,9 +207,9 @@ trigger1 = ctrl
 trigger2 = var(1)
 ;trigger4 = stateno = 100
 ;---------------------------------------------------------------------------
-[State -1, Gentle Thrust]
+[State -1, PERFORATE]
 type = ChangeState
-value = 1500
+value = 1000
 triggerall = command = "b"
 trigger1 = statetype != A
 trigger1 = ctrl
