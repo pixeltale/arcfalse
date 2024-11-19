@@ -80,12 +80,6 @@ command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
 time = 20
 
 [Command]
-name = "throwtech"
-command = a
-time = 1
-buffer.time = 13
-
-[Command]
 name = "QCF_x"
 command = ~D, DF, F, x
 

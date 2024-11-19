@@ -20,17 +20,20 @@ KICK SALVO 	-		_B^C_-_B^B
 
 	<#790909>SPECIAL MOVES</>
 DEMON TIME FIST (_EXOK)	-		^Y
-   <#bbbbbb>_EXversion causes a spin-out on hit.</>
+   <#bbbbbb>This attack can be enhanced if performed while standing from a crouch.
+   _EXversion causes a spin-out on hit.</>
 PULVERIZE (_EXOK)	-		_F^Y
    <#bbbbbb>Can be canceled into ^Y or _B^C</>
 DOME CHECK (_EXOK)	-		_B^Y
 DUST BUSTER (_EXOK)	-		_D^Y
+SWAGGER	-		_F_D_DF
+_!SWAG GOD FIST 	-		^Y
+_!EXAGGERATED SWAG GOD FIST 	-		^Y (Just)
 CRASH OUT	-		<#aaffff>(AIR)</> _D^Y
 
 	<#790909>REMIX MOVES</>
-WEAVE	-		_B^Z/_D^Z/_F^Z
-SWAG GOD FIST 	-		_F^Z_-^C
-EXAGGERATED SWAG GOD FIST 	-		_F^Z_-^C (On First Frame)
+WEAVE	-		_B^Z/_D^Z
+
 
 	<#55ffff>SUPERS</>
 <#790909>MAJOR UPPERCUT</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C

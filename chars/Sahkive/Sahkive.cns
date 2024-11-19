@@ -196,7 +196,7 @@ type = S
 type = ChangeState
 trigger1 = Time = 0
 trigger1 = enemynear,name!="alicia"&&enemynear,name!="deus"&&enemynear,name!="crow"
-value = 181+random%3
+value = 181
 
 [State 180, 1]
 type = ChangeState

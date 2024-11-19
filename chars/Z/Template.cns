@@ -1090,8 +1090,21 @@ TriggerAll=NumExplod(924680)=0
 triggerall = stateno != 2000
 triggerall = stateno != 20000
 triggerall = stateno !=2010
-TriggerAll=Enemy,StateNo!=[150,155]
 Trigger1 = Var(5)<150 && GameTime % 3 = 0 && !movetype = H
+v = 5
+value = 1 
+ignorehitpause = 1
+
+[State 0, Varadd]
+type = Varadd
+triggerall = !enemynear, name = "Training"
+triggerall = var(59)!=0 && !map(ZGauge_Lockout) && map(ComboStateCheck)
+Triggerall=Var(5)<150
+TriggerAll=NumExplod(924680)=0
+triggerall = stateno != 2000
+triggerall = stateno != 20000
+triggerall = stateno !=2010
+Trigger1 = Var(5)<150 && GameTime % 6 = 0 && !movetype = H
 v = 5
 value = 1 
 ignorehitpause = 1

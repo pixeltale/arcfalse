@@ -323,13 +323,11 @@ type = ChangeState
 value = 220
 triggerall = command = "z"
 triggerall = command != "holddown"
-;triggerall = stateno !=40
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = (stateno = [200,211]) && movecontact
 trigger3 = (stateno = 1203) && time > 5
-trigger4 = stateno = 100 && time > 11 || stateno = 110 && time > 11  ;|| stateno = 40
-trigger5 =(stateno = [400,429])  && movecontact && time > 5
+trigger4 =(stateno = [400,429])  && movecontact && time > 5
 
 ;---------------------------------------------------------------------------
 ;---------------------------------------------------------------------------
@@ -354,7 +352,6 @@ trigger1 = ctrl
 trigger2 = stateno = 200 && movecontact
 trigger3 = stateno = 400 && movecontact
 trigger4 = (stateno = 1203) && time > 5
-trigger5 = stateno = [100, 111] && time > 11
 
 ;---------------------------------------------------------------------------
 ;2M
@@ -368,7 +365,6 @@ trigger1 = ctrl
 trigger2 = stateno = 400 || stateno = [200, 211]
 trigger2 = movecontact
 trigger3 = stateno = 1203 && time > 5
-trigger4 = stateno = 100 && time > 11 || stateno = 110 && time > 11
 
 ;---------------------------------------------------------------------------
 ;3H
@@ -383,7 +379,6 @@ trigger1 = ctrl
 trigger2 = stateno = [400, 420] || stateno = [200, 211]
 trigger2 = movecontact
 trigger3 = stateno = 1203 && time > 5
-trigger4 = stateno = [100, 111] && time > 11
 
 ;---------------------------------------------------------------------------
 ;2H

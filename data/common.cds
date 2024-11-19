@@ -477,57 +477,61 @@ buffertime = 15
 
 [Command]
 name = "28"
-command = D, U
+command = $D, U
 time = 5
 buffer.time = 10
 [Command]
 name = "28"
-command = D, N, U
+command = $D, N, U
 time = 5
 buffer.time = 10
 [Command]
 name = "29"
-command = D, UF
+command = $D, UF
 buffer.time = 10
 [Command]
 name = "29"
-command = D, F, N, U
+command = $D, F, N, U
 buffer.time = 10
 [Command]
 name = "29"
-command = D, DF, F, U
+command = $D, DF, F, U
 buffer.time = 10
 [Command]
 name = "29"
-command = D, DF, F, N, U
+command = $D, DF, F, N, U
 buffer.time = 10
 [Command]
 name = "29"
-command = D, U, F
+command = $D, U, F
+buffer.time = 10
+[Command]
+name = "29"
+command = $D, F, U
 buffer.time = 10
 [Command]
 name = "27"
-command = D, UB
+command = $D, UB
 time = 10
 buffer.time = 10
 [Command]
 name = "27"
-command = D, U, B
+command = $D, U, B
 time = 10
 buffer.time = 10
 [Command]
 name = "27"
-command = D, B, U
+command = $D, B, U
 time = 10
 buffer.time = 10
 [Command]
 name = "27"
-command = D, DB, B, U
+command = $D, DB, B, U
 time = 10
 buffer.time = 10
 [Command]
 name = "27"
-command = D, DB, B, N, U
+command = $D, DB, B, N, U
 time = 10
 buffer.time = 10
 [Command]
@@ -668,7 +672,8 @@ command = ~F, DF, D, DB, B
 [Command]
 name = "623"
 command = ~F, D, DF
-time = 6
+time = 10
+buffer.time = 10
 [Command]
 name = "421"
 command = ~B, D, DB
@@ -681,6 +686,16 @@ time = 6
 name = "214"
 command = ~D, DB, B
 time = 6
+[Command]
+name = "MistStep"
+command = ~F, D, DF
+time = 15
+buffer.time = 10
+[Command]
+name = "MistStep"
+command = ~F, N, D, DF
+time = 15
+buffer.time = 10
 
 ;===================================
 ; Command Inputs - Special, With Buttons

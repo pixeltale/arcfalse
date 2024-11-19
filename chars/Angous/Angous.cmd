@@ -649,8 +649,7 @@ triggerall = command = "holddown"
 trigger1 = statetype != A 
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 200)
-trigger2 = movecontact 
-trigger3 = stateno = [100, 111]
+trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
 ;2M
@@ -663,7 +662,6 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 200)  || (stateno = 210) 
 trigger2 = (movecontact)
-trigger3 = stateno = [100, 111]
 ;---------------------------------------------------------------------------
 ;2H
 [State -1, 2H]
@@ -676,7 +674,6 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 410)|| (stateno = 200)|| (stateno = 210)|| (stateno = 430)
 trigger2 = (movecontact)
-trigger3 = stateno = [100, 111]
 
 ;Charge 2H
 [State -1, 2HH]
@@ -687,8 +684,7 @@ triggerall = command != "holdfwd"
 triggerall = command = "holddown"
 triggerall = stateno !=421
 triggerall = statetype != A 
-trigger1 = stateno = [100, 111]
-trigger2 = stateno = 226 && movecontact
+trigger1 = stateno = 226 && movecontact
 ;---------------------------------------------------------------------------
 ;3H
 [State -1, 3H]

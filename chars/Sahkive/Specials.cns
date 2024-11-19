@@ -3265,14 +3265,6 @@ getpower 			= 25*var(2)
 p2stateno 		= 5220
 p2getp1state 		= 0
 
-[State -2, Wallbounce Type Set]
-type 		= MapSet
-trigger1 		= movehit
-map 		= "wallbounce_boomerang"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 0
-
 [State 0, TargetState]
 type = TargetState
 trigger1 = animelem = 1

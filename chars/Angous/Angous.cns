@@ -407,6 +407,7 @@ value = 3013,10
 type = PlaySnd
 trigger1 = animelem=15
 value = 5,2
+
 ;---------------------------------------------------------------------------
 ; Intro
 [Statedef 191]
@@ -535,6 +536,14 @@ type = S
 ctrl = 0
 anim = 191
 
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = 1
+value = -1
+;ignorehitpause = 
+;persistent = 
+
+
 [State 193, 1]
 type = AssertSpecial
 trigger1 = 1
@@ -568,30 +577,6 @@ type = PlaySnd
 triggerall=palno=6
 trigger1 = time=0
 value = 3013,8
-
-[State 0, Helper]
-type = Helper
-trigger1 = time=0
-helpertype = normal ;player
-name = "bike"
-ID = 196
-stateno = 196
-pos = -90,0
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-[State 0, Helper]
-type = Helper
-trigger1 = time=0
-helpertype = normal ;player
-name = "rider"
-ID = 197
-stateno = 197
-pos = -90,0
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-
 
 [State 191, 3] ;Change to stand state when done
 type = ChangeState
@@ -764,20 +749,19 @@ movetype = I
 physics = S
 sprpriority = 2
 
-[State 195, 1]
-type = CtrlSet
-trigger1 = Time = 40
-value = 1
 
 [State -3, Voices] ;Win
 type = PlaySnd
-trigger1 = time=0 && palno != 9
-value = 1000, (0+(Random%3))
+triggerall=palno!=6
+trigger1 = time=0
+value = 190, (1+(Random%2))
+volumescale=150
 
 [State -3, Voices] ;Win
 type = PlaySnd
-trigger1 = time=0 && palno = 9
-value = 3025, (0+(Random%3))
+triggerall=palno=6
+trigger1 = time=0
+value = 3013,9
 
 [State 195, 2]
 type = ChangeState
@@ -785,6 +769,46 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
+
+;---------------------------------------------------------------------------
+; bike
+[Statedef 196]
+type = S
+ctrl = 0
+anim = 192
+sprpriority=-2
+[State 0, VelSet]
+type = VelSet
+trigger1 = time=0
+x =10
+[State 0, VelMul]
+type = VelMul
+trigger1 = 1
+x=.9
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
+
+;---------------------------------------------------------------------------
+; rider
+[Statedef 197]
+type = S
+ctrl = 0
+anim = 190
+sprpriority=-1
+[State 0, VelSet]
+type = VelSet
+trigger1 = time=0
+x =10
+[State 0, VelMul]
+type = VelMul
+trigger1 = 1
+x=.9
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime=0
 
 
 ;---------------------------------------------------------------------------

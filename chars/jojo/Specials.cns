@@ -122,6 +122,7 @@ guardflag 		= MA
 hitflag 		= MAFD
 pausetime 		= 16,16
 guard.pausetime 	= 18,18
+guard.ctrltime		= 20
 sparkxy 		= 0,-60
 hitsound   		= 5,3
 guardsound 		= 6,2
@@ -1123,7 +1124,7 @@ value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------
-;6R~H [GODFIST]
+;623 > S [GODFIST]
 [Statedef 1055]
 type    = S
 movetype= A
@@ -1329,7 +1330,7 @@ trigger1 		= !movereversed && !movecontact
 trigger1		= map(PERFECT)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 75*map(P4) + 75 * map(CounterHit) + map(DASH)*75, 50
+damage 			= 75*map(P4) + 75 * map(CounterHit) + 75, 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1350,13 +1351,13 @@ ground.hittime  	= 99
 air.hittime  		= 99
 down.hittime 		= 99
 ground.slidetime 	= 5
-ground.cornerpush.veloff = -6 - map(SwagFistLimiter) * 0.30
+ground.cornerpush.veloff = -3 - map(SwagFistLimiter) * 0.30
 guard.cornerpush.veloff = -8
 ;==============================================
 ground.velocity 	= -1,-6 - 2 * map(CounterHit)
 air.velocity 		= -4,-4*(map(GravMul)*0.9) - (1 * map(CounterHit))
 down.velocity		= -1, -5*map(GravMul)
-guard.ctrltime 		= 6
+guard.ctrltime 		= 10
 guard.slidetime		= 20
 guard.velocity		= -10
 airguard.velocity 	= -1.9,-.8
@@ -3234,9 +3235,9 @@ ground.slidetime = 12
 ground.hittime  = 50
 down.hittime = 45
 air.hittime = 50
-ground.velocity = -4,-3.5
-air.velocity = -4,-2
-down.velocity = 1, -8 * map(GravMul)
+ground.velocity = -4,-4.5
+air.velocity = -4,-4
+down.velocity = 1, -8
 fall.yvelocity = 0
 fall  = 1
 air.fall = 1
@@ -3275,7 +3276,7 @@ down.hittime = 90
 air.hittime = 50
 ground.velocity = -4,-3.5
 air.velocity = -4,-2
-down.velocity = 1, -8 * map(GravMul)
+down.velocity = 1, -8
 fall.yvelocity = 0
 fall  = 1
 air.fall = 1

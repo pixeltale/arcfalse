@@ -3630,7 +3630,6 @@ ctrl = 1
 type    = A
 movetype= A
 physics = N
-juggle  = 0 ; juggle  = 0  = 2
 poweradd= 0
 ctrl = 0
 anim = 501
@@ -3891,7 +3890,7 @@ air.hittime  = 25-map(untechDecay)
 down.hittime = 25-map(untechDecay)
 guard.ctrltime = 10
 ground.velocity = -1.5,-5
-air.velocity = -1.5,-5
+air.velocity = -1.5,-3
 envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
@@ -4417,13 +4416,6 @@ stateno = 661
 time = 1
 forceair = 0
 ignorehitpause = 1
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2	;Very Long Starter
-ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= ParentMapSet

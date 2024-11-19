@@ -1982,7 +1982,7 @@ ctrl = 0
 anim = 3100
 sprpriority = 2
 poweradd=-2000
-velset = 0,0
+velset = 4,0
 
 [State 0, RC LOCKOUT]
 type 		= MapSet

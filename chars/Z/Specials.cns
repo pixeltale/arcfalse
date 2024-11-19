@@ -139,6 +139,34 @@ shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
 
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3    
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1 + 0.2*map(CounterHit)	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.9	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 ;non ch
 [State 210, 2]
 type = HitDef 
@@ -147,7 +175,7 @@ trigger1 = fvar(8) = 0 && movecontact = 0 && movereversed = 0
 attr = S, SA
 animtype  = hard
 air.animtype = back
-damage = ceil(cond(fvar(11) *30 < 4, 4, fvar(11) * 30)), 0
+damage = 30*map(P4) , 0
 hitflag = MAF
 guardflag = MA
 pausetime = 10,10
@@ -157,9 +185,9 @@ hitsound   = 5,1
 guardsound = 6,1
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *24 < 12, 12, fvar(15) * 24))
-air.hittime  = ceil(cond(fvar(15) *48 < 24, 24, fvar(15) * 48))
-down.hittime = ceil(cond(fvar(15) *48 < 24, 24, fvar(15) * 48))
+ground.hittime  = 24 - map(untechDecay)
+air.hittime  = 34 - map(untechDecay)
+down.hittime = 34 - map(untechDecay)
 ground.velocity = -7
 air.velocity = -1.5,-4
 down.velocity = -1.5,-4
@@ -188,7 +216,7 @@ trigger1 = fvar(8) = 1 && movecontact = 0 && movereversed = 0
 attr = S, SA
 animtype  = hard
 air.animtype = back
-damage = ceil(cond(fvar(11) *50 < 4, 4, fvar(11) * 50)), 0
+damage = 60, 0
 hitflag = MAF
 guardflag = MA
 pausetime = 10,20

@@ -28,8 +28,7 @@ _!UPPER RUSH	-		_F^Y
         Can be canceled into other specials, or _F^Z, or _B^Z.</>
    _!DEMOLITION RUSH	-		(CAN BE HELD) _F^Y
            <#bbbbbb>The final hit of the move.
-           Gains armor and causes a wall bounce when held.
-           Causes a sliding knockdown while in <#ff0000>RAGE.</>
+           Causes a wall bounce when charged.</>
 ENRAGED UPPER	-		(RAGE)_DB^Y
    <#bbbbbb>Does the second brawler rush attack by itself.
    Can be dash canceled on hit or block.</>
@@ -64,8 +63,8 @@ _!CANCEL	-		(BEFORE IT HITS) _F_F
 _!UPPERCUT	-		(AFTER IT HITS) _D^C
         <#bbbbbb>A followup after landing the attack.</>
 RAMPAGE	-		_D^Z
-   <#bbbbbb>A multi-hit barrage. Can be canceled into _F^Z.</>
-_!RAMPAGE ENDER	-		(HOLD)^Z
+   <#bbbbbb>A multi-hit barrage. Special cancelable.</>
+_!RAMPAGE ENDER	-		^C
         <#bbbbbb>A headbutt followup. Causes a hard knockdown.</>
 
 	<#ffef0f>EX MOVES</>
@@ -89,12 +88,6 @@ _EX STRONG GRAPPLE	-		<#55ffff>(1 BAR)</> _B^Y+^Z
 _EX RED UPPER	-		<#55ffff>(1 BAR)</> _D^Y+^Z
    <#bbbbbb>Angous flies upward with an Invincible
    reversal attack that knocks down.</>
-_EX UPPER RUSH <#ff0000>(RAGE)</>	-		<#55ffff>(1 BAR)</> _DB^Y+^Z
-   <#bbbbbb>An anti-air reversal. On hit, it can be
-   canceled into other specials, or _F^Z, or _B^Z.</>
-_EX DEMOLITION RUSH <#ff0000>(RAGE)</>	-		<#55ffff>(1 BAR)</> _DF^Y+^Z
-   <#bbbbbb>The final hit from the 3-part move.
-   Has armor, and causes a wall bounce when held.</>
 
 	<#55ffff>SUPERS</>
 <#790909>HORIZON BUSTER</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C

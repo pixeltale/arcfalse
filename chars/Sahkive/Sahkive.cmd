@@ -395,13 +395,13 @@ trigger3 = stateno = 100
 ;---------------------------------------------------------------------------
 
 ;j.5L: Jumping Light
-[State -1, Jumping Light]
+[State -1, Jumping Light] ;jL
 type = ChangeState
 value = 600
 triggerall = command = "buffer_x"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = movecontact && (stateno = [600 , 650])
+trigger2 = movecontact && (stateno = [600 , 630])
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 904 && time > 3
 ;---------------------------------------------------------------------------
@@ -412,7 +412,7 @@ value = 610
 triggerall = command = "y"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = stateno = 600 || stateno = 601  || stateno = 630 || stateno = 650
+trigger2 = stateno = 600 || stateno = 630
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 904 && time > 3
@@ -424,7 +424,7 @@ value = 630
 triggerall = command = "z"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = [600,610]) || stateno = 650
+trigger2 = (stateno = [600,610])
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 904 && time > 3

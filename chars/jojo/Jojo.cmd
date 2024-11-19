@@ -258,19 +258,18 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
-[State -1, 6R]
+[State -1, 623 Mist Step (Formerly 6R)]
 type = ChangeState
 value = 701
 triggerall = stateno != 701
 triggerall = command!="holddown" 
 triggerall = command!="holdback"
 triggerall = command!="holddown" 
-triggerall = command = "holdfwd" && command = "c" || command = "holdfwd" && command = "holdc" 
-triggerall = command != "b"
+triggerall = command = "MistStep"
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 100
 trigger2 = var(1)
-trigger3=stateno=[2000,2001]
+trigger3 = stateno=[2000,2001]
 trigger3 = movecontact
 
 [State -1, 2R]
@@ -303,7 +302,7 @@ value = 100
 triggerall = command = "66" || teammode != Tag && command = "M66" && command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = 105 && animelemno(0) > 3
+trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = 105 && animelemno(0) > 3 || stateno = 701
 
 ;Run Back
 [State -1, Run Back]
@@ -400,13 +399,13 @@ value = 203
 
 
 ;4M
-[State -1, 5H]
+[State -1, 4M]
 type = ChangeState
 value =  212
 triggerall = stateno != 212
 triggerall = statetype != A
 triggerall = command = "y"
-triggerall = command = "holdback"
+triggerall = command = "holdback" && command != "holddown"
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=100
