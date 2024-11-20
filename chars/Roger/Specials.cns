@@ -7744,7 +7744,6 @@ ctrl = 0
 type    = A
 movetype= H
 physics = N
-juggle  = 2
 ctrl = 0
 sprpriority = 2
 
