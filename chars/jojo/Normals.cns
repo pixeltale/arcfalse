@@ -2729,7 +2729,7 @@ ignorehitpause = 1
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time=0
-value = S,NA
+value = SCA,NA,SA,HA,NP,SP,HP
 time = 10
 
 [State 0, CtrlSet]
