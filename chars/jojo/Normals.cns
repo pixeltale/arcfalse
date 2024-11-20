@@ -2009,7 +2009,7 @@ persistent 	= 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3 + (time >= 10)
+value 		= 2 + (time >= 10)
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -2024,7 +2024,7 @@ type 		= MapSet
 triggerall	= map(jH_Charged)
 trigger1 	= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;90% Starting DMG
+value 		= 0.93
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -2039,7 +2039,7 @@ type 		= MapSet
 triggerall	= map(jH_Charged)
 trigger1 	= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.95	;84% DMG For next hit
+value 		= 0.9	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent 	= 0
 [State -2, P2 Accumulation - Scale]
@@ -2678,6 +2678,11 @@ velset = vel x + 10,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 651
 sprpriority = 2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = !time
+x = 10
 
 [State -2, Starter Level]
 type 		= MapSet

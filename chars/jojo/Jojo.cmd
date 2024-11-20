@@ -65,7 +65,7 @@ trigger1 = ctrl
 ;===========================================================================
 ;===========================================================================
 
-;SUPER1: Buster Horizon
+;SUPER1: Funky Town Breakdown
 [State -1, BH]
 type = ChangeState
 value = 3000
@@ -79,7 +79,7 @@ trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 ;---------------------------------------------------------------------------
-;SUPER2: RAGE
+;SUPER2: Upper
 [State -1, R]
 type = ChangeState
 value = 3100
@@ -159,7 +159,7 @@ triggerall = command!="holdback"
 triggerall = command!="holddown" 
 triggerall = command = "MistStep"
 trigger1 = statetype != A
-trigger1 = ctrl || stateno = 100
+trigger1 = ctrl || stateno = [100, 105]
 trigger2 = var(1)
 trigger3 = stateno=[2000,2001]
 trigger3 = movecontact
