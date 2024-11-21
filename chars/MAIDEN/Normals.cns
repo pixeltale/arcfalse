@@ -245,7 +245,7 @@ hitsound   	= 5,1
 guardsound 	= 6,2
 ground.type 	= High
 ground.slidetime 	= 12
-ground.hittime  	= 15 - map(UntechDecay)
+ground.hittime  	= 19 - map(UntechDecay)
 air.hittime  	= 35 - map(UntechDecay)
 down.hittime 	= 35 - map(UntechDecay)
 ground.velocity 	= -8,-0
@@ -1674,13 +1674,12 @@ value = -5
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = !time
+triggerall = enemy,stateno != [5225,5228]
 trigger1 = abs(p2dist x) < 5 
 x = 30
 y = 0
 redirectid = enemynear, id
 ;ignorehitpause = 
-;persistent = 
 
 
 [State 0, ScreenBound]
@@ -2203,7 +2202,6 @@ getpower 	= (100)*(cond(var(var(5)) = 1, 1, .5))
 [State 200, 1]
 type 	= HitDef 
 p2facing 	= 1
-trigger1  = p2statetype != L
 trigger1 	= time = 0 && map(divekicklimiter)
 attr 		= S, NA                     ;Attribute: Standing, Normal Attack
 damage 		= 100*map(P4)
@@ -2247,7 +2245,7 @@ getpower 	= (100)*(cond(var(var(5)) = 1, 1, .5))
 type 	= HitDef 
 p2facing 	= 1
 trigger1  = p2statetype=L
-trigger1 	= time = 0
+trigger1 	= time = 0 && !map(divekicklimiter)
 attr 		= S, NA                     ;Attribute: Standing, Normal Attack
 damage 		= 100*map(P4)
 animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -2269,7 +2267,50 @@ down.hittime 	= 50-map(UntechDecay)
 ;==============================================
 ground.velocity = 2,3
 air.velocity 	= 2,3
-down.velocity   = 0,20
+down.velocity   = 0,18
+guard.slidetime = 8
+guard.hittime 	= 16
+guard.ctrltime 	= 8
+airguard.velocity = -1.9,-.8
+air.type 	= High
+envshake.time 	= 0
+air.fall 	= 1
+fall = 1
+fall.yvelocity= 0
+;==============================================
+envshake.time 	= 3
+envshake.freq 	= 5
+envshake.ampl 	= 2
+envshake.phase = 1
+p2stateno      = 5255
+getpower 	= (100)*(cond(var(var(5)) = 1, 1, .5)) 
+[State 200, 1]
+type 	= HitDef 
+p2facing 	= 1
+trigger1  = p2statetype=L
+trigger1 	= time = 0 && map(divekicklimiter)
+attr 		= S, NA                     ;Attribute: Standing, Normal Attack
+damage 		= 100*map(P4)
+animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+air.animtype 	= back
+guardflag 	= MA
+hitflag 	= MAFD
+priority 	= 3, Hit
+pausetime 	= 12, 12 
+sparkno 	= 0
+sparkxy 	= -30, -59
+hitsound 	= 5, 1
+guardsound 	= 6, 0
+ground.type 	= Trip
+ground.slidetime= 5
+;==============================================
+ground.hittime  = 50-map(UntechDecay)
+air.hittime  	= 50-map(UntechDecay)
+down.hittime 	= 50-map(UntechDecay)
+;==============================================
+ground.velocity = 2,3
+air.velocity 	= 2,3
+down.velocity   = 0,5
 guard.slidetime = 8
 guard.hittime 	= 16
 guard.ctrltime 	= 8

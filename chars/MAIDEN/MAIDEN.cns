@@ -529,6 +529,12 @@ trigger1 = !map(comboStateCheck)
 map = "jHlimiter"
 value = 0
 
+[State 200, MapSet]
+type = MapSet
+trigger1 = !map(comboStateCheck)
+map = "PERFlimiter"
+value = 0
+
 [State 0, MapSet]
 type = MapSet
 trigger1 = statetype = S
