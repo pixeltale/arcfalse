@@ -311,7 +311,7 @@ value = 105
 triggerall = command = "44" || teammode != Tag && command = "M44"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = [100, 105] && animelemno(0) > 3
+trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = 100 && animelemno(0) > 3
 
 ;---------------------------------------------------------------------------
 ;Air B Dash

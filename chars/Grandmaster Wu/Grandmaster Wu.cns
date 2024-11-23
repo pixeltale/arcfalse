@@ -263,11 +263,6 @@ type = PlaySnd
 trigger1 = animelem = 15
 value = 3032,0
 
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = time = 0
-value = 6800,0
-
 [State 0, EnvShake]
 type = EnvShake
 trigger1 = animelem = 16
@@ -351,6 +346,13 @@ ctrl = 1
 ; States that are executed when in self's state file (use statedef -3)
 ;---------------------------------------------------------------------------
 [Statedef -2]
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 	= !numhelper(1031)
+map 		= "FireballLevel"
+value 		= 0
+ignorehitpause 	= 1
 
 [State 0, PalFX] ;Magic Pixel Check
 type = PalFX
@@ -736,8 +738,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "var(10) = %d fvar(26) = %d, Tranquility = %d"
-params = var(10), fvar(26), fvar(19)
+text = "sigilposx = %f sigilposy = %f fireballdistx = %f"
+params = map(ASigil_XPos), map(ASigil_YPos), map(FireballDistX)
 ;persistent = 
 
 

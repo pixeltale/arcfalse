@@ -41,6 +41,8 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
+
+
 [State 200, 1]
 type = HitDef 
 p2facing = 1

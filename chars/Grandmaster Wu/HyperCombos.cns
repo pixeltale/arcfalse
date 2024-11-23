@@ -469,7 +469,7 @@ p2facing = 1
 hitonce = 1
 trigger1 = time = 0
 attr = S, HP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *370 < 140, 140, fvar(11) *370)), 24
+damage = 300 * MAP(P4) + 75, 24
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFDP                    ;Flags of conditions that move can hit
 priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
