@@ -1674,8 +1674,8 @@ value = -5
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = enemy,stateno != [5225,5228]
-trigger1 = abs(p2dist x) < 5 
+trigger1 = abs(p2dist x) <= 5 
+trigger1 = enemy, vel x= 0
 x = 30
 y = 0
 redirectid = enemynear, id

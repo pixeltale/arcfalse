@@ -1021,8 +1021,8 @@ ignoreHitPause = 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "StarterLevel = %f comboTimer = %f clingtime = %f j.Rusecount = %f variable 45 = %v"
-params = map(StarterLevel), map(combotimer), map(ClingTime), map(jRuse), var(45)
+text = "p2dist x= %f"
+params = p2dist x
 ignorehitpause = 1
 
 ;This controller plays a sound everytime KFM lands from a jump, or

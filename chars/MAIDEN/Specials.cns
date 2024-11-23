@@ -91,8 +91,8 @@ guardsound 	= 6,2
 ground.type 	= trip
 air.type 	     = trip
 animtype 		= hard
-ground.hittime  	= 50
-ground.velocity 	= -30,-5
+air.hittime  	= 1000
+ground.velocity 	= -50,-4
 ground.cornerpush.veloff = 0
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
 air.velocity 	= -30,-1
@@ -162,7 +162,7 @@ ctrl = 1
 ;ignorehitpause = 
 
 
-;5S- PERFORATE
+;5S- PERFORATE HIT SO THIS SHIT WORKS
 ;-----------------------------
 [Statedef 1002]
 type    = S

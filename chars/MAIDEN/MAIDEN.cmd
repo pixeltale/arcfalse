@@ -461,7 +461,6 @@ triggerall = command = "y"
 triggerall = statetype = A
 triggerall = command = "buffer_y"
 trigger1 = stateno = 253
-trigger2 = movecontact && stateno = 320
 trigger3 = stateno = 1350
 
 ;---------------------------------------------------------------------------
