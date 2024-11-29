@@ -670,7 +670,7 @@ value = 420
 triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command != "holdfwd"
-trigger1 = statetype != A 
+triggerall = statetype != A 
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 410)|| (stateno = 200)|| (stateno = 210)|| (stateno = 430)
 trigger2 = (movecontact)

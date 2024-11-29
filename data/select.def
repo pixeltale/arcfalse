@@ -120,8 +120,8 @@ JOJO
 Z
 MAIDEN
 Grandmaster Wu
-Tui
 Alicia
+Tui, hidden = 2, unlock = unlockCmd("Tui")
 
 
 [ExtraStages]
@@ -181,7 +181,9 @@ stages/ballin.def, music = sound/STEPUP.mp3, music = sound/DIVEINTOTHEMELLOW.mp3
 stages/falls.def, music = sound/OCEANPRIME.mp3
 stages/eternity.def, music = sound/STRANGERIREMAIN.mp3, music = sound/REDSUN.mp3, music = sound/HOTWINDBLOWING.mp3, music = sound/RULESOFNATURE.mp3
 stages/eternityRED.def, music = sound/ITHASTOBETHISWAY.mp3, music = sound/BURYTHELIGHTFINAL.mp3
+stages/SFvsMK.def
 stages/kno.def, music = sound/IMUNSTABLE.mp3, zoom=0, music = sound/IFI.mp3 , music = sound/CHECKAGAIN.mp3, music = sound/CANTCONTROL.mp3
+
 
 ;---------------------------------------------------------------------
 [Options]
