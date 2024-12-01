@@ -9,19 +9,44 @@ ctrl = 0
 anim =1000
 sprpriority = 2
 
-[State 0, Helper]
-type = Helper
+;[State 0, Helper]
+;type = Helper
+;trigger1 = animelem = 4
+;helpertype = Normal
+;name = "perforarm"
+;ID = 1001
+;stateno = 1001
+;pos = 0,0
+;postype = P1    ;P2, Front, Back, Left, Right
+;facing = 1
+;keyctrl = 0
+;ownpal = 0
+;ignorehitpause = 0
+
+[State 0, Explod]
+type = Explod
 trigger1 = animelem = 4
-helpertype = Normal
-name = "perforarm"
+anim = 1001
 ID = 1001
-stateno = 1001
 pos = 0,0
-postype = P1    ;P2, Front, Back, Left, Right
+postype = P1  ;P2, Front, Back, Left, Right
 facing = 1
-keyctrl = 0
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 99
+scale = .84,.84
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
 ownpal = 0
+removeonchangestate = 1
 ignorehitpause = 0
+;persistent = 
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -200,6 +225,7 @@ trigger1 = root,anim=1000 && root,animelem = 7
 trigger2 = root,anim=1002 && root,animelem = 3
 trigger3 = root,stateno = [3000,3500]
 trigger4 = root,stateno = 4000
+trigger5 = parent,movetype = H
 
 ;4S
 ;-----------------------------
