@@ -1030,8 +1030,9 @@ sprpriority = 2
 type = NotHitBy
 triggerall=enemy,statetype=A
 triggerall=enemy,movetype=A
-trigger1 = time<=15
-value = ,NA,SA,NT,ST
+trigger1 = time>=4
+trigger1 = time<=16
+value = A
 time = 1
 ignorehitpause = 1
 persistent = 1

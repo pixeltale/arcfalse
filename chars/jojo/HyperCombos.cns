@@ -131,38 +131,7 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 200, 1]
-type = HitDef
-triggerall=statetype=A
-triggerall=statetype!=S
-trigger1 = time=0
-attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = 10*map(P4) + 60, 10                   ;Damage that move inflicts, guard damage
-animtype = up                ;Animation type: Light, Medium, Heavy, Back (def: Light)
-guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFD                    
-pausetime = 45, 55                 ;Time attacker pauses, time opponent shakes
-p1stateno=3001
-sparkno = 3                      ;Spark anim no (Def: set above)
-sparkxy = -5, -30
-hitsound = 5,3                 ;Sound to play on hit
-guardsound = 6, 2             ;Sound to play on guard
-ground.type = High               ;Type: High, Low, Trip (def: Normal)
-ground.slidetime = 4             ;Time that the opponent slides back
-ground.hittime  = 150            ;Time opponent is in hit state
-ground.velocity = -1,-4             ;Velocity at which opponent is pushed
-airguard.velocity = -1.9,-.8 
-air.type = High
-air.velocity = -1,-5
-air.hittime = 150
-air.fall=1
-palfx.time = 10
-palfx.add = 30,-40,-140
-palfx.sinadd = 60,60,50,10
-palfx.color = 0
-palfx.invertall = 1
-getpower = 0
-kill=0
+
 [State 200, 1]
 type = HitDef
 triggerall=statetype=S
@@ -171,15 +140,12 @@ attr = S, HA                     ;Attribute: Standing, Normal Attack
 damage = 10*map(P4) + 60, 10                   ;Damage that move inflicts, guard damage
 animtype = up               ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFD                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
-pausetime = 47, 57                 ;Time attacker pauses, time opponent shakes
+hitflag = MAFD
+pausetime = 10,20
 p1stateno=3001
-sparkno = 3                      ;Spark anim no (Def: set above)
-sparkxy = -15, -30               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
-hitsound = 5,3                 ;Sound to play on hit
+sparkno = 3
+sparkxy = -15, -30
+hitsound = 5,3 
 guardsound = 6, 2             ;Sound to play on guard
 ground.type = High               ;Type: High, Low, Trip (def: Normal)
 ground.slidetime = 4             ;Time that the opponent slides back
@@ -187,8 +153,7 @@ ground.hittime  = 150            ;Time opponent is in hit state
 ground.velocity = -1,-4             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
-air.velocity = -1,-5          ;X-velocity at which opponent is pushed,
-;Y-velocity at which opponent is pushed
+air.velocity = -1,-5 
 air.hittime = 150                ;Time before opponent regains control in air
 air.fall=1
 fall = 1
@@ -483,7 +448,7 @@ animtype = light                 ;Animation type: Light, Medium, Heavy, Back (de
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD
 priority = 3, Hit
-pausetime = 35, 35               ;Time attacker pauses, time opponent shakes
+pausetime = 15, 15               ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;Spark anim no (Def: set above)
 sparkxy = -14, -55
 hitsound = 5, 3                 ;Sound to play on hit
@@ -544,8 +509,7 @@ damage = 30
 animtype = light
 guardflag = HA
 hitflag = MAFD+
-priority = 4, Hit
-pausetime = 35,35
+pausetime = 15,15
 guard.pausetime = 16,19
 sparkno = 3
 sparkxy = -Random%20, -40-Random%20
@@ -584,7 +548,7 @@ animtype = light
 guardflag = HA
 hitflag = MAFD+
 priority = 4, Hit
-pausetime = 15,15
+pausetime = 10,10
 guard.pausetime = 16,19
 sparkno = 2
 sparkxy = -Random%20, -40-Random%20
@@ -623,7 +587,7 @@ animtype = light
 guardflag = HA
 hitflag = MAFD+
 priority = 4, Hit
-pausetime = 10,10
+pausetime = 8,8
 guard.pausetime = 16,19
 sparkno = 1
 sparkxy = -Random%20, -40-Random%20

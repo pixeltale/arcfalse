@@ -801,9 +801,14 @@ sprpriority = 2
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time = 0
-value = A,NA
-time = 15
+triggerall=enemy,statetype=A
+triggerall=enemy,movetype=A
+trigger1 = time>=4
+trigger1 = time<=16
+value = A
+time = 1
+ignorehitpause = 1
+persistent = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim

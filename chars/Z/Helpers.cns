@@ -391,26 +391,36 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 ;facep2=1
 poweradd = 0
 
+;ARCFALSE DAMAGE SCALING - HELPER
+;=========================================
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.9	;90% Starting DMG
+value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
-type 		= RootMapSet
-trigger1 	= movehit && root, map(ComboStateCheck)
+type 		= MapSet
+trigger1 		= movehit = 1 && root, map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.93	;84% DMG For next hit
+value 		= 0.85	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
-type 		= RootMapSet
-trigger1 		= movehit
+type 		= MapSet
+trigger1 	= movehit = 1
 map 		= "Accumulation"
-value 		= root, Map(Accumulation) * root, map(P2)
+value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
-persistent 	= 0   
+persistent 		= 0
+;=========================================
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
@@ -418,13 +428,6 @@ trigger1 = movecontact
 map = "RCHelper"
 value = 30
 ignorehitpause = 1
-
-;helper damage scaling
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 13
-value = 1
 
 [State 8500, Assert: NoShadow]
 type = AssertSpecial
@@ -442,7 +445,7 @@ pos = 0,0
 type = NotHitBy
 trigger1 = Time >= 0
 time = 1
-value = SCA, NA, SA, HA, NT, ST, HT
+value = SCA
 ignorehitpause = 1
 
 [State 200, 1]
@@ -450,7 +453,7 @@ type = HitDef
 p2facing = 1
 trigger1 = time%5=0 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = 40 * root, map(P4),7
+damage = 40 * map(P4),7
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -458,8 +461,7 @@ hitflag = HAFD
 pausetime = 0, 60               ;Time attacker pauses, time opponent shakes
 guard.pausetime = 0,8
 sparkno = 3
-sparkxy = 0,-40               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = 0,-40 
 hitsound = 5,2                ;Sound to play on hit
 guardsound = 6, 2                ;Sound to play on guard
 ground.type = high           ;Type: High, Low, Trip (def: Normal)
@@ -467,11 +469,10 @@ ground.slidetime = 5             ;Time that the opponent slides back
 ground.hittime  = 25             ;Time opponent is in hit state
 ground.velocity = -5,-3             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
-air.velocity = -5,-3             ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -5,-3
 down.velocity = -5,-3.1
-;Y-velocity at which opponent is pushed
 air.hittime = 60
-down.hittime = 60                 ;Time before opponent regains control in air
+down.hittime = 60
 guard.hittime = 5
 guard.slidetime = 5
 guard.ctrltime = 5
@@ -530,40 +531,42 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 poweradd = 0
 
 
+;ARCFALSE DAMAGE SCALING - HELPER
+;=========================================
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.9	;90% Starting DMG
+value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
-type 		= RootMapSet
-trigger1 	= movehit && root, map(ComboStateCheck)
+type 		= MapSet
+trigger1 		= movehit = 1 && root, map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.93	;84% DMG For next hit
+value 		= 0.85	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
-type 		= RootMapSet
-trigger1 		= movehit
+type 		= MapSet
+trigger1 	= movehit = 1
 map 		= "Accumulation"
-value 		= root, Map(Accumulation) * root, map(P2)
+value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
-persistent 	= 0   
-
+persistent 		= 0
+;=========================================
 [State 0, RC On Helper Hit]
 type = RootMapSet
 trigger1 = movecontact
 map = "RCHelper"
 value = 30
 ignorehitpause = 1
-
-;helper damage scaling
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 13
-value = 1
 
 [State 8500, Assert: NoShadow]
 type = AssertSpecial
@@ -573,9 +576,9 @@ ignoreHitPause = 1
 
 [State 3302, NotHitBy]
 type = NotHitBy
-trigger1 = Time >= 0
+trigger1 = 1
 time = 1
-value = SCA, NA, SA, HA, NT, ST, HT
+value = SCA
 ignorehitpause = 1
 
 [State 0, ParentVarSet]
@@ -585,26 +588,23 @@ v = 6
 value = 1
 
 [State 200, 1]
-type = HitDef
-p2facing = 1
+type 	= HitDef
+p2facing 	= 1
 triggerall = !movereversed
-trigger1 = time%5=0 
+trigger1 	= 	time%5 = 0 
 attr = S, AP                     ;Attribute: Standing, Normal Attack
-damage = 40 * map(P4),7
+damage = 40 * root, map(P4),7
 animtype  = back
 air.animtype = back
-guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFD                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
-pausetime = 0, 60               ;Time attacker pauses, time opponent shakes
+guardflag = MA
+hitflag = MAFD
+pausetime = 0, 60
 guard.pausetime = 0,12
 sparkno = 3
-sparkxy = 0,0               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
-hitsound = 5,2                ;Sound to play on hit
-guardsound = 6, 2                ;Sound to play on guard
-ground.type = high           ;Type: High, Low, Trip (def: Normal)
+sparkxy = 0,0
+hitsound = 5,2
+guardsound = 6, 2
+ground.type = high
 ground.slidetime = 5             ;Time that the opponent slides back
 ground.hittime  = 25             ;Time opponent is in hit state
 ground.velocity = -2,-3             ;Velocity at which opponent is pushed

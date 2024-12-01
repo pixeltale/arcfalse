@@ -900,28 +900,14 @@ persistent 		= 0
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time = 0
-value = A,NA
-;value2 = S,NA
-time = 11
-;ignorehitpause = 
-;persistent = 
-[State 0, HitBy]
-type = HitBy
-trigger1 = time = 0
-trigger1 = P2StateType = A
-value = A,SA,HA,HP,HT
-;value2 = SC,AA,AT,AP
-time = 11
-;ignorehitpause = 
-;persistent = 
-[State 0, HitBy]
-type = HitBy
-trigger1 = time = 0
-trigger1 = P2StateType != A
-value = SC,AA,AT,AP,HA,HP,HT
-;value2 = A,SA,HA,AT,AP
-time = 11
+triggerall=enemy,statetype=A
+triggerall=enemy,movetype=A
+trigger1 = time>=4
+trigger1 = time<=16
+value = A
+time = 1
+ignorehitpause = 1
+persistent = 1
 
 [State 0, PosAdd]
 type = PosAdd

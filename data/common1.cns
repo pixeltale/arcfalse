@@ -1093,13 +1093,13 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.70
+value 		= 0.50
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.70
+value 		= 0.50
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -1263,22 +1263,22 @@ sprpriority = 2
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.85	;90% Starting DMG
+value 		= 0.50	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.80	;84% DMG For next hit
+value 		= 0.50	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -7787,6 +7787,7 @@ triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
+triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -7826,6 +7827,7 @@ triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
+triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -7846,6 +7848,7 @@ triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
+triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -7883,6 +7886,7 @@ triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
+triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 trigger1 = 1
 removetime = 1
 layerno = 2
@@ -8034,13 +8038,16 @@ persistent = 1
 ignorehitpause = 1
 
 [State 0, EVERYTHING WILL FREEZE!]
-type = Pause
+type = SuperPause
 triggerall = map(slowdownTime)
-trigger1 = time % 2 = 0
-time = 1
-movetime = 40
-ignorehitpause = 1
-pausebg = 1
+trigger1 = gametime % 2 = 0
+time = 2
+anim = 99999
+pos = 0,0
+movetime = 2
+darken = 0
+p2defmul = 1
+unhittable = 1
 
 [State -2, RC Speed Boost]
 type = Changestate

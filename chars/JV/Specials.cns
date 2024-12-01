@@ -673,12 +673,6 @@ sprpriority 	= 2
 facep2 		= 1
 velset 		= vel x + 3 , 0
 
-[State 0, Turn]
-type = Turn
-trigger1 = p2dist x < 0
-ignorehitpause = 1
-
-
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -690,7 +684,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;100% Starting DMG
+value 		= 0.90	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -710,15 +704,14 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
-trigger1 = enemy, statetype != A
-attr = S, SA                     ;Attribute: Standing, Normal Attack
-damage 		= 120*map(P4), 30
-animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+trigger1 = !movecontact && !movereversed
+attr 		= S, SA
+damage 		= 100*map(P4), 30
+animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype 	= heavy
 guardflag 	= MA
 hitflag 		= MAFD
-pausetime 		= 18, 18
+pausetime 	= 18, 18
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -731,13 +724,13 @@ air.hittime  	= 90-map(UntechDecay)
 down.hittime 	= 120-map(UntechDecay)
 ;==============================================
 ground.velocity 	= -4
-down.velocity 	= -1.4,-6
-guard.slidetime 	= 22
-guard.ctrltime 		= 22
+down.velocity 	= -1.4,-8
+air.velocity	= -8, -4
+guard.ctrltime 	= 15
 airguard.ctrltime	= 40
 guard.velocity		= -5
 guard.cornerpush.veloff = -1
-airguard.velocity 	= -2.5,-.8
+airguard.velocity 	= -2.5,-1
 air.type 		= High
 envshake.time 	= 0;
 air.fall 		= 1
@@ -753,52 +746,11 @@ getpower 		= (50)*(cond(var(var(3)) = 1, 1, .5))
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
-trigger1 = enemy, statetype = A
-attr = S, SA
-damage 		= 200*map(P4)
-animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
-air.animtype 	= back
-guardflag 	= MA
-hitflag 		= MAFD
-pausetime 	= 30, 35 
-sparkno 		= 0
-sparkxy 		= -30, -59
-hitsound 		= 5, 1
-guardsound 	= 6, 0
-ground.type 	= High
-ground.slidetime 	= 5
-;==============================================
-air.hittime  	= 90-map(UntechDecay)
-ground.hittime	= 90-map(UntechDecay)
-down.hittime 	= 90-map(UntechDecay)
-;==============================================
-ground.velocity 	= -4
-air.velocity 	= -1,-4
-guard.slidetime 	= 8
-guard.hittime 	= 16
-guard.ctrltime 	= 8
-airguard.velocity 	= -1.9,-.8
-air.type 		= High
-air.fall 		= 1
-fall.yvelocity 	= 0
-;==============================================
-envshake.time 	= 30;
-envshake.time 	= 3
-envshake.freq 	= 5
-envshake.ampl 	= 2
-envshake.phase 	= 1
-;==============================================
-getpower 		= (120)*(cond(var(var(5)) = 1, 1, .5)) 
-
-[State 200, 1]
-type = HitDef 
-p2facing = 1
 trigger1 = !movereversed && !movecontact
 trigger1 = map(CounterHit) && !map(ArmorActive)
 attr = S, SA
 damage 		= 200*map(P4)
-animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype 	= back
 guardflag 	= MA
 hitflag 		= MAFD
@@ -814,7 +766,7 @@ air.hittime  	= 90-map(UntechDecay)
 ground.hittime	= 90-map(UntechDecay)
 down.hittime 	= 90-map(UntechDecay)
 ;==============================================
-ground.velocity 	= -4, -4
+ground.velocity 	= -4, -7
 air.velocity 	= -1,-8
 guard.slidetime 	= 8
 guard.hittime 	= 16
@@ -830,8 +782,8 @@ envshake.freq 	= 5
 envshake.ampl 	= 2
 envshake.phase 	= 1
 ;==============================================
-getpower 		= (150)*(cond(var(var(5)) = 1, 1, .5)) 
-p2stateno = 5300
+getpower 	= (150)*(cond(var(var(5)) = 1, 1, .5)) 
+p2stateno 	= 5300
 
 [State 200, 1]
 type = HitDef 
@@ -888,12 +840,20 @@ persistent 	= 0				        ;+
 
 [State 0, VelAdd]
 type = veladd
-trigger1 = animelem = 4
-x = 10
+trigger1 = animelemno(0) = [2,4]
+x = 1
 [State 0, VelAdd]
 type = velset
 trigger1 = animelem = 5
 x = vel x + 10
+
+[State 0, Changestate]
+type = Changestate
+triggerall = command != "holdback"
+triggerall = command = "a66" || teammode != Tag && command = "M66"
+trigger1 = movehit
+value = 100
+ctrl = 0
 
 [State End, Transfer to Idle]
 type = ChangeState
@@ -1627,7 +1587,7 @@ sparkno = 2
 sparkxy = -p2dist x * 0.25,-1
 hitsound   = 5,3
 guardsound = 6,2
-hitflag = MAFD
+hitflag = MAF
 guardflag = LA
 guard.ctrltime 	= 20
 guard.velocity 	= -5
@@ -2936,13 +2896,14 @@ attr = S, SA
 damage = 100*MAP(P4), 20
 hitflag = MAFD
 guardflag = MA
-pausetime = 30,30 + 10*map(Counterhit_Flag)
+pausetime = 30,30
 guard.pausetime = 15,15
 sparkno = 2
 sparkxy = -25,-44
 hitsound   = 5,1
 guardsound = 6,1
-ground.type = Low
+ground.type = TRIP
+air.type = TRIP
 animtype = medium
 ground.slidetime = 34
 ground.hittime  = 23
@@ -2970,7 +2931,7 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 	= animelem = 1 && time = 0
 map 		= "armorPoints"
-value 		= 2
+value 		= 1
 ignorehitpause 	= 1
 persistent 	= 1
 [State 0. MapSet]
@@ -3016,31 +2977,6 @@ kill 		= 1
 absolute 	= 0
 ignorehitpause 	= 1
 ;=======================================
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "b" || command = "holdb"
-trigger1 = movecontact
-value = 1015
-ctrl = 0
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "x" || command = "holdx"
-trigger1 = movecontact
-value = 1110
-ctrl = 0
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "y" || command = "holdy"
-trigger1 = movecontact
-value = 1120
-ctrl = 0
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "z" || command = "holdz"
-trigger1 = movecontact
-value = 1130
-ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState

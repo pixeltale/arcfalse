@@ -302,7 +302,7 @@ value = 100
 triggerall = command = "66" || teammode != Tag && command = "M66" && command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = 105 && animelemno(0) > 3 || stateno = 701
+trigger2 = stateno = 1100 || stateno = [10, 11] || stateno = 105 && animelemno(0) > 3 || stateno = 701 && time > 5
 
 ;Run Back
 [State -1, Run Back]

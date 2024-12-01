@@ -494,13 +494,13 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.87	;90% Starting DMG
+value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.84	;84% DMG For next hit
+value 		= 0.80	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -1396,13 +1396,11 @@ sprpriority = 2
 
 [State 0, NotHitBy]
 type = NotHitBy
-triggerall=enemy,stateno!=900
-triggerall=enemy,stateno!=901
 triggerall=enemy,statetype=A
 triggerall=enemy,movetype=A
 trigger1 = time>=4
-trigger1 = time<=22
-value = ,NA,SA,NT,ST,SP
+trigger1 = time<=16
+value = A
 time = 1
 ignorehitpause = 1
 persistent = 1
@@ -1513,7 +1511,7 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = low
 ground.slidetime = 12
-ground.hittime  = 24
+ground.hittime  = 24 - map(UntechDecay)
 air.hittime  = 44
 ground.velocity = -4.0,0
 air.velocity = -2,-3;

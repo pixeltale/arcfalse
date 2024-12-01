@@ -109,7 +109,7 @@ triggerall = var(45)>0
 triggerall = !(stateno = 4001 && vel y < 0)
 trigger1 = stateno!= 1055 && stateno !=1052 && ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 434
 trigger2 = stateno!= 1055 && stateno !=1052 && movecontact  && enemynear, movetype = H
-trigger2 = stateno!= 1055 && stateno !=1052 && hitdefattr = A, NA
+trigger2 = stateno!= 1055 && stateno !=1052 && stateno != 650 && hitdefattr = A, NA
 trigger3 = stateno!= 1055 && stateno !=1052 && stateno=45 || stateno=46|| stateno=50 
 trigger4 = stateno = 1055 && movehit =1
 
@@ -295,8 +295,6 @@ value = 903
 triggerall = command = "a44" || teammode != Tag && command = "M44"
 trigger1 = statetype = A
 trigger1 = ctrl
-;trigger2 = (stateno = [600,640]) 
-;trigger2 = movecontact
 triggerall = stateno!=903
 triggerall = var(29)>0
 triggerall = pos y <= -45
@@ -321,9 +319,8 @@ triggerall = command = "66" || command = "M66" && command != "back" && command !
 triggerall = stateno!=100
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 250 && time > 12
-trigger3 = stateno = [111250,111251] && time>17
-trigger4 = stateno = 1010 && movehit
+trigger2 = stateno = [111250,111251] && time>17
+trigger3 = stateno = 1010 && movehit
 
 
 
@@ -339,9 +336,9 @@ triggerall = command != "holddown" && var(59) !=4
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = command = "buffer_x"
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact
 trigger2 = (stateno = 400) && time>1
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact
 trigger3 = stateno = 101
 
 [State 205, ono5L: Ono Light Attack]
@@ -360,7 +357,7 @@ value =  210
 triggerall = command = "y"
 triggerall = command = "holdback"
 triggerall = var(50)=0
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 200) && movecontact ;&& enemynear, movetype = H
 trigger3 = (stateno = 400) && movecontact
@@ -369,19 +366,13 @@ trigger6 = stateno = 101
 [State 211, 5M: Medium Attack]
 type = ChangeState
 value =  211
-;triggerall = anim = 220
-triggerall = command = "buffer_y"
-;triggerall = command != "holddown"
+triggerall = command = "y"
 triggerall = var(50)=0
 triggerall = command != "holddown"
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = (stateno = 420) && movecontact ;&& enemynear, movetype = H
-trigger3 = (stateno = 210) && movecontact ;&& enemynear, movetype = H
-trigger4 = (stateno = 200) && movecontact ;&& enemynear, movetype = H
-trigger5 = (stateno = 400) && movecontact ;&& enemynear, movetype = H
-trigger6 = (stateno = 405) && movecontact
-trigger7 = stateno = 101
+trigger2 = stateno = [400, 420] && movecontact && prevstateno != 211
+trigger3 = stateno = [200, 215] && movecontact
 
 
 [State 220, 5H: Heavy Attack]
@@ -390,26 +381,14 @@ value =  220
 triggerall = command = "z"
 triggerall = var(50)=0
 triggerall = command != "holddown"
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 200) && movecontact
-trigger3 = (stateno = [210,211]) && movecontact 
+trigger3 = (stateno = [210,215]) && movecontact 
 trigger4 = (stateno = 400) && movecontact 
 trigger5 = (stateno = 410) && movecontact 
 trigger6 = (stateno = 420) && movecontact 
 trigger7 = stateno = 101
-
-;Charge 5H
-;[State 221, Charge 5H]
-;type = ChangeState
-;value = 221
-;triggerall = command = "hold_z"  
-;triggerall = stateno !=220 
-;triggerall = stateno !=221
-;triggerall = command != "holdfwd"
-;trigger1 = statetype = S
-;trigger1 = ctrl
-
 
 
 [State 215, ono5M: Ono Standing Medium]
@@ -483,7 +462,7 @@ triggerall = command = "holddown"
 triggerall = statetype != A 
 trigger1 = ctrl
 trigger2 = stateno = [400, 410]|| (stateno = [200,211])
-trigger2 = movecontact
+trigger2 = movecontact && prevstateno != 420
 
 ;---------------------------------------------------------------------------
 [State 430, 2H: Crouching Heavy Attack]

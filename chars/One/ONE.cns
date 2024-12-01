@@ -778,6 +778,7 @@ ignoreHitPause = 1
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = var(30)>0
+triggerall = gametime % 2 = 0
 time = 2
 anim = 99999
 pos = 0,0
@@ -786,39 +787,55 @@ darken = 0
 p2defmul = 1
 unhittable = 1
 
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = var(30)>0
+triggerall = gametime % 2 = 0
+time = 2
+anim = 99999
+pos = 0,0
+movetime = 2
+darken = 0
+p2defmul = 1
+unhittable = 1
+redirectid = player(teamleader), ID
+
 [State 0, PowerSet]
 type = PowerSet
 trigger1 = var(30) > 0
 value = 0
 ignorehitpause = 1
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 =  var(30)>0
-flag = Nomusic
-flag = timerfreeze
-flag = Noshadow
-ignorehitpause = 1
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 =  var(30)>0
-flag = nobardisplay
-ignorehitpause = 1
+persistent = 1
 
 [State 0, BGPalFX]
 type = BGPalFX
-trigger1 = var(30)>0
-time = 1
-add = -100,-100,-100
-mul = 250,250,250
+trigger1 = var(30)
+time = 10
+add = -20,-20,-10
+mul = 150,150,250
 sinadd = -10,-10,-10,1
-invertall = 1
+invertall = 0
 color = 0
 ignorehitpause = 1
+persistent = 1
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = var(30)
+time = 1
+add = 0,0,0
+mul = 256,256,256
+invertall = 1
+color = 256
+ignorehitpause = 1
+persistent = 1
+redirectid = enemynear, id
+
+
 
 [State 0. MapSet]
-type 		= MapSet
+type 		= MapAdd
+triggerall		= time % 2 = 0
 trigger1 		= var(30) > 0
 map 		= "comboTimer"
 value 		= -1
@@ -1096,55 +1113,6 @@ type = VarSet
 trigger1 = 1 
 fvar(11) = fvar(10) * ifElse(fvar(8), 1.5, 1) 
 ignoreHitPause = 1
-
-;================================================
-;COUNTER HIT
-;================================================
-[State -2, Explod];Counter Explod for P1 Side.
-type = Explod
-triggerall = numenemy
-triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 1 ;Counter Ok, Explod has not played, P1 Side
-triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
-triggerall = stateno != [800,820] ;Does not activate during throws.
-triggerall = stateno != [950,951] ;Don't activate during throws.
-trigger1 = movehit ;Move hits
-trigger2 = projhit = 1 ;Projectile Hits
-anim = 13000
-pos = 65,196
-postype = left  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.5,0.5
-sprpriority = 0
-id = 13000
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
-
-[State -2, Explod];Counter Explod for P2 Side.
-type = Explod
-triggerall = numenemy
-triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 2 ;Counter Ok, Explod has not played, P2 Side
-triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
-triggerall = stateno != [800,820] ;Does not activate during throws.
-triggerall = stateno != [950,951] ;Don't activate during throws.
-trigger1 = movehit ;Move hits
-trigger2 = projhit = 1 ;Projectile Hits
-anim = 13001
-pos = -100,196
-postype = right  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.5,0.5
-sprpriority = 0
-id = 13000
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
 
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

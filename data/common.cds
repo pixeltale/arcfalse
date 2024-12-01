@@ -688,12 +688,12 @@ command = ~D, DB, B
 time = 6
 [Command]
 name = "MistStep"
-command = ~F, D, DF
+command = ~$F, D, DF
 time = 15
 buffer.time = 10
 [Command]
 name = "MistStep"
-command = ~F, N, D, DF
+command = ~$F, N, D, DF
 time = 15
 buffer.time = 10
 

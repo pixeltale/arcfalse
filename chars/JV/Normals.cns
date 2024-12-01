@@ -866,28 +866,14 @@ getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time = 0
-value = A,NA
-;value2 = S,NA
-time = 16
-;ignorehitpause = 
-;persistent = 
-[State 0, HitBy]
-type = HitBy
-trigger1 = time = 0
-trigger1 = P2StateType = A
-value = A,SA,HA,HP,HT
-;value2 = SC,AA,AT,AP
-time = 16
-;ignorehitpause = 
-;persistent = 
-[State 0, HitBy]
-type = HitBy
-trigger1 = time = 0
-trigger1 = P2StateType != A
-value = SC,AA,AT,AP,HA,HP,HT
-;value2 = A,SA,HA,AT,AP
-time = 16
+triggerall=enemy,statetype=A
+triggerall=enemy,movetype=A
+trigger1 = time>=4
+trigger1 = time<=16
+value = A
+time = 1
+ignorehitpause = 1
+persistent = 1
 
 [State 0, Mapset]
 type = MapAdd
@@ -983,24 +969,25 @@ y = 0
 [State 430, 2]
 type 	= HitDef 
 p2facing 	= 1
-trigger1 	=  time = 0
+trigger1 	=  !movecontact && !movereversed
 attr 		= C, NA
 damage 		= 100*map(P4), 0
 animtype  	= Hard
-hitflag 		= MAF
+hitflag 		= MAFD
 guardflag 	= LA
 pausetime 	= 13,13
 sparkno 		= 2
 sparkxy 		= -10,-8
 hitsound   	= 5,2
 guardsound 	= 6,1
-air.type	= LOW
+air.type		= LOW
 ground.type 	= TRIP
 ground.slidetime 	= 25
 ground.hittime  	= 31-map(untechDecay)
 air.hittime  		= 31-map(untechDecay)
 down.hittime 		= 31-map(untechDecay)
 ground.velocity 	= -1,-3
+guard.velocity	= -8
 fall 		=1
 air.velocity 	= -1,-3
 fall.yvelocity 	= 0
@@ -1821,7 +1808,7 @@ ground.slidetime 		= 12
 air.fall 			= 1
 ground.hittime  		= 20
 air.hittime  		= 20 - map(untechDecay)
-down.hittime 		= 28 - map(untechDecay)
+down.hittime 		= 28
 ground.velocity 		= -2
 air.velocity 		= -1,-4;
 guard.cornerpush.veloff 	= -2

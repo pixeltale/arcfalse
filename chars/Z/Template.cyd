@@ -557,8 +557,8 @@ type = ChangeState
 value = 1106
 triggerall = !Numhelper(1115)
 triggerall = NumHelper(1114)
-triggerall = command = "b"||command = "EX"
-triggerall = command = "holdfwd"
+triggerall = command = "b"
+triggerall = command = "holddown"
 triggerall = command != "holdback"
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -682,7 +682,7 @@ triggerall = power>=1000
 triggerall = command ="EX"
 triggerall = command != "holdfwd"
 triggerall = command = "holdback"
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -701,7 +701,7 @@ triggerall = command != "holdback"
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger3 = stateno = [600, 640] || (stateno = 420)
 trigger3 = movecontact
 
 ;---------------------------------------------------------------------------
@@ -718,7 +718,7 @@ triggerall = command != "holdback"
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger3 = stateno = [600, 640] || (stateno = 420)
 trigger3 = movecontact
 
 ;---------------------------------------------------------------------------
@@ -738,13 +738,13 @@ triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger1 = pos y<-30
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1 
 trigger4 = movecontact
-
+trigger5 = stateno = 1010 && movehit
 ;---------------------------------------------------------------------------
 ;j3R: Impetus Surge
 [State -1, Light Kung Fu Palm]
@@ -762,13 +762,13 @@ triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger1 = pos y<-30
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = movecontact
-
+trigger5 = stateno = 1010 && movehit
 ;---------------------------------------------------------------------------
 ;j8R: Impetus Surge
 [State -1, Light Kung Fu Palm]
@@ -785,12 +785,13 @@ triggerall = command != "holddown"
 triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = movecontact
+trigger5 = stateno = 1010 && movehit
 
 ;---------------------------------------------------------------------------
 ;j7R: Impetus Surge
@@ -808,12 +809,13 @@ triggerall = command != "holddown"
 triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = movecontact
+trigger5 = stateno = 1010 && movehit
 
 ;---------------------------------------------------------------------------
 ;j9R: Impetus Surge
@@ -831,12 +833,13 @@ triggerall = command != "holddown"
 triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = movecontact
+trigger5 = stateno = 1010 && movehit
 
 ;---------------------------------------------------------------------------
 ;j6R: Impetus Surge
@@ -855,12 +858,13 @@ triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger1 = pos y<-30
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = movecontact
+trigger5 = stateno = 1010 && movehit
 
 ;---------------------------------------------------------------------------
 ;j4R: Impetus Surge
@@ -879,12 +883,13 @@ triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = pos y<-30
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = movecontact
+trigger5 = stateno = 1010 && movehit
 
 ;---------------------------------------------------------------------------
 ;j2R: Impetus Surge
@@ -903,12 +908,13 @@ triggerall = var(5)>=50
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger1 = pos y<-30
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
 trigger4 = stateno = 1011 || stateno = 8013 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = movecontact
+trigger5 = stateno = 1010 && movehit
 
 ;---------------------------------------------------------------------------
 ;jR: Magnetic Propulsion
@@ -927,11 +933,12 @@ triggerall = var(5)>=5
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger1 = pos y<-20
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630)|| (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 420 && movehit
 trigger4 = stateno = 1003 || stateno = 8003 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = var(6)=1
+trigger5 = stateno = [1010,1011] && movehit
 
 
 ;---------------------------------------------------------------------------
@@ -946,7 +953,7 @@ triggerall = command = "holdfwd"
 triggerall = command != "holdback"
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600, 640] || (stateno = 420)
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
@@ -1321,13 +1328,8 @@ triggerall = command = "holdfwd"
 triggerall = command ="holddown"
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = (stateno = 200) || (stateno = 210) || (stateno = 211) || (stateno = 212)
+trigger2 = stateno = [200, 212] || stateno = [400, 410]
 trigger2 = movecontact
-trigger3 = (stateno = 400) || (stateno = 410)
-trigger3 = movecontact
-;trigger2 = (stateno = 400) || (stateno = 430)
-;trigger2 = (time > 9) || (movecontact && time > 5)
-;trigger3 = stateno = 100 ; can be done while dashing
 
 ;---------------------------------------------------------------------------
 ;2H
@@ -1337,16 +1339,13 @@ value = 420
 triggerall = command = "z"
 triggerall = command != "holdfwd"
 triggerall = command ="holddown"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 410 && movecontact
 trigger3 = stateno = 210 || stateno = 211 || stateno = 212
 trigger3 = movecontact
 trigger4 = stateno = 200 || stateno = 400|| stateno = 220
 trigger4 = movecontact
-;trigger2 = (stateno = 400) || (stateno = 430)
-;trigger2 = (time > 9) || (movecontact && time > 5)
-;trigger3 = stateno = 100 ; can be done while dashing
 
 ;---------------------------------------------------------------------------
 ;jL
@@ -1354,31 +1353,42 @@ trigger4 = movecontact
 type = ChangeState
 value = 600
 triggerall = command = "buffer_x" 
-trigger1 = statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = 2000 && time >=10
-trigger3 = stateno = [600, 630] && movehit
+trigger3 = stateno = [600, 630] && movehit || stateno = 420 && movecontact
 ;---------------------------------------------------------------------------
 ;jM
 [State -1, jM]
 type = ChangeState
 value = 610
 triggerall = command = "buffy"
-trigger1 = statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = stateno = 600 && movecontact
+trigger2 = (stateno = 600 || stateno = 420) && movecontact
 trigger3 = stateno = 2000 && time >=10
 trigger4 = stateno = 630 && movehit
 
 ;---------------------------------------------------------------------------
+;j2H
+[State -1, j2H]
+type = ChangeState
+value = 640
+triggerall = command = "z" && command = "holddown"
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = stateno = [600, 630]
+trigger2 = movecontact
+trigger3 = stateno = 2000 && time >=10
+
 ;jH
 [State -1, jH]
 type = ChangeState
 value = 630
 triggerall = command = "z"
-trigger1 = statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610)
+trigger2 = (stateno = 600) || (stateno = 610) || stateno = 420
 trigger2 = movecontact
 trigger3 = stateno = 2000 && time >=10
 

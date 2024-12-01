@@ -1104,7 +1104,7 @@ TriggerAll=NumExplod(924680)=0
 triggerall = stateno != 2000
 triggerall = stateno != 20000
 triggerall = stateno !=2010
-Trigger1 = Var(5)<150 && GameTime % 6 = 0 && !movetype = H
+Trigger1 = Var(5)<150 && GameTime % 8 = 0 && !movetype = H
 v = 5
 value = 1 
 ignorehitpause = 1

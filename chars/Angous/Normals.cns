@@ -1066,10 +1066,11 @@ velset = vel x,0
 
 [State 0, NotHitBy]
 type = NotHitBy
-triggerall= enemy, statetype = A && enemy, movetype = A
+triggerall=enemy,statetype=A
+triggerall=enemy,movetype=A
 trigger1 = time>=4
 trigger1 = time<=16
-value = ,NA,SA,NT,ST
+value = A
 time = 1
 ignorehitpause = 1
 persistent = 1
@@ -1296,7 +1297,7 @@ type = NotHitBy
 triggerall= enemy, statetype = A && enemy, movetype = A
 trigger1 = time>=0
 trigger1 = time<=8
-value = ,NA,SA,NT,ST
+value = A
 time = 1
 ignorehitpause = 1
 persistent = 1
