@@ -1340,14 +1340,14 @@ type = Explod
 trigger1 = animelem = 2
 anim = 431
 ID = 431
-pos = 0,0
+pos = 0,10
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
 bindtime = -1
 accel = 0,0
 random = 0,0
-scale =0.84,0.84
+scale =0.68,0.68
 sprpriority = 3
 ontop = 0
 shadow = 0,0,0
@@ -1570,11 +1570,6 @@ anim = 600
 sprpriority = 2
 facep2 = map(SJI)
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 0.5
 [State -2, WHY DOESN'T THE HITCOUNT RESET ARRRGGGHHH]
 type = Varset
 trigger1 = P2Movetype = H
@@ -1588,24 +1583,6 @@ trigger1 = P2Movetype != H
 trigger2 = Enemy, Gethitvar(hitcount) > 1
 fvar(1) = 0
 ignorehitpause = 1
-
-[State 200, Starter Scaling]
-type = VarAdd
-trigger1 = fvar(1)
-trigger1 = movehit
-fv = 25  
-value = -1 ; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = !fvar(1)
-trigger1 = movehit
-fv = 25  
-value = 1; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
 
 ;2H Explod Removal
 [State 0, RemoveExplod]
@@ -1813,24 +1790,6 @@ trigger2 = Enemy, Gethitvar(hitcount) > 1
 fvar(1) = 0
 ignorehitpause = 1
 
-[State 200, Starter Scaling]
-type = VarAdd
-trigger1 = fvar(1)
-trigger1 = time=0
-fv = 25  
-value = -1 ; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = !fvar(1)
-trigger1 = time=0
-fv = 25  
-value = 1; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
 [State 0, Explod]
 type = Explod
 trigger1 = animelem = 1
@@ -1850,26 +1809,6 @@ shadow = 0,0,0
 ownpal = 0
 removeongethit = 1
 ignorehitpause = 0
-
-;[State 200, VarAdd]
-;type = VarAdd
-;trigger1 = movehit = 1
-;fv = 2   
-;value = 0.25
-;ignorehitpause = 1
-;persistent = 0
-
-;[State -2, VarSet]
-;type = VarSet
-;trigger1 = !numtarget
-;fv = 2
-;value = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 0.25
 
 ;neutral hover explod 1
 [State 0, RemoveExplod]
@@ -1894,13 +1833,13 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.87	;90% Starting DMG
+value 		= 0.9		;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.84	;84% DMG For next hit
+value 		= 0.9		;90% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]

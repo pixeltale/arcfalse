@@ -938,7 +938,6 @@ trigger2 = movecontact
 trigger3 = stateno = 420 && movehit
 trigger4 = stateno = 1003 || stateno = 8003 && anim = 1111 && AnimElemTime(12)>=1
 trigger4 = var(6)=1
-trigger5 = stateno = [1010,1011] && movehit
 
 
 ;---------------------------------------------------------------------------

@@ -914,6 +914,10 @@ time = 1
 name = "M66"
 command = w
 time = 1
+[Command]
+name = "M66Hold"
+command = /w
+time = 1
 
 [Command]
 name = "EX"

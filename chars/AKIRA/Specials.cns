@@ -1,0 +1,252 @@
+;5S
+;-----------------------------
+[Statedef 1000]
+type    = S
+movetype= A
+physics = S
+poweradd = 0
+ctrl = 0
+anim =1000
+sprpriority = 2
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3	;Heavy Starter
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.80	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0]
+type 		= HitDef 
+p2facing 		= 1
+trigger1 		= !movecontact && !movereversed
+attr 		= S, NA
+animtype  		= Light
+air.animtype 		= back
+damage 			= 100*MAP(P4)
+hitflag 			= MAFD
+guardflag 		= MA
+pausetime 		= 15,15
+sparkno 			= 2
+sparkxy 			= -10,-50
+hitsound   		= 5,3
+guardsound 		= 6,2
+ground.type 		= high
+ground.slidetime 		= 12
+ground.hittime  		= 20-MAP(untechDecay)
+air.hittime  		= 26-MAP(UntechDecay)
+down.hittime 		= 20-MAP(UntechDecay)
+ground.velocity 		= -6,0
+air.velocity 		= -2, -4
+down.velocity 		= -1.5, -4
+ground.cornerpush.veloff 	= -9
+down.cornerpush.veloff 	= 0
+air.cornerpush.veloff 	= 0
+guard.hittime 		= 20
+guard.pausetime		= 15,15
+guard.velocity 		= -7
+guard.slidetime 		= 20
+guard.ctrltime 		= 12
+envshake.time 		= 8
+envshake.freq 		= 10
+envshake.ampl 		= 2
+envshake.phase 		= 1
+fall.yvelocity 		= 0
+air.fall 			= 1
+getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5)) 
+
+[State -2, Frost - Enable]
+type 		= MapSet
+trigger1 		= movehit = 1
+map 		= "Frost"
+value 		= 1
+ignorehitpause 	= 1
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0, 3
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+
+;6S
+;-----------------------------
+[Statedef 1010]
+type    	= A
+movetype= A
+physics 	= N
+poweradd = 0
+velset	= 0, 0
+ctrl 	= 0
+anim 	=1010
+sprpriority = 2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = [0,2]
+y = -5 + time
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = 1011
+ID = 1011
+pos = 0, -pos y
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 0
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = -1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 3
+x = 10
+y = -3.5
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelemno(0) >= 4
+x = vel x * 0.9
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelemno(0) > 3
+y = 0.5
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = animelem = 5
+value = 1
+
+[State 0, ChangeState]
+type 	= ChangeState
+trigger1 	= animtime = 0 
+value 	= 50
+ctrl 	= 1
+
+[State 0, ChangeState]
+type 	= ChangeState
+trigger1 	= pos y >= 0
+value 	= 52
+ctrl 	= 1
+
+;3S
+;-----------------------------
+[Statedef 1015]
+type    	= A
+movetype= A
+physics 	= N
+poweradd = 0
+velset	= 0, 0
+ctrl 	= 0
+anim 	=1015
+sprpriority = 2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = [0,2]
+y = -5 + time
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = 1011
+ID = 1011
+pos = 0, -pos y
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 0
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = -1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 3
+x = 10
+y = -2.5
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelemno(0) >= 4
+x = vel x * 0.6
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelemno(0) > 3
+y = 0.5
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = animelemno(0) >= 3
+value = 0
+
+[State 0, ChangeState]
+type 	= ChangeState
+trigger1 	= animtime = 0 
+value 	= 50
+ctrl 	= 1
+
+[State 0, ChangeState]
+type 	= ChangeState
+trigger1 	= pos y >= 0
+value 	= 52
+ctrl 	= 1
+
+;6S
+;-----------------------------
+[Statedef 1100]
+type    	= S
+movetype= A
+physics 	= S
+poweradd = 0
+ctrl 	= 0
+anim 	=1100
+sprpriority = 2
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
