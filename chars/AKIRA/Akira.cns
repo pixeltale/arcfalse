@@ -225,23 +225,13 @@ value = 0
 ctrl = 1
 
 [Statedef -2]
-;---------------------- Integer variable list ----------------------
 
-; var(1):= 105, -1
-;var(13):= 12
-;var(45):= 45
-
-;---------------------- Float variable list ----------------------
-
-;fvar(18):= 99
-
-
-
-
-[State 0, Null]
-type = Null
-trigger1 = movetype = H
-trigger2 = const(movement.stand.friction)
+[State -2, Frost - Enable]
+type 		= MapSet
+trigger1 		= statetype != A
+map 		= "j6S"
+value 		= 0
+ignorehitpause 	= 1
 
 
 [State 0, DisplayToClipboard]

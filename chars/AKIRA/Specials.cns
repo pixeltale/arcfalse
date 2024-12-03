@@ -113,6 +113,13 @@ ctrl 	= 0
 anim 	=1010
 sprpriority = 2
 
+[State -2, Frost - Enable]
+type 		= MapSet
+trigger1 		= prevstateno = [40,61] || prevstateno = [600,620] || prevstateno = 231 || prevstateno = 1010
+map 		= "j6S"
+value 		= 1
+ignorehitpause 	= 1
+
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = time = [0,2]

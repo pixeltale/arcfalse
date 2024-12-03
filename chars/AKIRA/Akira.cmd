@@ -105,6 +105,7 @@ trigger1 = ctrl
 [State -1, 6S] ;LIAR MASK
 type = ChangeState
 value = 1050
+triggerall = statetype != A
 triggerall = command = "b" && command = "holddown"
 triggerall = !numhelper(1055)
 trigger1 = ctrl
@@ -114,6 +115,7 @@ trigger2 = var(1) || stateno = [600, 620] && movecontact
 [State -1, 6S] ;SKYREACH
 type = ChangeState
 value = 1010
+triggerall = !map(j6S) && stateno != 1010
 triggerall = command = "b" && command = "holdfwd" && command != "holddown"
 trigger1 = ctrl
 trigger2 = var(1) || stateno = [600, 620] && movecontact

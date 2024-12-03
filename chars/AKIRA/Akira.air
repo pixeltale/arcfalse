@@ -1340,6 +1340,8 @@ Clsn2Default: 3
 
 ; Ice Clone Summon
 [Begin Action 1050]
+Clsn2Default: 1
+  Clsn2[0] = -27, -111, 26, 1
 0,0, 0,0, 2, , A
 0,0, 0,0, 2, , AS256D200
 0,0, 0,0, 2, , A
