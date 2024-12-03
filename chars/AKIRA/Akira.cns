@@ -139,60 +139,11 @@ ctrl = 0
 anim = 181
 velset = 0,0
 
-[State -3, Win Announcer]
-type = PlaySnd
-trigger1 = time=0
-value = 7410, (0+(Random%2))
-
 [State 8990, AssertSpecial]
 type = AssertSpecial
 trigger1 = RoundState < 3
 flag = Nobardisplay
 flag2 = NoFG
-
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = time = 0
-value = 668,0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 3
-value = 0, 4
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 3
-;value = 669,5
-;channel = 2
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 8
-value = 0, 4
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 8
-;value = 669,5
-;channel = 2
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 14
-;value = 669,7
-;channel = 2
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 15
-value = 0, 4
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 22
-value = 0, 4
 
 [State 181, 1]
 type = NotHitBy
@@ -209,97 +160,12 @@ ctrl = 0
 anim = 182
 velset = 0,0
 
-[State -3, Win Announcer]
-type = PlaySnd
-trigger1 = time=0
-value = 7410, (0+(Random%2))
-
 ;Dark BG
 [State 0, BGPalFX]
 type = BGPalFX
 trigger1 = animelem = 16
 time = -1
 mul = ceil(256-time*3.0),ceil(256-time*3.0),ceil(256-time*3.0)
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 = RoundState < 3
-flag = Nobardisplay
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 12
-value = 9000, 0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 17
-value = 668, 0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 25
-value = 9005, 0
-
-;Light Source
-[State 1900, effect]
-type = explod
-trigger1 = animelem = 25
-anim = 183
-id = 183
-pos = 10,0
-sprpriority = 4
-bindtime = 1
-ownpal = 1
-removeongethit = 1
-ignorehitpause = 1
-facing = 1
-scale = 1,1.4
-
-;Light Source Flipped
-[State 1900, effect]
-type = explod
-trigger1 = animelem = 25
-anim = 183
-id = 183
-pos = 10,0
-sprpriority = 4
-bindtime = 1
-ownpal = 1
-removeongethit = 1
-ignorehitpause = 1
-facing = -1
-scale = 1,1.4
-
-;Light Shadow
-[State 1900, effect]
-type = explod
-trigger1 = animelem = 25
-anim = 184
-id = 183
-pos = 10,0
-sprpriority = 0
-bindtime = 1
-ownpal = 1
-removeongethit = 1
-ignorehitpause = 1
-facing = 1
-scale = 1,1
-
-;Light Shadow Flipped
-[State 1900, effect]
-type = explod
-trigger1 = animelem = 25
-anim = 184
-id = 183
-pos = 10,0
-sprpriority = 0
-bindtime = 1
-ownpal = 1
-removeongethit = 1
-ignorehitpause = 1
-facing = -1
-scale = 1,1
 
 [State 8990, AssertSpecial]
 type = AssertSpecial

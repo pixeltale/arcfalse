@@ -341,7 +341,7 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ;2L
-[State -1, Crouching Light Punch]
+[State -1, ]
 type = ChangeState
 value = 400
 triggerall = command = "x"
@@ -355,7 +355,7 @@ trigger4 = (stateno = 1203) && time > 5
 
 ;---------------------------------------------------------------------------
 ;2M
-[State -1, Crouching Strong Punch]
+[State -1, 2M]
 type = ChangeState
 value = 410
 triggerall = command = "y"
@@ -368,7 +368,7 @@ trigger3 = stateno = 1203 && time > 5
 
 ;---------------------------------------------------------------------------
 ;3H
-[State -1, Crouching Light Kick]
+[State -1, 3H]
 type = ChangeState
 value = 430
 triggerall = command = "z"
@@ -382,7 +382,7 @@ trigger3 = stateno = 1203 && time > 5
 
 ;---------------------------------------------------------------------------
 ;2H
-[State -1, Crouching Light Kick]
+[State -1, 2H]
 type = ChangeState
 value = 420
 triggerall = command = "z"
@@ -453,7 +453,7 @@ triggerall = command = "66" || teammode != Tag && command = "M66"
 triggerall = movehit
 triggerall = statetype != A
 triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300 || stateno % 100 = 20 
+trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300
 
 [State 100, Back Dash Cancel]
 type = ChangeState
@@ -462,4 +462,4 @@ triggerall = command = "44" || teammode != Tag && command = "M44"
 triggerall = movehit
 triggerall = statetype != A
 triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300 || stateno % 100 = 20
+trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300

@@ -121,7 +121,7 @@ Z
 MAIDEN
 Grandmaster Wu
 Alicia
-AKIRA, hidden = 1, unlock = unlockCmd("AKIRA")
+AKIRA, hidden = 2, unlock = unlockCmd("AKIRA")
 
 
 [ExtraStages]

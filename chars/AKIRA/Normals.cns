@@ -909,17 +909,6 @@ guard.hittime 	= 11
 air.fall 		= 1
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
-[State 600, 3]
-type 	= CtrlSet
-trigger1 	= Time = 17
-value 	= 1
-
-[State 0, ChangeState]
-type 	= ChangeState
-trigger1 	=animtime = 0 
-value 	= 50
-ctrl 	= 1
-
 [State 0, ChangeState]
 type 	= ChangeState
 trigger1 	=pos y>= 0
@@ -982,14 +971,13 @@ type = HitDef
 p2facing = 1
 triggerall = !movereversed
 trigger1 = animelem =3
-trigger2 = animelem =5
+trigger2 = animelem =6
 attr = A, NA
 damage 		= 60*map(P4)
-guardflag 	= MA
+guardflag 	= HA
 hitflag 		= MAFD
-priority 		= 4
-pausetime 	= 6,6
-sparkno 		= 1
+pausetime 	= 10,10
+sparkno 		= 2
 sparkxy 		= -10,-35
 hitsound   	= 5,2
 guardsound 	= 6,2
@@ -997,11 +985,11 @@ animtype 		= Med
 air.animtype 	= back
 ground.type 	= Low
 ground.slidetime 	= 12
-ground.hittime  	= 16 - map(UntechDecay)
+ground.hittime  	= 18 - map(UntechDecay)
 air.hittime  	= 20 - map(UntechDecay)
 down.hittime 	= 20 - map(UntechDecay)
 ground.velocity 	= -6
-air.velocity 	= -1,-4;
+air.velocity 	= -1,-2.5
 air.fall 		= 1
 guard.slidetime 	= 8
 guard.ctrltime 	= 12
@@ -1086,20 +1074,19 @@ x = 1
 [State 0, VelMul]
 type = VelMul
 trigger1 = time < 20
-x = 0.9
+x = 0.9 + 0.1 * (map(ComboStateCheck) > 0)
 y = 0.5
 
 [State 0]
 type = HitDef 
 p2facing = 1
-triggerall = p2dist x <= 130
 trigger1 = !movecontact && !movereversed
 attr = A, NA
 animtype  	= hard
-damage 		= 90*map(P4)
+damage 		= 100*map(P4)
 hitflag 		= MAFD
 guardflag 	= HA
-pausetime 	= 10,10
+pausetime 	= 2,2
 sparkno 		= 2
 sparkxy 		= -10,0
 hitsound   	= 5,3
@@ -1112,7 +1099,9 @@ air.hittime  	= 999
 down.hittime 	= 30 - map(untechDecay)
 ground.velocity 	= -1.7
 down.velocity 	= -1.7, -1
-air.velocity 	= -1.7, -1
+air.velocity 	= -5, -1 + (map(untechDecay) * 0.5)
+ground.cornerpush.veloff = -map(untechDecay)
+air.cornerpush.veloff = -map(untechDecay) * 1.2
 guard.hittime 	= 30
 guard.pausetime	= 10,10
 guard.velocity 	= -7
@@ -1125,42 +1114,6 @@ envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
-[State 0]
-type = HitDef 
-p2facing = 1
-triggerall = p2dist x >= 130
-trigger1 = !movecontact && !movereversed
-attr = A, NA
-animtype  	= hard
-damage 		= 120*map(P4)
-hitflag 		= MAFD
-guardflag 	= HA
-pausetime 	= 10,12
-sparkno 		= 3
-sparkxy 		= -10,0
-hitsound   	= 5,3
-guardsound 	= 6,2
-air.type 		= trip
-ground.type 	= high
-ground.slidetime 	= 12
-ground.hittime  	= 20 - map(untechDecay)
-air.hittime  	= 999
-down.hittime 	= 30 - map(untechDecay)
-ground.velocity 	= -1.7
-down.velocity 	= -1.7, -1
-air.velocity 	= -1.7, -1
-guard.hittime 	= 30
-guard.pausetime	= 10,10
-guard.velocity 	= -7
-guard.slidetime 	= 10
-guard.ctrltime 	= 10
-guard.hittime	=10
-air.fall 		=1 
-envshake.time 	= 8
-envshake.freq 	= 10
-envshake.ampl 	= 2
-envshake.phase 	= 1
-getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5)) 
 
 
 [State 0, ChangeState]

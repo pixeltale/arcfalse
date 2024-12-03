@@ -29,7 +29,7 @@ trigger5 = stateno = 1203
 var(1) = 1
 
 ;Pretty Dancer
-[State -1, Pretty Dancer]
+[State -1, 236X]
 type = ChangeState
 value = 3000
 triggerall = command = "236X"
@@ -101,18 +101,25 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 
+;2S
+[State -1, 6S] ;LIAR MASK
+type = ChangeState
+value = 1050
+triggerall = command = "b" && command = "holddown"
+triggerall = !numhelper(1055)
+trigger1 = ctrl
+trigger2 = var(1) || stateno = [600, 620] && movecontact
 
 ;6S
-[State -1, Dance of the Spider Lilies]
+[State -1, 6S] ;SKYREACH
 type = ChangeState
 value = 1010
 triggerall = command = "b" && command = "holdfwd" && command != "holddown"
-triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) || stateno = [600, 620] && movecontact
 
 ;4S
-[State -1, Dance of the Spider Lilies]
+[State -1, 4S] ;LATTICE THEORY
 type = ChangeState
 value = 1020
 triggerall = command = "b" && command = "holdback"
@@ -121,7 +128,7 @@ trigger1 = ctrl
 trigger2 = var(1)
 
 ;5S
-[State -1, Kaguya's Tear]
+[State -1, 5S] ;KAGUYA'S TEAR
 type = ChangeState
 value = 1000
 triggerall = command = "b"
@@ -292,22 +299,10 @@ trigger3 = stateno = [600,610]
 trigger3 = movecontact
 trigger4 = movehit && stateno = [600, 630]
 
-;---------------------------------------------------------------------------
-[State 100, Forward Dash Cancel]
-type = ChangeState
-value = 100
-triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
-triggerall = movehit
-triggerall = statetype != A
-triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300 || stateno % 100 = 20 
-
 [State 100, Back Dash Cancel]
 type = ChangeState
 value = 105
 triggerall = command = "44" || teammode != Tag && command = "M44"
 triggerall = movehit
 triggerall = statetype != A
-triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300 || stateno % 100 = 20
+trigger1 = stateno = 220 || stateno = 420

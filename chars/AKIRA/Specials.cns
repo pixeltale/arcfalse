@@ -412,7 +412,7 @@ damage = 120 * MAP(P4) + 30 * map(CounterHit), 30
 animtype  = up
 hitflag = MAFD
 guardflag = MA
-pausetime = 10,15 + 5 * map(Counterhit)
+pausetime = 6,11 + 5 * map(Counterhit)
 sparkno = 3
 sparkxy = -10,-55
 hitsound   = S8,2
@@ -424,9 +424,9 @@ down.hittime = 35 - map(untechDecay)
 ground.velocity = 4,-4.5
 air.velocity = -5,-4
 down.velocity = -.2,-2
-ground.cornerpush.veloff =-4 - map(UntechDecay)
+ground.cornerpush.veloff =-4 - map(UntechDecay)*2
 down.cornerpush.veloff = -4
-air.cornerpush.veloff = -4 - map(UntechDecay)
+air.cornerpush.veloff = -4 - map(UntechDecay)*2
 guard.ctrltime = 15
 guard.velocity = -5
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
@@ -574,7 +574,7 @@ air.animtype 	= back
 damage 		= 100*map(P4)
 hitflag 		= MAF
 guardflag 	= MA
-pausetime 	= 15,15 + 5 * map(Counterhit)
+pausetime 	= 10,10 + 5 * map(Counterhit)
 sparkno 		= 1
 sparkxy 		= -15,-60
 hitsound   	= 5,1
@@ -613,20 +613,20 @@ value = 1021
 ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(STCancel)
+triggerall = map(STCancel) > 0
 trigger1 = animtime = 0 && command = "holdb"
 value = 1020
 
 ;STANCELS
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(STCancel)
+triggerall = map(STCancel) > 0
 triggerall = movecontact
 trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(STCancel)
+triggerall = map(STCancel) > 0
 triggerall = movecontact
 trigger1 = command = "66" || command = "M66"
 value = 1041
@@ -665,20 +665,20 @@ persistent		= 0
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
 value 		= 0.90	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
 value 		= 0.85	;80% DMG For next hit
 ignorehitpause 	= 1
@@ -690,6 +690,7 @@ map 		= "Accumulation"
 value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
+
 
 [State 410, HitDef - Normal]
 type 		= HitDef 
@@ -772,20 +773,20 @@ value = 1021
 ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(STCancel)
+triggerall = map(STCancel) > 0
 trigger1 = animtime = 0 && command = "holdb"
 value = 1020
 
 ;STANCELS
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(STCancel)
+triggerall = map(STCancel) > 0
 triggerall = movecontact
 trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(STCancel)
+triggerall = map(STCancel) > 0
 triggerall = movecontact
 trigger1 = command = "66" || command = "M66"
 value = 1041
@@ -967,3 +968,147 @@ type = ChangeState
 triggerall = map(STCancel) > 0
 trigger1 = animtime = 0 && command = "holdb"
 value = 1020
+
+;2S - Ice Clone Summon
+[Statedef 1050]
+type    		= S
+movetype	= A
+physics 		= S
+poweradd 	= 0
+ctrl 		= 0
+anim 		=1050
+sprpriority 	= 2
+
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 5
+helpertype = normal
+name = "ICE CLONE"
+ID = 1055
+stateno = 1055
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.84
+size.yscale = 0.84
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 6
+x = 60 * sysvar(1)
+y = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;2S - Ice Clone
+[Statedef 1055]
+type    		= S
+movetype	= I
+physics 		= S
+poweradd 	= 0
+ctrl 		= 0
+anim 		=1055
+sprpriority 	= 2
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT 
+slot = 0
+stateno = 1056
+time = 9999999
+forceair = 0
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time = 300
+ignorehitpause = 0
+
+;2S - Ice Clone Explode
+[Statedef 1056]
+type    		= S
+movetype	= A
+physics 		= S
+poweradd 	= 0
+ctrl 		= 0
+anim 		=1056
+sprpriority 	= 2
+
+[State 0]
+type 	= HitDef 
+p2facing 	= 1
+trigger1 	= !movecontact && !movereversed
+attr 	= S, NA
+animtype 	= Hard
+air.animtype 	= back
+damage 		= 150
+hitflag 		= MAFD
+guardflag 	= MA
+pausetime 	= 0,15
+sparkno 		= 1
+sparkxy 		= -15,-60
+hitsound   	= 5,1
+guardsound 	= 6,2
+ground.type 	= High
+ground.slidetime 	= 12
+ground.hittime  	= 30
+air.hittime  	= 35
+down.hittime 	= 45
+ground.velocity 	= -8,-0
+air.velocity 	= -5, -3
+down.velocity 	= 3, -5
+guard.hittime 	= 17
+guard.ctrltime 	= 30
+guard.pausetime	= 0,15
+guard.velocity 	= -10
+guard.slidetime 	= 30
+palfx.time 	= 50
+palfx.add 	= 20, 0,100
+envshake.time 	= 8
+envshake.freq 	= 10
+envshake.ampl 	= 2
+envshake.phase 	= 1
+air.fall 		= 1
+fall.yvelocity 	= 0
+getpower 	= (100)*(cond(var(var(2)) = 1, 1, .5)) 
+
+[State 0, Explod]	;Effect
+type = Explod
+trigger1 = animelem = 1
+anim = 625
+ID = 625
+postype = p2
+pos = 0,0
+scale = 1.5, 1.5
+sprpriority = 10
+ontop	= 1
+ignorehitpause =1
+persistent = 0
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !animtime
+ignorehitpause = 0
