@@ -294,13 +294,11 @@ value = 1035
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(STCancel) > 0
-triggerall = animelemno(0) >= 4
 trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(STCancel) > 0
-triggerall = animelemno(0) >= 4
 trigger1 = command = "66" || command = "M66"
 value = 1041
 
@@ -424,11 +422,11 @@ ground.hittime  = 35 - map(untechDecay)
 air.hittime  = 45 - map(untechDecay)
 down.hittime = 35 - map(untechDecay)
 ground.velocity = 4,-4.5
-air.velocity = 2,-5
+air.velocity = -5,-4
 down.velocity = -.2,-2
-ground.cornerpush.veloff =-4
+ground.cornerpush.veloff =-4 - map(UntechDecay)
 down.cornerpush.veloff = -4
-air.cornerpush.veloff = -4
+air.cornerpush.veloff = -4 - map(UntechDecay)
 guard.ctrltime = 15
 guard.velocity = -5
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
@@ -448,7 +446,7 @@ ignorehitpause =1
 [State 0, Explod]	;Tipper Effect
 type = Explod
 triggerall = numtarget(1025)
-trigger1 = movehit = 1
+trigger1 = movecontact = 1
 anim = 625
 ID = 625
 postype = p2
@@ -693,13 +691,13 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 410, 2]
+[State 410, HitDef - Normal]
 type 		= HitDef 
 p2facing 		= 1
 triggerall		= !map(Frost)
 trigger1 		= !movecontact && !movereversed
 attr 		= S, SA
-damage 		= 120*map(P4) + (vel x * 2)
+damage 		= 120*map(P4) + (vel x * 4)
 animtype  	= Medium
 hitflag 		= MAFD
 guardflag 	= MA
@@ -711,21 +709,21 @@ guardsound 	= 6,0
 ground.type 	= Low
 ground.slidetime 	= 12
 ground.hittime  	= 30 - map(untechDecay)
-air.hittime  	= 30 - map(untechDecay)
-down.hittime 	= 30 - map(untechDecay)
+air.hittime  	= 40 - map(untechDecay)
+down.hittime 	= 30
 ground.velocity 	= -9,-2.5
 guard.velocity 	= -4
 air.velocity 	= -9,-2.5
 fall  		= 1
 fall.yvelocity 	= 0
 
-[State 410, 2]
+[State 410, HitDef - Frost]
 type 		= HitDef 
 p2facing 		= 1
 triggerall		= map(Frost)
 trigger1 		= !movecontact && !movereversed
 attr 		= S, SA
-damage 		= 150*map(P4) + (vel x * 3)
+damage 		= 150*map(P4) + (vel x * 5)
 animtype  	= Medium
 hitflag 		= MAFD
 guardflag 	= MA
@@ -757,7 +755,7 @@ ignorehitpause 	= 1
 
 [State 0, VelAdd]
 type = PosAdd
-trigger1 = animelem = 3 || animelem = 4
+trigger1 = animelem = 2 || animelem = 3 || animelem = 4
 x = 8
 [State 0, VelAdd]
 type = VelAdd

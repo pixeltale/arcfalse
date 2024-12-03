@@ -111,16 +111,7 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
-;3S
-[State -1, Dance of the Spider Lilies]
-type = ChangeState
-value = 1015
-triggerall = command = "b" && command = "holdfwd" && command = "holddown"
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-
-;3S
+;4S
 [State -1, Dance of the Spider Lilies]
 type = ChangeState
 value = 1020

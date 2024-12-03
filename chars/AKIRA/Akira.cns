@@ -359,6 +359,24 @@ value = 0
 ctrl = 1
 
 [Statedef -2]
+;---------------------- Integer variable list ----------------------
+
+; var(1):= 105, -1
+;var(13):= 12
+;var(45):= 45
+
+;---------------------- Float variable list ----------------------
+
+;fvar(18):= 99
+
+
+
+
+[State 0, Null]
+type = Null
+trigger1 = movetype = H
+trigger2 = const(movement.stand.friction)
+
 
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
@@ -404,3 +422,32 @@ trigger1 		= ctrl
 map 		= "STcancel"
 value 		= 3
 ignorehitpause 	= 0
+
+;==============================================
+;Ice Physics
+[state friction cancel] 
+type = veladd
+triggerall = map(SuperFrost)
+trigger1 = statetype != A
+trigger1 = movetype != H && vel x < 20
+x = (vel x / const(movement.stand.friction)) - vel x
+ignorehitpause = 0
+redirectid	= enemynear, id
+[state friction cancel] 
+type = velmul
+triggerall =  map(SuperFrost)
+trigger1 = statetype != A
+trigger1 = movetype != H && vel x < 5
+trigger1 = time < 10
+x = 0.2
+ignorehitpause = 1
+redirectid	= enemynear, id
+[state friction cancel] 
+type = velmul
+triggerall = map(SuperFrost)
+trigger1 = statetype != A
+trigger1 = movetype != H && vel x < 25
+trigger1 = time > 30
+x = const(movement.stand.friction)
+ignorehitpause = 1
+redirectid	= enemynear, id

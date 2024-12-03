@@ -660,9 +660,14 @@ sprpriority 	= 1
 ctrl 		= 1
 
 [State 0, VelAdd]
-type = VelSet
+type = VelAdd
+triggerall = time % 3 = 0
 trigger1 = command = "holdfwd" || command = "M66Hold"
-x = 2 + (time * 0.1)
+x =(time * 0.1)
+[State 0, VelAdd]
+type = VelSet
+trigger1 = vel x > 15
+x =15
 
 [State 100, 2] ;Prevent run from canceling into walk
 type = AssertSpecial
@@ -714,38 +719,12 @@ ctrl = 0
 anim = 105
 sprpriority = 1
 
-[State 0, PowerAdd]
-type = PowerAdd
-trigger1 = prevstateno = [700,701]
-trigger1 = time = 0
-value = -1000
-
-[State 0, Explod]
-type = Explod
-anim = 9999999
-triggerall = !numexplod(10100)
-trigger1 = prevstateno = 1001
-trigger2 = prevstateno = 1002
-trigger3 = prevstateno = 1101
-trigger4 = prevstateno = 1102
-trigger5 = prevstateno = 1500
-trigger6 = prevstateno = 1300
-trigger7 = prevstateno % 100 = 20
-ID = 10100
-removetime = -1
-ignorehitpause = 1
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = 1
 v = 1    ;fv = 10
 value = 1
-;ignorehitpause = 
-;persistent = 
-[State 200, 2]
-type = PlaySnd
-trigger1 = time = 0
-value = 900, 1
+
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0

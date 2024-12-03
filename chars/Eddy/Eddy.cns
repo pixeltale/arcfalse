@@ -1126,8 +1126,8 @@ ignoreHitPause = 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "TrainingBotBuffer = %f"
-params = map(_iksys_trainingHoldDirBuffer)
+text = "p2dist = %f"
+params = p2dist x
 ignorehitpause = 1
 
 ;This controller plays a sound everytime KFM lands from a jump, or

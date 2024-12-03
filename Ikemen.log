@@ -1,6 +1,7 @@
-.\external\script\start.lua:1401: chars\AKIRA/Normals.cns:429:
-10 - map(UntechDecay) + 10 * (enemy, statetype = "C")
-ground.hittime: Invalid value: "
+.\external\script\start.lua:1401: chars/one/one.def:
+./data/clashing.zss
+data/clashing.zss:56:
+Invalid data: hitdefvar
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

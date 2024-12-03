@@ -2930,7 +2930,13 @@ physics = S
 [State 5001, 1]
 type = velset
 trigger1 = Time = 0
-x = gethitvar(xvel)* facing
+x = (gethitvar(xvel)* facing)
+
+[state friction cancel] 
+type = veladd
+trigger1 = !time
+x = (vel x / const(movement.stand.friction)) - vel x
+ignorehitpause = 1
 
 [State 5001, 2]
 type = ChangeAnim
@@ -2939,7 +2945,7 @@ value = 5005 + GetHitVar(animtype) + (GetHitVar(groundtype)=2)*10
 
 [State 5001, 3] ;Stop sliding back
 type = VelMul
-trigger1 = Time >= GetHitVar(slidetime)
+trigger1 = Time >= 10
 x = .6
 
 [State 5001, 4]
@@ -3090,6 +3096,12 @@ type = velset
 trigger1 = Time = 0
 x = gethitvar(xvel)* facing
 
+[state friction cancel] 
+type = veladd
+trigger1 = !time
+x = (vel x / const(movement.crouch.friction)) - vel x
+ignorehitpause = 1
+
 [State 5011, 2]
 type = ChangeAnim
 trigger1 = AnimTime = 0
@@ -3097,7 +3109,7 @@ value = 5025 + GetHitVar(animtype)
 
 [State 5011, 3] ;Stop sliding back
 type = VelMul
-trigger1 = Time >= GetHitVar(slidetime)
+trigger1 = Time >= 10
 x = .6
 
 [State 5011, 4]
