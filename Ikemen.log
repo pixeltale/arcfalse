@@ -1,8 +1,6 @@
-.\external\script\start.lua:1401: chars\Z/Helpers.cns:495:
-40 map(P4),7
-damage: No comparison operator
-[ECID 4]
-
+.\external\script\start.lua:1401: chars\AKIRA/Normals.cns:429:
+10 - map(UntechDecay) + 10 * (enemy, statetype = "C")
+ground.hittime: Invalid value: "
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

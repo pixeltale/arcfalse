@@ -724,7 +724,7 @@ air.hittime  	= 90-map(UntechDecay)
 down.hittime 	= 120-map(UntechDecay)
 ;==============================================
 ground.velocity 	= -4
-down.velocity 	= -1.4,-8
+down.velocity 	= -1.4,-4
 air.velocity	= -8, -4
 guard.ctrltime 	= 15
 airguard.ctrltime	= 40
@@ -846,14 +846,6 @@ x = 1
 type = velset
 trigger1 = animelem = 5
 x = vel x + 10
-
-[State 0, Changestate]
-type = Changestate
-triggerall = command != "holdback"
-triggerall = command = "a66" || teammode != Tag && command = "M66"
-trigger1 = movehit
-value = 100
-ctrl = 0
 
 [State End, Transfer to Idle]
 type = ChangeState

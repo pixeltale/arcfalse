@@ -28,8 +28,8 @@ trigger4 = stateno = 105
 trigger5 = stateno = 1203
 var(1) = 1
 
-;Gentleman's Beatdown
-[State -1, Gentleman's Beatdown]
+;Pretty Dancer
+[State -1, Pretty Dancer]
 type = ChangeState
 value = 3000
 triggerall = command = "236X"
@@ -43,20 +43,6 @@ trigger3 = (stateno = [200,499]) && movecontact = 1 ;&& enemynear, movetype = H
 trigger4 = stateno = 1303 
 triggerall = stateno != [3000, 3001]
 
-;---------------------------------------------------------------------------
-;Gentleman Rising
-[State -1, Gentleman Rising]
-type = ChangeState
-value = 3010
-triggerall = command = "214X"
-triggerall = power >= 2000
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = statetype != A
-trigger2 = hitdefattr = SC, NA, SA, HA ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 1303 
-triggerall = stateno != 3010
 ;===========================================================================
 ;Super Jump
 [State -1, Super Jump]
@@ -67,6 +53,7 @@ triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
 trigger2 = ctrl || stateno = 100
+trigger3= stateno = 1030 && movecontact
 
 [State -1, JC]
 type = ChangeState
@@ -74,6 +61,7 @@ value = 40
 triggerall = command = "up" || movecontact && command = "holdup"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
+trigger2= stateno = 1030 && movecontact
 
 [State -1,DJC]
 type = ChangeState
@@ -119,16 +107,25 @@ trigger1 = ctrl
 type = ChangeState
 value = 1010
 triggerall = command = "b" && command = "holdfwd" && command != "holddown"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
-;6S
+;3S
 [State -1, Dance of the Spider Lilies]
 type = ChangeState
 value = 1015
 triggerall = command = "b" && command = "holdfwd" && command = "holddown"
-trigger1 = statetype != A
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+;3S
+[State -1, Dance of the Spider Lilies]
+type = ChangeState
+value = 1020
+triggerall = command = "b" && command = "holdback"
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -137,7 +134,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1000
 triggerall = command = "b"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -182,6 +179,16 @@ triggerall = command = "start"
 trigger1 = statetype != A
 trigger1 = ctrl
 
+
+;6H
+[State -1, Bandit Revolver]
+type = ChangeState
+value = 230
+triggerall = command = "z" && command = "holdfwd" && command != "holddown"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = [400, 420] || stateno = [200, 220]) && movecontact
+
 ;---------------------------------------------------------------------------
 ;5L
 [State -1, 5L]
@@ -213,16 +220,6 @@ triggerall = command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,211] || stateno = [400, 420]) && movecontact
-
-;---------------------------------------------------------------------------
-;---------------------------------------------------------------------------
-;Taunt
-[State -1, Taunt]
-type = ChangeState
-value = 195
-triggerall = command = "start"
-trigger1 = statetype != A
-trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ;2L
@@ -278,7 +275,7 @@ value = 600
 triggerall = command = "x"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = movecontact && stateno = 600 || movehit && stateno = 610
+trigger2 = movehit && stateno = 610
 
 ;---------------------------------------------------------------------------
 ;jM

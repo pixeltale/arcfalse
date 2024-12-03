@@ -372,11 +372,12 @@ ctrl = 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "Frost = %f FrostTimer = %f p2distx = %f"
-params = map(Frost), map(FrostTimer), p2dist x
+text = "STCancel = %f p2distx = %f"
+params = map(STCancel), p2dist x
 ignorehitpause = 1
 persistent = 1
 
+;FROST AND FROST TIMER
 [State -2, Frost Timer - Initial Value Set]
 type 		= MapSet
 trigger1 		= !map(Frost)
@@ -405,4 +406,10 @@ invertall = 0
 color = 256
 redirectid = enemynear, id
 
-
+;STANCE FOLLOWUPS
+[State -2, ST Cancel - Reset]
+type 		= MapSet
+trigger1 		= ctrl
+map 		= "STcancel"
+value 		= 3
+ignorehitpause 	= 0
