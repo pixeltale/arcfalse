@@ -2927,11 +2927,6 @@ type    = S
 movetype= H
 physics = S
 
-[State 5001, slide scaling]
-type = veladd
-trigger1 = time && hitshakeover
-x = -.2*(enemy,var(8))
-
 [State 5001, 1]
 type = velset
 trigger1 = Time = 0

@@ -47,7 +47,7 @@ air.animtype 		= back
 damage 			= 100*MAP(P4)
 hitflag 			= MAFD
 guardflag 		= MA
-pausetime 		= 15,15
+pausetime 		= 15,18
 sparkno 			= 2
 sparkxy 			= -10,-50
 hitsound   		= 5,3
@@ -295,7 +295,7 @@ value = 1035
 type = ChangeState
 triggerall = map(STCancel) > 0
 triggerall = animelemno(0) >= 4
-trigger1 = command = "44" || command = "M66"
+trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
@@ -421,7 +421,7 @@ hitsound   = S8,2
 guardsound = 6,2
 ground.type = Low
 ground.hittime  = 35 - map(untechDecay)
-air.hittime  = 35 - map(untechDecay)
+air.hittime  = 45 - map(untechDecay)
 down.hittime = 35 - map(untechDecay)
 ground.velocity = 4,-4.5
 air.velocity = 2,-5
@@ -488,7 +488,7 @@ value = 1020
 type = ChangeState
 triggerall = map(STCancel) > 0
 triggerall = movecontact
-trigger1 = command = "44" || command = "M66"
+trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
@@ -624,7 +624,7 @@ value = 1020
 type = ChangeState
 triggerall = map(STCancel)
 triggerall = movecontact
-trigger1 = command = "44" || command = "M66"
+trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
@@ -783,7 +783,7 @@ value = 1020
 type = ChangeState
 triggerall = map(STCancel)
 triggerall = movecontact
-trigger1 = command = "44" || command = "M66"
+trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
@@ -818,7 +818,7 @@ sprpriority 	= 2
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = animelemno(0) = [2,4]
+trigger1 = 1
 value = SCA
 time = 1
 
@@ -872,7 +872,7 @@ value = 1035
 type = ChangeState
 triggerall = map(STCancel) > 0
 triggerall = animelemno(0) >= 4
-trigger1 = command = "44" || command = "M66"
+trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
@@ -906,7 +906,7 @@ sprpriority 	= 2
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = animelemno(0) = [2,4]
+trigger1 = 1
 value = SCA
 time = 1
 
@@ -948,7 +948,7 @@ value = 1035
 type = ChangeState
 triggerall = map(STCancel) > 0
 triggerall = animelemno(0) >= 4
-trigger1 = command = "44" || command = "M66"
+trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState

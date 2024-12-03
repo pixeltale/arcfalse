@@ -81,16 +81,7 @@ MVCIActiveSwitch  = 0
 ;If this section is included, the default language victory quotes must be in English.
 [Quotes]
 ; Up to 100 victory quotes can be specified per language (victory0 - victory99)
-victory1 = "You sport no class."
-victory2 = "You damaged my mustache."
-victory3 = "Gutter trash."
-victory4 = "That Dudley guy looks a lot like me.."
-victory5 = "A comb to the face wasn't very sportsmanlike, was it?"
-victory6 = "Look presentable."
-victory7 = "You couldn't keep up, could you?"
-victory8 = "A well played victory."
-victory9 = "I wish you luck."
-victory10 = "You fared well against my speed!"
+victory1 = "No honey for you."
 ;Alternate language victory quotes (optional).
 ;0 or more alternate language sections may be added, preceded by the
 ;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".

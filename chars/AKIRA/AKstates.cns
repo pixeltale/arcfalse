@@ -360,7 +360,7 @@ flag = noairguard
 type = VelSet
 trigger1 = time = 0
 x = 5.4
-y = 0.5
+y = 0.25
 
 [State - Air Option Limiter - Airdash]
 type = mapadd
