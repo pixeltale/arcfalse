@@ -2049,7 +2049,7 @@ ignorehitpause = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(ChargeTime) = 20
-trigger1 = command!= "hold_c"
+trigger1 = command!= "hold_c" && prevstateno != 56000
 value = 501
 
 [State 0, ChangeState]

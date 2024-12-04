@@ -3049,7 +3049,7 @@ ctrl = 1
 type    = S
 movetype= A
 physics = S
-poweradd= -1000
+poweradd= -1000 + 1000 * (prevstateno = 56000)
 ctrl = 0
 velset = vel x,0
 anim = 1032

@@ -85,7 +85,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 ; NegativeStates.cns states
 snapBackAttack = 210 ; ANIM: snapback attack
 switchAirAttack = 655
-StateTagAssistSuper = 2105 ; STATENO: normal assist attack
+StateTagAssistSuper = 500 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**

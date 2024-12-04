@@ -901,12 +901,6 @@ removeongethit = 0
 persistent = 1
 
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0
-v = 15
-value = 1
-
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = animelem = 2
@@ -974,21 +968,6 @@ type = PosAdd
 trigger1 = animelem =7
 x = -20
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-v = 51    ;fv = 10
-value = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = command = "holdfwd"
-v = 51    ;fv = 
-value = 1
-;ignorehitpause = 
-;persistent = 
-
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
@@ -997,7 +976,7 @@ ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animelem = 8 && var(51)>=30
+trigger1 = animelem = 8 && command = "c"
 value = 251
 
 
@@ -1077,6 +1056,7 @@ guardsound = 6,0
 ground.type = LOW
 ground.slidetime = 12
 ground.hittime  = 35
+air.hittime	= 35 - map(untechDecay)
 ground.velocity =-3,-3
 air.velocity = -3,-3
 fall  = 1
@@ -1088,7 +1068,7 @@ fall.envshake.time = 0
 fall.envshake.freq = 0
 fall.envshake.ampl = 0
 guard.velocity = -5
-guard.ctrltime = 5
+guard.ctrltime = 8
 getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 fall.yvelocity = 0
 air.cornerpush.veloff =-8
