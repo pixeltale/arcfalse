@@ -7807,25 +7807,6 @@ scale = 0.5, 0.65
 ignorehitpause = 1
 pausemovetime = 100
 
-[State 0, TAG]
-type = text
-triggerall = teamside = 1 && teammode = tag
-triggerall = stateno != [5610,5611]
-triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
-trigger1 = map(_potstag_taggauge) = map(_potstag_taggaugemax)
-triggerall = playerno = teamleader
-triggerall = !map(TrailerMode) && roundstate = 2
-removetime = 1
-layerno = 2
-text = "Tag OK"
-font = F1
-align = -1
-pos = 61, 61
-scale = 0.5, 0.65
-ignorehitpause = 1
-pausemovetime = 100
-
 [State 0, DAMAGE]
 type = text
 triggerall = teamside = 1
@@ -7864,23 +7845,6 @@ params = var(55)
 font = F4
 align = -1
 pos = 265, 55
-scale = 0.5, 0.65
-ignorehitpause = 1
-pausemovetime = 100
-
-[State 0, DAMAGE]
-type = text
-triggerall = teamside = 2 && teammode = tag
-triggerall = stateno != [5610,5611]
-triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
-trigger1 = map(_potstag_taggauge) = map(_potstag_taggaugemax)
-removetime = 1
-layerno = 2
-text = "Tag OK"
-font = F1
-align = 1
-pos = 270, 61
 scale = 0.5, 0.65
 ignorehitpause = 1
 pausemovetime = 100

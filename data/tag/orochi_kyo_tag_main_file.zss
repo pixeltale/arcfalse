@@ -178,12 +178,6 @@
 # What is coming up?
 # More bug fixing if needed.
 
-[Function debugStateNo(param1,param2,param3)]
-ignorehitpause if roundstate > 0 {printtoconsole{text:"param1 = %v;param2 =%v;param3 = %v"; params:$param1 , $param2 , $param3;}}
-
-[Function debugText(texto)]
-ignorehitpause if roundstate > 0 {printtoconsole{text:"state %v";params:$texto}}
-
 
 #===============================================================================
 #Switch Attack MVC2

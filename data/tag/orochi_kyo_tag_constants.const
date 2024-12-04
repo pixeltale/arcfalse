@@ -167,7 +167,7 @@ soundEffectForRunning2 = 0
 ;assistOK_P2 = 60
 
 ;-------text for Orochi Kyo TAG 240p----------------- 
-initialDebugTextY = 40
+initialDebugTextY = 600
 initialDebugTextX = 160
 
 tagInfoTextY = -40
