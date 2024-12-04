@@ -2311,7 +2311,7 @@ juggle = 0
 velset = 0,0
 ctrl = 0
 anim = 2010
-poweradd = -1000
+poweradd = 0
 sprpriority = 2
 
 [State -2, Starter Level]

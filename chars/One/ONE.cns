@@ -73,7 +73,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 [Constants]
 ; NegativeStates.cns states
 snapBackAttack = 210 ; ANIM: snapback attack
-StateTagAssistSuper = 1020 ; STATENO: normal assist attack
+StateTagAssistSuper = 1040 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**

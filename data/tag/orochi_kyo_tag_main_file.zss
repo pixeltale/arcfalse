@@ -1178,23 +1178,23 @@ ignorehitpause if ID = Map(_iksys_tagCurrentID) && roundstate = 2 && Teammode = 
 	}
 	
 	#: BUFFER for TAG COMMANDS
-	if command = "HoldDown" && (ailevel = 0 || var(const(charAiVar))=0) {
+	if (ailevel = 0 || var(const(charAiVar))=0) {
 		mapadd{map:"HoldDown"; value:1;}
 	} else {
 		mapset{map:"HoldDown"; value:0;}
 	}
-	if (!const(variableCross)) && map(ASSISTINPROCESS)=0 && stateno != const(tauntBeforeSwitching) && ctrl && ailevel = 0 {
-	if (command = "tagbutton2" && map(nextPartnerIsReady)) && (command != "HoldFwd" && command != "HoldBack") { 
-		mapset{map:"SwitchB"; value:1;} 
-		mapset{map:"contadorForSwitch";value:0;}
-		if statetype != A && map(reverseSnapbackIsOn) = 0 {changestate{value:const(tauntBeforeSwitching)}}
-		}
-	if (command = "tagbutton1" && map(previousPartnerIsReady)) && (command != "HoldFwd" && command != "HoldBack") { 
-		mapset{map:"SwitchA"; value:1;}
-		mapset{map:"contadorForSwitch";value:0;}
-		if statetype != A && map(reverseSnapbackIsOn) = 0 {changestate{value:const(tauntBeforeSwitching)}}
-		}
-	} 
+	if (map(HoldDown) > const(holdDownForSwitch) || (!const(variableCross) && map(HoldDown))) && map(ASSISTINPROCESS)=0 && stateno != const(tauntBeforeSwitching) && ctrl && ailevel = 0 {
+		if (command = "tagbutton2" && map(nextPartnerIsReady)) && (command != "HoldFwd" && command != "HoldBack") { 
+			mapset{map:"SwitchB"; value:1;} 
+			mapset{map:"contadorForSwitch";value:0;}
+			if statetype != A && map(reverseSnapbackIsOn) = 0 {changestate{value:const(tauntBeforeSwitching)}}
+			}
+		if (command = "tagbutton1" && map(previousPartnerIsReady)) && (command != "HoldFwd" && command != "HoldBack") { 
+			mapset{map:"SwitchA"; value:1;}
+			mapset{map:"contadorForSwitch";value:0;}
+			if statetype != A && map(reverseSnapbackIsOn) = 0 {changestate{value:const(tauntBeforeSwitching)}}
+			}
+		} 
 	if (map(SwitchA) || map(SwitchB)) && stateno != const(tauntBeforeSwitching)  {
 		mapset{map:"SwitchA"; value:0;}
 		mapset{map:"SwitchB"; value:0;} 
