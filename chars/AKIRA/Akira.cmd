@@ -61,7 +61,7 @@ value = 40
 triggerall = command = "up" || movecontact && command = "holdup"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
-trigger2= stateno = 1030 && movecontact
+trigger2= stateno = 1030 && movecontact && command != "holdb"
 
 [State -1,DJC]
 type = ChangeState
@@ -107,7 +107,6 @@ type = ChangeState
 value = 1050
 triggerall = statetype != A
 triggerall = command = "b" && command = "holddown"
-triggerall = !numhelper(1055)
 trigger1 = ctrl
 trigger2 = var(1) || stateno = [600, 620] && movecontact
 
@@ -138,6 +137,13 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
+;j4S
+[State -1, j.4S] ;AIR LATTICE THEORY
+type = ChangeState
+value = 1060
+triggerall = command = "b" && command = "holdback"
+triggerall = statetype = A && !map(j4S)
+trigger1 = ctrl || stateno = [600, 620] && movecontact
 
 ;---------------------------------------------------------------------------
 ;Run Fwd

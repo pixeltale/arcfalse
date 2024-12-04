@@ -226,14 +226,7 @@ ctrl = 1
 
 [Statedef -2]
 
-[State -2, Frost - Enable]
-type 		= MapSet
-trigger1 		= statetype != A
-map 		= "j6S"
-value 		= 0
-ignorehitpause 	= 1
-
-
+;Debug Display. Press CTRL + D to show ingame.
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
@@ -242,7 +235,30 @@ params = map(STCancel), p2dist x
 ignorehitpause = 1
 persistent = 1
 
+;Air Special Use Limiters
+;=======================================
+;=======================================
+[State -2, Frost - Enable]
+type 		= MapSet
+trigger1 		= statetype != A
+map 		= "j6S"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Frost - Enable]
+type 		= MapSet
+trigger1 		= statetype != A
+map 		= "j4S"
+value 		= 0
+ignorehitpause 	= 1
+;=======================================
+;=======================================
+
+
+
+
 ;FROST AND FROST TIMER
+;=======================================
+;=======================================
 [State -2, Frost Timer - Initial Value Set]
 type 		= MapSet
 trigger1 		= !map(Frost)
@@ -270,17 +286,36 @@ mul = 256,256,256
 invertall = 0
 color = 256
 redirectid = enemynear, id
+;=======================================
+;=======================================
 
-;STANCE FOLLOWUPS
+;STANCE CANCEL COUNTER RESET
+;=======================================
 [State -2, ST Cancel - Reset]
 type 		= MapSet
 trigger1 		= ctrl
 map 		= "STcancel"
 value 		= 3
 ignorehitpause 	= 0
+;=======================================
+
+[State -2, ST Cancel - Reset]
+type 		= MapAdd
+trigger1 		= map(GuardLockout) > 0
+map 		= "GuardLockout"
+value 		= -1
+ignorehitpause 	= 0
+[State 0, AssertSpecial]
+type 		= AssertSpecial
+trigger1 		= map(GuardLockout) > 0
+flag 		= nostandguard
+flag2 		= nocrouchguard
+flag3 		= noairguard
+ignorehitpause 	= 1
+;=======================================
 
 ;==============================================
-;Ice Physics
+;Ice Physics Code for Later
 [state friction cancel] 
 type = veladd
 triggerall = map(SuperFrost)
@@ -307,3 +342,4 @@ trigger1 = time > 30
 x = const(movement.stand.friction)
 ignorehitpause = 1
 redirectid	= enemynear, id
+;==============================================

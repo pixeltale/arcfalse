@@ -918,6 +918,14 @@ time = 1
 name = "M66Hold"
 command = /w
 time = 1
+[Command]
+name = "M22"
+command = $D, w
+time = 1
+[Command]
+name = "M88"
+command = $U, w
+time = 1
 
 [Command]
 name = "EX"
