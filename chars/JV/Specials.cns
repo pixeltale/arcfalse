@@ -557,7 +557,7 @@ value = 5,0
 [State 0, Changestate]
 type = Changestate
 triggerall = time
-trigger1 = command = "fwd" || teammode != Tag && command = "M66"
+trigger1 = command = "fwd" || command = "M66"
 value = 100
 ctrl = 1
 
@@ -1377,7 +1377,7 @@ x = vel x + 7
 [State 0, Changestate]
 type = Changestate
 triggerall = command != "holdback"
-triggerall = command = "a66" || teammode != Tag && command = "M66"
+triggerall = command = "a66" || command = "M66"
 trigger1 = movecontact
 value = 100
 ctrl = 0

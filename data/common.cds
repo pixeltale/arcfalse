@@ -920,11 +920,11 @@ command = /w
 time = 1
 [Command]
 name = "M22"
-command = $D, w
+command = ~/$D, w
 time = 1
 [Command]
 name = "M88"
-command = $U, w
+command = ~/$U, w
 time = 1
 
 [Command]

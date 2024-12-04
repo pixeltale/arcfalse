@@ -91,7 +91,7 @@ type = ChangeState
 value =904
 triggerall = var(29)>0
 triggerall = command != "holdback"
-triggerall = command = "a66" || teammode != Tag && command = "M66"
+triggerall = command = "a66" || command = "M66"
 trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=904
@@ -104,7 +104,7 @@ triggerall = pos y<-20
 type = ChangeState
 value =903
 triggerall = var(29)>0
-triggerall = command = "a44" || teammode != Tag && command = "M44"
+triggerall = command = "a44" || command = "M44"
 trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=903
@@ -116,7 +116,7 @@ triggerall = pos y<-20
 type = ChangeState
 value = 100
 triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 510 && time >= 18
@@ -126,7 +126,7 @@ trigger2 = stateno = 510 && time >= 18
 [State -1, Run Back]
 type = ChangeState
 value = 105
-triggerall = command = "44"|| teammode != Tag && command = "M44"
+triggerall = command = "44"|| command = "M44"
 triggerall = statetype != A
 triggerall = stateno!=105
 trigger1 = ctrl

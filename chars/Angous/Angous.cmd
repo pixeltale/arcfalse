@@ -142,7 +142,7 @@ trigger2 = stateno = [100,111] && stateno != 105
 type = ChangeState
 value =904
 triggerall = command != "holdback"
-triggerall = command = "a66" || teammode != Tag && command = "M66"
+triggerall = command = "a66" || command = "M66"
 triggerall = stateno!=904
 triggerall = var(29)>0
 triggerall = pos y<-30
@@ -156,7 +156,7 @@ trigger2 = movecontact
 [State -1, Run Fwd]
 type = ChangeState
 value = 903
-triggerall = command = "a44" || teammode != Tag && command = "M44"
+triggerall = command = "a44" || command = "M44"
 triggerall = stateno!=903
 triggerall = var(29)>0
 triggerall = pos y<-30
@@ -169,7 +169,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 100
 triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250
@@ -180,7 +180,7 @@ trigger3 = stateno = 4000
 [State -1, Run Back]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250

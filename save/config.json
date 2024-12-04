@@ -11,18 +11,19 @@
   "Borderless": false,
   "ComboExtraFrameWindow": 0,
   "CommonAir": [
-    "data/common.air",
-    "data/Add004/common.air"
+    "data/common.air"
   ],
   "CommonCmd": [
     "data/common.cds",
-    "data/Add004/common.cmd"
+    "data/tag/orochi_kyo_tag_commands.cds"
   ],
   "CommonConst": [
     "data/common.const",
-    "data/Add004/common.const"
+    "data/tag/orochi_kyo_tag_constants.const"
   ],
-  "CommonFx": [],
+  "CommonFx": [
+    "data/tag/orochi_kyo_tag_system.def"
+  ],
   "CommonLua": [
     "loop()"
   ],
@@ -32,10 +33,12 @@
     "data/dizzy.zss",
     "data/guardbreak.zss",
     "data/score.zss",
-    "data/activetag.zss",
     "data/training.zss",
     "external/mods/trials/trials.zss",
-    "data/dramaticzoom.zss"
+    "data/dramaticzoom.zss",
+    "data/tag/orochi_kyo_tag_main_wire_attack.zss",
+    "data/tag/orochi_kyo_tag_main_file.zss",
+    "data/tag/orochi_kyo_tag_sfx.zss"
   ],
   "ControllerStickSensitivity": 0.4,
   "Credits": 10,

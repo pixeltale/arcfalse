@@ -280,7 +280,7 @@ trigger3 = stateno = 101
 type 	= ChangeState
 value 	= 904
 triggerall 	= command != "holdback"
-triggerall 	= command = "a66" || teammode != Tag && command = "M66"
+triggerall 	= command = "a66" || command = "M66"
 trigger1 	= statetype = A
 trigger1 	= ctrl
 trigger2 	= (stateno = [600,640]) && movehit
@@ -292,7 +292,7 @@ triggerall 	= pos y <= -45
 [State 903, j44: Backward Airdash]
 type = ChangeState
 value = 903
-triggerall = command = "a44" || teammode != Tag && command = "M44"
+triggerall = command = "a44" || command = "M44"
 trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=903

@@ -449,7 +449,7 @@ type = ChangeState
 value = 60
 triggerall = Map(ADash) > 0
 triggerall = statetype = A && !(stateno = 60 && time < 20)
-triggerall = command = "a66" || teammode != Tag && command = "M66" && command != "holdback"
+triggerall = command = "a66" || command = "M66" && command != "holdback"
 triggerall = pos y < -30 && stateno != 62
 trigger1 = ctrl || map(Float)
 
@@ -459,7 +459,7 @@ type = ChangeState
 value = 61
 triggerall = Map(ADash) > 0
 triggerall = statetype = A && !(stateno = 61 && time < 6)
-triggerall = command = "a44" || teammode != Tag && command = "M44"
+triggerall = command = "a44" || command = "M44"
 trigger1 = ctrl || map(Float)
 
 
@@ -469,7 +469,7 @@ trigger1 = ctrl || map(Float)
 type = ChangeState
 value = 100
 triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250
@@ -481,7 +481,7 @@ triggerall = stateno!=100
 [State -1, Backdash]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250

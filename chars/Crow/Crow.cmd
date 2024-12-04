@@ -91,7 +91,7 @@ trigger2 = ctrl ||stateno = 100 && time > 3
 type = ChangeState
 value = 100
 triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 triggerall = stateno!=100
 trigger1 = statetype = S
 trigger1 = ctrl
@@ -100,7 +100,7 @@ trigger1 = ctrl
 [State -1, Backdash]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 triggerall = stateno!=105
 trigger1 = statetype = S
 trigger1 = ctrl

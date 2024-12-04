@@ -94,7 +94,7 @@ trigger3 = vel y > -2
 type = ChangeState
 value = 60
 triggerall = command != "holdback"
-triggerall = command = "a66" || teammode != Tag && command = "M66"
+triggerall = command = "a66" || command = "M66"
 triggerall = Map(ADash) > 0
 triggerall = pos y<-30
 trigger1 = statetype = A 
@@ -105,7 +105,7 @@ trigger1 = ctrl
 [State -1, Backward Airdash]
 type = ChangeState
 value = 61
-triggerall = command = "a44" || teammode != Tag && command = "M44"
+triggerall = command = "a44" || command = "M44"
 triggerall = pos y<-30
 triggerall = Map(ADash) > 0
 trigger1 = statetype = A
@@ -236,7 +236,7 @@ trigger8 = movecontact =1 ;&& enemynear, movetype = H
 type = ChangeState
 value = 100
 triggerall = command != "holdback" && command != "down"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 triggerall = statetype != A
 triggerall = stateno != 100
 trigger1 = ctrl
@@ -247,7 +247,7 @@ trigger2 = Map(DCFH) > 0 || Map(DCFB) > 0
 [State -1, Run Back]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 triggerall = stateno!=105
 triggerall = statetype != A
 trigger1 = ctrl
@@ -449,7 +449,7 @@ trigger4 = movehit && stateno = [600, 630]
 type = ChangeState
 value = 100
 triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 triggerall = movehit
 triggerall = statetype != A
 triggerall = !numexplod(10100) 
@@ -458,7 +458,7 @@ trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || s
 [State 100, Back Dash Cancel]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 triggerall = movehit
 triggerall = statetype != A
 triggerall = !numexplod(10100) 

@@ -98,7 +98,7 @@ trigger2 = (stateno = 420 || stateno = 210) && movehit
 type = ChangeState
 value = 100
 triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 triggerall = stateno!=100
 triggerall = statetype != A
 trigger1 = ctrl
@@ -304,7 +304,7 @@ trigger2=stateno!=105
 [State -1, Run Back]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250

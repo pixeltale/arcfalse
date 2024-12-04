@@ -71,11 +71,11 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 
 [Constants]
 ; NegativeStates.cns states
-StateTagAssist = 1305
-AnimAerialAttack = 620
-StateTagSuperAssist = 3000
-StateTagSuperAssist2  =3010
-MVCIActiveSwitch  = 0
+switchAirAttack = 610 ; ANIM: switch air attack.
+snapBackAttack = 210 ; ANIM: snapback attack
+StateTagAssistSuper = 1025 ; STATENO: normal assist attack
+StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
+tauntWhileWaitingForPartners = 195 ; ANIM: If mvc1switch is on, taunt after switch. Used on switch attack or triple menace.
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.

@@ -302,6 +302,11 @@ value = 1035
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(STCancel) > 0
+trigger1 = command = "88" || command = "M88"
+value = 1042
+[State 0, ChangeState]
+type = ChangeState
+triggerall = map(STCancel) > 0
 trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
@@ -309,11 +314,6 @@ type = ChangeState
 triggerall = map(STCancel) > 0
 trigger1 = command = "66" || command = "M66"
 value = 1041
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-trigger1 = command = "88" || command = "M88"
-value = 1042
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1973,14 +1973,17 @@ y = 0
 
 [State 0, ChangeState]
 type = ChangeState
+triggerall = animelemno(0) >= 2
 trigger1 = command = "x" && command = "holdb"
 value = 1065
 [State 0, ChangeState]
 type = ChangeState
+triggerall = animelemno(0) >= 2
 trigger1 = command = "y" && command = "holdb"
 value = 1070
 [State 0, ChangeState]
 type = ChangeState
+triggerall = animelemno(0) >= 2
 trigger1 = command = "z" && command = "holdb"
 value = 1075
 
@@ -2044,14 +2047,17 @@ y = 0
 
 [State 0, ChangeState]
 type = ChangeState
+triggerall = animelemno(0) >= 2
 trigger1 = command = "x" && command = "holdb"
 value = 1065
 [State 0, ChangeState]
 type = ChangeState
+triggerall = animelemno(0) >= 2
 trigger1 = command = "y" && command = "holdb"
 value = 1070
 [State 0, ChangeState]
 type = ChangeState
+triggerall = animelemno(0) >= 2
 trigger1 = command = "z" && command = "holdb"
 value = 1075
 

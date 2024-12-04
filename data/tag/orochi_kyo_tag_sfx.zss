@@ -1,0 +1,278 @@
+#===============================================================================
+# A list of constants used for this code
+#===============================================================================
+# -------------- Airswitch --------------
+# StateAirSwitch = the State number for the state air switch.
+# soundEffectForAirSwitch1,soundEffectForAirSwitch2 = sound group and index for the SFX animation
+# animationForAirSwitch = animation that appears behind or in front of the character
+# backgroundForAirSwitch = animation for the background
+# airswitchLifeBarAction = animation for lifebaraction
+# AirSwitchLifebarSound1, AirSwitchLifebarSound2 = sounds for the lifebaraction
+# ------------- MVC1 Switch ------------
+# soundEffectForNormalSwitch1,soundEffectForNormalSwitch2 = sound group and index for the SFX animation
+# backgroundForNormalSwitch = animation for the background
+# normalSwitchLifeBarAction = animation/sprite for lifebaraction
+# normalSwitchLifebarSound1,NormalSwitchLifebarSound2 = sounds for the lifebaraction
+
+#===============================================================================
+# Functions
+#===============================================================================
+[Function debugText(param1,param2,param3)]
+ignorehitpause if roundstate > 0 {printtoconsole{text:"param1 = %v;param2 =%v;param3 = %v"; params:$param1 , $param2 , $param3;}}
+
+[Function lifebarFunction(sprite,soundgroup,soundindex,delayTime)]
+lifebaraction{top:1;spr:$sprite,0;}
+mapset{map:"delaySoundTimeActivated";value:1;}
+mapset{map:"mapSoundGroup";value:$soundgroup;}
+mapset{map:"mapSoundIndex";value:$soundindex;}
+mapset{map:"delayTimeForSoundPlay";value:$delayTime;}
+
+[Function explodAnimation(animation,posX,posY,removeTime)]
+ignorehitpause if !numexplod(64500) {
+	explod{id:64500; anim:TAG$animation; postype: p1; pos: $posX, $posY; velocity: 0, 0; accel: 0, -0.03; removetime: $removeTime;scale:1,1;under:0;ontop:1}
+}
+
+[Function explodBackground(animation,posX,posY,removeTime)]
+ignorehitpause if !numexplod(64501) {
+	explod{id:64501; anim:TAG$animation; postype: left; pos: $posX, $posY; velocity: 0, 0; accel: 0, 0; removetime: $removeTime;scale:1,1;under:1;ontop:0}
+}
+
+[statedef -4]
+ignorehitpause if roundstate = 2 && !ishelper && teamleader = playerno && teamside = 1 {
+	#;call debugText(time,anim,stateno);
+	#;call debugStateNo(time,anim,stateno);
+}
+
+ignorehitpause if roundstate = 2 && !ishelper && teamleader = playerno {
+	#For Air Switch
+	ignorehitpause if stateno = const(StateAirSwitch) {
+		if anim!= Const(switchAirAttack) { changeanim {value:Const(switchAirAttack);elem:1; }}
+		# super Pause
+		ignorehitpause if time = [-1,5] {
+			AssertSpecial{flag: animfreeze;}
+			AssertSpecial{flag: animfreeze; redirectid:enemynear,Map(_iksys_tagCurrentID)}
+			velset{x:0;y:-0.5;}
+			velset{x:0;y:-0.5;redirectid:enemynear,Map(_iksys_tagCurrentID)}	
+		}
+		
+		if map(thisWasAlreadyCalled2) <= 0 {
+		#sound
+		playSnd{value:fconst(soundEffectForAirSwitch1),const(soundEffectForAirSwitch2);}
+		call explodAnimation(const(preHitAnimation), 30, -60, 20);
+		#;superpause{time:20; movetime:0; anim:-1}
+				
+		#;lifebaraction
+		mapset{map:"thisWasAlreadyCalled2";value:60;}
+		}
+		
+	#;animation hit
+		ignorehitpause if numtarget(56910) >= 1 && map(thisAnimationWasAlreadyCalled1) <= 0  {
+			call explodAnimation(const(hitAnimForAirSwitch), 60, -30, 20);
+			#;simple text effect
+				if const(defaultTagTexts) {
+					text{removetime:60; layerno:1; pos:map(posXtext),map(posYtext)+40; scale:0.5,0.5; text:"AIR SWITCH";font:F3;}
+				}
+			#;background
+			call explodBackground(const(backgroundForAirSwitch), 0, 0, 48);
+			#;set timer
+			mapset{map:"thisAnimationWasAlreadyCalled1";value:60;}	
+			}	
+	}
+	
+	#For Normal Switch 
+	ignorehitpause if (stateno = const(StateTagEnteringScreen) || stateno = const(StateSwitchAttack)) && map(SWITCH) = 1 && map(thisWasAlreadyCalled2) = 0 {
+		#sound
+		playSnd{value: Fconst(soundEffectForNormalSwitch1),const(soundEffectForNormalSwitch2);}
+		#;animation effect
+		if const(defaultTagTexts){
+				if map(variableCrossIsOn) = 0 {text{removetime:60; layerno:1; pos:map(posXtext),map(posYtext)+40; scale:1,1; text:"CHANGE";font:F3;}}
+				if map(variableCrossIsOn) = 1 {text{removetime:60; layerno:1; pos:map(posXtext),map(posYtext)+40; scale:1,1; text:"VARIABLE CROSS";font:F3;}}
+			}
+		#;background
+		call explodBackground(const(backgroundForNormalSwitch), 0, 0, 48);
+		#;lifebaraction
+		call lifebarFunction(const(normalSwitchLifeBarAction), const(normalSwitchLifebarSound1), const(normalSwitchLifebarSound2), 45);	
+		#;set timer
+		mapset{map:"thisWasAlreadyCalled2";value:60;}
+	}
+
+
+	
+	#For snapback
+	ignorehitpause if stateno = const(snapbackStateNo) {
+	
+		ignorehitpause if time = [0,20] {
+			AssertSpecial{flag: animfreeze;}
+			AssertSpecial{flag: animfreeze; redirectid:enemynear,Map(_iksys_tagCurrentID)}
+		}
+		
+		if map(thisWasAlreadyCalled2) = 0 {
+		#sound
+		playSnd{value: Fconst(soundEffectForSnapback1),const(soundEffectForSnapback2); channel: 4}
+		call explodAnimation(const(preHitAnimation), 60, -30, 20);
+		#;superpause{time:20; movetime:0; anim:-1}
+	
+		#;lifebaraction
+		mapset{map:"thisWasAlreadyCalled2";value:60;}
+		}
+		
+	#;animation hit
+		ignorehitpause if numtarget(56970) >= 1 && map(thisAnimationWasAlreadyCalled1) <= 0 {	
+			call explodAnimation(const(hitAnimForAirSwitch), 60, 0, 20);
+			#;simple text effect
+				if const(defaultTagTexts) {
+					text{removetime:60; layerno:1; pos:map(posXtext),map(posYtext)+40; scale:1,1; text:"FORCED CHANGE";font:F3;}
+				}
+			#;background
+			call explodBackground(const(backgroundForSnapback), 0, 0, 48);
+			#;set timer
+			mapset{map:"thisAnimationWasAlreadyCalled1";value:60;}	
+			}	
+	}	
+
+
+	#;wall bounce
+		ignorehitpause if stateno = 54420 && map(thisWasAlreadyCalled2) <= 0 {	
+			call explodAnimation(56702, -10, -30, 20);
+			mapset{map:"thisWasAlreadyCalled2";value:60;}	
+			}	
+
+	#This is the map used to call all the previous functions just once, do not touch!!
+	if map(thisWasAlreadyCalled1){
+		mapadd{map:"thisWasAlreadyCalled1"; value:-1;}
+	}
+	if map(thisWasAlreadyCalled2){
+		mapadd{map:"thisWasAlreadyCalled2"; value:-1;}
+	}
+	if map(thisAnimationWasAlreadyCalled1){
+		mapadd{map:"thisAnimationWasAlreadyCalled1"; value:-1;}
+	}
+	
+}
+
+#;----------------------------------------
+#; Delayed Sound for lifebaraction
+#;----------------------------------------
+
+if map(delaySoundTimeActivated) = 1 {
+	mapadd{map:"delaySoundTime";value:1;}
+if map(delaySoundTime) = map(delayTimeForSoundPlay) { 
+	playsnd{value:F map(mapSoundGroup),map(mapSoundIndex);}	
+	mapset{map:"delaySoundTimeActivated";value:0;}
+	mapset{map:"delaySoundTime";value:0;}
+	}
+}
+
+#;----------------------------------------
+#; End of Delayed Sound for lifebars
+#;----------------------------------------
+
+if teamleader != playerno {
+
+if (const(backgroundAssistType) = 1 && map(ASSISTTYPE) = 2) || 
+	(const(backgroundAssistType) = 2 && map(ASSISTTYPE) = [1,2]) {
+		if numexplod(30000) = 0 && stateno = const(StateTagEnteringScreen) && !map(thisWasAlreadyCalled1) && map(SWITCH) = 0 && map(SUPERSWITCH) = 0 {
+			explod{id:30000;anim: f9501; postype: left; pos: 0, 0; velocity: 0, 0; accel: 0, 0; removetime: -1;scale:1,1;sprpriority:-3;removeongethit:1;palfx.time:50;ownpal:1;palfx.time:40;palfx.add:100,0,100;}
+			mapset{map:"thisWasAlreadyCalled1";value:60}
+	} 
+}
+	
+	if numexplod(30000) && stateno != [56000,56999] && !map(thisWasAlreadyCalled2) {
+			removeexplod{id:30000}
+			explod{id:30001;anim: f9502; postype: left; pos: 0, 0; velocity: 0, 0; accel: 0, 0; removetime: -1;scale:1,1;sprpriority:-3;removeongethit:1;}
+			mapset{map:"thisWasAlreadyCalled2";value:60}
+	} 
+
+	if numexplod(30001) &&  stateno = const(StateTagLeavingScreen) && !map(thisWasAlreadyCalled3) {
+			removeexplod{id:30001}
+			explod{id:30002;anim: f9503; postype: left; pos: 0, 0; velocity: 0, 0; accel: 0, 0; removetime: -2;scale:1,1;sprpriority:-3;removeongethit:1;}
+			mapset{map:"thisWasAlreadyCalled3";value:60}
+	}	
+			
+if map(thisWasAlreadyCalled1){
+		mapadd{map:"thisWasAlreadyCalled1"; value:-1;}
+	}
+	
+if map(thisWasAlreadyCalled2){
+		mapadd{map:"thisWasAlreadyCalled2"; value:-1;}
+	}	
+	
+if map(thisWasAlreadyCalled3){
+		mapadd{map:"thisWasAlreadyCalled3"; value:-1;}
+		}
+}
+
+
+#;----------------------------------------
+#; Text position for cooldown/assist OK
+#;----------------------------------------
+
+ignorehitpause  if stateno = const(StateTagWaitingOutside) {
+	if teamside = 1 {
+		mapset{map:"posXtext";value:const(tagInfoTextX_P1);}
+	}
+
+	if teamside = 2 {
+		mapset{map:"posXtext";value:const(tagInfoTextX_P2);}
+	}
+
+mapset{map:"screenAspectRatioMultiplier";value:screenwidth/screenheight;}
+
+if playerno = 1 || playerno = 2 {
+	mapset{map:"posYtext";value:const(tagInfoTextY)+(65*map(screenAspectRatioMultiplier));}
+}
+
+if playerno = 3 || playerno = 4{
+	mapset{map:"posYtext";value:const(tagInfoTextY)+(75*map(screenAspectRatioMultiplier));}
+}
+
+if playerno = 5 || playerno = 6 {
+	mapset{map:"posYtext";value:const(tagInfoTextY)+(85*map(screenAspectRatioMultiplier));}
+}
+
+if playerno = 7 || playerno = 8 {
+	mapset{map:"posYtext";value:const(tagInfoTextY)+(95*map(screenAspectRatioMultiplier));}
+}
+
+#;----------------------------------------
+#; Cooldown time TEXT
+#;---------------------------------------
+
+	if map(COOLDOWN) < const(TagAssistCooldown) {
+		text{removetime:1; text:"Cooldown %v"; layerno:1; pos:map(posXtext),map(posYtext); scale:1,1; params:map(COOLDOWN);font:F3;}
+	}
+	
+	if map(COOLDOWN) = const(TagAssistCooldown) {
+		if teamside = 1 {
+			text{removetime:1; text:"Assist OK"; layerno:1; pos:map(posXtext),map(posYtext); scale:1,1;font:F3;}
+		}
+		if teamside = 2 {
+			text{removetime:1; text:"Assist OK"; layerno:1; pos:map(posXtext)+const(assistOK_P2),map(posYtext); scale:1,1;font:F3;}
+		}	
+	}
+}
+#;----------------------------------------
+#; TEXT Debug for training mode
+#;----------------------------------------
+
+ignorehitpause if teamside = 1 && teamleader = playerno && gamemode = "training" && !ishelper{
+mapset{map:"screenAspectRatioMultiplier";value:screenwidth/screenheight;}
+if map(turningDebugMode) > 0 {mapadd{map:"turningDebugMode";value:-1;}}
+if command = "start" && map(debugModeOn) = 0 && !map(turningDebugMode) { teammapset{map:"debugModeOn";value:1;} mapset{map:"turningDebugMode";value:10;}}
+if command = "start" && map(debugModeOn) = 1 && !map(turningDebugMode) { teammapset{map:"debugModeOn";value:0;} mapset{map:"turningDebugMode";value:10;}}
+ignorehitpause if map(debugModeOn) = 0 {
+
+mapset{map:"debugXtext";value:const(initialDebugTextX);}
+
+text{removetime:2; text:"Team Leader Stateno = %v ctrl = %v"; layerno:1; pos:map(debugXtext),const(initialDebugTextY); scale:1,1; align:0 ;params:stateno,ctrl; font:F3;}
+text{removetime:2; text:"%v"; layerno:1; pos:(map(debugXtext)+(170*map(screenAspectRatioMultiplier))),const(initialDebugTextY)+(15*map(screenAspectRatioMultiplier)); scale:1,1; align:0 ;params:time;font:F3;}
+text{removetime:2; text:"Team Leader Anim and time = %v"; layerno:1; pos:map(debugXtext),const(initialDebugTextY)+(15*map(screenAspectRatioMultiplier)); scale:1,1; align:0 ;params:anim; font:F3;}
+text{removetime:2; text:"Partner Stateno = %v"; layerno:1; pos:map(debugXtext),const(initialDebugTextY)+(25*map(screenAspectRatioMultiplier)); scale:1,1; align:0 ;params:partner,stateno; font:F3;}
+text{removetime:2; text:"Partners Ready = %v"; layerno:1; pos:map(debugXtext),const(initialDebugTextY)+(35*map(screenAspectRatioMultiplier)); scale:1,1; align:0 ;params:map(partnerIsReady); font:F3;}
+text{removetime:2; text:"Enemynear Stateno = %v"; layerno:1; pos:map(debugXtext),const(initialDebugTextY)+(45*map(screenAspectRatioMultiplier)); scale:1,1; align:0 ;params:enemynear,stateno; font:F3;}	
+text{removetime:2; text:"Enemynear Partner Stateno = %v"; layerno:1; pos:map(debugXtext),const(initialDebugTextY)+(55*map(screenAspectRatioMultiplier)); scale:1,1; align:0 ;params:partner,prevstateno; font:F3;}				
+			}
+			
+		}
+
+
