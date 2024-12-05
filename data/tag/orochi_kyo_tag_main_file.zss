@@ -535,6 +535,7 @@ if map(partnerIsReady) && time = 1 {
 
 if time > 5 {
 	Ctrlset{value:1;}
+	AssertSpecial{flag: nowalk;}
 }
 
 if pos y < 0 {mapset{map:"localVelY";value:map(ySpeedVsScreen)}} else {mapset{map:"localVelY";value:0}}
