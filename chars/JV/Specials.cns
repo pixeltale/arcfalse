@@ -477,7 +477,7 @@ animtype 		= medium
 ground.slidetime 	= 14
 ground.hittime  	= 23
 ground.velocity 	= -2,-5
-air.velocity 	= -6.6,-1 + (map(untechDecay) * 0.3)
+air.velocity 	= -6.6,-1 + (map(untechDecay) * 0.2)
 air.hittime 	= 24
 envshake.time 	= 7
 fall 		= 1
@@ -1849,7 +1849,7 @@ p2facing = 1
 triggerall = p2dist x <= 45 || enemy, !map(ArmorActive)
 trigger1 = time = 0
 attr = S, SA
-damage = 150*Map(P4)+5, 10
+damage = 120*Map(P4)+5, 10
 hitflag = MAFD
 guardflag = HAF
 pausetime 	= 22,20
@@ -1864,7 +1864,7 @@ ground.hittime  	= 33
 ground.velocity 	= -8,-6
 air.velocity 	= -20,-3.5
 ground.hittime	= 70 - map(untechDecay)
-air.hittime 	= 45 - MAP(UntechDecay)
+air.hittime 	= 40 - MAP(UntechDecay)
 fall 		= 1
 fall.yvelocity 	= 0
 guard.ctrltime 	= 10
