@@ -146,7 +146,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 [Constants]
 ; NegativeStates.cns states
 StateTagAssist = 1055
-AnimAerialAttack = 620
+switchAirAttack = 655
 StateTagSuperAssist = 3000
 StateTagSuperAssist2  =3100
 

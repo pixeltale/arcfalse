@@ -138,7 +138,7 @@ trigger2 = stateno = 510 && time >= 18
 type = ChangeState
 value = 1030
 triggerall = power>1000 && !map(EX6S_Used)
-triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") 
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -184,7 +184,7 @@ trigger3 = stateno = [300, 305] || stateno = [100, 105]
 type = ChangeState
 value = 1035
 triggerall = power>1000 && !map(EX2S_Used)
-triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") 
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -204,7 +204,7 @@ trigger3 = stateno = [300, 305] || stateno = [100, 105]
 type = ChangeState
 value = 1014
 triggerall = power>1000 && !map(EX5S_Used)
-triggerall = (command = "b" && command = "c") || command = "EX" && teammode != Tag
+triggerall = (command = "b" && command = "c") || command = "EX" 
 triggerall = command != "holdfwd"
 triggerall = command != "holddown"
 triggerall = command != "holdback"

@@ -2333,8 +2333,7 @@ removeongethit = 1
 ignorehitpause = 0
 bindtime = -2
 persistent = 0
-
-;persistent = 
+removeonchangestate = 1
 
 
 

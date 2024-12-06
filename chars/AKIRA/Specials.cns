@@ -1366,6 +1366,7 @@ facep2		= 1
 
 [State -2, ST Cancel - Reset]
 type 		= MapAdd
+trigger1		= !time
 trigger1 		= prevstateno = [1021,1081] && prevstateno != [1050, 1060]
 map 		= "STcancel"
 value 		= -1
@@ -1737,8 +1738,8 @@ getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
 [State 0, VelMul]
 type = VelSet
 trigger1 = animelemno(0) < 3
-x = -4
-y = -2
+x = -2
+y = -4
 
 [State 0, VelSet]
 type = VelSet
@@ -1818,6 +1819,10 @@ type = VelMul
 trigger1 = time < 40
 x = 0.7
 y = 0.7
+[State 0, VelMul]
+type = VelSet
+trigger1 = animelem = 5
+y = -7
 
 [State -2, ST Cancel - Reset]
 type 		= MapAdd

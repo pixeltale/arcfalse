@@ -142,7 +142,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1060
 triggerall = command = "b" && command = "holdback"
-triggerall = statetype = A && !map(j4S)
+triggerall = statetype = A && !map(j4S) && pos y <= -30
 trigger1 = ctrl || stateno = [600, 620] && movecontact
 
 ;---------------------------------------------------------------------------

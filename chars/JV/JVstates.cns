@@ -1043,7 +1043,7 @@ ctrl = 0
 
 [State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
 type 		= AfterImage			        ;+
-trigger1 		= time 	=  0 && prevstateno = 1010	        ;+
+trigger1 		= time 	=  0 && prevstateno = [1010,1015]	        ;+
 time 		= 10				        ;+
 length 		= 25   				        ;+
 timegap 		= 1				        ;+

@@ -1162,7 +1162,7 @@ trigger2 = movecontact
 [State -1, Airdash]
 type = ChangeState
 value =904
-triggerall = command = "aFF" || (command = "dash" && teammode !=tag) || (command = "dash" && teammode=tag && partner,stateno=5150)
+triggerall = command = "a66" || command = "M66"
 triggerall = command != "holdback" 
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -1173,7 +1173,7 @@ triggerall = (pos y<-30 && vel y < 0) || (vel y >=0)
 [State -1, Air Backdash]
 type = ChangeState
 value =903
-triggerall = command = "aBB" || (command = "dash" && teammode !=tag) || (command = "dash" && teammode=tag && partner,stateno=5150)
+triggerall = command = "a44" || command = "M44"
 triggerall = command = "holdback" 
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -1188,7 +1188,7 @@ type = ChangeState
 value = 100
 triggerall = stateno!=105
 triggerall = stateno!=100
-triggerall = command = "FF" || (command = "dash"&&teammode!=tag) || (command = "dash"&&teammode=tag && partner,stateno=5150)
+triggerall = command = "a66" || command = "M66"
 triggerall = command != "holdback"
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -1196,31 +1196,11 @@ trigger1 = ctrl
 [State -1, Backdash]
 type = ChangeState
 value = 105
-triggerall = command = "BB" || (command = "dash"&&teammode!=tag) || (command = "dash"&&teammode=tag && partner,stateno=5150)
+triggerall = command = "a44" || command = "M44"
 triggerall = command = "holdback"
 trigger1 = statetype != A
 trigger1 = ctrl
 triggerall = stateno!=105
-
-;---------------------------------------------------------------------------
-;Kung Fu Throw
-;[State -1, Kung Fu Throw]
-;type = ChangeState
-;value = 800
-;triggerall = NumHelper(90000005)
-;triggerall = !AILEVEL
-;triggerall = NumExplod(90000210)
-;triggerall = statetype != A
-;triggerall = ctrl
-;triggerall = stateno != 100
-;trigger1 = ((ifElse(P2DisT x < 0, Facing = -1, Facing = 1) && NumExplod(90000006)) || (ifElse(P2DisT x < 0, Facing = 1, Facing = -1) && NumExplod(90000004))) 
-;trigger1 = p2bodydist X < 3
-;trigger1 = (p2statetype != A) || (p2statetype != A)
-;trigger1 = p2movetype != H
-;trigger2 = ((ifElse(P2DisT x < 0, Facing = -1, Facing = 1) && NumExplod(90000004)) || (ifElse(P2DisT x < 0, Facing = 1, Facing = -1) && NumExplod(90000006)))
-;trigger2 = p2bodydist X < 5
-;trigger2 = (p2statetype != A) || (p2statetype != A)
-;trigger2 = p2movetype != H
 
 ;===========================================================================
 ;5L

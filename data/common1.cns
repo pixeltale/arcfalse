@@ -2945,7 +2945,7 @@ value = 5005 + GetHitVar(animtype) + (GetHitVar(groundtype)=2)*10
 
 [State 5001, 3] ;Stop sliding back
 type = VelMul
-trigger1 = Time >= 10
+trigger1 = Time >= GetHitVar(Slidetime)
 x = .6
 
 [State 5001, 4]
@@ -3109,7 +3109,7 @@ value = 5025 + GetHitVar(animtype)
 
 [State 5011, 3] ;Stop sliding back
 type = VelMul
-trigger1 = Time >= 10
+trigger1 = Time >= GetHitVar(Slidetime)
 x = .6
 
 [State 5011, 4]
@@ -7291,6 +7291,22 @@ ignorehitpause = 1
 [Statedef -2]
 
 ;==============================================
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= prevstateno = [56000, 56100] || stateno = [56000, 56100]
+map 		= "isAssist"
+value 		= 1
+ignorehitpause 	= 0
+persistent      = 0
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= prevstateno != [56000, 56100] && stateno != [56000, 56100]
+map 		= "isAssist"
+value 		= 0
+ignorehitpause 	= 0
+persistent      = 0
+
+;==============================================
 ;MAIDEN SUPER CAMERA PUSSY LOCK #AWESOME
 [State 0, ScreenBound]
 type = ScreenBound
@@ -8214,7 +8230,7 @@ trigger1 = !(name = "Vile" && (Stateno = [1050,1061] || stateno = 2059 || staten
 trigger1 = !(name = "ONE" && (Stateno = 1051 || stateno = 1151))
 trigger1 = !(name = "Z" && (stateno = [2000,2008]))
 trigger1 = !(stateno = [3000,4000]) && stateno != 5610
-trigger1 = !(map(untechDecay) >= 2)
+trigger1 = !(map(untechDecay) >= 2) && !(map(isAssist) > 0)
 value = vel x * 0.75
 
 ;==================================================================================================
@@ -9055,7 +9071,7 @@ ignorehitpause = 1
 
 [State 0, RemoveExplod]
 type = RemoveExplod
-trigger1 = stateno = 900 || map(BurstGauge) < 1000 || roundstate = 3
+trigger1 = stateno = 900 || map(BurstGauge) < 1000 || roundstate = 3 || !alive
 ignorehitpause = 1
 persistent = 1
 id = 900

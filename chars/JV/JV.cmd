@@ -64,9 +64,8 @@ type = ChangeState
 value = 3200
 triggerall = command = "214S"
 triggerall = power >= 4000
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = statetype != A
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
@@ -172,7 +171,7 @@ trigger2 = stateno = 250
 type = ChangeState
 value = 2000
 triggerall = power>=1000
-triggerall = (command = "b" && command = "c") && command = "holdback" || (command = "EX" && command = "holdback") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdback" || (command = "EX" && command = "holdback") 
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -182,7 +181,7 @@ trigger3 = stateno = 1001 && movecontact ;&& enemynear, movetype = H
 type = ChangeState
 value = 2200
 triggerall = power>=1000 && !map(EX6S_Limiter)
-triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") 
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -192,7 +191,7 @@ trigger3 = stateno = 1001 && movecontact ;&& enemynear, movetype = H
 type = ChangeState
 value = 2300
 triggerall = power>=1000 && !map(EX2S_Limiter)
-triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") 
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -202,7 +201,7 @@ trigger3 = stateno = 1001 && movecontact ;&& enemynear, movetype = H
 type = ChangeState
 value = 2100
 triggerall = power>=1000 && !map(EX5S_Limiter)
-triggerall = (command = "b" && command = "c") ||  (command = "EX") && teammode != Tag
+triggerall = (command = "b" && command = "c") ||  (command = "EX") 
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -216,8 +215,8 @@ value = 1010
 triggerall = command = "b"
 triggerall = command = "holdback" || command = "back"
 triggerall = !map(EN)
-trigger1 = statetype != A
-trigger1 = ctrl
+triggerall = statetype != A || stateno = 40
+trigger1 = ctrl || stateno = 40
 trigger2 = var(1)
 trigger3 = stateno = 100
 trigger4 = stateno = 801 && movecontact
@@ -299,7 +298,7 @@ trigger4 = stateno = 100 && time > 2
 [State -1, Jotunn's Wrath]
 type = changeState
 value = 2500
-triggerall = (command = "b" && command = "c") ||  (command = "EX") && teammode != Tag
+triggerall = (command = "b" && command = "c") ||  (command = "EX") 
 triggerall = statetype = A && !map(EXjS_Limiter)
 triggerall = power>=1000
 triggerall = !map(jEXLim)

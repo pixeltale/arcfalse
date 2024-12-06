@@ -108,7 +108,7 @@ triggerall = stateno!=2062
 triggerall=stateno!=1061
 triggerall = var(32)<=0 ;Limiter - Only Allowed to use ONCE during a combo
 triggerall = power>=1000
-triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") 
 triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
@@ -128,7 +128,7 @@ triggerall=stateno!=1061
 triggerall=stateno!=750
 triggerall = var(32)<=0 ;Limiter - Only Allowed to use ONCE during a combo
 triggerall = power>=1000
-triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") 
 triggerall = command != "holdback"
 trigger1 = statetype != S
 trigger1 = statetype = A
@@ -187,7 +187,7 @@ triggerall = var(31)<=0 ;Limiter - Only Allowed to use ONCE during a combo
 triggerall = power>=1000
 ;triggerall = command = "b"
 ;triggerall = command = "c"
-triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") 
 triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = stateno != 1064
@@ -263,7 +263,7 @@ triggerall=stateno!=6016
 triggerall = numhelper(2053)!=1
 triggerall = var(34)<=0 ;Limiter - Only Allowed to use ONCE during a combo
 triggerall = power>=1000
-triggerall = (command = "b" && command = "c") && command = "holdback" || (command = "EX" && command = "holdback") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdback" || (command = "EX" && command = "holdback") 
 triggerall = command="holdback" 
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -308,7 +308,7 @@ type = ChangeState
 value = 1030
 triggerall=power>=1000
 triggerall = stateno != 1605
-triggerall = (command = "b" && command = "c") || command = "EX" && teammode != Tag
+triggerall = (command = "b" && command = "c") || command = "EX" 
 triggerall = command != "holdfwd"
 triggerall = command != "holdback"
 triggerall = statetype != S
@@ -335,7 +335,7 @@ triggerall=power>=1000 && !map(EX5SLimiter)
 triggerall = numhelper(1025) != 1
 triggerall = stateno != 1025
 triggerall = stateno != 1020
-triggerall = (command = "b" && command = "c")|| command = "EX" && teammode != Tag
+triggerall = (command = "b" && command = "c")|| command = "EX" 
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)

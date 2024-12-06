@@ -33,7 +33,7 @@ persistent 	= 0
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 1        
@@ -276,7 +276,7 @@ persistent 	= 0
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 1  
@@ -424,7 +424,7 @@ persistent 		= 0
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 1
@@ -563,7 +563,7 @@ persistent 		= 0
 ;=========================================
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 1
@@ -901,7 +901,7 @@ poweradd = 0
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 1
@@ -1192,7 +1192,7 @@ ignorehitpause = 1
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 0
@@ -1292,7 +1292,7 @@ poweradd = 0
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 0
@@ -1375,7 +1375,7 @@ poweradd = 0
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 0
@@ -1627,7 +1627,7 @@ ignorehitpause = 1
 
 [State 0, RC On Helper Hit]
 type = RootMapSet
-trigger1 = movecontact
+trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 0

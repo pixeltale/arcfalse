@@ -200,7 +200,7 @@ trigger3=stateno=630&&movecontact
 [State -1, EX JS]
 type = ChangeState
 value = 9971
-triggerall = command = "b"  && command="buffer_c"|| (command = "EX") && teammode != Tag
+triggerall = command = "b"  && command="buffer_c"|| (command = "EX") 
 triggerall = power >= 1000 && !map(jEX_Limiter)
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -222,7 +222,7 @@ triggerall = power>1000
 triggerall = stateno != 230
 triggerall = stateno != 431
 triggerall = !map(EX6S_Limiter)
-triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") 
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -234,7 +234,7 @@ triggerall = power>1000
 triggerall = !map(EX6S_Limiter)
 triggerall = stateno != 230
 triggerall = stateno != 431
-triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") && teammode != Tag
+triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") 
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -350,7 +350,7 @@ triggerall = power >= 1000 && !map(NEX_Limiter)
 triggerall = var(53)<=0
 triggerall = stateno != 230
 triggerall = stateno != 431
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command != "holdback"
 triggerall = command != "holdfwd"
 triggerall = command != "holddown"
@@ -395,7 +395,7 @@ ignorehitpause = 1
 type = ChangeState
 value = 1054
 triggerall = power > 1000
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command = "holddown"
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -410,7 +410,7 @@ triggerall = stateno != 431
 triggerall = var(31)<=0
 triggerall = stateno != 230
 triggerall = command = "holdback"
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || (command = "EX") 
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = [1000,1001] && movecontact

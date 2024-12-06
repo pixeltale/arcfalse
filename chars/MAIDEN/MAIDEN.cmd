@@ -132,7 +132,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 1120
 triggerall = power>1000
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command = "holdfwd"
 triggerall = command != "holddown"
 trigger1 = statetype != A
@@ -156,7 +156,7 @@ type = ChangeState
 value = 1310
 triggerall = power>1000
 triggerall = var(51)<=0
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command = "holddown"
 triggerall = command != "holdback"
 trigger1 = statetype != A
@@ -179,7 +179,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1200
 triggerall = power>1000
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command = "holdback"
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -201,7 +201,7 @@ type = ChangeState
 value = 1510
 triggerall = power>1000
 triggerall = var(50)<=0
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || (command = "EX") 
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)

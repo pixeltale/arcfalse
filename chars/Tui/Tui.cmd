@@ -293,7 +293,7 @@ trigger3 = stateno = 1350 ;Air blocking
 type = ChangeState
 value = 100
 triggerall = var(8)<=0
-triggerall = command = "66" || command = "M66" && teammode != Tag
+triggerall = command = "66" || command = "M66" 
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250
@@ -308,7 +308,7 @@ trigger4 = stateno = 690000
 type = ChangeState
 value = 102
 triggerall = var(8)>0
-triggerall = command = "66" || command = "M66" && teammode != Tag
+triggerall = command = "66" || command = "M66" 
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250
@@ -319,7 +319,7 @@ trigger3 = stateno = [700,701] && power >= 2000 || stateno = [703,704] && power 
 [State -1, Run Back]
 type = ChangeState
 value = 105
-triggerall = command = "44" || command = "M44" && teammode != Tag
+triggerall = command = "44" || command = "M44" 
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250
