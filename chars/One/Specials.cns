@@ -3517,7 +3517,7 @@ ctrl = 0
 type = ChangeState
 trigger1 = time>7
 trigger1 = command = "hold_z" && !var(50)
-value =111453
+value =1056
 ctrl = 0
 
 
@@ -4438,19 +4438,44 @@ map 		= "ScratchLockout"
 value 		= 60
 ignorehitpause 	= 1
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time = 0
-value = A, HA
-time = 12
-
 [State 0, StateTypeSet]
 type = StateTypeSet
-trigger1 = enemy, (stateno = [120,199] || prevstateno = [120,199])
+trigger1 = enemy, (stateno = [120,199] || prevstateno = [120,199]) || pos y > -10
 movetype = I        ;I,A,H
 ignorehitpause = 1
 persistent = 1
 
+;ARCFALSE DAMAGE SCALING - LIGHT
+;=========================================
+[State 0, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 1
+ignorehitpause 	= 1
+
+[State 0, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.85
+ignorehitpause 	= 1
+[State 0, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.80
+ignorehitpause 	= 1
+persistent = 0
+[State 0, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+trigger1		= prevstateno != 200 || prevstateno != 400
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+;=========================================
 
 [State 200, 1]
 type = HitDef 
@@ -4548,7 +4573,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.84	;100% Starting DMG
+value 		= 0.80	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -4572,7 +4597,7 @@ trigger1 = time = 0
 attr = A, ST
 animtype  = hard
 air.animtype = back
-damage = 150*MAP(P4)
+damage = 60*MAP(P4)
 hitflag = MAF
 guardflag = MA
 pausetime = 14,14
@@ -4580,12 +4605,13 @@ sparkno = 11
 sparkxy = -10,-40
 hitsound   = s8,2
 guardsound = 6,1
-ground.type = Low
+ground.type = TRIP
+air.type		= TRIP
 ground.slidetime = 12
 ground.hittime  = 60 - MAP(UntechDecay)
 air.hittime  	= 40 - MAP(untechDecay)
-ground.velocity = 1,-7 + (map(UntechDecay)/3 - 2)
-air.velocity 	= 1,-6 + (map(UntechDecay)/2)
+ground.velocity 	= 1, 2
+air.velocity 	= 1, 2
 envshake.time 	= 22
 envshake.freq 	= 120
 envshake.ampl 	= 5

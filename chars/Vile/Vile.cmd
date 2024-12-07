@@ -113,10 +113,7 @@ triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = movecontact ;&& enemynear, movetype = H
-;trigger3 = !ishelper
-;trigger4 = stateno = 5120
-trigger3 = stateno = 1017 && movecontact ;&& enemynear, movetype = H
+trigger3 = stateno = 1017 && movecontact
 trigger4=stateno=105
 
 [State -1, EX 6S: Rising Knee (Air)]
@@ -145,8 +142,7 @@ triggerall = command = "b"
 triggerall=command!="c"
 triggerall = command = "holdfwd"
 triggerall = command != "holdback"
-triggerall = statetype != S
-trigger1 = statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = [600,650]
 trigger2 = movecontact = 1 ;&& enemynear, movetype = H
@@ -183,10 +179,8 @@ triggerall=stateno!=6014
 triggerall=stateno!=6015
 triggerall=stateno!=6016
 triggerall=numhelper(6002)!=1
-triggerall = var(31)<=0 ;Limiter - Only Allowed to use ONCE during a combo
+triggerall = var(31)<=0
 triggerall = power>=1000
-;triggerall = command = "b"
-;triggerall = command = "c"
 triggerall = (command = "b" && command = "c") && command = "holddown" || (command = "EX" && command = "holddown") 
 triggerall = command != "holdback"
 triggerall = statetype != A
@@ -194,9 +188,7 @@ trigger1 = stateno != 1064
 trigger1 = stateno != 1050
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = movecontact ;&& enemynear, movetype = H
-;trigger3 = stateno = 1010
-trigger3 = stateno = 1017 && movecontact ;&& enemynear, movetype = H
+trigger3 = stateno = 1017 && movecontact
 trigger4=stateno=105
 
 
@@ -265,7 +257,7 @@ triggerall = var(34)<=0 ;Limiter - Only Allowed to use ONCE during a combo
 triggerall = power>=1000
 triggerall = (command = "b" && command = "c") && command = "holdback" || (command = "EX" && command = "holdback") 
 triggerall = command="holdback" 
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 1010
@@ -278,7 +270,7 @@ value = 2050
 triggerall=stateno!=40
 triggerall = command = "b" && command="holdback"
 triggerall=command!="c"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2=stateno=105
 
@@ -296,7 +288,6 @@ triggerall = command = "b"
 triggerall=command!="c"
 triggerall = command != "holdfwd"
 triggerall = command != "holdback"
-triggerall = statetype != S
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -339,10 +330,7 @@ triggerall = (command = "b" && command = "c")|| command = "EX"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = stateno = 1010
-;trigger3 = movecontact ;&& enemynear, movetype = H
-;trigger4 = stateno=1000
-trigger3 = stateno=1017 && movecontact ;&& enemynear, movetype = H
+trigger3 = stateno=1017 && movecontact
 trigger4=stateno=105
 
 [State -1, 5S: Acid Razor]
@@ -374,7 +362,6 @@ trigger3=stateno=105
 type = ChangeState
 value =6000
 triggerall=stateno!=40
-;triggerall = enemynear(0), movetype != H
 triggerall = var(11)<=1
 triggerall = numhelper(6001) = 0
 triggerall = stateno != 6008
@@ -398,7 +385,6 @@ trigger2= var(1)
 type = ChangeState
 value =6010
 triggerall=stateno!=40
-;triggerall = enemynear(0), movetype != H
 triggerall = var(11)<=1
 triggerall = numhelper(6001) = 0
 triggerall = stateno != 6008
@@ -421,7 +407,6 @@ trigger2= var(1)
 type = ChangeState
 value =6011
 triggerall=stateno!=40
-;triggerall = enemynear(0), movetype != H
 triggerall = var(11)<=1
 triggerall = numhelper(6001) = 0
 triggerall = stateno != 6008
@@ -444,7 +429,6 @@ trigger2= var(1)
 type = ChangeState
 value =6012
 triggerall=stateno!=40
-;triggerall = enemynear(0), movetype != H
 triggerall = numhelper(6001) = 0
 triggerall = stateno != 6008
 triggerall = stateno != 6009
@@ -466,7 +450,6 @@ trigger2= var(1)
 type = ChangeState
 value =6017
 triggerall=stateno!=40
-;triggerall = enemynear(0), movetype != H
 triggerall = numhelper(6001) = 0
 triggerall = stateno != 6008
 triggerall = stateno != 6009
@@ -501,7 +484,6 @@ triggerall 	= command != "holdfwd"
 triggerall 	= command = "holdback"
 triggerall 	= command = "buffer_c"&& command="holddown"
 triggerall 	= StateType != A
-trigger1 	= StateType = S
 trigger1 	= ctrl
 trigger2	= var(1)
 
@@ -533,7 +515,6 @@ triggerall = command != "holdfwd"
 triggerall = command != "holdup"
 triggerall=command!="b"
 triggerall = command = "buffer_c" && command = "holddown"
-triggerall = StateType != S
 triggerall = StateType = A
 trigger1 = ctrl
 trigger2= movecontact = 1 && (stateno = [600,650))
@@ -541,8 +522,6 @@ trigger2= movecontact = 1 && (stateno = [600,650))
 [State -1, nB: (Air) B Acid Bubble]
 type = ChangeState
 value =6015
-;triggerall = enemynear(0), movetype != H
-;triggerall = Pos Y < -12
 triggerall = var(11)<=1
 triggerall = numhelper(6001) = 0
 triggerall = command != "holddown"
@@ -550,7 +529,6 @@ triggerall = command != "holdfwd"
 triggerall = command != "holdup"
 triggerall=command!="b"
 triggerall = command = "buffer_c" && command = "holdback"
-triggerall = StateType != S
 triggerall = StateType = A
 trigger1 = ctrl
 trigger2= movecontact = 1 && (stateno = [600,650))
@@ -558,7 +536,6 @@ trigger2= movecontact = 1 && (stateno = [600,650))
 [State -1, nB: (Air) F Acid Bubble]
 type = ChangeState
 value =6016
-;triggerall = Pos Y < -20 
 triggerall = var(11)<=1
 triggerall = numhelper(6001) = 0
 triggerall = command != "holdback"
@@ -569,33 +546,6 @@ triggerall = command = "buffer_c" && command = "holdfwd"
 triggerall = StateType = A
 trigger1 = ctrl
 trigger2= movecontact = 1 && (stateno = [600,650))
-
-
-;--------------------------------------------------------------------------------------------------------------------------
-
-;[State -1, nB: Acid Bubble]
-;type = ChangeState
-;value =6013
-;triggerall = enemynear(0), movetype != H
-;triggerall = var(11)<=0
-;triggerall = numhelper(6001) != 1
-;triggerall = numhelper(6005) != 1
-;triggerall = numhelper(6002) != 1
-;triggerall = stateno != 6000
-;triggerall = stateno != 6001
-;triggerall = stateno != 6005
-;triggerall = stateno != 6002
-;triggerall = command != "holddown"
-;triggerall = command != "holdback"
-;triggerall = command != "holdfwd"
-;triggerall = command != "holdup"
-;triggerall = command = "buffer_c"
-;triggerall = StateType != S
-;trigger1 = StateType = A
-;trigger1 = ctrl
-;trigger2= var(1)
-
-
 
 ;===========================================================================
 ;===========================================================================

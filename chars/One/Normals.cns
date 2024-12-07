@@ -335,7 +335,7 @@ ignorehitpause = 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  3
+value 		=  2
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
@@ -2502,138 +2502,6 @@ type = ChangeState
 trigger1 =pos y>= 0 && vel y>=0
 value = 52
 ctrl = 1
-
-;Acid Launcher
-;-----------------------------
-[Statedef 111453]
-type    = A
-movetype= A
-physics = N
-poweradd= 0
-ctrl = 0
-anim =1056
-facep2 = 1
-sprpriority = 2
-
-[State 200, 1]
-type = HitDef 
-p2facing = 1
-trigger1 = time = 0 
-attr = A, ST
-animtype  = hard
-damage = 5, 0
-hitflag = HAF
-guardflag = 
-pausetime = 2,2
-sparkno = 0
-sparkxy = -10,-40
-hitsound   = 5,2
-guardsound = 6,0
-ground.type = Low
-ground.slidetime = 12
-ground.hittime  = 23
-air.hittime  = 12
-ground.velocity = -3.5,-0
-air.velocity = -3.5,-0
-down.velocity = -3.5,-2
-fall.yvelocity = -2
-fall = 1
-p1stateno = 111454
-p2stateno = 1058
- envshake.time = 8
-envshake.freq = 10
-envshake.ampl = 2
-envshake.phase = 1
-
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = 1
-y = .5 
-
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = pos y>=0 && vel y>=0
-value = 1003
-
-;Acid Launcher Hit
-;-----------------------------
-[Statedef 111454]
-type    = A
-movetype= A
-physics = A
-ctrl = 0
-anim =1057
-velset = 3,-7 
-sprpriority = 2
-
-[State 0, RC LOCKOUT]
-type 		= MapSet
-trigger1 		= 1
-map 		= "ScratchLockout"
-value 		= 60
-ignorehitpause 	= 1
-
-[State 200, 1]
-type 	= HitDef 
-p2facing 	= 1
-trigger1 	= time = 0 
-attr 	= A, ST
-animtype  	= hard
-air.animtype 	= back
-damage 		= 90*MAP(P4), 15
-hitflag 		= MAF
-guardflag 	= MA
-pausetime 	= 14,14
-sparkno 		= 11
-sparkxy 		= -10,-40
-hitsound   	= s8,2
-guardsound 	= 6,1
-ground.type 	= TRIP
-air.type		= TRIP
-ground.hittime  	= 30
-air.hittime  	= 30
-ground.velocity 	= 3.5,1
-air.velocity 	= 3,1
-down.velocity 	= -6,1
-fall 		= 1
-fall.yvelocity 	= 0
-envshake.time 	= 15
-envshake.freq 	= 100
-envshake.ampl 	= 3
-envshake.phase 	= 1
-getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
-
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = animelem = 1
-time = 8
-pos = 36,-26
-
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = animelem = 4
-time = 8
-pos = 24,-22
-
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = animelem = 5
-time = 8
-pos = -16,-2
-
- 
-[State 0, PlayerPush]
-type = PlayerPush
-trigger1 = 1
-value = 0 
-
-
-[State 00, ChangeState]
-type = ChangeState
-trigger1 = pos y>0
-value =1053
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;2R Sword Tumble

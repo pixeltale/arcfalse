@@ -45,10 +45,13 @@ RUSHING ANGEL	-		^Z
 CHARGING ANGEL	-		(HOLD) ^Z
    <#bbbbbb>A long-range tackle that causes a wallbounce.
    Can be dash cancelled.</>
-GUARDIAN'S SPEED	-		_F^Z/_B^Z
+GUARDIAN'S SPEED	-		_F^Z
    <#bbbbbb>A dash that can pass through opponents.</>
-GUARDIAN'S STRENGTH	-		_F^Z/_B^Z
+GUARDIAN'S STRENGTH	-		_D^Z
    <#bbbbbb>An overhead stomp.</>
+IMMOLATE	-		_B^Z
+   <#bbbbbb>A slow, powerful attack that can be kara-canceled
+   into special moves.</>
 
 	<#ffef0f>EX MOVES</>
 _EX GOTCHA DUMBASS	-		<#55ffff>(1 BAR)</> ^Y
