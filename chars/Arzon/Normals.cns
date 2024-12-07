@@ -80,7 +80,7 @@ air.fall = 1
 guard.hittime =10
 guard.slidetime = 8
 guard.ctrltime = 10
-getpower = (20)*(cond(var(var(5)) = 1, 1, .5)) 
+getpower = (40)*(cond(var(var(5)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -136,26 +136,6 @@ value = 0, 4
 type = PlaySnd
 trigger1 = animelem = 3
 value = 1001, (0+(Random%5))
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 25   
-value = .8; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -214,7 +194,7 @@ guard.slidetime = 15
 guard.ctrltime = 8
 guard.cornerpush.veloff = -5
 air.fall = 1
-getpower = (35)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (75)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -382,7 +362,7 @@ guard.slidetime = 14
 guard.ctrltime = 14
 guard.velocity = -10
 air.fall = 1
-getpower = (75)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (120)*(cond(var(var(2)) = 1, 1, 1)) 
 ground.cornerpush.veloff = -2
 
 [State 0, ChangeState]
@@ -892,26 +872,6 @@ removeongethit = 1
 bindtime = 0
 ignorehitpause = 0
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1.4
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 25   
-value = 1; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
-
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 3
@@ -980,7 +940,7 @@ envshake.phase 	= 1
 fall.yvelocity 	= 0
 guard.ctrltime 	= 10
 air.fall 		= 1
-getpower 		= (55)*(cond(var(var(2)) = 1, 1, .5)) 
+getpower 		= (75)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1058,47 +1018,18 @@ type = PosAdd
 trigger1=anim=420
 trigger1 = animelem = 2
 x = 5
-y = 0
-;ignorehitpause = 
-;persistent = 
 
 [State 0, PosAdd]
 type = PosAdd
 trigger1=anim=420
 trigger1 = animelem = 3
 x = 9
-y = 0
-;ignorehitpause = 
-;persistent = 
 
 [State 0, PosAdd]
 type = PosAdd
 trigger1=anim=420
 trigger1 = animelem = 4
 x = 9
-y = 0
-;ignorehitpause = 
-;persistent = 
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 2
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 25   
-value = 0.5; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
 
 [State 0, Explod]
 type = Explod
@@ -1166,7 +1097,7 @@ p2facing = 1
 trigger1 = Time= 0 && enemynear, stateno!=5110
 attr = S, NA
 animtype  = UP
-damage = 65*MAP(P4)
+damage = 100*MAP(P4)
 hitflag = MAFD
 guardflag = MA
 pausetime = 16,16
@@ -1198,7 +1129,7 @@ envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
-getpower = (75)*(cond(var(var(2)) = 1, 1, 1))
+getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1304,26 +1235,6 @@ type = PlaySnd
 trigger1 = animelem = 3
 value = 1000, (0+(Random%5))
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 0.2
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 25   
-value = 0.2
-ignorehitpause = 1
-persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
-
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1
@@ -1390,7 +1301,7 @@ down.hittime 	= 18 - MAP(UntechDecay)
 ground.velocity = -4
 air.velocity = -1.3,-3
 air.fall = 1
-getpower = (25)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (45)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 600, 3]
 type = CtrlSet
@@ -1445,20 +1356,6 @@ sprpriority = 3
 [State 200, VarAdd]
 type = VarAdd
 trigger1 = movehit = 1
-fv = 25   
-value = 0.3; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 25
-value = 0
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
 fv = 2   
 value = 1
 ignorehitpause = 1
@@ -1469,12 +1366,6 @@ type = VarSet
 trigger1 = !numtarget
 fv = 2
 value = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1531,7 +1422,7 @@ damage = 60*map(P4)
 guardflag = HA
 hitflag = MAFD
 priority = 2
-pausetime = 13,13
+pausetime = 10,10
 sparkno = 1
 sparkxy = -15,-60
 hitsound   = 5,3
@@ -1551,7 +1442,7 @@ envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
-getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (75)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1659,7 +1550,7 @@ trigger1 = !movereversed
 attr = A, NA
 animtype  = Medium
 air.animtype = back
-damage = 70*map(P4)
+damage = 90*map(P4)
 hitflag = MAFD
 guardflag = HA
 pausetime = 18,18
@@ -1690,7 +1581,7 @@ envshake.freq = 85
 envshake.ampl = 2
 envshake.phase = 1
 air.fall = 1
-p2stateno = cond((enemy, statetype = A), cond(map(jH_useCount) < 1, 5255,  5070), 5000)
+p2stateno = cond((enemy, statetype = A), cond(map(jH_useCount) < 2, 5255,  5070), 5000)
 p2getp1state = 0
 getpower = (70)*(cond(var(var(3)) = 1, 1, .5))
 

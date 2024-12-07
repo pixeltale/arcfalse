@@ -1468,6 +1468,12 @@ trigger1 = 1
 flag = NoShadow
 ignoreHitPause = 1
 
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = root, map(ComboStateCheck)
+x = p2dist x 
+
+
 [State 3302, NotHitBy]
 type = NotHitBy
 trigger1 = Time >= 0
@@ -1620,6 +1626,12 @@ poweradd = 0
 
 [State 0, PosAdd]
 type = PosAdd
+trigger1 = root, map(ComboStateCheck)
+x = p2dist x 
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = root, !map(ComboStateCheck)
 trigger1 = animelem = 1 || animelem = 2
 x = p2dist x * 0.5
 y = 0

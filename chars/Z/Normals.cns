@@ -179,7 +179,7 @@ palfx.add = 100, 0,20
 guard.ctrltime = 12
 guard.cornerpush.veloff = -10
 air.fall = 1
-getpower = (50)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (75)*(cond(var(var(2)) = 1, 1, .65)) 
 
 [State 0, ChangeState]
 type = ChangeState
@@ -304,7 +304,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
-getpower = (25)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (90)*(cond(var(var(2)) = 1, 1, .65)) 
 
 [State 1006, Shock Particles]
 type = Helper
@@ -448,7 +448,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
-getpower = (50)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (90)*(cond(var(var(2)) = 1, 1, .65)) 
 
 [State 1006, Shock Particles]
 type = Helper
@@ -648,7 +648,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
-getpower = (75)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (100)*(cond(var(var(2)) = 1, 1, .65)) 
 forcestand = 1
 p1sprpriority = 0
 p2sprpriority = -1
@@ -938,7 +938,7 @@ guard.slidetime =24
 guard.ctrltime = 13
 guard.cornerpush.veloff = -14
 air.fall = 1
-getpower = (50)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (60)*(cond(var(var(2)) = 1, 1, .65)) 
 
 [State 410, 4]
 type = ChangeState
@@ -1057,12 +1057,6 @@ ownpal = 0
 removeongethit = 0
 sprpriority = 3
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1
-
 [State -2, WHY DOESN'T THE HITCOUNT RESET ARRRGGGHHH]
 type = Varset
 trigger1 = P2Movetype = H
@@ -1076,24 +1070,6 @@ trigger1 = P2Movetype != H
 trigger2 = Enemy, Gethitvar(hitcount) > 1
 fvar(1) = 0
 ignorehitpause = 1
-
-[State 200, Starter Scaling]
-type = VarAdd
-trigger1 = fvar(1)
-trigger1 = movehit
-fv = 25  
-value = -1 ; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = !fvar(1)
-trigger1 = movehit
-fv = 25  
-value = 1; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
 
 
 [State -2, Starter Level]
@@ -1171,7 +1147,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
-getpower = (75)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (90)*(cond(var(var(2)) = 1, 1, .65)) 
 
 ;CH
 [State 0]
@@ -1678,7 +1654,7 @@ guard.hittime = 6
 guard.ctrltime = 6
 guard.cornerpush.veloff = -10
 yaccel = .36
-getpower = (20)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (30)*(cond(var(var(2)) = 1, 1, .65)) 
 air.fall = 1
 
 [State 600, 2]
@@ -1886,7 +1862,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32 
-getpower = (20)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (30)*(cond(var(var(2)) = 1, 1, .65)) 
 
 [State 1006, Shock Particles]
 type = Helper
@@ -2398,7 +2374,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=32
-getpower = (75)*(cond(var(var(2)) = 1, 1, .65)) 
+getpower = (100)*(cond(var(var(2)) = 1, 1, .65)) 
 
 ;CH
 [State 0]
@@ -2446,7 +2422,7 @@ palfx.mul=128,128,128
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,10
 palfx.time=71
-getpower = 100
+getpower = 120
 
 ;counter hit shock ring
 [State 0, Helper]
