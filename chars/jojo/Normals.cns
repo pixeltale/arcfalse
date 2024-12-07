@@ -3146,6 +3146,11 @@ velset = 0,0
 anim =810
 sprpriority = 2
 
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+x = 30
+
 [State 0, Turn]
 type = Turn
 trigger1 = time = 0
