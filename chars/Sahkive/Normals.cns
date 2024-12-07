@@ -2348,7 +2348,7 @@ value = 512
 [Statedef 511]
 type    = S
 movetype= A
-physics = N
+physics = S
 juggle  = 0
 ctrl = 0
 velset = 0,0
@@ -2415,35 +2415,26 @@ x = 10
 [State 100, 1]
 type = VelSet
 trigger1 = animelem = 3
-x = 11
+x = 15
 
 [State 100, 1]
 type = VelSet
+triggerall = !movehit
 trigger1 = animelem = 5
 x = 4
 
 [State 100, 1]
 type = VelSet
-trigger1 = animelem = 6
-x = 3
-
-[State 100, 1]
-type = VelSet
+triggerall = !movehit
 trigger1 = animelem = 7
 x = 2.5
 
 [State 0, PosAdd]
 type = PosAdd
+triggerall = !movehit
 trigger1 = animelem = 10
 trigger2 = animelem = 11
 x = -3
-
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = animelem = 6
-statetype = S       ;S,A,C,L
-movetype = I        ;I,A,H
-physics = S         ;A,C,S,N
 
 [State 0, Explod]
 type = Explod
@@ -2545,6 +2536,7 @@ palfx.add = 100, 0,20
 guard.hittime = 5 + map(RChargeTime)
 guard.slidetime = 5 + map(RChargeTime)
 guard.ctrltime = 5 + map(RChargeTime)
+air.cornerpush.veloff = -26 - map(untechDecay)*2
 getpower = 40*var(2)
 
 [State 410, 2]
@@ -2838,6 +2830,7 @@ palfx.add 	= 100, 0,20
 guard.hittime 	= 13
 guard.slidetime	= 13
 guard.ctrltime 	= 13
+air.cornerpush.veloff = -6 - map(untechDecay)
 getpower 	= 40*var(2)
 p2stateno 	= 5220
 p2getp1state 	= 0

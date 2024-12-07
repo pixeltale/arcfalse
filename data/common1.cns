@@ -1267,6 +1267,12 @@ trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		= 1
 ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 	= movehit = 1
+map 		= "ComboTimer"
+value 		= 200
+ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
@@ -4381,7 +4387,7 @@ type 		= MapSet
 triggerall 		= time = 0
 trigger1		= map(comboTimer) >= 60 && map(comboTimer) < 100
 map 		= "comboTimer"
-value 		= 59
+value 		= -120
 ignorehitpause 	= 1
 persistent 		= 1
 [State 0, MapSet]
@@ -4389,7 +4395,7 @@ type 		= MapSet
 triggerall 		= time = 0
 trigger1		= map(comboTimer) >= 100 && map(comboTimer) < 300
 map 		= "comboTimer"
-value 		= 99
+value 		= 59
 ignorehitpause 	= 1
 persistent 		= 1
 
