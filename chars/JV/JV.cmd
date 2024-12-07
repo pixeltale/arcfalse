@@ -214,7 +214,7 @@ type = ChangeState
 value = 1010
 triggerall = command = "b"
 triggerall = command = "holdback" || command = "back"
-triggerall = !map(EN)
+triggerall = !map(EN) || stateno = 40
 triggerall = statetype != A || stateno = 40
 trigger1 = ctrl || stateno = 40
 trigger2 = var(1)
