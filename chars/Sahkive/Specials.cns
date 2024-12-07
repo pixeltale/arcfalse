@@ -2128,7 +2128,7 @@ value = 1.5
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "StarterLevel"
-value         =  3    ;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+value         =  2
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
@@ -2155,7 +2155,7 @@ persistent         = 0
 type = hitdef 
 trigger1 = time = 0
 attr = S, ST
-damage = 100*MAP(P4)+ 100, 0
+damage = 200*MAP(P4), 0
 animtype  = Hard
 hitflag = MAF
 air.type = TRIP

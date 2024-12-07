@@ -3010,9 +3010,6 @@ type = PosAdd
 trigger1 = animelem = 1 || animelem = 2 || animelem = 3
 x = 15
 y = 0
-;ignorehitpause = 
-;persistent = 
-
 
 ;Tech not allowed
 [State 1060, Explod]
@@ -3234,11 +3231,11 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 50
-down.hittime = 45
-air.hittime = 50
-ground.velocity = -4,-4.5
-air.velocity = -4,-4
+ground.hittime  = 60
+down.hittime = 65
+air.hittime = 60
+ground.velocity = 4,-4.5
+air.velocity = 4,-4
 down.velocity = 1, -8
 fall.yvelocity = 0
 fall  = 1

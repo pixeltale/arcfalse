@@ -720,7 +720,7 @@ envshake.phase 		= 0.8
 ;==============================================
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 ;==============================================
-p2stateno		= cond((enemy, statetype = A), cond(!map(MM_Limiter),5225,5220), 5000)
+p2stateno		= cond((enemy, statetype = A), cond(!map(MM_Limiter),5230,5220), 5000)
 p2getp1state		= 0
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -1305,7 +1305,7 @@ value = 0, 2
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]

@@ -378,10 +378,10 @@ guardsound = 6,0
 ground.type = Low
 ground.slidetime = 10
 ground.hittime  = 26 - MAP(untechDecay)
-air.hittime  = 36 - MAP(untechDecay)
+air.hittime  = 26 - MAP(untechDecay)
 down.hittime = 36 - MAP(untechDecay)
 ground.velocity = -2.5
-air.velocity = -2.5,-3.5;
+air.velocity = -2.5,-4;
 envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
@@ -1176,12 +1176,43 @@ type = AngleSet
 trigger1 = 1
 value = -vel x
 
+;ARCFALSE DAMAGE SCALING - HELPER
+;=========================================
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.85	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit = 1 && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.85	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 	= movehit = 1
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+;=========================================
+
 [State 410, 2]
 type = HitDef 
 p2facing = 1
 trigger1 = time%3= 0
 attr = A, SP
-damage = 10 * parent, MAP(P4) + 5,1
+damage = 10 * parent, MAP(P4),1
 animtype  = Medium
 air.animtype = back
 hitflag = MAF
@@ -1634,7 +1665,7 @@ ignorehitpause = 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  2
+value 		=  1
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
@@ -1669,7 +1700,7 @@ air.animtype = back
 damage = 50*MAP(P4), 0
 hitflag = MAFD
 guardflag = LA
-pausetime = 13,13
+pausetime = 10,10
 sparkno = 11
 sparkxy = 0,0
 hitsound   = S8,1

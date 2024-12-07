@@ -55,7 +55,7 @@ type = ChangeState
 value = 55
 triggerall = statetype != A
 triggerall = command = "28" || command = "27" || command = "29"
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 701
 
 ;===========================================================================
 ;===========================================================================

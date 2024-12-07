@@ -2219,7 +2219,7 @@ type    = A
 movetype= A
 physics = A
 ctrl = 0
-anim = 420
+anim = 630
 velset = 1, -1
 sprpriority = 2
 

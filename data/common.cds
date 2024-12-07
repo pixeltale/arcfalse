@@ -689,13 +689,18 @@ time = 6
 [Command]
 name = "MistStep"
 command = ~$F, D, DF
-time = 15
-buffer.time = 10
+time = 20
+buffer.time = 15
+[Command]
+name = "MistStep"
+command = ~$F, $D, $F
+time = 20
+buffer.time = 15
 [Command]
 name = "MistStep"
 command = ~$F, N, D, DF
-time = 15
-buffer.time = 10
+time = 20
+buffer.time = 15
 
 ;===================================
 ; Command Inputs - Special, With Buttons

@@ -4346,22 +4346,22 @@ value = 0
  ;============================
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		=  1
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  1	;100% Starting DMG
+value 		=  0.90	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		=  0.90	;90% DMG For next hit
+value 		=  0.85	;90% DMG For next hit
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, P2 Accumulation - Scale]
@@ -4387,7 +4387,7 @@ air.animtype 	= back
 damage 		= 100*MAP(P4), 15
 hitflag 		= MAFD
 guardflag 	= MA
-pausetime 	= 17,17
+pausetime 	= 12,12
 sparkno 		= 12
 sparkxy 		= -10,-40
 hitsound   	= s8,1
@@ -4398,7 +4398,7 @@ ground.hittime  	= 18 - MAP(UntechDecay)
 air.hittime  	= 36 - MAP(UntechDecay)
 down.hittime 	= 36 - MAP(UntechDecay)
 ground.velocity 	= -3.5,0
-air.velocity 	= -2.5,-3
+air.velocity 	= -2.5,-4
 down.velocity 	= -6,-1
 envshake.time 	= 8
 getpower 		= 0
@@ -4622,7 +4622,7 @@ value = 0
 [State 00, ChangeState]
 type = ChangeState
 trigger1 = pos y>0
-value =1053
+value =1003
 ctrl = 0
 
 ;-----------------------------
