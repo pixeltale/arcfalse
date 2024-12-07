@@ -3066,6 +3066,12 @@ type = VarSet
 trigger1 = animelemno(0) = [2,4]
 v = 1
 value = 1
+[State 0, VarSet]
+type = VarSet
+trigger1 = animelemno(0) != [2,4]
+v = 0
+value = 1
+
 
 [State 0, EnvShake]
 type = EnvShake
