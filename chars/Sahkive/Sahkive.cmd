@@ -257,7 +257,7 @@ triggerall = command = "c"
 triggerall = command != "b"
 triggerall = command = "holdback"
 triggerall = statetype != A
-trigger1 = ctrl || stateno = 500 && movecontact
+trigger1 = ctrl || (stateno = 500 || stateno = 442) && movecontact
 trigger2 = var(1) && stateno != [500,520]
 trigger3 = stateno =100
 
@@ -281,7 +281,7 @@ triggerall = command = "c"
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 500 || stateno = 442
+trigger3 = stateno = 500 || stateno = 442 || stateno = 305
 trigger3 = movecontact
 
 
