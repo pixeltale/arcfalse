@@ -33,8 +33,7 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,420]) || (stateno = [500,510])
 trigger2 = movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 105 && time > 16
+trigger3 = stateno = 105 && time > 16 || stateno = 305 && animelemno(0) =[2,4]
 var(1) = 1
 ;===========================================================================
 
@@ -45,7 +44,7 @@ value = 3000
 triggerall = statetype != A
 triggerall = command = "236X"
 triggerall = power >= 2000
-trigger1 = ctrl || stateno = 100 || stateno = [300, 305]
+trigger1 = ctrl || stateno = 100 || stateno = 300
 trigger2 = var(1)
 trigger3 = stateno = [1006,1007] || stateno = 1008 && animelemno(0) > 10  || stateno = 1022 || stateno = [1032, 1034] || stateno = [1043,1044]
 trigger3 = movecontact
@@ -57,7 +56,7 @@ value = 3100
 triggerall = statetype != A
 triggerall = command = "214X"
 triggerall = power >= 2000
-trigger1 = ctrl || stateno = 100 || stateno = [300, 305]
+trigger1 = ctrl || stateno = 100 || stateno = 300
 trigger2 = var(1)
 trigger3 = stateno = [1006,1007] || stateno = 1008 && animelemno(0) > 10  || stateno = 1022 || stateno = [1032, 1034] || stateno = [1043,1044]
 trigger3 = movecontact
@@ -142,7 +141,7 @@ triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 [State -1, 6S: Quake Drop]
 type = ChangeState
@@ -152,7 +151,7 @@ triggerall = command = "holdfwd"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 
 [State -1, EX 4S]
@@ -166,7 +165,7 @@ triggerall = command = "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 [State -1, 4S]
 type = ChangeState
@@ -178,7 +177,7 @@ triggerall = command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 [State -1, 2EX: Malevolent Thrash]
 type = ChangeState
@@ -188,7 +187,7 @@ triggerall = (command = "b" && command = "c") && command = "holddown" || (comman
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 [State -1, 2S: Malevolent Thrash]
 type = ChangeState
@@ -198,7 +197,7 @@ triggerall = command = "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 [State -1, EX 5S]
 type = ChangeState
@@ -211,7 +210,7 @@ triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 [State -1, 5S]
 type = ChangeState
@@ -223,7 +222,7 @@ triggerall = command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = [300, 305] || stateno = [100, 105]
+trigger3 = stateno = 300 || stateno = [100, 105]
 
 ;---------------------------------------------------------------------------
 ;jR
