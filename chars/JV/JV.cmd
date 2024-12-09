@@ -274,9 +274,9 @@ trigger4 = movecontact && stateno = [600,640]
 type = changeState
 value = 1000
 triggerall = command = "b"
-triggerall = statetype != A || stateno = 40
+triggerall = statetype != A
 triggerall = !map(EN)
-trigger1 = ctrl || stateno = 40
+trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = [200,220] || stateno = [400,431]
 trigger3 = movecontact
