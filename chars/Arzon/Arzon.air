@@ -406,6 +406,18 @@ Clsn2Default: 2
 0,5, 0,0, 10
 0,6, 0,0, 10
 
+[Begin Action 182]
+333,0, 0,0, 4
+333,1, 0,0, 4
+333,2, 0,0, 4
+333,3, 0,0, 5
+333,4, 0,0, 4
+333,5, 0,0, 5
+333,6, 0,0, 8
+333,7, 0,0, 7
+LoopStart
+333,8, 0,0, 4
+
 ; INTRO -- WOODBREAK (projectile)
 ; Note: Putting -1,0 for the sprite means it does not draw anything
 [Begin Action 192]

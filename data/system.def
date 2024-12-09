@@ -2,7 +2,7 @@
 
 ;----------------------------
 [Info]
-name = "Default"
+name = "ARC"
 author = "PXN."
 versiondate = 09,01,2009
 mugenversion = 1.0
@@ -67,13 +67,13 @@ title.bgm.loop = 1
 title.bgm.loopstart = 
 title.bgm.loopend = 
   ;Music to play at char select screen.
-select.bgm = sound/STANDDOWN.mp3
+select.bgm = sound/KISSOFLIFE.mp3
 select.bgm.volume = 100
 select.bgm.loop = 1
 select.bgm.loopstart = 40
 select.bgm.loopend = 
   ;Music to play at versus screen.
-vs.bgm = sound/humbleint.wav
+vs.bgm = 
 vs.bgm.volume = 60
 vs.bgm.loop = 0
 vs.bgm.loopstart =
@@ -222,6 +222,63 @@ cursor.move.snd = 100,0
 cursor.done.snd = 100,1
 cancel.snd = 100,2
 
+
+; Ikemen features
+	; --------------------------------------------------------------------------
+
+	; .col param change colour that the screen will fade into or fade out from
+	; .anim param sets fading animation that should play instead of standard
+	; fading (ignoring fadein.time and/or fadeout.time)
+	fadein.col = 0, 0, 0
+	fadein.anim = -1
+	fadeout.col = 0, 0, 0
+	fadeout.anim = -1
+
+	menu.item.scale = 1.0, 1.0
+	menu.item.active.scale = 1.0, 1.0
+
+	; Title text rendered in main menu
+	title.offset = 159, 19
+	title.font = -1, 0, 0, 255, 255, 255, -1
+	title.scale = 1.0, 1.0
+	title.text = "MAIN MENU"
+
+	; Loading text rendered during initial loading (black screen)
+	;loading.offset = (localcoordX - 1 - (10 * localcoordX / 320)), (localcoordY - 8)
+	loading.font = "default-3x5.def", 0, -1, 191, 191, 191, -1
+	loading.scale = 1.0, 1.0
+	loading.text = "INITIALIZE..."
+
+	; Footer parameters control rendering of engine version info. Separated into
+	; 3 elements to allow left/centre/right text align at the same time.
+	;footer1.offset = (2 * localcoordX / 320), localcoordY
+	footer1.font = "default-3x5.def", 0, 1, 191, 191, 191, -1
+	footer1.scale = 1.0, 1.0
+	footer1.text = "ARCFALSE"
+	;footer2.offset = (localcoordX / 2), localcoordY
+	footer2.font = "default-3x5.def", 0, 0, 191, 191, 191, -1
+	footer2.scale = 1.0, 1.0
+	footer2.text = "Press F1 for info"
+	;footer3.offset = (localcoordX - 1 - (2 * localcoordX / 320)), localcoordY
+	footer3.font = "default-3x5.def", 0, -1, 191, 191, 191, -1
+	footer3.scale = 1.0, 1.0
+	footer3.text = "VOLUME 3.2"
+	;footer.overlay.window = 0, (localcoordY - 7), (localcoordX - 1), (localcoordY - 1)
+	footer.overlay.col = 0, 0, 64
+	footer.overlay.alpha = 255, 100
+
+	; Controls screen rendered during establishing connection with other player
+	;connecting.offset = (10 * localcoordX / 320), 40
+	connecting.font = "f-6x9.def", 0, 1, 255, 255, 255, -1
+	connecting.scale = 1.0, 1.0
+	connecting.host.text = "Waiting for your opponent... (%s)"
+	connecting.join.text = "Now connecting to %s... (%s)"
+	;connecting.overlay.window = 0, 0, localcoordX, localcoordY
+	connecting.overlay.col = 0, 0, 0
+	connecting.overlay.alpha = 20, 100
+
+
+
 ;----------------------------
 ;Title background definition
 [TitleBGdef]
@@ -269,7 +326,14 @@ spriteno = 0,0
 start = 0, 40
 mask = 1
 
+[Infobox Text]
+Welcome to Knockout - Archetype: False.
 
+* This game was developed in the IKEMEN GO engine.
+* Join the Discord to talk about the game
+and find matches: https://discord.gg/qxMCbhBFkk
+* Check out the sister game, KNOversion, here: 
+https://gamejolt.com/games/KNOversion/867684
 
 ;-------------------------------------------------------------------
 ;Character select definition
@@ -310,24 +374,52 @@ portrait.scale = 1,1
 title.offset = 159,13     ;Position of title (Arcade Mode, etc)
 title.font = 3,0,0        ;Font of title (-1 for none)
 ;Big portraits
-p1.face.spr = 9000,1      ;Do not change from 9000,1
-p1.face.offset = 18,13    ;Position to put big portrait
-p1.face.scale = 1,1
-p1.face.facing = 1
-p2.face.spr = 9000,1
-p2.face.offset = 301,13
-p2.face.scale = 1,1
-p2.face.facing = -1
+;p1.face2.spr = 9000,1
+p1.face2.offset = 0,0      
+p1.face2.scale = 1,1
+p1.face2.facing = 1
+p1.face.num = 2
+;Player 1's Main Character
+p1.member1.face.anim = 0
+p1.member1.face.done.anim = 182
+p1.member1.face.offset = 50,165
+p1.member1.face.scale = 1,1
+;Player 1's Main Character
+p1.member2.face.anim = 0 
+p1.member2.face.done.anim = 182
+p1.member2.face.offset = 30,165
+p1.member2.face.scale = 1,1
 ;Name
-p1.name.offset = 10,162   ;Position to put name
+p1.name.offset = 10,172   ;Position to put name
 p1.name.font = 3,2,1      ;Set to -1 for no display
-p2.name.offset = 309,162
+p2.name.offset = 309,172
 p2.name.font = 3,1,-1
+
+;p2.face2.spr = 9000,1
+p2.face2.offset = 0,0
+p2.face2.scale = 1,1
+p2.face2.facing = -1
+p2.face.num = 2
+;Player 2's Main Character
+p2.member1.face.anim = 0
+p2.member1.face.done.anim = 182
+p2.member1.face.offset = 270,165
+p2.member1.face.scale = 1,1
+p2.member1.face.facing = -1
+;Player 2's Main Character
+p2.member2.face.anim = 0
+p2.member2.face.done.anim = 182
+p2.member2.face.offset = 290,165
+p2.member2.face.scale = 1,1
+p2.member2.face.facing = -1
+
+
 ;Stage select
 stage.pos = 160,237
 stage.active.font = 3,0,0
 stage.active2.font = 3,2  ;Second font color for blinking
 stage.done.font = 3,0
+stage.text = "%s"
 ;Team menu
 teammenu.move.wrapping = 1
 p1.teammenu.pos = 20, 30
@@ -472,18 +564,6 @@ spriteno = 100,0
 layerno = 0
 start = 0,0
 tile  = 0,0
-
-
-[SelectBG 1] ;Dark box
-type  = normal
-spriteno = 100,1
-layerno = 0
-start = 0, 166
-delta = 0,0
-tile  = 1,0
-trans = sub
-window = 85,0, 235,239
-velocity = -1, 0
 
 [SelectBG 2.A] ;Title background
 type  = normal

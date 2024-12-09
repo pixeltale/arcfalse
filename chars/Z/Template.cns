@@ -147,8 +147,8 @@ volumescale=200
 [State 0, Explod]
 type = Explod
 trigger1 = time = 65
-anim = 182
-ID = 182
+anim = 183
+ID = 183
 pos = 0,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
@@ -207,7 +207,7 @@ flag = Nobardisplay
 [Statedef 182]
 type = S
 ctrl = 0
-anim = 183
+anim = 182
 velset = 0,0
 
 ;Idle Explod Removal

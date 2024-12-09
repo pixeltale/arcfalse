@@ -8,9 +8,9 @@
 	<#190bd9>UNIQUE MOVES</>
 DIVIDER	-		_F^C
    <#bbbbbb>This attack can be jump cancelled on hit.</>
-EARTH SERPENT	-		_DF^C
+EARTHEN SERPENT	-		_DF^C
    <#bbbbbb>A low-hitting sweep.</>
-MJÖLLNIR	-		<#65b5ff>(AIR ONLY)</> _D^C
+KICKBACK	-		<#65b5ff>(AIR ONLY)</> _D^C
    <#bbbbbb>A downward kick that inflicts a Hard Knockdown.</>
 KING'S ARSENAL	-		(AFTER CERTAIN MOVES)^A/^B/^C/^Y
         <#bbbbbb>After certain attacks, JV can use a set of moves
@@ -25,11 +25,6 @@ KING'S ARSENAL	-		(AFTER CERTAIN MOVES)^A/^B/^C/^Y
          _!YGGDRASIL	-		^C
         <#983eff>An overhead attack that deals high damage
         and stun. Ground bounces airborne opponents.</>
-        _!SPEAR OF GOD	-		^Y
-        <#983eff>A powerful mid strike that will always face the opponent.
-        Deals high damage, but isn't particularly useful in combos.
-        Scoring a counter-hit with it will send your opponent to hell before
-        they die.</>
 SKYFALL	-		(AIR ONLY)</> _D^Y
         <#bbbbbb>A fastfall JV can use to reach the ground.</>
 
@@ -52,7 +47,7 @@ VEÐRFÖLNIR	-		_F^Y
    Goes into [KING'S ARSENAL] when used.
    <#983eff>Enhanced version ground bounces and
    must be guarded standing.</>
-_!KING'S ARSENAL	-		^A/^B/^C/^Y
+_!KING'S ARSENAL	-		^A/^B/^C
 AIMLESS SERPENT	-		_B^Y
    <#bbbbbb>JV stops, momentarily dodging all
    forms of enemy attacks. Tapping forward 
@@ -61,14 +56,15 @@ AIMLESS SERPENT	-		_B^Y
    use normals for a short while.
    <#983eff>Enhanced version moves JV forward and isn't dash cancellable.
    Also gains a followup attack.</>
-_!LUNGING SERPENT	-		^Y
-        <#983eff>A mid-hitting attack that 
-        stuns the enemy in place for a long time.</>
+_!SPEAR OF GOD	-		^Y
+        <#983eff>A powerful mid strike that can be dash canceled on contact.
+        Deals high damage, and scoring a counter-hit with it will send
+        your opponent to hell before they die.</>
 DISENGANGE	-		_D^Y 
    <#bbbbbb>Quickly moves JV backwards.
    <#983eff>Enhanced version has invul
    and can be canceled into Kings Arsenal.</>
-_!KING'S ARSENAL	-		^A/^B/^C/^Y
+_!KING'S ARSENAL	-		^A/^B/^C
 JÖTUNN'S WRATH	-		<#65b5ff>(AIR ONLY)</> ^Y
    <#bbbbbb>An aerial straight punch.
    <#983eff>Enhanced version is faster and deals more

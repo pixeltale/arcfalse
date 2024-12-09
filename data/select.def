@@ -35,9 +35,9 @@ stages/falls.def, music = sound/OCEANPRIME.mp3
 stages/eternity.def, music = sound/STRANGERIREMAIN.mp3, music = sound/REDSUN.mp3, music = sound/HOTWINDBLOWING.mp3, music = sound/RULESOFNATURE.mp3
 stages/eternityRED.def, music = sound/ITHASTOBETHISWAY.mp3, music = sound/BURYTHELIGHTFINAL.mp3
 stages/mind.def, music = sound/TWILIGHT.mp3, music = sound/DUVET.mp3, music = sound/ELEPHANT.mp3
-stages/unknown.def, music = sound/LUNATICREDEYES.mp3, music = sound/APPARITIONOFSOLIDxDREAMTOTHEEAST.mp3,  music = sound/TAISHIGOLDENSLAUGHTERER.mp3
+stages/unknown.def, music = sound/MISSINGSTRING.mp3, music = sound/APPARITIONOFSOLIDxDREAMTOTHEEAST.mp3,  music = sound/TAISHIGOLDENSLAUGHTERER.mp3
 stages/hell.def, music = sound/REDLINEASPHYXIA.wav, music = sound/SCHWARZSCHILDERADICATOR.wav
-stages/kno.def, music = sound/IMUNSTABLE.mp3, zoom=0, music = sound/IFI.mp3 , music = sound/CHECKAGAIN.mp3, music = sound/CANTCONTROL.mp3
+stages/kno.def, music = sound/OVERFLOW.mp3, zoom=0, music = sound/IFI.mp3 , music = sound/CHECKAGAIN.mp3, music = sound/CANTCONTROL.mp3
 
 
 ;---------------------------------------------------------------------

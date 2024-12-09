@@ -193,7 +193,7 @@
 	;loading.offset = (localcoordX - 1 - (10 * localcoordX / 320)), (localcoordY - 8)
 	loading.font = "default-3x5.def", 0, -1, 191, 191, 191, -1
 	loading.scale = 1.0, 1.0
-	loading.text = "LOADING..."
+	loading.text = "INITIALIZE..."
 
 	; Footer parameters control rendering of engine version info. Separated into
 	; 3 elements to allow left/centre/right text align at the same time.
@@ -426,6 +426,7 @@
 
 	p1.face.pos = 0, 0
 	p1.face.spr = 9000, 1
+	p1.face.anim = 0
 	p1.face.offset = 0, 0
 	p1.face.facing = 1
 	p1.face.scale = 1.0, 1.0

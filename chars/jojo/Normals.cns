@@ -3056,6 +3056,13 @@ velset = 0,0
 anim =810
 sprpriority = 2
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 	= movehit = 1
+map 		= "ComboTimer"
+value 		= 200
+ignorehitpause 	= 1
+
 [State 0, VarSet]
 type = VarSet
 trigger1 = movehit
@@ -3065,7 +3072,7 @@ var(1) = 1
 type = HitDef
 trigger1 = time = 0 
 attr = S, NT                    ;Attribute: Standing, Normal Attack
-damage = 200, 0
+damage = 120, 0
 animtype = hard                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = LA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    ;Flags of conditions that move can hit
