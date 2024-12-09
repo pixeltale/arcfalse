@@ -144,7 +144,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 switchAirAttack = 610 ; ANIM: switch air attack.
 snapBackAttack = 210 ; ANIM: snapback attack
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
-StateTagAssistSuper = 1105 ; STATENO: normal assist attack
+StateTagAssistSuper = 1100 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
