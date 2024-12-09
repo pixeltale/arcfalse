@@ -506,6 +506,22 @@ sprpriority = 2
 facep2 = 1
 poweradd=-2000
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= animelemno(0) = [1,4]
+map 		= "ScratchLockout"
+value 		= 10
+ignorehitpause 	= 1
+persistent		= 1
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 		= animelem = 10
+map 		= "ScratchLockout"
+value 		= 0
+ignorehitpause 	= 1
+persistent		= 1
+
+
 [State -3, Win Voices] ;Win
 type = PlaySnd
 trigger1 = time = 9 && map(TREASURE)=1

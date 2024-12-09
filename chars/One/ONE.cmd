@@ -307,9 +307,6 @@ value = 105
 triggerall = command = "44" || command = "M44"
 trigger1 = statetype != A
 trigger1 = ctrl || stateno = 20
-trigger2 = stateno = 250 && time > 12
-trigger3 = stateno = 111250 && time>17
-trigger4 = stateno = 111251 && time>17
 triggerall = stateno!=105
 
 [State 100, 66: Forward Run] ;Dash
@@ -319,8 +316,7 @@ triggerall = command = "66" || command = "M66" && command != "back" && command !
 triggerall = stateno!=100
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = [111250,111251] && time>17
-trigger3 = stateno = 1010 && movehit
+trigger2 = stateno = 1010 && movehit
 
 
 

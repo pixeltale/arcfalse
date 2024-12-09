@@ -655,7 +655,6 @@ value = 0
 
 [Statedef -2]
 
-
 [State 0, AttackMulSet]
 type = AttackMulSet
 trigger1 = stateno != 3000
@@ -665,14 +664,14 @@ value = 1
 
 [State 0, EX Limiter]
 type 		= MapSet
-trigger1 	= !map(ComboStateCheck)
+trigger1 		= !map(ComboStateCheck)
 map 		= "Ex4S_Used"
 value 		= 0
 ignorehitpause 	= 1
 persistent	= 1
 [State 0, EX Limiter]
 type 		= MapSet
-trigger1 	= !map(ComboStateCheck)
+trigger1 		= !map(ComboStateCheck)
 map 		= "Ex2S_Used"
 value 		= 0
 ignorehitpause 	= 1
@@ -686,7 +685,7 @@ ignorehitpause 	= 1
 persistent	= 1
 [State 0, EX Limiter]
 type 		= MapSet
-trigger1 	= !map(ComboStateCheck)
+trigger1 		= !map(ComboStateCheck)
 map 		= "Ex6S_Used"
 value 		= 0
 ignorehitpause 	= 1
@@ -694,14 +693,14 @@ persistent	= 1
 
 [State -2, Splat Value Set]
 type 		= MapSet
-trigger1 	= !map(comboStateCheck)
+trigger1 		= !map(comboStateCheck)
 map 		= "Custom_reSplatCount"
 value 		= 3
 ignorehitpause 	= 1
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= !map(comboStateCheck)
+trigger1 		= !map(comboStateCheck)
 map 		= "Combo5SM"
 value 		= 0
 ignorehitpause 	= 1
@@ -709,11 +708,11 @@ persistent 	= 1
 ;=============================================
 ;Palette Stuff
 [State 0, MapSet]
-type = RemapPal
-trigger1 = roundstate = 0
-trigger1 = palno != 1
-source = 1, 1
-dest = 1, palno + map(AltPal)
+type 	= RemapPal
+trigger1 	= roundstate = 0
+trigger1 	= palno != 1
+source 	= 1, 1
+dest 	= 1, palno + map(AltPal)
 
 [State 0, MapSet]
 type = RemapPal
@@ -833,8 +832,8 @@ id = 99856
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "chargetime = %f"
-params = map(RChargeTime)
+text = "ScratchLockout = %f"
+params = map(ScratchLockout)
  
 [Statedef -3]
 
