@@ -9,72 +9,12 @@ ctrl = 0
 poweradd = 0                    
 sprpriority = 2    
 
-
-[State -2, P1 Value Set]
-type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
-map 		= "P1"
-value 		= 0.9	;90% Starting DMG
-ignorehitpause 	= 1
-[State -2, P2 Value Set]
-type 		= RootMapSet
-trigger1 	= movehit && root, map(ComboStateCheck)
-map 		= "P2"
-value 		= 0.93	;84% DMG For next hit
-ignorehitpause 	= 1
-persistent = 0
-[State -2, P2 Accumulation - Scale]
-type 		= RootMapSet
-trigger1 		= movehit
-map 		= "Accumulation"
-value 		= root, Map(Accumulation) * root, map(P2)
-ignorehitpause 	= 1
-persistent 	= 0      
-
 [State 0, RC On Helper Hit]
 type = RootMapSet
 trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 1        
-
-;helper damage scaling
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 13
-value = 1
-
-;Counter Hit Stuff (Helpers Cant Read -2 States)
-;[State -2, Counter Flag] 
-;type = VarSet
-;trigger1 = NumEnemy
-;fvar(8) = (EnemyNear, MoveType = A)
-;ignoreHitPause = 1
-
-;[State -2, Reset Counter Flag] 
-;type = VarSet
-;trigger1 = NumEnemy
-;trigger1=(EnemyNear,MoveType!=A)
-;Trigger1=Enemy,Ctrl=1
-;fvar(8) = 0
-;ignoreHitPause = 1
-
-;[State -2, VarSet];Checks if opponent is in attack state
-;type = VarSet
-;triggerall = numenemy
-;trigger1 = enemy, movetype = A
-;var(56) = 1
-;ignorehitpause = 1
-
-;[State -2, VarSet];This resets the condition if counter not succesful and succesful
-;type = VarSet
-;triggerall = numenemy
-;trigger1 = enemy, movetype = I || var(57) >= 1  ;Enemy is Idle | Counter was Succesful
-;trigger2 = var(57) > 10 && enemy, movetype = H  ;10 ticks passed & enemy is on gethit state
-;var(56) = 0
-;ignorehitpause = 1
-;--------------------------------------------------------
 
 [state 1350,anim]
 type=changeanim
@@ -101,11 +41,26 @@ time = 1
 value = SCA, NA, SA, HA, NT, ST, HT
 ignorehitpause = 1
 
-;[state 1556,na_maar]
-;type=hitdef
-;trigger1=1
-;attr=S,SP
-;hitflag=
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 	= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.93	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= root, Map(Accumulation) * root, map(P2)
+ignorehitpause 	= 1
+persistent 	= 0      
 
 ;Non CH
 [State 200, 1]
@@ -117,10 +72,10 @@ damage = 80 * root, map(P4),15
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = HAFD                    ;Flags of conditions that move can hit
+hitflag = MAFD                    ;Flags of conditions that move can hit
 priority = 2, Hit
 pausetime = 4, 24
-guard.pausetime = 0,12
+guard.pausetime = 0,5
 sparkno = 3
 sparkxy = 0,-40
 hitsound = 5,2
@@ -162,13 +117,12 @@ damage = 100 * root, map(P4),15
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = HAFD                    ;Flags of conditions that move can hit
+hitflag = MAFD                    ;Flags of conditions that move can hit
 priority = 2, Hit
 pausetime = 0, 58               ;Time attacker pauses, time opponent shakes
-guard.pausetime = 0,12
+guard.pausetime = 0,5
 sparkno = 3
-sparkxy = 0,-40               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = 0,-40
 hitsound = 5,2                ;Sound to play on hit
 guardsound = 6, 2                ;Sound to play on guard
 ground.type = high           ;Type: High, Low, Trip (def: Normal)
@@ -178,7 +132,6 @@ ground.velocity = -5,-3             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.velocity = -5,-3             ;Type: High, Low, Trip (def: same as ground.type)
 down.velocity = -5,-3.1
-;Y-velocity at which opponent is pushed
 air.hittime = 60
 down.hittime = 60                 ;Time before opponent regains control in air
 envshake.time = 15
@@ -201,14 +154,13 @@ getpower = 100
 ;counter hit shock ring
 [State 0, Helper]
 type = Helper
-triggerall = !numhelper(8500)
-triggerall = numenemy
-;triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
-trigger1 = var(56)=1 && movehit
-name = "Counter Hit Spark"
-ID = 8500
-stateno = 8500
-pos = 0,-50
+triggerall	= !numhelper(8500)
+triggerall	= numenemy
+trigger1 	= var(56)=1 && movehit
+name 	= "Counter Hit Spark"
+ID 	= 8500
+stateno 	= 8500
+pos 	= 0,-50
 size.xscale = .46
 size.yscale = .46
 postype = p2    ;p2,front,back,left,right
@@ -280,13 +232,6 @@ trigger1 = movecontact && teammode != Tag
 map = "RCHelper"
 value = 30
 ignorehitpause = 1  
-
-;helper damage scaling
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 13
-value = 1
 
 [State 8500, Assert: NoShadow]
 type = AssertSpecial
@@ -453,7 +398,7 @@ type = HitDef
 p2facing = 1
 trigger1 = time%5=0 
 attr = S, SP                     ;Attribute: Standing, Normal Attack
-damage = 40 * map(P4),7
+damage = 100 * root, map(P4),7
 animtype  = back
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -495,7 +440,6 @@ getpower = (0)*(cond(var(var(2)) = 1, 1, .65))
 
 [State 1006, Shock Particles]
 type = Helper
-;trigger1 = !(EnemyNear, SelfAnimExist(7696)) && !(EnemyNear, SelfAnimExist(9010))
 trigger1 = !NumHelper(8155)
 trigger1 = !numhelper(8415)
 trigger1 = MoveHit = 1 && NumTarget
@@ -611,9 +555,8 @@ ground.velocity = -2,-3             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.velocity = -2,-3             ;Type: High, Low, Trip (def: same as ground.type)
 down.velocity = -2,-3.1
-;Y-velocity at which opponent is pushed
 air.hittime = 60
-down.hittime = 60                 ;Time before opponent regains control in air
+down.hittime = 60
 envshake.time = 15
 envshake.freq = 90
 envshake.ampl = 2

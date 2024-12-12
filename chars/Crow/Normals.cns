@@ -296,7 +296,7 @@ guardflag 		= MA
 hitflag 		= MAFD
 ;==============================================
 pausetime 		= 25, 25 + 8*(enemy, movetype = A)
-guard.pausetime		= 20, 20
+guard.pausetime		= 14, 14
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -347,7 +347,7 @@ guardflag 		= MA
 hitflag 		= MAFD
 ;==============================================
 pausetime 		= 25, 25
-guard.pausetime		= 20, 20
+guard.pausetime		= 16, 16
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -1645,7 +1645,7 @@ attr 		= A, NA
 damage 		= 100*MAP(P4)
 hitflag 	= MAFD
 guardflag 	= HA
-pausetime 	= 18,18
+pausetime 	= 12,12
 sparkno 	= 2
 sparkxy 	= -5,-35
 hitsound   	= 5,3
@@ -1678,7 +1678,7 @@ attr 		= A, NA
 damage 		= 125*MAP(P4)
 hitflag 	= MAFD
 guardflag 	= HA
-pausetime 	= 24,24
+pausetime 	= 20,20
 sparkno 	= 2
 sparkxy 	= -5,-35
 hitsound   	= 5,3

@@ -1321,16 +1321,16 @@ p2facing 	= 1
 trigger1 	= !movecontact && !movereversed
 attr 		= S, NA
 animtype 	= hard
-damage 		= 120*MAP(P4), 12
+damage 		= 120*MAP(P4), 30
 hitflag 	= MAFD
 guardflag 	= MA
-pausetime 	= 14,14 + 8*(enemy, movetype = A)
-sparkno 	= 1
-sparkxy 	= -15,-40
+pausetime 	= 8,8 + 8*(enemy, movetype = A)
+sparkno 		= 1
+sparkxy 		= -15,-40
 hitsound   	= 5,3
 guardsound 	= 6,2
 ground.type 	= high
-ground.hittime  = 22-MAP(untechDecay)
+ground.hittime  	= 22-MAP(untechDecay)
 air.hittime  	= 30-MAP(untechDecay)
 down.hittime 	= 60-MAP(untechDecay)
 ground.velocity = -3

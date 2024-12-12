@@ -643,6 +643,7 @@ envshake.phase = 1
 guard.ctrltime = 18
 guard.velocity = -6
 air.fall = 1
+air.cornerpush.veloff = -5 - map(untechDecay)*1.2
 palfx.color=256
 palfx.mul=128,128,128
 palfx.add=0,0,0
@@ -1139,6 +1140,8 @@ envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 3
 envshake.phase = 1
+ground.cornerpush.veloff = -8 - map(untechDecay) * 1.2
+air.cornerpush.veloff = -8 -map(untechDecay) * 1.2
 air.fall = 1
 fall = 1
 yaccel = .28
@@ -1943,30 +1946,6 @@ trigger2 = Enemy, Gethitvar(hitcount) > 1
 fvar(1) = 0
 ignorehitpause = 1
 
-[State 200, Starter Scaling]
-type = VarAdd
-trigger1 = fvar(1)
-trigger1 = movehit
-fv = 25  
-value = -1 ; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = !fvar(1)
-trigger1 = movehit
-fv = 25  
-value = 1.5; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 1
-
 ;2H Explod Removal
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -2058,10 +2037,10 @@ guardsound = 6,1
 ground.type = high
 ground.slidetime = 12
 ground.hittime  = 20 - map(UntechDecay)
-air.hittime  = 38 - map(untechDecay)
+air.hittime  = 34 - map(untechDecay)
 down.hittime = 38 - map(untechDecay)
 ground.velocity = -5
-air.velocity = -4, -3
+air.velocity = -4, -4.5
 down.velocity = -1.7, -3
 air.fall = 1
 guard.ctrltime = 8
@@ -2074,6 +2053,7 @@ envshake.time = 12
 envshake.freq = 90
 envshake.ampl = 3
 envshake.phase = 1
+air.cornerpush.veloff = -8 -map(untechDecay) * 1.2
 yaccel = .24
 palfx.color=256
 palfx.mul=128,128,128

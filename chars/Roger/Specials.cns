@@ -4872,7 +4872,7 @@ ctrl = 0
 type    = S
 movetype= A
 physics = S
-juggle  = 2
+facep2 = map(comboStateCheck)
 poweradd= -1000
 ctrl = 0
 anim =1100
@@ -5269,12 +5269,6 @@ ctrl = 0
 anim =1104
 sprpriority = 2
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 4
-
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1
@@ -5304,13 +5298,42 @@ ontop = 1
 removeongethit = 0
 ignorehitpause = 1
 
+;ARCFALSE DAMAGE SCALING - HEAVY
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 210, 2]
 type = HitDef 
 p2facing = 1
 trigger1 = time = 0
 attr = S, NA
 animtype  = Hard
-damage = ceil(cond(fvar(11) *230 < 55, 55, fvar(11) * 180)),10
+damage = 120*map(P4),10
 hitflag = MAF
 guardflag = 
 pausetime = 25,20
@@ -5405,7 +5428,7 @@ ctrl = 0
 type    = S
 movetype= A
 physics = S
-juggle  = 2
+facep2 = map(comboStateCheck)
 ctrl = 0
 anim =1100
 sprpriority = 2
@@ -7057,6 +7080,7 @@ sparkxy = -35,-34
 hitsound   = S5,1
 guardsound = 6,2
 ground.type = Low
+air.type	= TRIP
 ground.slidetime = 999
 ground.hittime  = 999
 air.hittime = 999
@@ -7065,8 +7089,6 @@ air.velocity = -4.5,-7
 getpower = 0
 fall.yvelocity = 0
 fall = 1
-palfx.time = 12
-palfx.add = 100, 0,20
 envshake.time = 30
 envshake.freq = 120
 envshake.ampl = 5
@@ -7093,6 +7115,7 @@ sparkxy = -35,-34
 hitsound   = S5,1
 guardsound = 6,2
 ground.type = Low
+air.type	= TRIP
 ground.slidetime = 12
 ground.hittime  = 99
 air.hittime = 999
@@ -7101,12 +7124,8 @@ air.velocity = -4.5,3
 getpower = 0
 fall.yvelocity = 0
 fall = 1
-palfx.time = 12
-palfx.add = 100, 0,20
 envshake.time = 8
 envshake.freq =60
-;envshake.ampl = 
-;envshake.phase =
 fall.envshake.time = 0
 guard.hittime = 25
 guard.pausetime= 3,15

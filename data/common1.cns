@@ -3739,7 +3739,7 @@ physics = N
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= prevstateno = 915111
+trigger1 	= prevstateno = 915111 || prevstateno = 920111
 map 		= "fromSKD"
 value 		= 1
 ignorehitpause 	= 1
@@ -3747,7 +3747,7 @@ persistent 	= 1
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= prevstateno != 915111
+trigger1 	= prevstateno != 915111 && prevstateno != 920111
 map 		= "fromSKD"
 value 		= 0
 ignorehitpause 	= 1
@@ -3873,14 +3873,14 @@ value = 5120
 [State 5111, 11]
 type    = NotHitBy
 triggerall  = !map(FromSKD)
-trigger1    = time >= 15 - enemy, MAP(UntechDecay)
+trigger1    = time >= 14 - enemy, MAP(UntechDecay) - (enemy, Map(ComboTimer) >= 1000) - (enemy, Map(ComboTimer) >= 1200) - (enemy, Map(ComboTimer) >= 1400) - (enemy, Map(ComboTimer) >= 1600)
 trigger2    = prevstateno = 5228
 value       = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time        = 10
 [State 5111, 11]
 type    =  NotHitBy
 triggerall  = map(FromSKD)
-trigger1    = time >= 10 - enemy, map(UntechDecay)
+trigger1    = time >= 9 - enemy, map(UntechDecay)
 value       = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time        = 10
 
