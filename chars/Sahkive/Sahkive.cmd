@@ -270,7 +270,7 @@ triggerall = stateno != 500
 triggerall = statetype != A
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) && prevstateno != 500
 trigger3 = stateno = 510 || stateno = 442
 trigger3 = movecontact
 

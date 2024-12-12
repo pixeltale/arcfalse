@@ -2726,9 +2726,9 @@ ignorehitpause = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time=0
+trigger1 = time = [0,10]
 value = ,NA,SA,HA,NP,SP,HP
-time = 10
+time = 1
 
 [State 0, CtrlSet]
 type = CtrlSet
@@ -2937,7 +2937,7 @@ hitonce 	= 1
 attr 	= S, SA
 damage 	= 120*MAP(P4), 5
 hitflag 	= MAFD
-guardflag = MA
+guardflag = 
 priority 	= 3
 pausetime 	= 20,28
 guard.pausetime 	= 20,20

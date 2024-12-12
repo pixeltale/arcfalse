@@ -3030,14 +3030,32 @@ anim = 653
 sprpriority = 2
 velset = 0,0
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = anim = 653
+triggerall = animelemno(0) = 3
+trigger1 = command = "holdc"
+value = 653
+elem = 3
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = anim = 653
+triggerall = animelemno(0) = 3
+triggerall = time >= 300
+trigger1 = command = "holdc"
+value = 656
+
+
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  animelem = 3
 value = 200, (0+(Random%13))
 volumescale=150
+persistent = 0
 
 [State 0, Explod]
 type = Explod
+triggerall = anim = 653
 trigger1 = !numexplod(654) && animelem = 4
 anim = 654
 ID = 654
@@ -3052,6 +3070,30 @@ random = 0,0
 removetime = -2
 pausemovetime = 0
 scale = 0.8,0.8
+sprpriority = -1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+removeonchagestate = 1
+ignorehitpause = 0
+[State 0, Explod]
+type = Explod
+triggerall = anim = 656
+trigger1 = !numexplod(654) && animelem = 1
+anim = 654
+ID = 654
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 3.8,3.8
 sprpriority = -1
 ontop = 0
 shadow = 0,0,0
@@ -3120,6 +3162,7 @@ trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = back
 air.animtype = back
+triggerall = anim = 653
 damage = 120 * MAP(P4), 5
 hitflag = MAFD
 guardflag = MA
@@ -3157,6 +3200,53 @@ palfx.add=0,0,0
 palfx.sinadd=256,100,256,10
 palfx.time=32
 getpower = (0)*(cond(var(var(3)) = 1, 1, .5))
+p1sprpriority = -1
+
+[State 0]
+type = HitDef 
+p2facing = 1
+triggerall = anim = 656
+trigger1 = !movecontact && !movereversed
+attr = S, SA
+animtype  = back
+air.animtype = back
+damage = 999 * MAP(P4), 5
+hitflag = MAFD
+guardflag = 
+pausetime = 2,999
+guard.pausetime = 16, 16
+sparkno = 3
+sparkxy = -15,-30
+hitsound   = 5,4
+guardsound = 6,1
+ground.type = TRIP
+air.type    = TRIP
+ground.slidetime = 12
+ground.hittime  = 300
+air.hittime  = 300
+down.hittime = 300
+ground.velocity = -9,-3
+air.velocity = -9, -2 + map(untechDecay)
+down.velocity = -9, -5
+ground.cornerpush.veloff = -10
+down.cornerpush.veloff = -10
+air.cornerpush.veloff = -10
+air.fall = 1
+guard.hittime = 24
+guard.pausetime= 14,14
+guard.velocity = -7
+guard.dist = 20
+guard.slidetime = 16
+envshake.time = 14
+envshake.freq = 100
+envshake.ampl = 7
+envshake.phase = 1
+palfx.color=256
+palfx.mul=128,128,128
+palfx.add=0,0,0
+palfx.sinadd=256,100,256,10
+palfx.time=999
+getpower = 4000
 p1sprpriority = -1
 
 [State 200, 2]
