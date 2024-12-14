@@ -53,35 +53,17 @@
 ; take a look if would like to learn more about the cns.
 
 [Data]
-;Amount of life to start with
 life = 1400
-;attack power (more is stronger)
 attack = 100
-;defensive power (more is stronger)
 defence = 100
-;Percentage to increase defense everytime player is knocked down
 fall.defence_up = 0
-;Time which player lies down for, before getting up
 liedown.time = 60
-;Number of points for juggling
 airjuggle = 15
-;Default hit spark number for HitDefs
 sparkno = 2
-;Default guard spark number
 guard.sparkno = 40
-;1 to enable echo on KO
 KO.echo = 0
-;Volume offset (negative for softer)
 volume = 0
-
-power = 4010
-;Variables with this index and above will not have their values
-;reset to 0 between rounds or matches. There are 60 int variables,
-;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
-;If omitted, then it defaults to 60 and 40 for integer and float
-;variables repectively, meaning that none are persistent, i.e. all
-;are reset. If you want your variables to persist between matches,
-;you need to override state 5900 from common1.cns.
+power = 4000
 IntPersistIndex = 4
 FloatPersistIndex = 40
 

@@ -1420,7 +1420,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 1	;85% DMG For next hit
+value 		= 0.9	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -1454,7 +1454,7 @@ air.hittime  		= 30
 down.hittime 		= 30-map(UntechDecay)
 ;==============================================
 ground.velocity 	= -6, -5
-air.velocity 		= -6, -4
+air.velocity 		= -6, -3.5
 guard.slidetime 	= 10
 guard.ctrltime 		= 10
 guard.velocity		= -8

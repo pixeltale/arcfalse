@@ -158,11 +158,10 @@ triggerall = command!="holddown"
 triggerall = command!="holdback"
 triggerall = command!="holddown" 
 triggerall = command = "MistStep"
+triggerall = stateno!=[2000,2001]
 trigger1 = statetype != A
 trigger1 = ctrl || stateno = [100, 105]
 trigger2 = var(1)
-trigger3 = stateno=[2000,2001]
-trigger3 = movecontact
 
 [State -1, 6S: Flurry]
 type = ChangeState

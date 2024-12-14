@@ -2513,7 +2513,7 @@ juggle  = 0 ; juggle  = 0  = 0
 poweradd= 0
 ctrl = 0
 anim = 261
-velset = -3,-5.7
+velset = -3,-5.7 - 4*(prevstateno = 465)
 sprpriority = 2
 
 [State 0. MapSet]
@@ -2537,6 +2537,11 @@ type = VelAdd
 trigger1 = 1
 x = 0
 y = .5
+
+[State 0, VelAdd]
+type = VelMul
+trigger1 = prevstateno = 465
+x = 0.5
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3976,12 +3981,6 @@ stateno = 661
 time = 1
 forceair = 0
 ignorehitpause = 1
-
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 13
-value = .5
 
 [State 0, VelAdd]
 type = VelAdd

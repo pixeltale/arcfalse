@@ -1979,10 +1979,10 @@ ctrl = 0
 type    = S
 movetype= A
 physics = S
-juggle  = 2
 ctrl = 0
 anim =1005
 sprpriority = 2
+facep2 = map(ComboStateCheck)
 
 [State -2, Reset Armorbreak Map]
 type 		= MapSet
@@ -6444,6 +6444,7 @@ ctrl = 0
 sprpriority = 2
 anim = 1299
 poweradd = -1000
+facep2 = map(ComboStateCheck)
 
 [State 0, AttackDist]
 type = AttackDist
@@ -6684,7 +6685,6 @@ p2stateno = 1454
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = map(ComboStateCheck)
 trigger1 = time = 0
 attr = S, ST
 animtype  = Hard

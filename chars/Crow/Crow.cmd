@@ -147,13 +147,13 @@ trigger2 = var(1) || stateno = 1000
 ;SPECIAL MOVES
 ;===========================================================================
 ;2S
-[State -1, SKULLSPLITTER]
+[State -1, SELF DEFENSE]
 type = ChangeState
 value = 1080
-triggerall = stateno != 1090
 triggerall = command = "b" && command = "holddown"
-trigger1 = ctrl || stateno = 100
-trigger2 = var(1) || stateno = [600,620] && movecontact
+triggerall = statetype != A
+trigger1 = ctrl || prevstateno = [120,155] || stateno = 701
+trigger2 = var(1) && stateno != 105
 
 ;4S
 [State -1, MALICIOUS PRESSURE CONSUMES YOU]
@@ -189,7 +189,7 @@ trigger2 = var(1)
 ;REMIX
 ;===========================================================================
 ;5R
-[State -1, MALICIOUS PRESSURE CONSUMES YOU]
+[State -1, I NEED ITEMS.]
 type = ChangeState
 value = 700
 triggerall = command = "c"

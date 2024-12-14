@@ -443,7 +443,7 @@ ignorehitpause = 0
 type = HitDef
 trigger1 = animelem= 5
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = 3*map(P4) + 4, 0
+damage = 10*map(P4) + 4, 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD
@@ -505,7 +505,7 @@ persistent = 1
 type = HitDef
 trigger1 = animelem = 12
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = 30
+damage = 30*map(P4) 
 animtype = light
 guardflag = HA
 hitflag = MAFD+
@@ -543,7 +543,7 @@ type = HitDef
 trigger1 = animelem = 21
 trigger2 = animelem = 30
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = 30
+damage = 30*map(P4) 
 animtype = light
 guardflag = HA
 hitflag = MAFD+
@@ -582,7 +582,7 @@ trigger1 = animelem = 39
 trigger2 = animelem = 48
 trigger3 = animelem = 57
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = 20
+damage = 10*map(P4) + 10
 animtype = light
 guardflag = HA
 hitflag = MAFD+
@@ -623,7 +623,7 @@ trigger1 = animelem = 66
 trigger2 = animelem = 75
 trigger3= animelem = 84
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = 20
+damage = 10*map(P4)  + 15
 animtype = light
 guardflag = HA
 hitflag = MAFD
@@ -660,7 +660,7 @@ kill=0
 type = HitDef
 trigger1 = animelem = 93
 attr = S, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *70 < 4, 4, fvar(11) * 70)), 0
+damage = 50 * map(P4) + 50, 0
 animtype = light
 guardflag = HA
 hitflag = MAFD
