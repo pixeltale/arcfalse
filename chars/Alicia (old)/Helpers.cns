@@ -1,0 +1,210 @@
+;Night Terror Bar
+[Statedef 7050]
+type = U
+physics = N
+anim = 9999999
+ctrl = 0
+sprpriority = 5
+
+[State -2, Explod] 		;Terror Gauge
+type = Explod
+id = 7052
+triggerall = teamside = 1
+trigger1 = !NumExplod(7052)
+anim = 1
+pos = 40, 185
+postype = left
+removetime = -1
+scale = .7, .7
+sprpriority = -3
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+
+[State -2, Explod]		;Terror Gauge Bar
+type = Explod
+triggerall = teamside = 1
+trigger1 = !NumExplod(7051)
+anim = 2
+pos = 40, 185
+postype = left
+removetime = -1
+scale = .7, .7
+sprpriority = -1
+id = 7051
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+
+[State -2, Explod]		;Scaling The Inside Bar
+type = ModifyExplod
+Trigger1=TeamSide=1
+trigger1 = NumExplod(7051)
+scale = .7 * Root,map(Terror)/150,.7
+id = 7051
+PauseMoveTime=999999999999
+SuperMoveTime=99999999999999
+ignorehitpause = 1
+
+[State -2, Explod] 		;Light Eye
+type = Explod
+id = 7250
+triggerall = teamside = 1
+trigger1 = NumHelper(250)
+anim = 4
+pos = 44.85, 177.3
+postype = left
+removetime = 2
+scale = .7, .7
+sprpriority = -2
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+[State -2, Explod] 		;Medium Eye
+type = Explod
+id = 7251
+triggerall = teamside = 1
+trigger1 = NumHelper(251)
+anim = 4
+pos = 56.2, 177.3
+postype = left
+removetime = 2
+scale = .7, .7
+sprpriority = -2
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+[State -2, Explod] 		;Heavy Eye
+type = Explod
+id = 7252
+triggerall = teamside = 1
+trigger1 = NumHelper(252)
+anim = 4
+pos = 67.3, 177.3
+postype = left
+removetime = 2
+scale = .7, .7
+sprpriority = -2
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+
+;P2 Side
+[State -2, Explod] 		;Terror Gauge
+type = Explod
+id = 7052
+triggerall = teamside != 1
+trigger1 = !NumExplod(7052)
+anim = 1
+pos = 240, 185
+postype = left
+removetime = -1
+scale = -.7, .7
+sprpriority = -3
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+
+[State -2, Explod]		;Terror Gauge Bar
+type = Explod
+triggerall = teamside != 1
+trigger1 = !NumExplod(7051)
+anim = 2
+pos = 240, 185
+postype = left
+removetime = -1
+scale = -.7, .7
+sprpriority = -1
+id = 7051
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+
+[State -2, Explod]		;Scaling The Inside Bar
+type = ModifyExplod
+Trigger1	= teamside != 1
+trigger1 	= NumExplod(7051)
+scale 		= .7 * Root,map(Terror)/-150,.7
+id 		= 7051
+PauseMoveTime	= 999999999999
+SuperMoveTime	= 99999999999999
+ignorehitpause 	= 1
+
+[State -2, Explod] 		;Light Eye
+type = Explod
+id = 7253
+triggerall = teamside = 2
+trigger1 = NumHelper(250)
+anim = 4
+pos = 234.4, 177.3
+postype = left
+removetime = 2
+scale = .7, .7
+sprpriority = -2
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+[State -2, Explod] 		;Medium Eye
+type = Explod
+id = 7254
+triggerall = teamside = 2
+trigger1 = NumHelper(251)
+anim = 4
+pos = 223.1, 177.3
+postype = left
+removetime = 1
+scale = .7, .7
+sprpriority = -2
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+[State -2, Explod] 		;Heavy Eye
+type = Explod
+id = 7255
+triggerall = teamside = 2
+trigger1 = NumHelper(252)
+anim = 4
+pos = 212, 177.3
+postype = left
+removetime = 1
+scale = .7, .7
+sprpriority = -2
+bindtime = -1
+ontop = 1
+ownpal = 0
+ignorehitpause = 1
+pausemovetime = 999999
+supermovetime = 999999
+
+[State 0]
+Type=RemoveExplod
+Trigger1 = RoundState != [2,3]
+
+;------------------------------------------------------------------------------

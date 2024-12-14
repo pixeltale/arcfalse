@@ -13,8 +13,8 @@ CROW
 JOJO
 Z
 MAIDEN
-Alicia
-AKIRA, hidden = 2, unlock = unlockCmd("AKIRA")
+Akira
+ALICIA, hidden = 2, unlock = unlockCmd("AKIRA")
 
 
 [ExtraStages]
