@@ -5115,6 +5115,20 @@ anim = 10034
 sprpriority = 2
 facep2 = 1
 
+[State 20022, bucky map]
+type = MapAdd
+trigger1 = movehit
+map = "AGAIN"
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = palno = 12
+triggerall = time = 0
+trigger1 = map(AGAIN)>=1 
+value = 3030,0
+ignorehitpause = 1
+
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -5176,6 +5190,7 @@ freq = 50   ;A frequency of 180 shakes the screen rapidly
 [State -3, Angous Voices]
 type = PlaySnd
 trigger1 = animelem = 3
+trigger1 = palno != 12
 value = 9503, (0+(Random%4))
 
 [State 0, Explod]
@@ -6914,6 +6929,35 @@ time = 15    ;Time to shake screen
 ampl = 5     ;Amount to shake
 freq = 90   ;A frequency of 180 shakes the screen rapidly
 
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 	1
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 	.85
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 200, 1]
 type = hitdef 
 p2facing = 1
@@ -6932,9 +6976,9 @@ guardsound = 6,2
 ground.type = Low
 animtype = medium
 ground.slidetime = 14
-ground.hittime  = ceil(cond(fvar(16) *32 < 9, 9, fvar(16) * 32))
-air.hittime  = ceil(cond(fvar(16) *40 < 9, 9, fvar(16) * 40))
-down.hittime = ceil(cond(fvar(16) *40 < 9, 9, fvar(16) * 40))
+ground.hittime  = 32
+air.hittime  = 40
+down.hittime = 40
 ground.velocity = -6.6
 air.velocity = -6,-4
 air.fall=1

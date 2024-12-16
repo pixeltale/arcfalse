@@ -621,14 +621,30 @@ id = 1009
 
 [State -3, Win Voices] ;Win
 type = PlaySnd
+triggerall = palno != 12
 trigger1 = time = 0
 value = 9506, (0+(Random%4))
 channel=1
 
 [State -3, Win Voices] ;Win
 type = PlaySnd
+triggerall = palno != 12
 trigger1 = animelem = 2
 value = 9507, (0+(Random%2))
+channel=1
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+triggerall = palno = 12
+trigger1 = time = 0
+value = 3030, 1
+channel=1
+
+[State -3, Win Voices] ;Win
+type = PlaySnd
+triggerall = palno = 12
+trigger1 = animelem = 2
+value = 3030, 2
 channel=1
 
 [State 0, Explod]
