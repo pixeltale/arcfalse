@@ -82,6 +82,11 @@ name = "fwd"      ; REQUIRED for command buffering
 command = F
 time = 1
 [Command]
+name = "airJump"       ; REQUIRED for command buffering
+command = >$U
+time = 5
+buffer.time = 3
+[Command]
 name = "up"       ; REQUIRED for command buffering
 command = $U
 time = 1
@@ -165,7 +170,6 @@ name = "menu"
 command = m
 time = 1
 buffer.time = 1
-
 
 ;-| Hold Button |--------------------------------------------------------------
 [Command]
@@ -647,8 +651,20 @@ command = ~F, DF, D, DB, B, F, b
 name = "632146C"
 command = ~F, DF, D, DB, B, F, c
 [Command]
-name = "632146D"
+name = "632146X"
 command = ~F, DF, D, DB, B, F, x
+time = 15
+buffer.time = 15
+[Command]
+name = "6246Y"
+command = ~$F, $D, $B, $F, y
+time = 15
+buffer.time = 15
+[Command]
+name = "6246Z"
+command = ~$F, $D, $B, $F, z
+time = 15
+buffer.time = 15
 [Command]
 name = "632146CD"
 command = ~F, DF, D, DB, B, F, c+x

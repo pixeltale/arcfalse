@@ -1,34 +1,46 @@
-; Definition file for AKIRA
+; Definition file for Alicia
+; Contains all the filenames needed for the character
 
 ; Player information
 [Info]
-name 		   = "ALICIA"        ;Name of character
-displayname 	= "ALICIA"        ;Name of character to display
-versiondate 	= 09,30,2009    ;Version date of character (MM-DD-YYYY or X.XX)
-mugenversion 	= 1.0           ;Version of M.U.G.E.N character works on (X.XX)
-ikemenversion	= 0.99
-author 		    = "PXN."        ;Character author nam
-pal.defaults 	= 1,2,3,4       ;Default palettes in order of preference (up to 4)
-localcoord 	    = 280,240       ;Don't change this.
-
+name 		= "ALICIA"        ;Name of character
+displayname 	= "ALICIA" ;Name of character to display
+versiondate 	= 11,24,2021    ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion 	= 1.0          ;Version of M.U.G.E.N character works on (X.XX)
+ikemenversion 	= 0.99
+author 		= "PXN."         ;Character author name
+pal.defaults 	= 1,2,3,4      ;Default palettes in order of preference (up to 4)                          
+localcoord 	= 280,240        ;Local coordinate space width and height
 
 ; Files for the player
 [Files]
-cmd     	= ALICIA.cmd
-cns     	= ALICIA.cns           ;Constants
-st      	= ALICIA.cns           ;States
-st1      	= NORMALS.cns
-st2      	= SPECIALS.cns
-st3      	= OVERDRIVES.cns
-st4      	= TARGET.cns
-st5	        = ALstates.cns
-stcommon    = common1.cns
-sprite  	= ALICIA.sff           ;Sprite
-anim    	= ALICIA.air           ;Animation
-sound   	= ALICIA.snd           ;Sound
-ai      	= ALICIA.ai            ;AI hints data (not used)
-movelist 	= ALICIA.dat
-
+cmd     	= Alicia.cmd           ;Command set
+cns     	= Alicia.cns           ;Constants
+st      	= Alicia.cns           ;States
+st1      	= Normals.cns
+st2      	= Specials.cns
+st3      	= HyperCombos.cns
+st4      	= Target.cns
+st5      	= Helpers.cns
+st6      	= ALStates.cns
+stcommon 	= common1.cns      ;Common states (from data/ or motif)
+sprite  		= Alicia.sff           ;Sprite
+anim    		= Alicia.air           ;Animation
+sound   		= Alicia.snd           ;Sound
+ai      		= Alicia.ai            ;AI hints data (not used)
+movelist 		= Alicia.txt
+pal2    = 2.act
+pal3    = 3.act
+pal4    = 4.act
+pal5    = 5.act
+pal6    = 6.act
+pal7    = 7.act
+pal8    = 8.act
+pal9    = 9.act
+pal10   = 10.act
+pal11   = 11.act
+pal12   = 12.act
+pal13	= FIND_MY_PAGES.act
 
 
 ; Maps character selection buttons to palette numbers.

@@ -7299,6 +7299,7 @@ ignorehitpause = 1
 ;==============================================
 [State 0. MapSet]
 type 		= MapSet
+triggerall  = teammode = Tag
 trigger1 	= prevstateno = [56000, 56100] || stateno = [56000, 56100]
 map 		= "isAssist"
 value 		= 1
@@ -7306,6 +7307,7 @@ ignorehitpause 	= 0
 persistent      = 0
 [State 0. MapSet]
 type 		= MapSet
+triggerall  = teammode = Tag
 trigger1 	= prevstateno != [56000, 56100] && stateno != [56000, 56100]
 map 		= "isAssist"
 value 		= 0
@@ -7391,6 +7393,7 @@ ignorehitpause = 1
 ;======================================
 [state 40, MapSet] ;Burstgauge Drain
 type = MapSet
+triggerall = teammode = Tag
 trigger1 = stateno = const(Statetagwaitingoutside)
 trigger1 = partner, map(BurstGauge) <= 10
 map = "BurstGauge"
@@ -9035,7 +9038,7 @@ trigger1 = !numexplod(900)
 trigger1 = map(BurstGauge) >= 1000 && teamside = 1
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = !(enemy, (map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC)))
-triggerall = playerno = teamleader
+triggerall = cond(teammode != Tag, playerno = playerno, playerno = teamleader)
 triggerall = !map(TrailerMode) && roundstate = 2
 anim = F905
 ownpal = 1
@@ -9058,7 +9061,7 @@ trigger1 = !numexplod(900)
 trigger1 = map(BurstGauge) >= 1000 && teamside = 2
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
 triggerall = !(enemy, (map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC)))
-triggerall = playerno = teamleader
+triggerall = cond(teammode != Tag, playerno = playerno, playerno = teamleader)
 triggerall = !map(TrailerMode) && roundstate = 2
 anim = F906
 ID = 900

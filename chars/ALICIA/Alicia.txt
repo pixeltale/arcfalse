@@ -1,0 +1,36 @@
+<#ff1100>Alicia
+
+<#f200ff>:Unique Trait:</>		"Night Terrors"
+Alicia has a special resource called the Terror Gauge
+that she can use to gain access to enhanced attacks
+and supers.
+
+<#f200ff>:REMIX - GRIM VISAGE:</>
+Alicia's remix lets her place down an eye
+on the screen. Once an eye is placed, her
+terror gauge will begin to go up. and
+once full she can use her Night Terror attacks.
+
+<#f200ff>:Command Normals:</>
+Blood Sacrifice					   j.2H
+
+<#f200ff> -=SPECIAL MOVES=- </>
+Severance ROT					   236L/M/H
+False Severance					   214L
+XDISTORTION					   214M
+YDISTORTION					   214H
+KYOUGENSHOU					   j.236L/M/H
+
+<#f200ff> -=NIGHT TERRORS=- </>
+SLAVES TO POWER					   236R
+PRIMORDIAL BEAST					   214R
+NECROTIC RELEASE					   623R
+
+<#f200ff> -=SUPERS=- </>
+extends_PERFEKTEWELT					   S+R [T]
+PILLARS OF THE UNDERWORLD					   214214H
+SCHWARZ-SASQUANA					   j.632146H
+DAY OF RESSURECTION					   214214R [T]
+
+<#f200ff> -=ULTIMATE=- </>
+EPITAPH OF THE FEAR GODDESS					   236236R
