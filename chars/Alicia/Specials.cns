@@ -339,6 +339,36 @@ type = DestroySelf
 trigger1 = animtime = 0
 
 ;================================================================================
+;Summon Eye M
+[Statedef 1008]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim =1010
+sprpriority = 2
+[State 0, DestroySelf]
+type 	= Changestate
+trigger1 	= 1
+value 	= 1010
+;================================================================================
+;Summon Eye H
+[Statedef 1009]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim =1010
+sprpriority = 2
+[State 0, DestroySelf]
+type 	= Changestate
+trigger1 	= 1
+value 	= 1010
+;================================================================================
 ;Summon Eye
 [Statedef 1010]
 type    = S
@@ -349,22 +379,240 @@ poweradd= 0
 ctrl = 0
 anim =1010
 sprpriority = 2
-velset = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 3
-helpertype = normal ;player
+trigger1 = animelem = 3 && prevstateno != [1008,1009]
+helpertype = normal
 name = "L EYE"
 ID = 1015
 stateno = 1015
 pos = 0,-45
-postype = p1    ;p2,front,back,left,right
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3 && prevstateno = 1008
+helpertype = normal
+name = "M EYE"
+ID = 1016
+stateno = 1015
+pos = 0,-65
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 3 && prevstateno = 1009
+helpertype = normal
+name = "H EYE"
+ID = 1017
+stateno = 1015
+pos = 0,-75
+postype = p1
 facing = 1
 size.xscale = const(size.xscale)
 size.yscale = const(size.yscale)
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+statetype = A
+physics = A
+[State 0, VelMul]
+type = VelMul
+triggerall = stateType = A
+trigger1 = animelemno(0) = [2,4]
+x = 0.8
+y = 0.6
+
 [State 0, DestroySelf]
 type = Changestate
+triggerall = statetype != A
 Trigger1 = !animtime
 value = 0
+ctrl = 1
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype = A
+Trigger1 = !animtime
+value = 50
+ctrl = 1
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype = A
+trigger1 =pos y>= 0
+value = 52
+ctrl = 1
+;============================================================================
+;Eye Idle
+[Statedef 1015]
+type    = A
+movetype= I
+physics = N
+ctrl = 0
+anim = 1015
+sprpriority = 2
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "id = %i"
+params = id
+;ignorehitpause = 
+;persistent = 
+
+
+;Can be commanded.
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1015)
+map 		= "EyeAction_L"
+value 		= 1
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1016)
+map 		= "EyeAction_M"
+value 		= 1
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1017)
+map 		= "EyeAction_H"
+value 		= 1
+ignorehitpause 	= 1
+
+[State 0, ChangeState] ;214L - Transform into Saw
+type = Changestate
+Trigger1 = root, stateno = 1020 && ishelper(1015)
+value = 1021
+[State 0, ChangeState] ;214M - Transform into Saw
+type = Changestate
+Trigger1 = root, stateno = 1020 && ishelper(1016)
+value = 1021
+[State 0, ChangeState] ;214H - Transform into Saw
+type = Changestate
+Trigger1 = root, stateno = 1020 && ishelper(1017)
+value = 1021
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = root, movetype = H
+
+;================================================================================
+;Presage Flower Summon
+[Statedef 1020]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim =1012
+sprpriority = 2
+
+[State -2, FRC]
+type 		= MapSet
+trigger1 		= animelemno(0) = 4
+map 		= "FRC"
+value 		= 1
+ignorehitpause 	= 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+statetype = A
+physics = A
+[State 0, VelMul]
+type = VelMul
+triggerall = stateType = A
+trigger1 = animelemno(0) = [2,4]
+x = 0.8
+y = 0.6
+
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype != A
+Trigger1 = !animtime
+value = 0
+ctrl = 1
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype = A
+Trigger1 = !animtime
+value = 50
+ctrl = 1
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype = A
+trigger1 =pos y>= 0
+value = 52
+ctrl = 1
+
+;============================================================================
+;Eye > Buzzsaw
+[Statedef 1021]
+type    = A
+movetype= A
+physics = N
+ctrl = 0
+anim = 1020
+sprpriority = 2
+
+;Cant be commanded.
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= !time
+map 		= "EyeAction_L"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 0, PosAdd]
+type = VelSet
+trigger1 = time < 40
+x = p2dist x * 0.01
+y = p2dist y * 0.01
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 40
+value = 1021
+ignorehitpause = 1
+
+[State 600, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = time % 6 = 0
+attr = A, SA
+damage = 20*root, MAP(P4), 10
+hitflag = MAFP
+guardflag = MA
+pausetime = 1,5
+sparkno = 1
+sparkxy = p2dist x * 0.01,p2dist y - 30
+hitsound   = 5,0
+guardsound = 6,0
+ground.type = low
+animtype = light
+air.animtype = back
+ground.slidetime = 5
+ground.hittime  = 8
+air.hittime  = 18 * root, MAP(untechMOD)
+down.hittime = 20 * root, MAP(untechMOD)
+ground.velocity = -1
+air.velocity = -2, -1.2
+air.fall = 1
+guard.slidetime = 1
+guard.hittime = 1
+guard.ctrltime = 1
+envshake.freq = 3
+envshake.time = 10
+getpower = 8
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = anim = 1021 && !animtime

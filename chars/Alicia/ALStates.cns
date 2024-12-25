@@ -15,17 +15,12 @@ value = 5
 type = VelMul
 trigger1 = prevstateno = 52
 x = 0.5
+y = 0
 
 [State 0, 3] ;Stop moving if low velocity or 4 ticks pass
 type = VelSet
 trigger1 = abs(vel x) < Const(movement.stand.friction.threshold)
-trigger2 = prevstateno = 1040
 x = 0
-
-[State 0, VelMul]
-type = VelMul
-trigger1 = prevstateno = 1040
-x = 0.05
 
 [State 0, 4] ;Are you dead?
 type = ChangeState
@@ -50,7 +45,20 @@ value = 0
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 11
+;---------------------------------------------------------------------------
+; Crouching
+[Statedef 11]
+type    = C
+physics = C
+anim = 11
+sprpriority = 0
+ctrl = 1
+velset = vel x
 
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = Anim = 6 && AnimTime = 0
+value = 11
 ;---------------------------------------------------------------------------
 ; Crouch to Stand
 [Statedef 12]
@@ -557,6 +565,7 @@ physics = S
 ctrl = 0
 anim = 47
 facep2 = 1
+velset = vel x, 0
 
 [State 0, VelMul]
 type = VelMul
@@ -1345,6 +1354,12 @@ type = ChangeState
 trigger1 = (pos y>=0 && vel y>=0)
 value = 0
 ctrl = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y >= -15
+physics = A
+
 
 [State 0, ChangeState]
 type = ChangeState

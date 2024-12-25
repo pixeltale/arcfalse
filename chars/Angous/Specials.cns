@@ -3109,7 +3109,7 @@ ignorehitpause = 1
 [State 0, NotHitBy]
 type 		= NotHitBy
 trigger1 	= !time
-value 		= SCA
+value 		= SCA, NA, NT, NP, SA, ST, SP, HA, HT, HP
 time 		= 18
 
 [State -3, Win Voices] ;Win

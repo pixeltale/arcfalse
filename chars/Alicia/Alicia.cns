@@ -250,6 +250,11 @@ trigger1 		= !map(Float)
 map 		= "FloatTimer"
 value 		= 0
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = map(Float)
+statetype = A
+
 ;=============================================================================
 
 ;=============================================================================

@@ -16,17 +16,17 @@ command = ~$F, $D, $B, $F, y
 name = "6246H"
 command = ~$F, $D, $B, $F, z
 [Command]
-name = "246L"
-command = ~$D, $B, $F, x
-time = 15
+name = "214L"
+command = ~$D, $B, x
+time = 10
 [Command]
-name = "246M"
-command = ~$D, $B, $F, y
-time = 15
+name = "214M"
+command = ~$D, $B, y
+time = 10
 [Command]
-name = "246H"
-command = ~$D, $B, $F, z
-time = 15
+name = "214H"
+command = ~$D, $B, z
+time = 10
 
 [Statedef -1]
 
@@ -61,6 +61,7 @@ value = 40
 triggerall = command = "up" || movecontact && command = "holdup"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
+trigger2 = stateno = 240 && movecontact
 [State -1,DJC]
 type = ChangeState
 value = 45
@@ -95,6 +96,29 @@ triggerall = map(ADashUse) < const(AirDashMax)
 triggerall = statetype = A
 trigger1 	= ctrl
 
+;--------------------------------------------------------------------------
+;Hoverdash
+[State -1, Run Fwd]
+type = ChangeState
+value = 100
+triggerall = command != "holdback"
+triggerall = command = "66" || command = "M66"
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = stateno = 250
+trigger3 = stateno = 52
+trigger4 = stateno = 690000
+triggerall = stateno!=100
+
+;Backdash
+[State -1, Backdash]
+type = ChangeState
+value = 105
+triggerall = command = "44" || command = "M44"
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = stateno = 250
+triggerall = stateno!=105
 
 ;===========================================================================
 ;Special Moves
@@ -122,30 +146,44 @@ value = 1005
 triggerall = command = "6246H"
 trigger1 = var(1)
 
-;--------------------------------------------------------------------------
-;Hoverdash
-[State -1, Run Fwd]
+;214L
+[State -1, Grim Visage L]
 type = ChangeState
-value = 100
-triggerall = command != "holdback"
-triggerall = command = "66" || command = "M66"
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = stateno = 250
-trigger3 = stateno = 52
-trigger4 = stateno = 690000
-triggerall = stateno!=100
-
-;Backdash
-[State -1, Backdash]
+value = 1010
+triggerall = command = "214L" && !numhelper(1015)
+trigger1 = var(1)
+;214L
+[State -1, Presage Flower L]
 type = ChangeState
-value = 105
-triggerall = command = "44" || command = "M44"
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = stateno = 250
-triggerall = stateno!=105
+value = 1020
+triggerall = command = "214L" && numhelper(1015) && map(EyeAction_L)
+trigger1 = var(1)
 
+;214M
+[State -1, Grim Visage M]
+type = ChangeState
+value = 1008
+triggerall = command = "214M" && !numhelper(1016)
+trigger1 = var(1)
+;214L
+[State -1, Presage Flower L]
+type = ChangeState
+value = 1020
+triggerall = command = "214M" && numhelper(1016) && map(EyeAction_M)
+trigger1 = var(1)
+
+;214H
+[State -1, Grim Visage H]
+type = ChangeState
+value = 1009
+triggerall = command = "214H" && !numhelper(1017)
+trigger1 = var(1)
+;214L
+[State -1, Presage Flower L]
+type = ChangeState
+value = 1020
+triggerall = command = "214H" && numhelper(1017) && map(EyeAction_H)
+trigger1 = var(1)
 ;===========================================================================
 ;Normal Moves								   | |
 ;===========================================================================
@@ -337,11 +375,10 @@ ignorehitpause = 1
 [State 20, 4]
 type = Changestate
 value = 120
-triggerall = map(Float) && stateno != 115
-triggerall = command != "down"
-triggerall = command = "c" && time > 5
-trigger1 = movecontact
-trigger2 = ctrl
+trigger1 = map(Float) && stateno != 115
+trigger1 = command != "down" && command = "c" && time > 5
+trigger1 = movecontact || ctrl
+trigger2 = map(FloatTimer) = 299 && pos y < 0
 
 
 [State 20, 4]
