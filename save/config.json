@@ -67,14 +67,7 @@
   "InputButtonAssistWindow": 1,
   "InputSOCDResolution": 1,
   "IP": {
-    "bust": "26.0.68.166",
-    "gao": "26.4.189.227",
-    "kira": "26.86.41.7",
-    "luck": "26.35.237.168",
-    "maple": "26.222.17.241",
-    "neo sonx": "26.192.120.38",
-    "pni": "26.65.18.31",
-    "sonx": "26.26.192.122"
+    "PXN.": "26.65.18.31"
   },
   "LifeMul": 130,
   "ListenPort": "7500",

@@ -1,0 +1,63 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#383371>UNIQUE TRAIT: SUPERSONIC</>
+	Tentionmaru's normals (L,M,H) can be Dash-Canceled once per combo,
+    allowing further combo potential and routing opportunities. He
+    also can alter his heavy attacks and physical traits with the REMIX button 
+	(WIP).
+
+	<#383371>UNIQUE MOVES</>
+DOUBLE TROUBLE	-		_B^B
+   <#bbbbbb>Two hitting combo filler & pressure option.</>
+SPINMARU	-		_F^C
+   <#bbbbbb>Overhead combo starter available in all forms. Not dash cancellable.</>
+
+
+	<#383371>SPECIAL MOVES</>
+ZETAPALM	-		_B^Y
+   <#bbbbbb>A fast-moving straight punch. Slight invulnerability on startup.
+   <#bbbbbb>Stuns on counter hit, wallbounces on counter in 6R form.</>
+ZETAKICK	-		<#65b5ff>(AIR ONLY)</>  ^Y
+   <#bbbbbb>A quick, self cancellable downwards swoop. Chargeable.</>
+   <#bbbbbb>!! Additionally, you can slightly influence its direction by holding _U or _D.</>
+
+	<#383371>REMIX MOVES</>
+STRAIGHT HANDS	    -		^Z
+   <#bbbbbb>Tentionmaru swaps his form to straight hands,
+   with a familiar toolset of heavy normals and blistering speed.</>
+_!QUIRK	            -		
+        <#bbbbbb>Tenitonmaru's forward dashes now pass through the opponent.
+        This potentially increases sword form's damage output even further.</>
+BATTER UP!	        -		_B^Z
+   <#bbbbbb>Switches your heavies to baseball bat form,
+   with some quirky but fun to utilize multihitting normals.</>
+TENTION SWORD	    -		_F^Z
+   <#bbbbbb>Switches your heavies to sword form, with an extremely
+   damaging base output. Slower movement speed.</>   
+_!QUIRK	            -		
+        <#bbbbbb>The combo starting level of several moves is increased by one.
+        This potentially increases sword form's damage output even further.</>
+		
+		
+
+	<#ffef0f>EX MOVES</>
+_EX ZETAPALM	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>A quick moving palm smash. Puts the opponent in sliding knockdown.</>
+
+	UNIVERSAL MOVES
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further.</>   
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+   <#bbbbbb>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+   </>
