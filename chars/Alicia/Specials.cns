@@ -3,8 +3,6 @@
 type    = A
 movetype= A
 physics = N
-juggle  = 0
-poweradd= 0
 ctrl = 0
 anim =1000
 sprpriority = 2
@@ -41,11 +39,6 @@ ignorehitpause 	= 1
 type = ChangeState
 trigger1 = !animtime
 value = 58
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = pos y>= 0
-value = 0
-ctrl = 1
 
 ;================================================================================
 ;HDistortion
@@ -171,8 +164,6 @@ trigger1 = animtime = 0
 type    = A
 movetype= A
 physics = A
-juggle  = 0
-poweradd= 0
 ctrl = 0
 anim =1005
 sprpriority = 2
@@ -237,6 +228,7 @@ value = 58
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y>= 0
+trigger1 = vel y > 0
 value = 0
 ctrl = 1
 

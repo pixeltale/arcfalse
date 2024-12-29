@@ -1,6 +1,6 @@
 ; The CMD file.
 [DEFAULTS]
-command.time = 30
+command.time = 20
 command.buffer.time = 3
 
 [Command]
@@ -53,7 +53,7 @@ triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
 trigger2 = ctrl || stateno = 100
-trigger3= stateno = 1030 && movecontact
+trigger3 = stateno = 240 && movecontact
 
 [State -1, JC]
 type = ChangeState

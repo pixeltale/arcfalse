@@ -279,7 +279,9 @@ guard.ctrltime 		= 16
 guard.velocity 		= -5
 air.fall 			= 1
 fall.yvelocity 		= 0
-ground.cornerpush.veloff 	= -10
+ground.cornerpush.veloff 	= -10 / MAP(untechMOD)
+air.cornerpush.veloff 	= -14.5 / MAP(untechMOD)
+down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
 getpower 		= 75
 
 [State 200, 3]
@@ -319,13 +321,13 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  1.1	;100% Starting DMG
+value 		=  0.9	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		=  0.90	;80% DMG For next hit
+value 		=  1.10	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, P2 Accumulation - Scale]
@@ -366,6 +368,9 @@ air.velocity 	= 1,16
 air.fall = 1
 fall = 1
 fall.yvelocity = 0
+ground.cornerpush.veloff 	= -6.5 / MAP(untechMOD)
+air.cornerpush.veloff 	= -8.5 / MAP(untechMOD)
+down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
 envshake.time = 15
 envshake.freq = 80
 envshake.ampl = 2
@@ -748,12 +753,12 @@ hitsound   		= 5,3
 guardsound 		= 6,2
 ground.type 		= high
 ground.slidetime 		= 12
-ground.hittime  		= 20-MAP(untechDecay)
-air.hittime  		= 30-MAP(UntechDecay)
-down.hittime 		= 20-MAP(UntechDecay)
+ground.hittime  		= 20 * MAP(untechMOD)
+air.hittime  		= 30 * MAP(untechMOD)
+down.hittime 		= 30 * MAP(untechMOD)
 ground.velocity 		= -2,0
 air.velocity 		= -1, cond((animelemno(0) = 6), -4.5, -3)
-ground.cornerpush.veloff 	= -4.5
+ground.cornerpush.veloff 	= -4.5 / MAP(untechMOD)
 guard.velocity 		= cond((animelemno(0) = 6), -7, 4)
 guard.ctrltime 		= 12
 fall.yvelocity 		= 0
@@ -783,7 +788,7 @@ value = 1, 2
 [State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 11 + 99*map(Float)
+value = 0 + 110*map(Float)
 ctrl = 1
 
 ;---------------------------------------------------------------------------
