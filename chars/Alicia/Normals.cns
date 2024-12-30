@@ -903,15 +903,12 @@ type = PosAdd
 trigger1 = animelem = 3
 x = 5
 y = 0
-ignorehitpause = 1
-;persistent = 
 
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelem = 5
 x = 4
 y = 0
-ignorehitpause = 1
 
 
 [State 430, 1]
@@ -929,8 +926,6 @@ type = PosAdd
 trigger1 = time = 3
 x = -7
 y = 0
-ignorehitpause = 1
-;persistent = 
 
 [State 0, VelSet]
 type = VelSet
