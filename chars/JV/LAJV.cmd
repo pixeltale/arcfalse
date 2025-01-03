@@ -163,7 +163,7 @@ trigger2 = ctrl ||stateno = 100 && time > 3
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = Map(DJCL) > 0
+triggerall = Map(DoubleJump)  < 2
 triggerall = command = "up"
 trigger1 = ctrl && stateno!= [40,60]
 
@@ -171,7 +171,7 @@ trigger1 = ctrl && stateno!= [40,60]
 type = ChangeState
 value = 45
 triggerall = command = "up" || movecontact && command = "holdup"
-triggerall = Map(DJCL) > 0
+triggerall = Map(DoubleJump) < 2
 trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 30)
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = hitdefattr = A, NA

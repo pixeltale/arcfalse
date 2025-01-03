@@ -312,11 +312,11 @@ physics = N
 ctrl = 0
 velset = 0,0
 
-[State Category]
+[State - Air Option Limiter - Double Jump]
 type = mapadd
 trigger1 = time = 0
-map = "DJCL"
-value = -1
+map = "DoubleJump"
+value = 1
 
 [State 0, VarAdd]
 type = VarAdd
@@ -466,7 +466,7 @@ flag = noairguard
 [State 100, 1]
 type = VelSet
 trigger1 = time = 0
-x = 5.5
+x = 7.5
 
 [State - Air Option Limiter - Airdash]
 type = mapadd
@@ -474,10 +474,10 @@ trigger1 = time = 0
 map = "ADash"
 value = -1
 [State - Air Option Limiter - Double Jump]
-type = mapset
+type = mapadd
 trigger1 = time = 0
-map = "DJCL"
-value = -1
+map = "DoubleJump"
+value = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -529,7 +529,7 @@ physics = A
 anim = 61
 sprpriority = 1
 ctrl = 0
-velset = 0, -4
+velset = 0, 0
 
 [State 0, AssertSpecial]
 type = AssertSpecial
@@ -539,18 +539,55 @@ flag = noairguard
 [State 100, 1]
 type = VelSet
 trigger1 = time = 0
-x = -4.25
+x = -7.5
 
-[State Limiter]
+[State - Air Option Limiter - Airdash]
 type = mapadd
 trigger1 = time = 0
 map = "ADash"
 value = -1
-[State Category]
+[State - Air Option Limiter - Double Jump]
+type = mapadd
+trigger1 = time = 0
+map = "DoubleJump"
+value = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = vel y > 2
+value = 41
+elem = 4
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 1
+anim = 6951
+ID = 6951
+pos = 0,-10
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.7,0.7
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 0
+
+[State - Airdash Momentum Preserve]
 type = mapset
 trigger1 = time = 0
-map = "DJCL"
-value = -1
+map = "ADM" ;AirDash Momentum Preserve
+value = 10
 
 [State 0, CtrlSet]
 type = CtrlSet
