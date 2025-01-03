@@ -7,14 +7,17 @@ roger, order=1
 angous, order=1
 vile, order=1
 Arzon, order=1
-JV
+slot = {
+JV/JV.def, next = "holdw", previous = "holdd"
+JV/LAJV.def, previous = "holdd", next = "holdw" 
+}
 Sahkive, order=1
 CROW
 JOJO
 Z
 MAIDEN
 Akira
-ALICIA, hidden = 2, unlock = unlockCmd("AKIRA")
+ALICIA
 Tentionmaru
 
 

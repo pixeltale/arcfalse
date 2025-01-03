@@ -7296,6 +7296,25 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+;=============================================================================
+;JORMUNGANDR Hitstun Scaling System
+[State -2, JDR UNTECH DECAY]
+type 		= MapSET
+trigger1 		= !map(ComboStateCheck)
+map 		= "untechMod"
+value 		= 1
+ignorehitpause 	= 1
+persistent		= 1
+[State -2, JDR UNTECH DECAY]
+type 		= MapAdd
+trigger1 		= map(ComboStateCheck) && map(ComboTimer) > 0 && map(UntechMod) > 0
+triggerall		= map(ComboTimer) % 180 = 0
+map 		= "untechMod"
+value 		= -0.15
+ignorehitpause 	= 1
+persistent		= 1
+;=============================================================================
+
 ;==============================================
 [State 0. MapSet]
 type 		= MapSet

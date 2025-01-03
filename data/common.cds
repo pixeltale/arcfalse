@@ -482,36 +482,42 @@ buffertime = 15
 [Command]
 name = "28"
 command = $D, U
-time = 5
+time = 10
 buffer.time = 10
 [Command]
 name = "28"
 command = $D, N, U
-time = 5
+time = 10
 buffer.time = 10
 [Command]
 name = "29"
 command = $D, UF
+time = 10
 buffer.time = 10
 [Command]
 name = "29"
 command = $D, F, N, U
+time = 10
 buffer.time = 10
 [Command]
 name = "29"
 command = $D, DF, F, U
+time = 10
 buffer.time = 10
 [Command]
 name = "29"
 command = $D, DF, F, N, U
+time = 10
 buffer.time = 10
 [Command]
 name = "29"
 command = $D, U, F
+time = 10
 buffer.time = 10
 [Command]
 name = "29"
 command = $D, F, U
+time = 10
 buffer.time = 10
 [Command]
 name = "27"
