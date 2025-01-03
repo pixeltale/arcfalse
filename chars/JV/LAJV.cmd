@@ -1,7 +1,7 @@
 ; The CMD file.
 ;-| Default Values |-------------------------------------------------------
 [Defaults]
-command.time = 20
+command.time = 15
 command.buffer.time = 5
 
 [Command]
@@ -9,40 +9,51 @@ name = "236236L"
 command = ~D, F, D, F, x
 time = 26
 [Command]
-name = "646H"
-command = ~$F, B, F, z
+name = "426H"
+command = ~$B, $D, F, z
+time = 30
+buffer.time = 10
+[Command]
+name = "624H"
+command = ~$F, $D, B, z
+time = 30
 buffer.time = 10
 [Command]
 name = "214L"
-command = ~$D, $B, x
+command = ~$D, B, x
 buffer.time = 10
 [Command]
+name = "214L_unbuffer"
+command = ~$D, B, x
+buffer.time = 0
+[Command]
 name = "214M"
-command = ~$D, $B, y
+command = ~$D, B, y
 buffer.time = 10
 [Command]
 name = "214H"
-command = ~$D, $B, z
+command = ~$D, B, z
 buffer.time = 10
 [Command]
 name = "214R"
-command = ~$D, $B, c
+command = ~$D, B, c
 buffer.time = 10
 [Command]
 name = "236L"
-command = ~$D, $F, x
-buffer.time = 10
+command = ~D, >F, x
 [Command]
 name = "236M"
-command = ~$D, $F, y
-buffer.time = 10
+command = ~D, >F, y
 [Command]
 name = "236H"
-command = ~$D, $F, z
-buffer.time = 10
+command = ~D, >F, z
 [Command]
 name = "236R"
-command = ~$D, $F, c
+command = ~$D, >F, c
+buffer.time = 10
+[Command]
+name = "236S"
+command = ~$D, >F, b
 buffer.time = 10
 [Command]
 name = "22L"
@@ -91,7 +102,7 @@ var(1) = 1
 [State -1, 236x]
 type = ChangeState
 value = 3000
-triggerall = command = "236236L"
+triggerall = command = "236S"
 triggerall = power >= 2000
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -224,6 +235,22 @@ trigger2 = stateno = 250
 ;SPECIAL ATTACKS
 ;===========================================================================
 
+;IRON MOUNTAIN'S COFFIN
+[State -1, One Inch Punch]
+type = changeState
+value = 2300
+triggerall = command = "426H"
+triggerall = statetype != A
+trigger1 = var(1) || ctrl
+
+;THE BEAST UNLEASHED ....
+[State -1, Beast Elbow]
+type = changeState
+value = 1205
+triggerall = command = "624H"
+triggerall = statetype != A
+trigger1 = var(1)
+trigger2 = MAP(StrikeCount) = 2
 
 ;===========================================================================
 ;4S - Aimless Serpent (Ground)
@@ -242,20 +269,28 @@ trigger4 = stateno = 801 && movecontact
 [State -1, Spotdodge]
 type = ChangeState
 value = 1011
-triggerall = command = "214L"
-triggerall = map(EN)
+triggerall = command = "214L" && prevstateno != 1010 || command = "214L_unbuffer" && prevstateno = 1010 
+triggerall = map(EN) || map(StrikeCount) = 2
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || map(StrikeCount) = 2
 trigger2 = var(1)
 trigger2 = movecontact
 trigger3 = stateno = 100 && time > 2
 
 ;===========================================================================
+;236M - Strike the Earth
+[State -1, STE]
+type = ChangeState
+value = 1200
+triggerall = command = "236M"
+trigger1 = var(1)
+trigger2 = stateno = 100 && time > 2
+
 ;6S - Verofolnir
 [State -1, Stomp]
 type = ChangeState
 value = 1100
-triggerall = command = "236M"
+triggerall = command = "236H"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -295,13 +330,6 @@ trigger2 = var(1)
 trigger3 = stateno = [200,220] || stateno = [400,431]
 trigger3 = movecontact
 
-;IRON MOUNTAIN'S COFFIN
-[State -1, One Inch Punch]
-type = changeState
-value = 2300
-triggerall = command = "646H"
-triggerall = statetype != A
-trigger1 = var(1) || ctrl
 
 ;5SEN: One-Inch Punch
 [State -1, One Inch Punch]
@@ -548,6 +576,25 @@ trigger2 = stateno = [600,610] && movecontact || stateno = 640 && movehit
 trigger3 = stateno = 1350 ;Air blocking
 trigger4 = stateno = 60
 
+;DEVIANT REDLINE CANCEL
+[State -1, REDLINE CANCEL]
+type = ChangeState
+value = 4005
+triggerall = power >=1000 && stateno != 4005
+triggerall = command = "SP"
+triggerall = statetype != A
+trigger1 = map(FRC)
+
+;DEVIANT REDLINE CANCEL (AIR)
+[State -1, REDLINE CANCEL]
+type = ChangeState
+value = 4006
+triggerall = power>=1000 && stateno != 4006
+triggerall = command = "SP"
+triggerall = statetype = A 
+trigger1 = map(FRC)
+
+
 ;REDLINE CANCEL
 [State -1, REDLINE CANCEL]
 type = ChangeState
@@ -571,23 +618,6 @@ triggerall = command = "SP"
 triggerall = statetype = A
 trigger1 = movecontact
 
-;DEVIANT REDLINE CANCEL
-[State -1, REDLINE CANCEL]
-type = ChangeState
-value = 4005
-triggerall = power >=1000 && stateno != 4005
-triggerall = command = "SP"
-triggerall = statetype != A
-trigger1 = map(FRC)
-
-;DEVIANT REDLINE CANCEL (AIR)
-[State -1, REDLINE CANCEL]
-type = ChangeState
-value = 4006
-triggerall = power>=1000 && stateno != 4006
-triggerall = command = "SP"
-triggerall = statetype = A 
-trigger1 = map(FRC)
 
 ;---------------------------------------------------------------------------
 ;===========================================================================

@@ -1579,19 +1579,26 @@ anim =1501
 sprpriority = 2
 facep2 = 1
 
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = abs(p2dist x) < 200
+value = 1 + time / 2
+
+
 [State 0, PalFX]
 type = PalFX
 trigger1 = animelem = 4
+trigger2 = power = 1000 || power = 2000 || power = 3000 || power = 4000
 time = 10
 add = 191, 64, 191	
 mul = 256,256,256
 sinadd = 0,0,0,10
 invertall = 0
 color = 256
-persistent = 0
 [State 1200, Shake Screen]
 type = EnvShake
 trigger1 = animelem = 4
+trigger2 = power = 1000 || power = 2000 || power = 3000 || power = 4000
 time = 15    ;Time to shake screen
 ampl = 3     ;Amount to shake
 freq = 120   ;A frequency of 180 shakes the screen rapidly
@@ -1611,9 +1618,7 @@ persistent 	= 0				        ;+
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "c"
-trigger1 = time >= 5
-trigger2 = time > 90
+trigger1 = command != "holdc"
 value = 704
 ctrl = 0
 

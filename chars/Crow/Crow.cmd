@@ -109,15 +109,6 @@ trigger2 = stateno = 1000 && time > 5 || stateno = 1050 && animelemno(0) >= 5
 ;===========================================================================
 ;EX MOVES
 ;===========================================================================
-;2EX
-[State -1, SKULLSPLITTER]
-type = ChangeState
-value = 1090
-triggerall = power > 1000
-triggerall = command = "EX" && command = "holddown"
-triggerall = !map(Limiter_2EX)
-trigger1 = ctrl || stateno = 100
-trigger2 = var(1) || stateno = [600,620] && movecontact
 
 ;4EX
 [State -1, bombos]
