@@ -473,11 +473,6 @@ type = mapadd
 trigger1 = time = 0
 map = "ADash"
 value = -1
-[State - Air Option Limiter - Double Jump]
-type = mapadd
-trigger1 = time = 0
-map = "DoubleJump"
-value = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -546,11 +541,6 @@ type = mapadd
 trigger1 = time = 0
 map = "ADash"
 value = -1
-[State - Air Option Limiter - Double Jump]
-type = mapadd
-trigger1 = time = 0
-map = "DoubleJump"
-value = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim

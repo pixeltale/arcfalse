@@ -21,7 +21,7 @@ buffer.time = 10
 [Command]
 name = "214L"
 command = ~$D, B, x
-buffer.time = 10
+buffer.time = 15
 [Command]
 name = "214L_unbuffer"
 command = ~$D, B, x
@@ -57,19 +57,19 @@ command = ~$D, >F, b
 buffer.time = 10
 [Command]
 name = "22L"
-command = ~$D, $F, x
+command = ~D, D, x
 time = 10
 [Command]
 name = "22M"
-command = ~$D, $F, y
+command = ~D, D, y
 time = 10
 [Command]
 name = "22H"
-command = ~$D, $F, z
+command = ~D, D, z
 time = 10
 [Command]
-name = "22H"
-command = ~$D, $F, c
+name = "22R"
+command = ~D, D, c
 time = 10
 
 [Statedef -1]
@@ -88,13 +88,10 @@ var(1) = 0
 
 [State -1, Combo condition Check]
 type = VarSet
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = 656 || stateno = 670
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger2 = stateno!=421
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 105
+trigger1 = statetype != A && ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600, 640]
+trigger2 = movecontact
+trigger3 = stateno = [100,105] || stateno = 60
 var(1) = 1
 
 ;===========================================================================
@@ -163,7 +160,7 @@ trigger2 = ctrl ||stateno = 100 && time > 3
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = Map(DoubleJump)  < 2
+triggerall = Map(DoubleJump)  < 1
 triggerall = command = "up"
 trigger1 = ctrl && stateno!= [40,60]
 
@@ -171,7 +168,7 @@ trigger1 = ctrl && stateno!= [40,60]
 type = ChangeState
 value = 45
 triggerall = command = "up" || movecontact && command = "holdup"
-triggerall = Map(DoubleJump) < 2
+triggerall = Map(DoubleJump) < 1
 trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 30)
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = hitdefattr = A, NA
@@ -259,11 +256,9 @@ type = ChangeState
 value = 1010
 triggerall = command = "214L"
 triggerall = !map(EN) || stateno = 40
-triggerall = statetype != A || stateno = 40
+triggerall = statetype != A
 trigger1 = ctrl || stateno = 40
 trigger2 = var(1)
-trigger3 = stateno = 100
-trigger4 = stateno = 801 && movecontact
 
 ;4SEN - Wandering Serpent (Ground)
 [State -1, Spotdodge]
@@ -271,11 +266,8 @@ type = ChangeState
 value = 1011
 triggerall = command = "214L" && prevstateno != 1010 || command = "214L_unbuffer" && prevstateno = 1010 
 triggerall = map(EN) || map(StrikeCount) = 2
-trigger1 = statetype != A
-trigger1 = ctrl || map(StrikeCount) = 2
-trigger2 = var(1)
-trigger2 = movecontact
-trigger3 = stateno = 100 && time > 2
+triggerall = statetype != A
+trigger1 = var(1) || map(StrikeCount) = 2
 
 ;===========================================================================
 ;236M - Strike the Earth
@@ -283,6 +275,7 @@ trigger3 = stateno = 100 && time > 2
 type = ChangeState
 value = 1200
 triggerall = command = "236M"
+triggerall = statetype != A
 trigger1 = var(1)
 trigger2 = stateno = 100 && time > 2
 
@@ -290,8 +283,8 @@ trigger2 = stateno = 100 && time > 2
 [State -1, Stomp]
 type = ChangeState
 value = 1100
-triggerall = command = "236H"
-trigger1 = statetype != A
+triggerall = command = "236H" && command != "426H"
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 100 && time > 2
@@ -301,22 +294,35 @@ trigger3 = stateno = 100 && time > 2
 type = ChangeState
 value = 1090
 triggerall = command = "214M"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 100 && time > 2
 
 ;===========================================================================
-;j2S: FASTFALL
-[State -1, Jotunn's Wrath]
+;j22L: HOP
+[State -1, Fastfall]
+type = changeState
+value = 651
+triggerall = command = "22L"
+triggerall = statetype = A
+trigger1 = var(1) || ctrl || stateno = 652 && movecontact
+
+;j22M: HOP
+[State -1, Fastfall]
+type = changeState
+value = 652
+triggerall = command = "22M"
+triggerall = statetype = A
+trigger1 = var(1) || ctrl || stateno = 650
+
+;j22H FASTFALL
+[State -1, Fastfall]
 type = changeState
 value = 650
-triggerall = command = "holddown" && command = "b"
+triggerall = command = "22H"
 triggerall = statetype = A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 60
-trigger4 = movecontact && stateno = [600,640]
+trigger1 = var(1) || ctrl || stateno = 651
 
 ;5S: One-Inch Punch
 [State -1, One Inch Punch]
@@ -388,9 +394,8 @@ type = ChangeState
 value = 702 + 1*(Map(EnState))
 triggerall = command = "c"
 triggerall = command = "holddown"
-trigger1 = statetype !=A
+triggerall = statetype !=A
 trigger1 = var(1)
-trigger1 = ctrl
 trigger2 = stateno = [200,230] || stateno = [400,431]
 trigger2 = movecontact
 trigger3 = stateno = [100,101]
@@ -400,7 +405,7 @@ type = ChangeState
 value = 700 + 1*(MAP(EnState))
 triggerall = command = "c"
 triggerall = prevstateno != 632
-trigger1 = statetype !=A && stateno != 704
+triggerall = statetype !=A && stateno != 704
 trigger1 = var(1)
 trigger1 = ctrl
 trigger2 = stateno = [200,230] || stateno = [400,431]
