@@ -1948,7 +1948,7 @@ bgm = "sound\ANGOUS\buster.wav"
 
 [State 0, PlaySnd] ;HATRED
 type = PlayBgm
-trigger1 = animelem = 9 && palno = 9 && roundno = 3 && gamemode != "Training"
+trigger1 = animelem = 9 && palno = 6 && roundno = 3 && gamemode != "Training"
 bgm = "sound\ANGOUS\gabeinstall.mp3"
 
 [State 0, PlaySnd] ;RATED R
