@@ -112,18 +112,19 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 
 [Constants]
 ; NegativeStates.cns states
-StateTagAssist = 1005
-AnimAerialAttack = 620
-StateTagSuperAssist = 3000
-StateTagSuperAssist2  =3100
-MVCIActiveSwitch  = 0
+switchAirAttack = 546 ; ANIM: switch air attack.
+snapBackAttack = 230 ; ANIM: snapback attack
+snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
+StateTagAssistSuper = 425 ; STATENO: normal assist attack
+StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
+tauntWhileWaitingForPartners = 10 ; ANIM: If mvc1switch is on, taunt after switch. Used on switch attack or triple menace.
 
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
 [Quotes]
 ; Up to 100 victory quotes can be specified per language (victory0 - victory99)
-victory1 = "Nothing can match the power of the Zetabrand."
+victory1 = "No one can match the power of the Zetabrand."
 victory2 = "KAMEHAMEHA!"
 victory3 = "I love you."
 victory4 = "Was that even your final form?"
@@ -189,7 +190,49 @@ type = S
 [State 180, 1]
 type = ChangeState
 trigger1 = Time = 0
-value = 182
+value = 181+random%2
+
+
+
+
+;---------------------------------------------------------------------------
+; Win 1 - basic
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= time 	=  0	        ;+
+time 		= 650				        ;+
+length 		= 25   				        ;+
+timegap 		= 2				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 93, 64, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+
+[State 182, ACTUAL win lines]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 775, (0+(Random%3))
+channel = 5
+volumescale = 140
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = Roundstate > 3
+flag = Nobardisplay
+
+[State 170, AssertSpecial]
+type = AssertSpecial
+trigger1 = time<80
+flag = roundnotover
+
+
+
 
 ;---------------------------------------------------------------------------
 ; Win 2 - troll
@@ -207,14 +250,14 @@ time 		= 650				        ;+
 length 		= 25   				        ;+
 timegap 		= 4				        ;+
 ignorehitpause 	= 1 				        ;+
-paladd		= 93, 64, 191			        ;+
+paladd		= 93, 64, 220			        ;+
 trans 		= add				        ;+
 persistent 	= 0				        ;+
 
 [State 182, wtf girl]
 type = PlaySnd
 trigger1 = animelem = 1
-value = 9000, (0+(Random%5))
+value = 9000, (0+(Random%6))
 channel = 4
 
 [State 182, wtf is you doin]
@@ -234,7 +277,6 @@ volumescale = 200
 type = AssertSpecial
 trigger1 = time<690
 flag = Nobardisplay
-flag = timerfreeze
 flag2 = NoFG
 flag3 = Noshadow
 ignorehitpause = 1
@@ -337,6 +379,8 @@ ctrl = 0
 anim = 190
 velset = 0
 
+
+
 [State 8990, AssertSpecial]
 type = AssertSpecial
 trigger1 = RoundState < 3
@@ -349,15 +393,10 @@ value = 666,0
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = time = 0
+trigger1 = roundstate = 2
 v = 59    ;fv = 10
 value = 1
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-v = 41    ;Activate 5R automatically
-value = 1
 
 [State 191, 2] ;Assert this until you want "round 1, fight" to begin
 type = AssertSpecial
@@ -421,18 +460,27 @@ type = StateTypeSet
 trigger1 = stateno = 200
 movetype = A        ;I,A,H
 
+[State 0, VarSet]
+type = VarSet
+trigger1 = roundstate = 0
+v = 41    ;Activate 5R automatically
+value = 1
+
 [State Cancel]
 type = mapset
 trigger1 = !map(comboStateCheck)
 map = "FeintDCBurn"
 value = 0
 
+
+
+
+
 ;=============================================================================|
 ;=============================================================================|
 ;+++++++++++++++++NOT SO EDDY SPECIFIC STUFF! TENTION'S TURN +++++++++++++++++
 ;=============================================================================|
 ;=============================================================================|					
-
 
 ;| /////+++++++++++++++++++++\\\\\	|
 ;|\\\\\ ~ DASH CANCEL LIMITERS ~ /////	|
@@ -508,8 +556,18 @@ value = 1
 ;BURN SPECIALS
 [State Cancel]
 type = mapadd
-trigger1 = stateno = 100 && prevstateno = 1500
-map = "DCBurn5S"
+trigger1 = stateno = 100 && prevstateno = 1011
+map = "DCBurn6SL1"
+value = 1
+[State Cancel]
+type = mapadd
+trigger1 = stateno = 100 && prevstateno = 1012
+map = "DCBurn6SLvl2"
+value = 1
+[State Cancel]
+type = mapadd
+trigger1 = stateno = 100 && prevstateno = 1013
+map = "DCBurn6SLvl3"
 value = 1
 
 [State Cancel]
@@ -522,7 +580,6 @@ type = mapadd
 trigger1 = stateno = 100 && prevstateno = 1041
 map = "DCBurnEX4S"
 value = 1
-
 
 
 
@@ -599,7 +656,17 @@ value = 0
 [State Cancel]
 type = mapset
 trigger1 = enemy, movetype != H
-map = "DCBurn5S"
+map = "DCBurn6SL1"
+value = 0
+[State Cancel]
+type = mapset
+trigger1 = enemy, movetype != H
+map = "DCBurn6SLvl2"
+value = 0
+[State Cancel]
+type = mapset
+trigger1 = enemy, movetype != H
+map = "DCBurn6SLvl3"
 value = 0
 
 [State Cancel]
@@ -613,6 +680,9 @@ trigger1 = enemy, movetype != H
 map = "DCBurnEX4S"
 value = 0
 ;----------------- DASHES END
+;---------------------------------------------------------------
+
+
 
 
 
@@ -670,6 +740,8 @@ postype = left  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
 bindtime = -1
+pausemovetime = 999
+supermovetime = 999
 scale =0.48,0.48
 sprpriority = 9
 ontop = 1
@@ -689,6 +761,8 @@ facing = -1
 vfacing = 1
 bindtime = -1
 removetime = -2
+pausemovetime = 999
+supermovetime = 999
 scale =0.48,0.48
 sprpriority = 9
 ontop = 1
@@ -709,6 +783,8 @@ facing = 1
 vfacing = 1
 bindtime = -1
 removetime = -2
+pausemovetime = 999
+supermovetime = 999
 scale =0.545,0.545
 sprpriority = 9
 ontop = 2
@@ -728,6 +804,8 @@ facing = -1
 vfacing = 1
 bindtime = -1
 removetime = -2
+pausemovetime = 999
+supermovetime = 999
 scale =0.545,0.545
 sprpriority = 9
 ontop = 1
@@ -753,8 +831,13 @@ id = 6202
 
 
 ;| /////+++++++++++++++++++++\\\\\	|
-;|\\\\\ ~ REMIX LIMITERS STORED HERE ~ /////	|
+;|\\\\\ ~LIMITERS STORED HERE~ /////	|
 
+;6H - Limiter Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+Trigger1 = P2MoveType != H
+id = 90101
 
 ;5R - Straight Hands Limiter Removal
 [State 0, RemoveExplod]
@@ -774,11 +857,18 @@ type = RemoveExplod
 Trigger1 = P2MoveType != H
 id = 99752
 
+
 ;EX 4S - Limiter Removal
 [State 0, RemoveExplod]
 type = RemoveExplod
 Trigger1 = P2MoveType != H
 id = 99755
+
+;EX 6S - Limiter Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+Trigger1 = P2MoveType != H
+id = 99756
 ;=============================================================================|	
 ;------------------------------------------------
 

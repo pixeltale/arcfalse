@@ -28,35 +28,6 @@ trigger4 = stateno = 105
 trigger5 = stateno = 1203
 var(1) = 1
 
-;Gentleman's Beatdown
-;[State -1, Gentleman's Beatdown]
-;type = ChangeState
-;value = 3000
-;triggerall = command = "236X"
-;triggerall = power >= 2000
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = statetype != A
-;trigger2 = hitdefattr = SC, NA, SA, HA ;&& enemynear, movetype = H
-;trigger2 = movecontact
-;trigger3 = (stateno = [200,499]) && movecontact = 1 ;&& enemynear, movetype = H
-;trigger4 = stateno = 1303 
-;triggerall = stateno != [3000, 3001]
-
-;---------------------------------------------------------------------------
-;Gentleman Rising
-;[State -1, Gentleman Rising]
-;type = ChangeState
-;value = 3010
-;triggerall = command = "214X"
-;triggerall = power >= 2000
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = statetype != A
-;trigger2 = hitdefattr = SC, NA, SA, HA ;&& enemynear, movetype = H
-;trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-;trigger4 = stateno = 1303 
-;triggerall = stateno != 3010
 ;===========================================================================
 ;Super Jump
 [State -1, Super Jump]
@@ -94,7 +65,7 @@ trigger3 = vel y > -2
 type = ChangeState
 value = 60
 triggerall = command != "holdback"
-triggerall = command = "a66" || teammode != Tag && command = "M66"
+triggerall = command = "a66" || command = "M66"
 triggerall = Map(ADash) > 0
 triggerall = pos y<-30
 trigger1 = statetype = A 
@@ -105,7 +76,7 @@ trigger1 = ctrl
 [State -1, Backward Airdash]
 type = ChangeState
 value = 61
-triggerall = command = "a44" || teammode != Tag && command = "M44"
+triggerall = command = "a44" || command = "M44"
 triggerall = pos y<-30
 triggerall = Map(ADash) > 0
 trigger1 = statetype = A
@@ -113,69 +84,19 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 
-
-;---------------------------------------------------------------------------
-;[State -1, EX Gentle Dash]
-;type = ChangeState
-;value = 1120
-;triggerall = power>1000
-;triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
-;triggerall = command = "holdfwd"
-;triggerall = command != "holddown"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;---------------------------------------------------------------------------
-;[State -1, Gentle Dash]
-;type = ChangeState
-;value = 1100
-;triggerall = command = "b"
-;triggerall = command = "holdfwd"
-;triggerall = command != "holddown"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = stateno = 100
-
-;---------------------------------------------------------------------------
-;[State -1, EX Gentle Rocket]
-;type = ChangeState
-;value = 1310
-;triggerall = power>1000
-;triggerall = var(51)<=0
-;triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
-;triggerall = command = "holddown"
-;triggerall = command != "holdback"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger4 = stateno = 100
-;---------------------------------------------------------------------------
-;[State -1, Gentle Rocket]
-;type = ChangeState
-;value = 1300
-;triggerall = command = "b"
-;triggerall = command = "holddown"
-;triggerall = command != "holdback"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = stateno = 100
-
 [State -1, jS Kick]
 type = ChangeState
 value = 545
 triggerall = roundstate = 2 ;only attack during the round
 triggerall = command != "holdfwd"
 ;triggerall = command = "holddown"
-triggerall = command = "b"
+triggerall = command = "b" || command = "holdup" && command = "b"
 triggerall = statetype = A
 trigger1 = ctrl
+trigger2 = stateno != 546
 trigger2 = stateno = 1350 || stateno = 60
-trigger2 = stateno = 545
 trigger2 = var(1)
-trigger3 = movecontact 
-trigger4 = movehit && stateno = [600, 630]
+trigger3 = movehit && stateno = [600, 630]
 
 ;---------------------------------------------------------------------------
 [State -1, 4S EX Zetapalm]
@@ -183,12 +104,12 @@ type = ChangeState
 value = 1041
 triggerall = power>1000
 triggerall = !numexplod(99755) ;this is the EX 4S limiter
-triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
+triggerall = command = "b" && command = "c" || command = "EX" 
 triggerall = command = "holdback"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;---------------------------------------------------------------------------
+
 [State -1, 4S Zetapalm]
 type = ChangeState
 value = 1040
@@ -197,27 +118,35 @@ triggerall = command = "holdback"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
+;---------------------------------------------------------------------------
+[State -1, EX 6S]
+type = ChangeState
+value = 1014
+triggerall = roundstate = 2 ;only attack during the round
+triggerall = !numexplod(99756) ;this is the new ex limiter
+triggerall = power>1000
+triggerall = command = "EX"
+triggerall = command = "holdfwd"
+triggerall = fvar(22) = 0
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
 
-;---------------------------------------------------------------------------
-;[State -1, EX Gentle Thrust]
-;type = ChangeState
-;value = 1510
-;triggerall = power>1000
-;triggerall = var(50)<=0
-;triggerall = command = "b" && command = "c" || (command = "EX") && teammode != Tag
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger4 = stateno = 100
-;---------------------------------------------------------------------------
-;[State -1, Gentle Thrust]
-;type = ChangeState
-;value = 1500
-;triggerall = command = "b"
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = stateno = 100
+[State -1, 6S]
+type = ChangeState
+value = 1010
+triggerall = roundstate = 2 ;only attack during the round
+triggerall = command = "b"
+triggerall = command = "holdfwd"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+
+
+
+
+
 
 [State -1, 5R: Sword Activation]
 type = ChangeState
@@ -243,7 +172,7 @@ triggerall = command = "c"
 triggerall = command!="holddown" 
 triggerall = command!="holdfwd" 
 triggerall = command!="holddown" 
-triggerall = command="holdback" && command = "c" 
+triggerall = command="holdback"
 triggerall = command != "b"
 trigger1 = statetype != A
 trigger1 = var(1)
@@ -261,6 +190,47 @@ triggerall=command!="b"
 trigger1 = statetype != A
 trigger1 = var(1)
 
+;--------------------------------------------------------
+;===================AIR REMIXES==========================
+[State -1, j.5R]
+type = ChangeState
+value = 1046
+triggerall = var(41) != 1
+triggerall = command = "c"
+triggerall = command!="holdback" 
+triggerall = command!="holdfwd" 
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = movecontact && stateno = 600 || movehit && stateno = [610, 630]
+
+[State -1, j.4R]
+type = ChangeState
+value = 1047
+triggerall = var(42) != 1
+triggerall = command = "c"
+triggerall = command="holdback"
+triggerall = command!="holddown" 
+triggerall = command!="holdfwd" 
+triggerall = command!="holddown" 
+triggerall = command != "b"
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = movecontact && stateno = 600 || movehit && stateno = [610, 630]
+
+[State -1, j.6R]
+type = ChangeState
+value = 1048
+triggerall = var(43) != 1
+triggerall = command = "holdfwd"
+triggerall = command = "c"
+triggerall = command != "holddown"
+triggerall = command != "holdback"
+triggerall=command!="b"
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = movecontact && stateno = 600 || movehit && stateno = [610, 630]
+
+
 
 ;---------------------------------------------------------------------------
 ;Dash Fwd
@@ -268,7 +238,7 @@ trigger1 = var(1)
 type = ChangeState
 value = 100
 triggerall = command != "holdback" && command != "down"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 triggerall = statetype != A
 triggerall = stateno != 100
 trigger1 = ctrl
@@ -279,20 +249,10 @@ trigger2 = Map(DCFH) > 0 || Map(DCFB) > 0
 [State -1, Run Back]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 triggerall = stateno!=105
 triggerall = statetype != A
 trigger1 = ctrl 
-
-;Super Jump
-;[State -1, Super Jump]
-;type = ChangeState
-;value = 55
-;triggerall = statetype != A
-;triggerall = command = "28" || command = "27" || command = "29"
-;trigger1 = ctrl
-;trigger2 = Map(JCH) > 0 || Map(JCB) > 0
-;===========================================================================
 
 ;---------------------------------------------------------------------------
 ;Taunt
@@ -372,6 +332,7 @@ triggerall = var(41)
 triggerall = var(43) != 1
 triggerall = var(42) != 1
 triggerall = command = "z"
+triggerall = command != "holdfwd"
 triggerall = command != "holddown"
 trigger1 = statetype = S
 trigger1 = ctrl
@@ -565,7 +526,7 @@ trigger3 = movecontact
 type = ChangeState
 value = 100
 triggerall = command != "holdback"
-triggerall = command = "66" || teammode != Tag && command = "M66"
+triggerall = command = "66" || command = "M66"
 triggerall = movehit
 triggerall = statetype != A
 triggerall = !numexplod(10100) 
@@ -574,7 +535,7 @@ trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || s
 [State 100, Back Dash Cancel]
 type = ChangeState
 value = 105
-triggerall = command = "44" || teammode != Tag && command = "M44"
+triggerall = command = "44" || command = "M44"
 triggerall = movehit
 triggerall = statetype != A
 triggerall = !numexplod(10100) 

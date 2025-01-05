@@ -579,7 +579,7 @@ value = 4
 [state 100,5]
 type = ChangeState
 triggerall = var(41) >= 1
-trigger1 = time > 12 && command = "44" || teammode != Tag && command = "M44"
+trigger1 = time > 12 && command = "44" || command = "M44"
 value = 61
 ctrl = 1
 
@@ -832,7 +832,7 @@ ctrl = 0
 [State 0, AfterImage] ;DC Afterimage Effect             ============ ++
 type 		= AfterImage			        ;+
 trigger1 		= time =  0			        ;+
-trigger1		= prevstateno = [200,211] || prevstateno = 216 || prevstateno = 220 || prevstateno = 225 || prevstateno = 230 || prevstateno = 400 || prevstateno = 410|| prevstateno = 420 || prevstateno = 425 || prevstateno = 430 || prevstateno = 1040 || prevstateno = 1041	         ;+
+trigger1		= prevstateno = [200,211] || prevstateno = 216 || prevstateno = 220 || prevstateno = 225 || prevstateno = 230 || prevstateno = 400 || prevstateno = 410|| prevstateno = 420 || prevstateno = 425 || prevstateno = 430 || prevstateno = 1040 || prevstateno = 1041 || prevstateno = [1011,1012] || prevstateno = 1013         ;+
 time 		= 5				        ;+
 length 		= 12   				        ;+
 timegap 		= 2
@@ -917,15 +917,12 @@ triggerall = var(43) >= 1
 trigger1 = time=[2,8]
 x = 4
 
-[State 100, 2]
-type = PlaySnd
-trigger1 = time = 20
-value = 900, 0
-
 [State 100, 2.5] ; Zip Zip, Teleport
 type = PlaySnd
 trigger1 = time = 0
 value = 9, 0
+volumescale = 83
+channel = 4
 
 [State 0, VelSet]
 type = VelSet
@@ -1038,7 +1035,7 @@ value = 1
 [state 100,5]
 type = ChangeState
 triggerall = var(41) >= 1
-trigger1 = time > 14 && command = "44" || teammode != Tag && command = "M44"
+trigger1 = time > 14 && command = "44" || command = "M44"
 value = 105
 ctrl = 1
 
@@ -1098,6 +1095,8 @@ value = 900, 1
 type = PlaySnd
 trigger1 = time = 2
 value = 9, 1
+volumescale = 82
+channel = 6
 
 [State 0, Explod]
 type = Explod
@@ -1317,156 +1316,6 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 ;-------------------------------------------------------
-
-
-
-
-;Burst Mechanic ;only here for the voiceline lol
-[Statedef 900]
-type    = A
-movetype= H
-physics = N
-poweradd = 0
-ctrl = 0
-anim = 900
-sprpriority = 2
-velset = 0,0
-facep2 = 1
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = time=5
-value = 441,0
-channel = 1
-volumescale = 190
-
-[state 40, MapSet] ;Burstgauge Drain
-type = MapAdd
-trigger1 = !time
-map = "BurstGauge"
-value = -999
-
-[state 40, MapSet]  ;Lock out burst gain until landing, second half of this code is in -2
-type = MapSet       ;Under "Burst Calculations"
-trigger1 = !time
-map = "BurstGauge_Lockout"
-value = 1
-
-[State 0, Turn]
-type = Turn
-trigger1 = p2dist x < 0
-ignorehitpause = 1
-
-[State 0, RC LOCKOUT]
-type 		= MapSet
-trigger1 	= 1
-map 		= "ScratchLockout"
-value 		= 70
-ignorehitpause 	= 1
-
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = time = 0
-time = 15
-add = 50,50,50
-mul = 256,256,256
-sinadd = 10,10,10,10
-invertall = 0
-color = 256
-
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time = 0
-value = SCA
-time = 32
-
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = animelem = 1
-y = -1
-[State 0, VelSet]
-type = VelSet
-trigger1 = animelem =2
-y = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0
-v = 15     
-value = -1000
-
-[State -3, Burst Announcer]
-type = PlaySnd
-trigger1 = animelem=2
-value = 7412, (0+(Random%2))
-
-[State 210, 1]
-type = PlaySnd
-trigger1 = time = 0
-value = 9174,1
-
-[State 0, Explod]
-type = Explod
-trigger1 = animelem = 2
-anim = F1010
-ID = 1010
-pos = 10,-60
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-removetime = -2
-pausemovetime = 0
-scale = 1,1
-sprpriority = -1
-ontop = 0
-
-[State 0]
-type = hitdef 
-p2facing 			= 1
-trigger1 			= !movecontact && !movereversed
-attr 			    = A, HA
-animtype  		    = hard
-damage 			    = 0,0
-hitflag 			= MAF
-guardflag 		= MA
-pausetime 		= 10,10
-sparkno 			= -1
-sparkxy 			= -10,0
-hitsound   		= 5,3
-guardsound 		= 6,2
-ground.type 		= HIGH
-air.type 			= HIGH
-airguard.velocity   = -2*(cond(p2dist x >= 0, 1, -1))
-ground.slidetime 		= 9999
-ground.hittime  		= 9999
-air.hittime  		    = 9999
-ground.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)),-5
-air.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)), -5
-down.velocity 		= -1*(cond(p2dist x >= 0, 1, -1)),0
-ground.cornerpush.veloff 	= 0
-down.cornerpush.veloff 	= 0
-air.cornerpush.veloff 	= 0
-guard.hittime 		= 10
-guard.pausetime		= 12,12
-guard.velocity 		= -3*(cond(p2dist x >= 0, 1, -1))
-guard.dist 		    = 20
-guard.slidetime 	= 15;
-fall 			    = 1
-air.fall 			= 1
-fall.yvelocity 		= 0
-poweradd            = 0
-
-
-
-[State 0, ChangeState]
-type = SelfState
-trigger1 = animtime = 0 
-value = 69002
-ctrl = 0
-
-
 
 
 ;---------------------------------------------------------------------------

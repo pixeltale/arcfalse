@@ -1,0 +1,40 @@
+=======TENTIONMARU V2 - Quick Notes=====
+
++ **Compatible with tag!** (thanks Curses)
++ **New Bat sound effects!** (thanks, Fil!)
+
+BUFFS
++ Increased air velocity on 4M. Didn't see this move get used a lot.
++ 4M grounded hit now connects easier
++ Can airdash cancel Falcon Knee
++ Increased Bat 5H minimum damage scaling.
++ Increased wallbounce velocity for Bat 5H
++ Decreased landing lag on Bat J.H
++ Decreased air velocity on 4S (allows for more combo opportunities)
+
+NERFS
+- 5L went from +1 to -1 on block
+- Decreased grounded hittime on 5M
+- 6H is now limited to one groundbounce
+- Decreased hit time for Bat 5H
+- Decreased anti-air invulnerability on Bat 2H
+- Decreased hittime for final hit of Bat 2H
+- Decreased velocity on bat 2H
+
+FIXES
++/ Hurtbox/Hitbox fixes all around 
++/ Adjusted sound effect volume
++/ New SFX for bat 5H
++/ Fixed 4M sending you to the moon
++/ Fixed alignment on grab
++/ Fixed 6R not being properly limited
++/ Removed palFX from EX 4S
+
+
+
+
+
+
+
+
+**MORE THINGS I FORGOT!**

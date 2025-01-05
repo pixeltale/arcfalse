@@ -16,26 +16,29 @@ SPINMARU	-		_F^C
 	<#383371>SPECIAL MOVES</>
 ZETAPALM	-		_B^Y
    <#bbbbbb>A fast-moving straight punch. Slight invulnerability on startup.
-   <#bbbbbb>Stuns on counter hit, wallbounces on counter in 6R form.</>
+   <#bbbbbb>!! Stuns on counterhit, wallbounces on counterhit in Sword form.</>
+GOD HAND	-		_F^Y
+   <#bbbbbb>A chargeable punch, which gets devastating the longer you hold.
+   <#bbbbbb>!! If this move is fully charged, it becomes unblockable.</>
 ZETAKICK	-		<#65b5ff>(AIR ONLY)</>  ^Y
    <#bbbbbb>A quick, self cancellable downwards swoop. Chargeable.</>
    <#bbbbbb>!! Additionally, you can slightly influence its direction by holding _U or _D.</>
 
 	<#383371>REMIX MOVES</>
-STRAIGHT HANDS	    -		^Z
+STRAIGHT HANDS	-		<#65b5ff>(AIR OK)</>  ^Z
    <#bbbbbb>Tentionmaru swaps his form to straight hands,
    with a familiar toolset of heavy normals and blistering speed.</>
 _!QUIRK	            -		
         <#bbbbbb>Tenitonmaru's forward dashes now pass through the opponent.
-        This potentially increases sword form's damage output even further.</>
-BATTER UP!	        -		_B^Z
+        Your ground movement and air movement speed is also increased.</>
+BATTER UP!	-		<#65b5ff>(AIR OK)</>  _B^Z
    <#bbbbbb>Switches your heavies to baseball bat form,
-   with some quirky but fun to utilize multihitting normals.</>
-TENTION SWORD	    -		_F^Z
+   with some quirky but fun to utilize multihitting normals. Disjointed.</>
+TENTION SWORD	-		<#65b5ff>(AIR OK)</>  _F^Z
    <#bbbbbb>Switches your heavies to sword form, with an extremely
    damaging base output. Slower movement speed.</>   
 _!QUIRK	            -		
-        <#bbbbbb>The combo starting level of several moves is increased by one.
+        <#bbbbbb>The starting level of several moves is increased by one.
         This potentially increases sword form's damage output even further.</>
 		
 		
@@ -43,6 +46,8 @@ _!QUIRK	            -
 	<#ffef0f>EX MOVES</>
 _EX ZETAPALM	-		<#55ffff>(1 BAR)</> _B^Y+^Z
    <#bbbbbb>A quick moving palm smash. Puts the opponent in sliding knockdown.</>
+_EX GOD HAND	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+   <#bbbbbb>Combo starter. Wallbounces the opponent on hit.</>
 
 	UNIVERSAL MOVES
 SUPERJUMP	-		_D_U
