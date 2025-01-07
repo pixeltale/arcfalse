@@ -8937,15 +8937,15 @@ ignorehitpause = 1
 ;===============================================================================
 [State -2, Combo Rate Calculation - Normal Hit]
 type 		= MapSet
-trigger1 	= map(ComboTimer) && !map(CHStarter)
+trigger1 	= map(ComboStateCheck) && !map(CHStarter)
 map 		= "CR"
 value 		= 0.80	;80% DMG Limit
 ignorehitpause 	= 1
 [State -2, Combo Rate Calculation - Counter Hit]
 type 		= MapSet
-trigger1 		= map(ComboTimer) && map(CHStarter)
+trigger1 		= map(ComboStateCheck) && map(CHStarter)
 map 		= "CR"
-value 		= 1	;90% DMG Limit
+value 		= 0.90
 ignorehitpause 	= 1
 
 [State -2, P2 - Accumulation - Start]

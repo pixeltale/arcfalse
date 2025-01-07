@@ -4,6 +4,27 @@
 command.time = 15
 command.buffer.time = 3
 
+[Command]
+name = "unbuffer_5S"
+command = b
+time = 1
+buffer.time = 0
+[Command]
+name = "unbuffer_ATK"
+command = x
+time = 1
+buffer.time = 0
+[Command]
+name = "unbuffer_ATK"
+command = y
+time = 1
+buffer.time = 0
+[Command]
+name = "unbuffer_ATK"
+command = z
+time = 1
+buffer.time = 0
+
 [Statedef -1]
 
 ;===========================================================================
@@ -316,7 +337,6 @@ trigger1 = ctrl
 trigger2 = (stateno = 200) && movecontact
 trigger3 = (stateno = 210) && movecontact
 trigger4 = (stateno = 1203) && time > 5
-trigger5 = stateno = [100, 110] && time > 11
 
 [State -1, 5H]
 type = ChangeState

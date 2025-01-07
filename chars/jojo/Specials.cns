@@ -717,7 +717,7 @@ type = hitdef
 p2facing = 1
 trigger1 = !movereversed && !movecontact
 attr = S, SA
-damage = 100 + 100 * MAP(CounterHit)
+damage = (100 * map(P4)) + 100 * MAP(CounterHit)
 animtype  = Medium
 hitflag = MAFD
 guardflag = HA
@@ -834,7 +834,7 @@ p2facing = 1
 triggerall = !movecontact && !movereversed
 trigger1 = (enemy,statetype = A || enemy,statetype = L)
 attr = S, SA
-damage = 150 + 200 *MAP(COUNTERHIT), 40
+damage = (150 * map(P4)) + 200 *MAP(COUNTERHIT), 40
 animtype  = Medium
 hitflag = MAFD
 guardflag = HA
@@ -1163,11 +1163,6 @@ ontop = 1
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
-;ignorehitpause =
-;trans = 
-;persistent =
-;supermove = 0
-;pausemove = 0
 
 
 [State 0, Explod]

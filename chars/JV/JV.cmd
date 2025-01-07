@@ -219,7 +219,6 @@ triggerall = statetype != A || stateno = 40
 trigger1 = ctrl || stateno = 40
 trigger2 = var(1)
 trigger3 = stateno = 100
-trigger4 = stateno = 801 && movecontact
 
 ;4SEN - Wandering Serpent (Ground)
 [State -1, Spotdodge]

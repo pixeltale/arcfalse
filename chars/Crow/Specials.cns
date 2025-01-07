@@ -176,7 +176,7 @@ triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= (100 - p2dist x*0.25)*map(P4), 50
+damage 			= (100 - p2dist x*0.25), 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -369,7 +369,7 @@ triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= (100 - p2dist x*0.25)*map(P4), 50
+damage 			= (100 - p2dist x*0.25), 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -559,7 +559,7 @@ triggerall		= enemy, statetype = A || map(ComboStateCheck)
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= (100 - p2dist x*0.25)*map(P4), 50
+damage 			= (100 - p2dist x*0.25), 50
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1086,6 +1086,9 @@ airguard.velocity = -6,0
 fall.yvelocity = 0
 fall  = 1
 air.fall = 1
+ground.cornerpush.veloff = -10 / MAP(untechMOD)
+air.cornerpush.veloff = -15 / MAP(untechMOD)
+down.cornerpush.veloff = -10 / MAP(untechMOD)
 envshake.time = 14
 envshake.freq = 70
 envshake.ampl = 8
@@ -1330,9 +1333,9 @@ sparkxy 		= -15,-40
 hitsound   	= 5,3
 guardsound 	= 6,2
 ground.type 	= high
-ground.hittime  	= 22-MAP(untechDecay)
-air.hittime  	= 30-MAP(untechDecay)
-down.hittime 	= 60-MAP(untechDecay)
+ground.hittime  	= 22* MAP(untechMOD)
+air.hittime  	= 30* MAP(untechMOD)
+down.hittime 	= 60* MAP(untechMOD)
 ground.velocity = -3
 down.velocity 	= -3,-3.5
 air.velocity 	= -1.5,-4

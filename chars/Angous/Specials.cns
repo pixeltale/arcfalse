@@ -5133,13 +5133,13 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1.2	;90% Starting DMG
+value 		= 0.90	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 1	;85% DMG For next hit
+value 		= 0.90	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -5285,7 +5285,7 @@ type = hitdef
 p2facing = 1
 trigger1 = time = 0
 attr = S, SA
-damage = 150*MAP(P4), 15
+damage = 100*MAP(P4), 15
 animtype  = Medium
 hitflag = MAFDP
 guardflag = MA
@@ -5323,7 +5323,7 @@ type 	= hitdef
 p2facing 	= 1
 trigger1 	= MAP(CounterHit)
 attr 		= S, SA
-damage 		= 200*MAP(P4)
+damage 		= 150*MAP(P4)
 animtype  	= Medium
 hitflag 	= MAFDP
 guardflag 	= MA

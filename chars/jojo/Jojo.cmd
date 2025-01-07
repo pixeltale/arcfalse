@@ -158,9 +158,9 @@ triggerall = command!="holddown"
 triggerall = command!="holdback"
 triggerall = command!="holddown" 
 triggerall = command = "MistStep"
-triggerall = stateno!=[2000,2001]
+triggerall = stateno!=[2000,2001] && !(stateno = 100 && time < 5)
 trigger1 = statetype != A
-trigger1 = ctrl || stateno = [100, 105]
+trigger1 = ctrl
 trigger2 = var(1)
 
 [State -1, 6S: Flurry]

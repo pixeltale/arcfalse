@@ -431,15 +431,16 @@ sparkxy 	= -5,-15
 hitsound   	= 5,2
 guardsound 	= 6,1
 ground.type 	= trip
+air.type		= low
 animtype 	= medium
 ground.slidetime = 14
 ground.hittime  = 31
-ground.velocity = -3,-4
-down.velocity 	= -3,-5
+ground.velocity = -3,-4 * MAP(untechMOD)
+down.velocity 	= -3,-3 * MAP(untechMOD)
 fall 		= 1
 air.fall 		= 1
 air.velocity 	= -3,-2.75
-air.hittime 	= 24
+air.hittime 	= 24 * map(UntechMOD)
 guard.slidetime 	= 5
 guard.hittime 	= 30
 guard.ctrltime 	= 13
@@ -849,18 +850,6 @@ ctrl = 0
 anim =10100
 sprpriority = 2
 
-[State 0, Width]
-type = Width
-trigger1 = stateno = 1120
-edge = -10,-10
-ignorehitpause = 1
-
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time = 5 
-value = ,NA,SA,HA,NP,SP,HP
-time = 5
-
 [State 200, 2] ;Voice
 type = PlaySnd
 trigger1 = animelem = 2
@@ -919,11 +908,6 @@ removeongethit = 0
 type = PlaySnd
 trigger1 = animelem = 3
 value = 0, 3
-
-[State 0, PlayerPush]
-type = PlayerPush
-trigger1 = 1
-value = 0
 
 [State 0, Explod]
 type = Explod
@@ -990,6 +974,16 @@ type = VelSet
 trigger1 = animelem = 2
 x = 13
 y = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "unbuffer_ATK"  && time >= 5
+value = 1001
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "unbuffer_5S"  && time >= 5
+value = 1002
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1123,8 +1117,8 @@ ground.slidetime 	= 14
 ground.hittime 	= ceil(cond(fvar(16) *23 < 9, 9, fvar(16) * 23))
 air.hittime  	= ceil(cond(fvar(16) *24 < 9, 9, fvar(16) * 24))
 down.hittime 	= ceil(cond(fvar(16) *24 < 9, 9, fvar(16) * 24))
-ground.velocity 	= -3,-3 * map(GravMul)
-air.velocity 	= -3,-3 * map(GravMul)
+ground.velocity 	= -3,-3 * MAP(untechMOD)
+air.velocity 	= -3,-3 * MAP(untechMOD)
 fall.yvelocity 	= -1
 fall.xvelocity 	= -1
 envshake.time 	= 9
@@ -1154,8 +1148,8 @@ ground.slidetime 	= 14
 ground.hittime  	= cond(map(UpperBurn), 10, 300)
 air.hittime  	= cond(map(UpperBurn), 10, 300)
 down.hittime 	= cond(map(UpperBurn), 10, 300)
-ground.velocity 	= -2,-5 * map(GravMul)
-air.velocity 	= -2,-6 * map(GravMul)
+ground.velocity 	= -2,-3 * MAP(untechMOD)
+air.velocity 	= -2,-5 * MAP(untechMOD)
 air.fall 		= 1
 fall		= 1
 fall.yvelocity 	= 0
@@ -1230,12 +1224,10 @@ persistent 		= 0
 
 [State 0, Width]
 type = Width
+triggerall = movehit
 trigger1 = animelem = 11
 edge = -10,-10
-;player = 5,5
-;value = 0,0
 ignorehitpause = 1
-;persistent = 
 
 [State 200, 2]
 type = PlaySnd
@@ -1307,8 +1299,8 @@ ground.type 		= high
 air.type 		= trip
 animtype 		= hard
 ground.slidetime 	= 14
-ground.hittime  	= 38-map(UntechDecay)
-air.hittime  		= 28-map(UntechDecay)
+ground.hittime  	= 38* MAP(untechMOD)
+air.hittime  		= 28* MAP(untechMOD)
 down.hittime 		= 40
 ground.velocity 	= 0.5
 air.velocity 		= -1.2,	16
@@ -1831,8 +1823,8 @@ animtype 		= medium
 air.animtype 	= back
 ground.slidetime 	= 14
 ground.hittime  	= 80
-ground.velocity 	= -11,-7 * map(GravMul)
-air.velocity 	= -11,-7 * map(GravMul)
+ground.velocity 	= -11,-7 * MAP(untechMOD)
+air.velocity 	= -11,-7 * MAP(untechMOD)
 air.hittime 	= 80
 down.hittime	= 80
 envshake.time 	= 7
@@ -1868,8 +1860,8 @@ animtype 		= medium
 air.animtype 	= back
 ground.slidetime 	= 14
 ground.hittime  	= 80
-ground.velocity 	= -11,-7 * map(GravMul)
-air.velocity 	= -11,-7 * map(GravMul)
+ground.velocity 	= -11,-7 * MAP(untechMOD)
+air.velocity 	= -11,-7 * MAP(untechMOD)
 air.hittime 	= 80
 down.hittime	= 80
 envshake.time 	= 7
@@ -1972,7 +1964,7 @@ damage = 50*MAP(P4), 5
 hitflag = MAF
 guardflag = MA
 priority = 3
-pausetime = 18,18
+pausetime = 10,10
 guard.hittime = 5
 sparkno = 1
 sparkxy = -35,-35
@@ -1982,12 +1974,12 @@ ground.type = Low
 animtype = medium
 air.animtype = back
 ground.slidetime = 14
-ground.hittime  = 99 - MAP(untechDecay)
-air.hittime  = 99 - MAP(untechDecay)
-down.hittime = 99 - MAP(untechDecay)
-ground.velocity = -1,-12
+ground.hittime  = 99 * MAP(untechMOD)
+air.hittime  = 99 * MAP(untechMOD)
+down.hittime = 99 * MAP(untechMOD)
+ground.velocity = -1,-10  * MAP(untechMOD)
 down.velocity = -1, -8
-air.velocity = -1,-5
+air.velocity = -1,-4 * MAP(untechMOD)
 envshake.time = 15
 envshake.freq = 10
 envshake.ampl = 2
@@ -2315,8 +2307,8 @@ animtype = hard
 ground.slidetime = 14
 ground.hittime  = 23
 ground.velocity = -5,12
-air.velocity = -5 - map(untechDecay),12
-air.cornerpush.veloff = -5 - map(untechDecay)
+air.velocity = -5 * MAP(untechMOD),12
+air.cornerpush.veloff = -5 * MAP(untechMOD)
 air.hittime = 24
 fall = 1
 envshake.time = 20
@@ -2760,7 +2752,7 @@ getpower 		= 0
 air.velocity 	= -1,18
 fall.xvelocity 	= -1
 fall.yvelocity 	= 0
-air.hittime 	= 50-map(UntechDecay)
+air.hittime 	= 50* MAP(untechMOD)
 envshake.time 	= 45
 envshake.freq 	= 10
 envshake.ampl 	= 2
