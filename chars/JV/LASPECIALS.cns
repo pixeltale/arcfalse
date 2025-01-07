@@ -1135,7 +1135,7 @@ ground.type 	= Low
 air.type		= Low
 ground.slidetime 	= 12
 ground.hittime  	= 35
-air.hittime  	= 30 * MAP(untechMOD)
+air.hittime  	= 24 * MAP(untechMOD)
 down.hittime	= 99
 ground.velocity 	= -1, -8
 air.velocity 	= -2, 14
@@ -3830,8 +3830,9 @@ down.hittime = 34
 envshake.time = 7
 fall = 1
 fall.yvelocity = 0
-guard.slidetime = 21
-guard.ctrltime = 18
+guard.slidetime = 25
+guard.velocity = -12
+guard.ctrltime = 12
 getpower = 0
 
 ;ARMOR ============================++++
@@ -3896,13 +3897,13 @@ ignorehitpause 	= 1
 
 [State -2, FRC]
 type 		= MapSet
-trigger1 		= animelemno(0) = 7
+trigger1 		= animelemno(1) = 7
 map 		= "FRC"
 value 		= 1
 ignorehitpause 	= 1
 [State -2, FRC]
 type 		= MapSet
-trigger1 		= animelemno(0) = 8
+trigger1 		= animelemno(2) = 8
 map 		= "FRC"
 value 		= 0
 ignorehitpause 	= 1

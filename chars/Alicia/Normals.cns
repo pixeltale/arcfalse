@@ -1304,8 +1304,8 @@ air.type = trip
 ground.slidetime = 12
 ground.hittime  = 17
 fall.yvelocity = 0
-ground.velocity = 5, -2.5
-air.velocity = 4,-3.5
+ground.velocity = -5, -1.5
+air.velocity = -4,-1.5
 fall = 1
 getpower = 0
 
