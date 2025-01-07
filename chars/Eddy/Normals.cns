@@ -1788,7 +1788,7 @@ sprpriority = 2
 type 		= ParentMapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1.1	;110% Starting DMG
+value 		= 0.90	;110% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= ParentMapSet
@@ -1850,13 +1850,12 @@ hitsound   = 5,0
 guardsound = 6,0
 ground.type = Low
 ground.slidetime = 8
-ground.hittime  = 20
-air.hittime  = 16;ceil(cond(fvar(15) *18 < 9, 9, fvar(15) * 18))
-down.hittime = 16;ceil(cond(fvar(15) *18 < 9, 9, fvar(15) * 18))
+ground.hittime  = 5
+air.hittime  = 5
+down.hittime = 5
 ground.velocity = -5
-air.velocity = 1.5,-3;
+air.velocity = 1.5,-3
 airguard.velocity = 1.5,-3
-;p2stateno = cond(enemynear, statetype !=A, 15000,715020)
 fall.yvelocity = 0
 air.fall = 1
 guard.slidetime = 5
