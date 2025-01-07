@@ -21,7 +21,7 @@ buffer.time = 10
 [Command]
 name = "214L"
 command = ~$D, B, x
-buffer.time = 10
+buffer.time = 5
 [Command]
 name = "214L_unbuffer"
 command = ~$D, B, x

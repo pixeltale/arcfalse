@@ -472,7 +472,7 @@ value = 0
 [State 0, LifeAdd]
 type = LifeAdd
 trigger1 = life < 300 && !movetype = H
-trigger1 = time % 2 = 0
+trigger1 = time % 3 = 0
 value = 4
 persistent = 1
 
@@ -507,10 +507,6 @@ value = 2
 type = DefenceMulSet
 trigger1 = life < 50
 value = 2.2
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = life < 30
-value = 2.6
 
 
 [State 0, Custom Afterimage]
