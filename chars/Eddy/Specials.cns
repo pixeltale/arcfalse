@@ -422,28 +422,26 @@ trigger1 	= time = 0 && (enemynear, stateno!= [5110,5119])
 hitonce 	= 1
 attr 		= S, SA
 damage 		= 90*map(P4) + 10, 5
-hitflag 	= MAFD
+hitflag 		= MAFD
 guardflag 	= LA
-priority 	= 3
 pausetime 	= 16,16
-sparkno 	= 1
-sparkxy 	= -5,-15
+sparkno 		= 1
+sparkxy 		= -5,-15
 hitsound   	= 5,2
 guardsound 	= 6,1
 ground.type 	= trip
 air.type		= low
 animtype 	= medium
-ground.slidetime = 14
-ground.hittime  = 31
-ground.velocity = -3,-4 * MAP(untechMOD)
+ground.slidetime 	= 14
+ground.hittime  	= 31
+ground.velocity 	= -3,-4 * MAP(untechMOD)
 down.velocity 	= -3,-3 * MAP(untechMOD)
 fall 		= 1
 air.fall 		= 1
 air.velocity 	= -3,-2.75
 air.hittime 	= 24 * map(UntechMOD)
 guard.slidetime 	= 5
-guard.hittime 	= 30
-guard.ctrltime 	= 13
+guard.ctrltime 	= 10
  envshake.time 	= 13
 envshake.freq 	= 10
 envshake.ampl 	= 2
@@ -1630,15 +1628,6 @@ trigger1 = movehit = 1
 v = 2
 value = 0
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time = 0
-value = ,AP
-;value2 = S,NA
-time = 25
-;ignorehitpause = 
-;persistent = 
-
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time = 1
@@ -1921,7 +1910,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.85	;85% DMG For next hit
+value 		= 0.75	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -2743,7 +2732,7 @@ sparkxy 		= -5,-35
 hitsound   	= 5,4
 guardsound 	= 6,2
 ground.type 	= high
-air.type	= TRIP
+air.type	= high
 animtype 		= hard
 ground.slidetime 	= 14
 ground.hittime  	= 23

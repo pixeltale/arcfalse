@@ -202,7 +202,7 @@ trigger1 = time %4= 0
 trigger1 = time<27
 hitonce = 1
 attr = S, HA
-damage = 30*MAP(P4), 2
+damage = 15*MAP(P4), 2
 hitflag = MAFD
 guardflag = MA
 priority = 3
@@ -229,7 +229,7 @@ p2facing = 1
 kill = 0 
 trigger1 = animelem = 11
 attr = S, HA
-damage = 40*MAP(P4), 2
+damage = 30*MAP(P4), 2
 hitflag = MAFD
 guardflag = MA
 priority = 3
@@ -332,7 +332,7 @@ trigger2 = animelem = 7
 trigger3 = animelem = 13
 hitonce = 1
 attr = S, HA
-damage = 90*map(P4) + 20, 2
+damage = 70*map(P4) + 15, 2
 hitflag = MAFD
 guardflag = MA
 priority = 3
@@ -375,7 +375,7 @@ kill = 0
 trigger1 = animelem = 24
 hitonce = 1
 attr = S, HA
-damage = 80*map(P4) + 25, 2
+damage = 70*map(P4) + 15, 2
 hitflag = MAFD
 guardflag = MA
 priority = 3
@@ -524,7 +524,7 @@ p2facing = 1
 trigger1 = animelem = 1
 hitonce = 1
 attr = S, HA
-damage = 100*map(P4) + 20, 3
+damage = 70*map(P4) + 20, 3
 hitflag = MAF
 guardflag = MA
 priority = 3
@@ -922,7 +922,7 @@ trigger1 = time = 0
 hitonce = 1
 kill = 0
 attr = S, HA
-damage = 180*map(P4) + 20
+damage = 100*map(P4) + 20
 hitflag = MAFD
 guardflag = MA
 priority = 3
@@ -1027,7 +1027,7 @@ p2facing = 1
 kill = 0
 trigger1 = time%2=0 && time<40&& enemynear, name ="OMEGA VILE"
 attr = A, HA
-damage = (5*map(P4)) + 3
+damage = (3*map(P4)) + 3
 hitflag = MAFD
 guardflag = MA
 priority = 3
@@ -1097,7 +1097,7 @@ p2facing = 1
 trigger1 = animelem = 15
 hitonce = 1
 attr = A, HA
-damage = (50*map(P4)) + 10
+damage = (30*map(P4)) + 5
 hitflag = MAF
 guardflag = MA
 priority = 3

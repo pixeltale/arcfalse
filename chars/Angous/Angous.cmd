@@ -4,6 +4,27 @@
 command.time = 15
 command.buffer.time = 3
 
+[Command]
+name = "sh_buffer"
+command = /U
+time = 1
+buffer.time = 0
+[Command]
+name = "sh_buffer"
+command = /UF
+time = 1
+buffer.time = 0
+[Command]
+name = "sh_buffer"
+command = /UB
+time = 1
+buffer.time = 0
+[Command]
+name = "toggle_hop"
+command = /c
+time = 1
+buffer.time = 0
+
 ; Don't remove the following line. It's required by the CMD standard.
 [Statedef -1]
 
@@ -520,7 +541,7 @@ triggerall = command = "c"
 triggerall = command = "holdfwd"
 triggerall = stateno != 230 && stateno != 225
 trigger1 = statetype = S
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 1070 && prevstateno != 1070 && time > 5
 trigger2 = var(1) && stateno != 1072
 trigger3 = stateno = [1000,1001] || stateno = [9000,9001] || stateno = [2000,2001] || stateno = [9100,9101]
 trigger3 = movecontact
@@ -738,15 +759,14 @@ trigger2 = (stateno = [600,610])
 trigger2 = movecontact
 
 ;jR
-;[State -1, jR]
-;type = ChangeState
-;value = 630
-;triggerall = command = "c"
-;triggerall = statetype = A
-;trigger1 = ctrl
-;trigger2 = (stateno = [600,610]) 
-;trigger2 = movecontact
-;trigger3 = stateno = 1350
+[State -1, jR]
+type = ChangeState
+value = 630
+triggerall = command = "c"
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = (stateno = [600,620]) 
+trigger2 = movecontact
 
 ;===========================================================================
 ;PARRY (RED)                                                              []

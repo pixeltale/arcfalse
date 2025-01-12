@@ -819,6 +819,23 @@ trigger1 = animtime=0
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
+[State 0, LifeAdd]
+type = LifeAdd
+triggerall = enemy, !map(ComboStateCheck)
+trigger1 = var(28) && !map(ComboStateCheck) && stateno < 3000
+value = -2.5
+kill = 0
+absolute = 1
+ignorehitpause = 0
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = var(28)
+value = 1.05
+ignorehitpause = 1
+;persistent = 
+
+
 [State 20022, bucky map]
 type = MapSet
 trigger1 =  !map(ComboStateCheck)

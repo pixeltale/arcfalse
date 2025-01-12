@@ -346,9 +346,9 @@ type = VarSet
 trigger1 = time = 0
 var(4) = 0
 
-[State 40, 1];?????
+[State 40, 1]
 type = VarSet
-trigger1 = command != "holdup"
+trigger1 = command != "sh_buffer" || command = "toggle_hop"
 var(4) = 1
 
 [State 40, 1]
@@ -366,34 +366,25 @@ type = VarSet
 trigger1 = command = "holdback"
 sysvar(1) = -1
 
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time=0
-v = 40    ;fv = 10
-value = const(velocity.jump.y)
-;ignorehitpause = 
-;persistent = 
-
 [State 40, 4]
 type = VelSet
 trigger1 = animtime=0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
-y = var(40)
+y = const(velocity.jump.y)
 
 [State 40, 4];?????
 type = VelSet
 trigger1 = AnimTime = 0
 trigger1 = Var(4) = 1
-x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x) + 1.5 * var(4), const(velocity.jump.back.x) - 1.5 * var(4)))
 y = -4.9
 
 [State 40, 5]
 type = VelSet
 trigger1 = AnimTime = 0
-trigger1 = prevstateno = 110 ;RUN_FWD
+trigger1 = prevstateno = [100,111] ;RUN_FWD
 trigger1 = sysvar(1) = 1
-x = const(velocity.runjump.fwd.x)
+x = const(velocity.runjump.fwd.x) + 1.5 * var(4)
 
 [State 0, Explod]
 type = Explod
@@ -573,32 +564,6 @@ ctrl = 1
 type = VarSet
 trigger1 = Time = 0
 sysvar(1) = 0
-
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-fv = 6  ;fv = 10
-value = 50 ;State of this attack
-;ignorehitpause = 
-;persistent = 
-
-[State 0, HitOverride]
-type = HitOverride
-triggerall = var(28)>1
-triggerall = movetype != H
-triggerall = stateno = [0,105]
-trigger1=  enemynear, stateno = 200
-trigger2=  enemynear, stateno = 400
-trigger3=  enemynear, stateno = 210
-trigger4=  enemynear, stateno = 410
-trigger5=  enemynear, stateno = 600
-trigger6 = enemynear, stateno!= [1000, 1999] ;Time is how many ticks the Armor lasts
-attr = SCA,NA,SA,NP,SP
-slot = 0
-stateno = 666999 
-time = 1
-forceair = 0
 
 [State 50, 2]
 type = ChangeAnim
