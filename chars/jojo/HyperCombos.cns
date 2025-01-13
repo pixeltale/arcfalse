@@ -43,13 +43,6 @@ type = AfterImage
 trigger1 =time = 0
 time = 10
 length = 12
-;palcolor = 256
-;palinvertall = 0
-;palbright = 30,30,30
-;palcontrast = 120,120,220
-;palpostbright = 0,0,0
-;paladd = 10,10,25
-;palmul = .65,.65,.75
 timegap = 0
 framegap = 0
 trans = add ;"none","add1","sub"
@@ -754,14 +747,12 @@ sprpriority = 5
 [State 0, ReversalDef]
 type = ReversalDef
 trigger1 = time = 0
-reversal.attr = SCA,NA,SA,NP,SP,HP
+reversal.attr = SCA,NA,SA,NP,SP,HP,HT,HA
 pausetime = 15,20
-sparkxy = 10,-10 ;offset
+sparkxy = 10,-10 
 sparkno = 1000
 hitsound = 5,3
 p1stateno = 4000
-;ignorehitpause = 
-;persistent = 
 
 
 [State 0, AfterImage]
@@ -769,18 +760,10 @@ type = AfterImage
 trigger1 =time = 0
 time = 10
 length = 12
-;palcolor = 256
-;palinvertall = 0
-;palbright = 30,30,30
-;palcontrast = 120,120,220
-;palpostbright = 0,0,0
-;paladd = 10,10,25
-;palmul = .65,.65,.75
 timegap = 0
 framegap = 0
 trans = add ;"none","add1","sub"
 ignorehitpause = 1
-;persistent =
 
 
 [State 210, 5]
@@ -870,7 +853,7 @@ x = 3
 [State 1110, 3]
 type = HitDef
 trigger1 = time = 0
-attr = S, SA
+attr = S, HA
 getpower =0
 animtype  = Up
 damage    = 70 * map(P4), 15
@@ -1052,7 +1035,7 @@ persistent 		= 0
 [State 1110, 3]
 type = HitDef
 trigger1 = time%3=0
-attr = S, SA
+attr = S, HA
 getpower = 0
 animtype  = Up
 damage    = 10
