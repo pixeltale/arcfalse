@@ -315,7 +315,6 @@ type = ChangeState
 value = 210
 triggerall = command = "y"
 triggerall = command = "holdback"
-;triggerall = stateno !=40
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = (stateno = 200) && movecontact

@@ -3768,7 +3768,7 @@ x = 0.3
 
 [State 810, HitBy]
 type = HitBy
-trigger1 = time = [2,24]
+trigger1 = time = [2,10]
 value = SCA, NT,ST,HT
 
 [State 810, Push]
@@ -4202,38 +4202,7 @@ persistent 		= 0
 [State -3, Angous Voices]
 type = PlaySnd
 trigger1 = animelem = 4
-value = 8502, (0+(Random%5)) 	
-
-[State 200, 1]
-type 		= hitdef 
-p2facing 		= 1
-trigger1 		= time = 0
-hitonce 		= 1
-attr 		= S, SA
-damage 		= 75*Map(P4), 0
-hitflag 			= MAFD
-guardflag 		= MA
-priority 			= 3
-pausetime 		= 6,5
-sparkno 			= 2
-sparkxy 			= -25,-44
-hitsound   		= 5,1
-guardsound 		= 6,2
-animtype 			= medium
-ground.slidetime 		= 14
-ground.hittime  		= 25 - map (UntechDecay)
-air.hittime  		= 50 * MAP(untechMOD)
-down.hittime 		= 40 * MAP(untechMOD)
-ground.velocity 		= 0,0
-air.velocity 		= 0,-3.6
-air.fall			= 1
-fall.yvelocity 		= 0
-envshake.time 		= 7
-guard.slidetime 		= 5
-guard.ctrltime 		= 16
-palfx.time 		= 12
-palfx.add 			= 100, 0,20
-getpower 			= 50*var(2)
+value = 8502, (0+(Random%5)) 
 
 [State 0, AfterImage]
 type = AfterImage
@@ -4249,7 +4218,7 @@ value = 9504, 0
 [State 200, 1]
 type = hitdef 
 p2facing = 1
-trigger1 = animelem = 8
+trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SA
 damage 		= 150*MAP(P4), 15
