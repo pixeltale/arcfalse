@@ -21,7 +21,7 @@ time = 1
 buffer.time = 0
 [Command]
 name = "toggle_hop"
-command = /c
+command = /w
 time = 1
 buffer.time = 0
 
@@ -600,8 +600,6 @@ trigger2 = command = "buffer_x"
 trigger2 = movecontact 
 trigger2 = (stateno = 400) || (stateno = 200) && time>1
 trigger2 = movecontact 
-trigger3 = stateno = 110
-trigger4 = stateno = 111
 
 ;5M
 [State -1,5M]
@@ -612,8 +610,7 @@ triggerall = command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 200) && movecontact 
-trigger3 = stateno = [100,111]
-trigger4 = stateno = [400,410] && movecontact
+trigger3 = stateno = [400,410] && movecontact
 
 ;6H
 [State -1, 6H]
@@ -625,11 +622,10 @@ triggerall = command = "holdfwd"
 triggerall = command != "holddown"
 trigger1 = ctrl
 trigger2 = (stateno = [200, 220]) && movecontact 
-trigger3 = (stateno = [410,430]) && movecontact 
-trigger4 = stateno = [100,111]
-trigger5 = stateno = [1000,1001] && movecontact 
-trigger6 = stateno = [9000,9001] && movecontact 
-trigger7 = stateno = [2000,2001] && movecontact
+trigger3 = (stateno = [410,430]) && movecontact
+trigger4 = stateno = [1000,1001] && movecontact 
+trigger5 = stateno = [9000,9001] && movecontact 
+trigger6 = stateno = [2000,2001] && movecontact
 
 ;5H
 [State -1, 5H]
@@ -644,9 +640,7 @@ trigger2 = (stateno = 200) && movecontact
 trigger3 = (stateno = 210) && movecontact 
 trigger4 = (stateno = 410) && movecontact 
 trigger5 = (stateno = 420) && movecontact 
-trigger6 = stateno = 100 && time > 3
-trigger7 = stateno = 110
-trigger8 = stateno = 111
+trigger6 = stateno = 100
 
 [State -1, 2R]
 type = ChangeState

@@ -91,7 +91,7 @@ type = VarSet
 trigger1 = statetype != A && ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600, 640]
 trigger2 = movecontact
-trigger3 = stateno = [100,105] || stateno = 60
+trigger3 = stateno = 100 || stateno = 60
 var(1) = 1
 
 ;===========================================================================
