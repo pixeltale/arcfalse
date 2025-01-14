@@ -166,7 +166,7 @@ hitsound   	= 5,1
 guardsound 	= 6,1
 ground.type 	= low
 ground.hittime  	= 19
-air.hittime  	= 60
+air.hittime  	= 30 * MAP(untechMOD)
 down.hittime	= 60 * MAP(untechMOD)
 ground.velocity 	= -4.5
 air.velocity 	= -1.5,-2.5  * MAP(untechMOD)
@@ -1321,7 +1321,7 @@ ground.hittime  = 35 * MAP(untechMOD)
 air.hittime  = 55 * MAP(untechMOD)
 down.hittime  = 55 * MAP(untechMOD)
 ground.velocity = -1.5,-8.5
-air.velocity = -1.5,-8.3  * MAP(untechMOD)
+air.velocity = -1.5,-7.5  * MAP(untechMOD)
 down.velocity = 0, -9
 fall  = 1
 air.fall = 1
@@ -2080,8 +2080,7 @@ ctrl = 1
 [Statedef 630]
 type    = A
 movetype	= A
-physics 	= N
-poweradd	= 10
+physics 	= A
 ctrl 	= 0
 sprpriority = 2
 anim	= 630
@@ -2104,11 +2103,6 @@ value = 1, 2
 type = PlaySnd
 trigger1 = animelem = 5
 value = 1, 1
-
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = 1
-y = .44
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -2133,7 +2127,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.89	;85% DMG For next hit
+value 		= 0.95	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -2180,6 +2174,15 @@ guard.slidetime = 15
 guard.ctrltime = 17
 guard.velocity = 6
 getpower = (110)*(cond(var(var(2)) = 1, 1, .5))
+
+[State 0, VelAdd]
+type = VelSet
+triggerall = vel y < 5
+trigger1 = movehit = 1
+y = -3
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, ChangeState]
 type = ChangeState

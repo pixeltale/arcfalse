@@ -5,6 +5,11 @@ command.time = 15
 command.buffer.time = 3
 
 [Command]
+name = "236S"
+command = ~$D, >F, b
+buffer.time = 10
+
+[Command]
 name = "sh_buffer"
 command = /U
 time = 1
@@ -63,15 +68,11 @@ var(1) = 1
 ;type = ChangeState
 ;value = 3015
 ;triggerall = var(28)
-;triggerall = command = "TrueBuster"
+;triggerall = command = "236S"
 ;triggerall = power >= 4000
 ;trigger1 = statetype != A
 ;trigger1 = ctrl
-;trigger2 = statetype != A
-;trigger2 = hitdefattr = SC, NA, SA, HA
-;trigger2 = stateno != [3000,3050)
-;trigger2 = movecontact
-;trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+;trigger2 = movecontact && hitdefattr = SC
 
 ;SUPER1: Buster Horizon
 [State -1, BH]
