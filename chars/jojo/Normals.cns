@@ -2654,12 +2654,6 @@ type = NotHitBy
 trigger1 = time=0
 value = S,NA
 time = 5
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = time = 19
-value = 1
-;ignorehitpause = 
-;persistent = 
 
 [State 200, 3]
 type = ChangeState
