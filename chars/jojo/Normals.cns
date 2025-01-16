@@ -54,7 +54,7 @@ persistent 		= 0
 type = HitDef
 trigger1 = time = 0 
 attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage = 30*MAP(P4), 0
+damage = 50*MAP(P4), 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD
@@ -137,7 +137,7 @@ persistent 		= 0
 type = HitDef
 trigger1 = !movecontact && !movereversed
 attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage = 40*MAP(P4), 0
+damage = 70*MAP(P4), 0
 animtype = light
 guardflag = MA
 hitflag = MAFD                    
@@ -242,7 +242,7 @@ p2facing 		= 1
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= 50*map(P4)
+damage 			= 70*map(P4)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -517,7 +517,7 @@ p2facing 		= 1
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= 75*map(P4)
+damage 			= 85*map(P4)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1511,7 +1511,7 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = low
 ground.slidetime = 12
-ground.hittime  = 24 - map(UntechDecay)
+ground.hittime  = 24 * map(UntechMod)
 air.hittime  = 44
 ground.velocity = -4.0,0
 air.velocity = -2,-3;

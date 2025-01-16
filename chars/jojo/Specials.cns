@@ -1524,8 +1524,8 @@ guardsound 		= 6, 0
 ground.type 		= HIGH
 air.type 		= HIGH
 ;==============================================
-ground.hittime  	= 24 - map(untechDecay)
-air.hittime  		= 24 - map(untechDecay)
+ground.hittime  	= 24 * map(UntechMod)
+air.hittime  		= 24 * map(UntechMod)
 down.hittime 		= 24
 ground.slidetime 	= 5
 ground.cornerpush.veloff = -5
@@ -1662,8 +1662,8 @@ guardsound 		= 6, 0
 ground.type 		= HIGH
 air.type 		= HIGH
 ;==============================================
-ground.hittime  	= 24 - map(untechDecay)
-air.hittime  		= 24 - map(untechDecay)
+ground.hittime  	= 24 * map(UntechMod)
+air.hittime  		= 24 * map(UntechMod)
 down.hittime 		= 24
 ground.slidetime 	= 5
 ground.cornerpush.veloff = -5
@@ -1708,7 +1708,7 @@ ground.type 		= HIGH
 air.type 		= HIGH
 ;==============================================
 ground.hittime  	= 24
-air.hittime  		= 24 - map(UntechDecay)
+air.hittime  		= 24 * map(UntechMod)
 down.hittime 		= 24
 ground.slidetime 	= 5
 ground.cornerpush.veloff = -5
