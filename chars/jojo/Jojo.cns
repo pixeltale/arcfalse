@@ -342,21 +342,6 @@ trigger1 = !numtarget
 fv = 35
 value = 0
 
-[State 9000, LifeAdd]
-type = LifeAdd
-trigger1 = life<lifemax/4
-trigger1 = movetype = H 
-trigger1 = stateno!= [700,710]
-value =  cond(floor(gethitvar(damage))<life, floor(gethitvar(damage) / 2) , 0)
-
-[State 9000, LifeAdd]
-type = LifeAdd
-trigger1 = life<lifemax/2
-trigger1 = life>lifemax/4
-trigger1 = movetype = H 
-trigger1 = stateno!= [700,710]
-value =  cond(floor(gethitvar(damage))<life, floor(gethitvar(damage) / 4) , 0)
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = !numhelper(2054)
