@@ -116,7 +116,7 @@ getpower = (40)*(cond(var(var(1)) = 1, 1, .5))
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-trigger1 = animelem = 8
+trigger1 = animelem = 11
 attr = S, SA
 damage = cond(map(RapidDecay) > 0, map(RapidDecay), 1) 10
 hitflag = MAF
@@ -1009,8 +1009,8 @@ getpower = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y>=0 && vel y>=0
-value = 50
-ctrl = 1
+value = cond(movehit, 52, 1059)
+ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;j.4S: EX AirShredder
@@ -4340,7 +4340,7 @@ sprpriority = 2
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = 1
+trigger1 = !moveguarded
 value = 0
 
  ;============================
@@ -4418,7 +4418,7 @@ y = .5
 [State 00, ChangeState]
 type = ChangeState
 trigger1 = pos y>0
-value = 52
+value = cond(moveguarded, 1059, 52)
 ctrl = 1
 
 ;5S/[EX]~H - THROW

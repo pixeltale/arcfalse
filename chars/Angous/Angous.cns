@@ -821,8 +821,8 @@ trigger1 = animtime=0
 
 [State 0, LifeAdd]
 type = LifeAdd
-triggerall = movetype != H && enemy, !map(ComboStateCheck) 
-trigger1 = var(28) && !map(ComboStateCheck) && stateno < 3000
+triggerall = movetype != H && enemy, movetype != H
+trigger1 = var(28) && stateno < 3000
 value = -2
 kill = 0
 absolute = 1

@@ -1003,12 +1003,6 @@ ctrl = 0
 anim = 105
 sprpriority = 1
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = 1
-v = 1
-value = 1
-
 [State 100, 1]
 type = VelSet
 trigger1 = time=[4,18]
@@ -1076,12 +1070,12 @@ trigger1 = time =13
 x = -4
 y = 0
 
-[State 0, Mapset]
-type = MapSet
-trigger1 = time <= 10
-map = "Invul_Full"
-value = 1
-persistent = 1
+[State 0, NotHitBy]
+type 	= NotHitBy
+trigger1 	= time <= 7
+value 	= SCA
+time 	= 1
+ignorehitpause = 1
 
 [State 100, 2] ;Prevent run from canceling into walk
 type = AssertSpecial

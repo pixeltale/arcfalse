@@ -52,9 +52,8 @@ type = VarSet
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600,670] || stateno = [801,802]
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact
 trigger2 = stateno!=421
-trigger4 = stateno = 105
 var(1) = 1
 
 ;---------------------------------------------------------------------------
@@ -123,9 +122,8 @@ triggerall = command = "holdup"
 triggerall = numexplod(45) = 2 && map(floatjump)
 triggerall = stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) && !(stateno = [55, 56] && time < 6)
 triggerall = var(45)
-;triggerall = var(29)>0
 trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260 && stateno != 1450
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact
 trigger2 = hitdefattr = A, NA
 trigger3 =  stateno=45 || stateno=46|| stateno=50
 
@@ -210,7 +208,6 @@ triggerall=command!="c"
 triggerall = command = "holddown"
 triggerall = statetype != A
 trigger1 = stateno = 100 && time >= 9
-trigger2=stateno=105
 
 [State -1, 4EX]
 type = ChangeState
@@ -225,7 +222,6 @@ triggerall = statetype != A
 trigger1 = var(1)
 trigger2 = ctrl
 trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger4=stateno=105
 
 [State -1, 4Sset] ; trap metal
 type = ChangeState
@@ -239,7 +235,6 @@ triggerall = statetype != A
 trigger1 = var(1)
 trigger2 = ctrl
 trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger4=stateno=105
 
 [State -1, 4S] 
 type = ChangeState
@@ -254,7 +249,6 @@ trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
 trigger3 = stateno != 1300
 trigger3 = stateno != 1301
-trigger4=stateno=105
 
 [State -1, j4S] 
 type = ChangeState
@@ -283,7 +277,6 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger4=stateno=105
 
 [State -1, 5S]
 type = ChangeState
@@ -298,7 +291,6 @@ triggerall = !numexplod(1200)
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger4=stateno=105
 
 [State -1, 5SS] 
 type = ChangeState
@@ -314,7 +306,6 @@ trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
 trigger3 = !numexplod(1201)
-trigger4=stateno=105
 
 [State -1, 6S] ; Painwheel!
 type = ChangeState
@@ -330,7 +321,6 @@ triggerall = !numexplod(1100)
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger4=stateno=105
 
 [State -1, EX 6S] ; Now THIS is a real painwheel!
 type = ChangeState
@@ -345,7 +335,6 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger4=stateno=105
 
 [State -1, j6S]
 type = ChangeState
@@ -357,6 +346,7 @@ triggerall = command = "b" && command != "c"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
+
 [State -1, j6EX]
 type = ChangeState
 value = 1410
@@ -392,7 +382,6 @@ trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
 
-
 [State -1, 4R: Wind Push]
 type = ChangeState
 value = 1540
@@ -408,6 +397,7 @@ triggerall = command = "c"
 trigger1 = var(1)
 trigger2 = ctrl
 trigger3 = map(RemixCancel)
+
 [State -1, 6R: Wind Push]
 type = ChangeState
 value = 1560
@@ -422,6 +412,7 @@ triggerall = command != "z"
 trigger1 = var(1)
 trigger2 = ctrl
 trigger3 = map(RemixCancel)
+
 [State -1, 5R: Wind Push]
 type = ChangeState
 value = 1520
@@ -463,7 +454,6 @@ triggerall = command != "holdback"
 triggerall = command = "66" || command = "M66"
 trigger1 = statetype != A
 trigger1 = ctrl && !(stateno = 100 && time < 15)
-;trigger2 = stateno = 1100
 
 ;Backdash
 [State -1, Backdash]

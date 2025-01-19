@@ -110,9 +110,9 @@ trigger1 = command = "holdfwd"
 x = 1.2
 
 [State 20, 1]
-type = VelSet
+type = VelMul
 trigger1 = vel x > 3
-x = 3
+x = 0.9
 
 [State 20, 2]
 type = VelAdd
@@ -121,9 +121,9 @@ trigger1 = command = "holdback"
 x = -1.2
 
 [State 20, 1]
-type = VelSet
+type = VelMul
 trigger1 = vel x < -2
-x = -2
+x = 0.9
 
 [State 20, 3]
 type = ChangeAnim
@@ -719,12 +719,6 @@ ctrl = 0
 anim = 105
 sprpriority = 1
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = 1
-v = 1    ;fv = 10
-value = 1
-
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0
@@ -780,10 +774,10 @@ x = -4-(cond(var(8)>0,1.5,0))
 y = 0
 
 [State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time <= 10
-value = SCA
-time = 1
+type 	= NotHitBy
+trigger1 	= time <= 7
+value 	= SCA
+time 	= 1
 ignorehitpause = 1
 
 [State 100, 2] ;Prevent run from canceling into walk

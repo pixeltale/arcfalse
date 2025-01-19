@@ -28,8 +28,6 @@ trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || stateno = 656 || stateno = [610,640]
 trigger2 = movecontact
 trigger2 = stateno!=421
-trigger3 = stateno = 1310 || stateno = 1330
-trigger4 = stateno = 105 
 var(1) = 1
 
 ;===========================================================================

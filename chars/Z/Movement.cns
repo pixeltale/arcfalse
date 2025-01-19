@@ -1215,12 +1215,12 @@ id = 4
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time <=15
-value = SCA,NA,SA,HA,NP,SP,HP
+value = SCA
 time = 1
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time>25
+trigger1 = time>20
 value = 1
 
 [State 0, Explod]

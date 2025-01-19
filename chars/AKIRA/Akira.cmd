@@ -24,8 +24,7 @@ trigger2 = stateno = [200,499]
 trigger2 = movecontact
 trigger2 = stateno!=421
 trigger3 = stateno = 1330 ;From blocking
-trigger4 = stateno = 105
-trigger5 = stateno = 1203
+trigger4 = stateno = 1203
 var(1) = 1
 
 ;Pretty Dancer

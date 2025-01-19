@@ -47,12 +47,9 @@ var(1) = 0
 
 [State -1, Combo condition Check]
 type = VarSet
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || stateno = 656
-trigger2 = movecontact && !enemy, movereversed
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 105
+trigger1 = statetype != A && ctrl
+trigger2 = (stateno = [200,299]) || (stateno = [400,499])
+trigger2 = movecontact
 var(1) = 1
 
 ;===========================================================================
@@ -87,8 +84,6 @@ trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 9065 && movehit
 
 ;SUPER1: install buster
 [State -1, BH]
@@ -103,8 +98,6 @@ trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 9065 && movehit
 ;---------------------------------------------------------------------------
 ;SUPER2: RAGE
 [State -1, R]
@@ -119,8 +112,6 @@ trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-
 
 ;===========================================================================
 ;===========================================================================
@@ -196,7 +187,6 @@ trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = stateno = 250
 triggerall = stateno!=110
-trigger3 = stateno = 4000
 
 ;Run Back
 [State -1, Run Back]
@@ -209,25 +199,23 @@ trigger2 = stateno = 250
 triggerall = stateno!=105
 
 [State -1, JS]
-type = ChangeState
-value = 9969
-triggerall = command = "b"
-triggerall=command!="c"
-trigger1 = statetype = A
-trigger1 = ctrl
-trigger2=stateno=[600,610]&&movecontact
-trigger3=stateno=630&&movecontact
+type 	= ChangeState
+value 	= 9969
+triggerall	= command = "b"
+triggerall	=command!="c"
+trigger1 	= statetype = A
+trigger1 	= ctrl
+trigger2 	= (stateno=[600,610] || stateno=630) && movecontact
 
 
 [State -1, EX JS]
-type = ChangeState
-value = 9971
+type 	= ChangeState
+value 	= 9971
 triggerall = command = "b"  && command="buffer_c"|| (command = "EX") 
 triggerall = power >= 1000 && !map(jEX_Limiter)
-trigger1 = statetype = A
-trigger1 = ctrl
-trigger2=stateno=[600,610]&&movecontact
-trigger3=stateno=630&&movecontact
+trigger1 	= statetype = A
+trigger1 	= ctrl
+trigger2 	= (stateno=[600,610] || stateno=630) && movecontact
 
 ;===========================================================================
 ;===========================================================================
@@ -238,16 +226,16 @@ trigger3=stateno=630&&movecontact
 ;===========================================================================
 
 [State -1, EX 6S: Brawler Rush]
-type = ChangeState
-value = 9000
+type 	= ChangeState
+value 	= 9000
 triggerall = power>1000
 triggerall = stateno != 230
 triggerall = stateno != 431
 triggerall = !map(EX6S_Limiter)
 triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command = "EX" && command = "holdfwd") 
 triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
+trigger1 	= ctrl
+trigger2	= var(1)
 
 [State -1, EX 6S: Brawler Rush]
 type = ChangeState
@@ -260,17 +248,6 @@ triggerall = (command = "b" && command = "c") && command = "holdfwd" || (command
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = (stateno = [600,640]) 
-;trigger3 = movecontact
-
-[state -1, 4S Brawler Rush Finisher]
-type = changestate
-triggerall = ifelse(p2dist X> 0, command = "b", command = "b")
-triggerall = stateno != 230
-triggerall = stateno != 431
-triggerall = stateno = 9040 && statetype != A
-trigger1 = time > 70
-value = 9041
 
 [State -1, 3S: Brawler Rush]
 type = ChangeState
@@ -309,8 +286,6 @@ triggerall = command = "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = (stateno = [600,640]) 
-;trigger3 = movecontact = 1
 
 [State -1, 6S: Brawler Rush]
 type = ChangeState
@@ -337,8 +312,6 @@ triggerall = command = "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = (stateno = [600,640]) 
-;trigger3 = movecontact = 1
 
 [State -1, 6S: Brawler Rush]
 type = ChangeState
@@ -351,17 +324,6 @@ triggerall = command = "holdfwd"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = (stateno = [600,640]) 
-;trigger3 = movecontact = 1
-
-[state -1, 4S Primal Rage  Finisher]
-type = Changestate
-triggerall = command = "b"
-triggerall = stateno != 230
-triggerall = stateno != 431
-triggerall = stateno = 1040 && statetype != A
-trigger1 = time > 52
-value = 1041
 
 ;-------------------------------------------------------------------------
 
@@ -372,11 +334,11 @@ triggerall = power >= 1000 && !map(NEX_Limiter)
 triggerall = var(53)<=0
 triggerall = stateno != 230
 triggerall = stateno != 431
-triggerall = command = "b" && command = "c" || (command = "EX") 
+triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = command != "holdback"
 triggerall = command != "holdfwd"
 triggerall = command != "holddown"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = [1000,1001] && movecontact
 trigger3 = stateno = [9000,9001] && movecontact
@@ -388,7 +350,7 @@ type = ChangeState
 value = 1090
 triggerall = stateno != 230
 triggerall = stateno != 431
-triggerall = command = "b"
+triggerall = command = "b" && command != "c"
 triggerall = command != "holdback"
 triggerall = command != "holdfwd"
 triggerall = command != "holddown"
@@ -411,13 +373,12 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1) && stateno != 230
 trigger3 = movecontact && stateno = 421
-ignorehitpause = 1
 
 [State -1, EX 2S: Raging Counter]
 type = ChangeState
 value = 1054
 triggerall = power > 1000
-triggerall = command = "b" && command = "c" || (command = "EX") 
+triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = command = "holddown"
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -486,24 +447,14 @@ triggerall = command != "holddown"
 triggerall = command != "holdfwd"
 triggerall = command = "c"
 triggerall = command = "holdback"
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = (stateno = [1000,1001]) 
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+trigger2 = (stateno = [1000,1001]) || stateno = 10011
 trigger2 = movecontact
-trigger3 = (stateno = [9000,9001])
+trigger3 = (stateno = [9000,9001]) || stateno = [9100,9101] || stateno = 90011 || stateno = 91011
 trigger3 = movecontact
-trigger4 = stateno = [2000,2001]
+trigger4 = stateno = [2000,2001] || stateno = 20011
 trigger4 = movecontact
-trigger5 = stateno = [9100,9101]
-trigger5 = movecontact
-trigger6 = stateno = 10011 && movecontact
-trigger7 = stateno = 20011 && movecontact
-trigger8 = stateno = 90011 && movecontact
-trigger9 = stateno = 91011 && movecontact
-trigger10 = stateno = [200, 220] && movecontact 
-trigger11 = stateno = [400,421] && movecontact
-trigger12 = stateno = 110 && time > 7 
-trigger13 = stateno = 111
 
 [State -1, Install 4R: Overhead]
 type = ChangeState
@@ -514,24 +465,14 @@ triggerall = command != "holddown"
 triggerall = command != "holdfwd"
 triggerall = command = "c"
 triggerall = command = "holdback"
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = (stateno = [1000,1001]) 
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+trigger2 = (stateno = [1000,1001]) || stateno = 10011
 trigger2 = movecontact
-trigger3 = (stateno = [9000,9001])
+trigger3 = (stateno = [9000,9001]) || stateno = [9100,9101] || stateno = 90011 || stateno = 91011
 trigger3 = movecontact
-trigger4 = stateno = [2000,2001]
+trigger4 = stateno = [2000,2001] || stateno = 20011
 trigger4 = movecontact
-trigger5 = stateno = [9100,9101]
-trigger5 = movecontact
-trigger6 = stateno = 10011 && movecontact
-trigger7 = stateno = 20011 && movecontact
-trigger8 = stateno = 90011 && movecontact
-trigger9 = stateno = 91011 && movecontact
-trigger10 = stateno = [200, 220] && movecontact 
-trigger11 = stateno = [400,421] && movecontact
-trigger12 = stateno = 110 && time > 7 
-trigger13 = stateno = 111
 
 [State -1, 6R: Twirl]
 type = ChangeState
@@ -541,15 +482,14 @@ triggerall = command != "holdback"
 triggerall = command = "c"
 triggerall = command = "holdfwd"
 triggerall = stateno != 230 && stateno != 225
-trigger1 = statetype = S
-trigger1 = ctrl || stateno = 1070 && prevstateno != 1070 && time > 5
-trigger2 = var(1) && stateno != 1072
-trigger3 = stateno = [1000,1001] || stateno = [9000,9001] || stateno = [2000,2001] || stateno = [9100,9101]
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+trigger2 = (stateno = [1000,1001]) || stateno = 10011 || stateno = 431
+trigger2 = movecontact
+trigger3 = (stateno = [9000,9001]) || stateno = [9100,9101] || stateno = 90011 || stateno = 91011
 trigger3 = movecontact
-trigger4 = stateno = 10011 || stateno = 20011 || stateno = 90011 || stateno = 91011
+trigger4 = stateno = [2000,2001] || stateno = 20011
 trigger4 = movecontact
-trigger5 = stateno = 110 && time > 7
-trigger6 = stateno = 111
 ;===========================================================================
 ;---------------------------------------------------------------------------
 ;Taunt

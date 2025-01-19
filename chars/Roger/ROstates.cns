@@ -1163,14 +1163,6 @@ ctrl = 0
 anim = 105
 sprpriority = 1
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-fv = 6  ;fv = 10
-value = 0 ;State of this attack
-;ignorehitpause = 
-;persistent = 
-
 [State 200, 2]
 type = PlaySnd
 trigger1 = time = 0
@@ -1207,10 +1199,10 @@ trigger1 = animelem = 2
 x = -5
 
 [State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time <= 10
-value = SCA
-time = 1
+type 	= NotHitBy
+trigger1 	= time <= 17
+value 	= SCA
+time 	= 1
 ignorehitpause = 1
 
 [State 100, 2] ;Prevent run from canceling into walk

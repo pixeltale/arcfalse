@@ -38,10 +38,8 @@ type = VarSet
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || stateno = 656 ||stateno = [600, 640]
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact
 trigger2 = stateno!=421
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 105 && time > 15
 var(1) = 1
 
 ;===========================================================================
@@ -114,7 +112,6 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 1017 && movecontact
-trigger4=stateno=105
 
 [State -1, EX 6S: Rising Knee (Air)]
 type = ChangeState
@@ -131,8 +128,6 @@ trigger1 = statetype != S
 trigger1 = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = movecontact ;&& enemynear, movetype = H
-;trigger3 = !ishelper
 
 [State -1, 6S: Rising Knee]
 type = ChangeState
@@ -145,7 +140,7 @@ triggerall = command != "holdback"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = [600,650]
-trigger2 = movecontact = 1 ;&& enemynear, movetype = H
+trigger2 = movecontact
 
 
 [State -1, 6S: Rising Knee]
@@ -162,8 +157,7 @@ trigger2 = var(1)
 trigger3 = stateno = 100
 trigger4 = stateno = 1010
 trigger4 = movecontact ;&& enemynear, movetype = H
-trigger5 = stateno = 1017 && movecontact ;&& enemynear, movetype = H
-trigger6=stateno=105
+trigger5 = stateno = 1017 && movecontact
 ;-------------------------------------------------------------------------
 
 [State -1, EX 2S: Acid Stomp]
@@ -189,7 +183,6 @@ trigger1 = stateno != 1050
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 1017 && movecontact
-trigger4=stateno=105
 
 
 
@@ -206,7 +199,6 @@ triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3=stateno=105
 
 [State -1, 2S: Acid Stomp]
 type = ChangeState
@@ -221,7 +213,6 @@ triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3=stateno=105
 
 [State -1, 1S: Acid Stomp - During Puddle]
 type = ChangeState
@@ -236,7 +227,6 @@ triggerall = command = "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno=105
 
 ;-------------------------------------------------------------------------
 
@@ -261,8 +251,7 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 1010
-trigger3 = movecontact ;&& enemynear, movetype = H
-trigger4=stateno=105
+trigger3 = movecontact
 
 [State -1, 4S: Acid Grab]
 type = ChangeState
@@ -272,7 +261,6 @@ triggerall = command = "b" && command="holdback"
 triggerall=command!="c"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2=stateno=105
 
 ;-------------------------------------------------------------------------
 
@@ -292,7 +280,7 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = [600,650]
-trigger3 = movecontact ;&& enemynear, movetype = H
+trigger3 = movecontact
 
 [State -1, j5SEX: (Air) Rayzah]
 type = ChangeState
@@ -308,7 +296,7 @@ triggerall = numhelper(1035) != 1
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = [600,650]
-trigger3 = movecontact ;&& enemynear, movetype = H
+trigger3 = movecontact
 
 [State -1, 5S: EX Acid Razor]
 type = ChangeState
@@ -331,7 +319,6 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno=1017 && movecontact
-trigger4=stateno=105
 
 [State -1, 5S: Acid Razor]
 type = ChangeState
@@ -348,7 +335,6 @@ triggerall=command!="c"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3=stateno=105
 
 ;===========================================================================
 ;===========================================================================

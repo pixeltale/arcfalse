@@ -498,9 +498,7 @@ type = VarSet
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,499])
-trigger2 = stateno != 440 ;Except for sweep kick
-trigger2 = movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+trigger2 = stateno != 440
 var(1) = 1
 
 ;RC Helper Hits?

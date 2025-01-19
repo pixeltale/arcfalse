@@ -4,7 +4,6 @@
 type    = S
 movetype= A
 physics = S
-juggle  = 2
 ctrl = 0
 anim =1000
 sprpriority = 2
@@ -4009,7 +4008,7 @@ fall.xvelocity = 1.5
 fall.yvelocity = 0
 air.fall = 1
 air.velocity = -0.75,-1.6
-air.hittime = 30 * map(UntechMod)
+air.hittime = 30 * root, map(UntechMod)
 guard.dist = 0
 getpower = (25)*(cond(var(var(3)) = 1, 1, .5))
 

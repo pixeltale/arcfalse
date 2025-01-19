@@ -1370,10 +1370,10 @@ trigger1 = time=[2,7]
 x = -7
 
 [State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time <= 6
-value = SCA
-time = 1
+type 	= NotHitBy
+trigger1 	= time <= 7
+value 	= SCA
+time 	= 1
 ignorehitpause = 1
 
 [State 100, 2] ;Prevent run from canceling into walk
