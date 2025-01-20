@@ -517,13 +517,6 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 1
 
-[State 0. MapSet]
-type 		= MapSet
-trigger1 		= stateno = [1000,1450]
-map 		= "Special"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 1
 
 [State 0, PalFX] ;Magic Pixel Check
 type = PalFX
