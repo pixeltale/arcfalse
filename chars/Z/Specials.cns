@@ -406,6 +406,8 @@ value = 0.5; You can make this whatever you want to increase stun scaling per mo
 ignorehitpause = 1
 persistent = 0
 
+
+
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelemtime(7)=0
@@ -511,6 +513,13 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause = 0
 
+[State -2, Starter Level]
+type	= MapSet
+trigger1  	= movehit && map(ComboStateCheck)
+map         	= "jS_Stale"
+value       	=  1   
+ignorehitpause     =  1
+
 ;non ch
 [State 210, 2]
 type = HitDef 
@@ -530,7 +539,7 @@ guardsound = 6,1
 ground.type = low
 ground.slidetime = 12
 ground.hittime  = 24
-air.hittime  = 38 * map(UntechMod)
+air.hittime  = (68 - 30 * map(jS_Stale)) * map(UntechMod)
 down.hittime = 48
 ground.velocity = -7
 air.velocity = -1.5,-4

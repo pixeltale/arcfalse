@@ -683,6 +683,13 @@ trigger1 = time = 148
 
 [Statedef -2]
 
+[State -2, Starter Level]
+type	= MapSet
+trigger1  	= !map(ComboStateCheck)
+map         	= "jS_Stale"
+value       	=  0   
+ignorehitpause     =  1
+
 [State 0, RC On Helper Hit]
 type = RootMapSet
 trigger1 = stateno = [4000,4001]
