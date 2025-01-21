@@ -444,6 +444,14 @@ ctrl = 1
 
 [State 0,	MapSet]
 type 		= MapSet
+trigger1		= stateno = 803 || stateno = 801 && !movehit
+map 		= "RemixCancel"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0,	MapSet]
+type 		= MapSet
 trigger1	= !map(ComboStateCheck)
 map 		= "UseCount_2S"
 value 		= 0
@@ -517,6 +525,13 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 1
 
+[State 0. MapSet]
+type 		= MapSet
+trigger1 		= stateno = [1000,1450]
+map 		= "Special"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 1
 
 [State 0, PalFX] ;Magic Pixel Check
 type = PalFX

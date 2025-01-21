@@ -515,7 +515,6 @@ ownpal=1
 [State 0,	MapSet]
 type 		= MapSet
 trigger1		= animelemno(0) >= 4
-trigger1       = prevstateno = 800 && prevstateno = 803
 map 		= "RemixCancel"
 value 		= 1
 ignorehitpause 	= 1
@@ -608,7 +607,6 @@ sprpriority = 3
 [State 0,	MapSet]
 type 		= MapSet
 trigger1		= time = 0
-trigger1       = prevstateno = 800 && prevstateno = 803
 map 		= "RemixCancel"
 value 		= 1
 ignorehitpause 	= 1
@@ -1229,7 +1227,6 @@ sprpriority = 2
 [State 0,	MapSet]
 type 		= MapSet
 trigger1		= animelemno(-1) >= 5
-trigger1       = prevstateno = 800 && prevstateno = 803
 map 		= "RemixCancel"
 value 		= 1
 ignorehitpause 	= 1
@@ -2759,7 +2756,6 @@ ignorehitpause 	= 1
 persistent 		= 0
 [State 0,	MapSet]
 type 		= MapSet
-trigger1       = prevstateno = 800 && prevstateno = 803
 trigger1		= animelemno(0) >= 5
 map 		= "RemixCancel"
 value 		= 1
@@ -3773,7 +3769,6 @@ persistent 		= 0
 [State 0,	MapSet]
 type 		= MapSet
 trigger1		= animelemno(0) >= 6
-trigger1       = prevstateno = 800 && prevstateno = 803
 map 		= "RemixCancel"
 value 		= 1
 ignorehitpause 	= 1
@@ -5263,13 +5258,6 @@ type = AngleDraw
 trigger1 = 1
 ignorehitpause = 1
  ;============================
-[State -2, Starter Level]
-type         = RootMapSet
-trigger1         = movehit && root, !map(ComboStateCheck)
-map         = "StarterLevel"
-value         =  2
-ignorehitpause     =  1
-
 [State -2, P1 Value Set]
 type         = RootMapSet
 trigger1         = movehit && root, !map(ComboStateCheck)

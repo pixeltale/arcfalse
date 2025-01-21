@@ -1299,7 +1299,7 @@ ground.hittime  	= 15 * map(UntechMod)
 air.hittime  	= 18
 down.hittime 	= 18 * map(UntechMod)
 ground.velocity = -4
-air.velocity = -1.3,-3
+air.velocity = -1.3,-3 - 3*(prevstateno = 630)
 air.fall = 1
 getpower = (45)*(cond(var(var(3)) = 1, 1, .5))
 

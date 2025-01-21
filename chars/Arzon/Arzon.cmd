@@ -132,7 +132,7 @@ trigger3 =  stateno=45 || stateno=46|| stateno=50
 [State -1, Air Backdash]
 type = ChangeState
 value =903
-triggerall = command = "a44" || command = "M44"
+triggerall = command = "44" || command = "M44"
 trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=903
@@ -143,7 +143,7 @@ triggerall = pos y<-10
 [State -1, Airdash]
 type = ChangeState
 value =904
-triggerall = command = "a66" || command = "M66"
+triggerall = command = "66" || command = "M66"
 trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=904

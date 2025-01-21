@@ -425,16 +425,13 @@ value = Anim + 3
 type    = A
 physics = A
 ctrl = 1
+anim = 41
 
 [State 50, 1]
 type = VarSet
 trigger1 = Time = 0
 sysvar(1) = 0
 
-[State 50, 2]
-type = ChangeAnim
-trigger1 = Time = 0
-value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
 
 [State 50, 3]
 type = ChangeAnim

@@ -72,6 +72,12 @@ name = "22R"
 command = ~D, D, c
 time = 10
 
+[Command]
+name = "feintBuffer"
+command = /y
+time = 1
+buffer.time = 0
+
 [Statedef -1]
 
 ;===========================================================================
@@ -130,11 +136,7 @@ value = 3200
 triggerall = command = "214S"
 triggerall = power >= 4000
 triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = stateno != [3000,3050)
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = [100,101]
+trigger1 = ctrl || var(1) || stateno < 3000 && movehit && stateno != [800, 805]
 
 ;===============================================================================
 ;---------------------------------------------------------------------------
@@ -249,6 +251,14 @@ triggerall = statetype != A
 trigger1 = var(1)
 trigger2 = MAP(StrikeCount) = 2
 
+;THE TREE OF LIFE AND DEATH......
+[State -1, Yggdrasil]
+type = changeState
+value = 1206
+triggerall = command = "236H"
+triggerall = statetype != A
+trigger1 = MAP(StrikeCount) = 2
+
 ;===========================================================================
 ;4S - Aimless Serpent (Ground)
 [State -1, Spotdodge]
@@ -265,9 +275,9 @@ trigger2 = var(1)
 type = ChangeState
 value = 1011
 triggerall = command = "214L" && prevstateno != 1010 || command = "214L_unbuffer" && prevstateno = 1010 
-triggerall = map(EN) || map(StrikeCount) = 2
+triggerall = map(EN)
 triggerall = statetype != A
-trigger1 = var(1) || map(StrikeCount) = 2
+trigger1 = var(1)
 
 ;===========================================================================
 ;236M - Strike the Earth
@@ -349,31 +359,6 @@ trigger2 = var(1)
 trigger3 = stateno = [200,220] || stateno = [400,431]
 trigger3 = movecontact
 trigger4 = stateno = 100 && time > 2
-
-;EX jS: Jotunn's Wrath | jEX
-[State -1, Jotunn's Wrath]
-type = changeState
-value = 2500
-triggerall = (command = "236R")
-triggerall = statetype = A && !map(EXjS_Limiter)
-triggerall = power>=1000
-triggerall = !map(jEXLim)
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 60
-trigger4 = movecontact && stateno = [600,640]
-
-;jS: Jotunn's Wrath
-[State -1, Jotunn's Wrath]
-type = changeState
-value = 1025
-triggerall = command = "236H"
-triggerall = statetype = A
-triggerall = !map(EN)
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 60
-trigger3 = movecontact
 
 ;EnjS: Jotunn's Wrath
 [State -1, Jotunn's Wrath]
