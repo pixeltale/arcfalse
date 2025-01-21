@@ -47,28 +47,18 @@
 ;fvar(26):= -2, 1020
 
 [Data]
-;Amount of life to start with
 life = 1500
-;attack power (more is stronger)
 attack = 100
-;defensive power (more is stronger)
 defence = 100
-;Percentage to increase defense everytime player is knocked down
 fall.defence_up = 0
-;Time which player lies down for, before getting up
 liedown.time = 60
-;Number of points for juggling
 airjuggle = 20
-;Default hit spark number for HitDefs
 sparkno = 2
-;Default guard spark number
 guard.sparkno = 40
-;1 to enable echo on KO
 KO.echo = 0
-;Volume offset (negative for softer)
 volume = 0
 
-power = 4010
+power = 4000
 IntPersistIndex = 60
 FloatPersistIndex = 40
 
@@ -132,7 +122,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 ; NegativeStates.cns states
 snapBackAttack = 210 ; ANIM: snapback attack
 switchAirAttack = 655
-StateTagAssistSuper = 1054 ; STATENO: normal assist attack
+StateTagAssistSuper = 10400 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**

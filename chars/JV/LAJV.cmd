@@ -570,7 +570,7 @@ trigger4 = stateno = 60
 [State -1, REDLINE CANCEL]
 type = ChangeState
 value = 4005
-triggerall = power >=1000 && stateno != 4005
+triggerall = power >=1000 && stateno != 4005 && teammode != Tag
 triggerall = command = "SP"
 triggerall = statetype != A
 trigger1 = map(FRC)
@@ -579,7 +579,7 @@ trigger1 = map(FRC)
 [State -1, REDLINE CANCEL]
 type = ChangeState
 value = 4006
-triggerall = power>=1000 && stateno != 4006
+triggerall = power>=1000 && stateno != 4006 && teammode != Tag
 triggerall = command = "SP"
 triggerall = statetype = A 
 trigger1 = map(FRC)

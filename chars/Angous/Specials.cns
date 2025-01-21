@@ -612,6 +612,7 @@ x = 3
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
+triggerall = !map(isAssist)
 triggerall = P2Stateno != [120,156]
 trigger1 = animelem = 9
 trigger1 = !numtarget
@@ -619,6 +620,37 @@ hitonce = 1
 attr = S, ST
 damage = 0, 0
 hitflag = M-
+guardflag = 
+priority = 3
+pausetime = 0,0
+sparkno = 1000
+sparkxy = P2BodyDist X + -58, -34 ;P2BodyDist X, so the hitspark is relative to P1
+hitsound   = S6,0
+guardsound = 6,2
+ground.type = Low
+animtype = medium
+ground.slidetime = 14
+ground.hittime  = 23
+ground.velocity = 2,-3
+fall.xvelocity = -1
+fall.yvelocity = -8
+air.velocity = 2,-3
+air.hittime = 24
+fall = 1
+p1stateno = 10410
+p2stateno = 10412
+
+[State 630, 2]
+type = HitDef 
+p2facing = 1 
+triggerall = map(isAssist)
+triggerall = P2Stateno != [120,156] && (enemy, movetype = H || enemy, statetype != A)
+trigger1 = animelem = 9
+trigger1 = !numtarget
+hitonce = 1
+attr = S, ST
+damage = 0, 0
+hitflag = MAFD
 guardflag = 
 priority = 3
 pausetime = 0,0

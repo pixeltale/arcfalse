@@ -1,4 +1,4 @@
-;236L/M/H - 36 CHAMBERS: DEATH 13
+;236L/M/H - JUDGEMENT BLADE
 [Statedef 3000]
 type    = S
 movetype= A
@@ -118,8 +118,8 @@ hitsound   = 5,1
 guardsound = 6,1
 ground.type = high
 animtype = hard
-ground.hittime  = 999
-air.hittime = 999
+ground.hittime  = 40
+air.hittime = 40
 down.hittime = 999
 ground.velocity = -2,-9
 air.velocity = -2,-8
@@ -146,21 +146,17 @@ guardsound 	= 6,2
 ground.type 	= TRIP
 air.type		= TRIP
 animtype 		= medium
-ground.slidetime 	= 14
-ground.hittime  	= 33
+ground.hittime  	= 40
 ground.velocity 	= -20,-6
 air.velocity 	= -20,-2
-air.hittime 	= 16 * MAP(untechMOD)
+air.hittime 	= 15
 fall 		= 1
-fall.yvelocity 	= 0
-guard.slidetime 	= 12
-guard.hittime 	= 21
 guard.ctrltime 	= 10
 envshake.time 	= 8
 envshake.freq 	= 10
 envshake.ampl 	= 5
 envshake.phase 	= 1
-getpower 		= 0
+getpower 	= 0
 p2stateno 	= 5220
 p2getp1state 	= 0
 

@@ -1149,12 +1149,10 @@ ignorehitpause if ID = Map(_iksys_tagCurrentID) && roundstate = 2 && Teammode = 
 
 	if ((command="snapbackF" && map(previousPartnerIsReady)) || (command="snapbackB" && map(nextPartnerIsReady))) && ctrl && stateno = const(StateStand) && const(snapBack) = 1 && map(variableCrossIsOn) = 0 && power >= 999 {
 		if const(reverseSnapBack) = 0 {
-			if command="snapbackF" {teammapset{map:"ForcedSwitch"; value:1; redirectid:enemynear,id}}
-			if command="snapbackB" {teammapset{map:"ForcedSwitch"; value:2; redirectid:enemynear,id}}
+			teammapset{map:"ForcedSwitch"; value:1; redirectid:enemynear,id}
 		}
 		if const(reverseSnapBack) > 0 {
-			if command="snapbackF" {teammapset{map:"ForcedSwitch"; value:1;}}
-			if command="snapbackB" {teammapset{map:"ForcedSwitch"; value:2;}}
+			teammapset{map:"ForcedSwitch"; value:1;}
 		}
 		 changestate{value:const(snapbackStateNo);ctrl:0}
  	}

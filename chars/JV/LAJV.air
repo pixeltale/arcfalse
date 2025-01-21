@@ -2037,6 +2037,13 @@ Clsn2: 1
   Clsn2[0] = -31, -52, 34, 1
 11,2, 0,0, 4
 
+; Effect
+[Begin Action 1063]
+1009,0, 0,0, 4
+1009,1, 0,0, 4
+1009,2, 0,0, 4
+1009,3, 0,0, 4
+
 ; M Rekka
 [Begin Action 1065]
 Clsn2Default: 1

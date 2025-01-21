@@ -829,8 +829,6 @@ ignorehitpause = 1
 persistent = 1
 redirectid = enemynear, id
 
-
-
 [State 0. MapSet]
 type 		= MapAdd
 triggerall		= time % 2 = 0
@@ -839,16 +837,6 @@ map 		= "comboTimer"
 value 		= -1
 ignorehitpause 	= 1
 persistent 		= 1
-
-[State 0, TargetState]
-type = TargetState
-triggerall = NumTarget;()
-trigger1 = (var(30) = [4,5])
-trigger1 =target, stateno!=[1225, 1228]
-value = 1225
-ID = -1
-
-
 
 [State 0, VarAdd]
 type = VarAdd
