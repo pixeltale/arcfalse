@@ -8,7 +8,7 @@ name = "released_up"
 command = ~U
 [Command]
 name = "6246L"
-command = ~$F, $D, $B, $F, y
+command = ~$F, $D, $B, $F, x
 [Command]
 name = "6246M"
 command = ~$F, $D, $B, $F, y

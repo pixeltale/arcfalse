@@ -1165,7 +1165,7 @@ trigger1 	= time % 10
 trigger1 	= cond(Map(EnLock), time < 45, time < 60)
 attr 	= S, HA
 animtype  	= hard
-damage 		= 10*MAP(P4) + 10, 5
+damage 		= 10*MAP(P4) + 5, 5
 hitflag 		= MAFD
 guardflag 	= MA
 pausetime 	= 3,3
@@ -1202,7 +1202,7 @@ p2facing = 1
 trigger1 = animelem = 13
 attr = S, HA
 animtype  = hard
-damage = 300*MAP(P4) + 67, 25
+damage = 200*MAP(P4) + 55, 25
 hitflag = MAFD
 guardflag = MA
 pausetime = 35,35

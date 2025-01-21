@@ -9,6 +9,9 @@ name = "236236L"
 command = ~D, F, D, F, x
 time = 26
 [Command]
+name = "6246L"
+command = ~$F, $D, $B, $F, x
+[Command]
 name = "426H"
 command = ~$B, $D, F, z
 time = 30
@@ -73,8 +76,13 @@ command = ~D, D, c
 time = 10
 
 [Command]
-name = "feintBuffer"
+name = "feintBuffer_m"
 command = /y
+time = 1
+buffer.time = 0
+[Command]
+name = "feintBuffer_h"
+command = /z
 time = 1
 buffer.time = 0
 
@@ -259,16 +267,23 @@ triggerall = command = "236H"
 triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
 
+;ALL EXISTENCE DENIED......
+[State -1, EGO DEATH DRIVER]
+type = changeState
+value = 1207
+triggerall = command = "6246L"
+triggerall = statetype != A
+trigger1 = MAP(StrikeCount) = 2
+
 ;===========================================================================
 ;4S - Aimless Serpent (Ground)
 [State -1, Spotdodge]
 type = ChangeState
 value = 1010
 triggerall = command = "214L"
-triggerall = !map(EN) || stateno = 40
-triggerall = statetype != A
-trigger1 = ctrl || stateno = 40
-trigger2 = var(1)
+triggerall = stateno = 40 || !map(EN) && statetype != A
+trigger1 = ctrl
+trigger2 = var(1) || stateno = 40
 
 ;4SEN - Wandering Serpent (Ground)
 [State -1, Spotdodge]

@@ -1,5 +1,5 @@
-.\external\script\start.lua:1401: chars\JV/LASPECIALS.cns:2328:
-Command doesn't exist: feintbuffer
+.\external\script\start.lua:1401: chars\JV/LASPECIALS.cns:3185:
+Nothing assigned
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'
