@@ -923,7 +923,7 @@ ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movehit && MAP(EnLock)
+trigger1 = movehit && MAP(EnLock) && power >= 1000
 value = 3130
 ctrl = 0
 ;================================
@@ -936,7 +936,7 @@ juggle = 0
 velset = 10,-5
 ctrl = 0
 anim = 3043
-poweradd = 0
+poweradd = -1000
 sprpriority = 2
 facep2 = 1
 
