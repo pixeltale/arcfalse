@@ -3048,6 +3048,27 @@ sprpriority = 2
 velset = vel x * 0.2, 0
 facep2 = 1
 
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 1 || animelem = 2 || animelem = 3 || animelem = 4 || animelem = 5
+anim = 1085
+ID = 1085
+pos = p2dist x * 0.2 * animelemno(0) - random*0.01,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.3 + random * 0.001,0.3
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+
 [State 0, Custom Afterimage]
 type = Explod
 trigger1 = time%10=0
@@ -3110,8 +3131,8 @@ attr 	= S, HA
 animtype  	= Heavy
 air.animtype 	= back
 damage 		= 100 * MAP(P4) + (100 * map(CounterHit)), 0
-pausetime 	= 0,999
-sparkno 		= -1
+pausetime 	= 10,999
+sparkno 		= 3
 sparkxy 		= -p2dist x * 0.25,-1
 hitsound   	= 5,3
 guardsound 	= 6,2
@@ -3127,13 +3148,17 @@ fall.yvelocity 	= 0
 yaccel		= 0.1
 getpower 	= (100)*(cond(var(var(2)) = 1, 1.5, 1))
 kill		= 0
-p1stateno	= 1208
 
 [State 0, PlayerPush]
 type = PlayerPush
 trigger1 = 1
 value = 0
 
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit = 15
+value = 1208
+ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
@@ -3278,7 +3303,7 @@ getpower 	= 2
 
 [State 0, Explod]
 type = Explod
-triggerall = time > 10
+triggerall = time > 5
 trigger1 = movehit % 2 = 0
 anim = 1082
 ID = 1082
@@ -3301,8 +3326,8 @@ removeongethit = 0
 ignorehitpause =1
 [State 0, Explod]
 type = Explod
-triggerall = time > 10
-trigger1 = movehit % 3 = 0
+triggerall = time > 5
+trigger1 = movehit % 3 = 1
 anim = 1083
 ID = 1083
 pos = p2dist x + (random * 0.10),0
@@ -3324,8 +3349,8 @@ removeongethit = 0
 ignorehitpause =1
 [State 0, Explod]
 type = Explod
-triggerall = time > 10
-trigger1 = movehit % 4	 = 0
+triggerall = time > 4
+trigger1 = movehit % 4 = 2
 anim = 1083
 ID = 1083
 pos = p2dist x + (random * 0.21),0
