@@ -193,7 +193,6 @@ triggerall = command = "holdfwd"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 1000 && movecontact ;&& enemynear, movetype = H 
 
 [State 1040, 6S: Dash Slash]
 type = ChangeState

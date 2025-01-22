@@ -1123,7 +1123,7 @@ guard.slidetime 	= 6
 guard.hittime 	= 11
 air.fall 		= 1
 ground.cornerpush.veloff = -4.5
-getpower 		= 65
+getpower 		= 10
 
 [State 200, 2]
 type = PlaySnd

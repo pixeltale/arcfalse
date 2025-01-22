@@ -1452,7 +1452,7 @@ x = 6
 [State 0, VelMul]
 type = VelMul
 trigger1 = time>19
-x = .6
+x = .8
 
 
 [State 0, Explod]
@@ -1769,7 +1769,7 @@ x =12
 [State 0, VelMul]
 type = VelMul
 trigger1 = time>10
-x = .6
+x = .9
 
 [State 0, Explod]
 type = Explod

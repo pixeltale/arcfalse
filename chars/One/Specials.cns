@@ -919,6 +919,7 @@ persistent 		= 0
 [State 410, 2]
 type = HitDef 
 p2facing = 1
+triggerall = p2dist x > 0
 trigger1 = animelem = 7
 attr = A, SA
 damage = 50*MAP(P4),1
@@ -949,6 +950,7 @@ fall = 1
 [State 410, 2]
 type = HitDef 
 p2facing = 1
+triggerall = p2dist x > 0
 trigger1 = (time = [23,50]) && time%3=0
 attr = A, SA
 damage = 15*MAP(P4),1
@@ -977,6 +979,7 @@ getpower = 0
 [State 410, 2]
 type = HitDef 
 p2facing = 1
+triggerall = p2dist x > 0
 trigger1 = animelem = 21
 attr = A, SA
 damage = 50*MAP(P4),1
@@ -3373,10 +3376,10 @@ anim = 10000
 ID = 115120
 removetime = -1
 
-
 [State 0, CtrlSet]
 type = CtrlSet
 trigger1 = var(50)!=0
+trigger1 = time > 5
 value = 1
 
 [State 0, Veladd]
@@ -4082,13 +4085,13 @@ ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.90	;100% Starting DMG
+value 		=  0.80	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
 value 		=  0.87	;80% DMG For next hit
 ignorehitpause 	= 1
@@ -4168,7 +4171,6 @@ physics = S
 ctrl = 0
 anim =1053
 velset = 0,0
-poweradd = (100)*(cond(var(var(1)) = 1, 1, 1))
 sprpriority = 2
 facep2 = map(SkewerHit)
 
@@ -4418,7 +4420,7 @@ y = .5
 [State 00, ChangeState]
 type = ChangeState
 trigger1 = pos y>0
-value = cond(moveguarded, 1059, 52)
+value = cond(!movehit, 1059, 52)
 ctrl = 1
 
 ;5S/[EX]~H - THROW
@@ -4458,7 +4460,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.85
+value 		= 0.75
 ignorehitpause 	= 1
 [State 0, P2 Value Set]
 type 		= MapSet
