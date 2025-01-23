@@ -330,7 +330,7 @@ trigger3 = stateno = 100 && time > 2
 type = changeState
 value = 651
 triggerall = command = "22L"
-triggerall = statetype = A
+triggerall = statetype = A && !map(L_Teleport)
 trigger1 = var(1) || ctrl || stateno = 652 && movecontact
 
 ;j22M: HOP

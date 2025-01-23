@@ -53,7 +53,7 @@
 ; take a look if would like to learn more about the cns.
 
 [Data]
-life = 1000
+life = 1200
 attack = 100
 defence = 120
 fall.defence_up = 0
@@ -63,7 +63,6 @@ sparkno = 2
 guard.sparkno = 40
 KO.echo = 0
 volume = 0
-
 power = 4000
 IntPersistIndex = 4
 FloatPersistIndex = 40
@@ -463,51 +462,19 @@ trigger1 = animtime=0
 
 [Statedef -2]
 
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= statetype != A
+map 		= "L_Teleport"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State - Air Option Limiter - Double Jump]
 type = mapset
 trigger1 = statetype = S
 map = "DoubleJump"
 value = 0
-
-;[State 0, LifeAdd]
-;type = LifeAdd
-;trigger1 = life < 300 && !movetype = H
-;trigger1 = time % 3 = 0
-;value = 4
-;persistent = 1
-
-[State 0, AttackMulSet]
-type = AttackMulSet
-trigger1 = life < 100
-value = 1.1
-persistent = 0
-[State 0, AttackMulSet]
-type = AttackMulSet
-trigger1 = life <= 30
-value = 1.2
-persistent = 0
-
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = life < 600
-value = 1.4
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = life < 300
-value = 1.6
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = life < 200
-value = 1.8
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = life < 100
-value = 2
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = life < 50
-value = 2.2
-
 
 ;[State 0, Custom Afterimage]
 ;type = Explod

@@ -1391,6 +1391,14 @@ anim = 641
 sprpriority = 2
 velset = vel x * 0.25,-4
 
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= !map(ComboStateCheck)
+map 		= "L_Teleport"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelemno(0) <= 2

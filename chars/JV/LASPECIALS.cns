@@ -39,9 +39,9 @@ persistent = 0
 [State -2, Starter Level]
 type 		= MapSet
 triggerall		= anim > 1000
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 4
+value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -49,14 +49,14 @@ type 		= MapSet
 triggerall		= anim > 1000
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1 + 0.1 * map(chargeLvl)	;100% Starting DMG
+value 		= 1 + 0.05 * map(chargeLvl)	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 triggerall		= anim > 1000
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 1.1 + 0.1 * map(ChargeLVL)	;85% DMG For next hit
+value 		= 1.05 + 0.05 * map(ChargeLVL)	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -128,7 +128,7 @@ guard.ctrltime 	= 8
 p2stateno 	= 915020
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = -10
-air.cornerpush.veloff 	= -19.5 / MAP(untechMOD)
+air.cornerpush.veloff 	= -19.5 / MAP(untechMOD) * 0.5
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Nagant Driver
 type 	= HitDef
@@ -161,7 +161,7 @@ guard.ctrltime 	= 10
 p2stateno 	= 915020
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = -10
-air.cornerpush.veloff 	= -22.5 / MAP(untechMOD)
+air.cornerpush.veloff 	= -22.5 / MAP(untechMOD) * 0.5
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Death
 type 	= HitDef
