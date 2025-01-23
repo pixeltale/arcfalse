@@ -10,6 +10,24 @@ anim =3000
 sprpriority = 8
 poweradd = -2000
 
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO
+trigger1 = WinKO
+name = "Hyper Finish B.G."
+id = 8990
+stateno = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+persistent = 0
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = time = 63

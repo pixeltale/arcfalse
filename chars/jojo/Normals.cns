@@ -1275,8 +1275,9 @@ ground.slidetime = 6
 ground.hittime  = 11
 ground.velocity = -4
 guard.ctrltime 	= 12
-air.velocity = -1.5,-1
+air.velocity = -1.5,-1*map(untechMod)
 air.fall = 1
+air.cornerpush.veloff = -10
 getpower 	= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 400, 4]
@@ -2187,6 +2188,7 @@ guard.hittime	= 18
 [State 0, MAPSET]
 type = MapAdd
 trigger1 = movehit = 1
+triggerall = (16 * map(GravMul) - map(jH_UseCount)) > -2
 map = "jH_UseCount"
 value = 1
 

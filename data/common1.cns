@@ -8591,7 +8591,7 @@ triggerall = GameMode = "Training"
 trigger1 = 1
 removetime = 1
 layerno = 2
-text = "Untech Decay= %d"
+text = "Untech Time %d"
 params = var(39)
 font = F3
 align = -1
@@ -8604,7 +8604,8 @@ type = VarSet
 triggerall = gameMode = "Training"
 trigger1 = 1
 v = 39
-value = enemy, MAP(UntechDecay)
+value = enemy, MAP(UntechMOD) * 100
+ignorehitpause = 1
 
 [State 0, AssertSpecial]
 type = AssertSpecial
