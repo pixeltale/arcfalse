@@ -137,7 +137,7 @@ trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=903
 triggerall = var(29)>0
-triggerall = pos y<-10
+triggerall = pos y<-30
 
 ;Aerial Dash
 [State -1, Airdash]
@@ -148,7 +148,7 @@ trigger1 = statetype = A
 trigger1 = ctrl
 triggerall = stateno!=904
 triggerall = var(29)>0
-triggerall = pos y<-10
+triggerall = pos y<-30
 
 ;Taunt
 [State -1, Taunt]
@@ -157,6 +157,18 @@ value = 195
 triggerall = command="start"
 trigger1 = statetype != A
 trigger1 = ctrl
+
+[State -1, j2S] 
+type = ChangeState
+value = 1450
+triggerall = command = "b"
+triggerall = command = "holddown" || command = "down"
+triggerall = command != "holdback"
+triggerall = statetype = A
+triggerall = stateno!=1450
+triggerall = prevstateno!=1450
+trigger1 = ctrl
+trigger2 = var(1) || stateno = [600, 640] && movecontact
 
 [State -1, 2EX] ; 2EX
 type = ChangeState
@@ -187,17 +199,6 @@ trigger3 = numexplod(1000) && (var(5) <= 2)
 trigger3 = !numexplod(10000)
 trigger4=stateno=105
 
-[State -1, j2S] 
-type = ChangeState
-value = 1450
-triggerall = command = "b"
-triggerall = command = "holddown"
-triggerall = command != "holdback"
-triggerall = statetype = A
-triggerall = stateno!=1450
-triggerall = prevstateno!=1450
-trigger1 = ctrl
-trigger2 = var(1)
 
 [State -1, 662S]
 type = ChangeState

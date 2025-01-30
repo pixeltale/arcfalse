@@ -1708,7 +1708,7 @@ ground.type 		= HIGH
 air.type 		= HIGH
 ;==============================================
 ground.hittime  	= 24
-air.hittime  		= 24 * map(UntechMod)
+air.hittime  		= 24
 down.hittime 		= 24
 ground.slidetime 	= 5
 ground.cornerpush.veloff = -5

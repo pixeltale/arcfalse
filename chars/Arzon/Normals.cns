@@ -105,6 +105,7 @@ poweradd= 0
 ctrl = 0
 anim = 210
 sprpriority = -1
+velset = vel x
 
 [State 0, Explod]
 type = Explod
@@ -118,7 +119,8 @@ pausemovetime = 0
 scale = 1.1,.84
 sprpriority = 2
 removeongethit = 1
-bindtime = 0
+removeonchangestate = 1
+bindtime = 12
 ignorehitpause = 0
 
 [State 0, SprPriority]
@@ -183,7 +185,7 @@ hitsound   = 5,1
 guardsound = 6,1
 ground.type = low
 ground.slidetime = 12
-ground.hittime  = 26 * map(UntechMod)
+ground.hittime  = 12 * map(UntechMod)
 air.hittime  = 28 * map(UntechMod)
 down.hittime = 31 * map(UntechMod)
 ground.velocity = -4
@@ -341,24 +343,24 @@ air.animtype = back
 damage = 100*map(P4)
 hitflag = MAFD
 guardflag = MA
-pausetime = 12,14
+pausetime = 12,12
 sparkno = 3
 sparkxy = -15,-45
 hitsound   = 5,3
 guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 30 * map(UntechMod)
+ground.hittime  = 18 * map(UntechMod)
 air.hittime  = 30 * map(UntechMod)
 down.hittime = 50 * map(UntechMod)
 ground.velocity = -3.2
-air.velocity = -2.5,-2.5
+air.velocity = -2.5,-3.5
 envshake.time = 20
 envshake.freq = 180
 envshake.ampl = 2
 envshake.phase = 1
 guard.hittime = 14
-guard.slidetime = 14
+guard.slidetime = 30
 guard.ctrltime = 14
 guard.velocity = -10
 air.fall = 1
@@ -781,7 +783,7 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.80    
+value         =  0.75    
 ignorehitpause     = 1    
 [State -2, P2 Value Set]
 type         = MapSet
@@ -893,7 +895,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.85	;90% Starting DMG
+value 		= 0.80	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1075,7 +1077,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;100% Starting DMG
+value 		= 0.90
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1107,8 +1109,8 @@ hitsound   = 5,4
 guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 45 * map(UntechMod)
-air.hittime  = 45 * map(UntechMod)
+ground.hittime  = 25 * map(UntechMod)
+air.hittime  = 25 * map(UntechMod)
 down.hittime = 45 * map(UntechMod)
 ground.velocity = -0.8,-4.5
 air.velocity = -0.8,-3
@@ -1257,7 +1259,7 @@ ignorehitpause     =  1
 type         = MapSet
 trigger1         = movehit && !map(ComboStateCheck)
 map         = "P1"
-value         =  0.85   
+value         =  0.80
 ignorehitpause     = 1    
 [State -2, P2 Value Set]
 type         = MapSet
@@ -1553,7 +1555,7 @@ air.animtype = back
 damage = 90*map(P4)
 hitflag = MAFD
 guardflag = HA
-pausetime = 18,18
+pausetime = 18,18 - map(jH_useCount)
 sparkno = 3
 sparkxy = -15,-40
 hitsound   = 5,2
@@ -1566,7 +1568,7 @@ air.hittime  = 30
 down.hittime =40 * map(UntechMod)
 ground.velocity = -2.4
 down.velocity = -1,6
-air.velocity = -1,14
+air.velocity = -1,14 + map(jH_useCount)
 fall.yvelocity = -6
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
@@ -2088,32 +2090,18 @@ removeongethit = 1
 ignorehitpause = 1
 persistent = 1
 
-[State 0, Helper]
-type = Helper
+[State 0, VelAdd]
+type = VelAdd
+triggerall = (enemy, facing) != facing
 trigger1 = animelem = 4
-helpertype = normal ;player
-name = "Push"
-ID = 1600
-stateno = 1600
-pos = -30,0
-postype = p2    ;p2,front,back,left,right
-facing = 1
-
-;[State 0, Explod]
-;type = Explod
-;trigger1 = animelem = 4
-;trigger1 = command != "hold_c"
-;anim = 1610
-;ID = 1610
-;pos = -190,175
-;postype = front
-;facing = 1
-;removetime = -2
-;pausemovetime = 0
-;scale = .82,.82
-;sprpriority = -7
-;removeongethit = 1
-;bindtime = 0
+x = 2 + 13*(statetype != A)
+redirectid = enemy, id
+[State 0, VelAdd]
+type = VelAdd
+triggerall = (enemy, facing) = facing
+trigger1 = animelem = 4
+x = -2 + 13*(statetype != A)
+redirectid = enemy, id
 
 [State 0, Explod]
 type = Explod

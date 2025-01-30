@@ -751,16 +751,10 @@ velset = vel x, 0
 
 [State 0, NotHitBy]
 type 	= NotHitBy
-trigger1 	= time <= 7
+trigger1 	= time <= 17
 value 	= SCA
 time 	= 1
 ignorehitpause = 1
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = 1
-v = 1
-value = 1
 
 [State 100, 1]
 type = VelSet

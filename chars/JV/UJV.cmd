@@ -375,13 +375,12 @@ trigger3 = stateno = [200,220] || stateno = [400,431]
 trigger3 = movecontact
 trigger4 = stateno = 100 && time > 2
 
-;EnjS: Jotunn's Wrath
+;j236H: Jotunn's Wrath
 [State -1, Jotunn's Wrath]
 type = changeState
-value = 1030
+value = cond(map(EN), 1030, 1025)
 triggerall = command = "236H"
 triggerall = statetype = A
-triggerall = map(EN)
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 60

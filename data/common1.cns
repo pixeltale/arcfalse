@@ -2952,7 +2952,7 @@ value = 5005 + GetHitVar(animtype) + (GetHitVar(groundtype)=2)*10
 [State 5001, 3] ;Stop sliding back
 type = VelMul
 trigger1 = Time >= GetHitVar(Slidetime)
-x = .6
+x = .7
 
 [State 5001, 4]
 type = VelSet
@@ -7806,7 +7806,7 @@ value = 1000
 type = MapAdd
 trigger1 = movetype = H && !map(BurstGauge_Lockout)
 map = "BurstGauge"
-value = gethitvar(damage) * 0.35 + 2 * (enemy, (map(ComboStateCheck)))
+value = gethitvar(damage) * 0.35 + 3 * (enemy, (map(ComboStateCheck))) 
 ignorehitpause = 1
 persistent = 0
 

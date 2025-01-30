@@ -1024,7 +1024,6 @@ ctrl = 1
 type    = S
 movetype= A
 physics = S
-juggle  = 4
 ctrl = 0
 velset = 0,0
 anim = 222
@@ -2023,7 +2022,7 @@ type 		= MapSet
 triggerall	= map(jH_Charged)
 trigger1 	= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.93
+value 		= 0.85
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -3163,7 +3162,7 @@ pos = 10,0
 type = HitDef
 trigger1 = time = 0 
 attr = S, NT                     ;Attribute: Standing, Normal Attack
-damage = 200, 0
+damage = 120, 0
 animtype = hard                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = LA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    ;Flags of conditions that move can hit

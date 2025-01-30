@@ -319,22 +319,26 @@ volumescale = 160
 
 [State 0, ChangeAnim] ;Charge
 type = ChangeAnim
+triggerall = !movehit
 triggerall = animelemno(0) >= 3 && anim = 1000
 trigger1 = command = "hold_x" && time < 20
 value = 1000
 elem = 3
 [State 0, ChangeAnim] ;Beretta
 type = ChangeAnim
+triggerall = !movehit
 triggerall = anim != 1005
 trigger1 = command = "hold_x" && time = 20
 value = 1002
 [State 0, ChangeAnim] ;Nagant
 type = ChangeAnim
+triggerall = !movehit
 triggerall = anim != 1005
 trigger1 = command = "hold_x" && time = 50
 value = 1003
 [State 0, ChangeAnim] ;Death.
 type = ChangeAnim
+triggerall = !movehit
 triggerall = anim != 1005
 trigger1 = command = "hold_x" && time = 200
 value = 1004
@@ -2560,7 +2564,7 @@ ctrl 		= 0
 anim 		=1070
 sprpriority 	= 2
 facep2 		= 1
-velset 		= vel x + 3 , 0
+velset 		= vel x, 0
 
 [State 0, Beast Elbow Limiter]
 type 		= MapSet
@@ -2828,7 +2832,7 @@ x = time * 0.1
 [State 0, VelAdd]
 type = velset
 trigger1 = animelem = 5
-x = vel x + 10
+x = vel x + 3
 
 [State 0, Changestate]
 type = Changestate

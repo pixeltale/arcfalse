@@ -115,10 +115,9 @@ trigger4 = stateno = 1055 && movehit =1
 type = ChangeState
 value = 1034
 triggerall = power>=1000
-triggerall = var(39)<=0
 triggerall = !var(50)
 triggerall = command = "b" && command = "c" || (command = "EX") 
-triggerall = command = "holddown"
+triggerall = command = "holddown" || command = "down"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -534,9 +533,7 @@ value = 610
 triggerall = command = "x"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = stateno = 600
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1350 ;Air blocking
+trigger2 = stateno = 600 && movecontact
 
 ;---------------------------------------------------------------------------
 [State 630, jM: Jump Medium Attack]
@@ -546,9 +543,7 @@ triggerall = var(50)=0
 triggerall = command = "y"
 triggerall = statetype = A  && stateno != 630
 trigger1 = ctrl
-trigger2 = stateno = 1350
-trigger3 = stateno = [600, 635] 
-trigger3 = movecontact 
+trigger2 = stateno = 610 && movecontact || stateno = [620, 625] && movehit
 
 ;---------------------------------------------------------------------------
 [State 620, jH: Jump Heavy Attack]
@@ -559,9 +554,7 @@ triggerall = command = "z"
 triggerall = command != "holddown"
 triggerall = statetype = A && stateno != 620 && stateno != 642
 trigger1 = ctrl
-trigger2 = stateno = [600, 645] 
-trigger2 = movecontact 
-trigger3 = stateno = 1350
+trigger2 = stateno = [600, 645] && movecontact
 
 ;---------------------------------------------------------------------------
 [State 650, j2H: Jump Down Heavy Attack]
@@ -574,7 +567,6 @@ triggerall = statetype = A && stateno != 650 && stateno != 642
 trigger1 = ctrl
 trigger2 = stateno = [600, 645]
 trigger2 = movecontact
-trigger3 = stateno = 1350 ;Air blocking
 
 ;---------------------------------------------------------------------------
 [State 635, onojM: Ono Jump Medium]
@@ -584,9 +576,8 @@ triggerall = var(50)!=0
 triggerall = command = "y"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = stateno = 1350 ;Air blocking
-trigger3 = stateno = 600 || stateno = 610 
-trigger3 = movecontact ;&& enemynear, movetype = H
+trigger2 = stateno = 600 || stateno = 610 
+trigger2 = movecontact ;&& enemynear, movetype = H
 
 ;---------------------------------------------------------------------------
 [State 625, onojH: Ono Jump Heavy]

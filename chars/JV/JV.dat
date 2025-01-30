@@ -11,7 +11,7 @@ DIVIDER	-		_F^C
 EARTHEN SERPENT	-		_DF^C
    <#bbbbbb>A low-hitting sweep.</>
 KICKBACK	-		<#65b5ff>(AIR ONLY)</> _D^C
-   <#bbbbbb>A downward kick that inflicts a Hard Knockdown.</>
+   <#bbbbbb>A downward kick that inflicts a groundbounce.</>
 KING'S ARSENAL	-		(AFTER CERTAIN MOVES)^A/^B/^C/^Y
         <#bbbbbb>After certain attacks, JV can use a set of moves
         known as the King's Arsenal by pressing 
@@ -116,9 +116,10 @@ SERPENT'S BASTION	-		_D^Y+^Z
    <#bbbbbb>A powerful barrage of attacks that deals a lot of damage
    and knocks the opponent down.</>
 <#983eff>TWENTY-EIGHT MALIGNANT GATES</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
-   <#bbbbbb>A threefold attack that grants combo
-   extensions. The last hit is airdash-cancelable.</>
-<#983eff>BEAUTIFUL DEATH</>		<#aaffff>(GROUND OR AIR)</><#55ffff>(4 BARS)</> _D_DB_B_-^Y
+   <#bbbbbb>JV launches the opponent into the air before following
+   up with a second, downward kick. If he has a third bar available, he
+   will perform a third kick that grants him a combo extension.</>
+<#983eff>BEAUTIFUL DEATH</>		<#55ffff>(4 BARS)</> _D_DB_B_-^Y
    <#bbbbbb>A slow, powerful, invincible attack.
    The air version does not have invincible.</>
 

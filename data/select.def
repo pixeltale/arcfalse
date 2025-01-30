@@ -9,7 +9,7 @@ vile, order=1
 Arzon, order=1
 slot = {
 JV/JV.def, next = "holdw", previous = "holdd"
-JV/LAJV.def, previous = "holdd", next = "holdw" 
+JV/UJV.def, previous = "holdd", next = "holdw" 
 }
 Sahkive, order=1
 CROW

@@ -3526,7 +3526,7 @@ ctrl = 0
 
 [State 00, ChangeState]
 type = ChangeState
-trigger1 = pos y>=0 && vel y>=0
+trigger1 = pos y>=-15&& vel y>=0
 value =1059
 ctrl = 0
 ;ignorehitpause = 
@@ -4486,7 +4486,7 @@ trigger1 = enemy, (stateno != [120,199] && prevstateno != [120,199])
 attr = A, ST
 animtype  = hard
 damage = 5, 0
-hitflag = HAF
+hitflag = AF
 guardflag = 
 pausetime = 2,2
 sparkno = 0
