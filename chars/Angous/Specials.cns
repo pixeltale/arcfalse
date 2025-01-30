@@ -6342,7 +6342,7 @@ damage 			= 80*MAP(P4),11
 animtype  		= Medium
 hitflag 			= MAFD
 guardflag 		= MA
-pausetime 		= 19,19
+pausetime 		= 15,15
 sparkno 			= 3
 sparkxy 			= -10,-40
 hitsound   		= 5,4
@@ -6519,7 +6519,7 @@ damage = 90*MAP(P4),15
 animtype  =hard
 hitflag = MAFD
 guardflag = MA
-pausetime = 20,20
+pausetime = 15,15
 sparkno = 2
 sparkxy = -10,-50
 hitsound   = 5,2
@@ -6688,6 +6688,11 @@ type = VelAdd
 trigger1 = animelem = 8
 x = 3
 
+[State 0, VelSet]
+type = VelMul
+trigger1 = movehit = 1
+x = 0.7
+
 [State 410, 2]
 type = hitdef 
 p2facing = 1
@@ -6697,7 +6702,7 @@ damage = 100*MAP(P4),30
 animtype  = Medium
 hitflag = MAFDP
 guardflag = MA
-pausetime = 36,36
+pausetime = 18,18
 sparkno = 3
 sparkxy = -10,-50
 hitsound   = 5,4
@@ -6706,8 +6711,8 @@ ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 65
 air.hittime = 65
-ground.velocity = -14,-5.5
-air.velocity = -14,-5
+ground.velocity = -14,-6.5
+air.velocity = -14,-7
 fall  = 1
 air.fall = 0
 palfx.time = 36
@@ -6717,12 +6722,24 @@ p2getp1state = 0
 guard.hittime = 28
 guard.slidetime = 19
 guard.ctrltime = 27
+air.cornerpush.veloff = -10
 getpower =  0
 
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = movehit
-value = 1
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_boomerang"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State -2, Wallbounce Velocity Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_yvel"
+value 		= -6.5 + -1*(enemy, backedgedist < 10)
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 0, ChangeState]
 type = ChangeState
