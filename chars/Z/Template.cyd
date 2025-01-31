@@ -547,7 +547,6 @@ triggerall = stateno !=420
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 105
 
 ;EX j6S Air Detonation
 [State -1, Light Kung Fu Palm]
@@ -581,7 +580,6 @@ triggerall = stateno != 420
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 105
 ;-----------------------------------------------------------------
 ;EX 6S: Static Wave
 [State -1, 6EX]
@@ -603,7 +601,6 @@ triggerall = stateno !=420
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 105
 ;------------------------------------------------------------------------
 ;EX 2S: Brewing Shockwave
 [State -1, Light Kung Fu Palm]
@@ -616,7 +613,6 @@ triggerall = stateno != 420
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 105
 ;---------------------------------------------------------------------------
 ;EX 5S-1: Bolt Primer
 [State -1, Light Kung Fu Palm]
@@ -633,7 +629,6 @@ triggerall = stateno != 420
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 105
 ;---------------------------------------------------------------------------
 ;EX 5S-2: Bolt Shot
 [State -1, Light Kung Fu Palm]
@@ -650,7 +645,6 @@ triggerall = stateno != 420
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 105
 
 ;-------------------------------------------------------------------------------
 ;EX j6S: Meteor Crash
@@ -668,7 +662,6 @@ trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 4
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1
-;triggerall = pos y<-30
 
 ;-----------------------------------------------------------------------------
 ;EX j4S: Capacitor Turnout
