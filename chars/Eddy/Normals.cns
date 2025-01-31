@@ -962,6 +962,7 @@ envshake.ampl = 2
 envshake.phase = 1
 fall.yvelocity = 0
 air.fall = 1
+forcestand = 1
 getpower = (75)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
