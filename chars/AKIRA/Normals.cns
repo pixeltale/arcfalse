@@ -4,17 +4,12 @@
 type    		= S
 movetype		= A
 physics 		= S
-velset 		= vel x, 0
+velset 		= vel x * 0.8, 0
 ctrl 		= 0
 anim 		= 200
 facep2 		= 1
 poweradd 	= 0
 sprpriority 	= 2
-
-[State 0, VelMul]
-type = VelMul
-trigger1 = prevstateno = 200
-x = 0.8
 
 [State -2, Starter Level]
 type 		= MapSet

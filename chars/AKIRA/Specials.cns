@@ -1083,7 +1083,7 @@ y = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 1020
+value = cond(command = "holdb", 1020, 0)
 ctrl = 1
 
 ;2S - Ice Clone Summon
