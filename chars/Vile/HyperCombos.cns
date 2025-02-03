@@ -1437,18 +1437,14 @@ triggerall = root,var(8)
 trigger1=enemy,movetype=H
 trigger1 = !(movecontact%18)
 attr = S, HP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(11) * 8 < 2, 2, root,fvar(11) * 8)),6
+damage = 20,10
 animtype = hard                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFDP                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFDP
 pausetime = 0, 12               ;Time attacker pauses, time opponent shakes
-sparkno = S221;S2003                     ;Spark anim no (Def: set above)
-;sparkno = 3
-sparkxy = 0,0               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkno = S221
+sparkxy = 0,0
 hitsound   = S6,4
 guardsound = 6,1
 ground.type = high           ;Type: High, Low, Trip (def: Normal)
@@ -1460,9 +1456,8 @@ airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air
 air.type = High     
 air.velocity = -1.4,-3             ;Type: High, Low, Trip (def: same as ground.type)
 down.velocity = -1.4,-3.1
-;Y-velocity at which opponent is pushed
 air.hittime = 60
-down.hittime = 60                 ;Time before opponent regains control in air
+down.hittime = 60
 fall.yvelocity = 0
 p2facing = 1
 getpower = 0
@@ -1530,18 +1525,14 @@ triggerall = root,var(8)
 trigger1=enemy,movetype=H
 trigger1 = !(movecontact%18)
 attr = S, HP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(11) * 8 < 2, 2, root,fvar(11) * 8)),6
+damage = 20,10
 air.animtype = back
 animtype = hard                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFDP                    ;Flags of conditions that move can hit
-priority = 2, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFDP
 pausetime = 0, 12               ;Time attacker pauses, time opponent shakes
-sparkno = S221;S2003                     ;Spark anim no (Def: set above)
-;sparkno = 3
-sparkxy = 0,0               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkno = S221
+sparkxy = 0,0
 hitsound   = S6,4
 guardsound = 6,1
 ground.type = high           ;Type: High, Low, Trip (def: Normal)
@@ -1551,11 +1542,10 @@ ground.velocity = -2             ;Velocity at which opponent is pushed
 guard.velocity = -3.2
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High     
-air.velocity = -1.4,-3             ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -1.4,-3
 down.velocity = -1.4,-3.1
-;Y-velocity at which opponent is pushed
 air.hittime = 60
-down.hittime = 60                 ;Time before opponent regains control in air
+down.hittime = 60
 fall.yvelocity = 0
 air.fall = 1
 p2facing = 1
@@ -1765,35 +1755,13 @@ type = PlaySnd
 trigger1 = time=0
 value = 3008, (0+(Random%2))
 
- ;============================
-[State -2, Starter Level]
-type 		= ParentMapSet
-trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		=  2
-ignorehitpause 	=  1
 
-[State -2, P1 Value Set]
-type 		= ParentMapSet
-trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "P1"
-value 		=  1.1	;100% Starting DMG
-ignorehitpause 	= 1
-[State -2, P2 Value Set]
-type 		= ParentMapSet
-trigger1 		= movehit && map(ComboStateCheck)
-map 		= "P2"
-value 		=  1	;80% DMG For next hit
-ignorehitpause 	= 1
-persistent 		= 0
-[State -2, P2 Accumulation - Scale]
-type 		= ParentMapSet
+[State -2, Starter Level]
+type 		= RootMapAdd
 trigger1 		= movehit
-map 		= "Accumulation"
-value 		= Map(Accumulation) * map(P2)
-ignorehitpause 	= 1
-persistent 		= 0
-;============================
+map 		= "ComboTimer"
+value 		=  3
+ignorehitpause 	=  1
 
 
 [State 0, Pause]

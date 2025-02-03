@@ -860,7 +860,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "CH = %f"
-params = MAP(CounterHit)
+params = MAP(ComboTimer)
 
 [State 0, VarSet]
 type = VarSet

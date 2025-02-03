@@ -3304,13 +3304,7 @@ poweradd= -1000
 ctrl = 0
 sprpriority = 2
 facep2 = 1
-anim = 1050
-
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = time = 15 && anim!=1052
-value = 1052
-elem = 1
+anim = 1055
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3341,8 +3335,7 @@ ignorehitpause = 0
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = anim = 1052
-trigger1 = animelemno(0) = [1,5]
+trigger1 = animelemno(0) = [6,11]
 x = 5
 
 ;EX Effects
@@ -3456,7 +3449,7 @@ air.animtype = back
 damage = 100*MAP(P4), 0
 hitflag = MAFDP
 guardflag = MA
-pausetime = 18,18
+pausetime = 22,22
 sparkno = 3
 sparkxy = -10,-34
 hitsound   = 5,3
@@ -3473,7 +3466,7 @@ fall.yvelocity = 0
 envshake.freq = 80
 envshake.ampl = 2
 envshake.phase = 1
-guard.ctrltime = 22
+guard.ctrltime = 10
 fall.yvelocity = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 id = 910312

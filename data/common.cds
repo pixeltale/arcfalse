@@ -715,11 +715,6 @@ time = 20
 buffer.time = 15
 [Command]
 name = "MistStep"
-command = ~$F, $D, $F
-time = 20
-buffer.time = 15
-[Command]
-name = "MistStep"
 command = ~$F, N, D, DF
 time = 20
 buffer.time = 15
