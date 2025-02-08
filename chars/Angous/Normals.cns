@@ -3030,6 +3030,7 @@ persistent 		= 0
 [State 610, 3]
 type = hitdef 
 p2facing 		= 1
+triggerall		= enemy, stateno != 5210 && enemy, !(prevstateno = 5210 && time < 5)
 triggerall		= !map(ArmorActive)
 trigger1		= animelemno(0) = 11
 attr 		= S, SA
@@ -3424,6 +3425,7 @@ persistent 		= 0
 [State 610, 3]
 type = hitdef 
 p2facing 		= 1
+triggerall		= enemy, stateno != 5210 && enemy, !(prevstateno = 5210 && time < 5)
 trigger1 		= animelem = 11
 attr 		= S, SA
 damage 			= 200*MAP(P4),11
