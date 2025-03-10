@@ -88,7 +88,7 @@ walk.fwd  = 3      ;Walk forward
 walk.back = -3     ;Walk backward
 run.fwd  = 5.6, 0    ;Run forward (x, y)
 run.back = -3.5,-3.8 ;Hop backward (x, y)
-jump.neu = 0,-7    ;Neutral jumping velocity (x, y)
+jump.neu = 0,-7.5    ;Neutral jumping velocity (x, y)
 jump.back = -2.55    ;Jump back Speed (x, y)
 jump.fwd = 2.33       ;Jump forward Speed (x, y)
 runjump.back = -1,-8.1 ;Running jump speeds (opt)
@@ -311,11 +311,18 @@ map 		= "ShotCount"
 value 		= 2
 ignorehitpause 	= 1
 
+[State -2, THE GIRL'S RETRIBUTION]
+type 			= Mapadd
+trigger1 			= stateno = [1080,1081]
+map 				= "Retribution"
+value 			= gethitvar(damage)
+ignorehitpause 	= 1
+
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "cornersplat = %f"
-params = map(CornerSplat)
+text = "retribution = %f"
+params = map(retribution)
 ignorehitpause = 1
 persistent = 1
 

@@ -26,6 +26,11 @@ time = 1
 name = "buffered_holdup" ;Required (do not remove)
 command = /$U
 time = 1
+[Command]
+name = "crow_holdback" ;Required (do not remove)
+command = /B
+buffer.time = 0
+
 
 [Statedef -1]
 
@@ -151,7 +156,7 @@ trigger2 = var(1) && stateno != 105
 type = ChangeState
 value = 1060
 triggerall = command = "b"
-triggerall = command = "holdback"
+triggerall = command = "crow_holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)

@@ -805,7 +805,7 @@ value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------
-;2S - Its...Its...its...hm...
+;(Unused) Hands
 [Statedef 1040]
 type    = S
 movetype= A
@@ -850,7 +850,7 @@ value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------
-;2S - ARMS OF THE DAMNED
+;Helper
 [Statedef 1045]
 type    = U
 movetype= A
@@ -1510,7 +1510,7 @@ value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------
-;5R - Dodge/Parry
+;2S - Self Defense
 [Statedef 1080]
 type    	= S
 movetype	= I
@@ -1549,7 +1549,6 @@ attr 		= SCA,NA,SA,HA,NP,SP,HA
 slot 		= 0
 stateno 		= 1080 + 1*(command = "buffered_holdfwd" || command = "buffered_holdback" || command = "buffered_holddown")
 time 		= 1
-ignorehitpause 	= 1
 [State 0. MapSet]				;This state isnt actually "armored"
 type 		= MapSet			;This is just so custom states dont whiff on it.
 trigger1 		= prevstateno != [120, 155]
@@ -1589,7 +1588,7 @@ type = PowerAdd
 trigger1 = enemy, movehit = 1
 value = 100
 ignorehitpause = 1
-;persistent = 
+
 
 
 [State 0, StateTypeSet]

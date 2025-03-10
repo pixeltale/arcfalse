@@ -862,7 +862,7 @@ air.velocity 	= -1,1
 fall.yvelocity 	= 0
 down.velocity 	= -2,0
 down.hittime 	= 22
-guard.ctrltime 	= 6
+guard.ctrltime 	= 10
 guard.velocity	= -5
 guard.cornerpush.veloff = -6
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, 1))
@@ -893,7 +893,7 @@ air.velocity 	= -1,1
 fall.yvelocity 	= 0
 down.velocity 	= -2,0
 down.hittime 	= 22
-guard.ctrltime 	= 6
+guard.ctrltime 	= 10
 guard.velocity	= -5
 guard.cornerpush.veloff = -6
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, 1)) 
