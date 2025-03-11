@@ -1,0 +1,91 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#383371>UNIQUE TRAIT: THE PROFESSIONAL</>
+	Some of Eddy's moves have devastating effects when they counter-hit
+	the enemy. Also, when Eddy hits the enemy with a Normal or Special Move,
+	he can immediately dash forward or backward.
+	He can dash cancel one normal and one special per combo.
+
+	<#383371>UNIQUE MOVES</>
+REAR UPPER	-		_B^B
+LOW HOOK	-		_DF^C
+DOWNWARD CROSS	-		<#65b5ff>(AIR ONLY)</> _D^C
+
+
+	<#383371>SPECIAL MOVES</>
+GENTLEMAN'S BODY BLOW	-		^Y
+   <#bbbbbb>Ignores projectiles. Wallbounces on counter-hit.</>
+GENTLEMAN'S STEP	-		_F^Y
+_!GENTLEMAN'S LAUNCHER	-		^A/^B/^C
+_!GENTLEMAN'S GATTLING	-		^Y
+        <#bbbbbb>Can be canceled into _D^Z.</>
+GENTLEMAN'S DANCE	-		_B^Y
+_!GENTLEMAN'S HAIRCUT	-		^A/^B/^C
+        <#bbbbbb>Bounces the enemy on counter-hit.</>
+_!GENTLEMAN'S SHOESHINE	-		^Y
+        <#bbbbbb>Stuns the enemy on counter-hit.</>
+GENTLEMAN'S UPPER	-		<#aaffff>(GROUND OR AIR)</> _D^Y
+   <#bbbbbb>An invincible uppercut.
+   The airborne version has no invincibility.</>
+_!GENTLEMAN'S OPPRESSOR	-		^Y
+        <#bbbbbb>Bounces the enemy on counter-hit.</>
+
+	<#383371>REMIX MOVES</>
+GENTLEMAN'S PARRY	-		^Z
+   <#bbbbbb>A counter. Does not beat projectiles or grabs.</>
+_!GENTLEMAN'S QUICKDRAW	-		^Z
+        <#bbbbbb>Interrupts the stance early, performing a
+        long-range punch. Launches the enemy on counter-hit.</>
+GENTLEMAN'S NECESSITY	-		_D^Z
+   <#bbbbbb>Causes an obscene amount of stun on counter-hit.</>
+
+	<#ffef0f>EX MOVES</>
+_EX GENTLEMAN'S BODY BLOW	-		<#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>Ignores projectiles.</>
+_EX GENTLEMAN'S DANCE	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+   <#bbbbbb>A quick step forward that can pass through the enemy.</>
+_EX GENTLEMAN'S STEP	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>A step backwards that's only vulnerable to grabs.
+   Can be canceled into other special moves.</>
+_EX GENTLEMAN'S UPPER	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _D^Y+^Z
+   <#bbbbbb>An invincible uppercut.
+   The airborne version has no invincibility.</>
+_!GENTLEMAN'S OPPRESSOR	-		^Y
+        <#bbbbbb>Happens automatically if the uppercut hits.</>
+
+	<#55ffff>SUPERS</>
+<#383371>VIOLENT GATTLING</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+<#383371>VIOLENT UPPER</>		<#aaffff>(GROUND OR AIR)</><#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>An invincible uppercut. Bounces the enemy on counter-hit.
+   The airborne version has no invincibility.</>
+
+	UNIVERSAL MOVES
+OVERHEAD	-		_F^B
+   <#bbbbbb>Puts you in the air and hits overhead.</>
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne enemies.</>
+GRAB	-		^X
+   <#bbbbbb>Cannot be blocked. Starts combos on counter-hit.</>
+FORCE BLOCK (WHILE BLOCKING)	-		<#55ffff>(1/4 BAR)</> _B^X
+   <#bbbbbb>Can push the enemy backwards while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		<#55ffff>(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles. Refunds 1 BAR on hit.</>
+RECORD SCRATCH (WHILE ATTACKING)		<#55ffff>(1 BAR/2 BARS ON BLOCK)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.</>
+BURST (WHILE GETTING HIT)	-		^X+^A/^B/^C
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+PANIC BURST (WHILE GETTING HIT)	-		<#55ffff>(4 BARS)</> ^X+^A/^B/^C
+   <#bbbbbb>An extra burst that can be used in an emergency.</>
+   <#ff0000>Using this PERMANENTLY limits your meter to a max of 1 BAR
+   for the rest of the game.</>
+	</>
+ 
+	2V2 MODE
+SWITCH CHARACTERS	-		ASSIST </>
+ACTIVE SWITCH (WHILE ATTACKING)	-		<#55ffff>(2 BARS)</>ASSIST </>
+ASSIST ATTACK	-		_B/_D/_F+ASSIST </>
+   <#bbbbbb>Each character has 3 assist attacks.</>
+TAG SUPER (DURING A SUPER)		<#55ffff>(2 BARS)</>_D_DF_F+ASSIST OR _D_DB_B+ASSIST </>
+
+</>

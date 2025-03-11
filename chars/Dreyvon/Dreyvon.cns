@@ -1,0 +1,1818 @@
+[Data]
+;Amount of life to start with
+life = 1500
+;attack power (more is stronger)
+attack = 100
+;defensive power (more is stronger)
+defence = 100
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 0
+;Time which player lies down for, before getting up
+liedown.time = 60
+;Number of points for juggling
+airjuggle = 15
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = 40
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 0
+
+power = 4000
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 60
+FloatPersistIndex = 39
+
+[Size]
+xscale = .84          ;Horizontal scaling factor.
+yscale = .84           ;Vertical scaling factor.
+ground.back = 15     ;Player width (back, ground)
+ground.front = 16    ;Player width (front, ground)
+air.back = 12        ;Player width (back, air)
+air.front = 12       ;Player width (front, air)
+height = 50          ;Height of player (for opponent to jump over)
+attack.dist = 0    ;Default attack distance
+proj.attack.dist =0 ;Default attack distance for projectiles
+proj.doscale = 0     ;Set to 1 to scale projectiles too
+head.pos = -5, -90   ;Approximate position of head
+mid.pos = -5, -60    ;Approximate position of midsection
+shadowoffset = 0     ;Number of pixels to vertically offset the shadow
+draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
+
+[Velocity]
+walk.fwd  = 2.5     ;Walk forward
+walk.back = -2     ;Walk backward
+run.fwd  = 4.6, 0    ;Run forward (x, y)
+run.back = -4.5,-3.8 ;Hop backward (x, y)
+jump.neu = 0,-8   ;Neutral jumping velocity (x, y)
+jump.back = -2.55    ;Jump back Speed (x, y)
+jump.fwd = 2.5       ;Jump forward Speed (x, y)
+runjump.back = -2.55;Running jump speeds (opt)
+runjump.fwd = 5     ;.
+airjump.neu = 0,-6.5      ;.
+airjump.back = -2.55      ;Air jump speeds (opt)
+airjump.fwd = 2.5         ;.
+air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
+air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
+air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
+air.gethit.airrecover.back = -1       ;Extra x-velocity for holding back during air recovery **MUGEN 1.0**
+air.gethit.airrecover.fwd = 0         ;Extra x-velocity for holding forward during air recovery **MUGEN 1.0**
+air.gethit.airrecover.up = -2         ;Extra y-velocity for holding up during air recovery **MUGEN 1.0**
+air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during air recovery **MUGEN 1.0**
+
+[Movement]
+airjump.num = 0       ;Number of air jumps allowed (opt)
+airjump.height = 35   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .44          ;Vertical acceleration
+stand.friction = .85  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+stand.friction.threshold = 2          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = .05       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
+air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
+air.gethit.groundrecover.groundlevel = 0   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
+air.gethit.airrecover.threshold = 3  ;Y-velocity above which player may use the air recovery command **MUGEN 1.0**
+air.gethit.airrecover.yaccel = .35    ;Vertical acceleration for player in the air recovery state **MUGEN 1.0**
+air.gethit.trip.groundlevel = -5      ;Y-position at which player in the tripped state touches the ground **MUGEN 1.0**
+down.bounce.offset = 0, -5            ;Offset for player bouncing off the ground (x, y) **MUGEN 1.0**
+down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing off the ground **MUGEN 1.0**
+down.bounce.groundlevel = -4          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
+down.friction.threshold = .05     ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
+
+[Constants]
+StateTagAssistF = 1501
+StateTagAssistD = 1800
+StateTagAssistB = 1103
+StateTagSuperAssist = 3000
+StateTagSuperAssist2  = 3010
+MVCIActiveSwitch  = 1
+
+;Default language victory quotes (optional).  **MUGEN 1.0**
+;If this section is included, the default language victory quotes must be in English.
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "You sport no class."
+victory2 = "You damaged my mustache."
+victory3 = "Gutter trash."
+victory4 = "That Dudley guy looks a lot like me.."
+victory5 = "A comb to the face wasn't very sportsmanlike, was it?"
+victory6 = "Look presentable."
+victory7 = "You couldn't keep up, could you?"
+victory8 = "A well played victory."
+victory9 = "I wish you luck."
+victory10 = "You fared well against my speed!"
+;Alternate language victory quotes (optional).
+;0 or more alternate language sections may be added, preceded by the
+;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".
+;See language setting in mugen.cfg.
+[ja.Quotes]
+victory1 = "カンフー突き手を破らぬ限り、お前に勝ち目はない！"
+victory2 = "十年早いんだぞ"
+victory3 = "お前は見覚えがあるな。テレビにでも…？"
+victory4 = "お前の動きは見破りやすすぎる。　なに、カンフー突き手が覚えたいんだと？　素人には無理だぞ"
+victory5 = "ふー。　いい汗だった"
+victory6 = "もっと強い相手に挑戦したい"
+victory7 = "なんだと！彼女はここにもいないと？"
+
+;---------------------------------------------------------------------------
+; Variable usage:
+; This is a record of the variables that KFM uses. Keeping a record of your
+; variable usage helps you avoid careless mistakes later.
+; var(1)  - Used in kfm.cmd for combo condition (updated every tick)
+; var(2)  - Used in Kung Fu Throw (state 800) to remember if fwd was being
+;           held (remembered from state 800 through state 810).
+
+
+;---------------------------------------------------------------------------
+; Lose by Time Over
+; CNS difficulty: basic
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win state decider
+; CNS difficulty: basic
+[Statedef 180]
+type = S
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+value = 181+random%2
+
+;---------------------------------------------------------------------------
+; Win 1
+; CNS difficulty: basic
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=0
+value = 7410, 0
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=50
+value = F1000,0
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = RoundState < 3
+flag = Nobardisplay
+flag2 = NoFG
+
+[State 200, 2]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = animelem = 16
+value = 668, 0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+trigger1 = animelem = 1
+value = 180,0+random%2
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 19
+value = 0, 4
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win 2
+; CNS difficulty: basic
+[Statedef 182]
+type = S
+ctrl = 0
+anim = 182
+velset = 0,0
+
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=0
+value = 7410, 0
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=50
+value = F1000,0
+
+;Dark BG
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = animelem = 16
+time = -1
+mul = ceil(256-time*3.0),ceil(256-time*3.0),ceil(256-time*3.0)
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = RoundState < 3
+flag = Nobardisplay
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 12
+value = 9000, 0
+
+[State 200, 2]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = animelem = 17
+value = 668, 0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+trigger1 = animelem = 1
+value = 180,0+random%2
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 25
+value = 9005, 0
+
+;Light Source
+[State 1900, effect]
+type = explod
+trigger1 = animelem = 25
+anim = 183
+id = 183
+pos = 10,0
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+facing = 1
+scale = 1,1.4
+
+;Light Source Flipped
+[State 1900, effect]
+type = explod
+trigger1 = animelem = 25
+anim = 183
+id = 183
+pos = 10,0
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+facing = -1
+scale = 1,1.4
+
+;Light Shadow
+[State 1900, effect]
+type = explod
+trigger1 = animelem = 25
+anim = 184
+id = 183
+pos = 10,0
+sprpriority = 0
+bindtime = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+facing = 1
+scale = 1,1
+
+;Light Shadow Flipped
+[State 1900, effect]
+type = explod
+trigger1 = animelem = 25
+anim = 184
+id = 183
+pos = 10,0
+sprpriority = 0
+bindtime = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+facing = -1
+scale = 1,1
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = RoundState < 3
+flag = Nobardisplay
+flag2 = NoFG
+
+[state 181, 1]
+type = assertspecial
+trigger1 = time < 100
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Win 3
+[Statedef 183]
+type = S
+ctrl = 0
+anim = 185
+velset = 0,0
+
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=0
+value = 7410, 0
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=50
+value = F1000,0
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = RoundState < 3
+flag = Nobardisplay
+flag2 = NoFG
+
+[State 200, 2]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = animelem = 17
+value = 668, 0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+trigger1 = animelem = 1
+value = 180,0+random%2
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 0, 3
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+
+;---------------------------------------------------------------------------
+; Introduction
+; CNS difficulty: basic
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 190
+velset = 0,
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nomusic
+
+[State 190]
+type = selfstate
+triggerall=time=0
+trigger1 = prevstateno!=191
+value = 191+random%3
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = animelem = 18
+value = 666,0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+triggerall = animelem = 17
+trigger1=teamside=1
+trigger2=teamside=2&&(enemy,name!="eddy"||(enemy,name="eddy"&&enemy,palno=11))
+value = 190,0+random%4
+
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem =33
+value = 0, 4
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 33
+value = 9000, 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 36
+helpertype = normal ;player
+name = "Crown + Robe"
+ID = 194
+stateno = 194
+pos = -20,-70
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 59    ;fv = 10
+value = 1
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = RoundState = 0
+value = 190
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro 2
+[Statedef 192]
+type = S
+ctrl = 0
+anim = 0
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nomusic
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = time<56
+flag = invisible
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = time = 30
+value = 666,0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+triggerall = time = 30
+trigger1=teamside=1
+trigger2=teamside=2&&(enemy,name!="eddy"||(enemy,name="eddy"&&enemy,palno=11))
+value = 190,0+random%4
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = time=56
+value = 41
+[State 0, PosSet]
+type = PosSet
+trigger1 = anim=41
+trigger1 = animelem=1
+y = -50
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim=41
+trigger1 = animelem=1
+y = -5
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = anim=41
+trigger1 = pos y < 0 
+y = .2
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = anim=41
+trigger1 = pos y >= 0 
+trigger1 = vel y > 0
+value = 1053
+elem=3
+[State 0, PosSet]
+type = PosSet
+trigger1 = anim=1053
+y = 0
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim=1053
+y = 0
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "car"
+ID = 196
+stateno = 196
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 59    ;fv = 10
+value = 1
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = RoundState = 0
+value = 0
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1=anim=1053
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro 3
+[Statedef 193]
+type = S
+ctrl = 0
+anim = 196
+velset = 0,
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nomusic
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = animelem = 1
+value = 666,0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+triggerall = animelem = 1
+trigger1=teamside=1
+trigger2=teamside=2&&(enemy,name!="eddy"||(enemy,name="eddy"&&enemy,palno=11))
+value = 190,0+random%4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 59    ;fv = 10
+value = 1
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = RoundState = 0
+value = 196
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+;---------------------------------------------------------------------------
+; Crown + Robe 
+; CNS difficulty: basic
+[Statedef 194]
+type = A
+physics = N
+ctrl = 0
+anim = 191
+velset = -2,-4
+
+[State 330, 5]
+type = VelAdd
+trigger1 = 1
+y = .28
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+;---------------------------------------------------------------------------
+; Taunt
+; CNS difficulty: easy
+[Statedef 195]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = Time = 40
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = 9100,0
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=0
+anim = 2000
+ID = 2000
+pos = 40,-45
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .5,.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+; Car
+[Statedef 196]
+type = S
+physics=N
+ctrl = 0
+anim = 193
+sprpriority = -3  
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 =anim=193
+trigger1 = animtime=0
+value = 194
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1=vel x <10
+trigger1 =anim=194
+x = .1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time>200
+
+;---------------------------------------------------------------------------
+; Taunt - Forward
+; CNS difficulty: easy
+[Statedef 2000]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = Time = 40
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = 9100,0
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=0
+anim = 2001
+ID = 2001
+pos = 40,-45
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .5,.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Taunt - Down+Forward
+; CNS difficulty: easy
+[Statedef 2001]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = Time = 40
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = 9100,0
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=0
+anim = 2002
+ID = 2002
+pos = 40,-45
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .5,.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Taunt - Down
+; CNS difficulty: easy
+[Statedef 2002]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = Time = 40
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = 9100,0
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=0
+anim = 2003
+ID = 2003
+pos = 40,-45
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .5,.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Taunt - Down + Back
+; CNS difficulty: easy
+[Statedef 2003]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = Time = 40
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = 9100,0
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=0
+anim = 2004
+ID = 2004
+pos = 40,-45
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .5,.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Taunt - Back
+; CNS difficulty: easy
+[Statedef 2004]
+type = S
+ctrl = 0
+anim = 195
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = Time = 40
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = 9100,0
+
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time=0
+anim = 2005
+ID = 2005
+pos = 40,-45
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .5,.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+;==================================================================================================
+;TRAINING MODE MASH
+;==================================================================================================
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = GameMode = "Training"
+trigger1 = ctrl = 1
+trigger1 = statetype!=A
+trigger1 = prevstateno = [120, 155]
+trigger1 = map(_iksys_trainingPunish) = 2
+value = 1310
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = GameMode = "Training"
+trigger1 = ctrl = 1
+trigger1 = statetype=A
+trigger1 = prevstateno = [120, 155]
+trigger1 = map(_iksys_trainingPunish) = 2
+value = 1315
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = statetype!=A
+triggerall = GameMode = "Training"
+trigger1 = ctrl = 1
+trigger1 = prevstateno = [120, 155]
+trigger1 = map(_iksys_trainingPunish) = 3
+value = 3000
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = statetype!=A
+triggerall = GameMode = "Training"
+trigger1 = ctrl = 1
+trigger1 = prevstateno = [120, 155]
+trigger1 = map(_iksys_trainingPunish) = 4
+value = 3010
+ctrl = 0
+
+[State 0, ChangeState]
+type = AssertInput
+triggerall=teamside=2
+triggerall = GameMode = "Training"
+triggerall = ctrl = 1
+trigger1 = prevstateno = 5001
+trigger2 = prevstateno = 5011
+trigger3 = prevstateno = 5120
+trigger4 = prevstateno = 5041
+trigger5 = prevstateno = 5201
+trigger6 = stateno = 5041
+trigger7 = stateno = 5201
+triggerall = map(_iksys_trainingMash) = 1
+flag = x
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = GameMode = "Training"
+triggerall = statetype!=A
+triggerall = ctrl = 1
+trigger1 = prevstateno = 5001
+trigger2 = prevstateno = 5011
+trigger3 = prevstateno = 5120
+trigger4 = prevstateno = 5041
+trigger5 = prevstateno = 5201
+trigger6 = stateno = 5041
+trigger7 = stateno = 5201
+triggerall = map(_iksys_trainingMash) = 2
+value = 1310
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = GameMode = "Training"
+triggerall = statetype=A
+triggerall = ctrl = 1
+trigger1 = prevstateno = 5001
+trigger2 = prevstateno = 5011
+trigger3 = prevstateno = 5120
+trigger4 = prevstateno = 5041
+trigger5 = prevstateno = 5201
+trigger6 = stateno = 5041
+trigger7 = stateno = 5201
+triggerall = map(_iksys_trainingMash) = 2
+value = 1315
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = GameMode = "Training"
+triggerall = statetype!=A
+triggerall = ctrl = 1
+trigger1 = prevstateno = 5001
+trigger2 = prevstateno = 5011
+trigger3 = prevstateno = 5120
+trigger4 = prevstateno = 5041
+trigger5 = prevstateno = 5201
+trigger6 = stateno = 5041
+trigger7 = stateno = 5201
+triggerall = map(_iksys_trainingMash) = 3
+value = 3000
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
+triggerall=teamside=2
+triggerall = GameMode = "Training"
+triggerall = statetype!=A
+triggerall = ctrl = 1
+trigger1 = prevstateno = 5001
+trigger2 = prevstateno = 5011
+trigger3 = prevstateno = 5120
+trigger4 = prevstateno = 5041
+trigger5 = prevstateno = 5201
+trigger6 = stateno = 5041
+trigger7 = stateno = 5201
+triggerall = map(_iksys_trainingMash) = 4
+value = 3010
+ctrl = 0
+
+;==================================================================================================
+
+[State 0, PalFX] ;Magic Pixel Check
+type = PalFX
+triggerall = roundstate = 2 ;only attack during the round
+trigger1 = life = 1
+time = 2
+add = (80 + 20 + 50 * sin(2 * pi * gametime / 160)),0,0 ;sinadd but manual
+mul = 256,256,256
+sinadd = 50,0,0,120 ;this part doesn't work and it's gonna make me fucking cry holy shit
+invertall = 0
+color = 256
+
+[State -2, Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(15) = ifElse(fvar(25) < 0, 15, ifElse(fvar(25) >= 14, 1, 15 - fvar(25))) / 15.0
+ignoreHitPause = 1 
+
+;4S-A SKD Limiter
+[State 0, RemoveExplod]
+type = RemoveExplod
+;triggerall = !stateno = 690000 && p2movetype = H
+trigger1 = !numtarget
+id = 99855
+
+;EX 5S wall bounce limiter removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+;triggerall = !stateno = 690000 && p2movetype = H
+trigger1 = !numtarget
+id = 99856
+
+;EX 5S Combo Limiter Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+Trigger1 = P2MoveType != H
+id = 924680
+
+;EX 5S Combo Limiter Removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+Trigger1 = P2MoveType != H
+id = 924681
+
+;Dash cancel explod removal
+[State 0, RemoveExplod]
+type = RemoveExplod
+;triggerall = !stateno = 690000 && p2movetype = H
+trigger1 = !numtarget
+id = 10100
+
+
+;[State 0, Pause]
+;type = Pause
+;trigger1 = time%2 = 0
+;trigger1 = fvar(18) > 0
+;time = 1
+;movetime = 1
+;endcmdbuftime = 0
+;pausebg = 1
+;ignorehitpause = 
+;persistent = 
+
+
+;[State 0, VarAdd]
+;type = VarAdd
+;trigger1 = fvar(18) >0 
+;fv = (18)
+;value = -1
+
+[State 0, Varadd]
+type = Mapset
+trigger1 = roundstate=0
+map = "Burst"   
+value =0
+
+
+;------------------------
+[State -2, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 2
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 23    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 26    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 25    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 27    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = statetype=S
+trigger2 = statetype=C
+v = 29    ;fv = 10
+value = 1
+
+[State -2,Poison Variable]
+type = VarAdd
+trigger1 = time%2=0 && fvar(17)>0
+fv = 17     ;fv = 
+value = -1
+;ignorehitpause = 
+;persistent = 
+
+;------------------------------------
+;Either he techs throws or he doesnt it depends
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno != 812
+trigger1 = stateno != 803
+id = 44020
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=enemynear,name="Angous"
+trigger1 = enemynear,stateno = 3016
+id = 777
+ignorehitpause=1
+persistent=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=enemynear,name="Angous"
+trigger1 = enemynear,stateno = 3016
+id = 778
+ignorehitpause=1
+persistent=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=enemynear,name="Angous"
+trigger1 = enemynear,stateno = 3016
+id = 779
+ignorehitpause=1
+persistent=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=enemynear,name="Angous"
+trigger1 = enemynear,stateno = 3016
+id = 900
+ignorehitpause=1
+persistent=1
+[State 0, VelSet]
+type = VelSet
+trigger1=enemynear,name="Angous"
+trigger1 = enemynear,stateno = 3016
+x = 0
+y = 0
+ignorehitpause=1
+persistent=1 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1=enemynear,name="Angous"
+trigger1 = enemynear,stateno = 3016
+value =0
+ignorehitpause=1
+persistent=1 
+[State 0, PosSet]
+type = PosSet
+trigger1=enemynear,name="Angous"
+trigger1 = enemynear,stateno = 3016
+y = -11
+ignorehitpause=1
+persistent=1 
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno = 900
+id = 900
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numhelper(99149)
+id = 900
+
+;[State 0, RemoveExplod]
+;type = RemoveExplod
+;trigger1 = numhelper(99149)
+;id = 900
+
+[State 0, Explod]
+type = Explod
+trigger1 = time %40=0 && var(54) = 3
+trigger1 = random<800
+anim = 2510+random%4
+ID = 2510
+pos = 0,0-random%35
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 12
+removetime = -2
+pausemovetime = 0
+scale = .6+((random%3)*.1),.6+((random%3)*.1)
+sprpriority = 0
+ontop = 1
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time %50=0 && var(54) = 3
+trigger1 = random<800
+anim = 2510+random%4
+ID = 2510
+pos = 0,0-random%35
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 12
+removetime = -2
+pausemovetime = 0
+scale = .4+((random%1)*.1),.4+((random%1)*.1)
+sprpriority = 0
+ontop = 1
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time %60=0 && var(54) = 3
+trigger1 = random<800
+anim = 2510+random%4
+ID = 2510
+pos = 0,0-random%35
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 12
+removetime = -2
+pausemovetime = 0
+scale = .4+((random%1)*.1),.4+((random%1)*.1)
+sprpriority = 0
+ontop = 1
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = stateno = [400,420]
+trigger1 = movecontact = 1
+v = 30 	;fv = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = command = "holdup"
+v = 44     ;fv = 
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarSet
+trigger1 = command!= "holdup" 
+v =44     ;fv = 
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = statetype !=A
+v = 45    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+triggerall = prevstateno = 410
+trigger1 = animelemtime(1) = 0
+anim = 9900
+ID = 9900
+pos = 0,10-random%35
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .23,.23
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+;-----------------------------------
+;j2H reset var
+[State -2, Reset var when the opponent recovers]
+ type=varset
+ triggerall = fvar(7) != 0
+ trigger1= numenemy
+ trigger1= (combocount=0)
+ trigger2= !numenemy    ;I think this may be what's messing things up.....
+ fvar(7)=0
+
+[State -2, reset var when opponent lies down]
+type=varset
+triggerall = fvar(7) != 0
+trigger1= p2stateno = 5110
+fvar(7)=0
+;-----------------------------------
+
+;===============================================================================
+; ------- Damage Dampener --------
+;===============================================================================
+
+[State -2, Counter Flag] 
+type = VarSet
+trigger1 = NumEnemy
+fvar(8) = (EnemyNear, MoveType = A)
+ignoreHitPause = 1
+ 
+;Damage Dampener Variable (by POTS)
+[State -2, Hit Count] 
+triggerall = stateno !=[1311,1331]
+triggerall = stateno !=[3000,3999]
+triggerall = stateno !=1102
+type = VarAdd 
+trigger1 = !IsHelper
+trigger1 = MoveHit = 1 
+trigger1 = !HitPauseTime 
+trigger1 = !(HitDefAttr = SCA, AT) 
+fvar(13) = 1 
+ 
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(13) 
+trigger1 =(combocount=0) && (EnemyNear, StateNo != 5300) 
+fvar(13) = 0 
+ignoreHitPause = 1
+ 
+[State -2, Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(10) = ifElse(fvar(13) < 2, 14, ifElse(fvar(13) >= 14, 1, 14 - fvar(13))) / 14.0
+ignoreHitPause = 1 
+ 
+[State -2, Dampener Limit] 
+type = VarSet 
+trigger1 = fvar(10) < 0 
+fvar(10) = 0 
+ignoreHitPause = 1 
+ 
+[State -2, Root Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(11) = fvar(10) * ifElse(fvar(8), 1.5, 1) 
+ignoreHitPause = 1
+
+
+;=======================================================================================
+;=======================================================================================
+;=================================== Stun Dampener =====================================
+;=======================================================================================
+;=======================================================================================
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(15) 
+trigger1 = (combocount=0) && (EnemyNear, StateNo != 5300) 
+fvar(15) = 0 
+ignoreHitPause = 1
+
+
+[State -2, Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(15) = ifElse(fvar(25) < 0, 15, ifElse(fvar(25) >= 14, 1, 15 - fvar(25))) / 15.0
+ignoreHitPause = 1 
+
+
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(25) 
+trigger1 =(combocount=0) && (EnemyNear, StateNo != 5300) 
+fvar(25) = 0 
+ignoreHitPause = 1
+
+[State -2, Hit Count] 
+type = VarAdd 
+triggerall = stateno!=1101
+trigger1 = !IsHelper
+trigger1 = MoveHit = 1 
+trigger1 = !HitPauseTime 
+trigger1 = !(HitDefAttr = SCA, AT) 
+fvar(16) = 1
+
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(16) 
+trigger1 =(combocount=0)&& (EnemyNear, StateNo != 5300) 
+fvar(16) = 0 
+ignoreHitPause = 1
+
+
+[State -2, Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(16) = ifElse(fvar(26) < 0, 2, ifElse(fvar(26) >= 14, 1, 2 - fvar(26))) / 2.0
+ignoreHitPause = 1 
+
+
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(26) 
+trigger1 =(combocount=0) && (EnemyNear, StateNo != 5300) 
+fvar(26) = 0 
+ignoreHitPause = 1
+
+[State -2, Hit Count] 
+type = VarAdd 
+triggerall = stateno!=1102
+trigger1 = !IsHelper
+trigger1 = MoveHit = 1 
+trigger1 = !HitPauseTime 
+trigger1 = !(HitDefAttr = SCA, AT) 
+fvar(14) = 1
+
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(14) 
+trigger1 = (combocount=0) && (EnemyNear, StateNo != 5300) 
+fvar(14) = 0 
+ignoreHitPause = 1
+
+
+[State -2, Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(14) = ifElse(fvar(24) < 0, 8, ifElse(fvar(24) >= 14, 1, 8 - fvar(24))) / 8.0
+ignoreHitPause = 1 
+
+
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(24) 
+trigger1 = (combocount=0) && (EnemyNear, StateNo != 5300) 
+fvar(24) = 0 
+ignoreHitPause = 1
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+[Statedef -3]
+
+;THE GREAT EQUALIZER is DEATH!!!!!!!
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall=palno!=11
+trigger1 = map(DIE)=1
+value = 9001,0+(random%3)
+channel = -1
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = map(DIE)=1
+value = 9001,5
+channel = -1
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+
+[State 0, VarAdd]
+type = MapAdd
+trigger1 = !alive
+map = "DIE"
+value = 1
+ignorehitpause=1
+persistent=1
+[State 0, VarAdd]
+type = MapSet
+trigger1 = roundstate=0
+map = "DIE"
+value = 0
+ignorehitpause=0
+;------------------------------------------------
+
+[State 0, VarAdd]
+type = mapset
+trigger1 = stateno!=1300&&stateno!=1301&&stateno!=1304&&stateno!=1303&&stateno!=252&&stateno!=250
+map =  "norc"
+value = 0
+ignorehitpause = 0
+persistent = 1
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value =0
+persistent = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = roundstate=0
+v = 35  
+value = 1
+
+[State 0, VarSet]
+type = MapSet
+trigger1 = hitdefattr = SCA,NA
+map = "ndccheck"    ;fv = 10
+value = 1
+[State 0, VarSet]
+type = MapSet
+trigger1 = hitdefattr != SCA,NA
+map = "ndccheck"    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = MapSet
+trigger1 =combocount=0 
+map = "ndc"    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = MapSet
+trigger1 =combocount=0 
+map = "slaunch"    ;fv = 10
+value = 0
+
+
+[State 0, VarSet]
+type = MapSet
+trigger1 =combocount=0 
+map = "dc"    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =combocount=0 
+v = 20    ;fv = 10
+value = 0
+
+[State 200, VarAdd]
+type = VarAdd
+trigger1 = var(8)>0
+v = 8   
+value = -1
+ignorehitpause = 1
+[State 200, VarSet]
+type = VarSet
+trigger1 = var(8)>600
+v = 8   
+value = 600
+[State 200, VarSet]
+type = VarSet
+trigger1 = var(8)<0
+v = 8   
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = statetype=S
+trigger2 = statetype=C
+v = 29    ;fv = 10
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = statetype=S
+trigger2 = statetype=C
+v = 45    ;fv = 10
+value = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = prevstateno = 600 && time = 0
+v = 23
+value =2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = combocount=0
+v = 47    ;fv = 10
+value = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = prevstateno = 610 && time = 0
+v = 27
+value =3
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = prevstateno = 620 && time = 0
+v = 25
+value =4
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "grabc %f"
+params = Map(gcounter)
+
+;This controller plays a sound everytime KFM lands from a jump, or
+;from his back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 ;Run-back land
+value = 40, 0
+
+
+;---------------------- Integer variable list ----------------------
+
+; var(1):= 105, -1
+; var(2):= -2, 1510, 1310, 1331, 3000, 3010
+;var(12):= -2, 1510
+;var(13):= 0, 10, 11, 12
+;var(15):= 690000, 690001, -2, 250, 251, 252, 900, 905, 99149
+;var(16):= -2
+;var(17):= 5900
+;var(19):= -3
+;var(23):= -2, -3
+;var(25):= -2, -3
+;var(26):= -2
+;var(27):= -2, -3
+;var(29):= -2, 903, 904
+;var(30):= -2
+;var(34):= -3
+;var(40):= 40, 4000
+;var(44):= -2
+;var(45):= -2, 45
+;var(50):= -2, 1510
+;var(51):= -2, 1310
+;var(52):= -2, 1331
+;var(56):= -2
+;var(57):= -2
+;var(59):= 191
+
+;---------------------- Float variable list ----------------------
+
+; fvar(6):= 4000, 4001
+; fvar(7):= -2, 620
+; fvar(8):= -2
+;fvar(10):= -2
+;fvar(11):= -2
+;fvar(13):= 690000, 690001, -2, 200, 210, 211, 220, 400, 410, 420, 600, 610, 630, 1001, 1102, 1311, 1331
+;fvar(14):= -2, 1102
+;fvar(15):= -2
+;fvar(16):= -2, 1101
+;fvar(17):= -2
+;fvar(18):= 690000, 690001
+;fvar(24):= -2, 1102
+;fvar(25):= -2, 200, 210, 211, 220, 400, 410, 420, 430, 600, 610, 630, 620, 1300
+;fvar(26):= -2, 1101
+
+

@@ -1000,7 +1000,14 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time >= 180 || enemy, !alive 
-trigger2 = command = "b" || command = "holdback" && command = "holddown"
+trigger2 = command = "b"
+trigger2 = animelemno(0) >= 5
+value = cond(command = "holdfwd" || command = "holdback", 1081, 1052)
+ctrl = 0
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = time >= 180 || enemy, !alive 
+trigger2 = command = "holdback"
 trigger2 = animelemno(0) >= 5
 value = 1052
 ctrl = 0
@@ -1097,8 +1104,8 @@ fall.envshake.freq = 0
 fall.envshake.ampl = 0
 guard.hittime = 22
 guard.slidetime = 22
-guard.ctrltime = 22
-getpower = 40
+guard.ctrltime = 18
+getpower = 100 * map(P4)
 
 [State 410, 2]
 type = hitdef 
@@ -1138,7 +1145,7 @@ guard.slidetime = 19
 guard.ctrltime = 27
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower	= 40
+getpower	= 100 * map(P4)
 
 [State 410, 2]
 type = hitdef 
@@ -1628,7 +1635,7 @@ ignorehitpause = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = 1
+trigger1 = prevstateno = 1080
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 

@@ -1,0 +1,412 @@
+;---------------------------------------------------------------------------
+
+;--- PUSH BLOCKING ---
+[Statedef 99149]
+type    = U
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim = 9999
+velset = 10
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = p2, pos y
+ignorehitpause = 1
+persistent = 1 
+
+[State 0, parentVarAdd]
+type = ParentVarAdd
+triggerall = parent,stateno = [120,160]
+triggerall = parent,stateno = [130,160]
+trigger1 = time = 0
+v = 15
+value = -100
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim =F41 
+ID = 41
+pos = 0,-45
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .6,.6
+sprpriority = 8
+ontop = 1
+removeongethit = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim =6700
+ID = 41
+pos = 100,0
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .6,.6
+sprpriority = 8
+ontop = 1
+removeongethit = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time=0
+time = 7
+freq = 60
+ampl = -7
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+value = F4141,0
+
+
+
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 3
+
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+
+
+;===============================================================================================
+;===============================================================================================
+;===============================================================================================
+;===============================================================================================
+;===============================================================================================
+;---------------------------------------------------------------------------
+
+;----------------------
+;Alpha Counter
+[Statedef 7001]
+type    = A                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 1                      ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 7001                      ;Change animation (Def: no change)
+sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+;facep2=1
+poweradd = 0
+
+[State 0]
+type = hitdef 
+p2facing = 1
+trigger1 = time = 0
+attr = A, HA
+animtype  = back
+air.animtype = back
+damage = 0,0
+hitflag = MAF
+guardflag = MA
+pausetime = 5,5
+sparkno = 2
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = trip
+air.type = trip
+ground.slidetime = 12
+ground.hittime  =999
+air.hittime  = 999
+forcenofall = 1
+ground.velocity = -9,-3
+;p2stateno = 715020
+air.velocity = -9, -3
+forcenofall=1
+down.velocity = -1,0
+ground.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.hittime = 0
+guard.ctrltime = 0
+guard.pausetime= 12,0
+guard.velocity = 0
+guard.dist = 20
+guard.slidetime = 0;
+airguard.velocity=0,0
+envshake.time = 8
+envshake.time = 9
+envshake.freq = 90
+envshake.ampl = 2
+ID = 7001
+
+[State 700, Spark]
+type = explod
+trigger1 = time = 0
+anim = F7000
+ID = 7000
+sprpriority = 5
+postype = p1
+pos = 0, -0
+;pausemovetime = 60
+ownpal = 1
+scale = 1, 1.2
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = animtime = 0
+;ignorehitpause = 
+;persistent = 
+
+;------------------------------------------------------------------------------------------
+;Desperation Bar
+;[Statedef 7050]
+;type = U
+;physics = N
+;anim =1
+;ctrl = 0
+;sprpriority = 5
+
+;[State 0,P1 Desp Bar Back]
+;type = Explod
+;ignorehitpause = 1
+;trigger1 = teamside = 1
+;anim = F1901
+;ID = 777
+;pos = 135,217
+;postype = left  ;P2, Front, Back, Left, Right
+;facing = 1
+;vfacing = 1
+;bindtime = 1
+;removetime = -2
+;supermovetime = 999999999999999999999
+;pausemovetime = 999999999999999999999
+;scale = 0.15,.1
+;sprpriority = -1
+;ontop = 1
+;ownpal = 1
+
+;[State 0,P1 Desp Bar Bar]
+;type = Explod
+;ignorehitpause = 1
+;trigger1 = teamside = 1
+;anim = F1902
+;ID = 779
+;pos = 38,217
+;postype = left  ;P2, Front, Back, Left, Right
+;facing = 1
+;vfacing = 1
+;bindtime = 1
+;removetime = -2
+;supermovetime = 999999999999999999999
+;pausemovetime = 999999999999999999999
+;scale = 0.000148*abs(var(15)),.1
+;sprpriority = 2
+;ontop = 1
+;ownpal = 1
+
+;[State 0,P1 Desp Bar Frame]
+;type = Explod
+;ignorehitpause = 1
+;trigger1 = teamside = 1
+;anim = F1900
+;ID = 778
+;pos = 135,217
+;postype = left  ;P2, Front, Back, Left, Right
+;facing = 1
+;vfacing = 1
+;bindtime = 1
+;removetime = -2
+;supermovetime = 1999999999999999999999
+;pausemovetime = 1999999999999999999999
+;scale = 0.15,.1
+;sprpriority = 2
+;ontop = 1
+;ownpal = 1
+
+;[State 0,P2 Desp Bar Back]
+;type = Explod
+;ignorehitpause = 1
+;trigger1 = teamside = 2
+;anim = F1901
+;ID = 777
+;pos = -135,217
+;postype = right  ;P2, Front, Back, Left, Right
+;facing = -1
+;vfacing = 1
+;bindtime = 1
+;removetime = -2
+;supermovetime = 1999999999999999999999
+;pausemovetime = 1999999999999999999999
+;scale = .15,.1
+;sprpriority = -1
+;ontop = 1
+;ownpal = 1
+
+;[State 0,P2 Desp Bar Bar]
+;type = Explod
+;ignorehitpause = 1
+;trigger1 = teamside = 2
+;anim = F1902
+;ID = 779
+;pos = -38,217
+;postype = right  ;P2, Front, Back, Left, Right
+;facing = -1
+;vfacing = 1
+;bindtime = 1
+;removetime = -2
+;supermovetime = 1999999999999999999999
+;pausemovetime = 1999999999999999999999
+;scale = 0.000148*abs(var(15)),.1
+;sprpriority = 2
+;ontop = 1
+;ownpal = 1
+
+;[State 0,P2 Desp Bar Frame]
+;type = Explod
+;ignorehitpause = 1
+;trigger1 = teamside = 2
+;anim = F1900
+;ID = 778
+;pos = -135,217
+;postype = right  ;P2, Front, Back, Left, Right
+;facing = -1
+;vfacing = 1
+;bindtime = 1
+;removetime = -2
+;supermovetime = 1999999999999999999999
+;pausemovetime = 1999999999999999999999
+;scale = .15,.1
+;sprpriority = 2
+;ontop = 1
+;ownpal = 1
+
+;[State 0]
+;Type=RemoveExplod
+;Trigger1 = RoundState != [2,3]
+;trigger2 = winko
+
+;---------------------------------------------------------------------------------
+; Hyper Finish B.G.
+[Statedef 8990]
+movetype = I
+physics = N
+anim = 99999
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 999
+
+[State 8990, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 8991,0
+channel = 5
+
+[State 8990, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 1
+value = 8991,10
+channel = 6
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 70
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+
+[State 8990, Pause]
+type = Pause
+trigger1 = Time = 0
+time = 10
+movetime = 10
+
+[State 8990, EnvShake]
+type = EnvShake
+trigger1 = Time = 0
+time = 12
+freq = 120
+ampl = -3
+phase = 90
+
+[State 8990, Explod]
+type = Explod
+trigger1 = Time = 0
+anim = 8992
+id = 8992
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = 60
+sprpriority = -16
+ownpal = 1
+supermovetime = -1
+
+[State 8990, Explod]
+type = Explod
+trigger1 = Time = 53
+anim = 8991
+id = 8991
+pos = 160,120
+scale = .5,.5
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -15
+ownpal = 1
+supermovetime = -1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
+
+[State -3, Hyper Finish Background]
+type = Helper
+triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
+trigger1 = (StateNo = [3018,3019])
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
+;---------------------------------------------------------
+
+
+;---------------------------------------------------------
