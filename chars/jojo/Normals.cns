@@ -1045,6 +1045,7 @@ y = 0
 
 [State 0, PosAdd]
 type = PosAdd
+triggerall = !movehit
 trigger1 = animelem=7
 trigger2= animelem=8
 trigger3 = animelem=9
@@ -1108,7 +1109,7 @@ bindtime = 1
 vel = 0,0
 accel = 0,0
 random = 0,0
-scale =1,1
+scale =0.5,0.5
 sprpriority =2
 ontop = 0
 shadow = 0,0,0
@@ -1171,6 +1172,7 @@ envshake.time = 15
 envshake.freq = 90
 envshake.ampl = -6
 envshake.phase = 100
+air.cornerpush.veloff = -5
 palfx.time = 12
 palfx.add = 100, 0,20
 fall=1
@@ -2376,213 +2378,6 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
-
-
-;j. 3H
-[Statedef 640]
-type    = A
-movetype= A
-physics = N
-ctrl = 0
-anim = 640
-sprpriority = 2
-velset = vel x, vel y
-
-[State -3, Vile Voices]
-type = PlaySnd
-trigger1 = animelem = 4
-value = 2090, (0+(Random%2))
-[State -3, Vile Voices]
-type = PlaySnd
-trigger1 = animelem = 3
-value = 0,0
-
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = 1
-y = .60
-
-[State 0, Velset]
-type = Velset
-trigger1 = animelem=3
-x = 4
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = animelem=5
-x = 1.5
-
-[State 0]
-type = HitDef
-trigger1 = !movereversed && !movecontact
-attr = A, NA
-animtype  = Medium
-damage = ceil(cond(fvar(11) *50 < 4, 4, fvar(11) * 50)), 5
-hitflag = MAFD
-guardflag = HA
-pausetime = 15,15
-sparkno = 3
-sparkxy = -15,0
-hitsound   = 5,4
-guardsound = 6,2
-ground.type = trip
-air.type =trip
-ground.slidetime = 12
-ground.hittime  =19
-air.hittime  = 34
-ground.velocity = -4,5
-fall=1
-air.fall=1
-air.velocity = -4, 9
-ground.cornerpush.veloff = 0
-down.cornerpush.veloff = 0
-air.cornerpush.veloff = 0
-;envshake.freq =
-;envshake.ampl = 
-;envshake.phase =
-guard.hittime = 30
-guard.velocity = -7
-guard.dist = 20
-guard.slidetime = 30;
-  envshake.time = 8
-envshake.time = 9
-envshake.freq = 90
-envshake.ampl = 2
-p2stateno = 43211
-down.velocity = -1,4
-
-[State 0, Explod]
-type = Explod
-trigger1 = animelem = 6
-anim = 641
-ID = 641
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.4,0.4
-sprpriority = 3
-ontop = 1
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-ignorehitpause = 1
-;ignorehitpause =
-;trans = 
-;persistent =
-;supermove = 0
-;pausemove = 0
-
-
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 =animtime = 0 
-value = 69000
-ctrl = 1
-
-
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 =pos y>= -5
-value = 641
-
-
-;------------------
-; j. 3H (Land)
-; Description: This is KFM's landing state. There is a velset in the
-;     Statedef to stop KFM from moving. Since KFM's y-position can be any
-;     number greater than -10 upon entering this state (see the ChangeState
-;     controller in State 1051), we need to reset it to 0, the ground
-;     level. That is what controller 1052,1 is for.
-[Statedef 641]
-type    = S
-movetype= I
-physics = S
-anim = 642
-sprpriority = 1
-velset = 0,0
-
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1031
-;ignorehitpause = 
-;persistent = 
-[State 0, Explod]
-type = Explod
-trigger1 = time = 0
-anim = 6700
-ID = 6700
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-facing = -1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.5,0.5
-sprpriority = 0
-ontop = 1
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-[State 0, Explod]
-type = Explod
-trigger1 = time = 0
-anim = 6700
-ID = 6700
-pos = -30,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.3,0.3
-sprpriority = 0
-ontop = 1
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-
-
-[State 52, 4]
-type = VelSet
-trigger1 = abs(vel x) < Const(movement.stand.friction.threshold)
-x = 0
-
-[State 1052, 2] ;Play a sound for landing
-type = PlaySnd
-trigger1 = Time = 0
-value = 40, 0
-[State 0, EnvShake]
-type = EnvShake
-trigger1 = time=0
-time = 7
-freq = 60
-ampl = -7
-
-
-
-
-[State 1052, 5]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl=1
 
 ;===========================================================================
 ;===========================================================================

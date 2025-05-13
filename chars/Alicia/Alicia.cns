@@ -272,8 +272,8 @@ value = 0
 [State -2, Debug]
 type = DisplayToClipboard
 trigger1 = 1
-text = "Float = %f untechMod = %f"
-params = map(Float), map(untechMOD)
+text = "Float = %f untechMod = %f upcheck = %f"
+params = map(Float), map(untechMOD), map(doubleJump_bufffix)
 
 [Statedef -4]
 

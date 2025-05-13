@@ -2,7 +2,7 @@
   "AIRamping": true,
   "AIRandomColor": false,
   "AISurvivalColor": true,
-  "AudioDucking": false,
+  "AudioDucking": true,
   "AudioSampleRate": 44100,
   "AutoGuard": false,
   "BarGuard": false,
@@ -66,7 +66,8 @@
   "InputButtonAssistWindow": 1,
   "InputSOCDResolution": 1,
   "IP": {
-    "PXN.": "26.65.18.31"
+    "PXN.": "26.65.18.31",
+    "kvyzyz": "26.156.96.85"
   },
   "LifeMul": 130,
   "ListenPort": "7500",
@@ -118,7 +119,7 @@
   "RoundTime": 99,
   "ScreenshotFolder": "",
   "StartStage": "stages/stage1.def",
-  "StereoEffects": true,
+  "StereoEffects": false,
   "System": "external/script/main.lua",
   "Team1VS2Life": 110,
   "TeamDuplicates": false,

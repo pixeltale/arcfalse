@@ -50,6 +50,13 @@ ignorehitpause = 1
 ;persistent =
 
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = !time
+trigger1 = prevstateno = 701
+value = 3000
+elem = 6
+
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = animelem=6

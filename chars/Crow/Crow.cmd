@@ -211,16 +211,16 @@ trigger2 = stateno = [200,420] && stateno != 225 && stateno != 415 && stateno !=
 
 ;---------------------------------------------------------------------------
 ;3M: Linker
-;[State -1, 3H]
-;type = ChangeState
-;value = 425
-;triggerall = command = "y"
-;triggerall = command = "holddown"
-;triggerall = command = "holdback"
-;triggerall = statetype != A
-;trigger1 = ctrl
-;trigger2 = movecontact
-;trigger2 = stateno = [200,420] && stateno != 225 && stateno != 415 && stateno != 430
+[State -1, 3M]
+type = ChangeState
+value = 425
+triggerall = command = "y"
+triggerall = command = "holddown"
+triggerall = command = "holdfwd"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = movecontact
+trigger2 = stateno = [200,420] && stateno != 225 && stateno != 415 && stateno != 430
 
 ;---------------------------------------------------------------------------
 ;6H: SKELE-TON!!!

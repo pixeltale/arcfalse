@@ -75,7 +75,7 @@ trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+trigger3 = stateno = 701
 ;---------------------------------------------------------------------------
 ;SUPER2: Upper
 [State -1, R]

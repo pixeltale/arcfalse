@@ -1875,7 +1875,7 @@ getpower = (120)*(cond(var(var(3)) = 1, 1, .5))
 [State -2, Wallbounce Type Set]
 type 		= MapSet
 trigger1 		= movehit
-map 		= "wallbounce_boomerang"
+map 			= "wallbounce_boomerang"
 value 		= 1*(enemy, backedgedist > 10)
 ignorehitpause 	= 1
 persistent 		= 0
