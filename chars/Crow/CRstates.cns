@@ -33,7 +33,7 @@
 type = S
 physics = S
 sprpriority = 0
-velset = vel x * 0.5, 0
+velset = vel x, 0
 
 ;[State 0, AssertSpecial]
 ;type = AssertInput

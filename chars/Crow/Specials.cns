@@ -183,8 +183,7 @@ air.animtype 		= back
 guardflag 		= MA
 hitflag 		= MAFD
 ;==============================================
-pausetime 		= 2, 3
-guard.pausetime		= 2, 3
+pausetime 		= 10, 10
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -376,8 +375,7 @@ air.animtype 		= back
 guardflag 		= MA
 hitflag 		= MAFD
 ;==============================================
-pausetime 		= 2, 3
-guard.pausetime		= 2, 3
+pausetime 		= 10, 10
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -566,8 +564,7 @@ air.animtype 		= back
 guardflag 		= M
 hitflag 		= MAFD
 ;==============================================
-pausetime 		= 2, 3
-guard.pausetime		= 2, 3
+pausetime 		= 10, 10
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1

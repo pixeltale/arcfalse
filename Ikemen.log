@@ -1,5 +1,5 @@
-.\external\script\start.lua:1401: ./chars/CROW/Crow.cmd:219:
-Command doesn't exist: holdforward
+.\external\script\start.lua:1401: chars\CROW/Normals.cns:1746:
+Missing ','
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

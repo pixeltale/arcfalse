@@ -1063,7 +1063,8 @@ down.hittime 		= 24
 ground.slidetime 	= 5
 ;==============================================
 ground.velocity 	= -3
-air.velocity 		= 1,-4 * map(GravMul)
+air.velocity 		= 1,-4
+down.velocity		= 1, -5
 guard.ctrltime 		= 26
 airguard.velocity 	= -1.9,-.8
 ground.cornerpush.veloff= -6
@@ -1697,12 +1698,12 @@ air.velocity 		= -5,-3 * MAP(gravmul)
 guard.ctrltime 		= 6
 air.fall 		= 1
 fall			= 1
-air.cornerpush.veloff	= -3 - (map(UntechDecay) * 0.5)
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 envshake.time		= 18
 envshake.freq 		= 40
 envshake.ampl 		= 1
 envshake.phase 		= 0.2
+id			= 620
 
 [State 630, 2]
 type = HitDef 
@@ -1739,6 +1740,14 @@ envshake.ampl 		= 1.5
 envshake.phase 		= 0.2
 p2stateno 		= 5220
 p2getp1state 		= 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = movehit = 2
+trigger1 = target(620), BackEdgeBodyDist <= 1
+x = -5 / map(GravMul)
+ignorehitpause = 1
+
 
 [State -2, Wallbounce Velocity Set]
 type 		= MapSet

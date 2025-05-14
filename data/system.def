@@ -160,12 +160,13 @@ menu.item.spacing = 0, 15
 menu.itemname.online = "ONLINE"                            ;Ikemen feature
 menu.itemname.versus = "VS MODE"
 menu.itemname.arcade = "ARCADE"
-menu.itemname.training = "THE LAB"
-;menu.itemname.trials = "TRIALS"
+menu.itemname.training = "TRAINING MODE"
 menu.itemname.extras = "EXTRAS"                             ;Ikemen feature
 menu.itemname.replay = "REPLAY"                      ;Ikemen feature
 menu.itemname.options = "OPTIONS"
 menu.itemname.exit = "EXIT"
+
+; LAB STUFF
 
 ; MAIN MENU -> ONLINE SUBMENU
 menu.itemname.online.serverhost = "HOST GAME"               ;Ikemen feature
