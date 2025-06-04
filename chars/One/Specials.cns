@@ -4066,7 +4066,7 @@ physics = N
 ctrl = 0
 anim =1052
 velset = 2,-5 
-facep2 = 0
+facep2 = prevstateno = 1251 || prevstateno = 12251
 sprpriority = 2
 
 [State 0, PlaySnd]

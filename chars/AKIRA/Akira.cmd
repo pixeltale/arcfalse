@@ -4,6 +4,17 @@
 command.time = 15
 command.buffer.time = 3
 
+[Command]
+name = "4S"
+command = /B, b
+[Command]
+name = "2S"
+command = $/D, b
+[Command]
+name = "6S"
+command = /F, b
+
+
 [Statedef -1]
 
 ;===========================================================================
@@ -32,6 +43,21 @@ var(1) = 1
 type = ChangeState
 value = 3000
 triggerall = command = "236X"
+triggerall = power >= 2000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = statetype != A
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = movecontact
+trigger3 = (stateno = [200,499]) && movecontact = 1
+trigger4 = stateno = 1303 
+triggerall = stateno != [3000, 3001]
+
+;Pretty Dancer
+[State -1, 214X]
+type = ChangeState
+value = 3010
+triggerall = command = "214X"
 triggerall = power >= 2000
 trigger1 = statetype != A
 trigger1 = ctrl
@@ -105,7 +131,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 1050
 triggerall = statetype != A
-triggerall = command = "b" && command = "holddown"
+triggerall = command = "2S"
 trigger1 = ctrl
 trigger2 = var(1) || stateno = [600, 620] && movecontact
 
@@ -114,7 +140,7 @@ trigger2 = var(1) || stateno = [600, 620] && movecontact
 type = ChangeState
 value = 1010
 triggerall = !map(j6S) && stateno != 1010
-triggerall = command = "b" && command = "holdfwd" && command != "holddown"
+triggerall = command = "6S"
 trigger1 = ctrl
 trigger2 = var(1) || stateno = [600, 620] && movecontact
 
@@ -122,7 +148,7 @@ trigger2 = var(1) || stateno = [600, 620] && movecontact
 [State -1, 4S] ;LATTICE THEORY
 type = ChangeState
 value = 1020
-triggerall = command = "b" && command = "holdback"
+triggerall = command = "4S"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -131,7 +157,7 @@ trigger2 = var(1)
 [State -1, 5S] ;KAGUYA'S TEAR
 type = ChangeState
 value = 1000
-triggerall = command = "b"
+triggerall = command = "b" && command != "holdback" && command != "holddown" && command != "holdfwd"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -174,16 +200,6 @@ trigger1 = ctrl
 ;trigger1 = ctrl
 ;trigger2 = Map(JCH) > 0 || Map(JCB) > 0
 ;===========================================================================
-
-
-;6H
-[State -1, Bandit Revolver]
-type = ChangeState
-value = 230
-triggerall = command = "z" && command = "holdfwd" && command != "holddown"
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = (stateno = [400, 420] || stateno = [200, 220]) && movecontact
 
 ;---------------------------------------------------------------------------
 ;5L

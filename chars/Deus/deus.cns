@@ -1,0 +1,861 @@
+[Data]
+;Amount of life to start with
+life = 1500
+;attack power (more is stronger)
+attack = 100
+;defensive power (more is stronger)
+defence = 100
+;Percentage to increase defense everytime player is knocked down
+fall.defence_up = 0
+;Time which player lies down for, before getting up
+liedown.time = 60
+;Number of points for juggling
+airjuggle = 20
+;Default hit spark number for HitDefs
+sparkno = 2
+;Default guard spark number
+guard.sparkno = 40
+;1 to enable echo on KO
+KO.echo = 0
+;Volume offset (negative for softer)
+volume = 0
+
+power = 4000
+;Variables with this index and above will not have their values
+;reset to 0 between rounds or matches. There are 60 int variables,
+;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
+;If omitted, then it defaults to 60 and 40 for integer and float
+;variables repectively, meaning that none are persistent, i.e. all
+;are reset. If you want your variables to persist between matches,
+;you need to override state 5900 from common1.cns.
+IntPersistIndex = 60
+FloatPersistIndex = 39
+
+[Size]
+xscale = .84          ;Horizontal scaling factor.
+yscale = .84     ;Vertical scaling factor.
+ground.back = 15     ;Player width (back, ground)
+ground.front = 16    ;Player width (front, ground)
+air.back = 12        ;Player width (back, air)
+air.front = 12       ;Player width (front, air)
+height = 50          ;Height of player (for opponent to jump over)
+attack.dist = 0    ;Default attack distance
+proj.attack.dist = 0;Default attack distance for projectiles
+proj.doscale = 0     ;Set to 1 to scale projectiles too
+head.pos = 3, -75   ;Approximate position of head
+mid.pos = 0, -50    ;Approximate position of midsection
+shadowoffset = 0     ;Number of pixels to vertically offset the shadow
+draw.offset = 0,-0.2   ;Player drawing offset in pixels (x, y). Recommended 0,0
+
+[Velocity]
+walk.fwd  = 10     ;Walk forward
+walk.back = -10    ;Walk backward
+run.fwd  = 4.6, 0    ;Run forward (x, y)
+run.back = -4.5,-3.8 ;Hop backward (x, y)
+jump.neu = 0,-8       ;Neutral jumping velocity (x, y)
+jump.back = -4    ;Jump back Speed (x, y)
+jump.fwd = 6    ;Jump forward Speed (x, y)
+runjump.back = -4 ;Running jump speeds (opt)
+runjump.fwd = 6     ;.
+airjump.neu = 0,-6.5      ;.
+air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
+air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
+air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
+air.gethit.airrecover.back = -1       ;Extra x-velocity for holding back during air recovery **MUGEN 1.0**
+air.gethit.airrecover.fwd = 0         ;Extra x-velocity for holding forward during air recovery **MUGEN 1.0**
+air.gethit.airrecover.up = -2         ;Extra y-velocity for holding up during air recovery **MUGEN 1.0**
+air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during air recovery **MUGEN 1.0**
+
+[Movement]
+airjump.num = 1       ;Number of air jumps allowed (opt)
+airjump.height = 35   ;Minimum distance from ground before you can air jump (opt)
+yaccel = .44          ;Vertical acceleration
+stand.friction = .85  ;Friction coefficient when standing
+crouch.friction = .82 ;Friction coefficient when crouching
+stand.friction.threshold = 2          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
+crouch.friction.threshold = .05       ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
+air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
+air.gethit.groundrecover.ground.threshold = -20 ;Y-position below which falling player can use the recovery command **MUGEN 1.0**
+air.gethit.groundrecover.groundlevel = 0   ;Y-position at which player in the ground recovery state touches the ground **MUGEN 1.0**
+air.gethit.airrecover.threshold = 3  ;Y-velocity above which player may use the air recovery command **MUGEN 1.0**
+air.gethit.airrecover.yaccel = .35    ;Vertical acceleration for player in the air recovery state **MUGEN 1.0**
+air.gethit.trip.groundlevel = -5      ;Y-position at which player in the tripped state touches the ground **MUGEN 1.0**
+down.bounce.offset = 0, -5            ;Offset for player bouncing off the ground (x, y) **MUGEN 1.0**
+down.bounce.yaccel = .4               ;Vertical acceleration for player bouncing off the ground **MUGEN 1.0**
+down.bounce.groundlevel = -4          ;Y-position at which player bouncing off the ground touches the ground again **MUGEN 1.0**
+down.friction.threshold = .05     ;If the player's speed drops below this threshold while lying down, stop his movement **MUGEN 1.0**
+
+[Constants]
+StateTagAssistF = 515
+StateTagAssistD = 1036
+StateTagAssistB = 450
+StateTagSuperAssist = 3100
+StateTagSuperAssist2  = 3000
+MVCIActiveSwitch  = 1
+
+;Default language victory quotes (optional).  **MUGEN 1.0**
+;If this section is included, the default language victory quotes must be in English.
+[Quotes]
+; Up to 100 victory quotes can be specified per language (victory0 - victory99)
+victory1 = "I am a template! Wait.. what?"
+;Alternate language victory quotes (optional).
+;0 or more alternate language sections may be added, preceded by the
+;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".
+;See language setting in mugen.cfg.
+[ja.Quotes]
+victory1 = "私は私のベルトで長年の経験を持っています、あなたは知っています。"
+
+;---------------------------------------------------------------------------
+; Variable usage:
+; This is a record of the variables that KFM uses. Keeping a record of your
+; variable usage helps you avoid careless mistakes later.
+; var(1)  - Used in kfm.cmd for combo condition (updated every tick)
+; var(2)  - Used in Kung Fu Throw (state 800) to remember if fwd was being
+;           held (remembered from state 800 through state 810).
+
+
+;---------------------------------------------------------------------------
+; Lose by Time Over
+; CNS difficulty: basic
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win state decider
+; CNS difficulty: basic
+[Statedef 180]
+type = S
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+value = 181
+
+;---------------------------------------------------------------------------
+; Win pose
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+;return to melanin
+[State 0, Explod]
+type = Explod
+trigger1 = time = 65
+anim = 182
+ID = 182
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+accel = 0,0
+random = 0,0
+scale =0.84,0.84
+sprpriority = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause = 1
+
+;transparent shockwave
+[State 1900, dust]
+type = explod
+trigger1 = time = 63
+anim = 10042
+id = 10042
+pos = 37,0
+scale = 1.1,.9
+sprpriority = 4
+bindtime = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+facing = -1
+;removetime = -1
+
+;Activation Sound
+[State 200, 2]
+type = PlaySnd
+trigger1 = time = 26
+value = 180, 1
+channel = 1
+
+;disperse
+[State 200, 2]
+type = PlaySnd
+trigger1 = time = 62
+value = 180, 0
+channel = 1
+
+[State -3, Win Announcer]
+type = PlaySnd
+trigger1 = time=0
+value = 7410, (0+(Random%2))
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = Roundstate > 3
+flag = Nobardisplay
+;---------------------------------------------------------------------------
+; huh
+; CNS difficulty: basic
+[Statedef 182]
+type = S
+ctrl = 0
+anim = 182
+velset = 0,0
+
+[State -3, Win Announcer]
+type = PlaySnd
+trigger1 = time=0
+value = 7410, (0+(Random%2))
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = Roundstate > 3
+flag = Nobardisplay
+
+;---------------------------------------------------------------------------
+; Introduction
+; CNS difficulty: basic
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 190
+velset = 0,0
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nomusic
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+;=============================================================================
+
+
+[Statedef -2]
+
+
+
+;our god is as powerful as she is merciful.
+[State 0, VarSet]
+type = MapSet
+trigger1 = roundstate<=1
+map = "notime"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = TimeRemaining <=60
+trigger1 = map(notime)<=10
+triggerall = gamemode!="Training"
+flag = timerfreeze
+ignorehitpause = 1
+persistent = 1
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = TimeRemaining <=60
+trigger1 = combocount=0
+trigger1 = movetype!=H
+flag = GlobalNoKo
+ignorehitpause = 1
+persistent = 1
+[State 0, AssertSpecial]
+type = RoundTimeSet
+trigger1 = TimeRemaining <=60
+trigger1 = map(notime)<=10
+triggerall = gamemode!="Training"
+value=60
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapAdd
+trigger1 = TimeRemaining <=60
+triggerall = gamemode!="Training"
+map = "notime"
+value = 1
+ignorehitpause = 1
+persistent = 1
+[State 0, LifeSet]
+type = LifeSet
+trigger1 = TimeRemaining <=60
+trigger1 = map(notime)<=10
+trigger1 = map(notime)>0
+value = 1
+ignorehitpause = 1
+persistent = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = map(notime)=1
+time = 30
+movetime = 0
+darken = 1
+unhittable = 1
+ignorehitpause = 1
+persistent = 1
+;give praise and be thankful.
+
+
+[State 0, PalFX] ;Magic Pixel Check
+type = PalFX
+trigger1 = life = 1
+time = 2
+add = (80 + 20 + 50 * sin(2 * pi * gametime / 160)),0,0 ;sinadd but manual
+mul = 256,256,256
+sinadd = 50,0,0,120 ;this part doesn't work and it's gonna make me fucking cry holy shit
+invertall = 0
+color = 256
+
+[State 0, Pause]
+type = Pause
+trigger1 = time%2 = 0
+trigger1 = fvar(18) > 0
+time = 1
+movetime = 1
+;endcmdbuftime = 0
+pausebg = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = fvar(18) >0 
+fv = (18)
+value = -1
+
+;------------------------------------
+;Either he techs throws or he doesnt it depends
+[State -2, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno != 812
+trigger1 = stateno != 803
+id = 44020
+
+
+;------------------------
+[State -2, VarSet]
+type = VarSet
+trigger1 = !numtarget
+v = 3
+value = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = stateno = 900
+id = 900
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numhelper(99149)
+id = 900
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =  GetHitVar(fall) = 1 
+v = 50    ;fv = 10
+value = 0
+
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "facing %f stun %f  dmg %f smash %f mh %f D %f vel %f rina %f bmh %f"
+params = map(facing), fvar(25), fvar(13), map(smashattack), map(multihits), map(fulldsmash), map(vel), map(rina), map(bmhit)
+
+
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = helper, numexplod(900)=1
+time = 15
+add = 100,100,100
+mul = 256,256,256
+sinadd = 30,30,30,3
+invertall = 0
+color = 256
+
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = stateno = [400,420]
+trigger1 = movecontact = 1
+v = 30 	;fv = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = command = "holdup"
+v = 44     ;fv = 
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VarAdd]
+type = VarSet
+trigger1 = command!= "holdup" 
+v =44     ;fv = 
+value = 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, Explod]
+type = Explod
+triggerall = prevstateno = 410
+trigger1 = animelemtime(1) = 0
+anim = 9900
+ID = 9900
+pos = 0,10-random%35
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = .23,.23
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause =
+;trans = 
+;persistent =
+;supermove = 0
+;pausemove = 0
+
+
+;===============================================================================
+; ------- Damage Dampener --------
+;===============================================================================
+
+[State -2, Counter Flag] 
+type = VarSet
+trigger1 = NumEnemy
+fvar(8) = (EnemyNear, MoveType = A)
+ignoreHitPause = 1
+
+[State -2, Reset Counter Flag] 
+type = VarSet
+trigger1 = NumEnemy
+trigger1=(EnemyNear,MoveType!=A)
+Trigger1=Enemy,Ctrl=1
+fvar(8) = 0
+ignoreHitPause = 1 
+ 
+;Damage Dampener Variable (by POTS)
+[State -2, Hit Count] 
+type = VarAdd 
+triggerall = stateno!=610
+triggerall = stateno!=[3000,3001]
+triggerall = stateno!=[8012,8013]
+triggerall = !IsHelper
+trigger1 = MoveHit = 1 
+trigger1 = !HitPauseTime 
+trigger1 = !(HitDefAttr = SCA, AT,HA,AP) 
+trigger1 = stateno!=420
+fvar(13) = 1 
+ 
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(13) 
+trigger1 = (combocount=0)&& (EnemyNear, StateNo != 5300) 
+fvar(13) = 0 
+ignoreHitPause = 1
+ 
+[State -2, Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(10) = ifElse(fvar(13) < 2, 16, ifElse(fvar(13) >= 14, 1, 16 - fvar(13))) / 16.0
+ignoreHitPause = 1 
+ 
+[State -2, Dampener Limit] 
+type = VarSet 
+trigger1 = fvar(10) < 0 
+fvar(10) = 0 
+ignoreHitPause = 1 
+ 
+[State -2, Root Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(11) = fvar(10) * ifElse(fvar(8), 1.5, 1) 
+ignoreHitPause = 1
+
+
+;=======================================================================================
+;=======================================================================================
+;=================================== Stun Dampener =====================================
+;=======================================================================================
+;=======================================================================================
+;Normal Hitstun Decay
+
+;Damage Dampener Variable (by POTS)
+[State -2, Hit Count] 
+type = VarAdd 
+triggerall = stateno!=610
+trigger1 = !IsHelper
+trigger1 = MoveHit = 1 
+trigger1 = !HitPauseTime 
+trigger1 = !(HitDefAttr = SCA, AT,AP) 
+fvar(15) = 1 
+
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(15) 
+trigger1 =(combocount=0)&& (EnemyNear, StateNo != 5300) 
+fvar(15) = 0 
+ignoreHitPause = 1
+
+[State -2, Dampener] 
+type = VarSet 
+trigger1 = 1 
+fvar(15) = ifElse(fvar(25) < 0, 13, ifElse(fvar(25) >= 14, 1, 13 - fvar(25))) / 13.0
+ignoreHitPause = 1 
+
+[State -2, Hit Count Reset] 
+type = VarSet 
+trigger1 = NumEnemy && fvar(25) 
+trigger1 =(combocount=0) && (EnemyNear, StateNo != 5300) 
+fvar(25) = 0 
+ignoreHitPause = 1
+
+
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+[Statedef -3]
+
+;SLIPPITY SLIDE
+[State 0, 3]
+type = VelMul
+triggerall=statetype!=A
+triggerall=movetype!=H
+trigger1 = abs(vel x) >= 0.1
+x = .95
+[State 0, 3]
+type = VelSet
+triggerall=statetype!=A
+triggerall=movetype!=H
+trigger1 = abs(vel x) < 0.1
+x = 0
+;===========
+;SLIPPITY SLIDE CROUCH
+[State 0, 3]
+type = VelMul
+triggerall=statetype=C
+triggerall=movetype!=H
+trigger1 = abs(vel x) >= 0.1
+trigger2 = abs(vel x) <= -0.1
+x = .9
+[State 0, 3]
+type = VelSet
+triggerall=statetype=C
+triggerall=movetype!=H
+trigger1 = abs(vel x) < 0.1
+trigger1 = abs(vel x) > -0.1
+x = 0
+;===========
+;AIR DRIFT
+[State 0, VelAdd]
+type = VelAdd
+triggerall=statetype=A
+triggerall=movetype!=H
+triggerall=stateno!=[900,902]&&stateno!=69002
+trigger1 = vel x < (const(velocity.jump.fwd.x))
+trigger1 = command = "holdfwd"
+x = .35
+[State 0, VelAdd]
+type = VelAdd
+triggerall=statetype=A
+triggerall=movetype!=H
+triggerall=stateno!=[900,902]&&stateno!=69002
+triggerall = command = "holdback"
+trigger1 = vel x > (const(velocity.jump.back.x))
+x = -.35
+;===========
+
+;=====SCALING SHIT==================
+[State Stun Scaling]
+type = VarSet
+trigger1 = prevstateno=3000||prevstateno=3005||prevstateno=3001||prevstateno=3002
+trigger1 = stateno!=3001&&stateno!=3002
+fv = 25  
+value = 25
+ignorehitpause = 1
+persistent = 1
+
+[State Damage Scaling]
+type = VarSet
+trigger1 = prevstateno=3000||prevstateno=3005||prevstateno=3001||prevstateno=3002
+trigger1 = stateno!=3001&&stateno!=3002
+fv =13     ;fv = 
+value = 25
+ignorehitpause = 1
+persistent = 1
+;==================================
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = prevstateno=420
+trigger2 = prevstateno=220
+triggerall= time=0
+time =0
+ignorehitpause = 1
+persistent=0
+
+[State 0, RemapPal]
+type = RemapPal
+triggerall = palno!=11
+trigger1 = facing=1
+source = 1,1
+dest =1,palno
+ignorehitpause = 1
+persistent = 1
+[State 0, RemapPal]
+type = RemapPal
+triggerall = palno!=11
+trigger1 = facing=-1
+source =  1,1
+dest =2,palno
+ignorehitpause = 1
+persistent = 1
+
+[State 0, RemapPal]
+type = RemapPal
+triggerall = palno=11
+trigger1 = map(rina)=1
+trigger1 = facing=1
+source = 1,1
+dest =1,11
+ignorehitpause = 1
+persistent = 1
+[State 0, RemapPal]
+type = RemapPal
+triggerall = palno=11
+trigger1 = map(rina)=1
+trigger1 = facing=-1
+source =  1,1
+dest =2,11
+ignorehitpause = 1
+persistent = 1
+
+[State 0, RemapPal]
+type = RemapPal
+triggerall = palno=11
+trigger1 = map(rina)>1
+trigger1 = facing=1
+source = 1,1
+dest =1,11+map(rina)
+ignorehitpause = 1
+persistent = 1
+[State 0, RemapPal]
+type = RemapPal
+triggerall = palno=11
+trigger1 = map(rina)>1
+trigger1 = facing=-1
+source =  1,1
+dest =2,11+map(rina)
+ignorehitpause = 1
+persistent = 1
+
+[State 0, VarSet]
+type = Mapset
+triggerall = palno=11
+trigger1 =map(stopcountingpls)<roundno
+trigger1 = roundno =1
+map = "rina"
+value = 1+random%7
+ignorehitpause = 1
+persistent = 0
+[State 0, VarSet]
+type = MapAdd
+triggerall = palno=11
+trigger1 =map(stopcountingpls)<roundno
+trigger1 = roundno >1
+map = "rina"
+value = 1+random%6
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VarSet]
+type = MapAdd
+triggerall = palno=11
+trigger1 =roundstate=0
+trigger1 = map(stopcountingpls)<roundno
+map = "stopcountingpls"
+value = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VarSet]
+type = MapSet
+triggerall = palno=11
+trigger1 = map(rina)>7
+map = "rina"
+value = map(rina)-7
+ignorehitpause = 1
+persistent = 1
+
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+map = "bair"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+map = "fair"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+map = "bair"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+map = "dspecial"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+map = "fullfsmash"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+map = "fulldsmash"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+trigger1 = stateno!=1000
+trigger1 = stateno!=1010
+map = "ggta"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0, VarSet]
+type = MapSet
+trigger1 = statetype!=A
+trigger2 = Movetype=H
+map = "airdodge"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0, VarSet]
+type = MapSet
+trigger1 = stateno!=10
+trigger1 = stateno!=11
+map = "vel"
+value = vel x
+ignorehitpause = 1
+persistent = 1
+
+[State 0, VarSet]
+type = MapSet
+trigger1 = statetype!=A
+map = "dj"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+
+[State 0, 3] ;Stop moving if low velocity
+type = MapSet
+triggerall = statetype=C
+triggerall = movetype=I
+trigger1 = Map(Vel) >= 0.1
+map = "vel"
+value = map(vel)*0.9
+ignorehitpause = 1
+persistent = 1
+
+[State 0, 3]
+type = MapSet
+triggerall = statetype=C
+triggerall = movetype=I
+trigger1 = Map(Vel) < 0.1
+map = "vel"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim=5
+trigger1=animtime=0
+value = 0
+ignorehitpause = 1
+
+[state 1]
+type = AssertSpecial
+trigger1 = map(lockin)=0
+flag = NoAutoTurn
+ignorehitpause = 1
+[state 1]
+type = mapset
+trigger1 = command!="hold_c"
+map = "lockin"
+value=0
+ignorehitpause = 1
+persistent = 1
+
+[State 0, VarRangeSet]
+type = VarRangeSet
+trigger1 = !numtarget
+fvalue = 0
+first = 20
+last = 27 ;
+

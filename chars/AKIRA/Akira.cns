@@ -277,15 +277,7 @@ trigger1 		= map(FrostTimer) <= 0
 map 		= "Frost"
 value 		= 0
 ignorehitpause 	= 1
-[State 0, PalFX]
-type = PalFX
-trigger1 = map(Frost)
-time = 1
-add = 0,0,100
-mul = 256,256,256
-invertall = 0
-color = 256
-redirectid = enemynear, id
+
 ;=======================================
 ;=======================================
 
@@ -319,27 +311,53 @@ ignorehitpause 	= 1
 [state friction cancel] 
 type = veladd
 triggerall = map(SuperFrost)
-trigger1 = statetype != A
-trigger1 = movetype != H && vel x < 20
-x = (vel x / const(movement.stand.friction)) - vel x
+trigger1 = enemy, statetype != A
+trigger1 = enemy, movetype != H && enemy, vel x < 20
+x = (enemy, vel x / enemy, const(movement.stand.friction)) - enemy, vel x
 ignorehitpause = 0
 redirectid	= enemynear, id
 [state friction cancel] 
 type = velmul
 triggerall =  map(SuperFrost)
-trigger1 = statetype != A
-trigger1 = movetype != H && vel x < 5
-trigger1 = time < 10
+trigger1 = enemy, statetype != A
+trigger1 = enemy, movetype != H && enemy, vel x < 5
+trigger1 = enemy, time < 10
 x = 0.2
 ignorehitpause = 1
 redirectid	= enemynear, id
 [state friction cancel] 
 type = velmul
 triggerall = map(SuperFrost)
-trigger1 = statetype != A
-trigger1 = movetype != H && vel x < 25
-trigger1 = time > 30
+trigger1 = enemy, statetype != A
+trigger1 = enemy, movetype != H && enemy, vel x < 25
+trigger1 = enemy, time > 30
 x = const(movement.stand.friction)
 ignorehitpause = 1
 redirectid	= enemynear, id
+[State 0, PalFX]
+type = PalFX
+trigger1 = map(SuperFrost) > 0
+time = 1
+add = 0,0,100
+mul = 256,256,256
+invertall = 0
+color = 256
+redirectid = enemynear, id
+[State 0, MAPADD]
+type = MapAdd
+trigger1 = stateno != 3010 && map(superfrost) > 0
+trigger1 = movetype != H
+map = "superfrost"
+value = -1
+[State 0, MAPSET]
+type = MapSet
+trigger1 = stateno = 5120
+map = "superfrost"
+value = 0
 ;==============================================
+
+[State 0, MAPSET]
+type = MapSet
+trigger1 = enemy, movetype != H
+map = "j2H_UseCount"
+value = 0

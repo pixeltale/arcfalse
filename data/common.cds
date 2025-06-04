@@ -27,6 +27,7 @@ time = 1
 name = "z"
 command = z
 time = 1
+
 [Command]
 name = "w"
 command = w
@@ -253,23 +254,23 @@ time = 1
 [Command]
 name = "holdfwd" ;Required (do not remove)
 command = /$F
-time = 1
-buffer.time = 2
+buffer.time = 1
+
 [Command]
 name = "holddown" ;Required (do not remove)
 command = /$D
-time = 1
 buffer.time = 2
+
 [Command]
 name = "holdback" ;Required (do not remove)
 command = /$B
-time = 1
-buffer.time = 2
+buffer.time = 1
+
 [Command]
 name = "holdup" ;Required (do not remove)
 command = /$U
-time = 1
 buffer.time = 2
+
 [Command]
 name = "holdup" ;Required (do not remove)
 command = /UF
@@ -560,6 +561,7 @@ command = ~D, D, D
 time = 40
 buffer.time = 8
 
+
 ;===================================
 ; RECOVERY
 ;===================================
@@ -587,6 +589,173 @@ time = 4
 name = "recovery"
 command = /z
 time = 4
+
+;===================================
+; KNO Inputs
+;===================================
+[Command]
+name = "nobuffer_x"
+command = x
+buffer.time = 1
+
+[Command]
+name = "nobuffer_y"
+command = y
+buffer.time = 1
+
+[Command]
+name = "nobuffer_z"
+command = z
+buffer.time = 1
+
+[Command]
+name = "nobuffer_a"
+command = a
+buffer.time = 1
+
+[Command]
+name = "nobuffer_b"
+command = b
+buffer.time = 1
+
+[Command]
+name = "nobuffer_c"
+command = c
+buffer.time = 1
+
+[Command]
+name = "nobuffer_EX"
+command = b+c
+
+buffer.time = 1
+[Command]
+name = "nobuffer_EX"
+command = c+b
+
+buffer.time =1 
+[Command]
+name = "nobuffer_EX"
+command = d
+
+[Command]
+name = "hold_EX"
+command = /d
+
+[Command]
+name = "dash";Required (do not remove)
+command = w
+time = 1
+buffer.time=5
+[Command]
+name = "holddash";Required (do not remove)
+command = /w
+time = 1
+
+[Command]
+name = "DD"
+command = D,D
+
+[Command]
+name = "aFF"     ;Required (do not remove)
+command = ~F, F
+time = 10
+buffer.time = 6
+
+[Command]
+name = "FF"     ;Required (do not remove)
+command = F, F
+time = 10
+
+[Command]
+name = "aBB"     ;Required (do not remove)
+command = ~B, B
+time = 10
+buffer.time = 6
+
+[Command]
+name = "BB"     ;Required (do not remove)
+command = B, B
+time = 10
+
+[Command]
+name = "QCF"
+command = ~D, DF, F, x
+time = 10
+[Command]
+name = "QCF"   ;Same name as above
+command = ~D, DF, F, y
+time = 10
+[Command]
+name = "QCF"   ;Same name as above
+command = ~D, DF, F, z
+time = 10
+[Command]
+name = "QCF"
+command = ~D, DF, F+x
+time = 10
+[Command]
+name = "QCF"  ;Same name as above
+command = ~D, DF, F+y
+time = 10
+[Command]
+name = "QCF"   ;Same name as above
+command = ~D, DF, F+z
+time = 10
+
+[Command]
+name = "QCFs"
+command = ~D, DF, F, b
+time = 10
+[Command]
+name = "QCFs"
+command = ~D, DF, F+b
+time = 10
+[Command]
+name = "QCBs"
+command = ~D, DB, B, b
+time = 10
+[Command]
+name = "QCBs"
+command = ~D, DB, B+b
+time = 10
+
+[Command]
+name = "QCB"
+command = ~D, DB, B, x;~F, D, DF, F, D, DF, x
+time = 10
+[Command]
+name = "QCB"   ;Same name as above
+command = ~D, DB, B, y;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "QCB"  ;Same name as above
+command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "QCB"
+command = ~D, DB, B+x;~F, D, DF, F, D, DF, x
+time = 10
+[Command]
+name = "QCB"   ;Same name as above
+command = ~D, DB, B+y;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "QCB"   ;Same name as above
+command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
+time = 10
+
+[Command]
+name = "FDF"
+command = ~F, D, $F,b
+time = 10
+[Command]
+name = "FDF"
+command = ~F, D, F+b
+time = 10
+[Command]
+name = "FDF"
+command = ~F, D, DF+b
+time = 10
 
 ;===================================
 ; Blocking Commands
@@ -975,14 +1144,29 @@ buffer.time = 5
 name = "throw"
 command = x+y
 time = 3
+buffer.time = 3
+[Command]
+name = "throw"
+command = /x, y
+time = 1
 [Command]
 name = "throw"
 command = y+z
 time = 3
 [Command]
 name = "throw"
+command = /y, z
+time = 1
+buffer.time = 3
+[Command]
+name = "throw"
 command = x+z
 time = 3
+buffer.time = 3
+[Command]
+name = "throw"
+command = /x, z
+time = 1
 
 [Command]
 name = "throwtech"

@@ -1,5 +1,5 @@
-.\external\script\start.lua:1401: chars\CROW/Normals.cns:1746:
-Missing ','
+.\external\script\start.lua:1401: ./chars/DEUS/deus.cyd:132:
+Command doesn't exist: QCF
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

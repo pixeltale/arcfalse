@@ -1,0 +1,48 @@
+; Player information
+[Info]
+name = "Deus"        ;Name of character
+displayname = "DEUS" ;Name of character to display
+versiondate = 0   ;Version date of character (MM-DD-YYYY or X.XX)
+mugenversion = 1.0         ;Version of M.U.G.E.N character works on (X.XX)
+author = "Ace"         ;Character author name
+pal.defaults = 1,2,3,4      ;Default palettes in order of preference (up to 4)                          
+localcoord = 280,240        ;Local coordinate space width and height
+ikemenversion = 0.99
+
+; Files for the player
+[Files]
+cmd     = deus.cyd           ;Command set
+cns     = deus.cns           ;Constants
+st      = deus.cns           ;States
+st1      = Normals.cns
+st2      = Specials.cns
+st3      = HyperCombos.cns
+st4      = Target.cns
+st5      = Helpers.cns
+st6      = Movement.cns
+stcommon = common1.cns      ;Common states (from data/ or motif)
+sprite  = deus.sff           ;Sprite
+anim    = deus.air           ;Animation
+sound   = deus.snd           ;Sound
+ai      = deus.ai            ;AI hints data (not used)
+
+[RemapPreset Test]
+0,0 = 1,0
+
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+x = 1 ;Press button X to select palette 1, etc.
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+x2 = 7;Hold Start and press button X for palette 7, etc.
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+
+

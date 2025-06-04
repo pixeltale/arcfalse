@@ -3166,11 +3166,11 @@ trigger1 = Time > 0
 value = anim
 
 
-; [State 5020, 5] ;WIP Skug Restand code
-; type = ChangeState
-; trigger1 = !Hitfall
-; trigger1 = HitShakeOver
-; value = 5025
+[State 5020, 5] ;WIP Skug Restand code
+type = ChangeState
+trigger1 = !Hitfall
+trigger1 = HitShakeOver
+value = 5025
 
 [State 5020, 5]
 type = ChangeState
@@ -3246,13 +3246,23 @@ trigger1 = Time = 0
 x = gethitvar(xvel) * facing
 y = cond((enemy, map(ComboTimer) < 1000), gethitvar(yvel), gethitvar(yvel) * (1000/(enemy, map(ComboTimer))*2))
 
-[State 5050, 4] ;Recover near ground
+[State 5030, 3]
+type = velset
+triggerall = alive
+trigger1 = pos y >= 0
+y = 0
+
+[State 5030, 6]
 type = ChangeState
-triggerall = Vel Y > 0
+trigger1 = time = 15
+value = 5035
+
+[State 5050, 4] ;Recover near ground
+type = SelfState
 triggerall = Pos Y >= 0
 triggerall = alive && prevstateno != 5080
 trigger1 = 1
-value = 5001 ;Air get-hit (fall recovery on ground)
+value = 5002 ;Air get-hit (fall recovery on ground)
 ctrl = 0
 
 ;---------------------------------------------------------------------------
@@ -3366,6 +3376,16 @@ value = 5050 ;Air get-hit (falling)
 type    = A
 movetype= H
 physics = N
+
+[State 5210, 2] ;Turn if not facing opponent
+type = Turn
+trigger1 = p2dist X < 0
+
+[State 5210, 1] ;Blink white
+type = PalFX
+trigger1 = Time
+time = 1
+add = cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0)
 
 [State 5040, 1]
 type = ChangeState
@@ -7265,7 +7285,7 @@ value = 800
 triggerall = !(Name="JV" && map(NoNormals))
 trigger1 = command = "throw"
 trigger1 = statetype != A
-trigger1 = ctrl || (stateno = [200,230] && time < 2) && prevstateno != [200, 430]
+trigger1 = ctrl || (stateno = [200,230] && time < 4) && prevstateno != [200, 430]
 
 ;==============================================================================
 
@@ -7418,6 +7438,91 @@ trigger1 = partner, map(BurstGauge) <= 10
 map = "BurstGauge"
 value = partner, map(BurstGauge)
 persistent = 0
+
+
+;======================================
+;EX Limiters
+;======================================
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter1"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter2"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter3"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter4"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter5"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter6"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter7"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter8"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter9"
+value = 0
+ignorehitpause=1
+persistent=1
+[State EX Limiters]
+type = mapset
+trigger1 = combocount=0
+trigger1 = movetype!=A
+map = "EXlimiter10"
+value = 0
+ignorehitpause=1
+persistent=1
 
 ;======================================
 ;Custom State TargetStates

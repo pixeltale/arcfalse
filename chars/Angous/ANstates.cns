@@ -1305,8 +1305,14 @@ value = 0, 1
 
 [State 100, 1]
 type = VelSet
+triggerall = enemy, map(superfrost) = 0
 trigger1 = time % 2 = 0
 x = 6.5+var(28)
+[State 100, 1]
+type = VelSet
+triggerall = enemy, map(superfrost) > 0
+trigger1 = time % 2 = 0
+x = 3+var(28)
 
 [State -3, Win Voices] ;Win
 type = PlaySnd

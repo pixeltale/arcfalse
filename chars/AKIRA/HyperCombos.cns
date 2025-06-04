@@ -111,8 +111,8 @@ priority = 3
 pausetime = 14,14
 guard.pausetime = 15,15
 guard.velocity = -5
-guard.ctrltime = 28
-guard.hittime = 28
+guard.ctrltime = 8
+guard.hittime = 8
 guard.slidetime = 19
 sparkno = 3
 guard.sparkno = 40
@@ -142,6 +142,40 @@ type = VelSet
 trigger1 = animelem = 11
 x = 5
 
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;EVERYTHING WILL FREEZE
+[Statedef 3010]
+type    		= S
+movetype	= A
+physics 		= S
+poweradd	= -2000
+ctrl 		= 0
+anim 		= 1000
+sprpriority 	= 2
+
+[State 0, MAPSET]
+type = MapSet
+trigger1 = !time
+map = "superfrost"
+value = 600
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 18
+anim = 100
+sound = 20,0
+pos = 0,-50
+movetime = 0
+darken = 1
+p2defmul = 1
+unhittable = 1
 
 [State 200, 3]
 type = ChangeState
