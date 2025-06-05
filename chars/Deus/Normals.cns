@@ -1230,7 +1230,8 @@ guard.ctrltime = 6
 guard.cornerpush.veloff = -10
 yaccel = .36
 getpower = (30)*(cond(var(var(2)) = 1, 1, 1)) 
-forcenofall = 1
+air.fall = 1
+fall = 1
 [State 600, 2]
 type = HitDef 
 p2facing = 1
@@ -1259,7 +1260,8 @@ guard.ctrltime = 6
 guard.cornerpush.veloff = -10
 yaccel = .36
 getpower = (30)*(cond(var(var(2)) = 1, 1, 1)) 
-forcenofall = 1
+air.fall = 1
+fall = 1
 
 [State FF]
 type = VelSet

@@ -3381,12 +3381,6 @@ physics = N
 type = Turn
 trigger1 = p2dist X < 0
 
-[State 5210, 1] ;Blink white
-type = PalFX
-trigger1 = Time
-time = 1
-add = cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0)
-
 [State 5040, 1]
 type = ChangeState
 trigger1 = !Alive
@@ -9388,6 +9382,30 @@ map = "Low"
 value = 0
 
 [statedef -4]
+
+;===============================================================================
+; ------- Team Lead Map Set --------
+;===============================================================================
+[state 0]
+type=Mapset
+trigger1=partner,map(teamlead)=0
+map="teamlead"
+value=playerno
+[state 0]
+type=Mapset
+trigger1=!alive
+map="teamlead"
+value=0
+[state 0]
+type=Mapset
+trigger1=teamside=1
+map="enemyteamlead"
+value=player(2),map(teamlead)+player(4),map(teamlead)
+[state 0]
+type=Mapset
+trigger1=teamside=2
+map="enemyteamlead"
+value=player(1),map(teamlead)+player(3),map(teamlead)
 
 ;===============================================================================
 ; ------- Counter-Hit --------
