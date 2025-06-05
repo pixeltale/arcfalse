@@ -8810,6 +8810,7 @@ ignorehitpause = 1
 ;Block Attacks In Midair after jumping over
 [State 0, AttackDist]
 type = Turn
+triggerall = name != "Deus"
 trigger1 = ctrl && (stateno != [903,904] && stateno != [60,61])
 trigger1 = enemy, movetype = A
 trigger1 = p2dist x < 0 && statetype = A
