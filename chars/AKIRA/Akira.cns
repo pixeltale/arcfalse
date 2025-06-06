@@ -397,14 +397,14 @@ x = const(movement.stand.friction)
 ignorehitpause = 1
 redirectid	= enemynear, id
 [State 0, PalFX]
-type = PalFX
+type = BGPalFX
 trigger1 = map(SuperFrost) > 0
-time = 1
-add = 0,0,100
+time = 5
+add = 0,0,10
 mul = 256,256,256
 invertall = 0
-color = 256
-redirectid = enemynear, id
+color = 100
+ignorehitpause = 1
 [State 0, MAPADD]
 type = MapAdd
 trigger1 = stateno != 3010 && map(superfrost) > 0

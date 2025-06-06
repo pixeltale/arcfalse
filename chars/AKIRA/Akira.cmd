@@ -49,8 +49,8 @@ trigger1 = ctrl
 trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = movecontact
-trigger3 = (stateno = [200,499]) && movecontact = 1
-trigger4 = stateno = 1303 
+trigger3 = (stateno = [200,499]) && movecontact
+trigger4 = stateno = [1040, 1045] || stateno = 1021
 triggerall = stateno != [3000, 3001]
 
 ;Pretty Dancer
@@ -64,8 +64,8 @@ trigger1 = ctrl
 trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = movecontact
-trigger3 = (stateno = [200,499]) && movecontact = 1
-trigger4 = stateno = 1303 
+trigger3 = (stateno = [200,499])
+trigger4 = stateno = [1040, 1045] || stateno = 1021
 triggerall = stateno != [3000, 3001]
 
 ;===========================================================================
@@ -327,21 +327,21 @@ type = ChangeState
 triggerall = stateno = [1020,1035]
 triggerall = map(STCancel) > 0
 triggerall = movecontact
-trigger1 = command = "88" || command = "M88"
+trigger1 = command = "holdup"
 value = 1042
 [State 0, ChangeState]
 type = ChangeState
 triggerall = stateno = [1020,1035]
 triggerall = map(STCancel) > 0
 triggerall = movecontact
-trigger1 = command = "44" || command = "M44"
+trigger1 = command = "holdback"
 value = 1040
 [State 0, ChangeState]
 type = ChangeState
 triggerall = stateno = [1020,1035]
 triggerall = map(STCancel) > 0
 triggerall = movecontact
-trigger1 = command = "66" || command = "M66"
+trigger1 = command = "holdfwd"
 value = 1041
 
 
@@ -366,6 +366,54 @@ triggerall = stateno != 1035 && map(STCancel) > 0
 triggerall = movecontact
 trigger1 = command = "z" || root, command = "z"
 value = 1035
+
+
+
+;Air Version
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1060,1085]
+triggerall = map(STCancel) > 0
+triggerall = movecontact && stateno != 1065
+trigger1 = command = "x"
+value = 1065
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1060,1085]
+triggerall = map(STCancel) > 0
+triggerall = movecontact && stateno != 1071
+trigger1 = command = "y"
+value = 1071
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1060,1085]
+triggerall = map(STCancel) > 0
+triggerall = movecontact && stateno != 1075
+trigger1 = command = "z"
+value = 1075
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1060,1085]
+triggerall = movecontact && map(STCancel) > 0
+trigger1 = command = "holdback"
+value = 1080
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1060,1085]
+triggerall = movecontact && map(STCancel) > 0
+trigger1 = command = "holdfwd"
+value = 1081
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1060,1085]
+triggerall = movecontact && map(STCancel) > 0
+trigger1 = command = "holddown"
+value = 1082
+
+
+
+
 
 [State 0, DestroySelf]
 type = DestroySelf

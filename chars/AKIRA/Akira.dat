@@ -1,36 +1,35 @@
 	<#bbbbbb>This move list assumes you are facing to the right.</>
 
-	<#45fff7>UNIQUE TRAIT: EVERYTHING WILL FREEZE</>
-	Akira's 5S applies Frost, which enhances and 
-	changes the properties of certain attacks.
+	<#45fff7>UNIQUE TRAIT: SKATER GIRL</>
+	Akira has unique ground movement where she glides as if on ice.
+   It makes her a bit more difficult to control, but allows her to
+   reach great speeds.
 
 	<#45fff7>UNIQUE MOVES</>
-LEG LOCK	-		_F^C
-   <#bbbbbb>A two-hit advancing hopkick.</>
 BACK INSIDE DEATH SPIRAL	-		_DF^C
    <#bbbbbb>A low-hitting sweep.</>
 
 
 	<#45fff7>SPECIAL MOVES</>
 KAGUYA'S TEAR	-		^Y
-   <#bbbbbb>A punch encased in ice which applies frost.</>
-SKYREACH	-		<#65b5ff>(AIR OK)</>_F^Y
+   <#bbbbbb>A punch encased in ice which draws the opponent in.</>
+GLACIER HOP	-		<#65b5ff>(AIR OK)</>_F^Y
    <#bbbbbb>A command jump that tracks to the enemy's location.</>
-GAME OF DEATH	-		<#65b5ff>(AIR OK)</>_B^Y
+LATTICE CONSTRUCTS	-		<#65b5ff>(AIR OK)</>_B^Y
    <#bbbbbb>A stance with several followups. After activating stance,
    Akira can cancel into 3 followups before being forced to exit it.</>
 _!GENTLE MURDER: SO BELOW	-		^A
         <#bbbbbb>A fast iaido slash. Has a sweetspot at the tip.</>
-_!LANZER	-		^B
-        <#bbbbbb>An advancing knee that can be jump canceled on block.</>
-_!END OF THE LINE	-		^C
+_!HARD KNEE	-		^B
+        <#bbbbbb>A launching knee.</>
+_!RIPPER	-		^C
         <#bbbbbb>A lunging Ice stab that deals extra damage based on
         how quickly Akira is moving when it hits.</>
 _!GENTLE MURDER: AS ABOVE	-		<#65b5ff>(AIR ONLY)</>^A
         <#bbbbbb>A fast iaido slash.</>
-_!ILLEST VILLAIN'S SIGNATURE	-		<#65b5ff>(AIR ONLY)</>^B OR ^Z
+_!ILLEST VILLAIN'S SIGNATURE	-		<#65b5ff>(AIR ONLY)</>^B
         <#bbbbbb>Needs no introduction.</>
-_!EXECUTIONER	-		<#65b5ff>(AIR ONLY)</>^A
+_!HANGMAN	-		<#65b5ff>(AIR ONLY)</>^C
         <#bbbbbb>Akira forms an ice scythe and hooks the enemy in.</>
 _!DIRTY TRICK	-		_FF OR _BB OR _UU OR _DD
         <#bbbbbb>A series of teleports that allow Akira to quickly
@@ -42,9 +41,24 @@ LIAR MASK	-		_D^Y
    Hold forward or back while holding down to change where
    Akira reappears after setting up the clone.</>
 
+   <#45fff7>REMIX MOVES</>
+MENAGE ET TROIS	-		^Z
+   <#bbbbbb>Akira forms a clone of herself at the point in time
+   she created it. That clone will act out her action at the same
+   position and speed she executed it after a set duration.</>
+
+MENAGE ET TROIS - DEVIANT ORIGINATION	-		^Z (INSTALL ONLY)
+   <#bbbbbb>Akira forms a clone of herself at the point in time
+   she created it. That clone will act out her action as well as
+   whatever followups are possible to cancel into based on Akira'S
+   inputs.</>
+
 	<#55ffff>SUPERS</>
 <#45fff7>PRETTY DANCER</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
    <#bbbbbb>So beautiful.</>
+<#45fff7>SNOW GLOBE</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>An install that causes the opponent to suffer slippery
+   ice physics on their movement. Also upgrades Akira's remix.</>
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U

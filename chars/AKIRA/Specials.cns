@@ -277,20 +277,27 @@ trigger1 = command = "holdb"
 value = 1020
 elem = 5
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = prevstateno = 1045
+trigger1 = command = "holdb"
+value = 1020
+elem = 5
+
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelemno(0) >= 4
-trigger1 = command = "x"
+trigger1 = command = "holdx"
 value = 1025
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelemno(0) >= 4
-trigger1 = command = "y"
+trigger1 = command = "holdy"
 value = 1030
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelemno(0) >= 4
-trigger1 = command = "z"
+trigger1 = command = "holdz"
 value = 1035
 
 [State 0, ChangeState]
@@ -821,6 +828,11 @@ triggerall = map(STCancel) > 0
 triggerall = animelemno(0) >= 4
 trigger1 = command = "66" || command = "M66"
 value = 1041
+[State 0, ChangeState]
+type = ChangeState
+triggerall = map(STCancel) > 0
+trigger1 = command = "holdup"
+value = 1042
 
 ;Exit or Restance
 [State 0, ChangeState]
@@ -904,6 +916,11 @@ triggerall = map(STCancel) > 0
 triggerall = animelemno(0) >= 4
 trigger1 = command = "66" || command = "M66"
 value = 1041
+[State 0, ChangeState]
+type = ChangeState
+triggerall = map(STCancel) > 0
+trigger1 = command = "holdup"
+value = 1042
 
 ;Exit or Restance
 [State 0, ChangeState]
@@ -1187,12 +1204,7 @@ value = 1065
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelemno(0) >= 3
-trigger1 = command = "y" && command != "holddown"
-value = 1070
-[State 0, ChangeState]
-type = ChangeState
-triggerall = animelemno(0) >= 3
-trigger1 = command = "y" && command = "holddown"
+trigger1 = command = "y" 
 value = 1071
 [State 0, ChangeState]
 type = ChangeState
@@ -1350,37 +1362,6 @@ sprpriority = 10
 ontop	= 1
 ignorehitpause =1
 persistent = 0
-
-
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "y"
-value = 1070
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "z"
-value = 1075
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-trigger1 = command = "44" || command = "M44"
-value = 1080
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-trigger1 = command = "66" || command = "M66"
-value = 1081
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-trigger1 = command = "22" || command = "M22"
-value = 1082
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1620,7 +1601,7 @@ air.velocity 	= -1,16
 down.velocity 	= -2,-10
 guard.slidetime 	= 18
 guard.hittime 	= 20
-guard.ctrltime 	= 10
+guard.ctrltime 	= 15
 air.fall 		= 1
 getpower 	= 50
 [State 630, 2]
@@ -1650,7 +1631,7 @@ air.velocity 	= -1,16
 down.velocity 	= -2,-10
 guard.slidetime 	= 18
 guard.hittime 	= 20
-guard.ctrltime 	= 10
+guard.ctrltime 	= 15
 air.fall 		= 1
 getpower 		= 50
 p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
@@ -1677,37 +1658,6 @@ y = -3
 type = VelMul
 trigger1 = movecontact
 x = 0.9
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "x"
-value = 1065
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "z"
-value = 1075
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "44" || command = "M44"
-value = 1080
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "66" || command = "M66"
-value = 1081
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-trigger1 = command = "22" || command = "M22"
-value = 1082
 
 [State 0, ChangeState]
 type 	= ChangeState
@@ -1817,43 +1767,6 @@ air.fall = 1
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "x"
-value = 1065
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "y" && command != "holddown"
-value = 1070
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "c" && command = "holddown"
-value = 1071
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "44" || command = "M44"
-value = 1080
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "66" || command = "M66"
-value = 1081
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(STCancel) > 0
-trigger1 = command = "22" || command = "M22"
-value = 1082
-
-[State 0, ChangeState]
-type = ChangeState
 trigger1 = animtime = 0 && command = "holdb"
 value = 1060
 ctrl = 1
@@ -1897,6 +1810,10 @@ trigger1 = vel x > 0
 trigger1 = animelem = 2
 x = -9
 [State 0, VelMul]
+type = VelMul
+trigger1 = animelemno(0) >= 5
+x = 0.8
+[State 0, VelMul]
 type = VelSet
 trigger1 = 1
 y = 0
@@ -1910,7 +1827,7 @@ value = 1065
 type = ChangeState
 triggerall = animelemno(0) >= 2
 trigger1 = command = "y" && command = "holdb"
-value = 1070
+value = 1071
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelemno(0) >= 2
@@ -1929,6 +1846,11 @@ triggerall = map(STCancel) > 0
 triggerall = animelemno(0) >= 4
 trigger1 = command = "66" || command = "M66"
 value = 1081
+[State 0, ChangeState]
+type = ChangeState
+triggerall = map(STCancel) > 0
+trigger1 = command = "holddown"
+value = 1082
 
 ;Exit or Restance
 [State 0, ChangeState]
@@ -1971,6 +1893,10 @@ trigger1 = vel x < 0
 trigger1 = animelem = 2
 x = 9
 [State 0, VelMul]
+type = VelMul
+trigger1 = animelemno(0) >= 5
+x = 0.8
+[State 0, VelMul]
 type = VelSet
 trigger1 = 1
 y = 0
@@ -1984,7 +1910,7 @@ value = 1065
 type = ChangeState
 triggerall = animelemno(0) >= 2
 trigger1 = command = "y" && command = "holdb"
-value = 1070
+value = 1071
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelemno(0) >= 2
@@ -2003,6 +1929,11 @@ triggerall = map(STCancel) > 0
 triggerall = animelemno(0) >= 4
 trigger1 = command = "66" || command = "M66"
 value = 1081
+[State 0, ChangeState]
+type = ChangeState
+triggerall = map(STCancel) > 0
+trigger1 = command = "holddown"
+value = 1082
 
 ;Exit or Restance
 [State 0, ChangeState]
