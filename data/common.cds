@@ -1092,7 +1092,14 @@ name = "623X"
 command = ~F, D, DF, z
 
 ;MACROS ======================[]
-
+[Command]
+name = "M22"
+command = D, w
+time = 1
+[Command]
+name = "M88"
+command = U, w
+time = 1
 [Command]
 name = "M44"
 command = /B, w
@@ -1109,14 +1116,7 @@ time = 1
 name = "M66Hold"
 command = /w
 time = 1
-[Command]
-name = "M22"
-command = ~/$D, w
-time = 1
-[Command]
-name = "M88"
-command = ~/$U, w
-time = 1
+
 
 [Command]
 name = "EX"

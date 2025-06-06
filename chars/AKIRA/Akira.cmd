@@ -327,6 +327,13 @@ type = ChangeState
 triggerall = stateno = [1020,1035]
 triggerall = map(STCancel) > 0
 triggerall = movecontact
+trigger1 = command = "88" || command = "M88"
+value = 1042
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1020,1035]
+triggerall = map(STCancel) > 0
+triggerall = movecontact
 trigger1 = command = "44" || command = "M44"
 value = 1040
 [State 0, ChangeState]
@@ -336,13 +343,7 @@ triggerall = map(STCancel) > 0
 triggerall = movecontact
 trigger1 = command = "66" || command = "M66"
 value = 1041
-[State 0, ChangeState]
-type = ChangeState
-triggerall = stateno = [1020,1035]
-triggerall = map(STCancel) > 0
-triggerall = movecontact
-trigger1 = command = "88" || command = "M88"
-value = 1042
+
 
 [State 0, ChangeState]
 type = ChangeState

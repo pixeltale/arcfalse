@@ -136,8 +136,15 @@ removeongethit = 0
 
 [State 0, VelSet]
 type = VelSet
+triggerall = p2dist x < 150
 trigger1 = animelem = 3
 x = (p2dist x / 2) * 0.1
+y = -3.5
+[State 0, VelSet]
+type = VelSet
+triggerall = p2dist x >= 150
+trigger1 = animelem = 3
+x = (150 / 2) * 0.1
 y = -3.5
 [State 0, VelSet]
 type = VelSet
@@ -146,7 +153,7 @@ x = vel x * 0.9
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = animelemno(0) > 3
-y = 0.5
+y = 0.25
 
 [State 0, CtrlSet]
 type = CtrlSet
@@ -570,8 +577,8 @@ ground.slidetime 	= 12
 ground.hittime  	= 30 * map(UntechMod) 
 air.hittime  	= 35 * map(UntechMod)
 down.hittime 	= 35 * map(UntechMod)
-ground.velocity 	= -8,-4
-air.velocity 	= -5, -3
+ground.velocity 	= -5,-5
+air.velocity 	= -3, -5
 down.velocity 	= -5, -3
 guard.hittime 	= 17
 guard.ctrltime 	= 30
@@ -2070,5 +2077,5 @@ y = -120
 ;Enter Stance
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0
+trigger1 = time
 value = 1060
