@@ -1031,7 +1031,7 @@ params = id
 [State 0, PalFX]
 type = PalFX
 trigger1 = 1
-time = 999
+time = 99999
 add = 200,0,150
 mul = 256,256,256
 invertall = 0
