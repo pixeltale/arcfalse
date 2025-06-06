@@ -1157,13 +1157,18 @@ x = const(velocity.walk.fwd.x)
 
 [State 100, 1]
 type = veladd
-trigger1 = time <30
+trigger1 = time <30 && prevstateno != 4000
 x = .15
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = time >= 30
 x = 4
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = vel x > 12
+x = 12
 
 [State 0, Explod]
 type = Explod
