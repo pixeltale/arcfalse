@@ -1,4 +1,4 @@
-;Violent flurry startup
+;PRETTY DANCER
 [Statedef 3000]
 type    		= S
 movetype		= A
@@ -111,8 +111,8 @@ priority = 3
 pausetime = 14,14
 guard.pausetime = 15,15
 guard.velocity = -5
-guard.ctrltime = 8
-guard.hittime = 8
+guard.ctrltime = 2
+guard.hittime = 2
 guard.slidetime = 19
 sparkno = 3
 guard.sparkno = 40

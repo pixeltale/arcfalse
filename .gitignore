@@ -2,3 +2,4 @@
 Ikemen.log
 *.log
 save/stats.json
+save/config.json

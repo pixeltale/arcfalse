@@ -7254,7 +7254,7 @@ value = 6140
 [State -1, RC Jasta]
 type = ChangeState
 value = 4000
-triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag
+triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag && !ishelper
 triggerall = power>=2000
 triggerall = stateno != 900 && stateno != 803
 triggerall = command = "SP"
@@ -7265,7 +7265,7 @@ trigger1 = movecontact
 [State -1, RC Jasta Air]
 type = ChangeState
 value = 4001
-triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag
+triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag && !ishelper
 triggerall = power>=2000
 triggerall = stateno !=750
 triggerall = stateno != 900

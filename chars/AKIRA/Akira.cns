@@ -226,12 +226,74 @@ ctrl = 1
 
 [Statedef -2]
 
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = movetype = H
+ignorehitpause = 1
+redirectid = helper(700), id
+
+[State -2, Clone - Velocity Tracker]
+type 		= MapSet
+trigger1 		= !numhelper(700)
+map 			= "velx"
+value 		= vel x
+ignorehitpause 	= 1
+
+[State -2, Clone - Stateno Tracker]
+type 		= MapSet
+trigger1 		= !numhelper(700)
+map 			= "stateno"
+value 		= stateno
+ignorehitpause 	= 1
+[State -2, Clone - Cooldown]
+type 		= MapSet
+trigger1 		= numhelper(700)
+map 			= "clonecooldown"
+value 		= 100
+ignorehitpause 	= 1
+[State -2, Clone - Cooldown Tick Down]
+type 		= MapAdd
+trigger1 		= map(clonecooldown)
+map 			= "clonecooldown"
+value 		= -1
+ignorehitpause 	= 1
+
+[State 0, Helper]
+type = Helper
+triggerall = !map(superfrost)
+triggerall = command = "c" && map(Clonecooldown) <= 0
+trigger1 = movecontact || stateno = 3000 && power >= 2000
+helpertype = Normal
+name = "Menage et Trois"
+ID = 700
+stateno = 700
+pos = 0,0
+postype = P1    ;P2, Front, Back, Left, Right
+facing = 1
+keyctrl = 0
+ownpal = 1
+[State 0, Helper]
+type = Helper
+triggerall = map(superfrost)
+triggerall = command = "c" && map(Clonecooldown) <= 0
+trigger1 = movecontact
+helpertype = Normal
+name = "Menage et Trois"
+ID = 700
+stateno = 700
+pos = 0,0
+postype = P1    ;P2, Front, Back, Left, Right
+facing = 1
+keyctrl = 1
+ownpal = 1
+
 ;Debug Display. Press CTRL + D to show ingame.
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "STCancel = %f p2distx = %f"
-params = map(STCancel), p2dist x
+text = "STCancel = %f cooldown = %f superfrost = %f"
+params = map(STCancel), map(clonecooldown), map(superfrost)
 ignorehitpause = 1
 persistent = 1
 

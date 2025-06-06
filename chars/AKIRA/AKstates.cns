@@ -40,6 +40,11 @@ trigger1 = Anim != 0 && Anim != 5
 trigger2 = Anim = 5 && AnimTime = 0 ;Turn anim over
 value = 0
 
+[State 0, DestroySelf]
+type 			= DestroySelf
+trigger1 			= ishelper
+ignorehitpause 	= 1 
+
 [State 0, 4] ;Are you dead?
 type = ChangeState
 trigger1 = !alive
@@ -70,6 +75,11 @@ sprpriority = 0
 ctrl = 1
 velset = vel x
 
+[State 0, DestroySelf]
+type 			= DestroySelf
+trigger1 			= ishelper
+ignorehitpause 	= 1 
+
 [State 11, 1] ;Change from turning animation
 type = ChangeAnim
 trigger1 = Anim = 6 && AnimTime = 0
@@ -94,31 +104,31 @@ value = 0
 ; Walk
 [Statedef 20]
 type    = S
-physics = S
+physics = N
 sprpriority = 0
 
 [State 20, 1]
 type = VelAdd
 triggerall = !time
 trigger1 = command = "holdfwd"
-x = 3
+x = 0.5
 
 [State 20, 1]
 type = VelAdd
-triggerall = time % 3
+triggerall = time % 4
 trigger1 = command = "holdfwd"
-x = 1.2
+x = 0.5
 
 [State 20, 1]
 type = VelMul
-trigger1 = vel x > 3
+trigger1 = vel x > 2
 x = 0.9
 
 [State 20, 2]
 type = VelAdd
 triggerall = time % 3
 trigger1 = command = "holdback"
-x = -1.2
+x = -0.5
 
 [State 20, 1]
 type = VelMul
@@ -334,6 +344,12 @@ sysvar(1) = 0
 type = ChangeAnim
 trigger1 = Time = 0
 value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
+
+[State 0, DestroySelf]
+type 			= DestroySelf
+trigger1 			= ishelper
+ignorehitpause 	= 1 
+
 
 [State 50, 3]
 type = ChangeAnim

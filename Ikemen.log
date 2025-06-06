@@ -1,5 +1,6 @@
-.\external\script\start.lua:1401: ./chars/DEUS/deus.cyd:132:
-Command doesn't exist: QCF
+.\external\script\start.lua:1401: chars\Akira/AKIRA.cns:235:
+helper(700)
+redirectid: Missing ','
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

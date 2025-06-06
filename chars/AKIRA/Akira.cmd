@@ -30,7 +30,7 @@ var(1) = 0
 [State -1, Combo condition Check]
 type = VarSet
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 105 && prevstateno = 220
 trigger2 = stateno = [200,499]
 trigger2 = movecontact
 trigger2 = stateno!=421
@@ -86,7 +86,7 @@ value = 40
 triggerall = command = "up" || movecontact && command = "holdup"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
-trigger2= stateno = 1030 && movecontact && command != "holdb"
+trigger2= stateno = 1030 && movehit && command != "holdb"
 
 [State -1,DJC]
 type = ChangeState
@@ -103,26 +103,26 @@ trigger3 = vel y > -2
 ;
 ;---------------------------------------------------------------------------
 ;Airdash
-[State -1, Forward Airdash]
-type = ChangeState
-value = 60
-triggerall = command != "holdback"
-triggerall = command = "a66" || command = "M66"
-triggerall = Map(ADash) > 0
-triggerall = pos y<-30
-trigger1 = statetype = A 
-trigger1 = ctrl
-
-;---------------------------------------------------------------------------
-;Backward Airdash
-[State -1, Backward Airdash]
-type = ChangeState
-value = 61
-triggerall = command = "a44" || command = "M44"
-triggerall = pos y<-30
-triggerall = Map(ADash) > 0
-trigger1 = statetype = A
-trigger1 = ctrl
+;[State -1, Forward Airdash]
+;type = ChangeState
+;value = 60
+;triggerall = command != "holdback"
+;triggerall = command = "a66" || command = "M66"
+;triggerall = Map(ADash) > 0
+;triggerall = pos y<-30
+;trigger1 = statetype = A 
+;trigger1 = ctrl
+;
+;;---------------------------------------------------------------------------
+;;Backward Airdash
+;[State -1, Backward Airdash]
+;type = ChangeState
+;value = 61
+;triggerall = command = "a44" || command = "M44"
+;triggerall = pos y<-30
+;triggerall = Map(ADash) > 0
+;trigger1 = statetype = A
+;trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 
@@ -320,3 +320,54 @@ triggerall = command = "44" || command = "M44"
 triggerall = movehit
 triggerall = statetype != A
 trigger1 = stateno = 220 || stateno = 420
+
+;LATTICE CONSTRUCT STANCE CANCELS
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1020,1035]
+triggerall = map(STCancel) > 0
+triggerall = movecontact
+trigger1 = command = "44" || command = "M44"
+value = 1040
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1020,1035]
+triggerall = map(STCancel) > 0
+triggerall = movecontact
+trigger1 = command = "66" || command = "M66"
+value = 1041
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1020,1035]
+triggerall = map(STCancel) > 0
+triggerall = movecontact
+trigger1 = command = "88" || command = "M88"
+value = 1042
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1020,1035]
+triggerall = stateno != 1025 && map(STCancel) > 0
+triggerall = movecontact
+trigger1 = command = "x" || root, command = "x"
+value = 1025
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1020,1035]
+triggerall = stateno != 1030 && map(STCancel) > 0
+triggerall = movecontact
+trigger1 = command = "y" || root, command = "y"
+value = 1030
+[State 0, ChangeState]
+type = ChangeState
+triggerall = stateno = [1020,1035]
+triggerall = stateno != 1035 && map(STCancel) > 0
+triggerall = movecontact
+trigger1 = command = "z" || root, command = "z"
+value = 1035
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = IsHelper
+trigger1 = movetype = H
+ignorehitpause = 1
