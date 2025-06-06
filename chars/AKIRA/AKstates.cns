@@ -34,6 +34,12 @@ physics = S
 sprpriority = 0
 velset = vel x
 
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = abs(vel x) > 0.1
+x = vel x * 0.01
+
+
 [State 0, 1]
 type = ChangeAnim
 trigger1 = Anim != 0 && Anim != 5 

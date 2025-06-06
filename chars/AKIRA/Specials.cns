@@ -2015,7 +2015,7 @@ type = ChangeState
 triggerall = animtime = 0
 trigger1 = command != "holdb"
 trigger2 = map(STCancel) <= 0
-value = 1061
+value = 50
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(STCancel) > 0
