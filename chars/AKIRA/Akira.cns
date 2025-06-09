@@ -233,6 +233,12 @@ trigger1 = movetype = H
 ignorehitpause = 1
 redirectid = helper(700), id
 
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = ishelper && stateno != 700
+value = 1
+redirectid = helper(700), id
+
 [State -2, Clone - Velocity Tracker]
 type 		= MapSet
 trigger1 		= !numhelper(700)
