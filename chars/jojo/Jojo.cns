@@ -333,7 +333,7 @@ ignorehitpause = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "PEWGF = %f comboTimer = %f"
-params = map(Perfect), map(combotimer)
+params = map(Perfect), map(gravmul)
 ignorehitpause = 1
 
 [State 0, VarSet]

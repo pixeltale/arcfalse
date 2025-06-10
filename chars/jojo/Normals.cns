@@ -2694,7 +2694,12 @@ trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		= 1
 ignorehitpause 	= 1
-
+[State 0, VelSet]
+type 		= MapAdd
+trigger1 		= movehit = 1
+map 			= "JuggleTimer"
+value 		= 95
+ignorehitpause = 0
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
