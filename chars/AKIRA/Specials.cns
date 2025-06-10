@@ -251,6 +251,7 @@ poweradd 	= 0
 ctrl 		= 0
 anim 		=1020
 sprpriority 	= 2
+facep2 		= 1
 velset		= vel x * 0.25
 
 [State 0, PalFX]
@@ -450,12 +451,12 @@ ground.hittime  = 35 * map(UntechMod)
 air.hittime  = 45 * map(UntechMod)
 down.hittime = 35 * map(UntechMod)
 ground.velocity = 4,-4.5
-air.velocity = -5,-4
+air.velocity = -2,-4
 down.velocity = -.2,-2
 ground.cornerpush.veloff =-4 * map(UntechMod)*2
 down.cornerpush.veloff = -4
 air.cornerpush.veloff = -4 * map(UntechMod)*2
-guard.ctrltime = 10
+guard.ctrltime = 15
 guard.velocity = -5
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 fall = 1
@@ -982,6 +983,12 @@ anim 		=1046
 sprpriority 	= 2
 velset		= vel x, 0
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
@@ -989,7 +996,7 @@ y = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0
+trigger1 = time = 2
 value = cond(command = "holdb", 1020, 0)
 ctrl = 1
 
@@ -1034,6 +1041,12 @@ supermovetime = 0
 pausemovetime = 0
 size.xscale = 0.84
 size.yscale = 0.84
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelem = 5
+value = SCA
+time = 1
 
 [State 0, PosAdd]
 type = PosAdd
@@ -1149,6 +1162,7 @@ poweradd 	= 0
 ctrl 		= 0
 anim 		=1060
 sprpriority 	= 2
+facep2		= 1
 velset		= vel x * 0.25
 
 [State -2, Frost - Enable]
@@ -1786,6 +1800,12 @@ ctrl 		= 0
 anim 		=1040
 sprpriority 	= 2
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
 [State -2, ST Cancel - Reset]
 type 		= MapAdd
 trigger1 		= prevstateno = [1021,1081] && prevstateno != [1050, 1056]
@@ -1875,6 +1895,12 @@ ctrl 		= 0
 anim 		=1040
 sprpriority 	= 2
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
 [State -2, ST Cancel - Reset]
 type 		= MapAdd
 trigger1 		= prevstateno = [1021,1081] && prevstateno != [1050, 1056]
@@ -1955,9 +1981,15 @@ movetype	= A
 physics 		= N
 poweradd 	= 0
 ctrl 		= 0
-anim 		=1046
+anim 		= 1046
 sprpriority 	= 2
 velset		= vel x * 0.5, 3
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
 
 [State -2, ST Cancel - Reset]
 type 		= MapAdd

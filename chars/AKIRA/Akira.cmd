@@ -9,7 +9,7 @@ name = "4S"
 command = /B, b
 [Command]
 name = "2S"
-command = $/D, b
+command = /$D, b
 [Command]
 name = "6S"
 command = /F, b

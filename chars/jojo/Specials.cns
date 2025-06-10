@@ -834,7 +834,7 @@ p2facing = 1
 triggerall = !movecontact && !movereversed
 trigger1 = (enemy,statetype = A || enemy,statetype = L)
 attr = S, SA
-damage = (150 * map(P4)) + 100 + 200 *MAP(COUNTERHIT), 40
+damage = (150 * map(P4)) + 200 *MAP(COUNTERHIT), 40
 animtype  = Medium
 hitflag = MAFD
 guardflag = HA

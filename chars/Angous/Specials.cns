@@ -3626,7 +3626,6 @@ sparkno = 3
 sparkxy = -20,-20
 hitsound   = 5,3
 guardsound = 6,2
-ground.type = trip
 animtype = medium
 ground.slidetime = 14
 ground.hittime  = 35 - MAP(UntechTime)
@@ -3883,63 +3882,118 @@ envshake.freq = 90
 envshake.ampl = 8
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
-[State 0, Projectile]
-type = Projectile
-trigger1 = animelem = 6 && numproj <1
-ProjID = 1093
-projanim = 1093
-projhitanim = 1094
-projremanim = 1094
-projcancelanim = 1094
-projscale =.7,.8
-projremove = 1
-projremovetime = 50
-velocity = 3,0
-remvelocity = 0,0
-accel = 0,0
-velmul = 1
-projhits = 3
-projmisstime = 2
-projpriority = 6
-projsprpriority = 6
-projedgebound = 40
-projstagebound = 40
-projheightbound = -240
-offset = 30,2
-postype = p1         ;p2,front,back,left,right
-projshadow = 0,0,0
+[State 0, Helper]
+type = Helper
+triggerall=anim=1091
+trigger1 = animelem = 6 && numhelper(1093)=0
+helpertype = normal ;player
+name = "wave"
+ID = 1093
+stateno = 1093
+pos = 30,2
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
 supermovetime = 0
-pausemovetime = 999
-hitonce = 1
-attr = S, SP
-damage = 30*MAP(P4), 6
-hitflag = MAFD
-guardflag = MA
-pausetime = 5,7
-guard.hittime = 24
-guard.ctrltime = 22
-sparkno = 2
-sparkxy = 10,-10
-hitsound   = 5,2
-guardsound = 6,2
-air.type = high
-ground.type = high
-animtype = medium
-ground.slidetime = 14
-ground.hittime  = 17
-ground.velocity = -5,0
-fall.xvelocity = -2
-fall.yvelocity = 0
-air.velocity = -5,-1
-air.hittime = 34
-air.fall = 1
-getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
+pausemovetime = 0
+size.xscale = .7
+size.yscale = .8
 
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
+
+;Wave
+[Statedef 1093]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim = 1093
+sprpriority = 2
+velset = 2.7 + (root, stateno = 9090),0
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 200, 1]
+type = hitdef 
+p2facing = 1
+trigger1 = time % 3 = 0
+attr = A, SP
+damage = 25*root, MAP(P4), 10
+hitflag = MAFD
+guardflag = MA
+pausetime = 5,5
+guard.hittime = 24
+guard.ctrltime = 22
+ground.slidetime = 14
+ground.hittime  = 17
+ground.velocity = -3,0
+fall.xvelocity = -2
+fall.yvelocity = 0
+air.velocity = -3,-2
+air.hittime = 34
+air.fall = 1
+sparkno = 1
+sparkxy = -20,-20
+hitsound   = 5,2
+guardsound = 6,2
+ground.type =high
+animtype = medium
+getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
+ground.cornerpush.veloff = 0
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !time
+map 			= "projHits"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= MapAdd
+trigger1 		= movecontact = 1
+map 			= "projHits"
+value 		= 1
+ignorehitpause 	= 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NT,ST,HT
+time = -1
+
+[State 0, ChangeState]
+type = destroyself
+trigger1 = anim=1094
+trigger1 = animtime=0
+
+[State 0, ChangeState]
+type = velmul
+trigger1 = anim=1094
+x = .8
+
+[State 0, ChangeState]
+type = Changeanim
+triggerall=anim!=1094
+trigger1 = time >= 30 && !movehit || map(projhits) > 3 || time >= 180
+trigger2 = parent,movetype = H
+value = 1094
 
 ;[IN] 6S - A
 ;---------------------------------------------------------------------------
@@ -7026,58 +7080,22 @@ envshake.freq = 90
 envshake.ampl = 8
 getpower = 0
 
-[State 0, Projectile]
-type = Projectile
-trigger1 = animelem = 14 && numproj <1
-ProjID = 1093
-projanim = 1093
-projhitanim = 1094
-projremanim = 1094
-projcancelanim = 1094
-projscale =.6,.7
-projremove = 1
-projremovetime = 100
-velocity = 3,0
-remvelocity = 0,0
-accel = 0,0
-velmul = 1
-projhits = 3
-projmisstime = 2
-projpriority = 2
-projsprpriority = 3
-projedgebound = 40
-projstagebound = 40
-projheightbound = -240
-offset = 30,2
-postype = p1         ;p2,front,back,left,right
-projshadow = 0,0,0
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 12 && numhelper(1094)=0
+helpertype = normal ;player
+name = "wave"
+ID = 1094
+stateno = 1093
+pos = 35,2
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
 supermovetime = 0
 pausemovetime = 0
-hitonce = 0
-attr = S, SP
-damage = 25*MAP(P4), 6
-hitflag = MAFD
-guardflag = MA
-priority = 3
-pausetime = 3,5
-guard.hittime = 5
-guard.ctrltime = 5
-sparkno = 2
-sparkxy = 10,-10
-hitsound   = 5,2
-guardsound = 6,2
-air.type = high
-ground.type = high
-animtype = medium
-ground.slidetime = 14
-ground.hittime  = 17
-ground.velocity = -5,0
-fall.xvelocity = -2
-fall.yvelocity = 0
-air.velocity = -5,-1
-air.hittime = 34
-air.fall = 1
-getpower = 0
+size.xscale = .7
+size.yscale = .8
 
 [State 0, ChangeState]
 type = ChangeState

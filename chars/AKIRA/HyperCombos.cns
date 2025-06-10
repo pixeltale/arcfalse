@@ -8,6 +8,12 @@ ctrl 		= 0
 anim 		= 3000
 sprpriority 	= 2
 
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = ishelper && stateno != 700
+value = 1
+redirectid = helper(700), id
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)

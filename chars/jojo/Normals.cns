@@ -2692,14 +2692,14 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 4
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.9	;90% Starting DMG
+value 		= 0.7	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
