@@ -1950,7 +1950,7 @@ animtype = Med
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 20
-guard.ctrltime 	= 12
+guard.ctrltime 	= 14
 air.hittime  = 25
 ground.velocity = -3
 air.velocity = -1,-3*map(GravMul)
@@ -2096,15 +2096,15 @@ hitsound = 5,3
 guardsound = 6, 2
 ground.type = high
 ground.slidetime = 0
-ground.hittime  = 99
+ground.hittime  = 40
 ground.velocity = -1,18
 airguard.velocity = -1,-.8
 air.type = high
 air.velocity = -1,16 * map(GravMul) - map(jH_UseCount)
-air.hittime = 99
+air.hittime = 40
 fall = 1
 down.bounce = 0
-guard.ctrltime	= 16
+guard.ctrltime	= 12
 airguard.ctrltime	= 6
 fall.yvelocity = 0
 envshake.time = 15
@@ -2140,10 +2140,10 @@ ground.velocity = -1,18
 airguard.velocity = -1,-.8
 air.type = high
 air.velocity = -1,16 * map(GravMul) - map(jH_UseCount)
-air.hittime = 99
+air.hittime = 40
 fall = 1
 down.bounce = 0
-guard.ctrltime	= 18
+guard.ctrltime	= 14
 airguard.ctrltime	= 8
 fall.yvelocity = 0
 envshake.time = 15
@@ -2695,22 +2695,22 @@ map 		= "StarterLevel"
 value 		= 1
 ignorehitpause 	= 1
 [State 0, VelSet]
-type 		= MapAdd
+type 		= MapSet
 trigger1 		= movehit = 1
-map 			= "JuggleTimer"
-value 		= 95
+map 			= "GravMul"
+value 		= 0.7
 ignorehitpause = 0
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.7	;90% Starting DMG
+value 		= 0.5	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.9	;84% DMG For next hit
+value 		= 0.5	;84% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -2727,7 +2727,7 @@ p2facing 	= 1
 trigger1 	= time = 0
 hitonce 	= 1
 attr 	= S, SA
-damage 	= 120*MAP(P4), 5
+damage 	= 100*MAP(P4), 5
 hitflag 	= MAFD
 guardflag = 
 priority 	= 3
@@ -2854,17 +2854,44 @@ trigger1 	= movehit = 1
 map 		= "ComboTimer"
 value 		= 200
 ignorehitpause 	= 1
+[State 0, VelSet]
+type 		= MapSet
+trigger1 		= movehit = 1
+map 			= "GravMul"
+value 		= 0.7
+ignorehitpause = 0
 
 [State 0, VarSet]
 type = VarSet
 trigger1 = movehit
 var(1) = 1
 
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.55	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.50	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 200, 1]
 type = HitDef
 trigger1 = time = 0 
 attr = S, NT                    ;Attribute: Standing, Normal Attack
-damage = 120, 0
+damage = 100, 0
 animtype = hard                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = LA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    ;Flags of conditions that move can hit

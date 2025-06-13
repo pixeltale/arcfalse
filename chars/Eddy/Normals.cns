@@ -400,6 +400,255 @@ value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------
+; NEW 5R - FOCUS ATTACK
+[Statedef 230]
+type    = S
+movetype= A
+physics = S
+juggle = 0
+ctrl = 0
+velset = vel x,0
+anim = 230
+sprpriority = 4
+
+[State 0, VelSet]
+type = VelSet
+triggerall = !map(Charged)
+trigger1 = animelem = 5
+x = 6.6
+[State 0, VelSet]
+type = PosAdd
+triggerall = !map(Charged)
+trigger1 = animelem = 5
+x = 10
+[State 0, VelSet]
+type = VelSet
+triggerall = map(Charged)
+trigger1 = animelem = 5
+x = 10.5
+[State 0, VelSet]
+type = PosAdd
+triggerall = map(Charged)
+trigger1 = animelem = 5
+x = 20
+
+;============================
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		=  2 + map(CHARGED)
+ignorehitpause 	=  1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 			= "P1"
+value 		=  0.90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 			= "P2"
+value 		=  0.85	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent 		= 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+;============================
+
+;Normal Hit
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = animelemno(0) = 5 && enemy, stateno != [5225, 5228]
+trigger1 = !movecontact && !movereversed
+attr = S, SA, ST
+animtype  = Light
+air.animtype = back
+damage = 100*MAP(P4), 20
+hitflag = MAFDP
+guardflag = HA
+pausetime = 10,10
+sparkno = 3
+sparkxy = -10,-34
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = low
+air.type	= TRIP
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -6.5
+air.velocity = -6.5,1
+fall = 0
+air.fall = 1
+fall.yvelocity = 0
+ envshake.time = 8
+envshake.freq = 20
+envshake.ampl = 1
+envshake.phase = 1
+guard.ctrltime = 22
+fall.yvelocity = 0
+air.cornerpush.veloff = -10
+ground.cornerpush.veloff = -10
+getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1))
+
+;Charged Focus
+[State 210, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = animelemno(0) = 5 && enemy, stateno != [5225, 5228]
+trigger1 = map(CHARGED) && !movecontact && !movereversed
+attr = S, NA
+animtype  = Light
+damage = 120*MAP(P4), 100
+hitflag = MAFDP
+guardflag = MA
+pausetime = 12,12
+sparkno = 3
+sparkxy = -10,-34
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = low
+ground.slidetime = 12
+ground.hittime  = 40*map(untechMOD)
+air.hittime = 40*map(untechMOD)
+ground.velocity = -15.5,-8
+air.velocity = -15.5,-9.5
+fall = 1
+envshake.time = 12
+envshake.freq = 50
+envshake.ampl = 2
+envshake.phase = 1
+guard.ctrltime = 18
+fall.yvelocity = 0
+p2stateno = map(CornerSplat)
+p2getp1state = 0
+getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
+
+[State -2, CHARGED]
+type 		= MapSet
+trigger1 		= !TIME && prevstateno != 5000
+map 			= "CHARGED"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
+[State -2, CHARGED]
+type 		= MapSet
+trigger1 		= time >= 25 && animelem = 4
+map 			= "CHARGED"
+value 		= 1
+ignorehitpause 	= 0
+persistent 		= 0
+
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_boomerang"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = !time
+time = 20
+sinadd = 250-time, 70-time*2, 70-time*2, 30
+mul = 256,256,256
+invertall = 0
+color = 256
+persistent = 0
+
+[State 0, ChangeAnim]
+type 	= ChangeAnim
+triggerall = time < 25
+trigger1 	= command = "focusATK_CHARGE" && animelemno(0) = 3
+value 	= 230
+elem 	= 3
+ignorehitpause = 1
+persistent = 1
+[State 0, ChangeAnim]
+type 	= ChangeAnim
+triggerall = anim != 231 
+trigger1 	= map(Charged)
+value 	= 231
+elem 	= 4
+ignorehitpause = 1
+persistent = 1
+
+;ARMOR ============================++++
+[State 0, ChangeAnim]
+type 	= ChangeAnim
+trigger1 = enemy, movehit = 1
+trigger2 = animelem = 1 && map(ArmorElement) > 1
+value 	= 230 + map(Charged)
+elem 	= map(armorElement)
+ignorehitpause = 1
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= animelem = 2 && prevstateno != 5000
+map 		= "armorPoints"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 1
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= animelemno(0) > map(armorElement)
+map 		= "armorElement"
+value 		= animelemno(0)
+ignorehitpause 	= 1
+[State 0, HitOverride]
+type = HitOverride
+triggerall = !(enemy, map(ArmorBreak))		;"Armor Break" Attacks will bypass
+triggerall = animelemno(0) = [2,5]		;Active Frame Range
+trigger1 = map(ArmorPoints) > 0			;Withstand a Certain Hitcount. Armorpoints tick down with enemy attacks.
+attr = SCA,NA,SA,NP,SP
+slot = 0
+stateno = 230
+time = 1
+ignorehitpause = 0
+[State 0. MapSet]				;Does nothing to the performance of the armor.
+type 		= MapSet			;This value is used for enemy characters
+trigger1 	= animelemno(0) = [3, 5]	;To see if armor is currently active or not.
+map 		= "armorActive"
+value 		= 1
+ignorehitpause 	= 1
+[State 666, PosFreeze]
+type = PosFreeze
+trigger1 = enemy, movehit = 1
+value = 1
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = enemy, movehit
+time = 10
+add = 150,100,0
+mul = 256,256,256
+sinadd = 150,100,0,30
+invertall = 0
+color = 256
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = enemy, movehit = 1
+value = -gethitvar(damage)
+kill = 1
+absolute = 0
+ignorehitpause = 1
+;=======================================
+
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
 ; 5R - Counter Attempt
 [Statedef 250]
 facep2 = 1
@@ -1854,7 +2103,7 @@ ground.hittime  = 5
 air.hittime  = 5
 down.hittime = 5
 ground.velocity = -5
-air.velocity = 1.5,-3
+air.velocity = -2.5,-3
 airguard.velocity = 1.5,-3
 fall.yvelocity = 0
 forcenofall = 1

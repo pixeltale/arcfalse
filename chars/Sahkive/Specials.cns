@@ -2921,6 +2921,7 @@ attr = S, ST, SA
 guardflag = A       ;Attributes: Standing, Normal Throw
 hitflag = AFD          ;Affect only ground people who are not being hit
 pausetime = 0,50
+guard.pausetime = 15,10
 priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
 sparkno = 1000          ;No spark
 sparkxy = -20,-80
@@ -2934,8 +2935,8 @@ air.hittime = 1-MAP(untechDecay)
 air.fall = 1
 ground.velocity = 0,0
 air.velocity = -2,-.2
-guard.pausetime = 0,0
-guard.velocity = -5
+airguard.velocity = 2, -1
+guard.velocity = 5
 guard.hittime = 12
 guard.ctrltime = 11
 guard.slidetime = 15
@@ -2969,7 +2970,7 @@ guard.slidetime = 15
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = enemy, vel y < 0
+trigger1 = enemy, vel y < -1
 flag = unguardable
 
 [State 0, ChangeState]
@@ -3621,9 +3622,8 @@ value = 0, 3
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = enemy, vel y < 0
+trigger1 = enemy, vel y < -1
 flag = unguardable
-
 
 [State 800, 1] ;With grab sound
 type = HitDef
@@ -3646,7 +3646,8 @@ air.fall = 0
 ground.velocity = 0,0
 air.velocity=0,0
 pausetime=0,50
-guard.pausetime = 0,0
+guard.pausetime = 15, 15
+airguard.velocity = 2, -1
 guard.velocity = -5
 guard.hittime = 12
 guard.ctrltime = 11

@@ -747,7 +747,7 @@ ctrl = 0
 [State 0, AfterImage] ;DC Afterimage Effect             ============ ++
 type 		= AfterImage			        ;+
 trigger1 		= time =  0			        ;+
-trigger1		= prevstateno = [1000,1600]		        ;+
+trigger1		= prevstateno = [1000,1600]	|| prevstateno = 230	        ;+
 time 		= 10				        ;+
 length 		= 15   				        ;+
 timegap 		= 2
@@ -761,7 +761,7 @@ persistent 	= 0				        ;+
 [State 0, PalFX]
 type = PalFX
 trigger1 		= time =  [0, 10]			        ;+
-trigger1		= prevstateno = [1000,1600]		        ;+
+trigger1		= prevstateno = [1000,1600] || prevstateno = 230		        ;+
 time = 1
 add = 64 - time*3,100- time*3,191- time*3
 invertall = 0
@@ -1001,7 +1001,7 @@ ctrl = 1
 [Statedef 105]
 type    = S
 physics = S
-ctrl = 0
+ctrl = prevstateno = 230
 anim = 105
 sprpriority = 1
 
@@ -1010,6 +1010,37 @@ type = PowerAdd
 trigger1 = prevstateno = [700,701]
 trigger1 = time = 0
 value = -1000
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = prevstateno = 230
+trigger1 = time = 3
+value = 1
+
+[State 0, AfterImage] ;DC Afterimage Effect             ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= time =  0			        ;+
+trigger1		= prevstateno = [1000,1600]	|| prevstateno = 230	        ;+
+time 		= 8					        ;+
+length 		= 15   				        ;+
+timegap 		= 2
+framegap		= 1				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 64, 100, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+;==================================================++
+
+[State 0, PalFX]
+type = PalFX
+trigger1 		= time =  [0, 10]			        ;+
+trigger1		= prevstateno = [1000,1600] || prevstateno = 230		        ;+
+time = 1
+add = 64 - time*3,100- time*3,191- time*3
+invertall = 0
+color = 256
+ignorehitpause = 1
+;persistent = 
 
 [State 0, Explod]
 type = Explod
@@ -1086,6 +1117,7 @@ y = 0
 
 [State 0, NotHitBy]
 type 	= NotHitBy
+triggerall = prevstateno != 230
 trigger1 	= time <= 7
 value 	= SCA
 time 	= 1

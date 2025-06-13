@@ -24,6 +24,11 @@ name = "unbuffer_ATK"
 command = z
 time = 1
 buffer.time = 0
+[Command]
+name = "focusATK_CHARGE"
+command = /c
+time = 1
+buffer.time = 0
 
 [Statedef -1]
 
@@ -234,19 +239,12 @@ trigger2 = var(1)
 
 [State -1, Stand Strong Punch]
 type = ChangeState
-value = 250
+value = 230
 triggerall = command = "c"
-trigger1 = statetype = S
+triggerall = statetype != A
+triggerall = stateno != 230
 trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact =1 ;&& enemynear, movetype = H
-trigger3 = (stateno = 210) && movecontact =1 ;&& enemynear, movetype = H
-trigger4 = (stateno = 211) && movecontact =1 ;&& enemynear, movetype = H
-trigger5 = (stateno = 220) 
-trigger5 = movecontact =1 ;&& enemynear, movetype = H
-trigger6 = (stateno = 1203) 
-trigger7 = stateno = 100 
-trigger8 = (stateno = [400,499]) 
-trigger8 = movecontact =1 ;&& enemynear, movetype = H
+trigger2 = var(1)
 
 ;---------------------------------------------------------------------------
 ;Run Fwd
@@ -259,6 +257,7 @@ triggerall = statetype != A
 triggerall = stateno != 100
 trigger1 = ctrl
 trigger2 = Map(DCFH) > 0 || Map(DCFB) > 0
+trigger3 = stateno = 230 && (animelemno(0) = 3 && time > 15 || stateno = 230 && movecontact && map(Charged))
 
 ;---------------------------------------------------------------------------
 ;Run Back
@@ -269,6 +268,7 @@ triggerall = command = "44" || command = "M44"
 triggerall = stateno!=105
 triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = 230 && (animelemno(0) = 3 && time > 15 || stateno = 230 && movecontact && map(Charged))
 
 ;Super Jump
 ;[State -1, Super Jump]
@@ -461,16 +461,6 @@ trigger3 = movecontact
 trigger4 = movehit && stateno = [600, 630]
 
 ;---------------------------------------------------------------------------
-[State 100, Forward Dash Cancel]
-type = ChangeState
-value = 100
-triggerall = command != "holdback"
-triggerall = command = "66" || command = "M66"
-triggerall = movehit
-triggerall = statetype != A
-triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300
-
 [State 100, Back Dash Cancel]
 type = ChangeState
 value = 105

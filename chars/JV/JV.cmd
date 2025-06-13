@@ -37,7 +37,7 @@ triggerall = power >= 2000
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = statetype != A
-trigger2 = stateno != [3000,3050)
+trigger2 = stateno != [3000,3050) && stateno != [800,805]
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = [100,101]
@@ -51,7 +51,7 @@ triggerall = power >= 2000
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = statetype != A
-trigger2 = stateno != [3000,3050)
+trigger2 = stateno != [3000,3050) && stateno != [800,805]
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = [100,101]
@@ -64,7 +64,7 @@ triggerall = command = "214S"
 triggerall = power >= 4000
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno != [3000,3050)
+trigger2 = stateno != [3000,3050) && stateno != [800,805]
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = [100,101]

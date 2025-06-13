@@ -1,5 +1,5 @@
-.\external\script\start.lua:1401: chars\angous/Specials.cns:3984:
-Nothing assigned
+.\external\script\start.lua:1401: ./chars/Eddy/Eddy.cmd:471:
+Invalid data: )
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

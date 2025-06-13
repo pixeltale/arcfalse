@@ -586,7 +586,7 @@ value = 0
 
 [State 0, No Normals Set] ;No Normals After 4SDC
 type = MapSet
-trigger1 = stateno = 100 && (prevstateno = [1010,1015])
+trigger1 = stateno = 100 && (prevstateno = 1010)
 map = "NoNormals"
 value = 20
 [State 0, No Normals Set] ;No Normals After 6S>LDC

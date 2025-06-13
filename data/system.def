@@ -67,7 +67,7 @@ title.bgm.loop = 1
 title.bgm.loopstart = 
 title.bgm.loopend = 
   ;Music to play at char select screen.
-select.bgm = sound/90210_ALT_UNIVERSE.mp3
+select.bgm = sound/MORE.mp3
 select.bgm.volume = 120
 select.bgm.loop = 1
 select.bgm.loopstart = 40

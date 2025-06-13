@@ -1038,12 +1038,12 @@ type    = S
 physics = S
 anim = 100 - 1*(prevstateno = 4000 || prevstateno = 2000)
 sprpriority = 1
-velset = 5 - 5 * enemy, map(SuperFrost) > 0, 0
+velset = 5
 ctrl = 0
 
 [State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
 type 		= AfterImage			        ;+
-trigger1 		= time 	=  0 && prevstateno = [1010,1015]	        ;+
+trigger1 		= time 	=  0 && prevstateno = 1010	        ;+
 time 		= 10				        ;+
 length 		= 25   				        ;+
 timegap 		= 1				        ;+

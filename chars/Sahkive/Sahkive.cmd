@@ -33,6 +33,7 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,420]) || (stateno = [500,510])
 trigger2 = movecontact
+trigger3 = stateno = 440 && moveguarded
 var(1) = 1
 ;===========================================================================
 
@@ -382,10 +383,9 @@ value = 440
 triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command = "holdfwd"
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = (stateno = 400) || (stateno = 410) || (stateno = 210)  || (stateno = 200) 
-trigger2 = (movecontact) ;&& enemynear, movetype = H
+trigger2 = (stateno = [400,420] || stateno = [200,220]) && movecontact
 trigger3 = stateno = 100
 
 ;---------------------------------------------------------------------------

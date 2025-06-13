@@ -124,7 +124,7 @@ air.hittime 	= 24
 envshake.time 	= 7
 fall 		= 1
 fall.yvelocity 	= 0
-guard.ctrltime 	= 8	
+guard.ctrltime 	= 5	
 p2stateno 	= 915020
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = 0
@@ -156,7 +156,7 @@ air.hittime 	= 24
 envshake.time 	= 7
 fall 		= 1
 fall.yvelocity 	= 0
-guard.ctrltime 	= 10
+guard.ctrltime 	= 5
 p2stateno 	= 915020
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = 0
@@ -189,7 +189,7 @@ fall 		= 1
 fall.yvelocity 	= 0
 guard.slidetime 	= 21
 guard.hittime 	= 21
-guard.ctrltime 	= 20
+guard.ctrltime 	= 5
 p2stateno 	= 915020
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = 0
@@ -375,7 +375,7 @@ type = S
 movetype = A
 Physics = S
 juggle = 0
-velset = vel x-2,0
+velset = vel x,0
 ctrl = 0
 anim = 1001
 poweradd = 0
@@ -418,9 +418,9 @@ ignorehitpause 	= 1
 persistent 		= 0
 
 [State 0, VelSet]
-type = velset
-trigger1 = animelem = 2
-x = 3
+type = veladd
+trigger1 = animelem = 3
+x = 4
 
 [State 0, Explod]
 type = Explod
@@ -553,10 +553,18 @@ persistent = 1
 type = PlaySnd
 trigger1 = time = 0
 value = 5,0
-
+[State 0, PalFX]
+type = PalFX
+trigger1 = !time
+time = 12
+sinadd = 100-time*2, 32-time*2, 100-time*2, 30
+mul = 256,256,256
+invertall = 0
+color = 256
+persistent = 0
 [State 0, Changestate]
 type = Changestate
-triggerall = time
+triggerall = time = [1, 11]
 trigger1 = command = "fwd" || command = "M66"
 value = 100
 ctrl = 1
@@ -673,6 +681,26 @@ sprpriority 	= 2
 facep2 		= 1
 velset 		= vel x + 3 , 0
 
+[State 0, Turn]
+type = Turn
+triggerall = time < 5
+trigger1 = p2dist x < 0
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= time 	=  10		        ;+
+time 		= 20				        ;+
+length 		= 25   				        ;+
+timegap 		= 1				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 191, 64, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+;==================================================++
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -704,14 +732,14 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = !movecontact && !movereversed
+trigger1 = !movecontact && !movereversed && !map(ComboStateCheck)
 attr 		= S, SA
 damage 		= 100*map(P4), 30
 animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype 	= heavy
 guardflag 	= MA
 hitflag 		= MAFD
-pausetime 	= 18, 18
+pausetime 	= 10, 10
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -723,14 +751,14 @@ ground.hittime  	= 30-map(UntechDecay)
 air.hittime  	= 90-map(UntechDecay)
 down.hittime 	= 120-map(UntechDecay)
 ;==============================================
-ground.velocity 	= -4
-down.velocity 	= -1.4,-6
-air.velocity	= -8, -4
+ground.velocity 	= -15, -6
+down.velocity 	= -15,-6
+air.velocity	= -10, -4
 guard.ctrltime 	= 15
 airguard.ctrltime	= 40
-guard.slidetime	= 20
-guard.velocity		= -15
-guard.cornerpush.veloff = -1
+guard.slidetime	= 40
+guard.velocity		= -25
+guard.cornerpush.veloff = -15
 airguard.velocity 	= -2.5,-1
 air.type 		= High
 envshake.time 	= 0;
@@ -740,65 +768,23 @@ fall.yvelocity 	= 0
 envshake.time 	= 3
 envshake.freq 	= 5
 envshake.ampl 	= 2
-envshake.phase 	= 1
+envshake.phase = 1
+;==============================================
+p2stateno 	= 5220
+p2getp1state 	= 0
 getpower 		= (50)*(cond(var(var(3)) = 1, 1, .5)) 
 
-
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = !movereversed && !movecontact
-trigger1 = map(CounterHit) && !map(ArmorActive)
-attr = S, SA
-damage 		= 200*map(P4)
-animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
-air.animtype 	= back
-guardflag 	= MA
-hitflag 		= MAFD
-pausetime 	= 30, 35 
-sparkno 		= 0
-sparkxy 		= -30, -59
-hitsound 		= 5, 1
-guardsound 	= 6, 0
-ground.type 	= High
-ground.slidetime 	= 5
-;==============================================
-air.hittime  	= 90-map(UntechDecay)
-ground.hittime	= 90-map(UntechDecay)
-down.hittime 	= 90-map(UntechDecay)
-;==============================================
-ground.velocity 	= -4, -7
-air.velocity 	= -1,-8
-down.velocity	= -1, -6
-guard.slidetime 	= 8
-guard.hittime 	= 16
-guard.ctrltime 	= 8
-airguard.velocity 	= -1.9,-.8
-air.type 		= High
-air.fall 		= 1
-fall.yvelocity 	= 0
-;==============================================
-envshake.time 	= 30;
-envshake.time 	= 3
-envshake.freq 	= 5
-envshake.ampl 	= 2
-envshake.phase 	= 1
-;==============================================
-getpower 	= (150)*(cond(var(var(5)) = 1, 1, .5)) 
-p2stateno 	= 5300
-
-[State 200, 1]
-type = HitDef 
-p2facing = 1
-trigger1 = !movereversed && !movecontact
-trigger1 = map(CounterHit) && map(ArmorActive)
-attr = S, SA
-damage 		= 200*map(P4)
+trigger1 = !movecontact && !movereversed && map(ComboStateCheck)
+attr 		= S, SA
+damage 		= 100*map(P4), 30
 animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
-air.animtype 	= back
+air.animtype 	= heavy
 guardflag 	= MA
 hitflag 		= MAFD
-pausetime 	= 30, 35 
+pausetime 	= 10, 10
 sparkno 		= 0
 sparkxy 		= -30, -59
 hitsound 		= 5, 1
@@ -806,39 +792,30 @@ guardsound 	= 6, 0
 ground.type 	= High
 ground.slidetime 	= 5
 ;==============================================
+ground.hittime  	= 30-map(UntechDecay)
 air.hittime  	= 90-map(UntechDecay)
-ground.hittime	= 90-map(UntechDecay)
-down.hittime 	= 90-map(UntechDecay)
+down.hittime 	= 120-map(UntechDecay)
 ;==============================================
-ground.velocity 	= -4
-air.velocity 	= -10*map(ReverseLaunch),-4
-guard.slidetime 	= 8
-guard.hittime 	= 16
-guard.ctrltime 	= 8
-airguard.velocity 	= -1.9,-.8
+ground.velocity 	= -10
+down.velocity 	= -8,-6
+air.velocity	= -10, -4
+guard.ctrltime 	= 15
+airguard.ctrltime	= 40
+guard.slidetime	= 40
+guard.velocity		= -25
+guard.cornerpush.veloff = -15
+airguard.velocity 	= -2.5,-1
 air.type 		= High
+envshake.time 	= 0;
 air.fall 		= 1
 fall.yvelocity 	= 0
 ;==============================================
-envshake.time 	= 30;
 envshake.time 	= 3
 envshake.freq 	= 5
 envshake.ampl 	= 2
-envshake.phase 	= 1
+envshake.phase = 1
 ;==============================================
-getpower 		= (150)*(cond(var(var(5)) = 1, 1, .5))
-
-[State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
-type 		= AfterImage			        ;+
-trigger1 		= time 	=  0 && map(EN)		        ;+
-time 		= 10				        ;+
-length 		= 20   				        ;+
-timegap 		= 1				        ;+
-ignorehitpause 	= 1 				        ;+
-paladd		= 191, 64, 191			        ;+
-trans 		= add				        ;+
-persistent 	= 0				        ;+
-;==================================================++
+getpower 		= (50)*(cond(var(var(3)) = 1, 1, .5)) 
 
 [State 0, VelAdd]
 type = veladd
@@ -2550,10 +2527,12 @@ guard.ctrltime 	= 20
 guard.slidetime	= 20
 guard.hittime	= 20
 guard.velocity	= -5
-pausetime 	= 35,35
+pausetime 	= 25,25
+guard.pausetime= 15,15
 sparkno 		= 3
 sparkxy 		= -10,-40
 hitsound   	= 5,3
+guardsound 	= 6, 1
 ground.slidetime 	= 12
 ground.hittime  	= 35
 air.hittime	= 50 - map(untechDecay)
@@ -2579,10 +2558,12 @@ damage 		= 120*map(P4), 30
 hitflag 		= MAFD
 guardflag 	= MAFD
 guard.ctrltime 	= 32
-pausetime 	= 35,35
+pausetime 	= 25,25
+guard.pausetime= 15,15
 sparkno 		= 3
 sparkxy 		= -10,-40
 hitsound   	= 5,3
+guardsound 	= 6, 1
 ground.type 	= Low
 ground.slidetime 	= 12
 ground.hittime  	= 35

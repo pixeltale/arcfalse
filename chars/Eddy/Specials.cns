@@ -1156,7 +1156,7 @@ envshake.time 	= 9
 guard.slidetime 	= 16
 guard.velocity	= -10
 guard.hittime 	= 14
-guard.ctrltime 	= 14
+guard.ctrltime 	= 16
 guard.velocity 	= -7
 getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5)) 
 
@@ -1800,7 +1800,7 @@ damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
 hitflag 	= MAFD
 guardflag = MA
 priority 	= 3
-pausetime 	= 24,28
+pausetime 	= 18,22
 guard.pausetime 	= 20,20
 sparkno 		= 3
 sparkxy 		= -5,-45
