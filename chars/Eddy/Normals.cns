@@ -518,7 +518,7 @@ ground.type = low
 ground.slidetime = 12
 ground.hittime  = 40*map(untechMOD)
 air.hittime = 40*map(untechMOD)
-ground.velocity = -15.5,-8
+ground.velocity = -18,-6
 air.velocity = -15.5,-9.5
 fall = 1
 envshake.time = 12
@@ -605,7 +605,7 @@ ignorehitpause 	= 1
 [State 0, HitOverride]
 type = HitOverride
 triggerall = !(enemy, map(ArmorBreak))		;"Armor Break" Attacks will bypass
-triggerall = animelemno(0) = [2,5]		;Active Frame Range
+triggerall = animelemno(0) = [3,5]		;Active Frame Range
 trigger1 = map(ArmorPoints) > 0			;Withstand a Certain Hitcount. Armorpoints tick down with enemy attacks.
 attr = SCA,NA,SA,NP,SP
 slot = 0
