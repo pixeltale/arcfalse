@@ -588,12 +588,11 @@ trigger1 = AnimTime = 0
 value = 50
 ctrl = 1
 
-;airjump start
-; AirJump Start
+;AirJump Start
 [Statedef 45]
 type    = A
 physics = N
-ctrl = 1
+ctrl = 0
 
 [State 0, VarAdd]
 type = VarAdd

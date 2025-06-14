@@ -2,6 +2,28 @@
 command.time = 15
 command.buffer.time = 3
 
+[Command]
+name = "BACK.CHARGE"
+command = /$B
+buffer.time = 0
+time = 1
+[Command]
+name = "S.RELEASE"
+command = ~b
+buffer.time = 3
+time = 1
+[Command]
+name = "4S"
+command = /B, b
+[Command]
+name = "2S"
+command = /$D, b
+[Command]
+name = "6S"
+command = /F, b
+
+
+
 [Remap]
 x = x
 y = y
@@ -169,8 +191,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1000
 triggerall = statetype != A
-triggerall = command = "b"
-triggerall = command = "holdback"
+triggerall = command = "4S"
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -178,16 +199,14 @@ trigger2 = var(1)
 type = ChangeState
 value = 1040
 triggerall = statetype != A
-triggerall = command = "b"
-triggerall = command = "holddown" && command != "holdback" && command != "holdfwd"
+triggerall = command = "2S"
 trigger1 = ctrl
 trigger2 = var(1)
 
 [State -1, 6S]
 type = ChangeState
 value = 1012
-triggerall = command = "b"
-triggerall = command = "holdfwd"
+triggerall = command = "6S"
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -294,14 +313,91 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = [200,220] || stateno = [400,420]) && movecontact
 
-;5R
 [State -1, 5R]
 type = ChangeState
-value =  697
-triggerall = command = "c"
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = (stateno = [200,230] || stateno = [400,430]) && movecontact
+value = 42000
+triggerall = numexplod(893) = 0
+triggerall = !ishelper
+triggerall = stateno != 2000
+triggerall = !numhelper(750)
+triggerall = command != "holddown"
+triggerall = command != "holdfwd"
+triggerall = command != "holdback"
+triggerall = command != "b"
+trigger1 = Ctrl
+triggerall = command = "buffer_c"
+trigger2 = var(1)
+trigger3 = stateno = [600,630]
+trigger3 = movecontact
+trigger4 = stateno = 640 && movecontact
+
+[State -1, 6R]
+type = ChangeState
+value = 62000
+triggerall=stateno!=40
+triggerall = numexplod(893) = 0
+triggerall = !ishelper
+triggerall = stateno != 2000
+triggerall = !numhelper(750)
+triggerall = command = "holdfwd"
+triggerall = command != "b"
+trigger1 = Ctrl
+triggerall = command = "buffer_c"
+trigger2 = var(1)
+trigger3 = stateno = [600,630]
+trigger3 = movecontact
+trigger4 = stateno = 640 && movecontact
+
+[State -1, 4R]
+type = ChangeState
+value = 32000
+triggerall=stateno!=40
+triggerall = numexplod(893) = 0
+triggerall = !ishelper
+triggerall = stateno != 2000
+triggerall = !numhelper(750)
+triggerall = command = "holdback"
+triggerall = command != "b"
+trigger1 = Ctrl
+triggerall = command = "buffer_c"
+trigger2 = var(1)
+trigger3 = stateno = [600,630]
+trigger3 = movecontact
+trigger4 = stateno = 640 && movecontact
+
+[State -1, 2R: Tranquililty 1]
+type = ChangeState
+value = 12000
+triggerall=stateno!=40
+triggerall = numexplod(893) = 0
+triggerall = !ishelper
+triggerall = stateno != 2000
+triggerall = !numhelper(750)
+triggerall = command = "holddown"
+triggerall = command != "b"
+trigger1 = Ctrl
+triggerall = command = "buffer_c"
+trigger2 = var(1)
+trigger3 = stateno = [600,630]
+trigger3 = movecontact
+trigger4 = stateno = 640 && movecontact
+
+[State -1, 2R: Tranquililty 1]
+type = ChangeState
+value = 12000
+triggerall=stateno!=40
+triggerall = numexplod(893) = 0
+triggerall = !ishelper
+triggerall = stateno != 2000
+triggerall = !numhelper(750)
+triggerall = command = "holddown"
+triggerall = command != "b"
+trigger1 = Ctrl
+triggerall = command = "buffer_c"
+trigger2 = var(1)
+trigger3 = stateno = [600,630]
+trigger3 = movecontact
+trigger4 = stateno = 640 && movecontact
 
 ;-----------------------------------------------------------------------------------------------------------
 
@@ -386,7 +482,6 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = 600 
 trigger2 = movecontact
-trigger3 = stateno = 1350 ;Air blocking
 
 ;---------------------------------------------------------------------------
 ;jM
@@ -398,7 +493,6 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = 600 
 trigger2 = movecontact
-trigger3 = stateno = 1350 ;Air blocking
 
 
 ;---------------------------------------------------------------------------
@@ -412,4 +506,3 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = (stateno = [600,610]) 
 trigger2 = movecontact
-trigger3 = stateno = 1350 ;Air blocking

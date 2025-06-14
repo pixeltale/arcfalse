@@ -7691,7 +7691,7 @@ value = 900
 triggerall = alive
 triggerall = statetype != L
 triggerall = map(BurstGauge)>=1000
-triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1) && stateno != 915020 && stateno != 5070
+triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1) && stateno != [915020,915050] && stateno != 5070
 triggerall = command = "SP" && (command = "b" || command = "c" || command = "x" || command = "y" || command = "z") || command = "z" && command = "c"
 triggerall = movetype = H && enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
 ;Average battle

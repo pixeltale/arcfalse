@@ -275,6 +275,7 @@ text.text = Hits! %d damage      ;You can use %i to show count in the text, eg "
 text.font = 3,0
 text.scale=1, 0.9
 text.offset = 5, 0   ;Offset of text
+text.layerno = -1
 displaytime = 30    ;Time to show text
 
 

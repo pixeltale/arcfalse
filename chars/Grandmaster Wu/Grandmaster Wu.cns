@@ -347,11 +347,42 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= !numhelper(1031)
-map 		= "FireballLevel"
+[State 2001, Particles]
+type = Helper
+trigger1 = map(CHARGE.LEVEL) > 30 && !numhelper(9001)
+helperType = Normal
+stateNo = 9001
+ID = 9001
+name = "Particles"
+postype = P1
+pauseMoveTime = 65535
+superMoveTime = 65535
+ownPal = 0
+
+[State -2, Charge Input]
+type 	= MapADD
+triggerall = roundstate = 2
+trigger1 	= command = "BACK.CHARGE"
+map 		= "CHARGE.LEVEL"
+value 		= 1
+ignorehitpause 	= 1
+[State -2, Charge Input]
+type 	= MapSet
+trigger1 	= command != "BACK.CHARGE" && !map(LeniencyTimer)
+map 		= "CHARGE.LEVEL"
 value 		= 0
+ignorehitpause 	= 1
+[State -2, Charge Input - Leniency Timer]
+type 	= MapSet
+trigger1 	= command = "BACK.CHARGE"
+map 		= "LeniencyTimer"
+value 		= 10
+ignorehitpause 	= 1
+[State -2, Charge Input - Leniency Timer]
+type 	= MapAdd
+trigger1 	= command != "BACK.CHARGE" && map(LeniencyTimer)
+map 		= "LeniencyTimer"
+value 		= -1
 ignorehitpause 	= 1
 
 [State 0, PalFX] ;Magic Pixel Check
@@ -738,8 +769,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "sigilposx = %f sigilposy = %f fireballdistx = %f"
-params = map(ASigil_XPos), map(ASigil_YPos), map(FireballDistX)
+text = "SCharge = %f "
+params = map(CHARGE.LEVEL)
 ;persistent = 
 
 

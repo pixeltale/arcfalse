@@ -804,15 +804,15 @@ velSet = 0,0
 [State 9001, BindToRoot]
 type = BindToRoot
 trigger1 = !(Time % 14)
-pos = ceil(-151 + (Random / 3.125)), ceil(98 - (Random / 3.125))
+pos = 0, 0
 
 [State 9001, Particle]
 type = Explod
-trigger1 = (Time % 14) = 1
+trigger1 = (Time % 8) = 1
 anim = 9002
 sprPriority = ifElse(Random < 750, 5, -1)
 posType = P1
-vel = ((RootDist x + 3) / 48.0), ((RootDist y - 22) / 48.0);values to adjust for particle alignment
+vel = ((RootDist x) / 48.0), ((RootDist y - 10) / 48.0);values to adjust for particle alignment
 scale = ifElse(Random < 500, 0.1, -0.1), ifElse(Random < 500, 0.1, -0.1)
 pauseMoveTime = -1
 superMoveTime = -1
@@ -827,3 +827,4 @@ trigger2 = root, movetype = H
 type = DestroySelf
 trigger1 = Root, StateNo = 2003
 trigger2 = root, movetype = H
+trigger3 = root, command != "BACK.CHARGE"

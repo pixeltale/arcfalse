@@ -1638,13 +1638,34 @@ trigger1 = animelem = 8
 value = 7, 0
 channel = 1
 
+[State -2, Charge Checker]
+type 	= MapSet
+trigger1 	= !time
+map 		= "FIREBALL_LEVEL"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Charge Checker]
+type 	= MapAdd
+trigger1 	= time = 1
+trigger1	= map(CHARGE.LEVEL) > 30
+map 		= "FIREBALL_LEVEL"
+value 		= 1
+ignorehitpause 	= 1
+[State -2, Charge Checker]
+type 	= MapAdd
+trigger1 	= time = 1
+trigger1	= map(CHARGE.LEVEL) > 200
+map 		= "FIREBALL_LEVEL"
+value 		= 1
+ignorehitpause 	= 1
+
 [State 0, Helper]
 type = Helper
 trigger1 = animelem = 9
 helpertype = normal
-name = "FoF Fireball"
+name = "SONIC...BOOM...?"
 ID = 1031
-stateno = 1031
+stateno = 1031 + map(FIREBALL_LEVEL)
 pos = 65,-38
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -1652,8 +1673,8 @@ keyctrl = 0
 ownpal = 0
 supermovetime = 0
 pausemovetime = 999
-size.xscale = 0.4
-size.yscale = 0.4
+size.xscale = 0.4 * cond(map(FIREBALL_LEVEL) > 0, map(FIREBALL_LEVEL), 1)
+size.yscale = 0.4 * cond(map(FIREBALL_LEVEL) > 0, map(FIREBALL_LEVEL), 1)
 
 
 [State 0, ChangeState]
@@ -1674,49 +1695,10 @@ anim = 1032
 sprpriority = 5
 velset = 2,0
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballLevel"
-value 		= 1
-ignorehitpause 	= 1
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "Fireball_XPos"
-value 		= pos x
-ignorehitpause 	= 1
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "Fireball_YPos"
-value 		= pos y
-ignorehitpause 	= 1
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballDistX"
-value 		= root, map(ASigil_XPos) - root, map(Fireball_XPos)
-ignorehitpause 	= 1
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballDistY"
-value 		= root, map(ASigil_YPos) - root, map(Fireball_YPos)
-ignorehitpause 	= 1
-
 [State 0, VelSet]
 type = VelSet
-trigger1 = numhelper(701)
-x = (root, map(FireballDistX)) * 0.1 * facing
-y = (root, map(FireballDistY)) * 0.1
-[State 0, VelSet]
-type = VelSet
-trigger1 = !numhelper(701)
+trigger1 = 1
 x = 2
-
 
 [State 410, 2]
 type = HitDef
@@ -1773,7 +1755,7 @@ forceair = 0
 type = NotHitBy
 trigger1 = 1
 value = SCA,NT,ST,HT
-time = -1
+time = 999
 
 [State 0, Collide with ANY Projectile]
 type = HitOverride
@@ -1785,7 +1767,7 @@ ignorehitpause = 1
 [State 0, ChangeAnim]
 type = ChangeAnim
 triggerall = anim != 10322
-trigger1 = map(HitCount) > 2
+trigger1 = map(HitCount) > 0
 trigger2 = time >= 130
 trigger3 = root, movetype = H
 value = 10322
@@ -1801,15 +1783,6 @@ type = DestroySelf
 trigger1 = root,movetype = H
 trigger2 = anim = 10322 && !animtime
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = abs(root, map(FireballDistX)) < 5 && abs(root, map(FireballDistY)) < 5
-value = 1032
-ctrl = 0
-;anim =
-;ignorehitpause = 
-;persistent = 
-
 
 ; Fireball LVL 2
 ;-----------------------------------------------------------------------------
@@ -1823,86 +1796,21 @@ anim = 1033
 sprpriority = 5
 velset = vel x, vel y
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballLevel"
-value 		= 2
-ignorehitpause 	= 1
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "Fireball_XPos"
-value 		= pos x
-ignorehitpause 	= 1
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "Fireball_YPos"
-value 		= pos y
-ignorehitpause 	= 1
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballDistX"
-value 		= root, map(BSigil_XPos) - root, map(Fireball_XPos)
-ignorehitpause 	= 1
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballDistY"
-value 		= root, map(BSigil_YPos) - root, map(Fireball_YPos)
-ignorehitpause 	= 1
-
 [State 0, VelSet]
 type = VelSet
-trigger1 = numhelper(702)
-x = (root, map(FireballDistX)) * 0.1 * facing
-y = (root, map(FireballDistY)) * 0.1
+trigger1 = 1
+x = 4
 
-[State 0, Veladd]
-type = Veladd
-triggerall = !numhelper(702)
-trigger1 = p2dist x>0
-x = .15
-[State 0, Veladd]
-type = Veladd
-triggerall = !numhelper(702)
-trigger1 = p2dist x<0
-x = -.15
-[State 0, Veladd]
-type = Veladd
-triggerall = !numhelper(702)
-trigger1 = p2dist y>20
-y = .15
-[State 0, Veladd]
-type = Veladd
-triggerall = !numhelper(702)
-trigger1 = p2dist y<40
-y = -.15
 [State 0, VelSet]
-type = VelSet
-triggerall = !numhelper(702)
-trigger1 = abs(vel x)>3
-x = cond(vel x<0, -3, 3)
-[State 0, VelSet]
-type = VelSet
-triggerall = !numhelper(702)
-trigger1 = abs(vel y)>3
-y = cond(vel y<0, -3, 3)
-[State 0, VelMul]
 type = VelMul
-triggerall = !numhelper(702)
-trigger1 = p2dist y = [20,60]
-y = .1
+trigger1 = movecontact = [1,5]
+x = 0.25
 
 [State 410, 2]
 type = HitDef
 trigger1 = time % 5 = 0
 attr = S, SP
-damage = 40, 2
+damage = 25, 5
 hitflag = MAF
 air.animtype = back
 guardflag = MA
@@ -1914,8 +1822,9 @@ hitsound   = 5,2
 guardsound = 5,1
 ground.type = Low
 animtype = medium
-ground.hittime  = 20
+ground.hittime  = 20 - root, map(UntechDecay)
 ground.velocity = -2.5,0
+guard.ctrltime = 6
 fall.yvelocity = 0
 air.velocity = -2.5,-1
 air.hittime = 24
@@ -1980,11 +1889,6 @@ type = DestroySelf
 trigger1 = root,movetype = H
 trigger2 = anim = 10333 && !animtime
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = abs(root, map(FireballDistX)) < 5 && abs(root, map(FireballDistY)) < 5
-value = 10322
-ctrl = 0
 
 ;Fireball LVL 3
 ;-----------------------------------------------------------------------------
@@ -1998,64 +1902,20 @@ ctrl = 0
 anim = 1034
 sprpriority = 9
 
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballLevel"
-value 		= 3
-ignorehitpause 	= 1
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "Fireball_XPos"
-value 		= pos x
-ignorehitpause 	= 1
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "Fireball_YPos"
-value 		= pos y
-ignorehitpause 	= 1
-
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballDistX"
-value 		= root, map(BSigil_XPos) - root, map(Fireball_XPos)
-ignorehitpause 	= 1
-[State -2, Starter Level]
-type 		= RootMapSet
-trigger1 	= 1
-map 		= "FireballDistY"
-value 		= root, map(BSigil_YPos) - root, map(Fireball_YPos)
-ignorehitpause 	= 1
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = numhelper(702)
-x = (root, map(FireballDistX)) * 0.1 * facing
-y = (root, map(FireballDistY)) * 0.1
-
 [State 23040]
 type = Varset
-triggerall = !numhelper(703)
 trigger1 = Vel X > 0
 fvar(0) = ((atan((-1*Vel Y)/Vel X))*(360/(2*pi)))
 
 [State 23040]
 type = VarSet
-triggerall = !numhelper(703)
 trigger1 = Vel X < 0
 fvar(0) = 180 + ((atan((-1*Vel Y)/Vel X))*(360/(2*pi)))
 
-
 [State 23040]
 type = VarSet
-triggerall = !numhelper(703)
 trigger1 = Vel X = 0
 fvar(0) = 0
-
 
 
 [State 23040]
@@ -2124,12 +1984,12 @@ y = .1
 type = HitDef
 trigger1 = time %3= 0
 attr = S, SP
-damage = ceil(cond(root, fvar(11) *50 < 5, 5, root, fvar(11) * 50)), 2
+damage = 50, 2
 hitflag = MAF
 air.animtype = back
 guardflag = MA
 priority = 3
-pausetime = 5,7
+pausetime = 5,5
 sparkno = 3
 sparkxy = random%20,10-random%20
 hitsound   = 5,3
@@ -2169,6 +2029,19 @@ attr = SCA,NP,SP,HP
 stateno = 19
 ignorehitpause = 1
 
+[State -2, Hitcount Tracker]
+type 		= MapSet
+trigger1 	= !time
+map 		= "HitCount"
+value 		= 0
+ignorehitpause 	= 0
+[State -2, Hitcount Tracker]
+type 		= MapAdd
+trigger1 	= movecontact = 1
+map 		= "HitCount"
+value 		= 1
+ignorehitpause 	= 0
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 triggerall = anim != 10333
@@ -2187,12 +2060,6 @@ y = 0
 type = DestroySelf
 trigger1 = root,movetype = H
 trigger2 = anim = 10333 && !animtime
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = abs(root, map(FireballDistX)) < 5 && abs(root, map(FireballDistY)) < 5
-value = 10322
-ctrl = 0
 
 ;------------------------------------
 ;Fireball Dissipate
