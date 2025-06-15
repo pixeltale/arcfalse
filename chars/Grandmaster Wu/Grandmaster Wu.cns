@@ -888,11 +888,11 @@ var(34)=0
 [State -2, EX 2S: Astral Rise]
 type=varset
 triggerall = var(34) != 0
-trigger1= p2stateno = 5110
+trigger1= !map(ComboStateCheck)
 var(34)=0
 
 ;4S
-[State -2, EX 2S: Astral Rise] ;Resets VAR when opponent recovers
+[State -2, EX 4S] ;Resets VAR when opponent recovers
 type = varset
 triggerall = var(35)!=0
 trigger1 = numenemy
@@ -900,10 +900,9 @@ trigger1 =(enemynear,movetype!=H)
 trigger2 =!numenemy
 var(35)=0
 
-[State -2, EX 2S: Astral Rise]
+[State -2, EX 4S]
 type=varset
-triggerall = var(35) != 0
-trigger1= p2stateno = 5110
+trigger1= !map(ComboStateCheck)
 var(35)=0
 ;-----------------------------------
 ;3H
@@ -1042,8 +1041,7 @@ ignoreHitPause = 1
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = statetype=S
-trigger2 = statetype=C
+trigger1 = statetype != A
 v = 29    ;fv = 10
 value = 1
 
@@ -1056,8 +1054,7 @@ ctrl = 0
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = statetype=S
-trigger2 = statetype=C
+trigger1 = statetype != A
 v = 45    ;fv = 10
 value = 1
 ;ignorehitpause = 

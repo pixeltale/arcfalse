@@ -679,9 +679,9 @@ facep2 = 1
 ;LIMITER // Only Allowed ONCE During a combo // Find in -2
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = time = 1
+trigger1 = !time
 v = 35     
-value = var(35)+1
+value = 1
 ;LIMITER // Only Allowed ONCE During a combo // Find in -2
 ;-----
 
@@ -2633,6 +2633,12 @@ x = -2.5
 
 [State 0, VelAdd]
 type = VelAdd
+trigger1 = movehit = 1 && enemy, backedgedist < 5
+x = -2.5
+redirectid = root, id
+
+[State 0, VelAdd]
+type = VelAdd
 trigger1 = 1
 y = -.14
 
@@ -2691,7 +2697,7 @@ ground.hittime  = 999
 ground.velocity = -2.4,-7
 airguard.velocity = -6.9,-.8
 air.type = High
-air.velocity = -2.4,-5
+air.velocity = -2.4 ,-5 * root, map(untechMOD)  - 1
 air.hittime =999
 envshake.time = 15;
 air.fall = 1

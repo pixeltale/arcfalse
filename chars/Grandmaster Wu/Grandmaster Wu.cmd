@@ -91,6 +91,22 @@ trigger2 = hitdefattr = SC, NA, SA, HA
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
 
+;Sobriety (Air Lv2)
+[State -1, Triple Kung Fu Palm]
+type = ChangeState
+value = 3000
+triggerall = stateno!=40
+triggerall = !ishelper
+triggerall = command = "236x"
+triggerall = power >= 2000
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = statetype = A
+trigger2 = hitdefattr = A, NA, SA
+triggerall=stateno!=7501
+trigger2 = stateno != [3000,3050)
+trigger2 = movecontact
+
 ;===========================================================================
 ;===========================================================================
 ;===========================================================================
@@ -148,7 +164,7 @@ trigger1 = movehit
 [State -1, EX 2S] ;2EX
 type = ChangeState
 value = 1043
-triggerall = var(34)<=0 && power > 1000 ;v(34) is ex limiter
+triggerall = var(34)<=0 && power >= 1000 ;v(34) is ex limiter
 triggerall = command = "b" && command = "c"
 triggerall = command = "holddown" && command != "holdback" && command != "holdfwd"
 triggerall = statetype != A
@@ -158,8 +174,7 @@ trigger2 = var(1)
 [State -1, EX 4S] ;4EX
 type = ChangeState
 value = 1003
-triggerall = var(35)<=0 ;Limiter - Only Allowed to use ONCE during a combo
-triggerall = power>1000
+triggerall = power>=1000
 triggerall = command = "b" && command = "c" && (command = "holdback" || command = "back")
 triggerall = statetype != A
 trigger1 = ctrl
@@ -168,7 +183,7 @@ trigger2 = var(1)
 [State -1, EX 6S] ;6EX
 type = ChangeState
 value = 1014
-triggerall = power>1000 && var(32)<=0 ;Limiter - Only Allowed to use ONCE during a combo
+triggerall = power>=1000 && var(32)<=0 ;Limiter - Only Allowed to use ONCE during a combo
 triggerall = command = "b" && command = "c" && command = "holdfwd"
 trigger1 = ctrl
 trigger2 = var(1)
@@ -327,9 +342,8 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,630]
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
 trigger3 = movecontact
-trigger4 = stateno = 640 && movecontact
 
 [State -1, 6R]
 type = ChangeState
@@ -344,9 +358,8 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,630]
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
 trigger3 = movecontact
-trigger4 = stateno = 640 && movecontact
 
 [State -1, 4R]
 type = ChangeState
@@ -361,9 +374,8 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,630]
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
 trigger3 = movecontact
-trigger4 = stateno = 640 && movecontact
 
 [State -1, 2R: Tranquililty 1]
 type = ChangeState
@@ -378,9 +390,8 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,630]
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
 trigger3 = movecontact
-trigger4 = stateno = 640 && movecontact
 
 [State -1, 2R: Tranquililty 1]
 type = ChangeState
@@ -395,9 +406,8 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,630]
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
 trigger3 = movecontact
-trigger4 = stateno = 640 && movecontact
 
 ;-----------------------------------------------------------------------------------------------------------
 

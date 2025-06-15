@@ -64,13 +64,11 @@ type = HitDef
 trigger1 = animelem = 6
 kill = 0
 attr = A, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *60 < 10, 10, fvar(11) * 60)), 3
+damage = 75 * map(P4) + 10, 3
 animtype = medium                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAF                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFD
 pausetime = 4, 4                ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;Spark anim no (Def: set above)
 sparkxy = -14, -20               ;X-offset for the "hit spark" rel. to p2,
@@ -107,7 +105,7 @@ trigger4 = animelem = 22
 trigger5 = animelem = 26
 kill = 0
 attr = A, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *50 < 10, 10, fvar(11) * 50)), 3
+damage = 50*map(P4) + 5, 3
 animtype = medium                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
@@ -471,13 +469,10 @@ trigger1 = time = 0
 attr = S, HP                     ;Attribute: Standing, Normal Attack
 damage = 300 * MAP(P4) + 75, 24
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFDP                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFDP
 pausetime = 45, 45            ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;5park anim no (Def: set above)
-sparkxy = -10, -45               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = -10, -45
 hitsound = 5, 2                  ;5ound to play on hit
 guardsound = 6, 0                ;5ound to play on guard
 ground.type = High               ;Type: High, Low, Trip (def: Normal)
@@ -918,7 +913,7 @@ y = ((P2Dist Y * 10) / (Exp(0.5*ln((P2Dist X * P2Dist X) + (P2Dist Y * P2Dist Y)
 type = HitDef
 trigger1 = time = 0
 attr = S, HP
-damage = ceil(cond(root, fvar(11) * 50< 15, 15, root, fvar(11) * 50)), 2
+damage = 50 * root, map(p4) + 15, 2
 hitflag = MAFD
 guardflag = MA
 priority = 3

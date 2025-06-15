@@ -1743,7 +1743,7 @@ value = 2001
 ctrl = 0
 
 ;-----------------------------
-;5R: Tranquility Charge
+;2R: Tranquility Charge
 [StateDef 2001]
 type = S
 movetype =A
@@ -1888,7 +1888,7 @@ helpertype = normal ;player
 name = "Astral Projection"
 ID = 777
 stateno = 1777 
-pos = 200,-(p2dist y)-200
+pos = 200,-200
 postype = p2    ;p2,front,back,left,right
 facing = -1
 keyctrl = 1
@@ -2401,8 +2401,15 @@ type = A
 movetype = A
 physics = N
 anim = 640
-velset = 3,-2
+velset = 3,0
+facep2 = 1
 ctrl = 0
+
+[State 0, Turn]
+type = Turn
+trigger1 = p2dist x < 0 && time < 5
+ignorehitpause = 1
+
 
 [State 0, VarAdd]
 type = ParentVarAdd
@@ -2476,8 +2483,8 @@ value = 0,0
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 2
-x =10.5
-y = 13.5
+x =13.5
+y = 16.5
 
 [State 0]
 type = HitDef
@@ -2515,7 +2522,7 @@ envshake.time = 9
 envshake.freq = 90
 envshake.ampl = 2
 air.velocity = -3,-3
-forcenofall = 1
+air.fall = 1
 getpower = 0
 
 [State 0, Explod]
