@@ -918,6 +918,13 @@ anim = 100
 sprpriority = 1
 ctrl = 0
 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = animelem = 10
+value = 1
+;ignorehitpause = 
+;persistent = 
+
 [State 100, 1]
 type = VelSet
 trigger1 = time=[0,8]

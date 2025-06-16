@@ -2634,7 +2634,7 @@ x = -2.5
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = movehit = 1 && enemy, backedgedist < 5
-x = -2.5
+x = -4.5
 redirectid = root, id
 
 [State 0, VelAdd]
@@ -2697,7 +2697,7 @@ ground.hittime  = 999
 ground.velocity = -2.4,-7
 airguard.velocity = -6.9,-.8
 air.type = High
-air.velocity = -2.4 ,-5 * root, map(untechMOD)  - 1
+air.velocity = -2.4 ,-5 * root, map(untechMOD)*0.85  - 1
 air.hittime =999
 envshake.time = 15;
 air.fall = 1

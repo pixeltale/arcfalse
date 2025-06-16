@@ -123,6 +123,7 @@ triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = ctrl || stateno = 100
 trigger2 = stateno = [200,220] || stateno = 420
 trigger2 = movehit
+trigger3 = stateno = 100 && animelemno(0) >= 3
 
 
 [State -1,DJC]
@@ -149,9 +150,10 @@ trigger1 = ctrl && stateno!= [40,60]
 [State -1, JC]
 type = ChangeState
 value = 40
-triggerall = command = "up" || movecontact && command = "holdup"
+triggerall = command = "holdup" || movecontact && command = "holdup"
 trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movehit
+trigger2 = stateno = 100 && animelemno(0) >= 3
 
 ;===========================================================================
 ;===========================================================================
@@ -313,7 +315,7 @@ type = ChangeState
 value =  210
 triggerall = command = "y"
 triggerall = command != "holddown"
-triggerall = statetype != A
+triggerall = statetype != A && prevstateno != 210
 trigger1 = ctrl
 trigger2 = (stateno = 200 || stateno = 400 || stateno = 410) && movecontact
 
@@ -441,7 +443,7 @@ type = ChangeState
 value = 410
 triggerall = command = "y"
 triggerall = command = "holddown"
-triggerall = statetype != A
+triggerall = statetype != A && prevstateno != 410
 trigger1 = ctrl
 trigger2 = (stateno = 200 || stateno = 400 || stateno = 210) && movecontact
 
