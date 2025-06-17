@@ -1,6 +1,5 @@
-.\external\script\start.lua:1401: chars\GRANDMASTER WU/Normals.cns:3076:
-
-fall: Nothing assigned
+.\external\script\start.lua:1401: chars\GRANDMASTER WU/WUStates.cns:740:
+value not specified
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

@@ -732,7 +732,17 @@ movetype= I
 physics = N
 velset = -2,0
 anim = 160
-ctrl = 1
+ctrl = 0
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = (cond(prevstateno = [600,640], time = 10, time = 0))
+value = 1
+[State 0, VelMul]
+type = VelMul
+trigger1 = !ctrl
+y = 0
+
 [State 0, VelAdd]
 type = VelAdd
 triggerall = 1
@@ -818,7 +828,17 @@ movetype= I
 physics = N
 velset	= 2
 anim = 160
-ctrl = 1
+ctrl = 0
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = (cond(prevstateno = [600,640], time = 10, time = 0))
+value = 1
+[State 0, VelMul]
+type = VelMul
+trigger1 = !ctrl
+y = 0
+
 
 [State 0, VelAdd]
 type = VelAdd

@@ -378,7 +378,7 @@ value = 200
 triggerall = command = "x"
 triggerall = command != "holddown" && var(59) !=4
 triggerall = !map(NoNormals)
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 400 && movecontact
 trigger3 = stateno = [100,101] 
@@ -390,7 +390,7 @@ value =  210
 triggerall = command = "y"
 triggerall = command != "holddown"
 triggerall = !map(NoNormals)
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 200) && movecontact ;5L
 ;trigger3 = stateno = 100 && time > 3
@@ -401,7 +401,7 @@ trigger4 = stateno = [100,101]   ;runstop
 [State -1, Standing Heavy]
 type = ChangeState
 value =  220
-trigger1 = statetype = S
+triggerall = statetype != A
 triggerall = command = "z"
 triggerall = command != "holddown"
 triggerall = !map(NoNormals)
@@ -423,7 +423,7 @@ value = 400
 triggerall = command = "buffer_x"
 triggerall = command = "holddown"
 triggerall = !map(NoNormals)
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 200 && movecontact ;5L
 trigger3 = stateno = [100,101] 
@@ -436,7 +436,7 @@ value = 410
 triggerall = command = "y"
 triggerall = command = "holddown"
 triggerall = !map(NoNormals)
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 200)  || (stateno = 210) 
 trigger2 = (movecontact) ;&& enemynear, movetype = H
@@ -451,7 +451,7 @@ triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command != "holdfwd"
 triggerall = !map(NoNormals)
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 410)|| (stateno = 200)|| (stateno = 210) 
 trigger2 = (movecontact) ;&& enemynear, movetype = H
@@ -466,7 +466,7 @@ triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command = "holdfwd"
 triggerall = !map(NoNormals)
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 410) || (stateno = 210)  || (stateno = 200) 
 trigger2 = (movecontact) ;&& enemynear, movetype = H

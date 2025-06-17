@@ -376,7 +376,7 @@ ignorehitpause 	= 1
 type 	= MapSet
 trigger1 	= command = "BACK.CHARGE"
 map 		= "LeniencyTimer"
-value 		= 10
+value 		= 5
 ignorehitpause 	= 1
 [State -2, Charge Input - Leniency Timer]
 type 	= MapAdd
@@ -769,8 +769,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "SCharge = %f "
-params = map(CHARGE.LEVEL)
+text = "SCharge = %f excheck = %f"
+params = map(CHARGE.LEVEL), map(EXCHECK)
 ;persistent = 
 
 

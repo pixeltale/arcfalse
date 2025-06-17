@@ -458,34 +458,12 @@ anim = 1002                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 facep2 = 1
 
-;------------------------------------
-;Either he techs throws or he doesnt it depends
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = stateno != 812
-trigger1 = stateno != 803
-id = 44020
-
-[State 0, AttackMulSet]
-type = AttackMulSet
-trigger1 = (fvar(19)=[0,99])
-value = 1.0
-
-[State 0, AttackMulSet]
-type = AttackMulSet
-trigger1 = (fvar(19)=[100,199])
-value = 1.0
-
-[State 0, AttackMulSet]
-type = AttackMulSet
-trigger1 = (fvar(19)=[200,205])
-value = 1.0
-
-[State 0, VarAdd]
-type = Varadd
-trigger1 = time = 0
-fv = 19     
-value = -100;cond(var(16)=300,-200,-100)
+[State -2, Charge Input]
+type 	= MapSet
+trigger1 	= !time
+map 		= "CHARGE.LEVEL"
+value 		= 0
+ignorehitpause 	= 1
 
 [State 0, VelSet]
 type = VelSet
@@ -506,14 +484,6 @@ x = 13
 type = PosAdd
 trigger1 = animelem = 5
 x = 26
-
-;[State 0, PosAdd]
-;type = PosAdd
-;trigger1 = animelem = 9
-;trigger2 = animelem = 10
-;trigger3 = animelem = 11
-;trigger4 = animelem = 12
-;x = -4
 
 [State 0, Explod]
 type = Explod
@@ -964,6 +934,13 @@ ctrl = 0
 anim = 1022
 sprpriority = 2
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !time
+map 		= "EXCHECK"
+value 		= 0
+ignorehitpause 	= 1
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 4
@@ -1354,6 +1331,13 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1022                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !time
+map 		= "EXCHECK"
+value 		= 1
+ignorehitpause 	= 1
+
 ;-----
 ;LIMITER // Only Allowed ONCE During a combo // Find in -2
 [State 0, VarAdd]
@@ -1666,7 +1650,7 @@ helpertype = normal
 name = "SONIC...BOOM...?"
 ID = 1031
 stateno = 1031 + map(FIREBALL_LEVEL)
-pos = 65,-38
+pos = 35,-38
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -2535,12 +2519,6 @@ ctrl = 0
 anim = 1041
 sprpriority = 5
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time =0 
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
-time = 16
-
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 2
@@ -2562,6 +2540,16 @@ removeongethit = 1
 ignorehitpause = 1
 facing = -1
 removetime = -2
+
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall=enemy,statetype=A
+triggerall=enemy,movetype=A
+trigger1 = animelemno(0) <= 4
+value = A
+time = 1
+ignorehitpause = 1
+persistent = 1
 
 [State 0, Helper]
 type = Helper
@@ -2695,7 +2683,7 @@ ground.type = low
 ground.slidetime = 5
 ground.hittime  = 999
 ground.velocity = -2.4,-7
-airguard.velocity = -6.9,-.8
+airguard.velocity = -1,-.8
 air.type = High
 air.velocity = -2.4 ,-5 * root, map(untechMOD)*0.85  - 1
 air.hittime =999
@@ -2986,7 +2974,7 @@ ground.type = low
 ground.slidetime = 5
 ground.hittime  = 999
 ground.velocity = -2.4,-7
-airguard.velocity = -6.9,-.8
+airguard.velocity = -1,-.8
 air.type = High
 air.velocity = -1.4,-7
 air.hittime =999

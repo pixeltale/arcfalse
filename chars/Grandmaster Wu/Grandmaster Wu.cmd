@@ -253,7 +253,7 @@ type 		= ChangeState
 value 		= 904
 triggerall 	= command = "66" || command = "M66" && command != "holdback"
 trigger1 	= statetype = A
-trigger1 	= ctrl
+trigger1 	= ctrl || stateno = [600,640] && movecontact
 triggerall 	= stateno!=904
 triggerall 	= var(29)>0
 triggerall	= pos y <= -10
@@ -264,7 +264,7 @@ type 		= ChangeState
 value 		= 903
 triggerall 	= command = "44" || command = "M44"
 trigger1 	= statetype = A
-trigger1 	= ctrl
+trigger1 	= ctrl || stateno = [600,640] && movecontact
 triggerall 	= stateno!=903
 triggerall 	= var(29)>0
 triggerall	= pos y <= -10
@@ -315,9 +315,9 @@ type = ChangeState
 value =  210
 triggerall = command = "y"
 triggerall = command != "holddown"
-triggerall = statetype != A && prevstateno != 210
+triggerall = statetype != A 
 trigger1 = ctrl
-trigger2 = (stateno = 200 || stateno = 400 || stateno = 410) && movecontact
+trigger2 = (stateno = 200 || stateno = [400 , 410]) && movecontact && prevstateno != 210
 
 ;6H
 [State -1, 6H]
@@ -344,7 +344,7 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
 trigger3 = movecontact
 
 [State -1, 6R]
@@ -360,7 +360,7 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK)  || stateno = 1043
 trigger3 = movecontact
 
 [State -1, 4R]
@@ -376,7 +376,7 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
 trigger3 = movecontact
 
 [State -1, 2R: Tranquililty 1]
@@ -392,7 +392,7 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
 trigger3 = movecontact
 
 [State -1, 2R: Tranquililty 1]
@@ -408,7 +408,7 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
 trigger3 = movecontact
 
 ;-----------------------------------------------------------------------------------------------------------
@@ -443,9 +443,9 @@ type = ChangeState
 value = 410
 triggerall = command = "y"
 triggerall = command = "holddown"
-triggerall = statetype != A && prevstateno != 410
+triggerall = statetype != A 
 trigger1 = ctrl
-trigger2 = (stateno = 200 || stateno = 400 || stateno = 210) && movecontact
+trigger2 = (stateno = 200 || stateno = 400 || stateno = 210) && movecontact && prevstateno != 410
 
 ;---------------------------------------------------------------------------
 ;2H
@@ -492,7 +492,7 @@ value = 600
 triggerall = command = "x"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = stateno = 600 
+trigger2 = stateno = [600, 630]
 trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
@@ -501,9 +501,9 @@ trigger2 = movecontact
 type = ChangeState
 value = 610
 triggerall = command = "y"
-triggerall = statetype = A
+triggerall = statetype = A && stateno != 610
 trigger1 = ctrl
-trigger2 = stateno = 600 
+trigger2 = stateno = [600, 630]
 trigger2 = movecontact
 
 
