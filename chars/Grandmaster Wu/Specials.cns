@@ -877,16 +877,13 @@ value = 7, 3
 type = HitDef
 trigger1 = time = 0 
 attr = S, SA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *180 < 15, 15, fvar(11) * 180)), 20
+damage = 150 * map(p4), 20
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFDP                   ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAFDP
 pausetime = 19, 19                ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;Spark anim no (Def: set above)
-sparkxy =-14, -40                ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy =-14, -40
 fall = 1
 hitsound = 5, 2                  ;Sound to play on hit
 guardsound = 6, 0                ;Sound to play on guard
@@ -896,8 +893,8 @@ ground.hittime  = 55             ;Time opponent is in hit state
 ground.velocity = -12,-2.8            ;Velocity at which opponent is pushed
 airguard.velocity = -6.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
-air.velocity = -12,-2.8           ;X-velocity at which opponent is pushed,
-;Y-velocity at which opponent is pushed
+air.velocity = -12,-2.8
+down.velocity= -12, -4
 air.hittime = 15                 ;Time before opponent regains control in air
 envshake.time = 14
 envshake.freq = 100
