@@ -274,18 +274,17 @@ triggerall	= pos y <= -10
 type = ChangeState
 value = 105
 triggerall = stateno!=105
-triggerall = stateno!=100
 triggerall = command = "44" || command = "M44"
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
 
 ;Forward Dash
 [State -1, Run Back]
 type = ChangeState
 value = 100
-triggerall = stateno!=105
+triggerall = stateno!=105 && stateno != 100
 triggerall = command = "66" || command = "M66"
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 1100
 ;---------------------------------------------------------------------------

@@ -473,7 +473,7 @@ animtype  = Light
 air.animtype = back
 damage = 100*MAP(P4), 20
 hitflag = MAFDP
-guardflag = HA
+guardflag = MA
 pausetime = 10,10
 sparkno = 3
 sparkxy = -10,-34
@@ -584,7 +584,7 @@ persistent = 1
 ;ARMOR ============================++++
 [State 0, ChangeAnim]
 type 	= ChangeAnim
-trigger1 = enemy, movehit = 1
+trigger1 = enemynear, movehit = 1
 trigger2 = animelem = 1 && map(ArmorElement) > 1
 value 	= 230 + map(Charged)
 elem 	= map(armorElement)

@@ -130,7 +130,7 @@ trigger3 = vel y > -2
 [State -1, 2S] ;LIAR MASK
 type = ChangeState
 value = 1050
-triggerall = statetype != A
+triggerall = statetype != A && !numhelper(1055)
 triggerall = command = "2S"
 trigger1 = ctrl
 trigger2 = var(1) || stateno = [600, 620] && movecontact
@@ -312,14 +312,6 @@ trigger2 = stateno = 1350 || stateno = 60
 trigger3 = stateno = [600,610]
 trigger3 = movecontact
 trigger4 = movehit && stateno = [600, 630]
-
-[State 100, Back Dash Cancel]
-type = ChangeState
-value = 105
-triggerall = command = "44" || command = "M44"
-triggerall = movehit
-triggerall = statetype != A
-trigger1 = stateno = 220 || stateno = 420
 
 ;LATTICE CONSTRUCT STANCE CANCELS
 [State 0, ChangeState]

@@ -1081,7 +1081,7 @@ forceair = 0
 
 [State 0, DestroySelf]
 type = DestroySelf
-trigger1 = time = 300
+trigger1 = time >= 200 && root, !map(Superfrost)
 trigger2 = root, movetype = H
 trigger3 = root, stateno = 1050 && root, animelemno(0) < 5
 ignorehitpause = 0
@@ -1136,11 +1136,11 @@ getpower 	= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, Explod]	;Effect
 type = Explod
-trigger1 = animelem = 1
+trigger1 = animelem = 6
 anim = 625
 ID = 625
-postype = p2
-pos = 0,0
+postype = p1
+pos = -30,0
 scale = 1.5, 1.5
 sprpriority = 10
 ontop	= 1
@@ -1379,12 +1379,7 @@ persistent = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0 && command = "holdb"
-value = 1060
-ctrl = 1
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = animtime = 0 && command != "holdb"
+trigger1 = animtime = 0
 value = 1061
 ctrl = 1
 
@@ -1756,7 +1751,7 @@ p2facing = 1
 triggerall = animelem = 5
 trigger1 = !movereversed && !movecontact
 attr = S, SA
-damage = 130 * MAP(P4)  + 30 * map(CounterHit) , 30
+damage = 100 * MAP(P4)  + 30 * map(CounterHit) , 30
 animtype  = up
 hitflag = MAFD
 guardflag = HA
@@ -1769,24 +1764,20 @@ ground.type = Low
 ground.hittime  = 35
 air.hittime  = 35 * map(UntechMod)
 down.hittime = 25 * map(UntechMod)
-ground.velocity = 2,-5.5
-air.velocity = 4,-3
+ground.velocity = -2,-5.5
+air.velocity = -4,-3
 down.velocity = -.2,-2
-guard.ctrltime = 16
+guard.ctrltime = 10
 guard.slidetime = 16
 guard.velocity = 10
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 fall = 1
 air.fall = 1
 
+
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0 && command = "holdb"
-value = 1060
-ctrl = 1
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = animtime = 0 && command != "holdb"
+trigger1 = animtime = 0
 value = 1061
 ctrl = 1
 

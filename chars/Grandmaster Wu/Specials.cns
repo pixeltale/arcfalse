@@ -875,7 +875,8 @@ value = 7, 3
 
 [State 1000, 1]
 type = HitDef
-trigger1 = time = 0 
+triggerall = enemy, !map(ArmorActive)
+trigger1 = !movecontact && !movereversed
 attr = S, SA                     ;Attribute: Standing, Normal Attack
 damage = 150 * map(p4), 20
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -895,7 +896,7 @@ airguard.velocity = -6.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
 air.velocity = -12,-2.8
 down.velocity= -12, -4
-air.hittime = 15                 ;Time before opponent regains control in air
+air.hittime = 40                 ;Time before opponent regains control in air
 envshake.time = 14
 envshake.freq = 100
 envshake.ampl = 4
@@ -908,6 +909,41 @@ guard.slidetime = 12
 getpower = 0
 p2stateno = 5220
 p2getp1state = 0
+
+[State 1000, 1]
+type = HitDef
+triggerall = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = S, SA                     ;Attribute: Standing, Normal Attack
+damage = 150, 20
+animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAFDP
+pausetime = 19, 19                ;Time attacker pauses, time opponent shakes
+sparkno = 3                      ;Spark anim no (Def: set above)
+sparkxy =-14, -40
+fall = 1
+hitsound = 5, 2                  ;Sound to play on hit
+guardsound = 6, 0                ;Sound to play on guard
+ground.type = low            ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 55             ;Time opponent is in hit state
+ground.velocity = -12,-2.8            ;Velocity at which opponent is pushed
+airguard.velocity = -6.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -12,-2.8
+down.velocity= -12, -4
+air.hittime = 40                 ;Time before opponent regains control in air
+envshake.time = 14
+envshake.freq = 100
+envshake.ampl = 4
+fall.yvelocity = 0
+ground.cornerpush.veloff =-8
+air.cornerpush.veloff=-8
+guard.hittime = 36
+guard.ctrltime = 35
+guard.slidetime = 12
+getpower = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1026,7 +1062,7 @@ value = 1013
 type    = A                     ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = N
-velset = 2,-5                     ;Set velocity (x,y) (Def: no change)
+velset = 2,-1                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 10222                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
@@ -1059,14 +1095,9 @@ trigger1 = ishelper
 value = S777,0
 channel = 5 
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = time = 0
-y = -0.5
-
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = time > 7
+trigger1 = time
 y = .3
 
 [State -2, Starter Level]
@@ -1693,8 +1724,8 @@ priority = 3
 pausetime = 2,0
 sparkno = 2
 sparkxy = random%20,10-random%20
-hitsound   = 5,2
-guardsound = 5,1
+hitsound 		= 5, 1
+guardsound 	= 6, 0
 ground.type = Low
 animtype = medium
 ground.hittime  = 20 - root, map(UntechDecay)
@@ -1705,6 +1736,7 @@ air.velocity = -2.5,-1
 air.hittime = 24
 airguard.velocity = -2,-3
 getpower = 0
+guard.dist = 0
 envshake.ampl = 1
 envshake.time = 5
 yaccel = .21
@@ -1799,18 +1831,19 @@ priority = 3
 pausetime = 2,2
 sparkno = 2
 sparkxy = random%20,10-random%20
-hitsound   = 5,2
-guardsound = 5,1
+hitsound 		= 5, 1
+guardsound 	= 6, 0
 ground.type = Low
 animtype = medium
 ground.hittime  = 20 - root, map(UntechDecay)
 ground.velocity = -2.5,0
-guard.ctrltime = 6
+guard.ctrltime = 7
 fall.yvelocity = 0
 air.velocity = -2.5,-1
 air.hittime = 24
 airguard.velocity = -2,-3
 getpower = 0
+guard.dist = 0
 envshake.ampl = 1
 envshake.time = 5
 yaccel = .21
@@ -1973,8 +2006,8 @@ priority = 3
 pausetime = 5,5
 sparkno = 3
 sparkxy = random%20,10-random%20
-hitsound   = 5,3
-guardsound = 6,1
+hitsound 		= 5, 1
+guardsound 	= 6, 0
 ground.type = Low
 animtype = medium
 ground.slidetime = 14
@@ -1984,6 +2017,7 @@ fall.yvelocity = 0
 air.velocity = vel x *-1.5,-1
 air.hittime = 24
 getpower = 0
+guard.dist = 0
 envshake.time = 5
 yaccel = .22
 fall = 1
@@ -2509,7 +2543,7 @@ ctrl = 1
 ;2S - Astral Rise
 [Statedef 1040]
 type    = C
-movetype= I
+movetype= A
 physics = S
 poweradd= 0
 ctrl = 0
@@ -2702,7 +2736,7 @@ ctrl = 0
 ;2S: EX Astral Rise 
 [Statedef 1043]
 type    = C
-movetype=I
+movetype= A
 physics = N
 juggle  = 0
 poweradd= -1000
@@ -2978,10 +3012,8 @@ air.hittime =999
 envshake.time = 15;
 air.fall = 1
 fall = 1
-guard.hittime = 24
-guard.slidetime = 16
-guard.ctrltime = 15
-getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
+guard.ctrltime = 5
+getpower = 0
 
 [State 0, ChangeState]
 type = ChangeState
