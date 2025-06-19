@@ -416,7 +416,7 @@ poweradd=-2000
 
 [State 0, MapSet]
 type 		= MapSet
-trigger1 		= time=0
+trigger1 		= time=0 && map(TREASURE)
 map 		= "SUMMONED"
 value 		= 1
 
