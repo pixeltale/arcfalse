@@ -347,6 +347,11 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = movetype = H
+channel = 9
+
 [State 2001, Particles]
 type = Helper
 trigger1 = map(CHARGE.LEVEL) > 30 && !numhelper(9001)

@@ -3720,6 +3720,7 @@ triggerall = name = "angous"
 trigger1 = time = 1
 value = 5000, (0+(Random%22))
 volumescale=120
+channel=6
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
@@ -3732,28 +3733,33 @@ triggerall = name = "one"
 trigger1 = time = 1
 value = 5000, (0+(Random%10))
 volumescale=150
+channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
 trigger1 = time = 1
 value = 5000, (0+(Random%24))
+channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
 trigger1 = time = 1
 value = 5000, (4+(Random%24))
+channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
 trigger1 = time = 1
 value = 5000, (0+(Random%24))
 volumescale=150
+channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
 trigger1 = time = 1
 value = 5000, (0+(Random%20))
+channel=6
 [State 5080, 1] ;Set default anim
 type = VarSet
 trigger1 = time = 0
@@ -9638,6 +9644,54 @@ value = 1
 
 ;---------------------------------------------------------------------------------
 [Statedef -3]
+
+;Move, and you die. Use Nen, or utter one word, and you die.
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%4))
+channel = 6
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall = palno != 11
+trigger1 = map(DIE)=1
+value = 9001,(0+(Random%3))
+channel = 6
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall = palno = 11
+trigger1 = map(DIE)=1
+value = 9001,5
+channel = 6
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+
+[State 0, VarAdd]
+type = MapAdd
+trigger1 = !alive
+map = "DIE"
+value = 1
+ignorehitpause=1
+persistent=1
+[State 0, VarAdd]
+type = MapSet
+trigger1 = roundstate=0
+map = "DIE"
+value = 0
+ignorehitpause=0
 
 [State 0, VarSet] ;Stop Old code from interfering
 type = VarSet

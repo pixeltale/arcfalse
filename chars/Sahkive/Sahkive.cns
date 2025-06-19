@@ -868,31 +868,6 @@ params = map(ScratchLockout)
  
 [Statedef -3]
 
-;Move, and you die. Use Nen, or utter one word, and you die.
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = map(DIE)=1
-value = 9000,(0+(Random%4))
-channel = -1
-loop = 0
-persistent = 0
-volumescale=150
-ignorehitpause=1
-
-[State 0, VarAdd]
-type = MapAdd
-trigger1 = !alive
-map = "DIE"
-value = 1
-ignorehitpause=1
-persistent=1
-[State 0, VarAdd]
-type = MapSet
-trigger1 = roundstate=0
-map = "DIE"
-value = 0
-ignorehitpause=0
-
 [State -3, Landing Sound]
 type = PlaySnd
 triggerall = Time = 1

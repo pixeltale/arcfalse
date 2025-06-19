@@ -8,6 +8,24 @@ ctrl 		= 0
 anim 		= 33000
 sprpriority 	= 2
 
+[State Eddy Voices]
+type = PlaySnd
+triggerall = palno != 11
+trigger1 =  time = 0
+value = 3000, (0+(Random%2))
+volumescale=150
+channel = 6
+[State 200, 2]
+type = PlaySnd
+triggerall = palno = 11
+trigger1 =animelem=4
+value = 669,6
+[State 200, 2]
+type = PlaySnd
+triggerall = palno = 11
+trigger1 =animelem=11
+value = 669,4
+
 [State Cancel]
 type = mapset
 trigger1 = !time
@@ -48,14 +66,6 @@ trigger1 = movehit = 1
 v = 2
 value = 0
 
-[State 200, 2]
-type = PlaySnd
-trigger1 =animelem=4
-value = 669,6
-[State 200, 2]
-type = PlaySnd
-trigger1 =animelem=11
-value = 669,4
 
 [State 0, PalFXWiz]
 type = PalFX
@@ -300,20 +310,53 @@ ctrl = 0
 anim = 3004
 sprpriority = 2
 
+[State Eddy Voices]
+type = PlaySnd
+triggerall = palno != 11
+trigger1 =animelem=3
+value = 3001, (0+(Random%2))
+volumescale=150
+channel = 6
+[State Eddy Voices]
+type = PlaySnd
+triggerall = palno != 11
+trigger1 =animelem=9
+value = 3002, (0+(Random%2))
+volumescale=150
+channel = 6
+[State Eddy Voices]
+type = PlaySnd
+triggerall = palno != 11
+trigger1 =animelem=15
+value = 3003, (0+(Random%2))
+volumescale=150
+channel = 6
+[State Eddy Voices]
+type = PlaySnd
+triggerall = palno != 11
+trigger1 =animelem=24
+value = 3004, (0+(Random%2))
+volumescale=150
+channel = 6
+
 [State 200, 2]
 type = PlaySnd
+triggerall = palno = 11
 trigger1 =animelem=3
 value = 669,0
 [State 200, 2]
 type = PlaySnd
+triggerall = palno = 11
 trigger1 =animelem=9
 value = 669,1
 [State 200, 2]
 type = PlaySnd
+triggerall = palno = 11
 trigger1 =animelem=15
 value = 669,2
 [State 200, 2]
 type = PlaySnd
+triggerall = palno = 11
 trigger1 =animelem=24
 value = 670,1
 
@@ -484,6 +527,18 @@ anim =3001
 sprpriority = 2
 velset = vel x,0
 
+[State 200, 2]
+type = PlaySnd
+triggerall = palno != 11
+trigger1 = animelem = 8
+value = 3200,0
+
+[State 200, 2]
+type = PlaySnd
+triggerall = palno = 11
+trigger1 = animelem = 8
+value = 671,0
+
 [State 0, Zoom]
 type = zoom
 triggerall=map(Big)<3
@@ -644,11 +699,6 @@ supermovetime = 1000
 pausemovetime = 1000
 ignorehitpause = 1
 
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 8
-value = 671,0
-
 
 [State 0, ChangeState]
 type = ChangeState
@@ -710,10 +760,7 @@ type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
-[State 200, 2]
-type = PlaySnd
-trigger1 = time = 0
-value = 671,0
+
 
 [State 0, VarAdd]
 type = VarAdd
@@ -740,6 +787,19 @@ ctrl = 0
 anim = 3010
 sprpriority = 2
 velset = vel x*.8
+
+[State Eddy Voices]
+type = PlaySnd
+triggerall = palno != 11
+trigger1 =  time = 0
+value = 3010, (0+(Random%2))
+volumescale=150
+channel = 6
+[State 200, 2]
+type = PlaySnd
+triggerall = palno = 11
+trigger1 =animelem=4
+value = 669,3
 
 [State 0, Zoom]
 type = zoom
@@ -778,11 +838,6 @@ type = VarSet
 trigger1 = movehit = 1
 v = 2
 value = 0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 =animelem=4
-value = 669,3
 
 
 [State 0, PalFXWiz]
@@ -981,6 +1036,13 @@ ctrl = 0
 anim = 3051
 sprpriority = 2
 velset = vel x*.3+1,-7
+
+[State 0, voiceline]
+type = MapSet
+trigger1 = Movehit
+map = "Gutter"
+value = 1
+ignorehitpause = 0
 
 [State 0, VelSet]
 type = VelSet
@@ -1234,10 +1296,27 @@ anim =1053
 sprpriority = 2
 velset = 0,0
 
+[State 0, voiceline]
+type = MapSet
+trigger1 = time = 1
+map = "Gutter"
+value = 0
+ignorehitpause = 0
+
 [State 200, 2]
 type = PlaySnd
-trigger1 =time = 0
+triggerall = palno != 11
+trigger1 = map(Gutter)
+trigger1 = time = 0
+value = 3200,0
+
+[State 200, 2]
+type = PlaySnd
+triggerall = palno = 11
+trigger1 = map(Gutter)
+trigger1 = time = 0
 value = 671,0
+
 
 [State 0, PosSet]
 type = PosSet
