@@ -764,14 +764,14 @@ type = PlaySnd
 triggerall = time=0
 triggerall = map(truth)<10
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!map(YAPPERS)
 value = 3100,0+random%3
 volumescale=200
 [State Sahkive Voices]
 type = PlaySnd
 triggerall=time=1
 triggerall = map(truth)<10
-trigger1 = palno=11&&roundtype>=2
+trigger1 = palno=11&&map(YAPPERS)
 value = 3102,0
 volumescale=200
 

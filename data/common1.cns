@@ -1082,6 +1082,13 @@ type = AttackDist
 trigger1 = 1
 value = 0
 
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 0
+value = 440, (0+(Random%4))
+volumescale=150
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 	= 1
@@ -1228,6 +1235,13 @@ type = TargetBind
 trigger1 = time = 0
 time = 1
 pos = 42,0
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = animelem = 4
+value = 200, 7
+volumescale=150
 
 [State 0, ChangeState]
 type = ChangeState
