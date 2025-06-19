@@ -18,8 +18,9 @@ value = 0, 0
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  animelem = 3
-value = 200, (0+(Random%39))
+value = 200, (0+(Random%4))
 volumescale=150
+channel = 6
 
  ;============================
 ;Note: Always have ignorehitpause on all of these.
@@ -104,9 +105,10 @@ value = 0, 1
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 3
-value = 200, (0+(Random%26))
+trigger1 =  animelem = 4
+value = 200, (5+(Random%3))
 volumescale=150
+channel = 6
 
 [State 0, Explod]
 type = Explod
@@ -224,8 +226,9 @@ velset = vel x, vel y
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  animelem = 5
-value = 200, (0+(Random%13))
+value = 200, (5+(Random%3))
 volumescale=150
+channel = 6
 
 [State 210, Width]
 type = Width
@@ -372,9 +375,19 @@ facep2 = 1
 
 [State Sahkive Voices]
 type = PlaySnd
+triggerall =  anim = 252
 trigger1 =  animelem = 5
-value = 200, (0+(Random%13))
+value = 200, (9+(Random%3))
 volumescale=150
+channel = 6
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall =  anim != 252
+trigger1 =  animelem = 9
+value = 200, (9+(Random%3))
+volumescale=150
+channel = 6
 
 [State 0, VelAdd]
 type = VelSet
@@ -655,9 +668,10 @@ velset = vel x, vel y
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 3
-value = 200, (0+(Random%39))
+trigger1 =  animelem = 5
+value = 200, (0+(Random%4))
 volumescale=150
+channel = 6
 
 [State 200, 2]
 type = PlaySnd
@@ -746,9 +760,10 @@ velset = vel x, vel y
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 3
-value = 200, (0+(Random%26))
+trigger1 =  animelem = 5
+value = 200, (5+(Random%3))
 volumescale=150
+channel = 6
 
 [State 200, 2]
 type = PlaySnd
@@ -831,9 +846,10 @@ velset = vel x, vel y
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 5
-value = 200, (0+(Random%13))
+trigger1 =  animelem = 6
+value = 200, (5+(Random%3))
 volumescale=150
+channel = 6
 
 [State 0, PosAdd]
 type = PosAdd
@@ -1107,9 +1123,18 @@ velset = vel x, vel y
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 1
+trigger1 = movehit
 value = 440, (0+(Random%4))
 volumescale=150
+channel = 6
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = !movecontact
+trigger1 =  animelem = 6
+value = 5000, (4+(Random%3))
+volumescale=150
+channel = 6
 
 [State 0, MAPSET]
 type 		= MapSet
@@ -1205,12 +1230,6 @@ ctrl = 0
 anim = 451
 sprpriority = 0
 velset = 0,0
-
-[State Sahkive Voices]
-type = PlaySnd
-trigger1 =  animelem = 3
-value = 200, (0+(Random%13))
-volumescale=150
 
 [State -2, Starter Level]
 type         		= MapAdd
@@ -1329,7 +1348,7 @@ anim = 453
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  animelem = 3
-value = 200, (0+(Random%13))
+value = 200, (5+(Random%3))
 volumescale=150
 
 [State 10, State End]
@@ -1507,8 +1526,9 @@ y = .44
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  animelem = 2
-value = 200, (0+(Random%39))
+value = 200, (0+(Random%4))
 volumescale=150
+channel = 6
 
 [State 200, 2]
 type = PlaySnd
@@ -1606,8 +1626,9 @@ y = .44
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  animelem = 5
-value = 200, (0+(Random%26))
+value = 200, (5+(Random%3))
 volumescale=150
+channel = 6
 
 [State 200, 2]
 type = PlaySnd
@@ -1702,9 +1723,10 @@ facep2 = map(SJI)
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem =3
-value = 200, (0+(Random%13))
+trigger1 =  animelem = 5
+value = 200, (5+(Random%3))
 volumescale=150
+channel = 6
 
 [State 200, 2]
 type = PlaySnd
@@ -1800,9 +1822,10 @@ facep2 = map(SJI)
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 3
-value = 200, (0+(Random%13))
+trigger1 =  animelem = 7
+value = 200, (9+(Random%3))
 volumescale=150
+channel = 6
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1927,9 +1950,10 @@ sprpriority = 1
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 1
-value = 500, (0+(Random%2))
+trigger1 =  animelem = 9
+value = 200, (9+(Random%3))
 volumescale=150
+channel = 6
 
 [State 100, 1]
 type = VelSet
@@ -2363,9 +2387,10 @@ sprpriority = 1
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 1
-value = 200, (0+(Random%13))
+trigger1 =  animelem = 3
+value = 200, (9+(Random%3))
 volumescale=150
+channel = 6
 
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -2643,9 +2668,10 @@ sprpriority = 1
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 1
-value = 200, (0+(Random%13))
+trigger1 =  animelem = 3
+value = 200, (9+(Random%3))
 volumescale=150
+channel = 6
 
 [State 0, VarAdd]
 type = VarAdd
@@ -3054,10 +3080,19 @@ value = 656
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 =  animelem = 3
-value = 200, (0+(Random%13))
+triggerall = anim != 656
+trigger1 =  animelem = 5
+value = 500, (0+(Random%2))
 volumescale=150
-persistent = 0
+channel = 6
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = anim = 656
+trigger1 =  animelem = 1
+value = 3019, (0+(random%2))
+volumescale=150
+channel = 6
 
 [State 0, Explod]
 type = Explod
@@ -3115,6 +3150,20 @@ time = 15
 freq = 60
 ampl = -8
 phase = 90
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = anim = 656
+trigger1 = animelem = 1
+value = 8080,0
+volumescale = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = anim !=656
+trigger1 = animelem = 5
+value = 666,0
+volumescale = 100
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = animelem = 5

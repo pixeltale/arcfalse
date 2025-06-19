@@ -652,7 +652,6 @@ value = 0
 ;---------------------------------------------------------------------------
 
 ;=============================================================================
-
 [Statedef -2]
 
 [State 0, AttackMulSet]
@@ -716,14 +715,38 @@ dest 	= 1, palno + map(AltPal)
 
 [State 0, MapSet]
 type = RemapPal
-triggerall = map(TREASURE)=1
-trigger1 = roundstate = 0
+triggerall = map(SUMMONED)=1
 trigger1 = roundno != 1
 trigger1 = palno = 1
 trigger2 = roundstate = 0
 trigger2 = gamemode = "Training"
 source = 1, 1
 dest = 1, palno + map(AltPal)
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1=map(SUMMONED)
+trigger1=time=0
+time = -1
+length = 4
+palcolor = 0
+palinvertall = 1
+palbright =100,100,100
+palcontrast = 256,256,256
+paladd = 1,1,1
+palmul = .5,.5,.5
+framegap = 1
+trans = "none"
+persistent =1
+ignorehitpause=1
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1=map(SUMMONED)
+time = -1
+mul =  100,100,100
+add=-10,-10,-10
+color = 1
+ignorehitpause = 1
 
 [State 0, MapSet]
 type = MapSet
@@ -741,6 +764,21 @@ trigger2 = palno = 1&&map(AltPal)=12
 trigger2 = gamemode = "Training"
 map = "TREASURE"
 value = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = !alive && palno = 11
+map = "YAPPERS"
+value = 1
+
+[State 0, RemapPal]
+type = RemapPal
+triggerall=roundstate=0
+trigger1 = roundtype > 1
+trigger1 = map(YAPPERS)
+trigger1 = palno=11
+source = 1,1
+dest = 2,11
 
 [State 0, BGPalFX]
 type = BGPalFX
@@ -782,13 +820,6 @@ value 		= 0
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0. MapSet]
-type 		= MapSet
-trigger1 		= stateno != [1041, 1042]
-map 		= "pumLim"
-value 		= 3
-ignorehitpause 	= 1
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = statetype != A
@@ -820,12 +851,12 @@ id = 99999
 type = RemoveExplod
 trigger1 = !numtarget
 id = 101010
-
-;Pummel Limiter
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = stateno != [1000,1015]
-id = 99856
+;
+;;Pummel Limiter
+;[State 0, RemoveExplod]
+;type = RemoveExplod
+;trigger1 = stateno != [1000,1015]
+;id = 99856
 
 
 ;------------------------------------
@@ -836,6 +867,31 @@ text = "ScratchLockout = %f"
 params = map(ScratchLockout)
  
 [Statedef -3]
+
+;Move, and you die. Use Nen, or utter one word, and you die.
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%4))
+channel = -1
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+
+[State 0, VarAdd]
+type = MapAdd
+trigger1 = !alive
+map = "DIE"
+value = 1
+ignorehitpause=1
+persistent=1
+[State 0, VarAdd]
+type = MapSet
+trigger1 = roundstate=0
+map = "DIE"
+value = 0
+ignorehitpause=0
 
 [State -3, Landing Sound]
 type = PlaySnd

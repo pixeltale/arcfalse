@@ -11,6 +11,28 @@ facep2 = 1
 poweradd=-2000
 
 
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  time = 0
+value = 3000, 0
+volumescale=150
+channel = 6
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  time = 0 && map(TREASURE)
+value = 3045, 0
+volumescale=150
+channel = 6
+
+[State 100, 2] 
+type = AssertSpecial
+trigger1 = 1 && map(TREASURE)
+flag = NoMusic
+persistent = 1
+ignorehitpause = 1
+
+
 [State -3, Hyper Finish Background]
 type = Helper
 triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
@@ -49,7 +71,7 @@ ignorehitpause = 1
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = time = 0
-time = 60
+time = cond(map(TREASURE), 130, 60)
 sound = 20,0
 pos = 0,-50
 movetime = 60
@@ -257,7 +279,7 @@ animtype = hard
 guardflag = HA
 hitflag = MAFD
 priority = 1
-pausetime = 0,20
+pausetime =  0,20
 sparkno = 2 + time % 2
 hitsound   = 5, 2 + time % 2
 sparkxy = -19,-45
@@ -278,6 +300,7 @@ air.cornerpush.veloff = -7
 envshake.time = 10
 envshake.freq = 80
 envshake.ampl = 4
+
 
 [State 1055, 5]
 type = HitDef
@@ -391,13 +414,29 @@ sprpriority = 2
 facep2 = 1
 poweradd=-2000
 
+[State 0, MapSet]
+type 		= MapSet
+trigger1 		= time=0
+map 		= "SUMMONED"
+value 		= 1
+
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 = movehit
-value = 3019,0+random%2
+trigger1 = time = 0 && !map(TREASURE)
+value = 3022,(0+(random%2))
 volumescale=200
 ignorehitpause=1
 persistent=0
+channel = 6
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 = movehit && map(TREASURE)
+value = 3045,1
+volumescale=200
+ignorehitpause=1
+persistent=0
+channel = 6
 
 [State -3, Win Voices] ;Win
 type = PlayBgm
@@ -521,6 +560,20 @@ value 		= 0
 ignorehitpause 	= 1
 persistent		= 1
 
+
+[State 0, VarAdd]
+type = MapSet
+trigger1 = time=0
+map = "truth"
+value = 1+random%10
+ignorehitpause = 1
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1=time=1
+trigger1 = map(truth)>=10
+value = 3101,0
+volumescale=200
 
 [State -3, Win Voices] ;Win
 type = PlaySnd
@@ -708,11 +761,36 @@ facep2 = 1
 
 [State Sahkive Voices]
 type = PlaySnd
-trigger1 = !time
-value = 3019,0+random%2
+triggerall = time=0
+triggerall = map(truth)<10
+trigger1 = palno!=11
+trigger2 = palno=11&&roundtype<=1
+value = 3100,0+random%3
 volumescale=200
-ignorehitpause=1
-persistent=0
+[State Sahkive Voices]
+type = PlaySnd
+triggerall=time=1
+triggerall = map(truth)<10
+trigger1 = palno=11&&roundtype>=2
+value = 3102,0
+volumescale=200
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1=time=0
+trigger1 = map(truth)>=10
+value = 3101,2
+[State Sahkive Voices]
+type = PlaySnd
+trigger1=time=40
+trigger1 = map(truth)>=10
+value = 3101,1
+volumescale=200
+[State Sahkive Voices]
+type = PlaySnd
+trigger1=animelem=77
+trigger1 = map(truth)>=10
+value = 3101,3
 
 [State 0. MapSet]
 type 		= MapSet
@@ -847,6 +925,15 @@ fall=1
 air.fall=1
 kill = 0
 
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem =15||animelem =19||animelem =23||animelem =27||animelem =31||animelem =35||animelem =41||animelem =38
+trigger2 = time>95&&time<130&& time%3=0
+value = F5,3
+volumescale = 45
+persistent = 1
+ignorehitpause=1
+
 [State 0]
 type = hitdef 
 p2facing = 1
@@ -860,7 +947,6 @@ guardflag = MAFD
 priority = 3
 sparkxy = -20,-10
 pausetime = 0,1
-hitsound   = 5,3
 guardsound = 6,2
 ground.type =low
 ground.slidetime = 5

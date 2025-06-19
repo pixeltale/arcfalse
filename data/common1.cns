@@ -2856,6 +2856,46 @@ movetype= H
 physics = N
 velset = 0,0
 
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 
 [State 5000, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
@@ -3025,7 +3065,46 @@ type    = C
 movetype= H
 physics = N
 velset = 0,0
-
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 [State 5010, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -3141,7 +3220,46 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
-
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -3494,7 +3612,46 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
-
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 [State 5070, 1]
 type = ChangeAnim
 trigger1 = 1
@@ -3543,7 +3700,46 @@ type    = L
 movetype= H
 physics = N
 velset = 0,0
-
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 [State 5080, 1] ;Set default anim
 type = VarSet
 trigger1 = time = 0
@@ -4579,6 +4775,46 @@ movetype= H
 physics = N
 velset = 0,0
 
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 [State 5220, Anim] ;Custom animation
 type = ChangeAnim2
 trigger1 = 1
@@ -4823,6 +5059,47 @@ movetype= H
 physics = N
 velset = 0,0
 
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
+
 ;X Smash--------------------
 [State 0, MapSet]
 type = MapSet
@@ -5006,6 +5283,47 @@ movetype= H
 physics = N
 velset = 0,0
 
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
+
 [State 5230, Anim]
 type = ChangeAnim2
 trigger1 = 1
@@ -5111,6 +5429,47 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 
 [State 5220, Anim] ;Custom animation
 type = ChangeAnim2
@@ -5278,7 +5637,46 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
-
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 [State 5230, Anim]
 type = ChangeAnim2
 trigger1 = 1
@@ -5420,6 +5818,47 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 
 [State -3, Win Voices] ;Win
 type = PlaySnd
@@ -5700,6 +6139,47 @@ movetype= H
 physics = N
 velset = 0,0
 ctrl = 0
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = time = 1
+value = 5000, (0+(Random%22))
+volumescale=120
+[State -3, Win Voices] ;hurt
+type = PlaySnd
+triggerall = name = "vile"
+trigger1 = time=0
+value = 3004, (0+(Random%19))
+channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = time = 1
+value = 5000, (0+(Random%10))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Grandmaster Wu" 
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = time = 1
+value = 5000, (4+(Random%24))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = time = 1
+value = 5000, (0+(Random%24))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall=palno!=11
+trigger1 = time = 1
+value = 5000, (0+(Random%20))
 
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim

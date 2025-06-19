@@ -27,6 +27,20 @@ map 		= "ScratchLockout"
 value 		= 20
 ignorehitpause 	= 1
 persistent		= 1
+     
+[State 0, Pummel Limiter]
+type 		= MapSet
+trigger1 		= time = 0
+map 		= "Pummel"
+value 		= 0
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = !movecontact
+trigger1 =  animelem = 6
+value = 5000, (4+(Random%3))
+volumescale=150
+channel = 6
 
 [State 210, Width]
 type = Width
@@ -177,7 +191,7 @@ pos = 40,0
 ;Pummel
 [State 0, ChangeState]
 type = ChangeState
-triggerall = numexplod(99856)<3
+triggerall = map(Pummel)<3
 triggerall = p2stateno = 1010
 triggerall = time < 50
 trigger1 = command = "x"
@@ -241,7 +255,7 @@ juggle  = 0
 velset = 0,0                     
 ctrl = 0                         
 anim = 1004                       
-sprpriority = 2       
+sprpriority = 2  
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -276,13 +290,46 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 	= 1
 
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = map(Pummel) = 1
+trigger1 =  animelem = 3
+value = 1042, 0
+volumescale=150
+channel = 6
+
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = map(Pummel) = 2
+trigger1 =  animelem = 3
+value = 1042, 1
+volumescale=150
+channel = 6
+
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = map(Pummel) = 3
+trigger1 =  animelem = 3
+value = 1042, 2
+volumescale=150
+channel = 6
+
+
 ;Pummel Limiter
-[State 0, Explod]
-type = Explod
-trigger1 = animelem = 5
-anim = 99856
-ID = 99856
-removetime = -1
+[State 0, Mapadd]
+type = mapadd 
+trigger1 = time = 0
+map = "Pummel"
+value = 1
+
+;[State 0, Explod]
+;type = Explod
+;trigger1 = animelem = 5
+;anim = 99856
+;ID = 99856
+;removetime = -1
 
 [State 0, TargetBind]
 type = TargetBind
@@ -433,6 +480,13 @@ map 		= "BurstLock"
 value 		= 30
 ignorehitpause 	= 1
 persistent 	= 1
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  time = 0
+value = 1007, (0+(Random%3))
+volumescale=150
+channel = 6
 
 [State 0. MapSet]
 type 		= MapSet
@@ -607,6 +661,13 @@ map 		= "ScratchLockout"
 value 		= 20
 ignorehitpause 	= 1
 persistent		= 1
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  time = 0
+value = 1008, (0+(Random%3))
+volumescale=150
+channel = 6
 
 [State 0, HitDef]
 type = HitDef
@@ -827,6 +888,13 @@ trigger1 = time < 5
 ignorehitpause = 1
 ;persistent = 
 
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = !movecontact
+trigger1 =  animelem = 6
+value = 5000, (4+(Random%3))
+volumescale=150
+channel = 6
 
 [State 0, MAPSET]
 type 		= MapSet
@@ -1030,6 +1098,13 @@ velset = 10,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1015                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  animelem = 5
+value = 1014, (0+(Random%3))
+volumescale=150
+channel = 6
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -1481,6 +1556,13 @@ type = VelSet
 trigger1 = animelem = 6
 x = 0
 y = 5
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  animelem = 1
+value = 1021, (0+(Random%2))
+volumescale=150
+channel = 6
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -1955,6 +2037,13 @@ poweradd = 10                    ;Power to add (Def: 0)
 sprpriority = 5                  ;Set p1's sprite layering priority to 2 (in front)
 
 
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  animelem = 1
+value = 1022, (0+(Random%2))
+volumescale=150
+channel = 6
+
 [State 0, RC LOCKOUT]
 type 		= MapSet
 trigger1 		= 1
@@ -2239,6 +2328,13 @@ time = 6
 freq = 100
 ampl = 6
 
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  animelem = 8
+value = 1034, 0
+volumescale=150
+channel = 6
+
 [State -3, Stomp SFX]
 type = PlaySnd
 trigger1 = animelem = 8
@@ -2502,6 +2598,13 @@ trigger1 = animelem = 7
 time = 10
 freq = 200
 ampl = 9
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  animelem = 7
+value = 1035, 0
+volumescale=150
+channel = 6
 
 [State -3, Stomp SFX]
 type = PlaySnd
@@ -2856,7 +2959,12 @@ trigger1 = time = [0,8] || animelemno(0) = [7,9]
 x = 1.5
 ignorehitpause = 1
 ;persistent = 
-
+     
+[State 0, Pummel Limiter]
+type 		= MapSet
+trigger1 		= time = 0
+map 		= "Pummel"
+value 		= 0
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -3012,10 +3120,11 @@ triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 1
 time = 50
 pos = 42,-48
+
 ;Pummel
 [State 0, ChangeState]
 type = ChangeState
-triggerall = time < 30 && map(pumLim)
+triggerall = time < 30 && map(Pummel)<3
 trigger1 = command = "x"
 trigger2 = command = "buffer_x"
 value = 1042
@@ -3071,10 +3180,34 @@ sprpriority = 2
 ;Pummel Limiter
 [State 420, MapSet]
 type = MapAdd
-trigger1 = animelemno(0) = 7
-map = "pumLim"
-value = -1
+trigger1 = time = 0
+map = "Pummel"
+value = 1
 persistent = 0
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = map(Pummel) = 1
+trigger1 =  animelem = 3
+value = 1042, 0
+volumescale=150
+channel = 6
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = map(Pummel) = 2
+trigger1 =  animelem = 3
+value = 1042, 1
+volumescale=150
+channel = 6
+
+[State Sahkive Voices]
+type = PlaySnd
+triggerall = map(Pummel) = 3
+trigger1 =  animelem = 3
+value = 1042, 2
+volumescale=150
+channel = 6
 
 [State 0, TargetBind]
 type = TargetBind
@@ -3184,7 +3317,7 @@ value = 1046
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0 || map(pumLimit) >= 3
+trigger1 = animtime = 0 || map(Pummel) > 3
 value = 1041
 ctrl = 1
 ;----------------------
@@ -3202,6 +3335,13 @@ sprpriority = 2
 type = PosAdd
 trigger1 = animelemno(0) = [3,5]
 x = 5
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  animelem = 5
+value = 1043, (0+(random%2))
+volumescale=150
+channel = 6
 
 [State 0, SprPriority]
 type = SprPriority
@@ -3300,6 +3440,13 @@ velset = 0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1044                       ;Change animation (Def: no change)
 sprpriority = 2   
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  animelem = 5
+value = 1044, 1
+volumescale=150
+channel = 6
 
 [State 0, TargetBind]
 type = TargetBind
@@ -3710,6 +3857,13 @@ map 		= "Ex4S_Used"
 value 		= 1 
 ignorehitpause 	= 1
 persistent	= 1
+
+[State Sahkive Voices]
+type = PlaySnd
+trigger1 =  time = 0
+value = 1051, (0+(Random%3))
+volumescale=150
+channel = 6
 
 [State 0, Explod]
 type = Explod
