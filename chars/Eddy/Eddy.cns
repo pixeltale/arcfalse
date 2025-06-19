@@ -154,7 +154,6 @@ victory7 = "なんだと！彼女はここにもいないと？"
 
 ;---------------------------------------------------------------------------
 ; Lose by Time Over
-; CNS difficulty: basic
 [Statedef 170]
 type = S
 ctrl = 0
@@ -169,18 +168,16 @@ time = 1
 
 ;---------------------------------------------------------------------------
 ; Win state decider
-; CNS difficulty: basic
 [Statedef 180]
 type = S
 
 [State 180, 1]
 type = ChangeState
 trigger1 = Time = 0
-value = 182
+value = 181+random%3
 
 ;---------------------------------------------------------------------------
-; Win pose 1 - Bow
-; CNS difficulty: basic
+; Win 1
 [Statedef 181]
 type = S
 ctrl = 0
@@ -189,8 +186,14 @@ velset = 0,0
 
 [State -3, Win Announcer]
 type = PlaySnd
+triggerall=teammode!=Tag
 trigger1 = time=0
-value = 7410, (0+(Random%2))
+value = 7410, 0
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=50
+value = F1000,0
 
 [State 8990, AssertSpecial]
 type = AssertSpecial
@@ -198,48 +201,20 @@ trigger1 = RoundState < 3
 flag = Nobardisplay
 flag2 = NoFG
 
-
-[State 0, PlaySnd]
+[State 200, 2]
 type = PlaySnd
-trigger1 = time = 0
-value = 668,0
+triggerall=palno=11
+trigger1 = animelem = 16
+value = 668, 0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+trigger1 = animelem = 1
+value = 180,0+random%2
 
 [State 200, 2]
 type = PlaySnd
-trigger1 = animelem = 3
-value = 0, 4
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 3
-;value = 669,5
-;channel = 2
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 8
-value = 0, 4
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 8
-;value = 669,5
-;channel = 2
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 14
-;value = 669,7
-;channel = 2
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 15
-value = 0, 4
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 22
+trigger1 = animelem = 19
 value = 0, 4
 
 [State 181, 1]
@@ -250,7 +225,6 @@ time = 1
 
 ;---------------------------------------------------------------------------
 ; Win 2
-; CNS difficulty: basic
 [Statedef 182]
 type = S
 ctrl = 0
@@ -259,8 +233,14 @@ velset = 0,0
 
 [State -3, Win Announcer]
 type = PlaySnd
+triggerall=teammode!=Tag
 trigger1 = time=0
-value = 7410, (0+(Random%2))
+value = 7410, 0
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=50
+value = F1000,0
 
 ;Dark BG
 [State 0, BGPalFX]
@@ -281,8 +261,14 @@ value = 9000, 0
 
 [State 200, 2]
 type = PlaySnd
+triggerall=palno=11
 trigger1 = animelem = 17
 value = 668, 0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+trigger1 = animelem = 1
+value = 180,0+random%2
 
 [State 200, 2]
 type = PlaySnd
@@ -361,29 +347,86 @@ trigger1 = time < 100
 flag = roundnotover
 
 ;---------------------------------------------------------------------------
+; Win 3
+[Statedef 183]
+type = S
+ctrl = 0
+anim = 185
+velset = 0,0
+
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=0
+value = 7410, 0
+[State -3, Win Announcer]
+type = PlaySnd
+triggerall=teammode!=Tag
+trigger1 = time=50
+value = F1000,0
+
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = RoundState < 3
+flag = Nobardisplay
+flag2 = NoFG
+
+[State 200, 2]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = animelem = 17
+value = 668, 0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+trigger1 = animelem = 1
+value = 180,0+random%2
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 0, 3
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+
+;---------------------------------------------------------------------------
 ; Introduction
-; CNS difficulty: basic
 [Statedef 191]
 type = S
 ctrl = 0
 anim = 190
 velset = 0,
 
-[State 8990, AssertSpecial]
+[State 193, 1]
 type = AssertSpecial
-trigger1 = RoundState < 3
-flag = Nobardisplay
+trigger1 = 1
+flag = Intro
+flag2 = nomusic
 
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = time = 0
-value = 9050, 0
+[State 190]
+type = selfstate
+triggerall=time=0
+trigger1 = prevstateno!=191
+value = 191+random%3
 
 [State 0, PlaySnd]
 type = PlaySnd
+triggerall=palno=11
 trigger1 = animelem = 18
 value = 666,0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+triggerall = animelem = 17
+trigger1=teamside=1
+trigger2=teamside=2&&(enemy,name!="eddy"||(enemy,name="eddy"&&enemy,palno=11))
+value = 190,0+random%4
+
 
 [State 200, 2]
 type = PlaySnd
@@ -395,51 +438,17 @@ type = PlaySnd
 trigger1 = animelem = 33
 value = 9000, 0
 
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 3
-;value = 669,5
-;channel = 2
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 8
-;value = 669,5
-;channel = 2
-
-;[State 200, 2] ;Voice
-;type = PlaySnd
-;trigger1 = animelem = 14
-;value = 669,7
-;channel = 2
-
 [State 0, Helper]
 type = Helper
 trigger1 = animelem = 36
 helpertype = normal ;player
 name = "Crown + Robe"
-ID = 192
-stateno = 192
+ID = 194
+stateno = 194
 pos = -20,-70
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
-
-;size.xscale = 
-;size.yscale = 
-;size.ground.back = 
-;size.ground.front = 
-;size.air.back = 
-;size.air.front = 
-;size.height = 
-;size.proj.doscale = 
-;size.head.pos = , 
-;size.mid.pos = , 
-;size.shadowoffset = 
-;ignorehitpause = 
-;persistent = 
-
-
 
 [State 0, VarSet]
 type = VarSet
@@ -452,20 +461,153 @@ type = ChangeAnim
 trigger1 = RoundState = 0
 value = 190
 
-[State 191, 2] ;Assert this until you want "round 1, fight" to begin
-type = AssertSpecial
-trigger1 = 1
-flag = Intro
-
 [State 191, 3] ;Change to stand state when done
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 
 ;---------------------------------------------------------------------------
-; Crown + Robe 
-; CNS difficulty: basic
+; Intro 2
 [Statedef 192]
+type = S
+ctrl = 0
+anim = 0
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nomusic
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = time<56
+flag = invisible
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = time = 30
+value = 666,0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+triggerall = time = 30
+trigger1=teamside=1
+trigger2=teamside=2&&(enemy,name!="eddy"||(enemy,name="eddy"&&enemy,palno=11))
+value = 190,0+random%4
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = time=56
+value = 41
+[State 0, PosSet]
+type = PosSet
+trigger1 = anim=41
+trigger1 = animelem=1
+y = -50
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim=41
+trigger1 = animelem=1
+y = -5
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = anim=41
+trigger1 = pos y < 0 
+y = .2
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = anim=41
+trigger1 = pos y >= 0 
+trigger1 = vel y > 0
+value = 1053
+elem=3
+[State 0, PosSet]
+type = PosSet
+trigger1 = anim=1053
+y = 0
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim=1053
+y = 0
+
+
+[State 0, Helper] ;2012 chevy impala
+type = Helper
+trigger1 = time=0
+helpertype = normal ;player
+name = "car"
+ID = 196
+stateno = 196
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 59    ;fv = 10
+value = 1
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = RoundState = 0
+value = 0
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1=anim=1053
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+;Intro 3
+[Statedef 193]
+type = S
+ctrl = 0
+anim = 196
+velset = 0,
+
+[State 193, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nomusic
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall=palno=11
+trigger1 = animelem = 1
+value = 666,0
+[State Eddy Voices]
+type = PlaySnd
+triggerall=palno!=11
+triggerall = animelem = 1
+trigger1=teamside=1
+trigger2=teamside=2&&(enemy,name!="eddy"||(enemy,name="eddy"&&enemy,palno=11))
+value = 190,0+random%4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 59    ;fv = 10
+value = 1
+
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 = RoundState = 0
+value = 196
+
+[State 191, 3] ;Change to stand state when done
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+;---------------------------------------------------------------------------
+; Crown + Robe Helper
+[Statedef 194]
 type = A
 physics = N
 ctrl = 0
@@ -483,7 +625,6 @@ trigger1 = animtime = 0
 
 ;---------------------------------------------------------------------------
 ; Taunt
-; CNS difficulty: easy
 [Statedef 195]
 type = S
 ctrl = 0
@@ -509,12 +650,29 @@ type = PlaySnd
 trigger1 = animelem = 3
 value = 0, 4
 
-[State 200, 2] ;Voice
-type = PlaySnd
-trigger1 = animelem = 3
-value = 669,5
-channel = 2
 
+; Car Helper
+[Statedef 196]
+type = S
+physics=N
+ctrl = 0
+anim = 193
+sprpriority = -3  
+[State 191, 1] ;Freeze animation until PreIntro is over
+type = ChangeAnim
+trigger1 =anim=193
+trigger1 = animtime=0
+value = 194
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1=vel x <10
+trigger1 =anim=194
+x = .1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time>200
 
 ;---------------------------------------------------------------------------
 ; Override common states (use same number to override) :
