@@ -1225,6 +1225,14 @@ velset = 0,0
 anim = 803
 sprpriority = 2
 
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall = palno != 11
+trigger1 = time = 0
+value = 10, (0+(random%4))
+volumescale=150
+
 [State 0, TargetState]
 type = TargetState
 trigger1 = time = 0
@@ -1235,13 +1243,6 @@ type = TargetBind
 trigger1 = time = 0
 time = 1
 pos = 42,0
-
-[State -3, Win Voices] 
-type = PlaySnd
-triggerall = name = "sahkive"
-trigger1 = animelem = 4
-value = 200, 7
-volumescale=150
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1274,6 +1275,27 @@ ctrl = 0
 velset = 0,0
 anim = 810
 sprpriority = 2
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = animelem = 4
+value = 200, 7
+volumescale=150
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = animelem = 4
+value = 1000, (4+(Random%2))
+volumescale=150
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall = palno = 11
+trigger1 = animelem = 6
+value = 669,6
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1341,10 +1363,6 @@ value = 812
 type = PlaySnd
 trigger1 = animelem = 6
 value = S0,1
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = animelem = 6
-value = 669,7
 
 
 [State 802, 3]
@@ -1365,6 +1383,27 @@ ctrl = 0
 velset = 0,0
 anim =810
 sprpriority = 2
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "sahkive"
+trigger1 = animelem = 4
+value = 200, 7
+volumescale=150
+
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "one"
+trigger1 = animelem = 4
+value = 1000, (4+(Random%2))
+volumescale=150
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "eddy"
+triggerall = palno = 11
+trigger1 = animelem = 6
+value = 669,6
 
 [State 0, Turn]
 type = Turn
@@ -1417,10 +1456,6 @@ value =812
 type = PlaySnd
 trigger1 = animelem = 6
 value = S0,2
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = animelem = 6
-value = 669,6
 
 [State 802, 3]
 type = ChangeState

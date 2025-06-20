@@ -2879,13 +2879,6 @@ sprpriority = 2
 velset =  vel x, vel y
 facep2 = map(SJI)
 
-[State One Voices]
-type = PlaySnd
-trigger1 =  animelem = 4
-value = 1000, (2+(Random%2))
-volumescale=150
-channel = 6
-
 [State 630, 1]
 type = PlaySnd
 trigger1 = Time = 1
@@ -2977,7 +2970,7 @@ facep2 = map(SJI)
 
 [State One Voices]
 type = PlaySnd
-trigger1 =  animelem = 4
+trigger1 =  animelem = 4 && random%4
 value = 1000, (2+(Random%2))
 volumescale=150
 channel = 6
