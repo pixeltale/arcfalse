@@ -326,6 +326,13 @@ ctrl = 0
 anim = 3010
 sprpriority = 8
 
+[State One Voices]
+type = PlaySnd
+trigger1 =  time = 0
+value = 3010, (0+(Random%3))
+volumescale=200
+channel = 6
+
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time = 0 
@@ -368,6 +375,13 @@ poweradd= 0
 ctrl = 0
 anim = 3011
 sprpriority = 8
+
+[State One Voices]
+type = PlaySnd
+trigger1 =  time = 0
+value = 3010, (0+(Random%3))
+volumescale=200
+channel = 6
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -913,6 +927,13 @@ poweradd= -4000
 ctrl = 0
 anim =3101
 sprpriority = 8
+
+[State One Voices]
+type = PlaySnd
+trigger1 =  time = 0
+value = 3050, (1+(Random%2))
+volumescale=200
+channel = 6
 
 [State 0, NotHitBy]
 type = NotHitBy

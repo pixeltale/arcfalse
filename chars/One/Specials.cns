@@ -9,6 +9,13 @@ anim =1000
 sprpriority = 2
 velset = vel x, 0
 
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 6
+value = 190, 0
+volumescale=150
+channel = 6
+
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 6
@@ -323,6 +330,13 @@ ctrl = 0
 anim =1010
 sprpriority = 2
 
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 7
+value = 180, 0
+volumescale=150
+channel = 6
+
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1
@@ -597,6 +611,14 @@ anim = 1020
 sprpriority = 2
 velset = vel x * 0.5, vel y * 0.1
 
+[State One Voices]
+type = PlaySnd
+triggerall = anim = 1020
+trigger1 =  animelem = 6
+value = 1000, (4+(Random%2))
+volumescale=150
+channel = 6
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = pos y >= -5
@@ -745,6 +767,13 @@ ctrl = 0
 anim = 1022
 sprpriority = 2
 velset = 4,-5
+
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 21
+value = 181, 0
+volumescale=150
+channel = 6
 
 [State 0, Targetbind]
 type = Targetbind
@@ -1274,6 +1303,13 @@ anim =1030
 sprpriority = 2
 facep2 = 1
 
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 4
+value = 1000, (4+(Random%2))
+volumescale=150
+channel = 6
+
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = stateno = 1030
@@ -1465,6 +1501,13 @@ ctrl = 0
 anim =1030
 sprpriority = 2
 facep2 = 1
+
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 4
+value = 1000, (4+(Random%2))
+volumescale=150
+channel = 6
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -2038,6 +2081,13 @@ ctrl = 0
 anim = 1900
 velset = 0,0 
 sprpriority = 2
+
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 6
+value = 190, 1
+volumescale=150
+channel = 6
 
 [State 210, Width]
 type = Width
@@ -3143,6 +3193,12 @@ ignorehitpause 	= 1
 persistent 		= 0
 ;=========================================
 
+[State 0, PlaySnd] ;no matter what i do. this shit will always be loud as hell.
+type = PlaySnd
+trigger1 =  time%2= 0 && time<35
+value = 8,0
+volume = 5
+
 [State 410, 2]
 type = HitDef 
 p2facing = 1
@@ -3155,7 +3211,6 @@ guardflag = MA
 pausetime = 1,2
 sparkno = 12
 sparkxy = 15-random%30,-random%70
-hitsound   = S8,0
 guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
@@ -4069,6 +4124,13 @@ velset = 2,-5
 facep2 = prevstateno = 1251 || prevstateno = 12251
 sprpriority = 2
 
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 4
+value = 1000, (4+(Random%2))
+volumescale=150
+channel = 6
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = time = 2
@@ -4339,6 +4401,13 @@ anim =1055
 velset = 3,-1 
 sprpriority = 2
 
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 4
+value = 1000, (2+(Random%2))
+volumescale=150
+channel = 6
+
 [State 0, PlayerPush]
 type = PlayerPush
 trigger1 = !moveguarded
@@ -4562,6 +4631,13 @@ ctrl = 0
 anim =1057
 velset = 3,-7 
 sprpriority = 2
+
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 9
+value = 1000, (4+(Random%2))
+volumescale=150
+channel = 6
 
 [State -2, Starter Level]
 type 		= MapSet
