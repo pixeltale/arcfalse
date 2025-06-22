@@ -363,7 +363,7 @@ value = 400
 triggerall = command = "x"
 triggerall = command = "holddown"
 triggerall = stateno !=40
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 200 && movecontact
 trigger3 = stateno = 400 && movecontact
@@ -376,7 +376,7 @@ type = ChangeState
 value = 410
 triggerall = command = "y"
 triggerall = command = "holddown"
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 400 || stateno = [200, 211]
 trigger2 = movecontact
@@ -390,7 +390,7 @@ value = 430
 triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command = "holdfwd"
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = [400, 420] || stateno = [200, 211]
 trigger2 = movecontact
@@ -403,7 +403,7 @@ type = ChangeState
 value = 420
 triggerall = command = "z"
 triggerall = command = "holddown"
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 200)|| (stateno = 210)||(stateno = 211)|| (stateno = 410)
 trigger2 = (movecontact)

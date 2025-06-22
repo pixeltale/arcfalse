@@ -646,67 +646,6 @@ elem 	= 4
 ignorehitpause = 1
 persistent = 1
 
-;ARMOR ============================++++
-[State 0, ChangeAnim]
-type 	= ChangeAnim
-trigger1 = enemynear, movehit = 1
-trigger2 = animelem = 1 && map(ArmorElement) > 1
-value 	= 230 + map(Charged)
-elem 	= map(armorElement)
-ignorehitpause = 1
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= animelem = 2 && prevstateno != 5000
-map 		= "armorPoints"
-value 		= 1
-ignorehitpause 	= 1
-persistent 	= 1
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= animelemno(0) > map(armorElement)
-map 		= "armorElement"
-value 		= animelemno(0)
-ignorehitpause 	= 1
-[State 0, HitOverride]
-type = HitOverride
-triggerall = !(enemy, map(ArmorBreak))		;"Armor Break" Attacks will bypass
-triggerall = animelemno(0) = [3,5]		;Active Frame Range
-trigger1 = map(ArmorPoints) > 0			;Withstand a Certain Hitcount. Armorpoints tick down with enemy attacks.
-attr = SCA,NA,SA,NP,SP
-slot = 0
-stateno = 230
-time = 1
-ignorehitpause = 0
-[State 0. MapSet]				;Does nothing to the performance of the armor.
-type 		= MapSet			;This value is used for enemy characters
-trigger1 	= animelemno(0) = [3, 5]	;To see if armor is currently active or not.
-map 		= "armorActive"
-value 		= 1
-ignorehitpause 	= 1
-[State 666, PosFreeze]
-type = PosFreeze
-trigger1 = enemy, movehit = 1
-value = 1
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = enemy, movehit
-time = 10
-add = 150,100,0
-mul = 256,256,256
-sinadd = 150,100,0,30
-invertall = 0
-color = 256
-[State 0, LifeAdd]
-type = LifeAdd
-trigger1 = enemy, movehit = 1
-value = -gethitvar(damage)
-kill = 1
-absolute = 0
-ignorehitpause = 1
-;=======================================
-
-
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
@@ -1634,7 +1573,7 @@ animtype 		= Med
 air.animtype 	= back
 ground.type 	= Low
 ground.slidetime 	= 12
-ground.hittime  	= 12 * MAP(untechMOD)
+ground.hittime  	= 18 * MAP(untechMOD)
 air.hittime  	= 20 * MAP(untechMOD)
 down.hittime 	= 20 * MAP(untechMOD)
 ground.velocity 	= -6
