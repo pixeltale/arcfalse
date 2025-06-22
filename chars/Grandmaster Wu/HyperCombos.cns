@@ -137,17 +137,14 @@ type = HitDef
 trigger1 = animelem = 30
 kill = 0
 attr = A, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *60 < 20, 20, fvar(11) * 60)), 5
+damage = 60 * MAP(P4) + 10, 5
 animtype = up                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 air.animtype = back
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAF                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAF
 pausetime = 10, 10                ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;Spark anim no (Def: set above)
-sparkxy = -14, -20               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = -14, -20
 hitsound = 5, 3                  ;Sound to play on hit
 guardsound = 6, 0                ;Sound to play on guard
 ground.type = low            ;Type: High, Low, Trip (def: Normal)
@@ -167,16 +164,13 @@ envshake.ampl = 2
 type = HitDef
 trigger1 = animelem = 34
 attr = A, HA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *80 < 20, 20, fvar(11) * 80)), 5
+damage = 80 * map(P4) + 10, 5
 animtype = medium                ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAF                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
-;Hit/Miss/Dodge type (Def: Hit)
+hitflag = MAF
 pausetime = 16, 16                ;Time attacker pauses, time opponent shakes
 sparkno =13                      ;Spark anim no (Def: set above)
-sparkxy = -14, -20               ;X-offset for the "hit spark" rel. to p2,
-;Y-offset for the spark rel. to p1
+sparkxy = -14, -20
 hitsound = 5, 4                  ;Sound to play on hit
 guardsound = 6, 0                ;Sound to play on guard
 ground.type = low            ;Type: High, Low, Trip (def: Normal)
@@ -185,9 +179,8 @@ ground.hittime  = 26             ;Time opponent is in hit state
 ground.velocity = -vel x             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
-air.velocity = -6,5           ;X-velocity at which opponent is pushed,
-;Y-velocity at which opponent is pushed
-air.hittime = 66                 ;Time before opponent regains control in air
+air.velocity = -6,5
+air.hittime = 66
 fall = 1
 air.fall = 1
 fall.yvelocity = -2
@@ -195,72 +188,9 @@ envshake.time = 14
 envshake.freq = 100
 envshake.ampl = 4
 
-[State 0, PlaySnd]
-type = PlaySnd
-triggerall = WinKO
-trigger1 = time = 5
-value = 8991,5
-channel = 0
-ignorehitpause = 1
-
-[State 0, PlaySnd]
-type = PlaySnd
-triggerall = WinKO
-trigger1 = time = 6
-value = 8991,5
-channel = 1
-ignorehitpause = 1
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 = WinKO
-flag = Nobardisplay
-flag2 = NoFG
-flag3 = Noshadow
-
-[State 8990, AssertSpecial]
-type = AssertSpecial
-trigger1 = WinKO
-flag = Nomusic
-
-[State 8990, Explod]
-type = Explod
-triggerall = WinKO
-trigger1 = Time = 0
-anim = 8992
-id = 8992
-pos = 160,120
-scale = .5,.5
-postype = Left
-bindtime = -1
-removetime = 35
-sprpriority = -16
-ownpal = 1
-supermovetime = -1
-
-[State 8990, Explod]
-type = Explod
-triggerall = WinKO
-trigger1 = time = 40
-anim = 8991
-id = 8991
-pos = 160,120
-scale = .5,.5
-postype = Left
-bindtime = -1
-removetime = -2
-sprpriority = -15
-ownpal = 1
-supermovetime = -1
-
-[State 8990, DestroySelf]
-type = DestroySelf
-trigger1 = RoundState > 3
-;---------------------------------------------------------------------------
 [State -3, Hyper Finish Background]
 type = Helper
-triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
-trigger1 = WinKO
+trigger1 = WinKO && !NumHelper(8990)
 name = "Hyper Finish B.G."
 id = 8990
 pos = 0,0
@@ -272,6 +202,10 @@ ownpal = 1
 supermovetime = 1000
 pausemovetime = 1000
 ignorehitpause = 1
+
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
 
 [State 0, ChangeState]
 type = ChangeState
@@ -533,57 +467,6 @@ freq = 120
 ampl = -4
 phase = 90
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = command = "a" && command = "c" && power>2000
-trigger1 = helper(3011),movecontact
-value = 690000
-ctrl = 0
-
-[State 0, PlaySnd]
-type = PlaySnd
-triggerall = WinKO
-trigger1 = time = 5
-value = 8991,5
-channel = 0
-ignorehitpause = 1
-
-[State 0, PlaySnd]
-type = PlaySnd
-triggerall = WinKO
-trigger1 = time = 6
-value = 8991,5
-channel = 1
-ignorehitpause = 1
-
-[State 8993, AssertSpecial]
-type = AssertSpecial
-trigger1 = WinKO
-flag = Nobardisplay
-flag2 = NoFG
-flag3 = Noshadow
-
-[State 8993, AssertSpecial]
-type = AssertSpecial
-trigger1 = WinKO
-flag = Nomusic
-
-[State 8993, Explod]
-type = Explod
-triggerall = WinKO
-trigger1 = Time = 0
-anim = 8993
-id = 8993
-pos = 160,120
-scale = .5,.5
-postype = Left
-bindtime = -1
-removetime = 35
-sprpriority = -16
-ownpal = 1
-supermovetime = -1
-ignorehitpause = 1
-
 [State 8993, DestroySelf]
 type = DestroySelf
 trigger1 = time > 300
@@ -601,8 +484,7 @@ ignorehitpause = 1
 
 [State -3, Hyper Finish Background]
 type = Helper
-triggerall = WinKO && RoundState = 3 && NumHelper(8993) = 0
-trigger1 = WinKO
+trigger1 = WinKO && !NumHelper(8993)
 name = "Hyper Finish B.G."
 id = 8993
 pos = 0,0
@@ -852,6 +734,21 @@ pausemovetime = 999
 size.xscale = 0.7
 size.yscale = 0.7
 
+[State -3, Hyper Finish Background]
+type = Helper
+trigger1 = WinKO && !NumHelper(8990)
+name = "Hyper Finish B.G."
+id = 8990
+pos = 0,0
+postype = p1
+facing = 0
+stateno = 8990
+keyctrl = 0
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+ignorehitpause = 1
+
 [State 0, AssertSpecial]
 type = AssertSpecial
 trigger1 = 1
@@ -960,9 +857,5 @@ sprpriority =9
 anim = 3024
 
 [State 0, ChangeState]
-type = ChangeState
+type = DestroySelf
 trigger1 = animtime = 0
-value = 99999
-ctrl = 0
-;ignorehitpause = 
-;persistent = 

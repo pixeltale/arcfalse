@@ -271,11 +271,12 @@ start.x = -50       ;Starting x-coords
 counter.font 	= 4,0
 counter.scale=0.9,0.9
 counter.shake = 1   ;Set to 1 to shake count on hit
+counter.layerno = 0
 text.text = Hits! %d damage      ;You can use %i to show count in the text, eg "%i Hit!"
 text.font = 3,0
 text.scale=1, 0.9
 text.offset = 5, 0   ;Offset of text
-text.layerno = -1
+text.layerno = 0
 displaytime = 30    ;Time to show text
 
 
