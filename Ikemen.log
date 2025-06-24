@@ -1,5 +1,6 @@
-.\external\script\start.lua:1401: chars\DREYVON/Normals.cns:3324:
-reversal.attr parameter not specified
+.\external\script\start.lua:1401: chars\GRANDMASTER WU/Grandmaster Wu.cns:356:
+
+volumescale: Nothing assigned
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

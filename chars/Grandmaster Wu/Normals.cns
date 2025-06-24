@@ -18,10 +18,10 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 200                       ;Change animation (Def: no change)                
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
-[State 200, 2]
+[State Wu Voices]
 type = PlaySnd
-trigger1 = animelem = 3
-value = 0, 0
+trigger1 = time = 0
+value = 200, (0+(Random%12))
 
 [State -3, Vile Voices]
 type = PlaySnd
@@ -118,6 +118,11 @@ velset = vel x,0
 anim = 210
 sprpriority = -1
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 200, (0+(Random%6))
+
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelem = 3
@@ -213,7 +218,7 @@ ground.hittime  = 25 - map(untechDecay)
 air.hittime  = 35 - map(untechDecay)
 down.hittime = 35 - map(untechDecay)
 ground.velocity = -2.5
-air.velocity = -1.6,-3
+air.velocity = -1.6,-2.5
 palfx.time = 12
 palfx.add = 100, 0,20
  envshake.time = 8
@@ -256,14 +261,11 @@ facep2 = 1
 anim = 220
 sprpriority = -1
 
-[State -3, Vile Voices]
+[State Wu Voices]
 type = PlaySnd
-trigger1 = animelem = 5
-value = 1004, (0+(Random%6))
-[State -3, Vile Voices]
-type = PlaySnd
-trigger1 = animelem = 7
-value = 2000,0
+trigger1 = time=0
+value = 220, (0+(Random%7))
+volumescale=80
 
 [State 0, Explod]
 type = Explod
@@ -402,6 +404,12 @@ velset = vel x,0
 anim = 230
 facep2 = 1
 sprpriority = -1
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 220, (0+(Random%7))
+volumescale=80
 
 [State 0, PosAdd]
 type = PosAdd
@@ -609,6 +617,11 @@ ctrl = 0
 anim = 400
 sprpriority = 2
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 200, (0+(Random%12))
+
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 3
@@ -704,6 +717,10 @@ ctrl = 0
 anim = 410
 sprpriority = 2
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 200, (0+(Random%6))
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem = 3
@@ -804,6 +821,12 @@ ctrl = 0
 anim = 420
 facep2 = 1
 sprpriority = 2
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 220, (0+(Random%7))
+volumescale=80
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1001,6 +1024,10 @@ facep2 = 1
 sprpriority = 2
 velset = 0,0
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 200, (0+(Random%6))
 [State 430, 1]
 type = PlaySnd
 trigger1 = Time = 1
@@ -1079,10 +1106,10 @@ sprpriority = 2
 facep2 = prevstateno = [1042,1043]
 velset = vel x, vel y
 
-[State -3, Vile Voices]
+[State Wu Voices]
 type = PlaySnd
-trigger1 = animelem = 2
-value = 1004, (0+(Random%6))
+trigger1 = time=0
+value = 200, (0+(Random%12))
 
 [State 200, 2]
 type = PlaySnd
@@ -1167,10 +1194,10 @@ sprpriority = 2
 facep2 = prevstateno = [1042,1043]
 velset = vel x, vel y
 
-[State -3, Vile Voices]
+[State Wu Voices]
 type = PlaySnd
-trigger1 = animelem = 5
-value = 1004, (0+(Random%6))
+trigger1 = time=0
+value = 200, (0+(Random%6))
 
 [State 200, 2]
 type = PlaySnd
@@ -1259,6 +1286,12 @@ anim = 630
 sprpriority = 2
 facep2 = prevstateno = [1042,1043]
 velset = vel x, vel y
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 220, (0+(Random%7))
+volumescale=80
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1382,8 +1415,8 @@ y = .9
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 4
-x = 6
-y = 10
+x = 8
+y = 12
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1430,7 +1463,7 @@ guardsound = 6,2
 ground.type = high 
 air.type = high
 ground.slidetime = 12
-ground.hittime  = 25 - map(untechDecay)
+ground.hittime  = 16 - map(untechDecay)
 air.hittime  = 30 - map(untechDecay)
 down.hittime = 40 - map(untechDecay)
 ground.velocity = -5
@@ -1438,7 +1471,7 @@ air.velocity = -2,-3.6
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
-guard.hittime = 30
+guard.hittime = 26
 guard.velocity = -7
 guard.dist = 20
 guard.slidetime = 30

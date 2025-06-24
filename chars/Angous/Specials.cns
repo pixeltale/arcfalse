@@ -3937,7 +3937,7 @@ p2facing = 1
 trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SA
-damage = 200*MAP(P4), 35
+damage = 100*MAP(P4), 35
 hitflag = MAFDP
 guardflag = MA
 priority = 3
@@ -4025,7 +4025,7 @@ ground.velocity = -3,0
 fall.xvelocity = -2
 fall.yvelocity = 0
 air.velocity = -3,-2
-air.hittime = 34
+air.hittime = 34 * root, map(UNTECHMOD)
 air.fall = 1
 sparkno = 1
 sparkxy = -20,-20
@@ -4074,7 +4074,7 @@ x = .8
 [State 0, ChangeState]
 type = Changeanim
 triggerall=anim!=1094
-trigger1 = time >= 30 && !movehit || map(projhits) > 3 || time >= 180
+trigger1 = time >= 30 && !movehit || map(projhits) > 3 || frontedgedist <= 15 && time >= 30
 trigger2 = parent,movetype = H
 value = 1094
 

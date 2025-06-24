@@ -19,6 +19,12 @@ velset = 4,-2
 anim =3000
 sprpriority = 8
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 3000, (1+(Random%2))
+volumescale=120
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 4
@@ -225,6 +231,12 @@ ctrl = 0
 anim = 3010
 sprpriority =8
 velset = 0,0
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 3010, (0+(Random%3))
+volumescale=120
 
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -590,6 +602,17 @@ poweradd= 0
 ctrl = 0
 anim = 3020
 sprpriority =8
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 3020, 0
+volumescale=120
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=80
+value = 3021, (0+(Random%2))
+volumescale=140
 
 [State 0, SuperPause]
 type = SuperPause

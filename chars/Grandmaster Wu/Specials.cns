@@ -20,6 +20,12 @@ anim = 1000                       ;Change animation (Def: no change)            
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 facep2 = 1
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 1000, (0+(Random%6))
+volumescale=80
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = time<90
@@ -227,6 +233,12 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1001                       ;Change animation (Def: no change)                  
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 facep2 = 1
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 1000, (0+(Random%6))
+volumescale=80
 
 ;------------------------------------
 ;Either he techs throws or he doesnt it depends
@@ -645,6 +657,12 @@ poweradd = -1000
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 facep2 = 1
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 1000, (0+(Random%6))
+volumescale=80
+
 ;-----
 ;LIMITER // Only Allowed ONCE During a combo // Find in -2
 [State 0, VarAdd]
@@ -967,6 +985,12 @@ ctrl = 0
 anim = 1022
 sprpriority = 2
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 1000, (0+(Random%5))
+volumescale=80
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= !time
@@ -1066,6 +1090,12 @@ velset = 2,-1                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 10222                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 1000, (0+(Random%5))
+volumescale=80
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1273,6 +1303,12 @@ ctrl = 0
 anim = 102223
 sprpriority = 2
 
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 220, (0+(Random%7))
+volumescale=80
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 0
@@ -1358,6 +1394,12 @@ velset = 4,-2                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1022                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State Wu Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 1000, (0+(Random%5))
+volumescale=80
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1781,7 +1823,7 @@ ignorehitpause = 1
 type = ChangeAnim
 triggerall = anim != 10322
 trigger1 = map(HitCount) > 0
-trigger2 = time >= 130
+trigger2 = time >= 100 || frontedgedist <= 15 && time >= 60
 trigger3 = root, movetype = H
 value = 10322
 
@@ -1888,7 +1930,7 @@ ignorehitpause = 1
 type = ChangeAnim
 triggerall = anim != 10333
 trigger1 = map(HitCount) > 2
-trigger2 = time >= 130
+trigger2 = time >= 130 || frontedgedist <= 15 && time >= 60
 trigger3 = root, movetype = H
 value = 10333
 
