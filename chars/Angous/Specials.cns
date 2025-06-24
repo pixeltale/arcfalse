@@ -10,6 +10,13 @@ ctrl 	= 0
 sprpriority = 2
 facep2 = 1
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 210, (0+(Random%7))
+volume = 150
+channel = 6
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -345,6 +352,13 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = time = 0
+value = 1002, 0
+volume = 150
+channel = 6
+
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -534,6 +548,13 @@ poweradd= 0
 ctrl = 0
 anim = 10400
 sprpriority = 2
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 200, (0+(Random%5))
+volume = 150
+channel = 6
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -732,6 +753,20 @@ poweradd= 0
 ctrl = 0
 anim = 10410
 sprpriority = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 10
+value = 1000, 1
+volume = 150
+channel = 6
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 21
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State 8000, Varadd]
 type = VarAdd
@@ -1169,6 +1204,13 @@ ctrl = 0
 anim = 10414
 sprpriority = 2
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 200, (0+(Random%5))
+volume = 150
+channel = 6
+
 [State -2, EX 4S Limiter]
 type 		= MapSet
 trigger1 	= !time
@@ -1425,6 +1467,20 @@ poweradd= 0
 ctrl = 0
 anim = 10415
 sprpriority = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 10
+value = 1000, 1
+volume = 150
+channel = 6
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 21
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -2741,6 +2797,12 @@ anim = 1031
 sprpriority = -1
 facep2 = 1
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 1000, (0 +(random%3))
+volume = 150
+channel = 6
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -3070,6 +3132,13 @@ velset = vel x,0
 anim = 1032
 sprpriority = -1
 facep2 = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 1000, (0+(random%3))
+volume = 150
+channel = 6
 
 
 ;EX Effects
@@ -3470,6 +3539,13 @@ ctrl = 0
 anim = 1091
 sprpriority = 2
 
+[State -3, Angous Voices]
+type 	= PlaySnd
+trigger1 	= animelem = 3
+value 	= 220, (0+(Random%6))
+volume = 150
+channel = 6
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -3672,6 +3748,13 @@ poweradd= 0
 ctrl = 0
 anim = 1091
 sprpriority = 2
+
+[State -3, Angous Voices]
+type 	= PlaySnd
+trigger1 	= animelem = 3
+value 	= 220, (0+(Random%6))
+volume = 150
+channel = 6
 
 
 [State 0, StopSnd]
@@ -4006,6 +4089,13 @@ anim = 10000
 ctrl = 0
 sprpriority = 2
 facep2 = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 210, (0+(Random%7))
+volume = 150
+channel = 6
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -4406,6 +4496,13 @@ sprpriority = 2
 facep2 = 1
 anim = 10035
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 1000, 0
+volume = 150
+channel = 6
+
 [State 0, PalFX]
 type = PalFX
 trigger1 = time = 0
@@ -4669,6 +4766,13 @@ anim = 10033
 ctrl = 0
 sprpriority = 2
 facep2 = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State 0, VarSet]
 type = VarSet
@@ -5122,6 +5226,14 @@ ctrl = 0
 anim = 1002
 sprpriority = 2
 
+[State -3, Angous Voices]
+type = PlaySnd
+triggerall = anim != 1002
+trigger1 = animelem = 4
+value = 1002, 0
+volume = 150
+channel = 6
+
 [State 0, VarSet]
 type = VarSet
 trigger1 = time =  0
@@ -5183,6 +5295,13 @@ ctrl = 0
 anim = 10034
 sprpriority = 2
 facep2 = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State 20022, bucky map]
 type = MapAdd
@@ -5454,6 +5573,13 @@ sprpriority = 2
 facep2 = 1
 anim = 10033
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 1002, 0
+volume = 150
+channel = 6
+
 [State 1200, Shake Screen]
 type = EnvShake
 trigger1 = animelem = 4
@@ -5657,6 +5783,13 @@ ctrl = 0
 velset = 1, -4
 anim = 10337
 sprpriority = -1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -5885,6 +6018,13 @@ ctrl = 0
 velset = 2,-2
 anim = 10338
 sprpriority = -1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -6220,6 +6360,14 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 210, (0+(Random%7))
+volume = 150
+channel = 6
+
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1
@@ -6451,6 +6599,13 @@ anim 	= 1001
 sprpriority = 2
 facep2 	= 1
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = time = 0
+value = 1002, 2
+volume = 150
+channel = 6
+
 [State Meter Burn State, VarSet]
 type = VarSet
 trigger1 = movehit = 1
@@ -6629,6 +6784,13 @@ ctrl = 0
 anim = 1003
 sprpriority = 2
 facep2 = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = time = 0
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -7116,6 +7278,13 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 4
+value = 210, (0+(Random%7))
+volume = 150
+channel = 6
+
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = movehit = 1
@@ -7374,6 +7543,13 @@ poweradd= 0
 ctrl = 0
 sprpriority = 2
 facep2 = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = time = 0
+value = 1002, 2
+volume = 150
+channel = 6
 
 [State 0, VarAdd]
 type = VarAdd
@@ -7939,6 +8115,13 @@ ctrl = 0
 ;anim = 1002
 sprpriority = 2
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = time = 0
+value = 1002, 0
+volume = 150
+channel = 6
+
 [State 8000, Varadd]
 type = VarAdd
 trigger1 = time = 0
@@ -8092,6 +8275,13 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 anim = 10033
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = time = 0
+value = 1002, 0
+volume = 150
+channel = 6
 
 [State -2, P1 Value Set]
 type 		= MapSet

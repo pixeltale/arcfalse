@@ -3672,7 +3672,6 @@ type = PlaySnd
 triggerall = name = "vile"
 trigger1 = time=0
 value = 3004, (0+(Random%19))
-channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
@@ -9686,7 +9685,6 @@ type = PlaySnd
 triggerall = name = "sahkive"
 trigger1 = map(DIE)=1
 value = 9000,(0+(Random%4))
-channel = 6
 loop = 0
 persistent = 0
 volumescale=150
@@ -9697,7 +9695,6 @@ triggerall = name = "eddy"
 triggerall = palno != 11
 trigger1 = map(DIE)=1
 value = 9001,(0+(Random%3))
-channel = 6
 loop = 0
 persistent = 0
 volumescale=150
@@ -9708,7 +9705,15 @@ triggerall = name = "eddy"
 triggerall = palno = 11
 trigger1 = map(DIE)=1
 value = 9001,5
-channel = 6
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "angous"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%4))
 loop = 0
 persistent = 0
 volumescale=150

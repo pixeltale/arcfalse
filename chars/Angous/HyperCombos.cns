@@ -11,6 +11,20 @@ velset = 0,0
 anim =3001
 sprpriority = 16
 
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = time = 0
+value = 3000, (0+(random%2))
+volume = 150
+channel = 6
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 3001, (0+(random%5))
+volume = 150
+channel = 6
+
 [State -3, Hyper Finish Background]
 type = Helper
 triggerall = WinKO && RoundState = 3 && NumHelper(8990) = 0
@@ -534,6 +548,21 @@ ctrl = 0
 velset = 0,0
 anim=3004
 sprpriority = 16
+
+[State -3, Angous Voices]
+type = PlaySnd
+triggerall = palno != 5
+trigger1 = time = 0
+value = 3000, (0+(random%2))
+volume = 150
+channel = 6
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 3001, (0+(random%5))
+volume = 150
+channel = 6
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1888,6 +1917,13 @@ ctrl = 0
 velset = 0,0
 anim =3010
 sprpriority = 8
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 9
+value = 3010, (7+(random%2))
+volume = 150
+channel = 6
 
 [State Meter Burn State, VarSet]
 type = VarSet
