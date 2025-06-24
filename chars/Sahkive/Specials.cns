@@ -533,7 +533,7 @@ air.fall = 1
 forcestand = 1
 ground.cornerpush.veloff = -7
 air.cornerpush.veloff = -7
-getpower = 25*var(2)
+getpower = 25
 kill = 0
 
 [State 0]
@@ -567,7 +567,7 @@ envshake.phase = 10
 p2facing = 1
 ground.cornerpush.veloff = -7
 air.cornerpush.veloff = -7
-getpower = 25*var(2)
+getpower = 100
 
 [State 0]
 type = hitdef 
@@ -599,7 +599,7 @@ envshake.phase = 10
 p2facing = 1
 ground.cornerpush.veloff = -7
 air.cornerpush.veloff = -7
-getpower = 25*var(2)
+getpower = 100
 p2stateno = 915030
 
 [State 0, Explod]
@@ -1777,7 +1777,7 @@ guard.velocity = -6
 guard.hittime = 30
 guard.slidetime = 19
 guard.ctrltime = 24
-getpower = 0
+getpower = 200
 snap = -20,30
 
 [State 0, ChangeState]
@@ -2048,7 +2048,7 @@ channel = 6
 type 		= MapSet
 trigger1 		= 1
 map 		= "ScratchLockout"
-value 		= 20
+value 		= 5
 ignorehitpause 	= 1
 persistent		= 1
 
@@ -3402,7 +3402,7 @@ air.cornerpush.veloff 	= -7
 guard.hittime 		= 21
 guard.slidetime 		= 13
 guard.ctrltime 		= 20
-getpower 			= 25*var(2)
+getpower 			= 150
 p2stateno 		= 5220
 p2getp1state 		= 0
 

@@ -199,6 +199,7 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 p2facing = 1
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 210, 4]
 type = SprPriority
@@ -344,6 +345,7 @@ envshake.freq = 80
 envshake.ampl = 4
 guard.ctrltime = 10
 guard.slidetime = 10
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 200, 2]
 type = PlaySnd
@@ -827,6 +829,7 @@ envshake.ampl = 2
 envshake.phase = 4
 air.fall = 1
 guard.ctrltime = 10
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 410, 4]
 type = ChangeState
@@ -997,6 +1000,7 @@ envshake.freq = 90
 envshake.ampl = 2
 air.fall = 1
 fall = 1
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0]
 type = HitDef
@@ -1030,6 +1034,7 @@ guard.slidetime = 10;
 envshake.time = 9
 envshake.freq = 90
 envshake.ampl = 2
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1421,6 +1426,7 @@ envshake.ampl = 6
 guard.hittime = 28
 guard.ctrltime = 19
 guard.slidetime = 18
+getpower = 150
 
 [State 430, 3]
 type = ChangeState
@@ -1587,6 +1593,7 @@ guard.ctrltime = 6
 ground.velocity = -1.5
 air.velocity = -1.8,-2
 air.fall = 1
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 600, 3]
 type = CtrlSet
@@ -1596,7 +1603,7 @@ value = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 =animtime = 0 
-value = 69000
+value = 50
 ctrl = 1
 
 [State 0, ChangeState]

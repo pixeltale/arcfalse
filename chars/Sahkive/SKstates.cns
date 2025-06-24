@@ -401,7 +401,6 @@ trigger1 = Time = 0
 sysvar(1) = 0
 
 
-
 [State 50, 2]
 type = ChangeAnim
 trigger1 = Time = 0

@@ -1518,7 +1518,7 @@ trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
 air.animtype = back
-damage = 100 * MAP(P4) + (40*map(CounterHit)), 0
+damage = 100 * MAP(P4) + (40*map(CounterHit)), 50
 pausetime = 20,20
 sparkno = 2
 sparkxy = -p2dist x * 0.25,-1
