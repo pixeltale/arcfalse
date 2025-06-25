@@ -370,7 +370,7 @@ buffer.time=2
 name = "holddown";Required (do not remove)
 command = /$D
 time = 1
-buffer.time=2
+buffer.time = 1
 
 [Command]
 name = "fwd"
@@ -1308,7 +1308,7 @@ type = ChangeState
 value = 420
 triggerall = command = "z"
 triggerall = command != "holdfwd"
-triggerall = command ="holddown"
+triggerall = command = "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 410 && movecontact

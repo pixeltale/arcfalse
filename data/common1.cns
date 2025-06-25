@@ -2046,7 +2046,6 @@ type = MapSet
 trigger1 = !time
 map = "PBCheck"
 value = 0
-ignorehitpause = 1
 [State 0, MapSet] ;Pushblock Boolean Reset
 type = MapSet
 trigger1 = numhelper(99149)
@@ -2056,7 +2055,7 @@ ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
-triggerall = enemy, hitdefattr = SCA, NA, SA, HA
+triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
 trigger1 = (Command = "pushblock") && !numhelper(99149)
 helpertype = normal ;player
 name = "pushblock"
@@ -2130,8 +2129,15 @@ x = 0
 
 [State 151, Ctrl]
 type = ctrlset
-triggerall = prevstateno != 155
-trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0 - 5 * map(PBCheck))
+triggerall = !map(PBCheck)
+trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0)
+value = 1
+ignorehitpause = 0
+persistent = 0
+[State 151, Ctrl]
+type = ctrlset
+triggerall = map(PBCheck)
+trigger1 = time = gethitvar(ctrltime) + 5
 value = 1
 ignorehitpause = 0
 persistent = 0
@@ -2203,7 +2209,7 @@ ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
-triggerall = enemy, hitdefattr = SCA, NA, SA, HA
+triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
 trigger1 = (Command = "pushblock") && !numhelper(99149)
 helpertype = normal ;player
 name = "pushblock"
@@ -2273,7 +2279,15 @@ x = 0
 
 [State 151, Ctrl]
 type = ctrlset
-trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0 - 5* map(PBCheck))
+triggerall = !map(PBCheck)
+trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0)
+value = 1
+ignorehitpause = 0
+persistent = 0
+[State 151, Ctrl]
+type = ctrlset
+triggerall = map(PBCheck)
+trigger1 = time = gethitvar(ctrltime) + 5
 value = 1
 ignorehitpause = 0
 persistent = 0
@@ -2348,7 +2362,7 @@ ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
-triggerall = enemy, hitdefattr = SCA, NA, SA, HA
+triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
 trigger1 = (Command = "pushblock") && !numhelper(99149)
 helpertype = normal ;player
 name = "pushblock"
@@ -2390,7 +2404,15 @@ y = 0.4 + 0.2*(pos y > -10)
 
 [State 151, Ctrl]
 type = ctrlset
-trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0 - 5 * map(PBCheck))
+triggerall = !map(PBCheck)
+trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0)
+value = 1
+ignorehitpause = 0
+persistent = 0
+[State 151, Ctrl]
+type = ctrlset
+triggerall = map(PBCheck)
+trigger1 = time = gethitvar(ctrltime) + 5
 value = 1
 ignorehitpause = 0
 persistent = 0
@@ -7389,7 +7411,7 @@ juggle  		= 0
 poweradd		= 0
 ctrl 		= 0
 anim 		= 9999
-velset 		= 0
+velset 		= -7
 
 [State 0, Explod]
 type = Explod
@@ -7435,6 +7457,11 @@ removeongethit = 0
 type = PlaySnd
 trigger1 = time=0
 value = F4141,0
+
+[State 0, PlaySnd]
+type = PlayerPush
+trigger1 = 1
+value = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -7865,26 +7892,6 @@ ignorehitpause = 1
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
-
-;=============================================================================
-;Pushblock Stuff
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = enemy, movehit
-map = "PBCheck"
-value = 0
-ignorehitpause = 1
-
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = map(PBCheck)
-value = 0.5
-ignorehitpause = 1
-[State 0, DefenceMulSet]
-type = DefenceMulSet
-trigger1 = !map(PBCheck)
-value = 1
-ignorehitpause = 1
 
 ;=============================================================================
 ;Record Scratch Refund
@@ -8401,6 +8408,14 @@ persistent	= 0
 ;====================================================================
 ;Improved Pushblock
 ;====================================================================
+;=============================================================================
+;Pushblock Stuff
+[State 0, MapSet] ;Pushblock Boolean Reset
+type = MapSet
+trigger1 = enemy, movehit
+map = "PBCheck"
+value = 0
+ignorehitpause = 1
 [State -2, Pushblock Improvement]
 type = velmul
 trigger1 = numhelper(99149)
@@ -8411,10 +8426,11 @@ y = 0.05
 type = velmul
 trigger1 = enemy, numhelper(99149)
 x = 0.80
+
 [State -2, Pushblock Improvement]
-type = posadd
+type = velset
 trigger1 = enemy, numhelper(99149)
-x = -4
+x = -1
 
 ;=================================
 ;Invulnerability Types

@@ -989,7 +989,7 @@ ignorehitpause = 1
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = animelemno(0) >= 5
+triggerall = animelemno(0) >= 4
 trigger1 = command = "x" || command = "y" || command = "z"
 value = 1051
 ctrl = 0
@@ -1523,7 +1523,7 @@ juggle  	= 0
 poweradd	= 0
 ctrl 		= 0
 velset 		= 0,0
-anim 		= 700
+anim 		= 1080
 sprpriority 	= 2
 facep2 		= 1
 
@@ -1577,7 +1577,7 @@ type 		= ChangeAnim
 triggerall 	= prevstateno != [120,155]
 trigger1 	= animelemno(0) = 3 || enemy, movehit = 1
 trigger1 	= ( command = "holdb" || command = "b" ) && map(HoldTimer) < 35
-value 		= 700
+value 		= 1080
 elem 		= 3
 ignorehitpause 	= 1
 [State 700, Flash]
@@ -1612,7 +1612,7 @@ ctrl 		= 1
 type = S
 physics = S
 movetype = I
-anim = 701
+anim = 1081
 velset = 0, 0
 ctrl = 0
 sprpriority = 5
@@ -1621,12 +1621,7 @@ facep2 = 1
 
 [State 0, SprPriority]
 type = SprPriority
-trigger1 = anim = 701
-value = 10
-ignorehitpause = 1
-[State 0, SprPriority]
-type = SprPriority
-trigger1 = anim = 701
+trigger1 = anim = 1081
 value = 4
 ignorehitpause = 1
 
@@ -1694,26 +1689,26 @@ ignorehitpause = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-triggerall = anim = 701
+triggerall = anim = 1081
 trigger1 = vel x > 0
-value = 702
+value = 1082
 ignorehitpause = 1
 [State 0, ChangeAnim]
 type = ChangeAnim
-triggerall = anim = 701
+triggerall = anim = 1081
 trigger1 = vel x < 0
-value = 703
+value = 1083
 ignorehitpause = 1
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = anim = 702
+trigger1 = anim = 1082
 trigger1 = animelem = 3 || animelem = 4 || animelem = 5 || animelem = 6 || animelem = 7
 x = 9
 ignorehitpause = 1
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = anim = 703
+trigger1 = anim = 1083
 trigger1 = animelem = 3 || animelem = 4 || animelem = 5 || animelem = 6 || animelem = 7
 x = -9
 ignorehitpause = 1

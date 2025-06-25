@@ -321,8 +321,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "retribution = %f"
-params = map(retribution)
+text = "RNG = %f"
+params = map(RNG)
 ignorehitpause = 1
 persistent = 1
 

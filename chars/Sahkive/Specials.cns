@@ -1993,7 +1993,7 @@ persistent         = 0
 [State 800, 1] ;With grab sound
 type = HitDef
 Trigger1 = time = 0 
-attr = S, ST          ;Attributes: Standing, Normal Throw
+attr = S, SA, ST          ;Attributes: Standing, Normal Throw
 hitflag = MAFD          ;Affect only ground people who are not being hit
 guardflag = MA
 priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
