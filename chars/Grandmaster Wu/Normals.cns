@@ -1676,6 +1676,7 @@ type = PlaySnd
 trigger1 = time=0
 value = 4200, (0+(Random%4))
 volumescale=180
+channel = 9
 
 [State 999]
 type = explod
@@ -1687,7 +1688,6 @@ ownpal = 1
 [State 200, 2]
 type = PlaySnd
 trigger1 = time = 0
-loop = 1 ;&& !movetype = H
 value = 3035, 0
 channel = 9
 
@@ -1731,7 +1731,6 @@ ownpal = 1
 [State 200, 2]
 type = PlaySnd
 trigger1 = time = 0
-loop = 1 ;&& !movetype = H
 value = 3035, 0
 channel = 9
 
@@ -1776,7 +1775,6 @@ ownpal = 1
 [State 200, 2]
 type = PlaySnd
 trigger1 = time = 0
-loop = 1 ;&& !movetype = H
 value = 3035, 0
 channel = 9
 
@@ -1821,7 +1819,6 @@ ownpal = 1
 [State 200, 2]
 type = PlaySnd
 trigger1 = time = 0
-loop = 1 ;&& !movetype = H
 value = 3035, 0
 channel = 9
 
@@ -1851,7 +1848,6 @@ ownpal = 1
 [State 200, 2]
 type = PlaySnd
 trigger1 = time = 0
-loop = 1 ;&& !movetype = H
 value = 3035, 0
 channel = 9
 
@@ -1870,7 +1866,6 @@ physics = N
 anim = 1011
 velset = vel x,0
 ctrl = 0
-
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -1931,11 +1926,6 @@ postype = P1
 pauseMoveTime = 65535
 superMoveTime = 65535
 ownPal = 0
-
-[State 0, StopSnd]
-type = StopSnd
-trigger1 = movetype = H
-channel = 9
 
 [State 0, Helper]
 type = Helper
@@ -2109,6 +2099,11 @@ anim = 1014
 ;velset = vel x, prevstateno = 2001
 ctrl = 0
 
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = animelem = 2
+channel = 9
+
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = pos y < 0
@@ -2124,10 +2119,6 @@ anim = 999999
 id = 893
 ownpal = 1
 
-[State 0, StopSnd]
-type = StopSnd
-trigger1 = 1
-channel = 9
 
 [State 0, RemoveExplod]
 type = RemoveExplod

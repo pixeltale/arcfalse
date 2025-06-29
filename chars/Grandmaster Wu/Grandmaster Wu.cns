@@ -349,8 +349,7 @@ ctrl = 1
 
 [State 0, StopSnd]
 type = StopSnd
-trigger1 = movetype = H
-trigger1 = stateno !=[12000,42000]
+trigger1 = movetype = H || stateno = 52
 channel = 9
 
 [State 2001, Particles]
