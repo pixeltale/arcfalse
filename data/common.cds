@@ -19,14 +19,17 @@ time = 1
 name = "x"
 command = x
 time = 1
+buffer.time = 1
 [Command]
 name = "y"
 command = y
 time = 1
+buffer.time = 1
 [Command]
 name = "z"
 command = z
 time = 1
+buffer.time = 1
 
 [Command]
 name = "w"
@@ -58,6 +61,11 @@ name = "SP"
 command = a
 time = 1
 buffer.time = 1
+[Command]
+name = "SP"
+command = x+z
+time = 3
+buffer.time = 3
 
 
 [Command]
@@ -1109,6 +1117,11 @@ name = "M44"
 command = /DB, w
 time = 1
 [Command]
+name = "M44"
+command = /$B, x+y
+time = 1
+buffer.time = 0
+[Command]
 name = "M66"
 command = w
 time = 1
@@ -1116,6 +1129,11 @@ time = 1
 name = "M66Hold"
 command = /w
 time = 1
+[Command]
+name = "M66"
+command = x+y
+time = 2
+buffer.time = 0
 
 
 [Command]
@@ -1142,15 +1160,6 @@ buffer.time = 5
 ;-| Throws |-----------------------------------------------
 [Command]
 name = "throw"
-command = x+y
-time = 3
-buffer.time = 3
-[Command]
-name = "throw"
-command = /x, y
-time = 1
-[Command]
-name = "throw"
 command = y+z
 time = 3
 [Command]
@@ -1158,27 +1167,11 @@ name = "throw"
 command = /y, z
 time = 1
 buffer.time = 3
-[Command]
-name = "throw"
-command = x+z
-time = 3
-buffer.time = 3
-[Command]
-name = "throw"
-command = /x, z
-time = 1
+
 
 [Command]
 name = "throwtech"
-command = x+y
-time = 1
-[Command]
-name = "throwtech"
 command = y+z
-time = 1
-[Command]
-name = "throwtech"
-command = x+z
 time = 1
 
 
