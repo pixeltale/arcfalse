@@ -7868,12 +7868,14 @@ trigger1 = ctrl || (stateno = [200,230] && time < 4) && prevstateno != [200, 430
 type = ChangeState
 value = 100
 triggerall = command = "M66"
-triggearll = command != "holdback" && command != "back"
+triggerall = command != "holdback" && command != "back"
+trigger1 = prevstateno != [200,230]
 trigger1 = (stateno = [200,230] && time < 4) && !movecontact
 [State -1, Dash Kara] 
 type = ChangeState
 value = 105
 triggerall = command = "M44"
+trigger1 = prevstateno != [200,230]
 trigger1 = (stateno = [200,230] && time < 4) && !movecontact
 
 ;==============================================================================
