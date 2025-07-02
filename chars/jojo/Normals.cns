@@ -2622,7 +2622,7 @@ velset = -4
 type = NotHitBy
 triggerall = enemy, stateno != 900
 trigger1 = !movehit && !movecontact
-trigger1 = animelemno(0) <= 15
+trigger1 = animelemno(4) <= 14
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 ignorehitpause = 1
