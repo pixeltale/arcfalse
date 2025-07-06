@@ -1289,7 +1289,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "ArmorElement = %f"
-params = map(armorelement)
+params = map(AIRGUARD.LOCKOUT)
 
 [State 0, PalFXWiz]
 type = PalFX

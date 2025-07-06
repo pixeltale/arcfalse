@@ -1578,19 +1578,19 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "x"
+trigger1 = command = "Stance_L"
 trigger1 = time >= 5
 value = 707
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "y"
+trigger1 = command = "Stance_M"
 trigger1 = time >= 5
 value = 705
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "z"
+trigger1 = command = "Stance_H"
 trigger1 = time >= 5
 value = 706
 ctrl = 0
@@ -1647,7 +1647,7 @@ persistent 	= 0				        ;+
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command != "holdc"
+trigger1 = command = "Stance_Cancel" && time > 2
 value = 704
 ctrl = 0
 
@@ -1666,19 +1666,19 @@ ignorehitpause 	= 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "x"
+trigger1 = command = "Stance_L"
 trigger1 = time
 value = 707
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "y"
+trigger1 = command = "Stance_M"
 trigger1 = time
 value = 705
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "z"
+trigger1 = command = "Stance_H"
 trigger1 = time
 value = 706
 ctrl = 0
@@ -1935,23 +1935,20 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = command = "x"
-trigger1 = animelemno(0) > 8
-trigger2 = movecontact
+trigger1 = command = "Stance_L"
+trigger1 = animelemno(0) > 8 || movecontact
 value = 707
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-triggerall = command = "y"
-trigger1 = animelemno(0) > 8
-trigger2 = movecontact
+trigger1 = command = "Stance_M"
+trigger1 = animelemno(0) > 8 || movecontact
 value = 705
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-triggerall = command = "z"
-trigger1 = animelemno(0) > 8
-trigger2 = movecontact
+trigger1 = command = "Stance_H"
+trigger1 = animelemno(0) > 8 || movecontact
 value = 706
 ctrl = 0
 

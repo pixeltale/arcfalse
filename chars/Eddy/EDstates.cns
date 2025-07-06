@@ -460,6 +460,20 @@ velset = 0,0
 anim = 161
 ctrl = 0
 
+[State 0, AfterImage] ;DC Afterimage Effect             ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= time =  0			        ;+
+trigger1		= prevstateno = [1000,1600]	;+
+time 		= 10				        	;+
+length 		= 15   				       ;+
+timegap 		= 2
+framegap		= 1				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 64, 100, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+;==================================================++
+
 [State 0, AssertSpecial]
 type = AssertSpecial
 trigger1 = time <= 20

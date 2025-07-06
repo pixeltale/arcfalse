@@ -167,6 +167,7 @@ animtype 		= medium
 ground.hittime  	= 40
 ground.velocity 	= -20,-6
 air.velocity 	= -20,-2
+down.velocity	= -20, -6
 air.hittime 	= 15
 fall 		= 1
 guard.ctrltime 	= 10
@@ -193,6 +194,13 @@ sprpriority = -15
 ownpal = 1
 supermovetime = -1
 
+
+[State 0, Changestate]
+type = Changestate
+triggerall = movecontact && map(EnLock)
+trigger1 = command = "66" || command = "M66"
+value = 100
+ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = anim = [3001,3002]

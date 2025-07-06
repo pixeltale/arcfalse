@@ -1,5 +1,5 @@
-.\external\script\start.lua:1401: data/common1.cns:7877:
-Invalid data: )
+.\external\script\start.lua:1401: chars\JV/UNORMALS.cns:1650:
+Command doesn't exist: stance_cancel
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

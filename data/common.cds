@@ -61,11 +61,6 @@ name = "SP"
 command = a
 time = 1
 buffer.time = 1
-[Command]
-name = "SP"
-command = x+z
-time = 3
-buffer.time = 3
 
 
 [Command]
@@ -1112,10 +1107,12 @@ time = 1
 name = "M44"
 command = /B, w
 time = 1
+buffer.time = 0
 [Command]
 name = "M44"
 command = /DB, w
 time = 1
+buffer.time = 0
 [Command]
 name = "M44"
 command = /$B, x+y
@@ -1125,10 +1122,12 @@ buffer.time = 0
 name = "M66"
 command = w
 time = 1
+buffer.time = 0
 [Command]
 name = "M66Hold"
 command = /w
 time = 1
+buffer.time = 0
 [Command]
 name = "M66"
 command = x+y

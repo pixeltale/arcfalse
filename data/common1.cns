@@ -8235,15 +8235,34 @@ ignorehitpause = 1
 ;=======================================
 
 ;=======================================
-;Cant instantly block after jumping
+;Cant instantly block grounded attacks after jumping
 ;=======================================
 [State 0, AssertSpecial]
 type = AssertSpecial
-triggerall = enemynear, statetype = S
-triggerall = stateno = 50
-trigger1 = time <= 1
+trigger1 = map(AIRGUARD.LOCKOUT) > 0
 flag = noairguard
 ignorehitpause = 1
+
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 	= stateno = 40
+map 		= "AIRGUARD.LOCKOUT"
+value 		= 5
+ignorehitpause 	= 1
+[State -2, Wallbounce Type Set]
+type 		= MapAdd
+trigger1 	= map(AIRGUARD.LOCKOUT) > 0
+map 		= "AIRGUARD.LOCKOUT"
+value 		= -1
+ignorehitpause 	= 1
+
+[State 700, Flash]
+type = palfx
+triggerall = map(AIRGUARD.LOCKOUT) > 0
+trigger1 = enemy, movehit
+add = 255, 165, 0
+sinadd = -255, -165, 0, 60
+time = 15
 
 ;=======================================
 ;Lose iframes after countered

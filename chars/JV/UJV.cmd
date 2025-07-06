@@ -76,6 +76,27 @@ command = ~D, D, c
 time = 10
 
 [Command]
+name = "Stance_Cancel"
+command = c
+time = 1
+buffer.time = 0
+[Command]
+name = "Stance_L"
+command = /x
+time = 1
+buffer.time = 0
+[Command]
+name = "Stance_M"
+command = /y
+time = 1
+buffer.time = 0
+[Command]
+name = "Stance_H"
+command = /z
+time = 1
+buffer.time = 0
+
+[Command]
 name = "feintBuffer_m"
 command = /y
 time = 1
