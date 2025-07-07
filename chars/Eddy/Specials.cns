@@ -1458,7 +1458,7 @@ poweradd		= 0
 ctrl 		= 0
 anim 		= 1015
 sprpriority 	= 2
-facep2 	= map(SJI)
+facep2 		= map(SJI)
 
 [State Eddy Voices]
 type = PlaySnd
@@ -1520,28 +1520,28 @@ guardflag 	= MA
 hitflag 		= MAFD
 priority 		= 4
 pausetime 	= 2,2
-sparkno 		= 1
-sparkxy 		= -10,-35
-hitsound   	= 5,0
-guardsound 	= 6,0
+sparkno 			= 1
+sparkxy 			= -10,-35
+hitsound   		= 5,0
+guardsound 		= 6,0
 animtype 		= Med
-air.animtype 	= back
-ground.type 	= Low
-ground.hittime  	= 20 * MAP(untechMOD)
+air.animtype 		= back
+ground.type 		= Low
+ground.hittime  		= 20 * MAP(untechMOD)
 air.hittime  		= 25 * MAP(untechMOD)
 down.hittime 		= 20 * MAP(untechMOD)
-ground.velocity 	= -1
+ground.velocity 		= -1
 air.velocity 		= -1,-1;
 air.fall 			= 1
-guard.slidetime 	= 8
-guard.ctrltime 	= 12
+guard.slidetime 		= 8
+guard.ctrltime 		= 12
 guard.hittime 		= 12
-getpower 			= (50)*(cond(var(var(3)) = 1, 1, .5)) 
+getpower 		= (50)*(cond(var(var(3)) = 1, 1, .5)) 
 
 [State 0, VelMul]
 type = VelMul
 trigger1 = animelemno(0) < 6
-x = 0.9
+x = 0.95
 y = 0.85
 
 [State 0, VelAdd]

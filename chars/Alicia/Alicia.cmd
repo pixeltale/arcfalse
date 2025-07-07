@@ -59,9 +59,8 @@ trigger3 = stateno = 240 && movecontact
 type = ChangeState
 value = 40
 triggerall = command = "up" || movecontact && command = "holdup"
-trigger1 = stateno = [200,220] || stateno = 420
-trigger1 = movehit
-trigger2 = stateno = 240 && movecontact
+trigger1 = stateno = [200,240] || stateno = 420
+trigger1 = movecontact
 [State -1,DJC]
 type = ChangeState
 value = 45
@@ -195,11 +194,7 @@ triggerall = command = "x"
 triggerall = command != "holddown"
 trigger1 = statetype != A || map(Float)
 trigger1 = ctrl
-trigger2 = command = "x"
-trigger2 = movecontact =1 ;&& enemynear, movetype = H
-trigger2 = stateno = 400 && time>1
-trigger2 = movecontact = 1 ;&& enemynear, movetype = H
-trigger3 = stateno = 200 && movecontact
+trigger2 = (stateno = 400 || stateno = 200) && movecontact
  
 ;6M: The Slay Button
 [State -1, 6M]
@@ -220,8 +215,7 @@ triggerall = command = "y"
 triggerall = command != "holddown"
 triggerall = statetype != A || map(Float)
 trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact
-trigger3 = stateno = 400 && movecontact
+trigger2 = (stateno = 200 || stateno = 400) && movecontact
 
 ;---------------------------------------------------------------------------
 ;Xenocide Cutter

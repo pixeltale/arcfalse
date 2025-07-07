@@ -1786,28 +1786,28 @@ removeongethit = 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "c" && time > 14
+trigger1 = command = "Stance_Cancel" && time > 14
 trigger2 = time > 90
 value = 704
 ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = command = "x"
+triggerall = command = "Stance_L"
 trigger1 = animelemno(0) = 8
 trigger2 = movecontact
 value = 707
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-triggerall = command = "y"
+triggerall = command = "Stance_M"
 trigger1 = animelemno(0) = 8
 trigger2 = movecontact
 value = 705
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-triggerall = command = "z"
+triggerall = command = "Stance_H"
 trigger1 = animelemno(0) = 8
 trigger2 = movecontact
 value = 706

@@ -179,7 +179,7 @@ envshake.time 	= 8
 envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
-guard.ctrltime 	= 12
+guard.ctrltime 	= 8
 getpower 	= (50)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 200, 3]
@@ -261,7 +261,7 @@ air.animtype 	= UP
 damage 		= 80*map(P4)
 hitflag 		= MAFD
 guardflag 	= MA
-pausetime 	= 12,12
+pausetime 	= 10,10
 sparkno 		= 1
 sparkxy 		= -15,-60
 hitsound   	= 5,1
@@ -275,7 +275,7 @@ down.hittime 		= 35 * MAP(untechMOD)
 ground.velocity 		= -5
 air.velocity 		= -5, 3
 down.velocity 		= -5, -3
-guard.ctrltime 		= 16
+guard.ctrltime 		= 10
 guard.velocity 		= -5
 air.fall 			= 1
 fall.yvelocity 		= 0

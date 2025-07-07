@@ -177,7 +177,7 @@ triggerall = command = "holdfwd"
 triggerall = command != "holddown"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = hitdefattr = A, NA
+trigger2 = hitdefattr = A, NA & movecontact
 
 ;---------------------------------------------------------------------------
 [State -1, EX Gentle Rocket]
