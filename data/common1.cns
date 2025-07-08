@@ -290,6 +290,7 @@ type    = S
 physics = S
 ctrl = 0
 anim = 47
+facep2 = 1
 
 [State 52, 1]
 type = VelSet
@@ -9606,13 +9607,22 @@ map = "ComboTimer"
 value = 1
 ignorehitpause = 1
 
+[State -2, Combo Timer - LVL 1 Starter - Short] 
+type = MapSet			
+triggerall = !map(startDelay) && !map(HasLevel)		
+trigger1 = enemy, movetype = H				
+trigger1 = map(StarterLevel) = 1
+map = "ComboTimer"
+value = 120
+ignorehitpause = 1
+
 [State -2, Combo Timer - LVL 2 Starter - Normal] 
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
 trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag)
 map = "ComboTimer"
-value = -1
+value = 60
 ignorehitpause = 1
 
 [State -2, Combo Timer - LVL 3 Starter - Long] 
@@ -9621,7 +9631,7 @@ triggerall = !map(startDelay) && !map(HasLevel)
 trigger1 = enemy, movetype = H				
 trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag)
 map = "ComboTimer"
-value = -120
+value = -60
 ignorehitpause = 1
 
 [State -2, Combo Timer - LVL 4 Starter - Very Long] 

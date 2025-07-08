@@ -475,13 +475,6 @@ ownpal = 0
 removeongethit = 1
 ignorehitpause = 0
 
-[State 0, Pause]
-type = Pause
-trigger1 = parent,Movecontact = 1
-time = 16
-movetime = 0
-ignorehitpause = 1
-
 [State 0, RemapPal]
 type = RemapPal
 trigger1 = 1
@@ -504,7 +497,7 @@ dest = 1,root, var(17)
 type = DestroySelf
 trigger1 = animtime = 0
 trigger2 = parent,movetype = H
-trigger3 = parent,stateno = [3010,3020]
+trigger3 = parent,stateno != [2010,2015]
 ;ignorehitpause = 
 ;persistent = 
 
@@ -551,13 +544,6 @@ ownpal = 0
 removeongethit = 1
 ignorehitpause = 0
 
-[State 0, Pause]
-type = Pause
-trigger1 = parent,Movecontact = 1
-time = 20
-movetime = 0
-ignorehitpause = 1
-
 [State 0, RemapPal]
 type = RemapPal
 trigger1 = 1
@@ -580,7 +566,7 @@ dest = 2,root, var(17)
 type = DestroySelf
 trigger1 = animtime = 0
 trigger2 = parent,movetype = H
-trigger3 = parent,stateno = [3010,3020]
+trigger3 = parent,stateno != [2010,2015]
 ;ignorehitpause = 
 ;persistent = 
 
@@ -627,13 +613,6 @@ ownpal = 0
 removeongethit = 1
 ignorehitpause = 0
 
-[State 0, Pause]
-type = Pause
-trigger1 = parent,Movecontact = 1
-time = 24
-movetime = 0
-ignorehitpause = 1
-
 [State 0, RemapPal]
 type = RemapPal
 trigger1 = 1
@@ -656,7 +635,7 @@ dest = 3,root, var(17)
 type = DestroySelf
 trigger1 = animtime = 0
 trigger2 = parent,movetype = H
-trigger3 = parent,stateno = [3010,3020]
+trigger3 = parent,stateno != [2010,2015]
 ;ignorehitpause = 
 ;persistent = 
 

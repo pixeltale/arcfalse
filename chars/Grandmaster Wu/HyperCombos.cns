@@ -857,7 +857,7 @@ air.hittime = 50
 airguard.velocity = -2,-3
 getpower = 0
 envshake.time = 5
-forcenofall = 1
+air.fall = 1
 yaccel = .34
 
 [State 0, ChangeState]

@@ -121,7 +121,7 @@ value = 55
 triggerall = statetype != A
 triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = ctrl || stateno = 100
-trigger2 = stateno = [200,220] || stateno = 420
+trigger2 = stateno = [200,220] || stateno = 420 || stateno = [2012,2013]
 trigger2 = movehit
 trigger3 = stateno = 100 && animelemno(0) >= 3
 
@@ -165,8 +165,8 @@ trigger2 = stateno = 100 && animelemno(0) >= 3
 
 [State -1, EX 2S] ;2EX
 type = ChangeState
-value = 1043
-triggerall = var(34)<=0 && power >= 1000 ;v(34) is ex limiter
+value = 2015
+triggerall = power >= 1000 && !map(LIMITER.2EX)
 triggerall = command = "b" && command = "c"
 triggerall = command = "holddown" && command != "holdback" && command != "holdfwd"
 triggerall = statetype != A
@@ -176,7 +176,7 @@ trigger2 = var(1)
 [State -1, EX 4S] ;4EX
 type = ChangeState
 value = 1003
-triggerall = power>=1000
+triggerall = power>=1000 && !map(LIMITER.4EX)
 triggerall = command = "b" && command = "c" && (command = "holdback" || command = "back")
 triggerall = statetype != A
 trigger1 = ctrl
@@ -214,7 +214,7 @@ trigger2 = var(1)
 
 [State -1, 2S]
 type = ChangeState
-value = 1040
+value = 2010
 triggerall = statetype != A
 triggerall = command = "2S"
 trigger1 = ctrl

@@ -58,8 +58,8 @@
 
 [Data]
 ;Amount of life to start with
-life = 1500
-power = 4010
+life = 1400
+power = 4000
 ;attack power (more is stronger)
 attack = 100
 ;defensive power (more is stronger)
@@ -346,6 +346,35 @@ ctrl = 1
 ; States that are executed when in self's state file (use statedef -3)
 ;---------------------------------------------------------------------------
 [Statedef -2]
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !MAP(COMBOSTATECHECK)
+map 		= "LIMITER.2EX"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !MAP(COMBOSTATECHECK)
+map 		= "LIMITER.4EX"
+value 		= 0
+ignorehitpause 	= 1
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1		= stateno != [2012,2015]
+trigger1 		= !map(SJI) && prevstateno != [2012, 2015] && stateno != [40, 55]
+trigger2		= !MAP(COMBOSTATECHECK)
+map 		= "KUMJUMP"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = map(KUMJUMP)
+x = 0.5
+
+
 
 [State 0, StopSnd]
 type = StopSnd
@@ -774,8 +803,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "SCharge = %f excheck = %f"
-params = map(CHARGE.LEVEL), map(EXCHECK)
+text = "SCharge = %f kumjump = %f"
+params = map(CHARGE.LEVEL), map(KUMJUMP)
 ;persistent = 
 
 
