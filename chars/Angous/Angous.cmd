@@ -127,7 +127,7 @@ value = 55
 triggerall = statetype != A
 triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = Map(JC)
-trigger2 = stateno = [100,111]
+trigger2 = stateno = [100,111] && !(time < 16 && (prevstateno = 20011 || prevstateno = [1062, 1063]))
 trigger3 = ctrl
 
 [State -1,DJC]
@@ -142,13 +142,12 @@ trigger2 = hitdefattr = A, NA
 trigger3 =  stateno = 45 || stateno=46|| stateno=50
 trigger3 = vel y>.1
 
-
 [State -1, JC]
 type = ChangeState
 value = 40
 triggerall = command = "holdup" && stateno != [55,56]
 trigger1 = Map(JC)
-trigger2 = stateno = [100,111] && stateno != 105
+trigger2 = stateno = [100,111] && stateno != 105  && !(time < 16 && (prevstateno = 20011 || prevstateno = [1062, 1063]))
 
 ;Forward Airdash
 [State -1, Run Fwd]
@@ -581,7 +580,7 @@ trigger2 = (stateno = 200) && movecontact
 trigger3 = (stateno = 210) && movecontact 
 trigger4 = (stateno = 410) && movecontact 
 trigger5 = (stateno = 420) && movecontact 
-trigger6 = stateno = 100
+trigger6 = stateno = 100 && !(time < 16 && (prevstateno = 20011 || prevstateno = [1062, 1063]))
 
 [State -1, 2R]
 type = ChangeState
@@ -649,16 +648,13 @@ value = 430
 triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command = "holdfwd"
-trigger1 = statetype != A 
+triggerall = statetype != A 
 trigger1 = ctrl
-trigger2 = stateno = [400,420] || stateno = [210,220]
-trigger2 = (movecontact)
-trigger3 = stateno = 100 && time > 3
-trigger4 = stateno = 110 && time > 7
-trigger5 = stateno = 111
-trigger6 = stateno = [1000,1001] && movecontact
-trigger7 = stateno = [9000,9001] && movecontact
-trigger8 = stateno = [2000,2001] && movecontact
+trigger2 = (stateno = [400,420] || stateno = [210,220]) && movecontact
+trigger3 = stateno = [100, 111] && !(time < 16 && (prevstateno = 20011 || prevstateno = [1062, 1063]))
+trigger4 = stateno = [1000,1001] && movecontact
+trigger5 = stateno = [9000,9001] && movecontact
+trigger6 = stateno = [2000,2001] && movecontact
 
 ;-----------------------------------------------------------------------------------------------------------
 ;-----------------------------------------------------------------------------------------------------------
