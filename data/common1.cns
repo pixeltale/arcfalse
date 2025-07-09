@@ -1122,7 +1122,6 @@ persistent 		= 0
 type = HitDef 
 p2facing = 1
 trigger1 = p2statetype != A
-trigger1 = enemy, movetype != H && enemy, stateno != [120, 155]
 Trigger1 = time = 0 
 attr = S, NT          ;Attributes: Standing, Normal Throw
 hitflag = M-          ;Affect only ground people who are not being hit
@@ -8060,7 +8059,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 0
+VALUE = 1
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)

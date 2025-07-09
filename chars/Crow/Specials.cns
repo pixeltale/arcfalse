@@ -391,7 +391,7 @@ ground.slidetime 	= 5
 ;==============================================
 ground.velocity 	= -10, 16
 air.velocity 		= -10, 16
-guard.ctrltime 		= 12
+guard.ctrltime 		= 18
 guard.velocity		= -150 / (p2dist x * 0.1)
 guard.slidetime		= 20
 airguard.velocity 	= -1.9,-.8

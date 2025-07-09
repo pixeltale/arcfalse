@@ -131,7 +131,8 @@ triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
 triggerall = Map(ADash) > 0
 triggerall = pos y<-30
-trigger1 = stateno = 1105 && movecontact
+trigger1 	= (stateno = 1105 && !map(DCBurnJ6S)) || stateno = 1106
+trigger1	= movecontact
 
 ;---------------------------------------------------------------------------
 ;Backward Airdash
@@ -169,6 +170,17 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
+[State -1, j6EX - Gentle Whisper]
+type = ChangeState
+value = 1106
+triggerall = power>=1000 && !map(LIMITER.J6EX)
+triggerall = command = "b" && command = "c" || (command = "EX") 
+triggerall = command = "holdfwd"
+triggerall = command != "holddown"
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = hitdefattr = A, NA & movecontact
+
 [State -1, j6S - Gentle Whisper]
 type = ChangeState
 value = 1105
@@ -183,7 +195,7 @@ trigger2 = hitdefattr = A, NA & movecontact
 [State -1, EX Gentle Rocket]
 type = ChangeState
 value = 1310
-triggerall = power>1000
+triggerall = power>=1000
 triggerall = var(51)<=0
 triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command = "holddown"

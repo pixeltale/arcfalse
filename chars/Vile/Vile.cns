@@ -1161,58 +1161,6 @@ trigger1 = var(57) >= 1
 value = 1.0;only for test;1.1;1.8;2;0.7
 ignorehitpause=0
 
-[State -2, Explod];Counter Explod for P1 Side.
-type = Explod
-triggerall = numenemy
-triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 1 ;Counter Ok, Explod has not played, P1 Side
-triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
-triggerall = stateno != [800,820] ;Does not activate during throws.
-triggerall = stateno != [950,951] ;Don't activate during throws.
-trigger1 = movehit ;Move hits
-trigger2 = projhit = 1 ;Projectile Hits
-anim = 13000
-pos = 65,196
-postype = left  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.5,0.5
-sprpriority = 0
-id = 13000
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
-
-[State -2, Explod];Counter Explod for P2 Side.
-type = Explod
-triggerall = numenemy
-triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 2 ;Counter Ok, Explod has not played, P2 Side
-triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
-triggerall = stateno != [800,820] ;Does not activate during throws.
-triggerall = stateno != [950,951] ;Don't activate during throws.
-trigger1 = movehit ;Move hits
-trigger2 = projhit = 1 ;Projectile Hits
-anim = 13001
-pos = -100,196
-postype = right  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.5,0.5
-sprpriority = 0
-id = 13000
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
-
-[State 0, PlaySnd]; NUTTERBUTTER FIRST HIT
-type = PlaySnd
-trigger1 = var(27) = 1
-value = 13100, (0+(Random%3))
-
-
 
 ;=======================================================================================
 ;=======================================================================================

@@ -697,6 +697,36 @@ trigger1 = time>200
 
 [Statedef -2]
 
+[State 0, AfterImage] ;DC Afterimage Effect             ============ ++
+type 		= AfterImage
+triggerall		= prevstateno = [1000,1600]
+trigger1		= stateno = 60 && time = [0,10]
+time 		= 10				        ;+
+length 		= 15   				        ;+
+timegap 		= 2				        ;+
+framegap		= 1				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 64, 100, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+;==================================================++
+[State 0, PalFX]
+type = PalFX
+trigger1 		= time =  [0, 10]	 && stateno = 60		        ;+
+trigger1		= prevstateno = [1000,1600] || prevstateno = 230		        ;+
+time = 1
+add = 64 - time*3,100- time*3,191- time*3
+invertall = 0
+color = 256
+ignorehitpause = 1
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !MAP(COMBOSTATECHECK)
+map 		= "LIMITER.J6EX"
+value 		= 0
+ignorehitpause 	= 1
+
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = stateno = 200
@@ -778,6 +808,12 @@ type = mapadd
 trigger1 = stateno = 100 
 trigger1 = prevstateno = 1101 || prevstateno = 1102
 map = "DCBurn6S"
+value = 1
+[State Cancel]
+type = mapadd
+trigger1 = stateno = 904
+trigger1 = prevstateno = 1105
+map = "DCBurnJ6S"
 value = 1
 
 [State Cancel]

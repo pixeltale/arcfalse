@@ -4118,7 +4118,6 @@ sprpriority = 2
 [State 800, 1] ;With grab sound
 type = HitDef 
 p2facing = 1
-;trigger1 = p2statetype != A
 Trigger1 = time = 0 
 attr = S, NT          ;Attributes: Standing, Normal Throw
 hitflag = M-          ;Affect only ground people who are not being hit
