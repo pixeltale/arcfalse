@@ -468,7 +468,7 @@ x = 20
 type = PlaySnd
 triggerall=palno!=11
 trigger1 = anim = 230
-trigger1 =  animelem = 5
+trigger1 =  animelem = 6
 value = 220, (0+(Random%4))
 volumescale=150
 channel = 6
@@ -476,7 +476,7 @@ channel = 6
 type = PlaySnd
 triggerall=palno=11
 trigger1 = anim = 230
-trigger1 = animelem = 5
+trigger1 = animelem = 6
 value = 669,7
 channel = 2
 
@@ -484,7 +484,7 @@ channel = 2
 type = PlaySnd
 triggerall=palno!=11
 trigger1 = anim = 231
-trigger1 =  animelem = 6
+trigger1 =  animelem = 8
 value = 1102, (0+(Random%3))
 volumescale=150
 channel = 6
@@ -492,9 +492,28 @@ channel = 6
 type = PlaySnd
 triggerall=palno=11
 trigger1 = anim = 231
-trigger1 = animelem = 5
+trigger1 = animelem = 8
 value = 670,0
 channel = 2
+
+[State 0, Explod]
+type = Explod
+trigger1 =  anim = 231 && animelem = 8
+anim = 232
+ID = 232
+postype = P1  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+scale = .84,.84
+pausemovetime = 0
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+;persistent = 
 
 ;============================
 [State -2, Starter Level]
@@ -604,7 +623,7 @@ ignorehitpause 	= 1
 persistent 		= 0
 [State -2, CHARGED]
 type 		= MapSet
-trigger1 		= time >= 25 && animelem = 4
+trigger1 		= time >= 25 && animelem = 5
 map 			= "CHARGED"
 value 		= 1
 ignorehitpause 	= 0
@@ -632,17 +651,18 @@ persistent = 0
 [State 0, ChangeAnim]
 type 	= ChangeAnim
 triggerall = time < 25
-trigger1 	= command = "focusATK_CHARGE" && animelemno(0) = 3
+trigger1 	= command = "focusATK_CHARGE" && animelemno(0) = 4
 value 	= 230
-elem 	= 3
+elem 	= 4
 ignorehitpause = 1
 persistent = 1
+
 [State 0, ChangeAnim]
 type 	= ChangeAnim
 triggerall = anim != 231 
 trigger1 	= map(Charged)
 value 	= 231
-elem 	= 4
+elem 	= 5
 ignorehitpause = 1
 persistent = 1
 
