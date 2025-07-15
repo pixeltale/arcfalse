@@ -288,7 +288,7 @@ triggerall = statetype != A
 triggerall = stateno != 100
 trigger1 = ctrl
 trigger2 = Map(DCFH) > 0 || Map(DCFB) > 0
-trigger3 = stateno = 230 && (animelemno(0) = 3 && time > 15 || stateno = 230 && movecontact && map(Charged))
+trigger3 = stateno = 230 && (time > 15 && !(anim = 231 && animelemno(0) > 5) || stateno = 230 && movecontact && map(Charged))
 
 ;---------------------------------------------------------------------------
 ;Run Back
@@ -299,7 +299,7 @@ triggerall = command = "44" || command = "M44"
 triggerall = stateno!=105
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 230 && (animelemno(0) = 3 && time > 15 || stateno = 230 && movecontact && map(Charged))
+trigger2 = stateno = 230 && (time > 15 && !(anim = 231 && animelemno(0) > 5) || stateno = 230 && movecontact && map(Charged))
 
 ;Super Jump
 ;[State -1, Super Jump]
