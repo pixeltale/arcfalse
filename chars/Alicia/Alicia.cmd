@@ -127,7 +127,7 @@ triggerall = stateno!=105
 type = ChangeState
 value = 110
 triggerall = command = "c"
-triggerall = statetype = A
+triggerall = statetype = A && pos y <= -20
 triggerall = !map(Float) && map(CanFloat)
 trigger1 = ctrl || stateno = [600,620] && movecontact
 

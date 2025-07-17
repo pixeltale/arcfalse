@@ -158,7 +158,8 @@ menu.item.spacing = 0, 15
 
 ; MAIN MENU
 menu.itemname.online = "ONLINE"                            ;Ikemen feature
-menu.itemname.versus = "VS MODE"
+menu.itemname.versus = "VS PLAYER"
+menu.itemname.freebattle = "VS CPU" 
 menu.itemname.arcade = "ARCADE"
 menu.itemname.training = "TRAINING MODE"
 menu.itemname.extras = "EXTRAS"                             ;Ikemen feature
@@ -181,7 +182,6 @@ menu.itemname.online.serverjoin.joinadd = "NEW ADDRESS"     ;Ikemen feature
 menu.itemname.online.serverjoin.back = "BACK"               ;Ikemen feature
 
 ; MAIN MENU -> EXTRAS SUBMENU
-menu.itemname.extras.freebattle = "FREE BATTLE"             ;Ikemen feature
 ;menu.itemname.extras.sep2 = " - "
 menu.itemname.extras.teamarcade = "TEAM ARCADE"
 menu.itemname.extras.teamversus = "TEAM VS"

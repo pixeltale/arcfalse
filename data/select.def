@@ -7,10 +7,7 @@ roger, order=1
 angous, order=1
 vile, order=1
 Arzon, order=1
-slot = {
-JV/JV.def, next = "holdw", previous = "holdd"
-JV/UJV.def, previous = "holdd", next = "holdw" 
-}
+JV
 Sahkive, order=1
 CROW
 JOJO
@@ -22,6 +19,7 @@ DEUS
 
 
 [ExtraStages]
+stages/hell.def, music = sound/THEWORLDATMIDNIGHT.mp3, music = sound/easSYSTEMA.wav
 stages/training_re.def, music = sound/LINKUP.mp3, music = sound/TINTS.mp3, music = sound/MOVEON.mp3
 stages/garden.def,zoom = 0
 stages/aegisdusk.def, zoom = 0, music=sound/MORALISTICCONFUSION.mp3, music=sound/SATURDAYS.mp3
@@ -40,7 +38,6 @@ stages/eternity.def, music = sound/STRANGERIREMAIN.mp3, music = sound/REDSUN.mp3
 stages/eternityRED.def, music = sound/ITHASTOBETHISWAY.mp3, music = sound/BURYTHELIGHTFINAL.mp3
 stages/mind.def, music = sound/TWILIGHT.mp3, music = sound/DUVET.mp3, music = sound/ELEPHANT.mp3
 stages/unknown.def, music = sound/MISSINGSTRING.mp3, music = sound/APPARITIONOFSOLIDxDREAMTOTHEEAST.mp3,  music = sound/TAISHIGOLDENSLAUGHTERER.mp3
-stages/hell.def, music = sound/THEWORLDATMIDNIGHT.mp3, music = sound/easSYSTEMA.wav
 stages/kno.def, music = sound/OVERFLOW.mp3, zoom=0, music = sound/IFI.mp3 , music = sound/CHECKAGAIN.mp3, music = sound/CANTCONTROL.mp3
 
 

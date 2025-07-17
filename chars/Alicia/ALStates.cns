@@ -85,31 +85,24 @@ sprpriority = 0
 
 [State 20, 1]
 type = VelAdd
-triggerall = !time
 trigger1 = command = "holdfwd"
-x = 3
-
-[State 20, 1]
-type = VelAdd
-triggerall = time % 3
-trigger1 = command = "holdfwd"
-x = 1.2
+x = 1
 
 [State 20, 1]
 type = VelSet
-trigger1 = vel x > 3
-x = 3
+trigger1 = vel x > 1.5
+x = 1.5
 
 [State 20, 2]
 type = VelAdd
 triggerall = time % 3
 trigger1 = command = "holdback"
-x = -1.2
+x = -1
 
 [State 20, 1]
 type = VelSet
-trigger1 = vel x < -2
-x = -2
+trigger1 = vel x < -1.5
+x = -1.5
 
 [State 20, 3]
 type = ChangeAnim

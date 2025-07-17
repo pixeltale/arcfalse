@@ -447,7 +447,7 @@ movetype= I
 physics = N
 ctrl = 0
 anim = 1015
-sprpriority = 2
+sprpriority = -1
 
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard

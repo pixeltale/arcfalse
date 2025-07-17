@@ -5,9 +5,9 @@ command.time = 15
 command.buffer.time = 5
 
 [Command]
-name = "236236L"
-command = ~D, F, D, F, x
-time = 26
+name = "Sun Octopus"
+command = ~$U, DB, D, DF, UB, UF, $D, x
+time = 120
 [Command]
 name = "6246L"
 command = ~$F, $D, $B, $F, x
@@ -295,6 +295,12 @@ value = 1207
 triggerall = command = "6246L"
 triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
+[State -1, EGO DEATH DRIVER]
+type = changeState
+value = 1207
+triggerall = command = "Sun Octopus"
+triggerall = statetype != A
+trigger1 = ctrl || stateno = [200, 707]
 
 ;===========================================================================
 ;4S - Aimless Serpent (Ground)

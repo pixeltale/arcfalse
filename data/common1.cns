@@ -4764,7 +4764,7 @@ id = 900
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time = 4
+trigger1 = time = 2
 value = 1
 
 ;===========================================================================
@@ -4862,7 +4862,7 @@ time = cond((enemynear, stateno = [120,160]), 0, 16)
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time = 3
+trigger1 = time = 2
 value = 1
 
 [State 0, ChangeState]

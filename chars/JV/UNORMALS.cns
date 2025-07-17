@@ -1196,38 +1196,30 @@ type = PlaySnd
 trigger1 = animelem = 5
 value = 0, 0
 
-[State 0, MAPADD]
-type = MapAdd
-trigger1 = movehit = 1 && map(ComboStateCheck) && enemy, statetype = A
-map = "j2H_UseCount"
-value = 1
-ignorehitpause = 1
-persistent = 0
-
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
+map 			= "StarterLevel"
 value 		= 2	;Med Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "P1"
+map 			= "P1"
 value 		= 0.9	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "P2"
+map 			= "P2"
 value 		= 0.90	;85% DMG For next hit
 ignorehitpause 	= 1
-persistent = 0
+persistent 	= 0
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
 trigger1 		= movehit
-map 		= "Accumulation"
+map 			= "Accumulation"
 value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
@@ -1261,45 +1253,7 @@ guard.hittime 	= 20
 guard.ctrltime 	= 10
 air.fall 		= 1
 getpower 	= 50
-[State 630, 2]
-type = HitDef 
-p2facing 	= 1
-trigger1	= enemy, statetype = A
-trigger1 	= !movecontact && !movereversed
-hitonce 	= 1
-attr 	= A, NA
-damage 	= 100*MAP(P4)
-hitflag 	= AF
-guardflag 	= HA
-pausetime 	= 14,14
-sparkno 		= 3
-sparkxy 		= -5,-35
-hitsound   	= 5,3
-guardsound 	= 6,2
-ground.type 	= LOW
-air.type		= TRIP
-ground.slidetime 	= 6
-ground.hittime  	= 20 * MAP(untechMOD)
-air.hittime  	= 99
-down.hittime 	= 99
-ground.velocity 	= -4
-fall.yvelocity 	= 0
-air.velocity 	= -1,16
-down.velocity 	= -2,-10
-guard.slidetime 	= 18
-guard.hittime 	= 20
-guard.ctrltime 	= 10
-air.fall 		= 1
-getpower 		= 50
-p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
-p2getp1state = 0
 
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 =animtime = 0 
-value = 69000
-ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y>= 0
