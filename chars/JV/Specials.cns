@@ -1430,10 +1430,10 @@ ground.hittime  	= 30-map(UntechDecay)
 air.hittime  		= 30
 down.hittime 		= 30-map(UntechDecay)
 ;==============================================
-ground.velocity 	= -6, -5
+ground.velocity 	= -7, -5
 air.velocity 		= -6, -3.5
 guard.slidetime 	= 10
-guard.ctrltime 		= 10
+guard.ctrltime 		= 8
 guard.velocity		= -8
 airguard.velocity 	= -4,-.8
 air.type 		= High

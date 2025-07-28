@@ -55,6 +55,27 @@ triggerall = statetype != A
 triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = ctrl || stateno = 701
 
+[State -1,DJC]
+type = ChangeState
+value = 45
+triggerall = statetype = A
+triggerall = command = "up" || movecontact && command = "holdup"
+triggerall = var(29) > 0
+trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 30) && stateno != 40
+trigger2 = movecontact
+trigger2 = hitdefattr = A, NA
+trigger2 = stateno!=620
+trigger3 =  stateno=45 || stateno=46|| stateno=50
+trigger3 = vel y>.1
+
+;Double Jump Raw
+[State -1,DJC]
+type = ChangeState
+value = 45
+triggerall = var(29) > 0
+triggerall = command = "up"
+trigger1 = ctrl && stateno!= [40,60]
+
 ;===========================================================================
 ;===========================================================================
 ;===========================================================================
@@ -156,10 +177,10 @@ triggerall = command!="holddown"
 triggerall = command!="holdback"
 triggerall = command!="holddown" 
 triggerall = command = "MistStep"
-triggerall = stateno!=[2000,2001] && !(stateno = 100 && time < 5)
+triggerall = !(stateno = 100 && time < 5)
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) || stateno = [2000,2001] && movecontact
 
 [State -1, 6S: Flurry]
 type = ChangeState

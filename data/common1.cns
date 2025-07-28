@@ -2056,7 +2056,7 @@ ignorehitpause = 1
 [State 0, Helper]
 type = Helper
 triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
-trigger1 = (Command = "pushblock") && !numhelper(99149)
+trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
 helpertype = normal ;player
 name = "pushblock"
 ID = 99149
@@ -2210,7 +2210,7 @@ ignorehitpause = 1
 [State 0, Helper]
 type = Helper
 triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
-trigger1 = (Command = "pushblock") && !numhelper(99149)
+trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
 helpertype = normal ;player
 name = "pushblock"
 ID = 99149
@@ -2363,7 +2363,7 @@ ignorehitpause = 1
 [State 0, Helper]
 type = Helper
 triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
-trigger1 = (Command = "pushblock") && !numhelper(99149)
+trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
 helpertype = normal ;player
 name = "pushblock"
 ID = 99149
@@ -8059,7 +8059,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 1
+VALUE = 0
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)
@@ -9466,7 +9466,7 @@ value = 0
 [State 0, AttackDist]
 type = AttackDist
 trigger1 = 1
-value = 50
+value = 0
 ignorehitpause = 1
 persistent = 1
 

@@ -2798,19 +2798,10 @@ trigger1 = movecontact && command = "EX" && power>1000
 value = 1054
 ctrl = 0
 
-[State 4000, NotHitBy]
-type = NotHitBy
-trigger1 = time = 0
-value = SCA
-time = 10
-
-
 [State 1030, 0]
 type = PosSet
 trigger1 = Time = 0
 y = 0
-
-
 
 [State 0, Explod]
 type = Explod

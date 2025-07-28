@@ -362,7 +362,7 @@ ignorehitpause 	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
-trigger1		= stateno != [2012,2015]
+trigger1		= stateno != [2012,2015] && enemy, stateno != 900
 trigger1 		= !map(SJI) && prevstateno != [2012, 2015] && stateno != [40, 55]
 trigger2		= !MAP(COMBOSTATECHECK)
 map 		= "KUMJUMP"

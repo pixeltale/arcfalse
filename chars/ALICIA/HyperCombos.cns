@@ -9,6 +9,7 @@ poweradd= 0
 ctrl = 0
 anim = 3000
 sprpriority = 2
+velset = vel x, 0
 
 [State 0, PowerAdd]
 type = PowerAdd
@@ -30,12 +31,12 @@ ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = ANIMELEM = 8
+trigger1 = ANIMELEM = 4
 helpertype = normal
 name = "MALICE CALL HELPER"
 ID = 3005
 stateno = 3005
-pos = 0, 0
+pos = 0, -pos y
 postype = p1    ;p2,front,back,left,right
 facing = 0
 keyctrl = 0
@@ -57,7 +58,7 @@ unhittable = 1
 [State 200, 3]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 0 + 50 * map(FLOAT)
 ctrl = 1
 
 ;============================================
@@ -154,11 +155,11 @@ ground.slidetime 	= 6
 ground.hittime  	= 60
 air.hittime  		= 60
 down.hittime 		= 120
-ground.velocity 	= -2,-6
+ground.velocity 	= -6,-6
 fall.yvelocity 		= 0
 air.velocity 		= -5,-2
 down.velocity 		= -3,-8
-guard.ctrltime 		= 15
+guard.ctrltime 		= 16
 air.fall 		= 1
 fall 			= 1
 envshake.freq 		= 5
@@ -179,24 +180,22 @@ physics = S
 juggle  = 0
 poweradd= 0
 ctrl = 0
-anim = 2011
+anim = 3010
 sprpriority = 2
 
-[State 0, StateTypeSet]
-type = StateTypeSet
-triggerall = root, !map(ComboStateCheck)
-trigger1 = root, p2dist x < 0
-statetype = S
-movetype = I
-physics = S
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
 
 [State 0, SuperPause]
 type = SuperPause
-trigger1 = time = 0
-time = 50
+trigger1 = animelem = 5
+time = 45
 sound = 20,0
 pos = 0,0
-movetime = 50
+movetime = 100
 darken = 1
 unhittable = 1
 

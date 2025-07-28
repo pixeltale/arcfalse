@@ -2273,6 +2273,7 @@ guard.dist 		= 0
 envshake.time 		= 5
 yaccel 			= .22
 fall 			= 1
+givepower			= 100
 
 [State 0, VarSet]
 type = VarSet
@@ -3429,7 +3430,7 @@ animtype = light                 ;Animation type: Light, Medium, Heavy, Back (de
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD
 pausetime = 14, 14                ;Time attacker pauses, time opponent shakes
-sparkno 		=3                      ;Spark anim no (Def: set above)
+sparkno 		= 3                      ;Spark anim no (Def: set above)
 sparkxy 		= -14,-60
 fall	 	= 1
 hitsound 		= 5, 3                  ;Sound to play on hit
@@ -3443,6 +3444,9 @@ airguard.velocity 	= -3,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.
 air.type 		= High                  ;Type: High, Low, Trip (def: same as ground.type)
 air.velocity 	= -9,-7           ;X-velocity at which opponent is pushed,
 air.hittime 	= 65 * map(untechMOD)
+guard.ctrltime = 10
+guard.slidetime = 10
+guard.hittime	= 10
 envshake.time 	= 15;
 p2sprpriority 	= -6
 getpower 	= (80)*(cond(var(var(2)) = 1, 1, 1))
@@ -3621,7 +3625,10 @@ airguard.velocity 	= -3,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.
 air.type 		= High                  ;Type: High, Low, Trip (def: same as ground.type)
 air.velocity 	= -9,-7           ;X-velocity at which opponent is pushed,
 air.hittime 	= 65 * map(untechMOD)
-envshake.time 	= 15;
+envshake.time 	= 15
+guard.ctrltime = 10
+guard.slidetime = 10
+guard.hittime	= 10
 p2sprpriority 	= -6
 getpower 	= (80)*(cond(var(var(2)) = 1, 1, 1))
 
@@ -3651,10 +3658,11 @@ air.velocity 	= -9,-7
 down.velocity	= -7, -7
 air.hittime 	= 75
 envshake.time 	= 15
+guard.ctrltime = 10
+guard.slidetime = 10
+guard.hittime	= 10
 getpower 	= 0
 fall.yvelocity	= 0
-
-
 
 [State 0, ChangeState]
 type = ChangeState

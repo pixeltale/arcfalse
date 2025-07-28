@@ -167,7 +167,7 @@ trigger2 = stateno = 100 && animelemno(0) >= 3
 type = ChangeState
 value = 2015
 triggerall = power >= 1000 && !map(LIMITER.2EX)
-triggerall = command = "b" && command = "c"
+triggerall = command = "EX"
 triggerall = command = "holddown" && command != "holdback" && command != "holdfwd"
 triggerall = statetype != A
 trigger1 = ctrl
@@ -177,7 +177,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1003
 triggerall = power>=1000 && !map(LIMITER.4EX)
-triggerall = command = "b" && command = "c" && (command = "holdback" || command = "back")
+triggerall = command = "EX" && (command = "holdback" || command = "back")
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -186,7 +186,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1014
 triggerall = power>=1000 && var(32)<=0 ;Limiter - Only Allowed to use ONCE during a combo
-triggerall = command = "b" && command = "c" && command = "holdfwd"
+triggerall = command = "EX" && command = "holdfwd"
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -199,8 +199,8 @@ triggerall = var(33)<=0 ;Limiter - Only Allowed to use ONCE during a combo
 triggerall = !ishelper
 triggerall = !numhelper(10311)
 triggerall = !numhelper(10322)
-triggerall = power>1000
-triggerall = command = "b" && command = "c" && command != "holdback"
+triggerall = power >= 1000
+triggerall = command = "EX" && command != "holdback"
 trigger1 = ctrl
 trigger2 = var(1)
 

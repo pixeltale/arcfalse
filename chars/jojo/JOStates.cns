@@ -346,7 +346,7 @@ velset = 0,0
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time = 0 
-v =  45   ;fv = 
+v =  29   ;fv = 
 value = -1
 ;ignorehitpause = 
 ;persistent = 
@@ -417,7 +417,7 @@ value = Anim + 3
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time = 6
-value = 660
+value = 50
 ctrl = 0
 ;anim =
 ;ignorehitpause = 

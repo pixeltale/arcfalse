@@ -651,7 +651,7 @@ triggerall = command = "holdfwd"
 triggerall = statetype != A 
 trigger1 = ctrl
 trigger2 = (stateno = [400,420] || stateno = [210,220]) && movecontact
-trigger3 = stateno = [100, 111] && !(time < 16 && (prevstateno = 20011 || prevstateno = [1062, 1063]))
+trigger3 = stateno = 100 && !(time < 16 && (prevstateno = 20011 || prevstateno = [1062, 1063]))
 trigger4 = stateno = [1000,1001] && movecontact
 trigger5 = stateno = [9000,9001] && movecontact
 trigger6 = stateno = [2000,2001] && movecontact

@@ -52,7 +52,7 @@ air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during 
 [Movement]
 airjump.num = 0       ;Number of air jumps allowed (opt)
 airjump.height = 30   ;Minimum distance from ground before you can air jump (opt)
-yaccel = .40          ;Vertical acceleration
+yaccel = .38          ;Vertical acceleration
 stand.friction = .9  ;Friction coefficient when standing
 crouch.friction = .9 ;Friction coefficient when crouching
 stand.friction.threshold = 0.05          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
@@ -73,7 +73,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 switchAirAttack = 610 ; ANIM: switch air attack.
 snapBackAttack = 210 ; ANIM: snapback attack
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
-StateTagAssistSuper = 1025 ; STATENO: normal assist attack
+StateTagAssistSuper = 1000 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 airDashMax = 2
 airJumpCount = 2
@@ -208,15 +208,52 @@ ctrl = 1
 ;=============================================================================
 [Statedef -2]
 
+;=========================================
+;RC Float Reset
+;=========================================
+[State Float]
+type 		= mapset
+trigger1 		= stateno = [4000, 4006]
+map 		= "CanFloat"
+value 		= 1
+
+;=========================================
+;Night Terror Meter
+;=========================================
+[State -2, Night Terror]
+type = Helper
+trigger1 = !NumHelper(7050)&&RoundState=2
+stateNo = 7050
+ID = 7050
+name = "Night Terror Meter"
+posType = left
+facing = ifElse(Facing = 1, 1, -1)
+keyCtrl = 0
+ignoreHitPause = 1
+
+[State 0, MapSet]  ;No Overflow
+type = mapset
+trigger1 = map(Terror) > 150
+map = "Terror"
+value = 150
+ignorehitpause = 1
+
+[State 0, MapSet]  ;Night Terror MAX
+type = mapset
+trigger1 = gamemode = "Training" && command = "start"
+map = "Terror"
+value = 150
+ignorehitpause = 1
+
 ;=============================================================================
 ;Feign Divinity Platform
 [State 0, Explod]
 type = Explod
-triggerall = !numExplod(45)
+triggerall = time % 4 = 0
 trigger1 = map(Float)
 anim = 45
 ID = 45
-pos = 0,0
+pos = -1 + time % 3,time % 5
 postype = p1 
 scale = const(size.xscale),const(size.yscale)
 removeongethit = 1
@@ -272,8 +309,83 @@ value = 0
 [State -2, Debug]
 type = DisplayToClipboard
 trigger1 = 1
-text = "Float = %f untechMod = %f upcheck = %f"
-params = map(Float), map(untechMOD), map(doubleJump_bufffix)
+text = "meyeposx = %f meyeposy = %f"
+params = (helper(1016), pos x), (helper(1016), pos y)
+
+;=============================================+
+;Perfektwelt Stuff
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = map(Perfektwelt)
+trigger1 = 1
+value = -map(PWTime)*2 / 100
+ignorehitpause = 0
+[State 0. MapSet] ;PWtime
+type 		= MapAdd
+trigger1 	= map(PerfektWelt)
+map 		= "PWtime"
+value 		= 1
+ignorehitpause 	= 1
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= !map(PerfektWelt)
+map 		= "PWtime"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 	= power <= 1 || roundstate != [2, 3]
+map 		= "Perfektwelt"
+value 		= 0
+ignorehitpause 	= 1
+[State 0. MapSet] ;TERROR
+type 		= MapAdd
+trigger1 	= map(PerfektWelt)
+map 		= "Terror"
+value 		= 5
+ignorehitpause 	= 1
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = map(PerfektWelt)
+time = 1
+add = -(10 + 10 + 10 * sin(2 * pi * gametime / 160)),-(20 + 20 + 20 * sin(2 * pi * gametime / 160)),-(20 + 20 + 20 * sin(2 * pi * gametime / 160))
+ignorehitpause = 1
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = time
+trigger1 = map(PowerDrain)
+value = map(PowerDrain)
+ignorehitpause = 1
+;persistent = 
+
+[State 0. MapSet] ;Combo Forever...
+type 		= MapAdd
+trigger1	= time % 3 = 0
+trigger1 	= map(Perfektwelt)
+map 		= "ComboTimer"
+value 		= -1
+ignorehitpause 	= 1
+persistent 	= 1
+
+[State 0. MapSet] ;PowerDrain
+type 		= MapSet
+trigger1 	= !numhelper(2061)
+map 		= "PowerDrain"
+value 		= 0
+ignorehitpause 	= 1
+persistent 	= 1
+
+[State 0. MapSet] ;EXE
+type 		= MapSet
+trigger1 	= movetype = H && stateno != [120, 155]
+trigger2	= map(eyecount) = 0
+map 		= "EXE"
+value 		= 0
+ignorehitpause 	= 1
+persistent 	= 1
+;=============================================+
 
 [Statedef -4]
 

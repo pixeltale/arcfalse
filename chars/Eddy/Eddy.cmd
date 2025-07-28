@@ -129,9 +129,9 @@ type = ChangeState
 value = 60
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
-triggerall = Map(ADash) > 0
+triggerall = Map(ADash) > 0 || stateno = 1106 && movecontact
 triggerall = pos y<-30
-trigger1 	= (stateno = 1105 && !map(DCBurnJ6S)) || stateno = 1106
+trigger1 	= (stateno = 1105 && !map(DCBurnJ6S)) 
 trigger1	= movecontact
 
 ;---------------------------------------------------------------------------

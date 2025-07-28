@@ -8,6 +8,12 @@ anim =1000
 sprpriority = 2
 velset = vel x*.4,-1.7
 
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= !time
+map 			= "Float"
+value 		= 0
+
 [State 0, Velset]
 type = Velset
 trigger1 = animelem = 4
@@ -168,6 +174,12 @@ ctrl = 0
 anim =1005
 sprpriority = 2
 velset = vel x + 5
+
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= !time
+map 			= "Float"
+value 		= 0
 
 [State 0, PosAdd]
 type = PosAdd
@@ -379,7 +391,7 @@ helpertype = normal
 name = "L EYE"
 ID = 1015
 stateno = 1015
-pos = 0,-45
+pos = 20,-45
 postype = p1
 facing = 1
 size.xscale = const(size.xscale)
@@ -391,7 +403,7 @@ helpertype = normal
 name = "M EYE"
 ID = 1016
 stateno = 1015
-pos = 0,-65
+pos = 20,-60
 postype = p1
 facing = 1
 size.xscale = const(size.xscale)
@@ -403,7 +415,7 @@ helpertype = normal
 name = "H EYE"
 ID = 1017
 stateno = 1015
-pos = 0,-75
+pos = 20,-75
 postype = p1
 facing = 1
 size.xscale = const(size.xscale)
@@ -457,6 +469,13 @@ params = id
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, MapSet]  ;No Overflow
+type = RootMapAdd
+trigger1 = time % 5 = 0
+map = "Terror"
+value = 1
+ignorehitpause = 0
+
 
 ;Can be commanded.
 [State -2, Starter Level]
@@ -483,31 +502,45 @@ type = Helper
 triggerall = root, stateno = 1020
 trigger1 = root, animelem = 2
 helpertype = normal
-name = "Horizontal Distortion"
+name = "LIGHTNING"
 ID = 1018
 stateno = 1021
 pos = 0,0
 size.xscale = const(size.xscale)
-size.yscale = 0.4
 postype = p1
 facing = 1
 ignorehitpause = 1
 
 [State 0, DestroySelf]
-type = DestroySelf
+type = Changestate
+value = 1016
 trigger1 = root, movetype = H
 trigger2 = root, stateno = 1020 && numhelper (1018)
 
 ;================================================================================
-;Eye Mine - HDist Summon
+;Eye Die
+[Statedef 1016]
+type    = A
+movetype= A
+physics = N
+ctrl 	= 0
+anim 	= 1014
+sprpriority = 2
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !animtime
+
+;================================================================================
+;REDWALL (Lightning)
 [Statedef 1020]
 type    = S
 movetype= A
 physics = S
 juggle  = 0
 poweradd= 0
-ctrl = 0
-anim =1012
+ctrl 	= 0
+anim 	=1011
 sprpriority = 2
 
 [State -2, FRC]
@@ -548,77 +581,195 @@ trigger1 =pos y>= 0
 value = 52
 ctrl = 1
 
-;================================================================================
-;HDistortion
+;Lightning Helper
 [Statedef 1021]
-type    = A
-movetype= A
+type = U
+movetype = A
 physics = N
-ctrl = 0
-anim = 1001
-sprpriority = 2
+anim = 1020
+facep2 = 1
 
-[State 0, HitBy]
-type = HitBy
-trigger1 = 1
-value = SCA, AP
-time = 2
+[State 0, PosSet]
+type = PosSet
+trigger1 = !time
+y = 0	
+ignorehitpause = 1
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = 1
-value = , AA, AT
-time = 2
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 5
+length = 10
+palcolor = 256
+palbright = 200,30,200
+palcontrast = 256,120,256
+palpostbright = 100,0,200
+paladd = 10,10,25
+palmul = .65,.65,.75
+timegap = 1
+framegap = 1
+trans = add
+persistent = 1
 
-[State 0, HitOverride]
-type = HitOverride
-trigger1 = 1
-attr = SCA, AP
-slot = 0
-stateno = 525
-time = 2
-forceair = 0
-
-[State 0, HitDef]
-type 		= HitDef 
-p2facing 		= 1 
-trigger1 		= map(HELPER.HITCOUNT) < 2
-attr 		= A, SP
-damage 		= 50 * root, map(p4), 50
-hitflag 		= MAFP
-guardflag 	= MAFD
-guard.ctrltime 	= 8
-priority 		= 999
-pausetime 	= 1,1
-sparkno 		= S3012
-sparkxy 		= 0,0
-hitsound   	= 5,1
-guardsound 	= 6,0
-ground.type 	= TRIP
-air.type		= HIGH
-animtype 	= medium
-ground.hittime  	= 60
-air.hittime  	= 30 * root, MAP(untechMOD)
-ground.slidetime 	= 14
-ground.velocity 	= -1,-5.6
-air.velocity 	= -1,-4
+[State 0, hitdef]
+type 	= HitDef 
+p2facing 	= 1
+trigger1 	= Time = 0
+attr 		= A, NA
+damage 		= 100 * (root, MAP(P4)), 50
+guardflag 	= MA
+hitflag 	= MAF
+priority 	= 4
+pausetime 	= 3,15
+guard.pausetime = 3,7
+sparkno 	= 3
+sparkxy 	= -10,-25
+hitsound   	= 5,3
+guardsound 	= 6,2
+animtype 	= hard
+ground.type 	= high
+ground.hittime  = 40
+air.hittime  	= 40 * (root, MAP(untechMOD))
+down.hittime 	= 48
+ground.velocity = 0,18 - (root, map(LightningUseCount) * 1.2)
+air.velocity 	= 0,16 - (root, map(LightningUseCount) * 1.6)
+down.velocity	= 0, 18
+envshake.time 	= 25
+envshake.freq 	= 80
+envshake.ampl 	= 5
+envshake.phase 	= 1
 fall 		= 1
+air.fall 	= 1
 fall.yvelocity 	= 0
-getpower 	= (50)*(cond(var(var(3)) = 1, 1, .5))
-
-[State -2, Starter Level]
-type 		= MapSet
-trigger1 		= !TIME
-map 		= "HELPER.HITCOUNT"
-value 		= 0
-ignorehitpause 	= 1
-[State -2, Starter Level]
-type 		= MapAdd
-trigger1 		= movehit = 1
-map 		= "HELPER.HITCOUNT"
-value 		= 1
-ignorehitpause 	= 0
+guard.velocity 	= -4
+guard.ctrltime 	= 15
+airguard.ctrltime = 15
+airguard.velocity = 1, -1
+p2stateno 	= 5255
+p2getp1state 	= 0
+getpower 	= 150
 
 [State 0, DestroySelf]
-type = DestroySelf
+type = Destroyself
 trigger1 = animtime = 0
+ignorehitpause = 1
+
+
+;================================================================================
+;M Teleport
+[Statedef 1028]
+type    = S
+movetype= A
+physics = S
+[State 0, ChangeState]
+type = 	Changestate
+Trigger1 	= 1
+value 	= 1030
+;================================================================================
+;H Teleport
+[Statedef 1029]
+type    = S
+movetype= A
+physics = S
+[State 0, ChangeState]
+type = 	Changestate
+Trigger1 	= 1
+value 	= 1030
+;================================================================================
+;Eye Teleport
+[Statedef 1030]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl 	= 0
+anim 	=1011
+sprpriority = 2
+
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= !time
+map 			= "Float"
+value 		= 0
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= !time
+map 			= "CanFloat"
+value 		= 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = !time
+sysvar(1) = 0
+[State 40, 3]
+type = VarSet
+triggerall 	= prevstateno = [1028, 1029]
+trigger1 		= time = 1
+sysvar(1) 	= 1 + (prevstateno = 1029)
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 4
+statetype = A
+physics = A
+[State 0, VelMul]
+type = VelMul
+triggerall = stateType = A
+trigger1 = animelemno(0) = [2,4]
+x = 0.6
+y = 0.6
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 4
+x = 0
+y = 0
+
+[State 0, PosSet]
+type = PosSet
+triggerall = prevstateno != [1028, 1029]
+trigger1 = animelem = 4
+x = helper(1015), pos x
+y = helper(1015), pos y
+ignorehitpause = 1
+[State 0, PosSet]
+type = PosSet
+triggerall = prevstateno = 1028
+trigger1 = animelem = 4
+x = helper(1016), pos x
+y = helper(1016), pos y
+ignorehitpause = 1
+[State 0, PosSet]
+type = PosSet
+triggerall = prevstateno = 1029
+trigger1 = animelem = 4
+x = helper(1017), pos x
+y = helper(1017), pos y
+ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = ChangeState
+trigger1 = animelemno(0) = 4
+value = 1016
+ignorehitpause = 1
+redirectid = helper(1015 + sysvar(1)), id
+
+[State 0, Changestate]
+type = Changestate
+triggerall = statetype != A
+Trigger1 = !animtime
+value = 0
+ctrl = 1
+[State 0, Changestate]
+type = Changestate
+triggerall = statetype = A
+Trigger1 = !animtime
+value = 50
+ctrl = 1
+[State 0, Changestate]
+type = Changestate
+triggerall = statetype = A
+trigger1 =pos y>= 0
+value = 52
+ctrl = 1

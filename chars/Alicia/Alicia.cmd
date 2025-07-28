@@ -27,6 +27,26 @@ time = 10
 name = "214H"
 command = ~$D, $B, z
 time = 10
+[Command]
+name = "236S"
+command = ~D, DF, F, b
+time = 10
+[Command]
+name = "214S"
+command = ~D, B, b
+time = 10
+[Command]
+name = "22L"
+command = ~D, D, x
+time = 10
+[Command]
+name = "22M"
+command = ~D, D, y
+time = 10
+[Command]
+name = "22H"
+command = ~D, D, z
+time = 10
 
 [Statedef -1]
 
@@ -72,6 +92,36 @@ trigger1 = ctrl
 trigger2 = movecontact
 trigger2 = hitdefattr = A, NA
 
+
+;Malice Call
+[State -1, Malice Call...] ;Outside PW
+type = ChangeState
+value = 3000
+triggerall = command = "236S"
+triggerall = power >= 2000 && !map(Perfektwelt)
+triggerall = statetype != A || map(Float)
+trigger1 = ctrl
+trigger2 = var(1) || stateno = [2010, 2060] || stateno = 1005
+[State -1, Malice Call...] ;Outside PW
+type = ChangeState
+value = 3000
+triggerall = command = "236S"
+triggerall = map(Perfektwelt)
+triggerall = statetype != A || map(Float)
+trigger1 = ctrl
+trigger2 = var(1) || stateno = [2010, 2060] || stateno = 1005
+
+;Perfektwelt
+[State -1, GLORY TO MY VISION!!!]
+type = ChangeState
+value = 3020
+triggerall = !map(Perfektwelt)
+triggerall = command = "214S"
+triggerall = power >= 4000
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1) || stateno = [2010, 2060] || stateno = 1005
+
 ;---------------------------------------------------------------------------
 ;Airdash
 [State -1, Forward Airdash]
@@ -80,7 +130,7 @@ value = 60
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
 triggerall = map(ADashUse) < const(AirDashMax)
-triggerall = pos y<-20
+triggerall = pos y<-40
 triggerall = statetype = A 
 trigger1 	= ctrl
 
@@ -90,7 +140,7 @@ trigger1 	= ctrl
 type = ChangeState
 value = 61
 triggerall = command = "a44" || command = "M44"
-triggerall = pos y<-20
+triggerall = pos y<-40
 triggerall = map(ADashUse) < const(AirDashMax)
 triggerall = statetype = A
 trigger1 	= ctrl
@@ -151,10 +201,17 @@ type = ChangeState
 value = 1010
 triggerall = command = "214L" && !numhelper(1015)
 trigger1 = var(1)
-;214L
-[State -1, Presage Flower L]
+;22L
+[State -1, Redwall L]
 type = ChangeState
 value = 1020
+triggerall = command = "22L"
+triggerall = numhelper(1015) && map(EyeAction_L)
+trigger1 = var(1)
+;214L [EYE]
+[State -1, Schadenfreude Step L]
+type = ChangeState
+value = 1030
 triggerall = command = "214L" && numhelper(1015) && map(EyeAction_L)
 trigger1 = var(1)
 
@@ -164,10 +221,16 @@ type = ChangeState
 value = 1008
 triggerall = command = "214M" && !numhelper(1016)
 trigger1 = var(1)
-;214L
-[State -1, Presage Flower L]
+;22M
+[State -1, Redwall M]
 type = ChangeState
 value = 1020
+triggerall = command = "22M" && numhelper(1016) && map(EyeAction_M)
+trigger1 = var(1)
+;214M [EYE]
+[State -1, Schadenfreude Step M]
+type = ChangeState
+value = 1028
 triggerall = command = "214M" && numhelper(1016) && map(EyeAction_M)
 trigger1 = var(1)
 
@@ -177,10 +240,16 @@ type = ChangeState
 value = 1009
 triggerall = command = "214H" && !numhelper(1017)
 trigger1 = var(1)
-;214L
-[State -1, Presage Flower L]
+;22H
+[State -1, Redwall H]
 type = ChangeState
 value = 1020
+triggerall = command = "22H" && numhelper(1017) && map(EyeAction_H)
+trigger1 = var(1)
+;214H [EYE]
+[State -1, Schadenfreude Step H]
+type = ChangeState
+value = 1029
 triggerall = command = "214H" && numhelper(1017) && map(EyeAction_H)
 trigger1 = var(1)
 ;===========================================================================
@@ -199,12 +268,12 @@ trigger2 = (stateno = 400 || stateno = 200) && movecontact
 ;6M: The Slay Button
 [State -1, 6M]
 type 	= ChangeState
-value 	=  240
+value 	=  230
 triggerall = command = "y"
 triggerall = command = "holdfwd" && command != "holddown"
 triggerall = statetype != A || map(Float)
 trigger1 = ctrl
-trigger2 = stateno = [400,420] || stateno = [200,230]
+trigger2 = stateno = [400,420] || stateno = [200,220]
 trigger2 = movecontact
 
 ;5M: Standing Medium

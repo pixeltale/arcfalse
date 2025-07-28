@@ -327,6 +327,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 ;Explod Limiter Trigger
 [State 0, TargetState]
 type 		= TargetState
+triggerall	= !map(Counterhit)
 trigger1 		= !NumExplod(99855)
 triggerall 		= NumTarget(99855)
 trigger1 		= MoveHit = 1
@@ -337,7 +338,7 @@ ignorehitpause 	= 1
 ;Explod Limiter 
 [State 0, Explod]
 type = Explod
-;triggerall = !stateno = 690000 && p2movetype = H
+triggerall	= !map(Counterhit)
 trigger1 = !NumExplod(99855)
 trigger1 = MoveHit = 1 && !map(counterHit) && map(ComboStateCheck)
 anim = 99856
@@ -1548,6 +1549,12 @@ y = 0.85
 type = VelAdd
 trigger1 = animelemno(0)
 y = -0.30 - 0.1 * (movecontact > 0)
+
+[State 0, VelAdd]
+type = VelMul
+trigger1 = vel x < 0
+x = 0.8
+
 
 [State 0, ChangeState]
 type = ChangeState
