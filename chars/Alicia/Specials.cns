@@ -947,6 +947,8 @@ anim =1041
 sprpriority = 2
 facep2 = 1
 
+
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = !time
@@ -1041,6 +1043,7 @@ forcenofall			= 1
 ground.cornerpush.veloff = -10 / MAP(untechMOD)
 air.cornerpush.veloff 	= -14.5 / MAP(untechMOD)
 down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
+guard.dist			= 0
 getpower 				= 75
 
 [State 0, DestroySelf]
