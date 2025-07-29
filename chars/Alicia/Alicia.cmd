@@ -156,7 +156,7 @@ value = 60
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
 triggerall = map(ADashUse) < const(AirDashMax)
-triggerall = pos y<-40
+triggerall = pos y<-35
 triggerall = statetype = A 
 trigger1 	= ctrl
 
@@ -166,7 +166,7 @@ trigger1 	= ctrl
 type = ChangeState
 value = 61
 triggerall = command = "a44" || command = "M44"
-triggerall = pos y<-40
+triggerall = pos y<-35
 triggerall = map(ADashUse) < const(AirDashMax)
 triggerall = statetype = A
 trigger1 	= ctrl

@@ -345,7 +345,7 @@ flag = noairguard
 [State 100, 1]
 type = VelSet
 trigger1 = time = 0
-x = 7
+x = 6
 
 [State 0, AfterImage]
 type = AfterImage
@@ -384,7 +384,7 @@ physics = A
 anim = 61
 sprpriority = 1
 ctrl = 0
-velset = -6, vel y
+velset = -4, vel y
 
 [State 0, CtrlSet]
 type = CtrlSet
