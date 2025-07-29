@@ -288,6 +288,12 @@ type    = A
 physics = A
 ctrl = 1
 
+[State 0, VelSet]
+type = VelAdd
+trigger1 = prevstateno = 100
+y = 0.1
+
+
 [State 50, 1]
 type = VarSet
 trigger1 = Time = 0
@@ -611,7 +617,7 @@ ctrl = 0
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time = 4
+trigger1 = time = 8
 value = 1
 
 [State 0, PosAdd]
@@ -623,15 +629,15 @@ y = -10
 type = VelAdd
 trigger1 = time >= 0
 x = 0.35
-y = -0.5
+y = -0.45
 [State 0, VelSet]
 type = VelSet
 trigger1 = !time
 X = 2
 [State 0, VelSet]
 type = VelSet
-trigger1 = vel x > 4
-x = 4
+trigger1 = vel x > 6
+x = 6
 [State 0, VelSet]
 type = VelSet
 trigger1 = vel y < -2.5
@@ -904,6 +910,12 @@ ctrl = 1
 type    = A
 physics = N
 ctrl = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = command != "holdfwd" && command != "holdback"
+trigger1 = p2dist x < 0
+
 
 [State 0, AssertSpecial]
 type = AssertSpecial

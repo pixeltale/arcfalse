@@ -1,6 +1,5 @@
-.\external\script\start.lua:1401: chars\ALICIA/Specials.cns:745:
-helper(1015), 1d + sysvar(1)
-redirectid: Invalid data: d
+.\external\script\start.lua:1401: chars\ALICIA/Specials.cns:692:
+Invalid data: animeelem
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

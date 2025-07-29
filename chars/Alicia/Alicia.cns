@@ -216,6 +216,11 @@ type 		= mapset
 trigger1 		= stateno = [4000, 4006]
 map 		= "CanFloat"
 value 		= 1
+[State Float]
+type 		= mapset
+trigger1 		= movetype = H
+map 		= "Float"
+value 		= 0
 
 ;=========================================
 ;Night Terror Meter

@@ -9,44 +9,70 @@ command = ~U
 [Command]
 name = "6246L"
 command = ~$F, $D, $B, $F, x
+buffer.time = 7
 [Command]
 name = "6246M"
 command = ~$F, $D, $B, $F, y
+buffer.time = 7
 [Command]
 name = "6246H"
 command = ~$F, $D, $B, $F, z
+buffer.time = 7
 [Command]
 name = "214L"
-command = ~$D, $B, x
+command = ~$D, B, x
 time = 10
+buffer.time = 7
 [Command]
 name = "214M"
-command = ~$D, $B, y
+command = ~$D, B, y
 time = 10
+buffer.time = 7
 [Command]
 name = "214H"
-command = ~$D, $B, z
+command = ~$D, B, z
 time = 10
+buffer.time = 7
+[Command]
+name = "236L"
+command = ~$D, F, x
+time = 10
+buffer.time = 7
+[Command]
+name = "236M"
+command = ~$D, F, y
+time = 10
+buffer.time = 7
+[Command]
+name = "236H"
+command = ~$D, F, z
+time = 10
+buffer.time = 7
 [Command]
 name = "236S"
 command = ~D, DF, F, b
 time = 10
+buffer.time = 7
 [Command]
 name = "214S"
 command = ~D, B, b
 time = 10
+buffer.time = 7
 [Command]
 name = "22L"
 command = ~D, D, x
 time = 10
+buffer.time = 7
 [Command]
 name = "22M"
 command = ~D, D, y
 time = 10
+buffer.time = 7
 [Command]
 name = "22H"
 command = ~D, D, z
 time = 10
+buffer.time = 7
 
 [Statedef -1]
 
@@ -59,7 +85,7 @@ var(1) 	= 0
 [State -1, Combo condition Check]
 type 	= VarSet
 trigger1 	= ctrl || stateno = [60, 61]
-trigger2 	= (stateno = [200,240] || stateno = [400,430] || stateno = [600, 630]) && movecontact
+trigger2 	= (stateno = [200,240] || stateno = [400,430] || stateno = [600, 630]) && movecontact || stateno = 1040 && animelemno(0) >= 4
 var(1) 	= 1
 
 
@@ -214,6 +240,12 @@ type = ChangeState
 value = 1030
 triggerall = command = "214L" && numhelper(1015) && map(EyeAction_L)
 trigger1 = var(1)
+;236L [EYE]
+[State -1, The Demons The Demons The Demons L]
+type = ChangeState
+value = 1040
+triggerall = command = "236L" && numhelper(1015) && map(EyeAction_L)
+trigger1 = var(1)
 
 ;214M
 [State -1, Grim Visage M]
@@ -233,6 +265,12 @@ type = ChangeState
 value = 1028
 triggerall = command = "214M" && numhelper(1016) && map(EyeAction_M)
 trigger1 = var(1)
+;236M [EYE]
+[State -1, The Demons The Demons The Demons L]
+type = ChangeState
+value = 1038
+triggerall = command = "236M" && numhelper(1016) && map(EyeAction_M)
+trigger1 = var(1)
 
 ;214H
 [State -1, Grim Visage H]
@@ -251,6 +289,12 @@ trigger1 = var(1)
 type = ChangeState
 value = 1029
 triggerall = command = "214H" && numhelper(1017) && map(EyeAction_H)
+trigger1 = var(1)
+;236L [EYE]
+[State -1, The Demons The Demons The Demons L]
+type = ChangeState
+value = 1039
+triggerall = command = "236H" && numhelper(1017) && map(EyeAction_H)
 trigger1 = var(1)
 ;===========================================================================
 ;Normal Moves								   | |
@@ -295,7 +339,7 @@ triggerall = command = "z"
 triggerall = command = "holddown" && command = "holdfwd"
 triggerall = statetype != A || map(Float)
 trigger1 = ctrl
-trigger2 = stateno = [400,410] || stateno = [200,210] 
+trigger2 = stateno = [400,420] || stateno = [200,220] 
 trigger2 = movecontact
 
 ;5H

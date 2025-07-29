@@ -5,21 +5,16 @@ Alicia has a special resource called the Terror Gauge
 that she can use to gain access to enhanced attacks
 and supers.
 
-<#f200ff>:REMIX - GRIM VISAGE:</>
-Alicia's remix lets her place down an eye
-on the screen. Once an eye is placed, her
-terror gauge will begin to go up. and
-once full she can use her Night Terror attacks.
-
 <#f200ff>:Command Normals:</>
 Blood Sacrifice					   j.2H
 
-<#f200ff> -=SPECIAL MOVES=- </>
-Severance ROT					   236L/M/H
-False Severance					   214L
-XDISTORTION					   214M
-YDISTORTION					   214H
-KYOUGENSHOU					   j.236L/M/H
+<#f200ff> -=SPECIAL MOVES - Normal Mode=- </>
+Grim Visage					   214L
+XDISTORTION					       632146M
+YDISTORTION					   632146H
+The Girl's Torture Diary [E]           236L/M/H
+lixaxil [E]                        214L/M/H
+Lunatic Tears [E]                      22L/M/H
 
 <#f200ff> -=NIGHT TERRORS=- </>
 SLAVES TO POWER					   236R

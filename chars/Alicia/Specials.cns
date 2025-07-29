@@ -527,6 +527,25 @@ ctrl 	= 0
 anim 	= 1014
 sprpriority = 2
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1015)
+map 		= "EyeAction_L"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1016)
+map 		= "EyeAction_M"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1017)
+map 		= "EyeAction_H"
+value 		= 0
+ignorehitpause 	= 1
+
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = !animtime
@@ -684,8 +703,31 @@ physics = S
 juggle  = 0
 poweradd= 0
 ctrl 	= 0
-anim 	=1011
+anim 	=1030
 sprpriority = 2
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelemno(0) < 4
+value = SCA
+time = 1
+
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+statetype = A
+physics = A
+
+[State Category]
+type = mapadd
+trigger1 = time = 0
+map = "DJCL"
+value = -1
+
+[State 0, Turn]
+type = Turn
+trigger1 = animelem = 5 && p2dist x < 0
 
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -773,3 +815,264 @@ triggerall = statetype = A
 trigger1 =pos y>= 0
 value = 52
 ctrl = 1
+
+
+;================================================================================
+;M Summon
+[Statedef 1038]
+type    = S
+movetype= A
+physics = S
+[State 0, ChangeState]
+type = 	Changestate
+Trigger1 	= 1
+value 	= 1040
+;================================================================================
+;H Summon
+[Statedef 1039]
+type    = S
+movetype= A
+physics = S
+[State 0, ChangeState]
+type = 	Changestate
+Trigger1 	= 1
+value 	= 1040
+;=================
+;================================================================================
+;236X [E]
+[Statedef 1040]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim =1011
+sprpriority = 2
+
+[State 40, 3]
+type = VarSet
+trigger1 = !time
+sysvar(1) = 0
+[State 40, 3]
+type = VarSet
+triggerall 	= prevstateno = [1038, 1039]
+trigger1 		= time = 1
+sysvar(1) 	= 1 + (prevstateno = 1039)
+[State 0, DestroySelf]
+type = ChangeState
+trigger1 = animelemno(0) = 3
+value = 1016
+ignorehitpause = 1
+redirectid = helper(1015 + sysvar(1)), id
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+statetype = A
+physics = A
+[State 0, VelMul]
+type = VelMul
+triggerall = stateType = A
+trigger1 = animelemno(0) = [2,4]
+x = 0.8
+y = 0.6
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 2 && prevstateno != [1038,1039]
+helpertype = normal
+name = "L MONSTER"
+ID = 1041
+stateno = 1041
+pos = 0, 0
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 2 && prevstateno = 1038
+helpertype = normal
+name = "M MONSTER"
+ID = 1042
+stateno = 1041
+pos = 0, 0
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+[State 0, Helper]
+type = Helper
+trigger1 = animelem = 2 && prevstateno = 1039
+helpertype = normal
+name = "H MONSTER"
+ID = 1043
+stateno = 1041
+pos = 0, 0
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype != A
+Trigger1 = !animtime
+value = 0
+ctrl = 1
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype = A
+Trigger1 = !animtime
+value = 50
+ctrl = 1
+[State 0, DestroySelf]
+type = Changestate
+triggerall = statetype = A
+trigger1 =pos y>= 0
+value = 52
+ctrl = 1
+
+;================================================================================
+;Monster Spawn and Walk
+[Statedef 1041]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim =1041
+sprpriority = 2
+facep2 = 1
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = !time
+x = (helper(1015 + root, sysvar(1)), pos x)
+y = 0
+
+[State 0, DestroySelf]
+type = ChangeAnim
+triggerall = anim = 1041
+Trigger1 = !animtime
+value = 1042
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim = 1042
+x = 4
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 1043
+time = 99
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+
+[State 0, DestroySelf]
+type = Changestate
+triggerall = anim = 1042
+Trigger1 = p2dist x < 60
+value = 1042
+
+;================================================================================
+;Monster Lunge
+[Statedef 1042]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim =1043
+sprpriority = 2
+facep2 = 1
+velset = vel x, 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 3 || animelem = 4 || animelem = 5
+x = 6
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 0]
+type 	= HitDef 
+p2facing 	= 1
+trigger1	= !movecontact && !movereversed
+attr 		= S, NA
+animtype 		= Hard
+air.animtype 	= UP
+damage 		= 120
+hitflag 		= MAFD
+guardflag 	= MA
+pausetime 	= 12,12
+sparkno 		= 1
+sparkxy 		= -15,-60
+hitsound   	= 5,1
+guardsound 	= 6,2
+ground.type 	= HIGH
+air.type		= HIGH
+ground.slidetime 	= 12
+ground.hittime  	= 24
+air.hittime  		= 35
+down.hittime 		= 35
+ground.velocity 		= -5
+air.velocity 			= -5, 3
+down.velocity 			= -5, -3
+guard.ctrltime 		= 10
+guard.velocity 		= -5
+air.fall 				= 0
+fall.yvelocity 		= 0
+forcenofall			= 1
+ground.cornerpush.veloff = -10 / MAP(untechMOD)
+air.cornerpush.veloff 	= -14.5 / MAP(untechMOD)
+down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
+getpower 				= 75
+
+[State 0, DestroySelf]
+type = Changestate
+Trigger1 = !animtime
+value = 1043
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA, NA, SA, HA, NP, SP, HP
+slot = 0
+stateno = 1043
+time = 99
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+;================================================================================
+;Monster Die
+[Statedef 1043]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim =1044
+sprpriority = 2
+
+[State 0, DestroySelf]
+type = DestroySelf
+Trigger1 = !animtime
