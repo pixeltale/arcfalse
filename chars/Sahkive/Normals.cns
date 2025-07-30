@@ -2762,13 +2762,6 @@ trigger1 = animelem = 10
 trigger2 = animelem = 11
 x = -3
 
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = animelem = 6
-statetype = S       ;S,A,C,L
-movetype = I        ;I,A,H
-physics = S         ;A,C,S,N
-
 [State 0, Explod]
 type = Explod
 trigger1 = animelem = 7
@@ -2970,7 +2963,7 @@ ignorehitpause = 1
 [State -1, Run Fwd]
 type = ChangeState
 value = 101
-triggerall = command = "66" || command = "M66" && teammode != Tag
+triggerall = command = "66" || command = "M66" 
 trigger1 = movecontact
 
 [State 0, ChangeState]
