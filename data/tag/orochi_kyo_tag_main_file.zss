@@ -527,7 +527,7 @@ persistent(0) if map(reverseSnapbackIsOn) && time > 2 {
 #===============================================================================
 #StateTagEnteringScreen
 #===============================================================================
-[Statedef 56000; type: S; movetype: I; physics: S; anim: Const(AnimRunFwdOrHopForward); sprpriority: 2; ctrl: 0;]
+[Statedef 56000; type: S; movetype: I; physics: S; anim: ifElse((name="One"), 100, Const(AnimRunFwdOrHopForward)); sprpriority: 2; ctrl: 0;]
 
 if map(partnerIsReady) && time = 1 {
 	teammapadd{map:"partnerIsReady";value:-1}
@@ -683,7 +683,7 @@ if BackEdgeBodyDist >= 0 {
 #===============================================================================
 #StateTagEnteringScreenaftermaincharwasbeat
 #===============================================================================
-[Statedef 56250; type: S; movetype: I; physics: S; anim: Const(AnimRunFwdOrHopForward); sprpriority: 2; ctrl: 0;]
+[Statedef 56250; type: S; movetype: I; physics: S; anim: ifElse((name="One"), 100, Const(AnimRunFwdOrHopForward)); sprpriority: 2; ctrl: 0;]
 
 if Time = 0 {
 	PosSet{x: ifElse(map(charLocalCoord360),-243*facing, -730*facing); y: 0}
@@ -726,7 +726,14 @@ if !Standby {
 	TagOut{}
 }
 
-VelSet{x: Const240p(15); y: 0}
+if name="One" {
+	ignorehitpause if animelem=2 {
+	VelSet{x: Const240p(15); y: 0}
+	}
+} else {
+	VelSet{x: Const240p(15); y: 0}
+}	
+
 
 if time > const(TagAssistCooldown)/2 {
 	ChangeState{value: Const(StateTagWaitingOutside)}

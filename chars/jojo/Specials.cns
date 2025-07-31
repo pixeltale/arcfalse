@@ -78,6 +78,18 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
+[State JoJo Voices]
+type = PlaySnd
+triggerall = anim = 1000
+trigger1 = animelem =5
+value = 220,0+random%7
+
+[State JoJo Voices]
+type = PlaySnd
+triggerall = anim = 1001
+trigger1 = animelem = 5
+value = 2002,0+random%3
+
 [State 1110, 3]
 type = HitDef
 triggerall = anim = 1000
@@ -224,6 +236,11 @@ velset = 0,0
 anim = 1001
 sprpriority = 2
 
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem = 5
+value = 2002,0+random%3
+
 ;EX Effects
 [State 200, 2]
 type = PlaySnd
@@ -285,15 +302,6 @@ palbright = 40,30,-40
 palcontrast = 256,206,206
 trans = add1
 ignorehitpause = 1
-
-
-
-
-
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = animelem = 6
-value = 2000, (0+(Random%6))
 
 [State 0, PosAdd]
 type = PosAdd
@@ -505,6 +513,35 @@ time = 15
 ampl = 3
 freq = 120
 
+[State 0, Explod]
+type = Explod
+trigger1 = time = 52
+anim = 10042
+ID = 10042
+pos = 10,-5
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1.8,1.8
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 53
+value = 2070,0+random%2
+volumescale = 55
+
 [State 12, ChangeState]
 type = ChangeState
 triggerall = var(41)=[13,16]
@@ -538,6 +575,17 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 anim = 1052
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =4
+value = 220,0+random%4
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 701,4
+volumescale = 110
 
 [State 0, Explod]
 type = Explod
@@ -654,6 +702,17 @@ sprpriority = 2
 anim = 1052
 facep2 = 1
 
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =4
+value = 220,4+random%2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 701,2
+volumescale = 110
+
 [State 0, Explod]
 type = Explod
 trigger1 = animelem = 3
@@ -769,6 +828,17 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 anim = 1052
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =4
+value = 1050,0+random%3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 701,3
+volumescale = 110
 
 [State 0, Explod]
 type = Explod
@@ -1382,7 +1452,13 @@ value = 8080, 0
 type = PlaySnd
 trigger1 = map(PERFECT)
 trigger1 = animelem = 2
-value = 1000, 0
+value = 1000, 0+random%3
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = !map(PERFECT)
+trigger1 = animelem = 2
+value = 1000, 3+random%2
 
 [State 200, 2]
 type = PlaySnd
@@ -1409,6 +1485,11 @@ anim = 2001                       ;Change animation (Def: no change)
 poweradd = 10                    ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =5
+value = 200,0+random%6
+volumescale=150
 [State 200, 2]
 type = PlaySnd
 trigger1 = animelem =2
@@ -1552,7 +1633,7 @@ type = Explod
 trigger1 = animelem = 7 && !numexplod(2002)
 anim = 2002
 ID = 2002
-pos = -20,0
+pos = -30,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -1591,6 +1672,19 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 2000                       ;Change animation (Def: no change)
 poweradd = 10                    ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =5
+value = 200,0+random%6
+volumescale=150
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =14
+value = 210,0+random%4
+
 
 [State 200, 2]
 type = PlaySnd
@@ -1735,7 +1829,7 @@ type = Explod
 trigger1 = animelem = 7
 anim = 2002
 ID = 2002
-pos = -20,0
+pos = -30,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -1757,7 +1851,7 @@ type = Explod
 trigger1 = animelem = 13 && !numexplod(2003)
 anim = 2003
 ID = 2003
-pos = -20,0
+pos = -30,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -1802,6 +1896,21 @@ v = 32
 value = var(32)+1
 ;LIMITER // Only Allowed ONCE During a combo // Find in -2
 ;-----
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 2000,0+random%3
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem = 10
+value = 2001,0+random%3
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem = 20
+value = 2002,0+random%3
 
 [State 200, 2]
 type = PlaySnd
@@ -2263,6 +2372,11 @@ poweradd= 30
 ctrl = 0
 anim = 2060
 sprpriority = 2
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 1000,3+random%2
 
 ;Tech not allowed
 [State 1060, Explod]
@@ -2760,6 +2874,11 @@ sprpriority = 2
 velset = vel x * 0.5, vel y - 2
 facep2 = 1
 
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 700,2+random%2
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 3
@@ -3011,6 +3130,11 @@ poweradd= -1000
 ctrl = 0
 anim = 2059
 sprpriority = 2
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =4
+value = 700,0+random%3
 
 [State 0, PosAdd]
 type = PosAdd
@@ -3317,6 +3441,11 @@ ctrl = 0
 sprpriority = 2
 facep2 = 1
 anim = 1055
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem =4
+value = 220,4+random%2
 
 [State 0, ChangeState]
 type = ChangeState

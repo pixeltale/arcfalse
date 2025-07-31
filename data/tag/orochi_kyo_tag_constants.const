@@ -74,7 +74,7 @@ StateTagAssistSuper = 1000 ; STATENO: normal assist attack
 ;airAssistSuper = 1;  copy this to your character's constant block if you are planning to use an air assist attack!!
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 ;airAssistHyper = 1;  copy this to your character's constant block if you are planning to use an air assist attack!!
-tauntWhileWaitingForPartners = 195 ; ANIM: If mvc1switch is on, taunt after switch. Used on switch attack or triple menace.
+tauntWhileWaitingForPartners = 56955 ; ANIM: If mvc1switch is on, taunt after switch. Used on switch attack or triple menace.
 
 ; Use this ONLY if you know what are you doing
 ; Supers and Hypers

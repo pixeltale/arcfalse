@@ -58,15 +58,18 @@ trigger1 = movehit = 1
 fv =13     ;fv = 
 value = 1.5
 
-[State -3, Arzon Lvl2 Voice]
+[State Arzon Lvl2 Voice]
 type = PlaySnd
-trigger1 = animelem = 3
-value = 2010, (0+(Random%3))
+trigger1 = animelem = 1
+value = 3000, (0+(Random%2))
+volumescale=150
 
 [State -3, Arzon Hyper Voice]
 type = PlaySnd
 trigger1 = animelem = 21
-value = 3004, 0
+value = 3001, (0+(Random%2))
+volumescale=150
+
 
 [State -3, Arzon WIND SFX 2]
 type = PlaySnd
@@ -297,6 +300,12 @@ value         = root, Map(Accumulation) * root, map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
+[State 0, Pause]
+type = Pause
+trigger1 = movehit && time < 5
+time = 10
+ignorehitpause = 1
+
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
@@ -308,7 +317,7 @@ damage = 250*(parent,MAP(P4)) + 50
 hitflag = MAFD
 guardflag = MA
 priority = 3
-pausetime = 15,15
+pausetime = 0,30
 guard.pausetime = 5, 5
 sparkno = 3
 sparkxy = random%20,10-random%20
@@ -329,6 +338,18 @@ fall = 1
 envshake.time = 5
 
 
+[State 0, Zoom]
+type = zoom
+trigger1 = !winKO
+trigger1 = movehit
+trigger1 = time < 5
+time = 30
+scale = 1.2
+lag = .5
+stagebound = 1
+camerabound = 0
+pos =pos x, 0
+ignorehitpause=1
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -441,6 +462,12 @@ poweradd= -4000
 ctrl = 0
 anim = 3500
 sprpriority = 2
+
+[State -3, Arzon Hyper Voice]
+type = PlaySnd
+trigger1 = time=0
+value = 3500, (0+(Random%6))
+volumescale=150
 
 [State 0,	MapSet]
 type 		= MapSet
@@ -697,10 +724,17 @@ ctrl = 0
 anim = 3501
 sprpriority = 2
 
+[State -3, Arzon Hyper Voice]
+type = PlaySnd
+trigger1 = animelem=29
+value = 3501, (0+(Random%3))
+volumescale=150
+ignorehitpause=1
+
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = time = 0
-x = -25
+trigger1 = FrontEdgeBodyDist < 30 && time < 91
+x = -200
 
 [State 8990, AssertSpecial]
 type = AssertSpecial
@@ -824,7 +858,7 @@ ground.hittime  = 15
 ground.velocity = -.5,-10
 fall.xvelocity = -2
 fall.yvelocity = -0
-air.velocity = -.5,-6.25
+air.velocity = 0,-3
 getpower = (0)
 air.hittime = 999
 envshake.time = 15
@@ -925,6 +959,17 @@ fall = 1
 type = PlaySnd
 trigger1 = animelem = 54
 value = 3004, 2
+
+[State 0, Zoom]
+type = zoom
+trigger1 = animelem = 35
+time = 48
+scale = 1.1
+lag = .5
+stagebound = 1
+camerabound = 0
+pos =pos x+enemy,pos x, -10
+ignorehitpause=1
 
 
 [State 0, PlaySnd]
@@ -1040,15 +1085,14 @@ supermovetime = 999
 
 [State 0, Explod]
 type = Explod
-trigger1 = animelem = 43
+trigger1 = animelem = 35
 anim = 3513
 ID =  3512
-pos = 100,0
+pos = -100,-20
 postype = p1
-facing = 1
-removetime = -2
-pausemovetime = 0
-scale = 1.82,1.82
+facing = -1
+removetime = 57
+scale = 1.2,1.2
 sprpriority = -9
 removeongethit = 1
 bindtime = 0

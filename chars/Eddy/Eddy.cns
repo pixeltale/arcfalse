@@ -109,12 +109,11 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 
 [Constants]
 ; NegativeStates.cns states
-switchAirAttack = 610 ; ANIM: switch air attack.
+switchAirAttack = 620 ; ANIM: switch air attack.
 snapBackAttack = 210 ; ANIM: snapback attack
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
 StateTagAssistSuper = 1500 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
-tauntWhileWaitingForPartners = 195 ; ANIM: If mvc1switch is on, taunt after switch. Used on switch attack or triple menace.
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
@@ -184,17 +183,6 @@ ctrl = 0
 anim = 181
 velset = 0,0
 
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=0
-value = 7410, 0
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=50
-value = F1000,0
-
 [State 8990, AssertSpecial]
 type = AssertSpecial
 trigger1 = RoundState < 3
@@ -230,17 +218,6 @@ type = S
 ctrl = 0
 anim = 182
 velset = 0,0
-
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=0
-value = 7410, 0
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=50
-value = F1000,0
 
 ;Dark BG
 [State 0, BGPalFX]
@@ -353,17 +330,6 @@ type = S
 ctrl = 0
 anim = 185
 velset = 0,0
-
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=0
-value = 7410, 0
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=50
-value = F1000,0
 
 [State 8990, AssertSpecial]
 type = AssertSpecial

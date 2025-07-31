@@ -329,6 +329,11 @@ shadow = 0,0,0
 ownpal = 1
 removeongethit = 0
 
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = time = 0 && prevstateno = 702
+value = 700,3+random%2
+
 [State 40, 6]
 type = ChangeState
 trigger1 = AnimTime = 0

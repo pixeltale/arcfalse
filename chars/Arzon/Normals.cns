@@ -11,10 +11,11 @@ anim = 200                       ;Change animation (Def: no change)
 poweradd = 0                   ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
-[State 1, Arzon Basic Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 2
-value = 1000, (0+(Random%5))
+value = 200, (0+(Random%18))
+volumescale=120
 
  ;============================
 [State -2, Starter Level]
@@ -134,10 +135,11 @@ type = PlaySnd
 trigger1 = animelem = 3
 value = 0, 4
 
-[State -3, Arzon Medium Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 3
-value = 1001, (0+(Random%5))
+value = 200, (6+(Random%4))
+volumescale=120
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -249,16 +251,17 @@ sprpriority = 3
 removeongethit = 1
 bindtime = 0
 
-[State -3, Arzon Heavy Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 4
-value = 1002, (0+(Random%4))
+value = 220, (0+(Random%4))
+volumescale=120
 
 [State -3, Arzon WIND SFX 1]
 type = PlaySnd
 trigger1 = animelem = 1
 value = 2000, 0
-
+volumescale=60
 ;[State 0, PosAdd]
 ;type = PosAdd
 ;trigger1 = animelem = 3
@@ -411,10 +414,11 @@ sprpriority = 3
 removeongethit = 1
 bindtime = 28
 
-[State -3, Arzon Heavy Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 4
-value = 1002, (0+(Random%4))
+value = 230, 6
+volumescale=120
 
 [State -3, Arzon WIND SFX 1]
 type = PlaySnd
@@ -745,10 +749,11 @@ type = PlaySnd
 trigger1 = animelem = 2
 value = 0, 2
 
-[State -3, Arzon Basic Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 2
-value = 1000, (0+(Random%5))
+value = 200, (0+(Random%18))
+volumescale=120
 
 [State 0, VarAdd]
 type = VarAdd
@@ -879,10 +884,11 @@ type = PlaySnd
 trigger1 = animelem = 3
 value = 0, 4
 
-[State -3, Arzon Medium Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 3
-value = 1001, (0+(Random%7))
+value = 200, (6+(Random%4))
+volumescale=120
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -999,10 +1005,11 @@ sprpriority = 3
 removeongethit = 1
 bindtime = 0
 
-[State -3, Arzon Medium Voices]
+[State Arzon Voices]
 type = PlaySnd
-trigger1 = animelem = 3
-value = 1001, (0+(Random%8))
+trigger1 = animelem = 4
+value = 220, (0+(Random%4))
+volumescale=120
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1065,7 +1072,8 @@ value = 0, 2
 type = PlaySnd
 trigger1 = animelem = 4
 value = 2000, 1
-volumescale = 65
+volumescale = 40
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -1232,10 +1240,11 @@ type = RemoveExplod
 trigger1 = 1
 id = 621
 
-[State -3, Arzon Basic Voices]
+[State Arzon Voices]
 type = PlaySnd
-trigger1 = animelem = 3
-value = 1000, (0+(Random%5))
+trigger1 = animelem = 2
+value = 200, (0+(Random%18))
+volumescale=120
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1379,10 +1388,11 @@ type = PlaySnd
 trigger1 = animelem = 3
 value = 0, 3
 
-[State -3, Arzon Medium Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 3
-value = 1001, (0+(Random%7))
+value = 200, (6+(Random%4))
+volumescale=120
 
  ;============================
 
@@ -1496,10 +1506,11 @@ type = PlaySnd
 trigger1 = animelem = 8
 value = 0, 2
 
-[State -3, Arzon Heavy Voices]
+[State Arzon Voices]
 type = PlaySnd
 trigger1 = animelem = 5
-value = 1002, (0+(Random%4))
+value = 230, (3+(Random%4))
+volumescale=120
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1671,15 +1682,17 @@ sprpriority = 3
 removeongethit = 1
 bindtime = 28
 
-[State -3, Arzon Heavy Voices]
+[State Arzon Voices]
 type = PlaySnd
-trigger1 = animelem = 4
-value = 1002, (0+(Random%4))
+trigger1 = animelem = 3
+value = 230, (5+(random%2))
+volumescale=120
 
 [State -3, Arzon WIND SFX 1]
 type = PlaySnd
 trigger1 = animelem = 1
 value = 2000, 0
+volumescale = 60
 
 [State 200, VarAdd]
 type = VarAdd
@@ -1700,28 +1713,6 @@ type = VarSet
 trigger1 = !numtarget
 fv = 25
 value = 0
-
-[State 0, Explod]
-type = Explod
-trigger1 = animelem = 4
-anim = 6700
-ID = 6600
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-facing = -1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.8,0.8
-sprpriority = 0
-ontop = 0
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
 
 [State 0, VelSet]
 type = VelAdd
