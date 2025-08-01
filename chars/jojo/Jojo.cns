@@ -255,6 +255,12 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
+[State -2, demon]
+type 		= MapSet
+trigger1     = !map(ComboStateCheck)
+map 		= "demonvoice"
+value 		= 1
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 	= !map(ComboStateCheck)
@@ -332,8 +338,8 @@ ignorehitpause = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "PEWGF = %f comboTimer = %f"
-params = map(Perfect), map(gravmul)
+text = "PEWGF = %f demonvoice = %f"
+params = map(Perfect), map(demonvoice)
 ignorehitpause = 1
 
 [State 0, VarSet]

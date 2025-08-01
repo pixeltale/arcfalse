@@ -72,9 +72,11 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 
 [Constants]
 ; NegativeStates.cns states
+switchAirAttack = 655
 snapBackAttack = 210 ; ANIM: snapback attack
 StateTagAssistSuper = 1040 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
+AnimRunFwdOrHopForward = 56956
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
@@ -150,17 +152,6 @@ ctrl = 0
 anim = 181
 velset = 0,0
 
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=0
-value = 7410, (0+(Random%2))
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=50
-value = F1000,0
-
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = enemynear,name!="roger"&&enemynear,name!="vile"&&enemynear,name!="Z"&&enemynear,name!="one"&&enemynear,name!="sahkive"
@@ -193,17 +184,6 @@ type = S
 ctrl = 0
 anim = 182
 velset = 0,0
-
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=0
-value = 7410, (0+(Random%2))
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=50
-value = F1000,0
 
 [State -3, Win Voices] 
 type = PlaySnd
@@ -290,17 +270,6 @@ type = S
 ctrl = 0
 anim = 183
 velset = 0,0
-
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=0
-value = 7410, (0+(Random%2))
-[State -3, Win Announcer]
-type = PlaySnd
-triggerall=teammode!=Tag
-trigger1 = time=50
-value = F1000,0
 
 [State -3, Win Voices] 
 type = PlaySnd
@@ -1278,6 +1247,7 @@ ignoreHitPause = 1
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 [Statedef -3]
+
 ;==============================================
 ; KILL SWTICH GODE
 ;==============================================

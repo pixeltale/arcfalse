@@ -536,11 +536,6 @@ velset = 0,0
 anim = 161
 ctrl = 0
 
-[State -3, Arzon Basic Voices]
-type = PlaySnd
-trigger1 = time = 1
-value = 1000, 1
-
 [State 0, AssertSpecial]
 type = AssertSpecial
 trigger1 = time <= 20
@@ -1175,11 +1170,6 @@ physics = S
 anim = 100
 sprpriority = 1
 ctrl = 1
-
-[State 430, 1]
-type = PlaySnd
-trigger1 = Time = 3
-value = 1009,0
 
 [State 100]
 type = VelSet

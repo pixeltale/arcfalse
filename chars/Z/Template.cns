@@ -120,7 +120,7 @@ type = S
 [State 180, 1]
 type = ChangeState
 trigger1 = Time = 0
-value = 181
+value = 181+random%3
 
 ;---------------------------------------------------------------------------
 ; Win 1
@@ -147,8 +147,8 @@ volumescale=200
 [State 0, Explod]
 type = Explod
 trigger1 = time = 65
-anim = 183
-ID = 183
+anim = 182
+ID = 182
 pos = 0,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
@@ -193,11 +193,6 @@ trigger1 = time = 62
 value = 180, 0
 channel = 1
 
-[State -3, Win Announcer]
-type = PlaySnd
-trigger1 = time=0
-value = 7410, (0+(Random%2))
-
 [State 8990, AssertSpecial]
 type = AssertSpecial
 trigger1 = Roundstate > 3
@@ -207,7 +202,7 @@ flag = Nobardisplay
 [Statedef 182]
 type = S
 ctrl = 0
-anim = 182
+anim = 183
 velset = 0,0
 
 ;Idle Explod Removal
@@ -241,10 +236,6 @@ type = PlaySnd
 trigger1 = time = 62
 value = 1100,2
 channel = 1
-[State -3, Win Announcer]
-type = PlaySnd
-trigger1 = time=0
-value = 7410, (0+(Random%2))
 
 [State 8990, AssertSpecial]
 type = AssertSpecial
@@ -282,11 +273,6 @@ value = 180,1
 type = PlaySnd
 trigger1 = animelem=9
 value = 1200, 0
-
-[State -3, Win Announcer]
-type = PlaySnd
-trigger1 = time=0
-value = 7410, (0+(Random%2))
 
 [State 8990, AssertSpecial]
 type = AssertSpecial

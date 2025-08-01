@@ -24,6 +24,17 @@ type = PlaySnd
 trigger1 = animelem =2
 value = 0, 0
 
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 6
+value = 3000, 3
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = prevstateno = 701
+trigger1 = time = 0
+value = 3000, 3
+
 [State 4000, NotHitBy]
 type = NotHitBy
 trigger1 = time=0
@@ -181,6 +192,31 @@ velset = 0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 3001                       ;Change animation (Def: no change)
 sprpriority = -2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem=1
+value = 3000,0
+ignorehitpause=1
+persistent=0
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem=14
+value = 3000,1
+ignorehitpause=1
+persistent=0
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem=31
+value = 3000,2
+ignorehitpause=1
+persistent=0
+[State JoJo Voices]
+type = PlaySnd
+trigger1 = animelem=85
+value = 3000,4
+ignorehitpause=1
+persistent=0
 
 [State 0, SprPriority]
 type = SprPriority
@@ -844,7 +880,7 @@ time = 13
 [State -3, Win Voices] ;Win
 type = PlaySnd
 trigger1 = animelem = 6
-value = 2000, (0+(Random%6))
+value = 2002, (0+(Random%3))
 
 [State 0, PosAdd]
 type = PosAdd

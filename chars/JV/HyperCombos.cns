@@ -213,6 +213,17 @@ trigger1 = animtime = 0 && !movehit
 value = 0
 ctrl = 1
 
+[State 0, Zoom]
+type = zoom
+trigger1 = movehit && map(EnLock)
+time = 115
+scale 	= 1.25
+lag 	= .5
+stagebound 	= 1
+camerabound 	= 0
+pos 		= (pos x+enemy,pos x),0
+ignorehitpause	=1
+
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0 && movehit && !MAP(EnLock)
@@ -532,11 +543,14 @@ ground.type = Low
 animtype = medium
 ground.slidetime = 300
 ground.hittime  = 23
-ground.velocity = -2,-3
-air.velocity = -6.6,-2
+ground.velocity = -2,0
+air.velocity = -2,16
 air.hittime = 24
 envshake.time = 7
 fall = 0
+forcenofall = 1
+air.fall = 0
+forcestand = 1
 fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
@@ -555,11 +569,11 @@ guardflag = MA
 pausetime = 40,90
 sparkno = 2
 sparkxy = -25,-44
-hitsound   = 5,1
+hitsound   = 5,2
 animtype = Hard
 ground.slidetime = 14
 ground.hittime  = 90
-ground.velocity = -1,-5
+ground.velocity = -5,-5
 air.velocity = -2,-5
 air.hittime = 90
 envshake.time = 7
@@ -571,6 +585,23 @@ guard.hittime = 21
 guard.ctrltime = 4
 kill= 0
 getpower = 0
+
+[State 77]
+type = bgpalfx
+trigger1 = animelem = 40 && movehit
+time = 46
+add= -255,-255,-255
+ignorehitpause = 1
+persistent = 0
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = animelem = 41
+time = 45
+add= -255,-255,-255
+sinadd = 255,255,255,200
+invertall = 0
+color = 256
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -591,7 +622,7 @@ guardflag = MA
 pausetime = 40,40
 sparkno = 3
 sparkxy = -25,-44
-hitsound   = 5,1
+hitsound   = 5,4
 guardsound = 6,1
 ground.type = trip
 air.type	= trip
@@ -610,31 +641,20 @@ fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
 getpower = 0
+;
+;[State 0, Zoom]
+;type = zoom
+;triggerall	= backedgebodydist<=100
+;trigger1  = !WinKO
+;trigger1 	= movehit && animelemno(0) > 47
+;trigger1 	= enemy,HitShakeOver = 0
+;scale 	= 1.2
+;lag 	= 0
+;stagebound 	= 1
+;camerabound 	= 0
+;pos 		= pos x + 10,0
+;ignorehitpause	= 1
 
-[State 0, Zoom]
-type = zoom
-triggerall	= backedgebodydist<=100
-trigger1  = !WinKO
-trigger1 	= movehit && animelemno(0) > 47
-trigger1 	= enemy,HitShakeOver = 0
-scale 	= 1.2
-lag 	= 0
-stagebound 	= 1
-camerabound 	= 0
-pos 		= pos x + 10,0
-ignorehitpause	= 1
-[State 0, Zoom]
-type = zoom
-triggerall	= backedgebodydist>100
-trigger1  = !WinKO
-trigger1 	= movehit && animelemno(0) > 47
-trigger1 	= enemy,HitShakeOver = 0
-scale 	= 1.5
-lag 	= 0.5
-stagebound 	= 1
-camerabound 	= 0
-pos 		= pos x,0
-ignorehitpause	=1
 
 [State 0, VelSet]
 type = VelSet
@@ -1050,6 +1070,29 @@ anim = 3050
 poweradd = -4000
 sprpriority = 2
 
+
+[State 77]
+type = bgpalfx
+trigger1 =  time = 0
+time = 21
+sinadd= -255,-255,-255,60
+ignorehitpause = 1
+persistent = 0
+[State 77]
+type = bgpalfx
+trigger1 = animelem = 8
+time = 35
+add= -255,-255,-255
+ignorehitpause = 1
+persistent = 0
+[State 77]
+type = bgpalfx
+trigger1 =  animelem = 9
+time = 12
+add = -255,-255,-255
+sinadd= 255,255,255,60
+ignorehitpause = 1
+persistent = 0
 [State -3, Hyper Finish Background]
 type = Helper
 trigger1 = WinKO && !NumHelper(8990)
