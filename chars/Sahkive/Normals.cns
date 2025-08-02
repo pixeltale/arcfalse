@@ -1196,8 +1196,7 @@ air.velocity=0,0
 pausetime=0,0
 guard.pausetime = 12,12
 guard.velocity = 5
-guard.hittime = 12
-guard.ctrltime = 11
+guard.ctrltime = 8
 guard.slidetime = 15
 p2stateno = 445
 id = 440
@@ -2190,7 +2189,7 @@ p2facing 			= 1
 palfx.time 		= 35
 palfx.add 			= 100, 0,20
 ground.cornerpush.veloff 	= -1
-guard.ctrltime 		= 18
+guard.ctrltime 		= 8
 guard.velocity 		= -5
 getpower 			= 70
 [State 610, 3]
@@ -2233,7 +2232,7 @@ p2facing 			= 1
 palfx.time 		= 35
 palfx.add 			= 100, 0,20
 ground.cornerpush.veloff 	= -1
-guard.ctrltime 		= 22
+guard.ctrltime 		= 12
 guard.velocity 		= -8
 getpower 			= 70
 p2stateno 		= cond(map(untechDecay) < 10, 5255, 5070)
@@ -2958,6 +2957,12 @@ palcontrast = 120,20,150
 persistent = 1
 Trans = Add
 ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 8
+physics = S
+
 
 ;Dash Cancel
 [State -1, Run Fwd]

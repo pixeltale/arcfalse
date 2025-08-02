@@ -180,7 +180,7 @@ air.animtype = back
 damage = 60*map(P4)
 hitflag = MAFD
 guardflag = MA
-pausetime = 12,12
+pausetime = 8,8
 sparkno = 1
 sparkxy = -20,-43
 hitsound   = 5,1
@@ -346,17 +346,17 @@ air.animtype = back
 damage = 100*map(P4)
 hitflag = MAFD
 guardflag = MA
-pausetime = 12,12
+pausetime = 10,10
 sparkno = 3
 sparkxy = -15,-45
 hitsound   = 5,3
 guardsound = 6,2
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 18 * map(UntechMod)
+ground.hittime  = 24 * map(UntechMod)
 air.hittime  = 30 * map(UntechMod)
 down.hittime = 50 * map(UntechMod)
-ground.velocity = -3.2
+ground.velocity = -5.2
 air.velocity = -2.5,-3.5
 envshake.time = 20
 envshake.freq = 180
@@ -367,7 +367,7 @@ guard.slidetime = 30
 guard.ctrltime = 14
 guard.velocity = -10
 air.fall = 1
-getpower = (120)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
 ground.cornerpush.veloff = -2
 
 [State 0, ChangeState]
@@ -816,7 +816,7 @@ animtype  = Light
 air.animtype = back
 hitflag = MAFD
 guardflag = LA
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 0
 sparkxy = -20,-0
 hitsound   = 5,0
@@ -928,7 +928,7 @@ animtype  	= Light
 air.animtype 	= back
 hitflag 		= MAFD
 guardflag 	= LA
-pausetime 	= 11,11
+pausetime 	= 10,10
 sparkxy 		= -15,-33
 sparkno 		= 1
 hitsound   	= 5,2
@@ -1577,7 +1577,7 @@ ground.slidetime = 12
 ground.hittime  = 16
 air.hittime  = 30
 down.hittime =40 * map(UntechMod)
-ground.velocity = -2.4
+ground.velocity = -2.4, 14
 down.velocity = -1,6
 air.velocity = -1,14 + map(jH_useCount)
 fall.yvelocity = -6
@@ -1593,10 +1593,11 @@ envshake.time = 23
 envshake.freq = 85
 envshake.ampl = 2
 envshake.phase = 1
+fall = 1
 air.fall = 1
-p2stateno = cond((enemy, statetype = A), cond(map(jH_useCount) < 2, 5255,  5070), 5000)
+p2stateno = cond(map(jH_useCount) < 2, 5255,  5070)
 p2getp1state = 0
-getpower = (70)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0]
 type = HitDef 
@@ -1637,7 +1638,7 @@ envshake.freq = 85
 envshake.ampl = 2
 envshake.phase = 1
 air.fall = 1
-getpower = (70)*(cond(var(var(3)) = 1, 1, .5))
+getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 
 
 [State 0, ChangeState]
@@ -1721,9 +1722,9 @@ x = -6
 
 [State 0, VelMul]
 type = Veladd
-trigger1 = time >= 21
+trigger1 = animelemno(0) >= 7
 trigger1 = time%2
-y = 0.3
+y = 0.5
 [State 0, VelMul]
 type = Veladd
 trigger1 = time <= 21
@@ -1791,7 +1792,8 @@ guard.velocity = -6
 air.fall = 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+air.cornerpush.veloff = -5
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
@@ -2052,11 +2054,29 @@ ctrl = 0
 
 [State 0,	MapSet]
 type 		= MapSet
+trigger1		= animelemno(0) >= 4 && prevstateno != [1520,1560]
+map 			= "RemixCancel"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0,	MapSet]
+type 		= MapSet
 trigger1		= time = 0
 map 		= "RemixCancel"
 value 		= 0
 ignorehitpause 	= 1
 persistent 		= 0
+
+[State 100, 4]
+type = ChangeState
+triggerall= animelemno(0) > 4
+triggerall= map(ComboStateCheck)
+trigger1 = command = "holdupb"
+trigger2= command = "up"
+value = 40
+ctrl = 1
+ignorehitpause=1
 
 [State 0, Special Counter UP]
 type = VarAdd
@@ -2085,13 +2105,13 @@ persistent = 1
 type = VelAdd
 triggerall = (enemy, facing) != facing
 trigger1 = animelem = 4
-x = 2 + 13*(statetype != A)
+x = 6 + 8*(statetype != A)
 redirectid = enemy, id
 [State 0, VelAdd]
 type = VelAdd
 triggerall = (enemy, facing) = facing
 trigger1 = animelem = 4
-x = -2 + 13*(statetype != A)
+x = -6 + 8*(statetype != A)
 redirectid = enemy, id
 
 [State 0, Explod]
@@ -2153,6 +2173,23 @@ map 		= "RemixCancel"
 value 		= 0
 ignorehitpause 	= 1
 persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= animelemno(0) >= 4 && prevstateno != [1520,1560]
+map 			= "RemixCancel"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 100, 4]
+type = ChangeState
+triggerall= animelemno(0) > 4
+triggerall= map(ComboStateCheck)
+trigger1 = command = "holdupb"
+trigger2= command = "up"
+value = 40
+ctrl = 1
+ignorehitpause=1
 
 [State 0, Special Counter UP]
 type = VarAdd
@@ -2176,15 +2213,6 @@ type = PlaySnd
 trigger1 = time = 0
 value = 1,5
 freqmul = 0.8 + (random%5 * 0.1)
-
-[State 100, 4]
-type = ChangeState
-triggerall=time>9
-triggerall=enemy,stateno=5030||enemy,stateno=5001
-trigger1 = command = "holdupb"
-value = 40
-ctrl = 1
-ignorehitpause=1
 
 [State 0, Helper]
 type = Helper
@@ -2271,6 +2299,22 @@ map 		= "RemixCancel"
 value 		= 0
 ignorehitpause 	= 1
 persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= animelemno(0) >= 4 && prevstateno != [1520,1560]
+map 			= "RemixCancel"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
+[State 100, 4]
+type = ChangeState
+triggerall= animelemno(0) > 4
+triggerall= map(ComboStateCheck)
+trigger1 = command = "holdupb"
+trigger2= command = "up"
+value = 40
+ctrl = 1
+ignorehitpause=1
 
 [State 0, Special Counter UP]
 type = VarAdd
@@ -2294,16 +2338,6 @@ type = PlaySnd
 trigger1 = time = 0
 value = 1,5
 freqmul = 0.8 + (random%5 * 0.1)
-
-[State 100, 4]
-type = ChangeState
-triggerall=time>9
-triggerall=enemy,stateno=5030||enemy,stateno=5001
-trigger1 = command = "holdupb"
-trigger2= command = "up"
-value = 40
-ctrl = 1
-ignorehitpause=1
 
 [State 0,  Wind Push]
 type = Helper
@@ -2372,12 +2406,20 @@ map 		= "RemixCancel"
 value 		= 0
 ignorehitpause 	= 1
 persistent 		= 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= animelemno(0) >= 4 && prevstateno != [1520,1560]
+map 			= "RemixCancel"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 100, 4]
 type = ChangeState
-triggerall=time>9
-triggerall=enemy,stateno=5030||enemy,stateno=5001
+triggerall= animelemno(0) > 4
+triggerall= map(ComboStateCheck)
 trigger1 = command = "holdupb"
+trigger2= command = "up"
 value = 40
 ctrl = 1
 ignorehitpause=1

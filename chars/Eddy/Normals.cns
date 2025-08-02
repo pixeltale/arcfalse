@@ -1814,7 +1814,6 @@ value = 1
 type = HitDef 
 p2facing = 1
 trigger1 = time = 0
-hitonce = 1
 attr = A, NA
 damage = 100*MAP(P4)
 hitflag = MAFD
@@ -1936,7 +1935,6 @@ value = 669,6
 type = HitDef 
 p2facing = 1 
 trigger1 = time = 0
-hitonce = 1
 attr = S, SA
 damage = 50*MAP(P4), 5
 hitflag = MAF
@@ -2022,8 +2020,7 @@ y = .3
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-trigger1 = time = 1&& (enemynear, stateno!= [5110,5119])
-hitonce = 1
+trigger1 = time = 1 && (enemynear, stateno!= [5110,5119])
 attr = A, SA
 damage = 50*map(P4), 5
 hitflag = MAFD

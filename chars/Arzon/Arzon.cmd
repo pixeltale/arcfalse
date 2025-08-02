@@ -114,6 +114,7 @@ trigger1 = ctrl
 trigger2 = movehit
 trigger2 = stateno = [200,220] || stateno = 420
 trigger3 = stateno = 1550 && map(ComboStateCheck)
+trigger4 = stateno = [1520, 1560] && animelemno(0) > 4
 
 [State -1,DJC]
 type = ChangeState
@@ -630,9 +631,8 @@ triggerall = command = "holdfwd"
 triggerall = command = "z"
 triggerall = statetype = A
 trigger1 = ctrl 
-trigger2 = (stateno = [600,610]) 
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1350 ;Air blocking
+trigger2 = (stateno = [600,630]) 
+trigger2 = movecontact
 value = 640
 
 

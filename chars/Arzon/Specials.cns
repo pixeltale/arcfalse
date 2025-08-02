@@ -824,7 +824,7 @@ attr = S, SP
 air.animtype = up
 damage = 75*(parent,map(P4)), 30
 hitflag = MAFD
-guardflag = MAF
+guardflag = LAF
 priority = 3
 pausetime = 0,10
 sparkno = 1
@@ -1218,8 +1218,8 @@ volumescale=150
 
 [State 0,	MapSet]
 type 		= MapSet
-trigger1		= animelemno(-1) >= 5
-map 		= "RemixCancel"
+trigger1		= animelemno(0) >= 5
+map 			= "RemixCancel"
 value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
@@ -3767,7 +3767,7 @@ ignorehitpause 	= 1
 persistent 		= 0
 [State 0,	MapSet]
 type 		= MapSet
-trigger1		= animelemno(0) >= 6
+trigger1		= animelemno(0) = 6
 map 		= "RemixCancel"
 value 		= 1
 ignorehitpause 	= 1
@@ -3843,106 +3843,6 @@ scale = 0.82, 0.82
 supermovetime = 0
 pausemovetime = 0
 
-;[State 0, Regular Projectile] ;Hold Nothing
-;type = Projectile
-;trigger1	= frontedgedist>70
-;trigger1 	= animelem = 6
-;ProjID = 1102
-;projanim = 1102
-;projscale =.82,.82
-;projremove = 1
-;projremovetime = 60
-;projhitanim = 1103
-;velocity = 3,0
-;remvelocity = 0,0
-;accel = 0,0
-;velmul = 0.95,1
-;projhits = 3
-;projmisstime = 2
-;projpriority = 1
-;projsprpriority = 1
-;projedgebound = 40
-;projstagebound = 999
-;projheightbound = -240
-;offset = 60,-40
-;postype = p1         ;p2,front,back,left,right
-;projshadow = 0,0,0
-;supermovetime = 0
-;pausemovetime = 0
-;hitonce = 1
-;attr = S, SP
-;damage = 15*map(P4)
-;hitflag = MAFD
-;guardflag = MAF
-;pausetime = 5,5
-;guard.ctrltime = 4
-;sparkno = 0
-;sparkxy = 0,0
-;hitsound   = 5,3
-;guardsound = 6,0
-;ground.type = high
-;animtype = medium
-;air.animtype = back
-;ground.slidetime = 14
-;ground.hittime  = 17
-;ground.velocity = -2.25,0
-;fall.xvelocity = 1.5
-;fall.yvelocity = 0
-;air.fall = 1
-;air.velocity = -0.75,-1.6
-;air.hittime = 30 * map(UntechMod)
-;getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
-;
-;
-;[State 0, Regular Projectile]
-;type = Projectile
-;trigger1=frontedgedist<=70
-;trigger1 = animelem = 6
-;ProjID = 1102
-;projanim = 1102
-;projscale =.82,.82
-;projremove = 1
-;projremovetime = 60
-;projhitanim = 1103
-;velocity = 0,0
-;remvelocity = 0,0
-;accel = 0,0
-;velmul = 0.95,1
-;projhits = 3
-;projmisstime = 2
-;projpriority = 1
-;projsprpriority = 1
-;projedgebound = 40
-;projstagebound = 999
-;projheightbound = -240
-;offset = 60,-40
-;postype = p1         ;p2,front,back,left,right
-;projshadow = 0,0,0
-;supermovetime = 0
-;pausemovetime = 0
-;hitonce = 1
-;attr = S, SP
-;damage = 15*map(P4)
-;hitflag = MAFD
-;guardflag = MAF
-;pausetime = 5,5
-;guard.ctrltime = 4
-;sparkno = 0
-;sparkxy = 0,0
-;hitsound   = 5,3
-;guardsound = 6,0
-;ground.type = high
-;animtype = medium
-;air.animtype = back
-;ground.slidetime = 14
-;ground.hittime  = 17
-;ground.velocity = -2.25,0
-;fall.xvelocity = 1.5
-;fall.yvelocity = 0
-;air.fall = 1
-;air.velocity = -0.75,-1.6
-;air.hittime = 30 * map(UntechMod)
-;getpower = (50)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 0, ChangeState]
 type = ChangeState
@@ -5003,7 +4903,7 @@ trigger1 = FrontEdgeDist > 70
 trigger1 = animelem = 6
 ProjID = 1112
 projanim = 1112
-projscale =.6,.6
+projscale =.8,.8
 projremove = 1
 projremovetime = 64
 projhitanim = 1113
@@ -5079,7 +4979,7 @@ trigger1 = FrontEdgeDist <= 70
 trigger1 = animelem = 6
 ProjID = 1112
 projanim = 1112
-projscale =.5,.5
+projscale =.8,.8
 projremove = 1
 projremovetime = 64
 projhitanim = 1113
@@ -5140,7 +5040,13 @@ persistent 		= 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y >= 0
-value = 0
+value = 52
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !animtime
+value = 50
 ctrl = 1
 ;--------------------------------------------------
 

@@ -1,11 +1,6 @@
 [Command]
-name = "snapbackF"
-command = /D, a
-time = 10
-
-[Command]
-name = "snapbackB"
-command = /D, a
+name = "snapback"
+command = ~D, DF, F, a
 time = 10
 
 [Command]

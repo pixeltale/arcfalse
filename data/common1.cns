@@ -8404,7 +8404,7 @@ color = 256
 type = ChangeState
 trigger1 = map(ComboStateCheck) && map(Resplat) > 0
 trigger1 = movehit = 1
-trigger1 = enemy, prevstateno = [5225, 5228]
+trigger1 = enemy, prevstateno = [5225, 5228] && enemy, stateno != 900
 value = 5225
 ctrl = 0
 redirectid = enemynear, ID

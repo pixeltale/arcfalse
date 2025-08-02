@@ -1,40 +1,3 @@
-;---------------------- Integer variable list ----------------------
-
-; var(1):= 105, -1
-; var(2):= -2, 1510, 1310, 1331, 3000, 3010
-; var(3):= 1001
-;var(12):= -2, 1510
-;var(13):= 0, 10, 11, 12
-;var(15):= 250, 1050, 1101, 1500
-;var(23):= -2
-;var(25):= -2
-;var(26):= -2
-;var(27):= -2
-;var(29):= -2, 903, 904
-;var(30):= -2
-;var(40):= 40
-;var(44):= -2
-;var(45):= -2, 45
-;var(50):= -2, 1510
-;var(51):= -2
-;var(52):= -2, 1331
-;var(56):= -2
-;var(57):= -2
-;var(59):= 191
-
-;---------------------- Float variable list ----------------------
-
-; fvar(7):= -2
-; fvar(8):= -2
-;fvar(10):= -2
-;fvar(11):= -2
-;fvar(13):= -2, 1311, 1331, 3002, 100
-;fvar(16):= 1101
-;fvar(17):= -2
-;fvar(18):= 99
-;fvar(26):= 1101
-
-
 
 [Data]
 life = 1300
@@ -110,7 +73,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 [Constants]
 ; NegativeStates.cns states
 switchAirAttack = 620 ; ANIM: switch air attack.
-snapBackAttack = 210 ; ANIM: snapback attack
+snapBackAttack = 211 ; ANIM: snapback attack
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
 StateTagAssistSuper = 1500 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
@@ -777,7 +740,7 @@ map = "DCBurn6S"
 value = 1
 [State Cancel]
 type = mapadd
-trigger1 = stateno = 904
+trigger1 = stateno = 60
 trigger1 = prevstateno = 1105
 map = "DCBurnJ6S"
 value = 1

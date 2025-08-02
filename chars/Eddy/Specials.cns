@@ -467,7 +467,6 @@ value = 1
 type = HitDef 
 p2facing 	= 1 
 trigger1 	= time = 0 && (enemynear, stateno!= [5110,5119])
-hitonce 	= 1
 attr 		= S, SA
 damage 		= 90*map(P4) + 10, 5
 hitflag 		= MAFD
@@ -1172,7 +1171,6 @@ removeongethit = 0
 type = HitDef 
 p2facing 	= 1 
 trigger1 	= animelem = 4
-hitonce		= 1
 attr 		= S, SA
 damage 		= 45*MAP(P4) + 5, 5
 hitflag 		= MAFD
@@ -1204,7 +1202,6 @@ getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 type = HitDef 
 p2facing 		= 1 
 trigger1 		= animelem = 5
-hitonce 		= 1
 attr 		= S, SA
 damage 		= 54*MAP(P4) + 6, 5
 hitflag 		= MAFD
@@ -1348,7 +1345,6 @@ type = HitDef
 p2facing = 1 
 trigger1 	= time %4= 0
 trigger1 	= time<27
-hitonce 	= 1
 attr 	= S, SA
 damage 		= 15*map(P4)
 hitflag 		= MAFD
@@ -1376,7 +1372,6 @@ forcestand 	= 0
 type = HitDef 
 p2facing = -1 
 trigger1 = animelem = 11
-hitonce 		= 1
 attr 			= S, SA
 damage 			= 60*map(P4), 5
 hitflag 		= MAFD
@@ -1888,7 +1883,6 @@ type = HitDef
 p2facing = 1 
 triggerall 		= enemy, !map(ArmorActive)
 trigger1 		= !MAP(counterHit) && movecontact = 0 && movereversed = 0
-hitonce 		= 1
 attr 		= S, SA
 damage 		= 90*MAP(P4), 10
 hitflag 		= MAFD
@@ -1919,7 +1913,6 @@ type = HitDef
 p2facing = 1 
 triggerall 		= enemy, !map(ArmorActive)
 trigger1 = MAP(counterhit) = 1 && movecontact = 0 && movereversed = 0
-hitonce = 1
 attr = S, SA
 damage = 120*MAP(P4), 10
 hitflag = MAFD
@@ -1953,7 +1946,6 @@ type = HitDef
 p2facing = 1 
 triggerall = enemy, map(ArmorActive)
 trigger1 = movecontact = 0 && movereversed = 0
-hitonce = 1
 attr = S, SA
 damage = 120*MAP(P4), 10
 hitflag = MAFD
@@ -2224,7 +2216,6 @@ type = HitDef
 p2facing 	= 1 
 triggerall	= enemy, !map(ArmorActive)
 trigger1 	= time = 0
-hitonce 	= 1
 attr 	= S, SA
 damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
 hitflag 	= MAFD

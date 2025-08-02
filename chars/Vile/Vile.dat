@@ -11,6 +11,9 @@ LIGHT KICK	-		_B^A
    <#bbbbbb>Low-hitting kick.</>
 ACIDIC SWEEP	-		_DF^C
    <#bbbbbb>A low-hitting sweep.</>
+ACID RAIN	-		_B^C
+   <#bbbbbb>A slow but damaging launcher with upper
+   body invulnerability..</>
 VILE CLAW	-		<#65b5ff>(AIR ONLY)</> _DF^C
    <#bbbbbb>A downward claw attack.</>
    <#aaff00>IN PUDDLE: Causes a sliding knockdown.</>
