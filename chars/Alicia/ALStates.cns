@@ -369,6 +369,11 @@ type = mapset
 trigger1 = time = 0
 map = "ADM" ;AirDash Momentum Preserve
 value = 16
+[State - Airdash Momentum Preserve]
+type = mapset
+trigger1 = time = 0
+map = "AirDashTimer" ;For FFVCL Tech.
+value = 16
 
 [State - Airdash Used]
 type = MapAdd

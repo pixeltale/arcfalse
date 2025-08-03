@@ -413,7 +413,7 @@ x = 1
 type         = MapSet
 trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "StarterLevel"
-value         		=  2
+value         		=  2 + (prevstateno = 100)
 ignorehitpause     	=  1
 
 [State -2, P1 Value Set]
@@ -1193,7 +1193,7 @@ forcestand = 1              ;Force p2 into falling down
 air.fall = 1
 ground.velocity = 0,0
 air.velocity=0,0
-pausetime=0,0
+pausetime=1,1
 guard.pausetime = 12,12
 guard.velocity = 5
 guard.ctrltime = 8

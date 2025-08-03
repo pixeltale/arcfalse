@@ -32,7 +32,7 @@ KO.echo = 0
 ;Volume offset (negative for softer)
 volume = 0
 
-power = 4010
+power = 4000
 ;Variables with this index and above will not have their values
 ;reset to 0 between rounds or matches. There are 60 int variables,
 ;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
@@ -103,7 +103,7 @@ down.friction.threshold = .05     ;If the player's speed drops below this thresh
 ; NegativeStates.cns states
 switchAirAttack = 655 ; ANIM: switch air attack.
 snapBackAttack = 210 ; ANIM: snapback attack
-StateTagAssistSuper = 2070 ; STATENO: normal assist attack
+StateTagAssistSuper = 431 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
@@ -255,12 +255,6 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
-[State -2, demon]
-type 		= MapSet
-trigger1     = !map(ComboStateCheck)
-map 		= "demonvoice"
-value 		= 1
-
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 	= !map(ComboStateCheck)
@@ -338,8 +332,8 @@ ignorehitpause = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "PEWGF = %f demonvoice = %f"
-params = map(Perfect), map(demonvoice)
+text = "PEWGF = %f comboTimer = %f"
+params = map(Perfect), map(gravmul)
 ignorehitpause = 1
 
 [State 0, VarSet]

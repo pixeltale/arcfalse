@@ -208,6 +208,13 @@ ctrl = 1
 ;=============================================================================
 [Statedef -2]
 
+[State - Airdash Momentum Preserve]
+type = mapadd
+trigger1 = map(AirDashTimer)
+map = "AirDashTimer" ;For FFVCL Tech.
+value = -1
+ignorehitpause = 0
+
 ;=========================================
 ;RC Float Reset
 ;=========================================
@@ -314,8 +321,8 @@ value = 0
 [State -2, Debug]
 type = DisplayToClipboard
 trigger1 = 1
-text = "meyeposx = %f meyeposy = %f"
-params = (helper(1016), pos x), (helper(1016), pos y)
+text = "meyeposx = %f "
+params = map(eyeaction_L)
 
 ;=============================================+
 ;Perfektwelt Stuff

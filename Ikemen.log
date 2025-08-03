@@ -1,7 +1,5 @@
-.\external\script\start.lua:1401: chars/Eddy/Eddy.def:
-./data/tag/orochi_kyo_tag_main_file.zss
-data/tag/orochi_kyo_tag_main_file.zss:477:
-Wrong token: expected :, got =
+.\external\script\start.lua:1401: ./chars/Eddy/Eddy.cmd:290:
+Invalid data: )
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

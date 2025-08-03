@@ -4552,6 +4552,11 @@ physics = A
 anim = 5210
 ctrl = 0
 
+[State 0, PlaySnd]
+type = PlayerPush
+trigger1 = time = [0,20]
+value = 0
+
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0
@@ -4592,7 +4597,7 @@ add = cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - tim
 
 [State 5210, 2] ;Turn if not facing opponent
 type = Turn
-trigger1 = p2dist X < 0
+trigger1 = p2dist X < 0 && time
 
 [State 5210, 1.0 behavior 1]
 type = VelMul
@@ -4604,14 +4609,7 @@ y = 1
 type = VelSet
 trigger1 = Time = 0
 x = vel x
-y = -3
-
-[State 0, Width]
-type = Playerpush
-trigger1 = time = [0,20]
-value = 0
-ignorehitpause = 1
-persistent = 0
+y = -5
 
 ; [State 5210, 2] ;Go up
 ; type = VelSet
@@ -4631,14 +4629,14 @@ persistent = 0
 type = VelSet
 trigger1 = Time = 0
 trigger1 = Command = "holdfwd"
-x = 2
+x = 4
 y = -5.5
 
 [State 5210, 2] ;Go back
 type = VelSet
 trigger1 = Time = 0
 trigger1 = Command = "holdback"
-x = -2
+x = -4
 y = -5.5
 
 [State 5210, 4]

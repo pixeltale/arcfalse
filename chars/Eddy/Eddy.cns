@@ -739,11 +739,16 @@ trigger1 = prevstateno = 1101 || prevstateno = 1102
 map = "DCBurn6S"
 value = 1
 [State Cancel]
-type = mapadd
+type = mapset
 trigger1 = stateno = 60
 trigger1 = prevstateno = 1105
 map = "DCBurnJ6S"
 value = 1
+[State Cancel]
+type = mapset
+trigger1 = !map(ComboStateCheck)
+map = "DCBurnJ6S"
+value = 0
 
 [State Cancel]
 type = mapset

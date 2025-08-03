@@ -116,7 +116,7 @@ attr 		= A, SP
 damage 		= 120 * root, map(p4), 10
 hitflag 		= MAFP
 guardflag 	= MAFD
-guard.ctrltime 	= 8
+guard.ctrltime 	= 18
 priority 		= 999
 pausetime 	= 3,3
 sparkno 		= S3012
@@ -188,17 +188,17 @@ y = -10
 
 [State 0, VelAdd]
 type = velset
-triggerall = prevstateno != 60
+triggerall = !map(AirdashTimer)
 trigger1 = !time
 y = -4.5
 [State 0, VelAdd]
 type = veladd
-triggerall = prevstateno = 60
+triggerall = map(AirdashTimer)
 trigger1 = !time
-y = 4.5
+y = 5.5
 [State 0, VelAdd]
 type = veladd
-trigger1 = animtime
+trigger1 = !map(AirdashTimer)
 y =- .12
 [State 0, VelAdd]
 type = velmul
@@ -421,6 +421,10 @@ facing = 1
 size.xscale = const(size.xscale)
 size.yscale = const(size.yscale)
 
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0
+y = 0
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = pos y < 0
@@ -448,7 +452,7 @@ ctrl = 1
 [State 0, DestroySelf]
 type = Changestate
 triggerall = statetype = A
-trigger1 =pos y>= 0
+trigger1 =pos y>= 0 && time > 7
 value = 52
 ctrl = 1
 ;============================================================================
@@ -514,7 +518,7 @@ ignorehitpause = 1
 [State 0, DestroySelf]
 type = Changestate
 value = 1016
-trigger1 = root, movetype = H
+trigger1 = root, movetype = H && root, stateno != [120,155]
 trigger2 = root, stateno = 1020 && numhelper (1018)
 
 ;================================================================================
@@ -847,7 +851,7 @@ physics = S
 juggle  = 0
 poweradd= 0
 ctrl = 0
-anim =1011
+anim =1010
 sprpriority = 2
 
 [State 40, 3]
@@ -866,6 +870,10 @@ value = 1016
 ignorehitpause = 1
 redirectid = helper(1015 + sysvar(1)), id
 
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0
+y = 0
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = pos y < 0
@@ -930,7 +938,7 @@ ctrl = 1
 [State 0, DestroySelf]
 type = Changestate
 triggerall = statetype = A
-trigger1 =pos y>= 0
+trigger1 = pos y>= 0 && time > 7
 value = 52
 ctrl = 1
 
@@ -988,7 +996,7 @@ value = 1043
 [State 0, DestroySelf]
 type = Changestate
 triggerall = anim = 1042
-Trigger1 = p2dist x < 60
+Trigger1 = p2dist x < 100
 value = 1042
 
 ;================================================================================
@@ -1010,10 +1018,10 @@ type = VelAdd
 trigger1 = animelem = 3 || animelem = 4 || animelem = 5
 x = 6
 
-[State 0, PlayerPush]
-type = PlayerPush
-trigger1 = 1
-value = 1
+[State 0, VelSet]
+type = VelSet
+trigger1 = p2dist x < 30 && !movehit
+x = 0
 
 [State 0]
 type 	= HitDef 

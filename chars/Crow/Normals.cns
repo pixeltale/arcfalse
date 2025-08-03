@@ -1108,7 +1108,7 @@ down.hittime 		= 24
 ground.slidetime 	= 5
 ;==============================================
 ground.velocity 	= -3
-air.velocity 		= 1,-4 * map(GravMul)
+air.velocity 		= 1,-2 * map(GravMul)
 guard.ctrltime 		= 18
 airguard.velocity 	= -1.9,-.8
 ground.cornerpush.veloff= -7

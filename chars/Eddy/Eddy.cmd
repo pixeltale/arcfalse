@@ -287,7 +287,7 @@ triggerall = statetype != A
 triggerall = stateno != 100
 trigger1 = ctrl
 trigger2 = Map(DCFH) > 0 || Map(DCFB) > 0
-trigger3 = stateno = 230 && (time > 15 && !(anim = 231 && animelemno(0) > 5) || stateno = 230 && movecontact && map(Charged))
+trigger3 = stateno = 230 && movecontact && map(Charged)
 
 ;---------------------------------------------------------------------------
 ;Run Back
@@ -490,12 +490,3 @@ trigger3 = stateno = [600,610]
 trigger3 = movecontact
 trigger4 = movehit && stateno = [600, 630]
 
-;---------------------------------------------------------------------------
-[State 100, Back Dash Cancel]
-type = ChangeState
-value = 105
-triggerall = command = "44" || command = "M44"
-triggerall = movehit
-triggerall = statetype != A
-triggerall = !numexplod(10100) 
-trigger1 = stateno = [1001,1002] || stateno = [1101,1102] || stateno = 1500 || stateno = 1300
