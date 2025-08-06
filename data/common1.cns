@@ -4579,13 +4579,13 @@ trans = add
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time = [0,12]
+trigger1 = time = [0,12] && map(assistinprocess) = 0
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 time = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time >= 12
+trigger1 = time >= 12 && map(assistinprocess) = 0
 value = ,NT,ST,HT
 time = 1
 
@@ -7980,24 +7980,28 @@ persistent		= 1
 ;=============================================================================
 
 ;==============================================
+
 [State 0. MapSet]
 type 		= MapSet
 triggerall  = teammode = Tag
-trigger1 	= prevstateno = [56000, 56100] || stateno = [56000, 56100]
-map 		= "isAssist"
-value 		= 1
-ignorehitpause 	= 0
-persistent      = 0
-[State 0. MapSet]
-type 		= MapSet
-triggerall  = teammode = Tag
-trigger1 	= prevstateno != [56000, 56100] && stateno != [56000, 56100]
+trigger1 	= stateno = 56000
 map 		= "isAssist"
 value 		= 0
 ignorehitpause 	= 0
 persistent      = 0
 
-;==============================================
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = map(isAssist)=1 && movetype != H
+value = 0
+movecamera = 0,0
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = map(isAssist)=1 && movetype = H
+value = 0
+
+
+
 ;MAIDEN SUPER CAMERA PUSSY LOCK #AWESOME
 [State 0, ScreenBound]
 type = ScreenBound

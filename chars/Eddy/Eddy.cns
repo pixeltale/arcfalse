@@ -1255,8 +1255,8 @@ ignoreHitPause = 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "pbcheck = %f ibcheck = %f"
-params = map(PBCheck), map(IBCheck)
+text = "pbcheck = %f isassist = %f"
+params = map(PBCheck), map(isAssist)
 ignorehitpause = 1
 
 ;This controller plays a sound everytime KFM lands from a jump, or

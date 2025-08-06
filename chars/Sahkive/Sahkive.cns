@@ -145,7 +145,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 
 [Constants]
 ; NegativeStates.cns states
-StateTagAssistSuper = 2000
+StateTagAssistSuper = 1020
 switchAirAttack = 655
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
@@ -914,8 +914,8 @@ id = 101010
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "ScratchLockout = %f"
-params = map(ScratchLockout)
+text = "ScratchLockout = %f, TeamLeader = %i"
+params = map(ScratchLockout), TeamLeader
  
 [Statedef -3]
 

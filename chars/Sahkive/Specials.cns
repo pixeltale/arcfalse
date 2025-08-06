@@ -1509,7 +1509,8 @@ ignorehitpause     = 1
 persistent         = 0
 [State 800, 1] ;With grab sound
 type 	= HitDef
-Trigger1 	= !movecontact 
+triggerall =  enemynear,map(isassist)=0
+Trigger1 	= !movecontact
 attr 		= S, ST, SA
 hitflag 		= MAFD
 guardflag 		= MA
@@ -1999,6 +2000,7 @@ ignorehitpause     = 1
 persistent         = 0
 [State 800, 1] ;With grab sound
 type = HitDef
+triggerall =  enemynear,map(isassist)=0
 Trigger1 = time = 0 
 attr = S, SA, ST          ;Attributes: Standing, Normal Throw
 hitflag = MAFD          ;Affect only ground people who are not being hit

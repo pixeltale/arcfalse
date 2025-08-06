@@ -4655,3 +4655,225 @@ type = ChangeState
 trigger1 = pos y>=-10 && vel y>=0
 value = 262
 ctrl = 0
+
+;---------------------------------------------------------------------------
+;Assist
+;-----------------------------
+[Statedef 500]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 1900
+velset = 0,0 
+sprpriority = 2
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= 1
+map 		= "isAssist"
+value 		= 1
+ignorehitpause 	= 1
+persistent      = 1
+
+[State One Voices]
+type = PlaySnd
+trigger1 =  animelem = 6
+value = 190, 1
+volumescale=150
+channel = 6
+
+[State 210, Width]
+type = Width
+trigger1 = (AnimElemTime (1) >= 0) && (AnimElemTime (7) < 0)
+value = 40,0
+
+;Explod Limiter Trigger
+[State 0, TargetState]
+type = TargetState
+trigger1 = !NumExplod(99856)
+triggerall = NumTarget(99856)
+trigger1 = MoveHit = 1
+value = 915020
+persistent = 1
+ignorehitpause = 1
+
+;Explod Limiter 
+[State 0, Explod]
+type = Explod
+;triggerall = !stateno = 690000 && p2movetype = H
+trigger1 = !NumExplod(99856)
+trigger1 = MoveHit
+anim = 99856
+ID = 99856
+removetime = -1
+removeongethit = 1
+persistent = 1
+
+
+;[State 0, VarAdd]
+;type = VarAdd
+;trigger1 = time = 0
+;v = 28
+;value = 6
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 5
+value = 9,2
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 5
+anim = 6700
+ID = 6700
+pos = 10,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+fv =13     ;fv = 
+value = 2
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboTimer)
+map 		= "P1"
+value 		= 0.90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboTimer)
+map 		= "P2"
+value 		= 0.85	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+
+[State 410, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = time = 0 && p2dist x>10 
+attr =S, SA
+damage = 90*map(P4)
+animtype  = Medium
+hitflag = MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno = 12
+sparkxy = -10,-15
+hitsound   = S8,0
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 999;ceil(cond(fvar(14) *45 < 9, 9, fvar(14) * 45))
+air.hittime  = 999;ceil(cond(fvar(14) *50 < 9, 9, fvar(14) * 50))
+down.hittime = 999;ceil(cond(fvar(14) *50 < 9, 9, fvar(14) * 50))
+ground.velocity = -9,-2.5
+guard.velocity = -4
+air.velocity = -9,-1.2
+fall  = 1
+fall.yvelocity = 0
+;air.fall = 1
+envshake.time = 0
+envshake.freq = 0
+envshake.ampl = 0
+fall.envshake.time = 0
+fall.envshake.freq = 0
+fall.envshake.ampl = 0
+hitonce = 1
+;forcenofall = 0
+id = 99856
+
+[State 410, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = time = 0 && p2dist x>60
+attr =S, SA
+damage = ceil(cond(fvar(11) * 100 < 4, 4, fvar(11) * 100)),10
+animtype  = Medium
+hitflag = MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno = 12
+sparkxy = -10,-15
+hitsound   = S8,0
+guardsound = 6,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 999;ceil(cond(fvar(16) *45 < 9, 9, fvar(16) * 45))
+air.hittime  = 999;ceil(cond(fvar(16) *50 < 9, 9, fvar(16) * 50))
+down.hittime = 999;ceil(cond(fvar(16) *50 < 9, 9, fvar(16) * 50))
+ground.velocity = -5,-3
+guard.velocity = -6
+air.velocity = -5,-1.2
+;forcenofall = 0
+fall  = 1
+fall.yvelocity = 0
+;air.fall = 1
+envshake.time = 0
+envshake.freq = 0
+envshake.ampl = 0
+fall.envshake.time = 0
+fall.envshake.freq = 0
+fall.envshake.ampl = 0
+hitonce = 1
+getpower = (100)*(cond(var(var(1)) = 1, 1, 1))
+forcenofall = 0
+id = 99856
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = animelem = 7 ;&& p2dist x>60
+x = 60
+
+;[State 0, PosAdd]
+;type = PosAdd
+;trigger1 = animelem = 8 && p2dist x>10 
+;x = 40
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 8
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 9
+x = 5
+
+[State 00, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value =0
+ctrl = 1

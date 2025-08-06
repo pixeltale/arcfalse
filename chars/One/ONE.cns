@@ -74,7 +74,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 ; NegativeStates.cns states
 switchAirAttack = 655
 snapBackAttack = 210 ; ANIM: snapback attack
-StateTagAssistSuper = 1040 ; STATENO: normal assist attack
+StateTagAssistSuper = 500 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 AnimRunFwdOrHopForward = 56956
 
@@ -627,8 +627,8 @@ ignorehitpause = 1
 [State 0, Distance Display]
 type = DisplaytoClipboard
 trigger1 = 1
-text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, noflip = %f"
-params = map(swordDistX), frontedgedist, backedgedist, map(NoJump)
+text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, isAssist = %f"
+params = map(swordDistX), frontedgedist, backedgedist, map(isAssist)
 
 [State 0. MapSet]
 type 		= MapSet

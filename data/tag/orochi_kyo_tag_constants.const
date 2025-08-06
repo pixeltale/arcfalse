@@ -121,8 +121,8 @@ normalAttacksEndStateno = 499 ; the stateno that ends ground attacks
 airAttacksStartStateno = 600 ; the stateno that starts air attacks
 airAttacksEndStateno = 699 ; the stateno that ends air attacks
 specialAttacksStartStateno = 1000 ; the stateno that starts special attacks
-specialAttacksEndStateno = 1999 ; the stateno that ends special attacks
-superAttacksStartStateno = 2000 ; the stateno that starts super attacks
+specialAttacksEndStateno = 2999 ; the stateno that ends special attacks
+superAttacksStartStateno = 3000 ; the stateno that starts super attacks
 superAttacksEndStateno = 3999 ; the stateno that ends super attacks
 
 ;-----End of custom state notation -------
