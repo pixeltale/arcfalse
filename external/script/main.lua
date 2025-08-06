@@ -2909,6 +2909,7 @@ main.t_itemname = {
 		main.teamMenu[1].tag = true
 		main.teamMenu[1].turns = true
 		main.teamMenu[2].single = true
+		main.teamMenu[2].tag = true
 		main.txt_mainSelect:update({text = motif.select_info.title_training_text})
 		setGameMode('training')
 		hook.run("main.t_itemname")
