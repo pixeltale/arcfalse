@@ -1841,6 +1841,41 @@ fall 		= 1
 p2stateno 	= 5255
 p2getp1state 	= 0
 getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5)) 
+[State 0]
+type = HitDef 
+p2facing = 1
+trigger1 = enemy, map(ArmorActive) && !MoveContact
+attr = A, NA
+animtype  	= hard
+damage 		= 90*map(P4)
+hitflag 		= MAFD
+guardflag 	= HA
+pausetime 	= 12,12
+sparkno 		= 2
+sparkxy 		= -10,0
+hitsound   	= 5,3
+guardsound 	= 6,2
+air.type 		= trip
+ground.type 	= high
+ground.slidetime 	= 12
+ground.hittime  	= 20 * MAP(untechMOD)
+air.hittime  	= 999
+down.hittime 	= 30 * MAP(untechMOD)
+ground.velocity 	= -1.7,0
+down.velocity 	= -1.7, 9
+air.velocity 	= -1.7, 9
+guard.hittime 	= 30
+guard.pausetime	= 10,10
+guard.velocity 	= -7
+guard.slidetime 	= 10
+guard.ctrltime 	= 10
+guard.hittime	=10
+air.fall 		=1 
+envshake.time 	= 8
+envshake.freq 	= 10
+envshake.ampl 	= 2
+envshake.phase 	= 1
+getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5)) 
 
 
 [State 0, ChangeState]

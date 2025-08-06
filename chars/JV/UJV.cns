@@ -84,8 +84,8 @@ shadowoffset = 0     ;Number of pixels to vertically offset the shadow
 draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
 
 [Velocity]
-walk.fwd  = 2.5      ;Walk forward
-walk.back = -2.5     ;Walk backward
+walk.fwd  = 1.5      ;Walk forward
+walk.back = -1     ;Walk backward
 run.fwd  = 5.6, 0    ;Run forward (x, y)
 run.back = -3.5,-3.8 ;Hop backward (x, y)
 jump.neu = 0,-7    ;Neutral jumping velocity (x, y)
@@ -620,7 +620,7 @@ persistent = 1
 ;=======================================
 [State 0, Mapset]
 type = MapSet
-trigger1 = stateno = 100 || stateno = 60
+trigger1 = stateno = 100 || stateno = 60 || stateno = 1216
 map = "EN"
 value = 18
 
@@ -641,9 +641,9 @@ trigger1 = !map(EN)
 map = "EnState"
 value = 0
 
-[State 0, No Normals Set] ;No Normals After 4SDC
+[State 0, No Normals Set] ;No Normals After 214L
 type = MapSet
-trigger1 = stateno = 100 && (prevstateno = [1010,1015])
+trigger1 = stateno = 100 && (prevstateno = 1010)
 map = "NoNormals"
 value = 20
 [State 0, No Normals Set] ;No Normals After 6S>LDC

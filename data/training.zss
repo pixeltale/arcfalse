@@ -21,6 +21,7 @@ if playerId($pid),ctrl = 0 {
 
 
 [Statedef +1]
+
 # Buffer Option - After Guard
 ignorehitpause if map(_iksys_trainingPunish) = 1 && (stateno = [120, 155] || prevstateno = [120, 155] || stateno = 140) && ctrl = 1{
 	if map(_iksys_trainingButtonJam) = 1 {
@@ -49,7 +50,9 @@ ignorehitpause if map(_iksys_trainingPunish) = 1 && (stateno = [120, 155] || pre
 #===============================================================================
 [StateDef -4]
 
-
+if teamside = 2	{
+	assertSpecial{flag: noailevel}
+}
 
 # Buffer Option - After Recovery
 if map(_iksys_trainingPunish) = 2 && (prevstateno = 5201 || stateno = 5210 && ctrl){

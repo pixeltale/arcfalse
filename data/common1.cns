@@ -7905,6 +7905,13 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+[State 8990, Play No Music]
+type = AssertSpecial
+trigger1 = gamemode = "Training"
+trigger1 = teamside = 2
+flag = NoAILevel
+ignorehitpause = 1
+
 ;=============================================================================
 ;Record Scratch Refund
 [State 0, PowerAdd]
@@ -8268,7 +8275,7 @@ time = 15
 [State 170, 1]
 type = HitBy
 trigger1 = movereversed
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 
 ;========================================
