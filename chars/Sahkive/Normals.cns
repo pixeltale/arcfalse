@@ -2153,8 +2153,8 @@ persistent         = 0
 [State 610, 3]
 type = hitdef 
 p2facing = 1
-trigger1 = animelem = 9
-hitonce = 1
+triggerall = !movereversed
+trigger1 = animelem = 9 && !movecontact
 attr = S, SA
 damage = 100*MAP(P4), 30
 animtype = hard
@@ -2196,8 +2196,8 @@ getpower 			= 70
 type = hitdef 
 p2facing = 1
 triggerall = enemy, !map(ArmorActive)
+triggerall = !movereversed
 trigger1 = animelem = 10
-hitonce = 1
 attr = S, SA
 damage = 50*MAP(P4), 60
 animtype = hard
@@ -2241,8 +2241,8 @@ p2getp1state 		= 0
 type = hitdef 
 p2facing = 1
 triggerall = enemy, map(ArmorActive)
+triggerall = !movereversed
 trigger1 = animelem = 10
-hitonce = 1
 attr = S, SA
 damage = 100*MAP(P4), 60
 animtype = hard

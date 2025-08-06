@@ -1160,7 +1160,7 @@ ignorehitpause if (enemynear,map(iAmBeingHit) || enemynear,map(iAmGuarding)) &&
 #;====================================================================================
 ignorehitpause if ID = Map(_iksys_tagCurrentID) && roundstate = 2 && Teammode = Tag {
 
-	if ((stateno = [const(normalAttacksStartStateno),const(normalAttacksEndStateno)] || ctrl) && statetype != A) && command = "snapback" {
+	if ((stateno = [const(normalAttacksStartStateno),const(normalAttacksEndStateno)] || ctrl) && statetype != A) && command = "snapback" && power >= 1000{
 		if const(reverseSnapBack) = 0 {
 			teammapset{map:"ForcedSwitch"; value:1; redirectid:enemynear,id}
 		}
