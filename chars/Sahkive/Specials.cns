@@ -1514,6 +1514,7 @@ Trigger1 	= !movecontact
 attr 		= S, ST, SA
 hitflag 		= MAFD
 guardflag 		= MA
+hitonce = 0
 sparkno 		= 1000
 sparkxy 		= -10,-30
 p1sprpriority 	= 1
@@ -1807,13 +1808,10 @@ type = PlayerPush
 trigger1 = 1
 value = 0
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time < 27
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 1
-
-
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 5050
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -4369,6 +4367,14 @@ poweradd = 10                    ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 facep2 = 1
 
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= 1
+map 		= "isAssist"
+value 		= 1
+ignorehitpause 	= 1
+persistent      = 1
+
 [State 0, RC LOCKOUT]
 type 		= MapSet
 trigger1 		= 1
@@ -4519,6 +4525,15 @@ anim = 1021                       ;Change animation (Def: no change)
 poweradd = 10                    ;Power to add (Def: 0)
 sprpriority = 5                  ;Set p1's sprite layering priority to 2 (in front)
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;value2 = S,NA
+time = 40
+;ignorehitpause = 
+;persistent = 
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 6
@@ -4583,7 +4598,7 @@ movetype= A
 physics = S
 poweradd= 0
 ctrl = 0
-anim =1022
+anim =1023
 velset = 0,0
 sprpriority = 2
 
@@ -4684,9 +4699,10 @@ ignorehitpause = 1
 
 [State 1041, 2]
 type = hitdef 
-trigger1 = time = 0
+trigger1 = !movehit && enemynear,stateno=1023
 attr = S, ST
 damage = 150, 0
+hitonce = 0
 animtype  = Hard
 hitflag = MAF
 air.type = TRIP
@@ -4718,7 +4734,44 @@ guard.hittime = 30
 guard.slidetime = 19
 guard.ctrltime = 24
 getpower = 0
-snap = -20,30
+
+;[State 1041, 2]
+;type = hitdef 
+;trigger1 = !movehit && enemy,prevstateno!=1023
+;attr = S, ST
+;damage = 150, 0
+;hitonce = 0
+;animtype  = Hard
+;hitflag = MAF
+;air.type = TRIP
+;ground.type = TRIP
+;guardflag = MA
+;pausetime = 6,6
+;sparkno = 3
+;sparkxy = -20,-10
+;hitsound   = 5,4
+;guardsound = 6,2
+;ground.slidetime = 12
+;ground.hittime  = 45
+;air.hittime  = 136
+;down.hittime = 136
+;ground.velocity = 0,-6
+;air.velocity = 0,-6
+;fall  = 1
+;fall.yvelocity = 0
+;envshake.time = 10
+;envshake.freq = 90
+;envshake.ampl = 6
+;fall.envshake.time = 0
+;fall.envshake.freq = 0
+;fall.envshake.ampl = 0
+;palfx.time = 20
+;palfx.add = 100, 0,20
+;guard.velocity = -6
+;guard.hittime = 30
+;guard.slidetime = 19
+;guard.ctrltime = 24
+;getpower = 0
 
 [State 0, ChangeState]
 type = ChangeState

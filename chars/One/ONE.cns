@@ -75,7 +75,6 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 switchAirAttack = 655
 snapBackAttack = 210 ; ANIM: snapback attack
 StateTagAssistSuper = 500 ; STATENO: normal assist attack
-StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 AnimRunFwdOrHopForward = 56956
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
@@ -627,8 +626,8 @@ ignorehitpause = 1
 [State 0, Distance Display]
 type = DisplaytoClipboard
 trigger1 = 1
-text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, isAssist = %f"
-params = map(swordDistX), frontedgedist, backedgedist, map(isAssist)
+text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, dontlook = %f"
+params = map(swordDistX), frontedgedist, backedgedist, map(dontlook)
 
 [State 0. MapSet]
 type 		= MapSet

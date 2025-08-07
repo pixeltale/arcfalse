@@ -9040,7 +9040,7 @@ trigger1 = !(name = "Vile" && (Stateno = [1050,1061] || stateno = 2059 || staten
 trigger1 = !(name = "ONE" && (Stateno = 1051 || stateno = 1151))
 trigger1 = !(name = "Z" && (stateno = [2000,2008]))
 trigger1 = !(stateno = [3000,4000]) && stateno != 5610
-trigger1 = !(map(untechDecay) >= 2) && !(map(isAssist) > 0)
+trigger1 = !(map(untechDecay) >= 2) && !(map(isAssist) > 0) && !(stateno = [56000,56100])
 value = vel x * 0.75
 
 ;==================================================================================================
