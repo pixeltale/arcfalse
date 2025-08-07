@@ -261,20 +261,19 @@ trigger2 = stateno = 250
 ;===========================================================================
 ;SPECIAL ATTACKS
 ;===========================================================================
+;THE BEAST UNLEASHED ....
+[State -1, Beast Elbow]
+type = changeState
+value = 1205
+triggerall = command = "624H"
+triggerall = statetype != A
+trigger1 = MAP(StrikeCount) = 2
 
 ;IRON MOUNTAIN'S COFFIN
 [State -1, One Inch Punch]
 type = changeState
 value = 1209
 triggerall = command = "214H"
-triggerall = statetype != A
-trigger1 = MAP(StrikeCount) = 2
-
-;THE BEAST UNLEASHED ....
-[State -1, Beast Elbow]
-type = changeState
-value = 1205
-triggerall = command = "624H"
 triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
 
@@ -329,15 +328,15 @@ triggerall = statetype != A
 trigger1 = var(1)
 trigger2 = stateno = 100 && time > 2
 
-;236H - Verofolnir
-[State -1, Stomp]
-type = ChangeState
-value = 1100
-triggerall = command = "236H" && command != "426H"
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 100 && time > 2
+;236H - Sviga Lae
+;[State -1, I AM YOUR BAD FATE. SCATTER.]
+;type = ChangeState
+;value = 1100
+;triggerall = command = "236H" && command != "426H"
+;triggerall = statetype != A
+;trigger1 = ctrl
+;trigger2 = var(1)
+;trigger3 = stateno = 100 && time > 2
 
 ;214M
 [State -1, Counter]

@@ -84,7 +84,7 @@ shadowoffset = 0     ;Number of pixels to vertically offset the shadow
 draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
 
 [Velocity]
-walk.fwd  = 1.5      ;Walk forward
+walk.fwd  = 1      ;Walk forward
 walk.back = -1     ;Walk backward
 run.fwd  = 5.6, 0    ;Run forward (x, y)
 run.back = -3.5,-3.8 ;Hop backward (x, y)
@@ -126,7 +126,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 ; NegativeStates.cns states
 snapBackAttack = 210 ; ANIM: snapback attack
 switchAirAttack = 655
-StateTagAssistSuper = 1201 ; STATENO: normal assist attack
+StateTagAssistSuper = 1100 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**

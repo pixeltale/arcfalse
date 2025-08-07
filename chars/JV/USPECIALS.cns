@@ -606,8 +606,13 @@ trigger1 = enemy, movehit = 1
 value = -gethitvar(damage) * 2
 kill = 0
 absolute = 0
-;ignorehitpause = 
-;persistent = 
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = enemy, movehit = 1
+value = 100
+ignorehitpause = 0
+persistent = 0
+
 
 
 [State 0, VelSet]
@@ -697,12 +702,6 @@ trigger1 = !time
 map = "NoNormals"
 value = 0
 
-[State 0, MapAdd]
-type = MapAdd
-trigger1 = prevstateno != 1011
-map = "EN"
-value = 1
-
 [State 0, Explod]
 type = Explod
 trigger1 = time = 0 && Map(EN)
@@ -743,18 +742,6 @@ x = 30
 type = VelSet
 trigger1 = animelemno(0) = [7,9]
 x = 2.5
-
-[State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
-type 		= AfterImage			        ;+
-trigger1 		= time 	=  0 && map(EN)		        ;+
-time 		= 10				        ;+
-length 		= 20   				        ;+
-timegap 		= 1				        ;+
-ignorehitpause 	= 1 				        ;+
-paladd		= 191, 64, 191			        ;+
-trans 		= add				        ;+
-persistent 	= 0				        ;+
-;==================================================++
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -909,7 +896,7 @@ ctrl = 1
 
 
 ;==================================================================
-;236C - Verofolnir
+;236C - Sviga Lae
 [Statedef 1100]
 type    	= S
 movetype	= A
@@ -1011,6 +998,7 @@ envshake.freq 	= 80
 envshake.ampl 	= 6
 envshake.phase 	= 1
 getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
+id= 1
 [State 200, 1]
 type = HitDef 
 p2facing 	= 1
@@ -1059,6 +1047,52 @@ paladd		= 191, 64, 191			        ;+
 trans 		= add				        ;+
 persistent 	= 0				        ;+
 ;==================================================++
+
+[State 0, Zoom] ;Smash Hit
+type = zoom
+trigger1 = anim = 1101 && movehit
+trigger1 = animelemno(0) = 3
+trigger1 = enemy,HitShakeOver = 0
+scale = 1.2
+stagebound = 1
+camerabound = 0
+pos = 0,0
+ignorehitpause=1
+[State 0, TargetBind]
+type = TargetBind
+triggerall = anim = 1101
+trigger1 = animelem = 4
+trigger1 = anim = 1101 && movehit
+time = 6
+id = -1
+pos = 40
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+triggerall = anim = 1101
+trigger1 = movehit
+trigger1 = animelemno(0) = 4
+x = 30
+
+[State 0, VelSet]
+type = VelSet
+triggerall = anim = 1101
+trigger1 = movehit
+trigger1 = animelemno(0) = 5
+x = -18
+y = -2
+redirectid = enemynear, id
+
+[State 0, TargetState]
+type = ChangeState
+trigger1 = movehit 
+trigger1 = animelem = 5
+value = map(CornerSplat)
+persistent = 0
+redirectid = enemynear, id
+
+
 
 [State SP, MapSet]
 type = MapSet
@@ -1732,7 +1766,7 @@ persistent 	= 0				        ;+
 [State 630, 2];Sour Spot
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x > 45 || enemy, map(ArmorActive)
+triggerall = p2dist x > 45 && abs(p2dist y) < 20 || enemy, map(ArmorActive)
 trigger1 = time = 0
 attr = S, SA
 damage = 80*MAP(P4), 10
@@ -1758,7 +1792,7 @@ guard.ctrltime = 2
 [State 630, 2] ;Clean Hit
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x <= 45 || enemy, !map(ArmorActive)
+triggerall = p2dist x <= 45 && abs(p2dist y) < 20 || enemy, !map(ArmorActive)
 trigger1 = time = 0
 attr = S, SA
 damage = 120*Map(P4)+5, 10
@@ -1844,7 +1878,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 1
+value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -3687,11 +3721,13 @@ value = 0
 
 [State 0, ChangeState] ;M Punish - CROSSROADS MURDER
 type = ChangeState
+trigger1 = time > 4
 trigger1 = command = "y"
 value = 1218
 ctrl = 0
 [State 0, ChangeState] ;H Punish - Gugnir
 type = ChangeState
+trigger1 = time > 4
 trigger1 = command = "z"
 value = 706
 ctrl = 0
@@ -3799,6 +3835,7 @@ value = 5,0
 
 [State 0, ChangeState] ;M Punish - CROSSROADS MURDER
 type = ChangeState
+trigger1 = time > 4
 trigger1 = command = "y"
 value = 1218
 ctrl = 0

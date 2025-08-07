@@ -1079,7 +1079,7 @@ ground.slidetime 	= 20
 ground.hittime  	= 20 * MAP(untechMOD)
 air.hittime  	= 28 * MAP(untechMOD)
 down.hittime 	= 18 * MAP(untechMOD)
-ground.velocity 	= 6
+ground.velocity 	= -3
 air.velocity 	= -1 ,-.5
 air.fall 		= 1
 guard.slidetime 	= 20
@@ -1399,12 +1399,6 @@ ctrl = 0
 anim =1501
 sprpriority = 2
 facep2 = 1
-
-[State 0, PowerAdd]
-type = PowerAdd
-trigger1 = abs(p2dist x) < 200
-value = 1 + time / 2
-
 
 [State 0, PalFX]
 type = PalFX

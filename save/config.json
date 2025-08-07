@@ -115,7 +115,7 @@
   "RatioRecoveryBonus": 20,
   "RoundsNumSimul": 2,
   "RoundsNumSingle": 2,
-  "RoundsNumTag": 2,
+  "RoundsNumTag": 1,
   "RoundTime": 99,
   "ScreenshotFolder": "",
   "StartStage": "stages/stage1.def",

@@ -206,7 +206,8 @@ menu.itemname.extras.bonusgames.back = "BACK"               ;Ikemen feature
 ; SERVER SUBMENU
 ; This group is hidden and should not be moved to other menus.
 ; It's opened automatically, after synchronization with online player.
-menu.itemname.server.netplayversus = "VERSUS"               ;Ikemen feature
+menu.itemname.server.netplayversus = "VERSUS"              ;Ikemen feature
+menu.itemname.server.netplayteamversus = "TAG VERSUS"
 ;menu.itemname.server.netplayteamcoop = "ARCADE CO-OP"       ;Ikemen feature
 ;menu.itemname.server.netplaysurvivalcoop = "SURVIVAL CO-OP" ;Ikemen feature
 menu.itemname.server.back = "EXIT"                          ;Ikemen feature
