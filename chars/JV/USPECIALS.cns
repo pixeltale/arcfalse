@@ -613,15 +613,12 @@ value = 100
 ignorehitpause = 0
 persistent = 0
 
-
-
 [State 0, VelSet]
 type = VelSet
 trigger1 = enemy, movehit = 1
 x = -8
 ignorehitpause = 1
 redirectid = enemy, id
-
 
 [State 0, Custom Afterimage]
 type = Explod
@@ -758,6 +755,12 @@ value = 5,0
 type = Ctrlset
 trigger1 = animelemno(0) >= 7
 value = 1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = animelemno(0) < 6
+value = 0
+
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1870,34 +1873,34 @@ velset = vel x , 0
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= !time
-map 		= "StrikeCount"
+map 			= "StrikeCount"
 value 		= 0
 ignorehitpause 	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
+map 			= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "P1"
+map 			= "P1"
 value 		= 0.88 + 0.1*(anim = 1061)	;88% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
-map 		= "P2"
+map 			= "P2"
 value 		= 0.85
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
 trigger1 		= movehit
-map 		= "Accumulation"
+map 			= "Accumulation"
 value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
@@ -1944,7 +1947,7 @@ hitflag 		= MAFD
 guardflag 	= LAFD
 ground.type 	= Low
 air.type		= Low
-guard.ctrltime 	= 8
+guard.ctrltime = 16
 guard.velocity	= -10
 pausetime 	= 25,25
 guard.pausetime 	= 18, 18
@@ -1998,7 +2001,7 @@ persistent = 0
 
 [State 0, VelAdd]
 type = veladd
-trigger1 = animelem = 6
+trigger1 = animelem = 5
 x = 7
 
  [State 1200, Shake Screen]

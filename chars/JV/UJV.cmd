@@ -31,11 +31,11 @@ buffer.time = 0
 [Command]
 name = "214M"
 command = ~$D, B, y
-buffer.time = 10
+buffer.time = 5
 [Command]
 name = "214H"
 command = ~$D, B, z
-buffer.time = 10
+buffer.time = 5
 [Command]
 name = "214R"
 command = ~$D, B, c
@@ -560,6 +560,18 @@ triggerall = command = "y"
 triggerall = statetype = A
 trigger1 = ctrl || stateno = 60
 trigger2 = stateno = 600 && movecontact
+
+;j.2H: Jumping Heavy
+[State -1, Jumping Heavy]
+type = ChangeState
+value = 640
+triggerall = command = "z"
+triggerall	= command = "holddown"
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = stateno = [600, 630] && movecontact
+trigger3 = stateno = 1350 ;Air blocking
+trigger4 = stateno = 60
 
 ;j.5H: Jumping Heavy
 [State -1, Jumping Heavy]
