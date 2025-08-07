@@ -53,9 +53,9 @@
 ; take a look if would like to learn more about the cns.
 
 [Data]
-life = 1200
+life = 1300
 attack = 100
-defence = 120
+defence = 100
 fall.defence_up = 0
 liedown.time = 60
 airjuggle = 15
@@ -126,7 +126,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 ; NegativeStates.cns states
 snapBackAttack = 210 ; ANIM: snapback attack
 switchAirAttack = 655
-StateTagAssistSuper = 1100 ; STATENO: normal assist attack
+StateTagAssistSuper = 1001 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
