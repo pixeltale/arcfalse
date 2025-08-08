@@ -22,13 +22,13 @@ time = 20
 buffer.time = 10
 [Command]
 name = "623L"
-command = ~F, D, DF, x
+command = ~$F, D, $F, x
 [Command]
 name = "623M"
-command = ~F, D, DF, y
+command = ~$F, D, $F, y
 [Command]
 name = "623H"
-command = ~F, D, DF, z
+command = ~$F, D, $F, z
 [Command]
 name = "214L"
 command = ~$D, B, x

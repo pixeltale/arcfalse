@@ -258,6 +258,12 @@ ground.cornerpush.veloff = -20
 p2stateno 	= 5220
 p2getp1state 	= 0
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelemno(0) <= 4
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
+time = 1
+
 [State 0, SMASH]
 type 		= MapAdd
 trigger1 		= animelem = 4
