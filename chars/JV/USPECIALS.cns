@@ -398,8 +398,9 @@ freq 	= 120
 type 	= ChangeAnim
 triggerall 	= anim!= 1005
 trigger1 	= !IsHelper && command != "hold_x" && map(chargeLvl)
-trigger2	= IsHelper && time = 85 - 65 * root, map(ComboStateCheck)
+trigger2	= IsHelper && time >= 55
 value 	= 1005
+ignorehitpause = 1
 
 [State -2, FRC]	;FRC START
 type 		= MapSet
