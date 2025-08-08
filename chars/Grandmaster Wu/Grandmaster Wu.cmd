@@ -354,7 +354,7 @@ triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(750)
-triggerall = command = "holdfwd"
+triggerall = command = "holdfwd" && command != "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
@@ -370,7 +370,7 @@ triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(750)
-triggerall = command = "holdback"
+triggerall = command = "holdback" && command != "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"

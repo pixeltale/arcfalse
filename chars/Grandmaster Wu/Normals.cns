@@ -352,7 +352,7 @@ air.animtype = back
 damage = 120 * MAP(P4)
 hitflag = MAF
 guardflag = MA
-pausetime = 14,14
+pausetime = 12,12
 sparkno = 3
 sparkxy = -23,-40
 hitsound   = 5,3
@@ -362,7 +362,7 @@ ground.slidetime = 14
 ground.hittime  = 20 * map(untechMOD)
 air.hittime  = 35 * map(untechMOD)
 down.hittime = 35 * map(untechMOD)
-ground.velocity = -3
+ground.velocity = 4
 air.velocity = -2.8,-2
 envshake.time = 14
 envshake.freq = 70
@@ -730,7 +730,7 @@ value = 0, 4
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -963,7 +963,7 @@ animtype  = up
 damage = 100 * Map(P4), 0
 hitflag = MAFD
 guardflag = MA
-pausetime = 16,16
+pausetime = 12,12
 sparkno = 3
 sparkxy = -10,-60
 hitsound   = 5,3
@@ -1261,7 +1261,7 @@ damage = 80*MAP(P4), 0
 guardflag = HA
 hitflag = MAFD
 priority = 4
-pausetime = 12,12
+pausetime = 10,10
 sparkno = 2
 sparkxy = -15,-20
 hitsound   = 5,3
@@ -1351,7 +1351,7 @@ attr 	= A, NA
 damage 	= 100*MAP(P4)
 hitflag 	= MAF
 guardflag 	= HA
-pausetime 	= 14,15
+pausetime 	= 12,12
 sparkno 		= 3
 sparkxy 		= -5,-35
 hitsound   	= 5,3
@@ -2593,7 +2593,7 @@ animtype  = Medium
 damage = 75 * root, map(P4), 0
 hitflag = MAFD
 guardflag = HA
-pausetime = 13,13
+pausetime = 4,4
 sparkno = 2
 sparkxy = -15,0
 hitsound   = 5,3
@@ -2601,12 +2601,12 @@ guardsound = 6,2
 ground.type = high 
 air.type = high
 ground.slidetime = 12
-ground.hittime  = 35
+ground.hittime  = 15
 air.hittime  = 45
 down.hittime = 45
 guard.ctrltime = 8
 ground.velocity = -5
-air.velocity = -3,2
+air.velocity = -3,5
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -2665,6 +2665,14 @@ trigger1 = time=0
 trigger1 = root,combocount>0
 x = 14
 ignorehitpause = 1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time < 15
+y =  p2dist y * 0.5
+ignorehitpause = 1
+
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = time=0

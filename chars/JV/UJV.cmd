@@ -21,6 +21,15 @@ command = ~$F, $D, B, z
 time = 20
 buffer.time = 10
 [Command]
+name = "623L"
+command = ~F, D, DF, x
+[Command]
+name = "623M"
+command = ~F, D, DF, y
+[Command]
+name = "623H"
+command = ~F, D, DF, z
+[Command]
 name = "214L"
 command = ~$D, B, x
 buffer.time = 5
@@ -72,6 +81,10 @@ time = 10
 [Command]
 name = "22R"
 command = ~D, D, c
+time = 10
+[Command]
+name = "22S"
+command = ~D, D, b
 time = 10
 
 [Command]
@@ -139,23 +152,20 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = statetype != A
 trigger2 = stateno != [3000,3050)
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+trigger2 = movecontact
 trigger4 = stateno = [100,101]
 
-;214X- Strike Heaven
-;[State -1, 214x]
-;type = ChangeState
-;value = 3100
-;triggerall = command = "214x"
-;triggerall = power >= 2000
-;trigger1 = statetype != A
-;trigger1 = ctrl
-;trigger2 = statetype != A
-;trigger2 = stateno != [3000,3050)
-;trigger2 = movecontact ;&& enemynear, movetype = H
-;trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-;trigger4 = stateno = [100,101]
+;22S - Snake Charge
+[State -1, 22S]
+type = ChangeState
+value = 3100
+triggerall = command = "22S"
+triggerall = power >= 2000
+triggerall = statetype != A
+trigger1 = ctrl 
+trigger2 = stateno != [3000,3050)
+trigger2 = movecontact
+trigger3 = stateno = [100,101]
 
 ;214S- Maw of Serpent
 [State -1, 214S]
@@ -261,6 +271,33 @@ trigger2 = stateno = 250
 ;===========================================================================
 ;SPECIAL ATTACKS
 ;===========================================================================
+;623L
+[State -1, Boom.]
+type = ChangeState
+value = 1225
+triggerall = command = "623L"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+;623M
+[State -1, Boom.]
+type = ChangeState
+value = 1223
+triggerall = command = "623M"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
+;623H
+[State -1, Boom.]
+type = ChangeState
+value = 1224
+triggerall = command = "623H"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+
 ;THE BEAST UNLEASHED ....
 [State -1, Beast Elbow]
 type = changeState
@@ -329,14 +366,14 @@ trigger1 = var(1)
 trigger2 = stateno = 100 && time > 2
 
 ;236H - Sviga Lae
-;[State -1, I AM YOUR BAD FATE. SCATTER.]
-;type = ChangeState
-;value = 1100
-;triggerall = command = "236H" && command != "426H"
-;triggerall = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = stateno = 100 && time > 2
+[State -1, I AM YOUR BAD FATE. SCATTER.]
+type = ChangeState
+value = 1100
+triggerall = command = "236H" && command != "426H"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
+trigger3 = stateno = 100 && time > 2
 
 ;214M
 [State -1, Counter]
@@ -357,6 +394,15 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 100
+
+;214H
+[State -1, EX Crossroads Murder]
+type = ChangeState
+value = 2000
+triggerall = command = "214R"
+triggerall = statetype != A && power >= 1000
+trigger1 = ctrl
+trigger2 = var(1)
 
 ;4R - Disengage
 ;[State -1, DP]

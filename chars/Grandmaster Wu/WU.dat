@@ -1,0 +1,67 @@
+	<#a000ff>This move list assumes you are facing to the right.</>
+
+	<#c63d3d>UNIQUE TRAIT: DO THE ASTRAL PLANE</>
+	EX moves can be canceled into Remix moves on contact.
+
+	<#c63d3d>UNIQUE MOVES</>
+DIVEKICK	-		<#65b5ff>(AIR ONLY)</> _D^B OR _DB^B
+TWIN FLAME	-		_F^C
+SOUL SWEEP	-		_DF^C
+
+	<#a454ff>SPECIAL MOVES</>
+SOUL FORCE	-		^Y
+_!SOUL CHARGE	-		(HOLD)_B
+        <#bbbbbb>The SOULFORCE projectile becomes
+        empowered if you hold the back direction
+        for a set duration before firing it.
+        A small flame will appear at his feet
+        indicating its charge.</>
+CHESTO!	-		<#aaffff>(GROUND OR AIR)</> _F^Y
+_!CHESTO! CHESTO!	-		<#65b5ff>(AIR ONLY)</> ^Y
+   _!CHESTO! CHESTO! CHESTO!	-		<#65b5ff>(AIR ONLY)</> ^Y
+      _!CHESTO! CHESTO! CHESTO! CHESTO!	-		<#65b5ff>(AIR ONLY)</> ^Y
+FORCE PALM	-		_B^Y
+RISING MASTER	-		_D^Y
+   <#bbbbbb>An anti-air invulnerable upward kick.</>
+
+	<#190bd9>REMIX MOVES</>
+ASTRAL KICK	-		^Z
+ASTRAL PALM	-		_F^Z
+ASTRAL VOLLEY	-		_B^Z
+ASTRAL DIVE	-		_D^Z
+
+	<#ffef0f>EX MOVES</>
+_EX SOUL FORCE	-		<#55ffff>(1 BAR)</> ^Y
+   <#bbbbbb>The projectile automatically tracks the opponent.</>
+_EX TATSU KATA	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _F^Y
+_!TATSU KATA EXTENSION	-		<#65b5ff>(AIR ONLY)</> ^Y
+_EX FORCE PALM	-		<#55ffff>(1 BAR)</> _B^Y
+_EX RISING MASTER	-		<#55ffff>(1 BAR)</> _D^Y
+   <#bbbbbb>An invincible upward kick.</>
+
+	<#55ffff>SUPER MOVES</>
+<#983eff>JUDGEMENT BLADE EXCEED</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
+   <#a000ff>JV charges energy in his arm and swipes at his opponent, delivering
+   a powerful cut that wall-bounces.</>
+<#983eff>BEAUTIFUL DEATH</>		<#55ffff>(4 BARS)</> _D_DB_B_-^Y
+   <#a000ff>A slow, powerful, invincible attack.</>
+
+	SYSTEM MECHANICS
+SUPERJUMP	-		_D_U
+   <#a000ff>Jump higher, faster, and further. Increases the amount
+   of air-influence directional inputs have.</>   
+ANTI-AIR	-		_D^C
+   <#a000ff>This move has invulnerability to airborne enemies.</>
+FALSE GUARD (WHILE BLOCKING)	-		</> _B^X
+   <#a000ff>Can push the enemy away while you block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
+   <#a000ff>A fullscreen-ranged reversal that knocks the
+   enemy down and beats projectiles. Returns 1 bar of
+   meter upon use.</>
+REDLINE (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#a000ff>Can be used to instantly cancel most attacks.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+   <#a000ff>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.
+   </>
+   </>

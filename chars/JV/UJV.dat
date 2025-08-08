@@ -50,37 +50,31 @@ _!BEAST (END)	-		_F_DF_D_DB_B_-^C
    even on block. Can also be used independently of [STRIKE THE EARTH].
 _!YGGDRASIL (END)	-		_D_DF_F_-^C
    <#a000ff>A powerful, ground-bouncing attack that must be guarded standing.
+_!IRON MOUNTAIN'S COFFIN (END)	-		_D_DB_B^C
+        <#a000ff>A powerful tetsuzankou attack with infinite hits of armor.
+        <#983eff>Has a False Redline point.</>
 _!Ego Death (END)	-		_F_DF_D_DB_B_F_-^A
    <#a000ff>Don't block.
-VEÐRFÖLNIR	-		_D_DF_F^C
-   <#a000ff>A bajiquan stomp that can be guarded standing or crouching.
-   Goes into [STRIKE THE EARTH] when used.
-   <#983eff>Enhanced version ground bounces and
-   must be guarded standing.</>
-AIMLESS SERPENT	-		_D_DB_B_-^A
-   <#a000ff>JV stops, momentarily dodging all
-   forms of enemy attacks. Tapping forward 
-   allows him to cancel the spotdodge into a
-   run, but doing so locks out his ability to
-   use normals for a short while.
-   Can be done out of jump-squat.
-   <#983eff>Enhanced version moves JV forward and isn't dash cancellable.
-   Also gains a followup attack.</>
-_!Naora	-		^B
-        <#983eff>JV avoids high attacks while delivering
-        a quick roundhouse kick that launches the opponent.</>
-DISENGANGE	-		_D_DB_B^B
-   <#a000ff>Quickly moves JV backwards.
-   <#983eff>Enhanced version has invul
-   and can be canceled into a followup. Also has a Free Redline point.</>
-_!Sundr	-		^A
-        <#983eff>JV spins forward and delivers a punch that is
-        more devastating at the edge of his fist. Dash cancelable,
-        even on block.</>
-IRON MOUNTAIN'S COFFIN	-		_B_DB_D_DF_F^C
-        <#a000ff>A powerful tetsuzankou attack with infinite hits of armor.
-        <#983eff>Enhanced version is faster with reduced recovery.
-        Has a Free Redline point.</>
+SVIGA LAE	-		_D_DF_F^C
+   <#a000ff> A one inch punch that carries the opponent across the
+   screen on smash hit. I am your bad fate. Scatter.</>
+DEAD PULSE	-		_D_DB_B_-^A
+   <#a000ff>JV turns his back to the opponent
+   and absorbs all non-throw attacks. When an attack makes
+   contact, it deals double damage but pushes the opponent
+   away and builds meter. Can be dash canceled in either direction.</>
+DISENGANGE	-		_D_DB_B^B or *C
+   <#a000ff>JV anticipates an attack and teleports away. Has followups.</>
+_!Crossroads Murder	-		^B
+        <#983eff>JV moves at a rapid speed, creating an afterimage
+        that performs Beretta Driver.</>
+_!Gugnir	-		^C
+        <#983eff>Divine spear, promised victory.</>
+
+Kill The Escape Path	-		_F_D_DF_-^A / ^B / ^C
+   <#a000ff>JV creates an explosion at a set distance away.
+   Can be jump canceled on contact when dash enhanced.</>
+
 JÖTUNN'S WRATH	-		<#65b5ff>(AIR ONLY)</> _D_DF_F_-^C
    <#a000ff>An aerial straight punch.
    <#983eff>Enhanced version is faster and deals more

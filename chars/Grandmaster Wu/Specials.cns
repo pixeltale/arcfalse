@@ -1707,7 +1707,7 @@ ignorehitpause 	= 1
 [State -2, Charge Checker]
 type 	= MapAdd
 trigger1 	= time = 1
-trigger1	= map(CHARGE.LEVEL) > 30
+trigger1	= map(CHARGE.LEVEL) > 60
 map 		= "FIREBALL_LEVEL"
 value 		= 1
 ignorehitpause 	= 1
@@ -1883,12 +1883,12 @@ hitsound 		= 5, 1
 guardsound 	= 6, 0
 ground.type = Low
 animtype = medium
-ground.hittime  = 20 - root, map(UntechDecay)
+ground.hittime  = 20 * root, map(UntechMod)
 ground.velocity = -2.5,0
 guard.ctrltime = 7
 fall.yvelocity = 0
 air.velocity = -2.5,-1
-air.hittime = 24
+air.hittime = 24 * root, map(UntechMod)
 airguard.velocity = -2,-3
 getpower = 0
 guard.dist = 0
@@ -3306,10 +3306,10 @@ ownpal = 1
 [State 13, ChangeState]
 type = changestate
 trigger1 = time = 20
-value = 2013
+value = 2012
 
 ;----------------------
-;Kum Kick lv2
+;EX Kum Kick (Weak)
 [Statedef 2012]
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
@@ -3397,14 +3397,14 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.95
+value 		= 0.8
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -3425,7 +3425,7 @@ persistent 		= 0
 type = HitDef
 trigger1 = !movecontact && !movereversed
 attr = S, SA                     ;Attribute: Standing, Normal Attack
-damage = 70 * map(P4), 8
+damage = 50 * map(P4), 8
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD

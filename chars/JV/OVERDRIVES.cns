@@ -194,13 +194,6 @@ sprpriority = -15
 ownpal = 1
 supermovetime = -1
 
-
-[State 0, Changestate]
-type = Changestate
-triggerall = movecontact && map(EnLock)
-trigger1 = command = "66" || command = "M66"
-value = 100
-ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = anim = [3001,3002]
@@ -208,6 +201,75 @@ trigger1 = animtime = 0
 value = 0
 ctrl = 1
 
+;236L/M/H - JUDGEMENT BLADE
+[Statedef 3100]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+velset = vel x,0
+anim = 3040
+sprpriority = 8
+poweradd = -2000
+
+[State 0, SuperPause]
+type 	= SuperPause
+trigger1 	= animelem = 4
+time 	= 120
+pos 		= 0,0
+movetime 	= 120
+darken 	= 1
+poweradd 	= 0
+unhittable = 1
+
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1 
+trigger1 	= time = 0
+attr 	= S, HA
+damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
+hitflag 	= MAFD
+guardflag = MA
+priority 	= 3
+pausetime 	= 18,22
+guard.pausetime 	= 20,20
+sparkno 		= 3
+sparkxy 		= -5,-45
+hitsound   	= 5,4
+getpower 		= 0
+guardsound 	= 6,2
+ground.type 	= Low
+animtype 		= medium
+air.animtype 	= back
+ground.slidetime 	= 14
+ground.hittime  	= 80
+ground.velocity 	= -11,-7 * MAP(untechMOD)
+air.velocity 	= -11,-7 * MAP(untechMOD)
+air.hittime 	= 20
+down.hittime	= 20
+envshake.time 	= 7
+fall 		= 1
+air.fall		= 1
+fall.yvelocity	= 0
+guard.ctrltime 	= 8
+guard.velocity  = -3
+ground.cornerpush.veloff = -20
+p2stateno 	= 5220
+p2getp1state 	= 0
+
+[State 0, SMASH]
+type 		= MapAdd
+trigger1 		= animelem = 4
+map 			= "SERPENT.FANG"
+value 		= 5
+ignorehitpause 	= 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
 
 ;================================
 ;214S - Maw of Ouroboros

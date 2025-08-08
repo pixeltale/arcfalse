@@ -48,6 +48,7 @@ stcommon = common1.cns     ;Common states (from data/ or motif)
 sprite  = Grandmaster Wu.sff                        ;Sprite
 anim    = Grandmaster Wu.air                       ;Animation
 sound   = Grandmaster Wu.snd                    ;Sound
+movelist = WU.dat
 ai      = TempAI.ai   
 pal2    = 2.act
 pal3    = 3.act

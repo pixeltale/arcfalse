@@ -123,7 +123,7 @@ facep2 = 1
 
 [State 0, Mapset]
 type = MapAdd
-trigger1 = map(EN)
+trigger1 = map(EN) && animelemno(0) < 4
 map = "EN"
 value = 1
 
@@ -182,7 +182,7 @@ ground.hittime  	= 22
 air.hittime  	= 24* MAP(untechMOD)
 down.hittime 	= 24
 ground.velocity 	= -4
-guard.ctrltime 	= 14
+guard.ctrltime 	= 18
 guard.slidetime	= 14
 guard.velocity	= -5
 air.velocity 	= -3,-2
@@ -964,7 +964,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.70	;70% DMG For next hit
+value 		= 0.85	;70% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -1083,7 +1083,7 @@ ground.hittime  	= 20 * MAP(untechMOD)
 air.hittime  	= 28 * MAP(untechMOD)
 down.hittime 	= 18 * MAP(untechMOD)
 ground.velocity 	= -3
-air.velocity 	= -1 ,-.5
+air.velocity 	= -1 ,1
 air.fall 		= 1
 guard.slidetime 	= 20
 guard.ctrltime 	= 8
@@ -1166,7 +1166,7 @@ p2facing 	= 1
 trigger1 	= time = 0
 hitonce 	= 1
 attr 	= A, NA
-damage 	= 100*MAP(P4)
+damage 	= 120*MAP(P4)
 hitflag 	= MAF
 guardflag 	= HA
 pausetime 	= 12,12
@@ -1216,30 +1216,38 @@ type = PlaySnd
 trigger1 = animelem = 5
 value = 0, 0
 
+[State 0, MAPADD]
+type = MapAdd
+trigger1 = movehit = 1 && map(ComboStateCheck) && enemy, statetype = A
+map = "j2H_UseCount"
+value = 1
+ignorehitpause = 1
+persistent = 0
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 			= "StarterLevel"
+map 		= "StarterLevel"
 value 		= 2	;Med Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 			= "P1"
+map 		= "P1"
 value 		= 0.9	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 			= "P2"
+map 		= "P2"
 value 		= 0.90	;85% DMG For next hit
 ignorehitpause 	= 1
-persistent 	= 0
+persistent = 0
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
 trigger1 		= movehit
-map 			= "Accumulation"
+map 		= "Accumulation"
 value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
@@ -1253,7 +1261,7 @@ attr 	= A, NA
 damage 	= 100*MAP(P4)
 hitflag 	= M
 guardflag 	= HA
-pausetime 	= 14,14
+pausetime 	= 14,10
 sparkno 		= 3
 sparkxy 		= -5,-35
 hitsound   	= 5,3
@@ -1261,7 +1269,7 @@ guardsound 	= 6,2
 ground.type 	= LOW
 air.type		= TRIP
 ground.slidetime 	= 6
-ground.hittime  	= 20 * MAP(untechMOD)
+ground.hittime  	= 20 - MAP(UntechDecay)
 air.hittime  	= 99
 down.hittime 	= 99
 ground.velocity 	= -4
@@ -1273,17 +1281,51 @@ guard.hittime 	= 20
 guard.ctrltime 	= 10
 air.fall 		= 1
 getpower 	= 50
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1
+trigger1	= enemy, statetype = A
+trigger1 	= !movecontact && !movereversed
+hitonce 	= 1
+attr 	= A, NA
+damage 	= 100*MAP(P4)
+hitflag 	= AF
+guardflag 	= HA
+pausetime 	= 14,10
+sparkno 		= 3
+sparkxy 		= -5,-35
+hitsound   	= 5,3
+guardsound 	= 6,2
+ground.type 	= LOW
+air.type		= LOW
+ground.slidetime 	= 6
+ground.hittime  	= 20 - MAP(UntechDecay)
+air.hittime  	= 99
+down.hittime 	= 99
+ground.velocity 	= -4
+fall.yvelocity 	= 0
+air.velocity 	= -1,16
+down.velocity 	= -2,-10
+guard.slidetime 	= 18
+guard.hittime 	= 20
+guard.ctrltime 	= 10
+air.fall 		= 1
+getpower 		= 50
+p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
+p2getp1state = 0
+
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = !animtime
-value = 50
+trigger1 =animtime = 0 
+value = 69000
 ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y>= 0
 value = 52
 ctrl = 1
+
 ;====================================
 ;Fastfall State
 [Statedef 650]

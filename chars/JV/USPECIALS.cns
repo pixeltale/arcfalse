@@ -92,7 +92,8 @@ air.hittime 	= 24 * MAP(untechMOD)
 envshake.time 	= 7
 fall 		= 1
 fall.yvelocity 	= 0
-air.fall	= 1
+air.fall		= 0
+forcenofall 	= 1
 guard.ctrltime 	= 20
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = 0
@@ -234,11 +235,11 @@ triggerall 	= isHelper
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
 attr 		= S, SA
-damage 		= (time*3.25)*MAP(P4), time*2
+damage 		= 250, 150
 hitflag 		= MAFD
 guardflag 	= MA
-pausetime 	= 10,10
-guard.pausetime = 10,10
+pausetime 	= 3,3
+guard.pausetime = 3,3
 sparkno 		= 2
 sparkxy 		= -25,-44
 hitsound  		= 5,1
@@ -910,6 +911,13 @@ anim = cond(time = 0 && map(EN), 1101, 1100)
 sprpriority = 2
 velset = vel x , 0
 
+[State 0, SMASH]
+type 		= MapAdd
+trigger1 		= movehit = 1 && map(SERPENT.FANG)
+map 			= "SERPENT.FANG"
+value 		= -1
+ignorehitpause 	= 0
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -943,101 +951,64 @@ persistent 		= 0
 type = HitDef 
 p2facing 	= 1
 triggerall 	= !movehit && !moveguarded && !movereversed
-trigger1 	= anim = 1100
+trigger1 		= anim = 1100 || !map(SERPENT.FANG)
 attr 		= S, NA
 animtype  	= Hard
 damage 		= 100*map(P4), 10
-hitflag 	= MAF
+hitflag 		= MAF
 guardflag 	= MAFD
-guard.ctrltime 	= 8
+guard.ctrltime = 15
 pausetime 	= 14,14 + 10 * map(CounterHit)
 sparkno 		= 1
 sparkxy 		= -10,-40
 hitsound   	= 5,3
 guardsound 	= 6, 0
 ground.type 	= LOW
-air.type	= LOW
-ground.hittime  	= 18 * MAP(untechMOD)
+air.type		= LOW
+ground.hittime = 18
 air.hittime  	= 18
-ground.velocity 	= -3.8
-air.velocity 	= 0.5, 4
-down.velocity 	= 0.5, -1
+ground.velocity= -3.8
+air.velocity 	= -3, -1
+down.velocity 	= -2, -1
 air.fall 		= 1
 envshake.time 	= 20
-envshake.freq 	= 80
-envshake.ampl 	= 6
+envshake.freq 	= 30
+envshake.ampl 	= 2
 envshake.phase 	= 1
 getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
 [State 200, 1]
 type = HitDef 
 p2facing 	= 1
 triggerall 	= !movehit && !moveguarded && !movereversed
-trigger1	= anim = 1101
-trigger1 	= enemy, statetype != A
+trigger1		= anim = 1101 && map(SERPENT.FANG)
 attr 		= S, NA
 animtype  	= Hard
-damage 		= 100*map(P4), 30
-hitflag 		= MFD
-guardflag 	= HAFD
+damage 		= 150*map(P4), 30
+hitflag 		= MAFD
+guardflag 	= MAFD
 ground.type 	= Low
 air.type		= Low
-guard.ctrltime 	= 8
+guard.ctrltime = 15
 guard.velocity	= -5
-pausetime 	= 25,25
-guard.pausetime 	= 18, 18
-sparkno 		= 3
+pausetime 	= 18, 18
+sparkno 		= 12
 sparkxy 		= -10,-40
 hitsound   	= 5,3
 guardsound 	= 6, 1
 ground.slidetime 	= 12
 ground.hittime  	= 35 * MAP(untechMOD)
-down.hittime	= 58 * MAP(untechMOD)
+down.hittime		= 58 * MAP(untechMOD)
 ground.velocity 	= -4, -5
-down.velocity	= -1, -6
+down.velocity		= -4, -6
+air.velocity		= -4, -4
 air.fall 		= 1
 fall 		= 1
 envshake.time 	= 20
 envshake.freq 	= 80
 envshake.ampl 	= 6
-envshake.phase 	= 1
-getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
-id= 1
-[State 200, 1]
-type = HitDef 
-p2facing 	= 1
-triggerall 	= !movecontact && !movereversed
-trigger1	= anim = 1101
-trigger1 	= enemy, statetype = A
-attr 		= S, NA
-animtype  	= Hard
-damage 		= 100*map(P4), 30
-hitflag 		= AF
-guardflag 	= HAFD
-guard.ctrltime 	= 32
-pausetime 	= 25,25
-sparkno 		= 3
-sparkxy 		= -10,-40
-hitsound   	= 5,3
-guardsound 	= 6, 1
-ground.type 	= Low
-air.type		= Low
-ground.slidetime 	= 12
-ground.hittime  	= 35
-air.hittime  	= 24 * MAP(untechMOD)
-down.hittime	= 99
-ground.velocity 	= -1, -8
-air.velocity 	= -2, 14
-down.velocity 	= -1, 13
-air.fall 		= 1
-fall 		= 1
-fall.yvelocity	= 0
-envshake.time 	= 20
-envshake.freq 	= 80
-envshake.ampl 	= 6
-envshake.phase 	= 1
-p2stateno 	= 5255
-p2getp1state 	= 0
-getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
+envshake.phase = 1
+getpower 		= 150
+id		= 1101
 
 [State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
 type 		= AfterImage			        ;+
@@ -1055,7 +1026,7 @@ persistent 	= 0				        ;+
 type = zoom
 trigger1 = anim = 1101 && movehit
 trigger1 = animelemno(0) = 3
-trigger1 = enemy,HitShakeOver = 0
+trigger1 = enemy,HitShakeOver = 0 && enemy, GetHitVar(ChainID) = 1101
 scale = 1.2
 stagebound = 1
 camerabound = 0
@@ -1063,7 +1034,7 @@ pos = 0,0
 ignorehitpause=1
 [State 0, TargetBind]
 type = TargetBind
-triggerall = anim = 1101
+triggerall = enemy, GetHitVar(ChainID) = 1101
 trigger1 = animelem = 4
 trigger1 = anim = 1101 && movehit
 time = 6
@@ -1073,50 +1044,31 @@ ignorehitpause = 1
 
 [State 0, VelSet]
 type = VelSet
-triggerall = anim = 1101
+triggerall = anim = 1101 && enemy, GetHitVar(ChainID) = 1101
 trigger1 = movehit
 trigger1 = animelemno(0) = 4
 x = 30
 
 [State 0, VelSet]
 type = VelSet
-triggerall = anim = 1101
+triggerall = anim = 1101 && enemy, GetHitVar(ChainID) = 1101
 trigger1 = movehit
 trigger1 = animelemno(0) = 5
 x = -18
-y = -2
+y = -4
 redirectid = enemynear, id
 
 [State 0, TargetState]
 type = ChangeState
-trigger1 = movehit 
+trigger1 = movehit && enemy, movetype = H && enemy, GetHitVar(ChainID) = 1101
 trigger1 = animelem = 5
 value = map(CornerSplat)
 persistent = 0
 redirectid = enemynear, id
 
-
-
-[State SP, MapSet]
-type = MapSet
-triggerall = map(comboTimer)
-trigger1 = movehit && enemy, statetype = A
-map = "EnState"
-value = 0
-[State SP, MapSet]
-type = MapAdd
-triggerall = map(comboStateCheck)
-trigger1 = movehit && enemy, statetype = A
-map = "sSENuse"
-value = 1
-ignorehitpause = 1
-persistent = 0
-
-
-
 [State 0, VelAdd]
 type = veladd
-trigger1 = animelem = 6
+trigger1 = animelem = 4
 x = 7
 
  [State 1200, Shake Screen]
@@ -1139,26 +1091,6 @@ type = ChangeState
 trigger1 = animtime = 0
 ctrl 	= 1
 value 	= 0
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "x" || command = "holdx"
-trigger1 = movecontact
-value = 1201
-ctrl = 0
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "y" || command = "holdy"
-trigger1 = movecontact
-value = 1202
-ctrl = 0
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "z" || command = "holdz"
-trigger1 = movecontact
-value = 1203
-ctrl = 0
-
 
 ;==============================
 ;[KA] L: Sundr
@@ -3931,10 +3863,302 @@ value = 5,0
 [State 810, Push];Cross Up
 type = PlayerPush
 trigger1 = 1
+value = animelemno(0) >= 4
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+trigger2 = prevstateno = 2000 && time = 10
 value = 0
+ctrl = 1
+
+;-----------------------------
+;M Version
+[Statedef 1223]
+type    = S
+movetype= A
+physics = S
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = 1
+value = 1225
+ctrl = 1
+;-----------------------------
+;H Version
+[Statedef 1224]
+type    = S
+movetype= A
+physics = S
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = 1
+value = 1225
+ctrl = 1
+
+;Kill The Escape Path...
+;-----------------------------
+[Statedef 1225]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 1220 + 1*(map(EnState))
+sprpriority = 2
+velset = vel x, 0
+
+[State 0, Jump Cancel]
+type 		= MapSet
+trigger1 		= time = 0
+map 			= "JC"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = !time
+sysvar(1) = 0
+[State 40, 3]
+type = VarSet
+triggerall 	= prevstateno = 1223
+trigger1 		= time = 1
+sysvar(1) 	= 1
+[State 40, 3]
+type = VarSet
+triggerall 	= prevstateno = 1224
+trigger1 		= time = 1
+sysvar(1) 	= 2
+
+[State 0, Helper]
+type = Helper
+triggerall = anim = 1220
+trigger1 = animelem = 9
+helpertype = Normal ;Player
+name = "KILL THE ESCAPE PATH"
+ID = 1226
+stateno = 1226
+pos = 0 + 80 * sysvar(1),0
+postype = P1    ;P2, Front, Back, Left, Right
+facing = 1
+[State 0, Helper]
+type = Helper
+triggerall = anim = 1221
+trigger1 = animelem = 5
+helpertype = Normal ;Player
+name = "KILL THE ESCAPE PATH"
+ID = 1227
+stateno = 1227
+pos = 0 + 80 * sysvar(1),0
+postype = P1    ;P2, Front, Back, Left, Right
+facing = 1
 
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
+
+;Unenhanced Seismo
+;-----------------------------
+[Statedef 1226]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 1225
+sprpriority = 2
+velset = vel x, 0
+
+[State 0]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed
+attr = S, NA
+animtype  = UP
+damage = 100*root, MAP(P4), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 2,2
+sparkno = 2
+sparkxy = -10,-60
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 12 * root, map(UntechMod)
+air.hittime  = 12 * root, map(UntechMod) + 35
+down.hittime = 45 * root, map(UntechMod)
+ground.velocity = -.4,-6.2
+air.velocity = -0.6,-4;
+fall = 1
+air.fall = 1
+guard.hittime = 5
+guard.ctrltime = 16
+guard.velocity = -7
+guard.slidetime = 30
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+envshake.time = 8
+envshake.freq = 10
+envshake.ampl = 2
+envshake.phase = 1
+getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !animtime
+ignorehitpause = 1
+
+;Enhanced Seismo
+;-----------------------------
+[Statedef 1227]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 1225
+sprpriority = 2
+velset = vel x, 0
+
+[State 0]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed
+attr = S, NA
+animtype  = UP
+damage = 120*root, MAP(P4), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 3,3
+sparkno = 2
+sparkxy = -10,-60
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 45 * root, map(UntechMod)
+air.hittime  = 15 * root, map(UntechMod) + 35
+down.hittime = 45 * root, map(UntechMod)
+ground.velocity = -.4,-8.2
+air.velocity 	= -0.6,-4
+down.velocity	= -2, -8
+fall 		= 1
+air.fall 		= 1
+fall.yvelocity = 0
+guard.hittime 	= 25
+guard.ctrltime = 5
+guard.velocity = 7
+guard.dist 	= 20
+guard.slidetime = 30;
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+envshake.time 	= 8
+envshake.freq 	= 10
+envshake.ampl 	= 2
+envshake.phase = 1
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, 1))
+
+[State 0, Jump Cancel]
+type 		= RootMapSet
+trigger1 		= time = 0
+map 		= "JC"
+value 		= 0
+ignorehitpause 	= 1
+[State 0, Jump Cancel]
+type 		= RootMapSet
+trigger1 		= movecontact
+map 		= "JC"
+value 		= 1
+ignorehitpause 	= 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !animtime
+ignorehitpause = 1
+
+;214R - Deviant Drive Crossroad Murder
+;-----------------------------
+[Statedef 2000]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 1011
+sprpriority = 2
+poweradd = -1000
+
+;EX Effects
+[State 200, 2]
+type = PlaySnd
+trigger1 = time = 0
+value = 6800, 0
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 6950
+ID = 6950
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 6800
+ID = 6800
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.9,0.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 8000, flash]
+type = PalFX
+trigger1 = 1
+add = 40, 30, -40
+time=1
+ignorehitpause = 1
+
+[State 3120, Train]
+type = AfterImage
+trigger1 = Time = 0
+time = 20
+palbright = 40,30,-40
+palcontrast = 256,206,206
+trans = add1
+ignorehitpause = 1
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimElem = 5
+value = 1218
+ctrl = 1
+
