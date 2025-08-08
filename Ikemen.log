@@ -1,9 +1,12 @@
-external/script/main.lua:3409: <game end>
+.\external\script\start.lua:1401: chars\JV/USPECIALS.cns:4021:
+root, animelem
+elem: Missing '=' or '!='
 stack traceback:
-	[G]: in function 'refresh'
-	external/script/main.lua:3409: in function 'f_connect'
-	external/script/main.lua:2694: in function <external/script/main.lua:2693>
-	external/script/main.lua:3201: in function 'loop'
-	external/script/main.lua:3190: in function 'loop'
+	[G]: in function 'game'
+	.\external\script\start.lua:1401: in function 'f_game'
+	.\external\script\start.lua:1834: in function 'launchFight'
+	external/script/default.lua:2: in function <external/script/default.lua:0>
+	.\external\script\start.lua:1455: in function 'f'
+	external/script/main.lua:3106: in function 'loop'
 	external/script/main.lua:4157: in main chunk
 	[G]: ?

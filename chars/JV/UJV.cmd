@@ -23,12 +23,15 @@ buffer.time = 10
 [Command]
 name = "623L"
 command = ~$F, D, $F, x
+buffer.time = 5
 [Command]
 name = "623M"
 command = ~$F, D, $F, y
+buffer.time = 5
 [Command]
 name = "623H"
 command = ~$F, D, $F, z
+buffer.time = 5
 [Command]
 name = "214L"
 command = ~$D, B, x
@@ -278,7 +281,7 @@ value = 1225
 triggerall = command = "623L"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) || stateno = 40 || stateno = 55
 
 ;623M
 [State -1, Boom.]
@@ -287,7 +290,7 @@ value = 1223
 triggerall = command = "623M"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) || stateno = 40 || stateno = 55
 
 ;623H
 [State -1, Boom.]
@@ -296,7 +299,7 @@ value = 1224
 triggerall = command = "623H"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) || stateno = 40 || stateno = 55
 
 ;THE BEAST UNLEASHED ....
 [State -1, Beast Elbow]
@@ -342,9 +345,9 @@ trigger1 = ctrl || stateno = [200, 707]
 type = ChangeState
 value = 1010
 triggerall = command = "214L"
-triggerall = stateno = 40 || !map(EN) && statetype != A
+triggerall = stateno = 40 || stateno = 55 || !map(EN) && statetype != A
 trigger1 = ctrl
-trigger2 = var(1) || stateno = 40
+trigger2 = var(1) || stateno = 40 || stateno = 55
 
 ;4SEN - Wandering Serpent (Ground)
 [State -1, Spotdodge]

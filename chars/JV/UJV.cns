@@ -468,6 +468,21 @@ scale = 1.5, 1.5
 ignorehitpause = 1
 pausemovetime = 100
 
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "%.0f"
+params = map(SERPENT.FANG)
+font = F3
+align = -1
+pos = 250, 210
+scale = 1.5, 1.5
+ignorehitpause = 1
+pausemovetime = 100
+
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
 trigger1 		= statetype != A

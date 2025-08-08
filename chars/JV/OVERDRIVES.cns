@@ -268,7 +268,7 @@ time = 1
 type 		= MapAdd
 trigger1 		= animelem = 4
 map 			= "SERPENT.FANG"
-value 		= 5
+value 		= 3
 ignorehitpause 	= 1
 
 [State 0, ChangeState]
@@ -348,7 +348,7 @@ value = 0
 type = ChangeAnim
 trigger1 = time = 0 && MAP(EnLock)
 value = 3050
-elem = 7
+elem = 8
 ignorehitpause = 1
 persistent = 0
 

@@ -420,6 +420,12 @@ trigger1 = !animtime && ishelper
 ignorehitpause = 1
 ;persistent = 
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = IsHelper
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
+time = 1
+
 [State 0, ChangeState]
 type = ChangeState
 triggerall = !IsHelper
@@ -3979,7 +3985,7 @@ animtype  = UP
 damage = 100*root, MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
-pausetime = 2,2
+pausetime = 10,10
 sparkno = 2
 sparkxy = -10,-60
 hitsound   = 5,4
@@ -4005,6 +4011,14 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = movehit = [1,10] && stateno = [1225,1226]
+value = root, anim
+elem = root, animelemno(0)
+redirectid = root, id
+ignorehitpause = 1
 
 [State 0, DestroySelf]
 type = DestroySelf
@@ -4032,7 +4046,7 @@ animtype  = UP
 damage = 120*root, MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
-pausetime = 3,3
+pausetime = 10,10
 sparkno = 2
 sparkxy = -10,-60
 hitsound   = 5,4
@@ -4073,7 +4087,15 @@ type 		= RootMapSet
 trigger1 		= movecontact
 map 		= "JC"
 value 		= 1
-ignorehitpause 	= 1
+ignorehitpause 	= 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = movehit = [1,10] && stateno = [1225,1226]
+value = root, anim
+elem = root, animelemno(0)
+redirectid = root, id
+ignorehitpause = 1
 
 [State 0, DestroySelf]
 type = DestroySelf
