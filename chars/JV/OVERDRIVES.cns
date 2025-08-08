@@ -216,9 +216,9 @@ poweradd = -2000
 [State 0, SuperPause]
 type 	= SuperPause
 trigger1 	= animelem = 4
-time 	= 120
+time 	= 40
 pos 		= 0,0
-movetime 	= 120
+movetime 	= 40
 darken 	= 1
 poweradd 	= 0
 unhittable = 1

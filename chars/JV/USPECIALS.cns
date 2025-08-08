@@ -397,8 +397,8 @@ freq 	= 120
 [State 0, ChangeAnim]	;Release
 type 	= ChangeAnim
 triggerall 	= anim!= 1005
-trigger1 	= command != "hold_x" && map(chargeLvl)
-trigger2	= IsHelper && time = 45
+trigger1 	= !IsHelper && command != "hold_x" && map(chargeLvl)
+trigger2	= IsHelper && time = 85 - 65 * root, map(ComboStateCheck)
 value 	= 1005
 
 [State -2, FRC]	;FRC START
@@ -416,9 +416,10 @@ ignorehitpause 	= 1
 
 [State 0, DestroySelf]
 type = DestroySelf
-trigger1 = !animtime && ishelper
+triggerall = ishelper && anim = 1005
+trigger1 = !animtime
+trigger2 = root, movetype = H
 ignorehitpause = 1
-;persistent = 
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -433,6 +434,7 @@ triggerall = anim = 1005 || anim = 1000
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
+
 ;================================
 ;[EN] 236A
 [Statedef 1001]
@@ -599,6 +601,13 @@ poweradd= 0
 ctrl = 0
 anim =1011
 sprpriority = 2
+
+[State 0. MapSet]				;Does nothing to the performance of the armor.
+type 		= MapSet			;This value is used for enemy characters
+trigger1 	= 1					;To see if armor is currently active or not.
+map 		= "armorActive"
+value 		= 1
+ignorehitpause 	= 1
 
 [State 0, HitOverride]
 type = HitOverride
@@ -922,7 +931,7 @@ type 		= MapAdd
 trigger1 		= movehit = 1 && map(SERPENT.FANG)
 map 			= "SERPENT.FANG"
 value 		= -1
-ignorehitpause 	= 0
+ignorehitpause = 0
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -3976,6 +3985,34 @@ anim = 1225
 sprpriority = 2
 velset = vel x, 0
 
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= root, Map(Accumulation) * root, map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 0]
 type = HitDef 
 p2facing = 1
@@ -4037,6 +4074,41 @@ anim = 1225
 sprpriority = 2
 velset = vel x, 0
 
+[State 0, SMASH]
+type 		= MapAdd
+trigger1 		= !time
+map 			= "SERPENT.FANG"
+value 		= -1
+ignorehitpause = 0
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= root, Map(Accumulation) * root, map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 0]
 type = HitDef 
 p2facing = 1
@@ -4091,7 +4163,112 @@ ignorehitpause 	= 0
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = movehit = [1,10] && stateno = [1225,1226]
+trigger1 = movehit = [1,10] && root, stateno = [1225,1226]
+value = root, anim
+elem = root, animelemno(0)
+redirectid = root, id
+ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !animtime
+ignorehitpause = 1
+
+;EX Seismo
+;-----------------------------
+[Statedef 1228]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 1225
+sprpriority = 2
+velset = vel x, 0
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= movehit && root, !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= root, Map(Accumulation) * root, map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed
+attr = S, NA
+animtype  = UP
+damage = 60*root, MAP(P4), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 2,2
+sparkno = 2
+sparkxy = -10,-60
+hitsound   = 5,4
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 45 * root, map(UntechMod)
+air.hittime  = 35 * root, map(UntechMod) + 35
+down.hittime = 45 * root, map(UntechMod)
+ground.velocity = -7,-8.2
+air.velocity 	= -6,-8
+down.velocity	= -2, -8
+fall 		= 1
+air.fall 		= 1
+fall.yvelocity = 0
+guard.hittime 	= 25
+guard.ctrltime = 5
+guard.velocity = -7
+guard.dist 	= 20
+guard.slidetime = 30;
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+envshake.time 	= 8
+envshake.freq 	= 10
+envshake.ampl 	= 2
+envshake.phase = 1
+getpower 		= (20)*(cond(var(var(2)) = 1, 1, 1))
+
+[State 0, Jump Cancel]
+type 		= RootMapSet
+trigger1 		= time = 0
+map 		= "JC"
+value 		= 0
+ignorehitpause 	= 1
+[State 0, Jump Cancel]
+type 		= RootMapSet
+trigger1 		= movecontact && root, animelemno(-10) >= 5
+map 		= "JC"
+value 		= 1
+ignorehitpause 	= 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = movehit = [1,10] && root, stateno = [1225,1226]
 value = root, anim
 elem = root, animelemno(0)
 redirectid = root, id
@@ -4113,6 +4290,13 @@ ctrl = 0
 anim = 1011
 sprpriority = 2
 poweradd = -1000
+
+[State 0, SMASH]
+type 		= MapAdd
+trigger1 		= !time
+map 			= "SERPENT.FANG"
+value 		= -1
+ignorehitpause = 0
 
 ;EX Effects
 [State 200, 2]
@@ -4184,3 +4368,79 @@ trigger1 = AnimElem = 5
 value = 1218
 ctrl = 1
 
+;623R
+;-----------------------------
+[Statedef 2005]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 1222
+sprpriority = 2
+velset = vel x, 0
+
+[State 0, SMASH]
+type 		= MapAdd
+trigger1 		= !time
+map 			= "SERPENT.FANG"
+value 		= -1
+ignorehitpause = 0
+[State 0, Jump Cancel]
+type 		= MapSet
+trigger1 		= time = 0
+map 			= "JC"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = !time
+sysvar(1) = 0
+[State 40, 3]
+type = VarSet
+triggerall 	= prevstateno = 1223
+trigger1 		= time = 1
+sysvar(1) 	= 1
+[State 40, 3]
+type = VarSet
+triggerall 	= prevstateno = 1224
+trigger1 		= time = 1
+sysvar(1) 	= 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelemno(0) = 5
+helpertype = Normal ;Player
+name = "KILL THE ESCAPE PATH"
+ID = 1228
+stateno = 1228
+pos = 20,0
+postype = P1
+facing = 1
+[State 0, Helper]
+type = Helper
+trigger1 = animelemno(-5) = 5
+helpertype = Normal ;Player
+name = "KILL THE ESCAPE PATH"
+ID = 1228
+stateno = 1228
+pos = 80,0
+postype = P1
+facing = 1
+[State 0, Helper]
+type = Helper
+trigger1 = animelemno(-10) = 5
+helpertype = Normal ;Player
+name = "KILL THE ESCAPE PATH"
+ID = 1228
+stateno = 1228
+pos = 160,0
+postype = P1
+facing = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1

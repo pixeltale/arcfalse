@@ -33,6 +33,10 @@ name = "623H"
 command = ~$F, D, $F, z
 buffer.time = 5
 [Command]
+name = "623R"
+command = ~$F, D, $F, c
+buffer.time = 5
+[Command]
 name = "214L"
 command = ~$D, B, x
 buffer.time = 5
@@ -301,6 +305,15 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1) || stateno = 40 || stateno = 55
 
+;623R
+[State -1, Boom.]
+type = ChangeState
+value = 2005
+triggerall = command = "623R" 
+triggerall = statetype != A && map(SERPENT.FANG)
+trigger1 = ctrl
+trigger2 = var(1) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
+
 ;THE BEAST UNLEASHED ....
 [State -1, Beast Elbow]
 type = changeState
@@ -398,14 +411,14 @@ trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = stateno = 100
 
-;214H
+;214R
 [State -1, EX Crossroads Murder]
 type = ChangeState
 value = 2000
-triggerall = command = "214R"
+triggerall = command = "214R" && map(SERPENT.FANG)
 triggerall = statetype != A && power >= 1000
 trigger1 = ctrl
-trigger2 = var(1)
+trigger2 = var(1) || MoveContact && stateno < 3000
 
 ;4R - Disengage
 ;[State -1, DP]
