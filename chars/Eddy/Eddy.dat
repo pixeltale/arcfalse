@@ -24,7 +24,7 @@ _!GENTLEMAN'S LAUNCHER	-		^A/^B/^C
         <#bbbbbb>A launching uppercut. Cannot be dash canceled,
         but has a large amount of stun making it conducive to
         extending combos.</>
-_!GENTLEMAN'S GATTLING	-		^Y
+_!GENTLEMAN'S GATLING	-		^Y
         <#bbbbbb>A multi-hitting attack.
         Can be dash-canceled.</>
 GENTLEMAN'S DANCE	-		_B^Y
@@ -42,6 +42,9 @@ _!GENTLEMAN'S OPPRESSOR	-		^Y
         <#bbbbbb>A followup dunk. Can only 
         be performed if the first part of
         the attack hit.</>
+GENTLEMAN'S GATLING	-		</> _D^Y
+   <#bbbbbb>A multihit flurry of blows.
+   Can be air-dash canceled.</>
 
 	<#383371>REMIX MOVES</>
 GENTLEMAN'S STRAIGHT	-		^Z
@@ -58,15 +61,18 @@ _EX GENTLEMAN'S BODY BLOW	-		<#55ffff>(1 BAR)</> ^Y+^Z
    <#bbbbbb>A fast-moving straight punch that ignores projectiles.
    Causes a wall-bounce.</>
 _EX GENTLEMAN'S STEP	-		<#55ffff>(1 BAR)</> _F^Y+^Z
-   <#bbbbbb>A large step backwards. Is invincible to normal attacks.
-   Can be canceled into other special moves or remix.</>
+   <#bbbbbb>A large step backwards. Is invincible to normal attacks.</>
 _EX GENTLEMAN'S DANCE	-		<#55ffff>(1 BAR)</> _B^Y+^Z
    <#bbbbbb>A quick step forward that can pass through the enemy.</>
 _EX GENTLEMAN'S UPPER	-		<#55ffff>(1 BAR)</> _D^Y+^Z
    <#bbbbbb>An invincible uppercut.</>
 _!GENTLEMAN'S OPPRESSOR	-		^Y
-        <#bbbbbb>A followup overhead dunk that bounces the enemy.
+        <#bbbbbb>A followup overhead dunk that knocks down the enemy.
         Happens automatically if the uppercut hits.</>
+GENTLEMAN'S GATLING	-		</> _D^Y+Z
+   <#bbbbbb>A multihit flurry of blows that must be guarded standing.
+   Can be air-dash canceled, even if Eddy has already
+   spent his airdash.</>
 
 	<#55ffff>SUPERS</>
 <#383371>VIOLENT GATTLING</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
@@ -80,7 +86,7 @@ SUPERJUMP	-		_D_U
    of air-influence directional inputs have.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne enemies.</>
-FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
+FORCE BLOCK (WHILE BLOCKING)	-		</> _B^X
    <#bbbbbb>Can push the enemy away while you block.</>
 RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
    <#bbbbbb>A fullscreen-ranged reversal that knocks the
