@@ -1,16 +1,19 @@
 	<#a000ff>This move list assumes you are facing to the right.</>
 
 	<#190bd9>UNIQUE TRAIT: Nálgask</>
-	JV can enhance his special, remix, and super moves by
-    dashing before doing them. Enhanced moves have unique,
-    improved properties over their regular counterparts.
+	UJV can enhance his special, remix, and super moves by
+   dashing before doing them. Enhanced moves have unique,
+   improved properties over their regular counterparts.
 
-	<#190bd9>UNIQUE TRAIT: TRUE FORM</>
-    Instead of using a Record Scratch cancel, UJV employs the 
-   Redline Cancel, foregoing the speed boost and slowdown of scratch,
-   for a faster cancel option.
-   For 25 meter, JV can cancel attacks at "FREE REDLINE"
+	<#190bd9>UNIQUE TRAIT: REALITY'S EDGE</>
+   For 25 meter, JV can cancel attacks at "FALSE REDLINE"
    points, even if an attack hasnt made contact.
+
+   <#190bd9>UNIQUE TRAIT: SERPENT SEEKING DESTRUCTION</>
+   With his 22S super: "Fangs of the World Serpent", UJV 
+   is able to build a special resource that he can use to
+   perform Unlimited Specials, which take the place of his
+   EX moves.
 
 	<#190bd9>UNIQUE MOVES</>
 DIVIDER	-		_F^C
@@ -33,37 +36,39 @@ NAGANT DRIVER	-		(HOLD LONGER) ^A
    sliding knockdown.
    Can be dash cancelled on hit.</>
 DEATH DRIVER	-		(MAX HOLD) ^A
-   <#a000ff>Try again, in another life.</>
+   <#a000ff>Taking murder from the altar of the gun, and placing
+   it back in the hands of mankind.</>
 STRIKE.THE.EARTH.	-		_D_DF_F_-^B
-   <#a000ff>A bajiquan stomp that hits low. Starts a rekka chain.
+   <#a000ff>A bajiquan stomp that hits low, starting a rekka chain.
    Each attack in the chain can cancel into other attacks, and 
    after two are performed, they can be canceled into an ender.
    <#983eff>Enhanced version is faster.</>
-_!JOTUNN OMEGA (REKKA)	-		^A
-   <#a000ff>A powerful dash-punch that causes a hard knockdown.
-_!Malignant Gate (REKKA)	-		^B
-   <#a000ff>A jump-cancelable launching roundhouse kick.
-_!Serpent Lash (REKKA)	-		^C
-   <#a000ff>A quick kick that must be guarded crouching.
-_!BEAST (END)	-		_F_DF_D_DB_B_-^C
-   <#a000ff>A slow but powerful beast elbow that can be dash-canceled,
-   even on block. Can also be used independently of [STRIKE THE EARTH].
-_!YGGDRASIL (END)	-		_D_DF_F_-^C
-   <#a000ff>A powerful, ground-bouncing attack that must be guarded standing.
-_!IRON MOUNTAIN'S COFFIN (END)	-		_D_DB_B^C
-        <#a000ff>A powerful tetsuzankou attack with infinite hits of armor.
+_!GOD SPEAR	-		^A
+   <#a000ff>A swift elbow strike that causes a hard knockdown.</>
+_!Malignant Gate 	-		^B
+   <#a000ff>A jump-cancelable launching roundhouse kick.</>
+_!Serpent Lash 	-		^C
+   <#a000ff>A quick kick that must be guarded crouching.</>
+   _!BEAST (ENDER)	-		_F_DF_D_DB_B_-^C
+      <#a000ff>A slow but powerful beast elbow that can be dash-canceled,
+      even on block.</>
+   _!YGGDRASIL (ENDER)	-		_D_DF_F_-^C
+      <#a000ff>A powerful, ground-bouncing attack that must be guarded standing.</>
+   _!IRON MOUNTAIN'S COFFIN (ENDER)	-		_D_DB_B^C
+        <#a000ff>A powerful tetsuzankou attack with infinite hits of armor.</>
         <#983eff>Has a False Redline point.</>
-_!Ego Death (END)	-		_F_DF_D_DB_B_F_-^A
-   <#a000ff>Don't block.
-SVIGA LAE	-		_D_DF_F^C
-   <#a000ff> A one inch punch that carries the opponent across the
-   screen on smash hit. I am your bad fate. Scatter.</>
+   _!Ego Death Drive (ENDER)	-		_F_DF_D_DB_B_F_-^A
+      <#a000ff>A fullscreen command grab.</>
+SVIGA LAE	-		_D_DF_F-^C
+   <#a000ff> A one inch punch that gains explosive power if JV
+   is in possession of a Fang. Can be canceled into Strike the
+   Earth Enders.</>
 DEAD PULSE	-		_D_DB_B_-^A
    <#a000ff>JV turns his back to the opponent
    and absorbs all non-throw attacks. When an attack makes
    contact, it deals double damage but pushes the opponent
    away and builds meter. Can be dash canceled in either direction.</>
-DISENGANGE	-		_D_DB_B^B or *C
+IMITATION BUDDHA'S HAND	-		_D_DB_B^B or ^C
    <#a000ff>JV anticipates an attack and teleports away. Has followups.</>
 _!Crossroads Murder	-		^B
         <#983eff>JV moves at a rapid speed, creating an afterimage
@@ -81,10 +86,6 @@ JÖTUNN'S WRATH	-		<#65b5ff>(AIR ONLY)</> _D_DF_F_-^C
    damage. Will trigger a wall bounce if it gets a clean hit
    at point-blank range.</>
 
-WINGED SERPENT'S HUNT	-		<#65b5ff>(AIR ONLY)</> _D_D_-^A/^B/^C
-         <#a000ff>An upward teleport, scissor kick, and fastfall respectively.
-         <#983eff>L version cancels into H. M cancels into L. H into M.</>
-
 	<#190bd9>REMIX MOVES</>
 COILED SERPENT	-		^Z
    <#a000ff>JV enters a stance with unique followup attacks.
@@ -98,14 +99,31 @@ _!MEGIN	-		^B
 _!GUNGNIR	-		^C
         <#a000ff>A rising knee launcher.
         <#983eff>Enhanced version launches higher and for longer.</>
-STRIKING SERPENT	-		_D^Z
-   <#a000ff>A low-hitting kick that puts JV in COILED SERPENT stance.</>
-   <#983eff>Enhanced version is much faster.</>
+
+	<#190bd9>UNLIMITED MOVES</>
+SVIGA LAE: DREIFING	-		D_DF_F_-^Z
+   <#a000ff>JV unleashes an explosive punch that sends
+   him into the Dreifing state. While in this state, 
+   he can dash/airdash cancel any attack, gains unlimited
+   wall-splats, and is able to ground bounce the opponent
+   with j2H as much as he wants. State ends after a set duration
+   or after the combo ends.</>
+CROSSROADS MURDER: PRE-EMPT	-		D_DB_B_-^Z
+   <#a000ff>JV performs crossroads murder without the need
+   for a counter to be activated.</>
+KILL THE ESCAPE PATH: XENOCIDE	-		F_D_DF_-^Z
+   <#a000ff>JV creates a wave of explosions, covering
+   the screen. High hitstun, low recovery.</>
+
 
 	<#55ffff>SUPER MOVES</>
-<#983eff>JUDGEMENT BLADE EXCEED</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
-   <#a000ff>JV charges energy in his arm and swipes at his opponent, delivering
-   a powerful cut that wall-bounces.</>
+<#983eff>JUDGEMENT BLADE</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
+   <#a000ff>JV performs a powerful single cut at the opponent, dealing
+   high damage. Has a clean hit near his body that boosts its damage.</>
+<#983eff>FANGS OF THE WORLD SERPENT</>	-		<#55ffff>(2 BARS)</> _D_D_-^Y
+   <#a000ff>JV charges his energy, granting himself a Fang. These
+   fangs can be used for his Unlimited Specials, and allow him to
+   special cancel out of special moves.</>
 <#983eff>BEAUTIFUL DEATH</>		<#55ffff>(4 BARS)</> _D_DB_B_-^Y
    <#a000ff>A slow, powerful, invincible attack.</>
 

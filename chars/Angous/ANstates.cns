@@ -384,7 +384,7 @@ type = VelSet
 trigger1 = AnimTime = 0
 trigger1 = prevstateno = [100,111] ;RUN_FWD
 trigger1 = sysvar(1) = 1
-x = const(velocity.runjump.fwd.x) + 1.5 * var(4)
+x = const(velocity.runjump.fwd.x) * var(4)
 
 [State 0, Explod]
 type = Explod

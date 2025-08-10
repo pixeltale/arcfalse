@@ -220,7 +220,8 @@ air.hittime 	= 24
 envshake.time 	= 7
 fall 		= 1
 fall.yvelocity 	= 0
-guard.ctrltime 	= 8	
+guard.ctrltime 	= 8
+guard.dist		= 0
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = 0
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
@@ -1896,13 +1897,32 @@ movetype= A
 physics = S
 ctrl = 0
 poweradd = -1000
-anim = 1130
+anim = 1501
 sprpriority = 2
 facep2 = 1
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= map(ComboStateCheck)
+map 			= "EX4S_LIMITER"
+value 		= 1	;Small Starter
+ignorehitpause 	= 1
+
+[State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= time 	=  0	        ;+
+time 		= 10				        ;+
+length 		= 25   				        ;+
+timegap 		= 1				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 191, 64, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+;==================================================++
+
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = !time
+trigger1 = time = 10 || map(ComboStateCheck)
 value = 100
 ctrl = 0
 anim = 99

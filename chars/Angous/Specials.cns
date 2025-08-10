@@ -163,7 +163,7 @@ facep2 = 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;90% Starting DMG
+value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -186,7 +186,7 @@ p2facing = 1
 trigger1 = time = 0
 trigger1 = !MAP(CounterHit)
 attr = S, SA
-damage = 100*MAP(P4),11
+damage = 70*MAP(P4),11
 animtype  =hard
 hitflag = MAFD
 guardflag = MA
@@ -200,7 +200,7 @@ ground.slidetime = 12
 ground.hittime  = 28 - map(untechDecay)
 air.hittime  	= 999
 ground.velocity = -4
-air.velocity = -2,-3.5 * MAP(untechMOD)
+air.velocity = -2,-3 * MAP(untechMOD)
 yaccel = .24
 air.cornerpush.veloff = -16
 air.fall = 1
@@ -5847,7 +5847,7 @@ value = 8502, (0+(Random%5))
 [State 2, Ground Hit]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = time = 0 && p2dist x >= 0
 hitonce = 1
 attr = S, SA
 animtype  = hard 
@@ -6143,10 +6143,10 @@ trans = add1
 ignorehitpause = 1
 
  
-[State 2, Ground Hit]
+[State 2, Hitdef]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = time = 0 && p2dist x >= 0
 attr = S, SA
 animtype  = hard 
 damage = 40*MAP(P4), 7

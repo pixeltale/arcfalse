@@ -719,7 +719,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.85	;90% Starting Prorate
+value 		= 0.80	;90% Starting Prorate
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet

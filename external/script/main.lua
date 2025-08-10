@@ -2642,18 +2642,31 @@ main.t_itemname = {
 		--main.lifebar.p2winCount = true
 		main.orderSelect[1] = true
 		main.orderSelect[2] = true
+		main.selectMenu[1] = true
 		main.selectMenu[2] = true
 		main.stageMenu = true
-		main.teamMenu[1].ratio = true
-		main.teamMenu[1].simul = true
 		main.teamMenu[1].single = true
-		main.teamMenu[1].tag = true
-		main.teamMenu[1].turns = true
-		main.teamMenu[2].ratio = true
-		main.teamMenu[2].simul = true
 		main.teamMenu[2].single = true
+		main.versusScreen = true
+		main.victoryScreen = true
+		main.txt_mainSelect:update({text = motif.select_info.title_netplayversus_text})
+		setGameMode('netplayversus')
+		hook.run("main.t_itemname")
+		return start.f_selectMode
+	end,
+	--NETPLAY VERSUS
+	['netplayteamversus'] = function()
+		setHomeTeam(1)
+		main.cpuSide[2] = false
+		--main.lifebar.p1winCount = true
+		--main.lifebar.p2winCount = true
+		main.orderSelect[1] = true
+		main.orderSelect[2] = true
+		main.selectMenu[1] = true
+		main.selectMenu[2] = true
+		main.stageMenu = true
+		main.teamMenu[1].tag = true
 		main.teamMenu[2].tag = true
-		main.teamMenu[2].turns = true
 		main.versusScreen = true
 		main.victoryScreen = true
 		main.txt_mainSelect:update({text = motif.select_info.title_netplayversus_text})

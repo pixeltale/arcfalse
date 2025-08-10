@@ -714,10 +714,10 @@ function menu.f_commandlistRender(section, t)
 		end
 	elseif main.f_input(main.t_players, {'$U'}) and t.tbl.movelistLine > 1 then
 		sndPlay(motif.files.snd_data, motif[section].cursor_move_snd[1], motif[section].cursor_move_snd[2])
-		t.tbl.movelistLine = t.tbl.movelistLine - 1
+		t.tbl.movelistLine = t.tbl.movelistLine - 12
 	elseif main.f_input(main.t_players, {'$D'}) and t.tbl.movelistLine <= #cmdList - motif[section].movelist_window_visibleitems then
 		sndPlay(motif.files.snd_data, motif[section].cursor_move_snd[1], motif[section].cursor_move_snd[2])
-		t.tbl.movelistLine = t.tbl.movelistLine + 1
+		t.tbl.movelistLine = t.tbl.movelistLine + 12
 	end
 	--draw overlay
 	menu[section .. '_movelist_overlay']:draw()

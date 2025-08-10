@@ -124,7 +124,7 @@ trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 type = ChangeState
 value = 2050
 triggerall = var(32)<=0 ;Limiter - Only Allowed to use ONCE during a combo
-triggerall = power>1000
+triggerall = power>=1000
 triggerall = command = "holdfwd"
 triggerall = command = "EX"
 trigger1 = statetype != A
@@ -136,6 +136,7 @@ trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] ||
 type = ChangeState
 value = 2090
 triggerall=stateno!=2073 && !map(EX4S_LIMITER)
+triggerall = power >= 1000
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = command = "holdback"
 triggerall = statetype != A
@@ -147,6 +148,7 @@ trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] ||
 type = ChangeState
 value = 2080
 triggerall=stateno!=2073 && !map(EX2S_LIMITER)
+triggerall = power >= 1000
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
@@ -159,7 +161,7 @@ trigger3 = (stateno = 1000 || stateno = [1051,1053] || stateno = [2000, 2001] ||
 type = ChangeState
 value = 1010
 triggerall = !map(EX5S_Limiter)
-triggerall = power>1000
+triggerall = power >= 1000
 triggerall = command = "EX"
 triggerall = command != "holdback" 
 triggerall = command != "holddown" 

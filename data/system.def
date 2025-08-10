@@ -157,15 +157,19 @@ menu.item.spacing = 0, 15
 ; just with 2 subgroups added (online and extras), which open nested menus.
 
 ; MAIN MENU
-menu.itemname.online = "ONLINE"                            ;Ikemen feature
-menu.itemname.versus = "VS PLAYER"
+menu.itemname.online	 = "ONLINE"                            ;Ikemen feature
+menu.itemname.local		= "VS PLAYER"
 menu.itemname.freebattle = "VS CPU" 
-menu.itemname.arcade = "ARCADE"
-menu.itemname.training = "TRAINING MODE"
-menu.itemname.extras = "EXTRAS"                             ;Ikemen feature
-menu.itemname.replay = "REPLAY"                      ;Ikemen feature
-menu.itemname.options = "OPTIONS"
-menu.itemname.exit = "EXIT"
+menu.itemname.arcade 	= "ARCADE"
+menu.itemname.training 	= "TRAINING MODE"
+menu.itemname.extras 	= "EXTRAS"                             	;Ikemen feature
+menu.itemname.replay 	= "REPLAY"                      		;Ikemen feature
+menu.itemname.options 	= "OPTIONS"
+menu.itemname.exit 		= "EXIT"
+
+; VS MENU STUFF
+menu.itemname.local.versus 	= "SOLO BATTLE"
+menu.itemname.local.teamversus = "TAG BATTLE"
 
 ; LAB STUFF
 
@@ -184,7 +188,6 @@ menu.itemname.online.serverjoin.back = "BACK"               ;Ikemen feature
 ; MAIN MENU -> EXTRAS SUBMENU
 ;menu.itemname.extras.sep2 = " - "
 menu.itemname.extras.teamarcade = "TEAM ARCADE"
-menu.itemname.extras.teamversus = "TEAM VS"
 menu.itemname.extras.teamcoop = "TEAM CO-OP"
 menu.itemname.extras.survivalcoop = "SURVIVAL CO-OP"
 ;menu.itemname.extras.sep3 = " - "
@@ -207,8 +210,8 @@ menu.itemname.extras.bonusgames.back = "BACK"               ;Ikemen feature
 ; This group is hidden and should not be moved to other menus.
 ; It's opened automatically, after synchronization with online player.
 menu.itemname.server.netplayversus = "VERSUS"              ;Ikemen feature
-menu.itemname.server.netplayteamversus = "TAG VERSUS"
-;menu.itemname.server.netplayteamcoop = "ARCADE CO-OP"       ;Ikemen feature
+menu.itemname.server.netplayteamversus = "TEAM VERSUS"
+menu.itemname.server.netplayteamcoop = "ARCADE CO-OP"       ;Ikemen feature
 ;menu.itemname.server.netplaysurvivalcoop = "SURVIVAL CO-OP" ;Ikemen feature
 menu.itemname.server.back = "EXIT"                          ;Ikemen feature
 

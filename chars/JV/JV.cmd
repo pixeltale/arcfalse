@@ -189,7 +189,7 @@ trigger2 = stateno = 250
 [State 1240, 4EX: Wrath of Aimless]
 type = ChangeState
 value = 2000
-triggerall = power>=1000
+triggerall = power>=1000 && !map(EX4S_LIMITER)
 triggerall = (command = "b" && command = "c") && command = "holdback" || (command = "EX" && command = "holdback") 
 trigger1 = statetype != A
 trigger1 = ctrl

@@ -2265,7 +2265,7 @@ guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                    ;Flags of conditions that move can hit
 priority = 3, Hit                
 pausetime = 15, 15
-guard.pausetime = 10, 8
+guard.pausetime = 8, 8
 sparkno = 2
 sparkxy = -14, -45
 hitsound = 5, 3                  ;Sound to play on hit
@@ -2299,6 +2299,10 @@ hitflag = MAFD
 pausetime = 20,20
 guard.pausetime = 15,15
 guard.ctrltime = 40
+airguard.ctrltime = 100
+airguard.velocity = -1, -5
+guard.slidetime = 40
+guard.velocity = -5
 sparkno = 3
 sparkxy = -26, -22
 hitsound = 5,4
@@ -3382,6 +3386,7 @@ palfx.add 	= 100, 0,20
 guard.hittime 	= 10
 guard.slidetime = 10
 guard.ctrltime 	= 10
+getpower		= 0
 yaccel = 0.2
 
 [State 410, 2]
@@ -3609,7 +3614,7 @@ envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 10
 fall.yvelocity = 0
-getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
+getpower 		= 0
 id = 910312
 
 ;Explod Limiter Trigger

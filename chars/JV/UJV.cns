@@ -453,6 +453,13 @@ trigger1 = animtime=0
 
 [Statedef -2]
 
+[State 0, FANG]
+type 		= MapSet
+trigger1 		= gamemode = "training" && command = "s"
+map 			= "SERPENT.FANG"
+value 		= 3
+ignorehitpause = 0
+
 [State 0, DAMAGE]
 type = TEXT
 triggerall = teamside = 1
@@ -529,31 +536,73 @@ map 		= "JC"
 value 		= 0
 ignorehitpause 	= 1
 
+;=============================================+
+;Limiters
 [State 0, MAPSET]
 type = MapSet
 trigger1 = enemy, movetype != H
 map = "j2H_UseCount"
 value = 0
-[State SP, MapSet]
-type = MapSet
-trigger1 = enemy, movetype != H
-map = "EX6S_Limiter"
-value = 0
-[State SP, MapSet]
-type = MapSet
-trigger1 = enemy, movetype != H
-map = "EX2S_Limiter"
-value = 0
-[State SP, MapSet]
-type = MapSet
-trigger1 = enemy, movetype != H
-map = "EX5S_Limiter"
-value = 0
-[State SP, MapSet]
-type = MapSet
-trigger1 = enemy, movetype != H
-map = "EXjS_Limiter"
-value = 0
+
+[State 0, SMASH 236H]
+type 		= MapSet
+trigger1 		= !map(ComboStateCheck)
+map 			= "SMASH.236H"
+value 		= 0
+ignorehitpause = 0
+
+[State 0, SVIGA LAE: DREIFING] ;REMEMBER, THIS IS WHAT YOU WANTED.
+type 		= MapAdd
+trigger1 		= map(DREIFING.ACTIVE)
+map 			= "DREIFING.ACTIVE"
+value 		= -1
+ignorehitpause = 0
+[State 0, SVIGA LAE: DREIFING] ;REMEMBER, THIS IS WHAT YOU WANTED.
+type 		= MapSet
+trigger1 		= !map(ComboStateCheck)
+map 			= "DREIFING.ACTIVE"
+value 		= 0
+ignorehitpause = 1
+[State 77]
+type = bgpalfx
+trigger1 = map(Dreifing.Active)
+time = 1
+add= -110+(time / 0.6),-120+(time / 0.6),-110+(time / 0.6)
+ignorehitpause = 1
+persistent = 1
+[State 0, Custom Afterimage]
+type = Explod
+triggerall = map(Dreifing.Active)
+trigger1 = time%15=0 || movehit = 1
+anim = anim
+ID = 1000
+vel = 0, -0.75
+accel = 0, 0.075
+postype = p1
+bindtime = 1
+facing = 1
+supermovetime = 0
+pausemovetime = 0
+scale = const(size.xscale), const(size.yscale)
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+trans = add
+removetime = 5
+palfx.time = 40
+palfx.sinmul = 100,-255,-55,20
+removeongethit = 0
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = map(Dreifing.Active)
+value = 0.8
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = !map(Dreifing.Active)
+value = 1
 
 ;=============================================+
 ;Palette Stuff
@@ -606,8 +655,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "EState = %f StrikeCount = %f"
-params = map(EnState), map(StrikeCount)
+text = "DreiDash = %f StrikeCount = %f"
+params = map(Dreifing.Active), map(StrikeCount)
 ignorehitpause = 1
 persistent = 1
 
@@ -616,7 +665,7 @@ persistent = 1
 ;=======================================
 [State 0, Mapset]
 type = MapSet
-trigger1 = stateno = 100 || stateno = 60 || stateno = 1216
+trigger1 = stateno = 100 || stateno = 60 || stateno = 1216 || stateno = 2011
 map = "EN"
 value = 18
 

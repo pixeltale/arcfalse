@@ -6,7 +6,7 @@ command.buffer.time = 5
 
 [Command]
 name = "EDD"
-command = ~DF, B, $D, F, DB, x
+command = ~$F, $B, $D, $F, $B, x
 time = 120
 [Command]
 name = "6246L"
@@ -23,14 +23,17 @@ buffer.time = 10
 [Command]
 name = "623L"
 command = ~$F, D, $F, x
+time = 20
 buffer.time = 5
 [Command]
 name = "623M"
 command = ~$F, D, $F, y
+time = 20
 buffer.time = 5
 [Command]
 name = "623H"
 command = ~$F, D, $F, z
+time = 20	
 buffer.time = 5
 [Command]
 name = "623R"
@@ -39,7 +42,7 @@ buffer.time = 5
 [Command]
 name = "214L"
 command = ~$D, B, x
-buffer.time = 5
+buffer.time = 10
 [Command]
 name = "214L_unbuffer"
 command = ~$D, B, x
@@ -92,6 +95,10 @@ time = 10
 [Command]
 name = "22S"
 command = ~D, D, b
+time = 20
+[Command]
+name = "22"
+command = D, D
 time = 10
 
 [Command]
@@ -139,6 +146,10 @@ buffer.time = 0
 type = VarSet
 trigger1 = 1
 var(1) = 0
+[State -1, Combo condition Reset]
+type = VarSet
+trigger1 = 1
+var(2) = 0
 
 [State -1, Combo condition Check]
 type = VarSet
@@ -146,7 +157,13 @@ trigger1 = statetype != A && ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600, 640]
 trigger2 = movecontact
 trigger3 = stateno = 100 || stateno = 60
+trigger4 = helper(1226), movecontact || helper(1227), movecontact || helper(1228), movecontact || helper(1229), movecontact || helper(1230), movecontact
 var(1) = 1
+
+[State -1, Helper Combo condition Check]
+type = VarSet
+trigger1 = helper(1226), movecontact || helper(1227), movecontact || helper(1228), movecontact || helper(1229), movecontact || helper(1230), movecontact
+var(2) = 1
 
 ;===========================================================================
 ;236X - Judgement
@@ -155,8 +172,8 @@ type = ChangeState
 value = 3000
 triggerall = command = "236S"
 triggerall = power >= 2000
-trigger1 = statetype != A
-trigger1 = ctrl
+triggerall = statetype != A && stateno != 1207
+trigger1 = ctrl || var(1)
 trigger2 = statetype != A
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
@@ -168,8 +185,8 @@ type = ChangeState
 value = 3100
 triggerall = command = "22S"
 triggerall = power >= 2000
-triggerall = statetype != A
-trigger1 = ctrl 
+triggerall = statetype != A && stateno != 1207
+trigger1 = ctrl || var(1)
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
 trigger3 = stateno = [100,101]
@@ -180,7 +197,7 @@ type = ChangeState
 value = 3200
 triggerall = command = "214S"
 triggerall = power >= 4000
-triggerall = statetype != A
+triggerall = statetype != A && stateno != 1207
 trigger1 = ctrl || var(1) || stateno < 3000 && movehit && stateno != [800, 805]
 
 ;===============================================================================
@@ -232,15 +249,10 @@ type = ChangeState
 value = 60
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
-triggerall = statetype = A
+triggerall = statetype = A && stateno != 2011
 triggerall = Map(ADash) > 0
 triggerall = pos y<-30 || vel y > 0
 trigger1 = ctrl
-trigger2 = movehit
-trigger2 = stateno = 3130
-trigger3 = stateno = 1052 && movehit && var(4) > 2
-trigger4 = stateno = 703 && power >= 1000 || stateno = 705
-;trigger2 = movecontact
 
 
 ;Backward Airdash
@@ -276,6 +288,46 @@ trigger1 = ctrl
 trigger2 = stateno = 250
 
 ;===========================================================================
+;Unlimited Attacks
+;===========================================================================
+;214R
+[State -1, EX Crossroads Murder]
+type = ChangeState
+value = 2000
+triggerall = command = "214R" && map(SERPENT.FANG) 
+triggerall = statetype != A && stateno != 2000
+trigger1 = ctrl
+trigger2 = var(1) || MoveContact && stateno < 3000
+
+;623R
+[State -1, Boom.]
+type = ChangeState
+value = 2005
+triggerall = command = "623R" && stateno != 2005
+triggerall = statetype != A && map(SERPENT.FANG)
+trigger1 = ctrl
+trigger2 = var(1) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
+
+;236R - Sviga Lae: Dreifing
+[State -1, REMEMBER, THIS IS WHAT YOU WANTED.]
+type = ChangeState
+value = 2010
+triggerall = command = "236R" && stateno != 2010
+triggerall = statetype != A && map(SERPENT.FANG)
+trigger1 = ctrl
+trigger2 = var(1) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
+;Dreifing Dash
+[State -1, SPEED FEAT FOR DEUS]
+type = ChangeState
+value = 2011
+triggerall = map(DREIFING.ACTIVE)
+triggerall = command = "66" || command = "M66"
+triggerall = stateno != 1207
+trigger1 = movecontact || var(2)
+
+
+
+;===========================================================================
 ;SPECIAL ATTACKS
 ;===========================================================================
 ;623L
@@ -305,14 +357,6 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1) || stateno = 40 || stateno = 55
 
-;623R
-[State -1, Boom.]
-type = ChangeState
-value = 2005
-triggerall = command = "623R" 
-triggerall = statetype != A && map(SERPENT.FANG)
-trigger1 = ctrl
-trigger2 = var(1) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
 
 ;THE BEAST UNLEASHED ....
 [State -1, Beast Elbow]
@@ -321,6 +365,7 @@ value = 1205
 triggerall = command = "624H"
 triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
+trigger2 = stateno = 1100 && movecontact
 
 ;IRON MOUNTAIN'S COFFIN
 [State -1, One Inch Punch]
@@ -329,6 +374,7 @@ value = 1209
 triggerall = command = "214H"
 triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
+trigger2 = stateno = 1100 && movecontact
 
 ;THE TREE OF LIFE AND DEATH......
 [State -1, Yggdrasil]
@@ -337,6 +383,7 @@ value = 1206
 triggerall = command = "236H"
 triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
+trigger2 = stateno = 1100 && movecontact
 
 ;ALL EXISTENCE DENIED......
 [State -1, EGO DEATH DRIVER]
@@ -345,12 +392,15 @@ value = 1207
 triggerall = command = "6246L"
 triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
+trigger2 = stateno = 1100 && movecontact
+
 [State -1, EGO DEATH DRIVER]
 type = changeState
 value = 1207
 triggerall = command = "EDD"
 triggerall = statetype != A
 trigger1 = ctrl || stateno = [200, 707]
+trigger2 = stateno = 1100 && movecontact
 
 ;===========================================================================
 ;4S - Aimless Serpent (Ground)
@@ -379,8 +429,7 @@ value = 1200
 triggerall = command = "236M"
 triggerall = statetype != A
 trigger1 = var(1)
-trigger2 = stateno = 100 && time > 2
-
+ 
 ;236H - Sviga Lae
 [State -1, I AM YOUR BAD FATE. SCATTER.]
 type = ChangeState
@@ -389,7 +438,6 @@ triggerall = command = "236H" && command != "426H"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 100 && time > 2
 
 ;214M
 [State -1, Counter]
@@ -399,7 +447,6 @@ triggerall = command = "214M"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 100
 
 ;214H
 [State -1, Counter]
@@ -409,26 +456,6 @@ triggerall = command = "214H"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 100
-
-;214R
-[State -1, EX Crossroads Murder]
-type = ChangeState
-value = 2000
-triggerall = command = "214R" && map(SERPENT.FANG)
-triggerall = statetype != A && power >= 1000
-trigger1 = ctrl
-trigger2 = var(1) || MoveContact && stateno < 3000
-
-;4R - Disengage
-;[State -1, DP]
-;type = ChangeState
-;value = 1090
-;triggerall = command = "214M"
-;triggerall = statetype != A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = stateno = 100 && time > 2
 
 ;j22H FASTFALL
 [State -1, Fastfall]

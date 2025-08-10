@@ -496,6 +496,12 @@ type = MapSet
 trigger1 = enemy, movetype != H
 map = "EX5S_Limiter"
 value = 0
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= !map(ComboStateCheck)
+map 			= "EX4S_LIMITER"
+value 		= 0
+ignorehitpause 	= 1
 [State SP, MapSet]
 type = MapSet
 trigger1 = enemy, movetype != H

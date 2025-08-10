@@ -120,10 +120,12 @@ trigger1 = time = 0
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 time = 8
 
+
 [State 200, 1]
 type = HitDef
 p2facing = 1 
-triggerall = !movecontact && !movereversed
+triggerall = animelem = 3
+triggerall = !movereversed
 trigger1 = !map(EnLock)
 attr = S, SA, HA
 damage = 200*MAP(P4), 10
@@ -147,9 +149,39 @@ fall.yvelocity = 0
 guard.slidetime = 21
 guard.hittime = 21
 guard.ctrltime = 4
+
 [State 200, 1]
 type = HitDef
+p2facing = 1 
+triggerall = animelem = 2
 triggerall = !movecontact && !movereversed
+trigger1 = map(EnLock)
+attr = S, SA, HA
+damage = 100, 10
+hitflag = MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno = 2
+sparkxy = -25,-44
+hitsound   = 5,1
+guardsound = 6,1
+ground.type = high
+animtype = hard
+ground.hittime  = 40
+air.hittime = 40
+down.hittime = 999
+ground.velocity = -2,-9
+air.velocity = -2,-8
+envshake.time = 30
+fall = 1
+fall.yvelocity = 0
+guard.slidetime = 21
+guard.hittime = 21
+guard.ctrltime = 4
+[State 200, 1]
+type = HitDef
+triggerall = animelem = 3
+triggerall = !movereversed
 trigger1 = map(EnLock)
 hitonce = 1
 attr = S, SA, HA
@@ -178,6 +210,36 @@ envshake.phase 	= 1
 getpower 	= 0
 p2stateno 	= 5220
 p2getp1state 	= 0
+[State 200, 1]
+type = HitDef
+triggerall = animelem = 3 && enemy, map(ArmorActive)
+triggerall = !movereversed
+trigger1 = map(EnLock)
+hitonce = 1
+attr = S, SA, HA
+damage = 200*MAP(P4) + 200 + 100*map(CounterHit), 80 ;Super Frontload Bros.
+hitflag = MAFD
+guardflag = MAF
+pausetime 	= 25,25 + 10*map(CounterHit)
+sparkno 		= 3
+sparkxy 		= -10,-45
+hitsound   	= 5,4
+guardsound 	= 6,2
+ground.type 	= TRIP
+air.type		= TRIP
+animtype 		= medium
+ground.hittime  	= 40
+ground.velocity 	= -20,-6
+air.velocity 	= -20,-2
+down.velocity	= -20, -6
+air.hittime 	= 15
+fall 		= 1
+guard.ctrltime 	= 10
+envshake.time 	= 8
+envshake.freq 	= 10
+envshake.ampl 	= 5
+envshake.phase 	= 1
+getpower 	= 0
 
 [State 8990, Explod]
 type = Explod
@@ -201,7 +263,7 @@ trigger1 = animtime = 0
 value = 0
 ctrl = 1
 
-;236L/M/H - JUDGEMENT BLADE
+;22S - Fangs of the World Serpent
 [Statedef 3100]
 type    = S
 movetype= A
@@ -215,7 +277,7 @@ poweradd = -2000
 
 [State 0, SuperPause]
 type 	= SuperPause
-trigger1 	= animelem = 4
+trigger1 	= animelem = 5
 time 	= 40
 pos 		= 0,0
 movetime 	= 40
@@ -228,11 +290,11 @@ type = HitDef
 p2facing 	= 1 
 trigger1 	= time = 0
 attr 	= S, HA
-damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
+damage 	= 100, 5
 hitflag 	= MAFD
 guardflag = MA
 priority 	= 3
-pausetime 	= 18,22
+pausetime 	= 18,18
 guard.pausetime 	= 20,20
 sparkno 		= 3
 sparkxy 		= -5,-45
@@ -260,16 +322,17 @@ p2getp1state 	= 0
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = animelemno(0) <= 4
+trigger1 = animelemno(0) = [26,27]
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 time = 1
 
 [State 0, SMASH]
 type 		= MapAdd
-trigger1 		= animelem = 4
+trigger1 		= animelem = 26
 map 			= "SERPENT.FANG"
 value 		= 3
 ignorehitpause 	= 1
+persistent		= 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -402,7 +465,7 @@ unhittable = 1
 type = hitdef 
 p2facing 	= 1
 trigger1 	= time % 10
-trigger1 	= cond(Map(EnLock), time < 45, time < 60)
+trigger1 	= animelemno(0) < 13
 attr 	= S, HA
 animtype  	= hard
 damage 		= 10*MAP(P4) + 10, 5
@@ -410,7 +473,7 @@ hitflag 		= MAFD
 guardflag 	= MA
 pausetime 	= 3,3
 guard.pausetime 	= 2,2
-sparkno 		= 3
+sparkno 		= 1
 sparkxy 		= -p2dist x, enemy, pos y+-40 ;Bruh
 hitsound   	= 5,3
 guardsound 	= 6,2
@@ -442,7 +505,7 @@ p2facing = 1
 trigger1 = animelem = 13
 attr = S, HA
 animtype  = hard
-damage = 300*MAP(P4) + 67, 25
+damage = 300*MAP(P4) + 49, 25
 hitflag = MAFD
 guardflag = MA
 pausetime = 35,35
