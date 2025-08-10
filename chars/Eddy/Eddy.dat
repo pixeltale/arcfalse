@@ -44,12 +44,11 @@ _!GENTLEMAN'S OPPRESSOR	-		^Y
         the attack hit.</>
 
 	<#383371>REMIX MOVES</>
-GENTLEMAN'S PARRY	-		^Z
-   <#bbbbbb>Eddy enters a stance. If he's hit during this stance,
-   he will counter the attack, launching the enemy.</>
-_!GENTLEMAN'S QUICKDRAW	-		^Z
-        <#bbbbbb>Interrupts the stance early, performing a
-        long-range punch. Launches the enemy on counter-hit.</>
+GENTLEMAN'S STRAIGHT	-		^Z
+   <#bbbbbb>Eddy charges up a mean right that deals 
+   a large amount of damage, even if guarded. Can be dash
+   canceled during the charge time, and on contact if it's
+   been charged beyond a certain point.</>
 GENTLEMAN'S NECESSITY	-		_D^Z
    <#bbbbbb>Eddy tosses his comb in the air. Best used after
    a knockdown. Causes a restand on air hit.</>

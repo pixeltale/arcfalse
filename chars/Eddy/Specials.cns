@@ -1532,7 +1532,7 @@ air.fall 			= 1
 guard.slidetime 		= 8
 guard.ctrltime 		= 12
 guard.hittime 		= 12
-getpower 		= (50)*(cond(var(var(3)) = 1, 1, .5)) 
+getpower 		= (75)*(cond(var(var(3)) = 1, 1, .5)) 
 
 [State 0, VelMul]
 type = VelMul
@@ -1696,7 +1696,7 @@ p2facing = 1
 trigger1 = 1
 attr = A, SA
 damage 		= 20*map(P4), 10
-guardflag 	= MA
+guardflag 	= HA
 hitflag 		= MAFD
 pausetime 	= 2,2
 sparkno 			= 1
