@@ -1594,6 +1594,16 @@ Clsn2Default: 1
 Clsn2: 1
   Clsn2[0] = -58, -42, 54, 1
 5000,3, 0,0, 4
+; Crumple (Hit)
+[Begin Action 5250]
+Clsn2Default: 1
+  Clsn2[0] = -24, -98, 33, 0
+5000,0, 0,0, 3
+; Crumple
+[Begin Action 5251]
+Clsn2Default: 1
+  Clsn2[0] = -24, -98, 33, 0
+5000,0, 0,0, 52
 
 ; Goofy Scream (Hit by Horizon Buster)
 [Begin Action 6160]

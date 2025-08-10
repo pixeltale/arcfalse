@@ -6215,32 +6215,58 @@ value = 5110
 ctrl = 0
 
 ;---------------------------------------------------------------------------
-;Crumple
+;Crumple (Shake)
 [Statedef 5250]
 type    = S
 movetype= H
 physics = N
 velset = 0,0
-anim = 5250
 
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
 y = 0
 
+[State 5020, 1]
+type = ChangeAnim 
+trigger1 = Time = 0
+value = 5250
+ignorehitpause = 0
+
+[State 0, ChangeState]
+type = SelfState
+trigger1 = HitShakeOver
+value = 5251
+ctrl = 0
+
+;Crumple
+[Statedef 5251]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 0
-x = floor(gethitvar(xvel))
+x = (gethitvar(xvel)*facing)
+
+[State 5020, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 5251
+ignorehitpause = 0
+
 
 [State 0, VelMul]
 type = VelMul
 trigger1 = 1
 x = .9
 
+
 [State 0, ChangeState]
 type = SelfState
-trigger1 = gethitvar(hittime) = 0
+trigger1 = animtime = 0
 value = 5110
 ctrl = 0
 
