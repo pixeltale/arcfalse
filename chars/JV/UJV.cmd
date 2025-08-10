@@ -42,7 +42,7 @@ buffer.time = 5
 [Command]
 name = "214L"
 command = ~$D, B, x
-buffer.time = 10
+buffer.time = 5
 [Command]
 name = "214L_unbuffer"
 command = ~$D, B, x
@@ -100,6 +100,18 @@ time = 20
 name = "22"
 command = D, D
 time = 10
+[Command]
+name = "2R"
+command = /D, c
+time = 1
+[Command]
+name = "6R"
+command = /F, c
+time = 1
+[Command]
+name = "4R"
+command = /B, c
+time = 1
 
 [Command]
 name = "Stance_Cancel"
@@ -197,7 +209,7 @@ value = 3200
 triggerall = command = "214S"
 triggerall = power >= 4000
 triggerall = statetype != A && stateno != 1207
-trigger1 = ctrl || var(1)  || var(2) || stateno < 3000 && movehit && stateno != [800, 805]
+trigger1 = ctrl || var(1) || var(2) || stateno < 3000 && movehit && stateno != [800, 805]
 
 ;===============================================================================
 ;---------------------------------------------------------------------------
@@ -296,7 +308,7 @@ value = 2000
 triggerall = command = "214R" && map(SERPENT.FANG) 
 triggerall = statetype != A && stateno != 2000
 trigger1 = ctrl
-trigger2 = var(1) || var(2) || MoveContact && stateno < 3000 || MoveContact && helper,stateno < 3000
+trigger2 =  var(1) || var(2) || MoveContact && stateno < 3000
 
 ;623R
 [State -1, Boom.]
@@ -305,7 +317,7 @@ value = 2005
 triggerall = command = "623R" && stateno != 2005
 triggerall = statetype != A && map(SERPENT.FANG)
 trigger1 = ctrl
-trigger2 = var(1) || var(2) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
+trigger2 =  var(1) || var(2) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
 
 ;236R - Sviga Lae: Dreifing
 [State -1, REMEMBER, THIS IS WHAT YOU WANTED.]
@@ -314,7 +326,7 @@ value = 2010
 triggerall = command = "236R" && stateno != 2010
 triggerall = statetype != A && map(SERPENT.FANG)
 trigger1 = ctrl
-trigger2 = var(1) || var(2) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
+trigger2 =  var(1) || var(2) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
 ;Dreifing Dash
 [State -1, SPEED FEAT FOR DEUS]
 type = ChangeState
@@ -323,6 +335,14 @@ triggerall = map(DREIFING.ACTIVE)
 triggerall = command = "66" || command = "M66"
 triggerall = stateno != 1207
 trigger1 = movecontact || var(2)
+;Dreifing Dash
+;[State -1, SPEED FEAT FOR DEUS]
+;type = ChangeState
+;value = 2012
+;triggerall = map(DREIFING.ACTIVE)
+;triggerall = command = "44" || command = "M44"
+;triggerall = stateno != 1207
+;trigger1 = movecontact || var(2)
 
 
 
@@ -402,7 +422,7 @@ trigger1 = ctrl || stateno = [200, 707]
 trigger2 = stateno = 1100 && movecontact
 
 ;===========================================================================
-;4S - Aimless Serpent (Ground)
+;214L - Dead Pulse
 [State -1, Spotdodge]
 type = ChangeState
 value = 1010
@@ -411,13 +431,13 @@ triggerall = stateno = 40 || stateno = 55 || !map(EN) && statetype != A
 trigger1 = ctrl
 trigger2 = var(1) || stateno = 40 || stateno = 55
 
-;4SEN - Wandering Serpent (Ground)
+;EN 214L - Wandering
 [State -1, Spotdodge]
 type = ChangeState
 value = 1011
 triggerall = command = "214L" && prevstateno != 1010 || command = "214L_unbuffer" && prevstateno = 1010 
 triggerall = map(EN)
-triggerall = statetype != A
+triggerall = statetype != A && !(stateno = 100 && time < 2) 
 trigger1 = var(1)
 
 ;===========================================================================
@@ -460,7 +480,7 @@ trigger2 = var(1)
 [State -1, Fastfall]
 type = changeState
 value = 650
-triggerall = command = "22H"
+triggerall = command = "2R"
 triggerall = statetype = A
 trigger1 = var(1) || ctrl
 

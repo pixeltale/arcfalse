@@ -275,6 +275,19 @@ anim = 3040
 sprpriority = 8
 poweradd = -2000
 
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem=6
+value = 8000,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem=24
+value = 8000,3
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem=25
+value = F5,4
+
 [State 0, SuperPause]
 type 	= SuperPause
 trigger1 	= animelem = 5
@@ -298,7 +311,6 @@ pausetime 	= 18,18
 guard.pausetime 	= 20,20
 sparkno 		= 3
 sparkxy 		= -5,-45
-hitsound   	= 5,4
 getpower 		= 0
 guardsound 	= 6,2
 ground.type 	= Low

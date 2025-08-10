@@ -2108,7 +2108,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.85	;85% DMG For next hit
+value 		= 0.9	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -2221,13 +2221,13 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;95% Starting DMG
+value 		= 0.80	;95% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.90	;85% DMG For next hit
+value 		= 0.80	;85% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -2243,7 +2243,7 @@ type = HitDef
 p2facing = 1
 trigger1 = !movecontact && !movereversed
 attr = S, SA
-damage = 80*MAP(P4), 0
+damage = 50*MAP(P4), 0
 animtype  = up
 hitflag = MAFD
 guardflag = MA
@@ -3351,7 +3351,7 @@ facep2 = 1
 [State 0, VelSet]
 type= VelSet
 trigger1 = animelem = 1 || animelem = 2 || animelem = 3 || animelem = 6
-x = 5.5 + 4*map(ENState)
+x = 5.5 + 4
 
 [State 0, Explod]
 type = Explod
@@ -3442,7 +3442,7 @@ ground.slidetime = 34
 ground.hittime  = 23
 ground.velocity = -6,-3 - 1*map(EnState)
 air.velocity = -6.6,-1 *map(EnState) * MAP(untechMOD)
-down.velocity = -3, -2 - 3*map(EnState) * map(UntechMod)
+down.velocity = -3, -4*map(UntechMod)
 air.hittime = 34
 down.hittime = 34
 envshake.time = 7
@@ -3451,6 +3451,8 @@ fall.yvelocity = 0
 guard.slidetime = 25
 guard.velocity = -12
 guard.ctrltime = 12
+air.cornerpush.veloff = -15 / map(UntechMOD)
+down.cornerpush.veloff = -15 / map(UntechMOD)
 getpower = 0
 
 ;ARMOR ============================++++
@@ -4308,14 +4310,6 @@ map 		= "JC"
 value 		= 1
 ignorehitpause 	= 0
 
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = movehit = [1,10] && root, stateno = [1225,1226]
-value = root, anim
-elem = root, animelemno(0)
-redirectid = root, id
-ignorehitpause = 1
-
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = !animtime
@@ -4613,6 +4607,12 @@ ctrl = 1
 poweradd = 0
 velset = 20 - 8 * (statetype = A), 0
 
+[State 0, Turn]
+type = Turn
+trigger1 = prevstateno = 2012
+ignorehitpause = 1
+
+
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = pos y < 0
@@ -4640,12 +4640,16 @@ sprpriority = -1
 ownpal = 1
 removeongethit = 0
 ignorehitpause = 1
+[State 0, PlaySnd] ;SCHWARZERBLITZ TRIGGER EFFECT
+type 	= PlaySnd
+trigger1 	= !time && palno = 3
+value 	= 2000, 1
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = 1
+trigger1 = enemynear, stateno != 5228
 x = -18
-y = -4
+y = -3
 redirectid = enemynear, id
 
 [State 0, Enemy ChangeState]
@@ -4673,3 +4677,15 @@ type = ChangeState
 trigger1 = !animtime && statetype = A
 value = 50
 ctrl = 1
+
+;---------------------------------------------------------------------------
+; DREIFING DASH (Backward)
+[Statedef 2012]
+type    = S
+physics = S
+anim = 99
+facep2 = 0
+[State 100, 4]
+type = ChangeState
+trigger1 = 1
+value = 2011

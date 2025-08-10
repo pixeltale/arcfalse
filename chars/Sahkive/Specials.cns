@@ -3651,7 +3651,7 @@ type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedow
 movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      ;Physics: S-stand, C-crouch, A-air
 juggle  = 0                      ;Number of air juggle points move takes
-velset = vel x*0.5,0 
+velset = vel x,0 
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1039                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
@@ -3664,20 +3664,20 @@ poweradd=-1000
 type         = MapSet
 trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "StarterLevel"
-value         		=  4
+value         		=  2
 ignorehitpause     	=  1
 
 [State -2, P1 Value Set]
 type         = MapSet
 trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "P1"
-value         		=  1.2 + 0.2*map(CounterHit)
+value         		=  0.8 + 0.1 * map(CounterHit)
 ignorehitpause     	= 1
 [State -2, P2 Value Set]
 type         = MapSet
 trigger1         	= movehit && map(ComboStateCheck)
 map         		= "P2"
-value         		=  0.95
+value         		=  0.90
 ignorehitpause     	= 1
 persistent         	= 0 
 [State -2, P2 Accumulation - Scale]
@@ -3767,7 +3767,7 @@ value = -5,0
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelemno(0) = [3,5]
-x = 3
+x = 1
 
 [State 200, 2]
 type = PlaySnd
@@ -3781,6 +3781,7 @@ flag = unguardable
 
 [State 800, 1] ;With grab sound
 type = HitDef
+triggerall = p2dist x > 1 
 Trigger1 = !movecontact
 attr = S, ST, SA          ;Attributes: Standing, Normal Throw
 hitflag = AFD          ;Affect only ground people who are not being hit
@@ -3799,14 +3800,13 @@ air.hittime = 0
 air.fall = 0
 ground.velocity = 0,0
 air.velocity=0,0
-pausetime=0,50
+pausetime=1,50
 guard.pausetime = 15, 15
 airguard.velocity = 2, -1
 guard.velocity = -5
 guard.hittime = 12
 guard.ctrltime = 11
 guard.slidetime = 15
-p1stateno=1051
 p2stateno=1049
 [State 800, 1] ;With grab sound
 type = hitdef
@@ -3830,14 +3830,19 @@ air.hittime = 0
 air.fall = 0
 ground.velocity = 0,0
 air.velocity=0,0
-pausetime=0,50
+pausetime=1,50
 guard.pausetime = 0,0
 guard.velocity = -5
 guard.hittime = 12
 guard.ctrltime = 11
 guard.slidetime = 15
-p1stateno=1051
 p2stateno=1049
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit = 1
+value = 1051
+ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3874,7 +3879,7 @@ channel = 6
 
 [State 0, Explod]
 type = Explod
-trigger1 = movehit
+trigger1 = animelem = 7
 anim = 1046
 ID =1046 
 pos = 0,0
@@ -3898,7 +3903,7 @@ persistent=0
 
 [State 0, Explod]
 type = Explod
-trigger1 = movehit
+trigger1 = animelem = 7
 anim = 1047
 ID =1047
 pos = 85,-80
@@ -3919,12 +3924,6 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause =1
 persistent=0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 2
 
 [State 0]
 type = MapSet
