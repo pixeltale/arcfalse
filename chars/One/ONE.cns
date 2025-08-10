@@ -626,8 +626,8 @@ ignorehitpause = 1
 [State 0, Distance Display]
 type = DisplaytoClipboard
 trigger1 = 1
-text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, dontlook = %f"
-params = map(swordDistX), frontedgedist, backedgedist, map(dontlook)
+text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, var(50) = %d"
+params = map(swordDistX), frontedgedist, backedgedist, var(50)
 
 [State 0. MapSet]
 type 		= MapSet
