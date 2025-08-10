@@ -157,7 +157,6 @@ trigger1 = statetype != A && ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600, 640]
 trigger2 = movecontact
 trigger3 = stateno = 100 || stateno = 60
-trigger4 = helper(1226), movecontact || helper(1227), movecontact || helper(1228), movecontact || helper(1229), movecontact || helper(1230), movecontact
 var(1) = 1
 
 [State -1, Helper Combo condition Check]
@@ -173,7 +172,7 @@ value = 3000
 triggerall = command = "236S"
 triggerall = power >= 2000
 triggerall = statetype != A && stateno != 1207
-trigger1 = ctrl || var(1)
+trigger1 = ctrl || var(1) || var(2)
 trigger2 = statetype != A
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
@@ -186,7 +185,7 @@ value = 3100
 triggerall = command = "22S"
 triggerall = power >= 2000
 triggerall = statetype != A && stateno != 1207
-trigger1 = ctrl || var(1)
+trigger1 = ctrl || var(1) || var(2)
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
 trigger3 = stateno = [100,101]
@@ -198,7 +197,7 @@ value = 3200
 triggerall = command = "214S"
 triggerall = power >= 4000
 triggerall = statetype != A && stateno != 1207
-trigger1 = ctrl || var(1) || stateno < 3000 && movehit && stateno != [800, 805]
+trigger1 = ctrl || var(1)  || var(2) || stateno < 3000 && movehit && stateno != [800, 805]
 
 ;===============================================================================
 ;---------------------------------------------------------------------------
@@ -297,7 +296,7 @@ value = 2000
 triggerall = command = "214R" && map(SERPENT.FANG) 
 triggerall = statetype != A && stateno != 2000
 trigger1 = ctrl
-trigger2 = var(1) || MoveContact && stateno < 3000
+trigger2 = var(1) || var(2) || MoveContact && stateno < 3000 || MoveContact && helper,stateno < 3000
 
 ;623R
 [State -1, Boom.]
@@ -306,7 +305,7 @@ value = 2005
 triggerall = command = "623R" && stateno != 2005
 triggerall = statetype != A && map(SERPENT.FANG)
 trigger1 = ctrl
-trigger2 = var(1) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
+trigger2 = var(1) || var(2) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
 
 ;236R - Sviga Lae: Dreifing
 [State -1, REMEMBER, THIS IS WHAT YOU WANTED.]
@@ -315,7 +314,7 @@ value = 2010
 triggerall = command = "236R" && stateno != 2010
 triggerall = statetype != A && map(SERPENT.FANG)
 trigger1 = ctrl
-trigger2 = var(1) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
+trigger2 = var(1) || var(2) || MoveContact && stateno < 3000 || stateno = 40 || stateno = 55 
 ;Dreifing Dash
 [State -1, SPEED FEAT FOR DEUS]
 type = ChangeState

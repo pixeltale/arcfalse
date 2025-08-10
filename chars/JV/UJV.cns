@@ -655,8 +655,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "DreiDash = %f StrikeCount = %f"
-params = map(Dreifing.Active), map(StrikeCount)
+text = "DreiDash = %f StrikeCount = %f Var(1)=%d"
+params = map(Dreifing.Active), map(StrikeCount), var(1)
 ignorehitpause = 1
 persistent = 1
 
