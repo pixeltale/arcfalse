@@ -376,7 +376,7 @@ y = const(velocity.jump.y)
 type = VelSet
 trigger1 = AnimTime = 0
 trigger1 = Var(4) = 1
-x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x) + 1 * var(4), const(velocity.jump.back.x) - 1 * var(4)))
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x) + 1, const(velocity.jump.back.x) - 1))
 y = -4.9
 
 [State 40, 5]
@@ -384,7 +384,7 @@ type = VelSet
 trigger1 = AnimTime = 0
 trigger1 = prevstateno = [100,111] ;RUN_FWD
 trigger1 = sysvar(1) = 1
-x = const(velocity.runjump.fwd.x) * var(4)
+x = const(velocity.runjump.fwd.x)
 
 [State 0, Explod]
 type = Explod
