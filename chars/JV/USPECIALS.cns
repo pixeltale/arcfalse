@@ -1018,7 +1018,7 @@ hitsound   	= 5,3
 guardsound 	= 6, 1
 ground.slidetime 	= 12
 ground.hittime  	= 35 * MAP(untechMOD)
-down.hittime		= 58 * MAP(untechMOD)
+down.hittime		= 35 * MAP(untechMOD)
 ground.velocity 	= -2, -5
 down.velocity		= -2, -6
 air.velocity		= -2, -4
@@ -1050,7 +1050,7 @@ hitsound   	= 5,3
 guardsound 	= 6, 1
 ground.slidetime 	= 12
 ground.hittime  	= 35 * MAP(untechMOD)
-down.hittime		= 58 * MAP(untechMOD)
+down.hittime		= 35 * MAP(untechMOD)
 ground.velocity 	= -4, -5
 down.velocity		= -4, -6
 air.velocity		= -4, -4
@@ -1078,7 +1078,7 @@ persistent 	= 0				        ;+
 [State 0, Zoom] ;Smash Hit
 type = zoom
 trigger1 = animelemno(0) = [3, 4]
-trigger1 = enemy, GetHitVar(ChainID) = 1101
+trigger1 = enemy, GetHitVar(ChainID) = 1101 && movehit
 scale = 1.2
 stagebound = 1
 camerabound = 0
@@ -1144,6 +1144,29 @@ trigger1	= map(EnState)
 time 	= 20
 ampl 	= 4
 freq 	= 18
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 3 && anim = 1101
+anim = 1102
+ID = 1102
+pos = 10,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.82,0.82
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause = 1
 
 [State End, Transfer to Idle]
 type = ChangeState

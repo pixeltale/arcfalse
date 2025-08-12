@@ -35,10 +35,7 @@ physics = S
 sprpriority = 1
 velset = vel x, 0
 
-;[State 0, AssertSpecial]
-;type = AssertInput
-;trigger1 = 1
-;flag = x
+
 
 [State 0, VarSet]
 type = VarSet

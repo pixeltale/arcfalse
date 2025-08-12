@@ -712,6 +712,76 @@ flag3 = noAirGuard
  
 [Statedef -3]
 
+[State 0, Explod]
+type = Explod
+triggerall = stateno = [0, 20]
+trigger1 = time % 16 = 0
+anim = 1082
+ID = 1082
+pos = -(random * 0.06) + (random * 0.06),0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,-0.5
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.15,0.15
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause =1
+[State 0, Explod]
+type = Explod
+triggerall = stateno = [0, 20]
+trigger1 = time % 14 = 0
+anim = 1083
+ID = 1083
+pos = -(random * 0.010) + (random * 0.010),0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,-0.5
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.25,0.25
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause =1
+[State 0, Explod]
+type = Explod
+triggerall = stateno = [0, 20]
+trigger1 = time % 10 = 0
+anim = 1083
+ID = 1083
+pos = -(random * 0.021) + (random * 0.021),0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,-0.5
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.2,0.2
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause =1
+
 [State -2, Up Detector]
 type 		= MapSet
 trigger1 		= command != "up" && command != "holdup"
