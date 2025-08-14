@@ -1664,22 +1664,6 @@ x = var(35)
 ;persistent = 
 
 ;-----------------------------
-[Statedef 69002]
-type    = A
-movetype= I
-physics = A
-juggle  = 0
-poweradd= 0
-ctrl =0
-anim =69000
-sprpriority = -1
-
-[State 1055, 6] ;Change state when KFM is close to ground
-type = ChangeState
-trigger1 = Vel Y > 0 && Pos Y >= -10
-value = 52
-
-;-----------------------------
 ;5R: Tranquility Charge Start up
 [StateDef 42000]
 type = S
