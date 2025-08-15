@@ -1826,6 +1826,7 @@ sprpriority = 2
 velset = vel x, vel y
 facep2 = map(SJI)
 
+
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  animelem = 7
@@ -1913,15 +1914,7 @@ air.cornerpush.veloff = -7
 guard.slidetime = 14
 guard.ctrltime = 10
 getpower = 25*var(2)
-
-[State 0, TargetState]
-type = TargetState
-trigger1 = movehit 
-trigger1 = map(jRUseCount) != 1
-value = 915020
-;value = cond(map(JrUseCount)<1, 915020, 5070)
-ID = -1
-persistent = 0
+p2stateno 		= cond(!map(jRuseCount), 915020, 5020)
 
 [State 0, Mapadd]
 type         = MapSet
