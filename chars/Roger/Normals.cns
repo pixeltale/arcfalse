@@ -4592,3 +4592,126 @@ type = SelfState
 trigger1 = Time = 12
 value = 0
 ctrl = 1
+
+;-----------------------------
+; assist
+[Statedef 1500]
+type    = S
+movetype= I
+physics = N
+poweradd = 0
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+anim = 500
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= 1
+map 		= "isAssist"
+value 		= 1
+ignorehitpause 	= 1
+persistent      = 1
+
+;Throw Tech not allowed
+[State 1060, Explod]
+type = Explod
+trigger1 = !NumExplod(44020)
+anim = 99856
+ID = 44020
+removetime = -1
+removeongethit = 0
+persistent = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 700,17
+channel = 1
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 7,1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+fv = 6  ;fv = 10
+value = 500 ;State of this attack
+;ignorehitpause = 
+;persistent =
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = time = 35
+time = 30
+add = 150,100,0
+mul = 256,256,256
+sinadd = 150,100,0,30
+invertall = 0
+color = 256
+
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 56
+time = 12
+freq = 60
+ampl = -7
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 56
+anim = 505
+ID = 206
+pos = -34,-54
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 5
+ontop = 1
+removeongethit = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 56
+anim = 505
+ID = 206
+pos = -3,-60
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = -3
+removeongethit = 0
+
+[State 0, VarAdd]
+type = MapSet
+trigger1 = !time
+map = "ChargeTime"
+value = 0
+ignorehitpause = 1
+[State 0, VarAdd]
+type = MapAdd
+trigger1 = 1
+map = "ChargeTime"
+value = 1
+ignorehitpause = 1
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 503

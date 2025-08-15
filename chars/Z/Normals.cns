@@ -3159,7 +3159,8 @@ type = VelSet
 trigger1 = time=0
 y = -1.6
 
-;Assist A-1: Bolt Primer
+
+; Assist
 [Statedef 1005]
 type    = S                      
 movetype= A                      
@@ -3297,6 +3298,34 @@ shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
 
+[State -2, Starter Level]
+type         = MapSet
+trigger1         = movehit && !map(ComboStateCheck)
+map         = "StarterLevel"
+value         =  3    
+ignorehitpause     =  1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1 + 0.2*map(CounterHit)	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.9	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 ;non ch
 [State 210, 2]
 type = HitDef 
@@ -3305,7 +3334,7 @@ trigger1 = fvar(8) = 0 && movecontact = 0 && movereversed = 0
 attr = S, SA
 animtype  = hard
 air.animtype = back
-damage = ceil(cond(fvar(11) *30 < 4, 4, fvar(11) * 30)), 0
+damage = 30*map(P4) , 0
 hitflag = MAF
 guardflag = MA
 pausetime = 10,10
@@ -3315,9 +3344,9 @@ hitsound   = 5,1
 guardsound = 6,1
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *24 < 12, 12, fvar(15) * 24))
-air.hittime  = ceil(cond(fvar(15) *48 < 24, 24, fvar(15) * 48))
-down.hittime = ceil(cond(fvar(15) *48 < 24, 24, fvar(15) * 48))
+ground.hittime  = 24 * map(UntechMod)
+air.hittime  = 34 * map(UntechMod)
+down.hittime = 34 * map(UntechMod)
 ground.velocity = -7
 air.velocity = -1.5,-4
 down.velocity = -1.5,-4
@@ -3346,7 +3375,7 @@ trigger1 = fvar(8) = 1 && movecontact = 0 && movereversed = 0
 attr = S, SA
 animtype  = hard
 air.animtype = back
-damage = ceil(cond(fvar(11) *50 < 4, 4, fvar(11) * 50)), 0
+damage = 60, 0
 hitflag = MAF
 guardflag = MA
 pausetime = 10,20
@@ -3414,108 +3443,6 @@ name = "Shock Particles"
 posType = P2
 ownPal = 1
 ignoreHitPause = 1
-
-[State 200, 3]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-[State 200, 3]
-type = ChangeState
-trigger1 = !time
-trigger1 = var(4)
-value = 1006
-ctrl = 1
-
-
-;--------------------------------------------------------------
-;Assist A-2: Bolt Shot
-[Statedef 1006]
-type    = S                      
-movetype= A                      
-physics = S                      
-juggle  = 0                      
-;Commonly-used controllers:                
-ctrl = 0                         
-anim = 1004                       
-poweradd = 0                   
-sprpriority = 0                  
-
-[State 0, Explod]
-type = Explod
-trigger1 = animelemtime(5)=0
-anim = 6700
-ID = 6700
-pos = 10,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.5,0.5
-sprpriority = 1
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelemtime(4)=0
-value = 1000,3
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0
-v = 4     
-value = -1
-
-[State 210, Width]
-type = Width
-trigger1 = (AnimElemTime (3) >= 0) && (AnimElemTime (10) < 0)
-value = 50,0
-
-;Idle Explod Removal
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = 1
-id = 4
-
-;5M-2 Explod Removal
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = 1
-id = 212
-
-;5H Explod Removal
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = 1
-id = 221
-
-;3H Explod Removal
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = 1
-id = 431
-
-[State 0, Helper]
-type = Helper
-trigger1 = animelem = 2
-name = "Bolt Fire"
-ID = 1500
-stateno = 1500
-pos = 0,0
-size.xscale = .84
-size.yscale = .84
-postype = p1    ;p2,front,back,left,right
-ownpal = 0
-facing=1
 
 [State 200, 3]
 type = ChangeState

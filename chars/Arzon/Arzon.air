@@ -1380,7 +1380,7 @@ Clsn2Default: 1
 [Begin Action 1204]
 Clsn1Default: 1
   Clsn1[0] = -20, -10, 21, 9
-Clsn2: 1
+Clsn2Default: 1
   Clsn2[0] = -41, -31, 35, 31
 1009,0, 0,0, 4
 1009,1, 0,0, 4

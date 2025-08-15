@@ -3519,7 +3519,6 @@ persistent = 1
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = prevstateno != 56000 ;Not Called as an Assit
 trigger1 = command != "hold_b" && time>17
 value = 1091
 

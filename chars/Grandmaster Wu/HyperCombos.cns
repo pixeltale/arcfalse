@@ -530,14 +530,13 @@ sprpriority = 9
 [State 1000, 1]
 type = HitDef 
 p2facing = 1
-hitonce = 1
+hitonce = 0
 trigger1 = enemynear,Gethitvar(chainID)!=99858 
 trigger1 = time = 0
 attr = S, HP                     ;Attribute: Standing, Normal Attack
 damage = ceil(cond(root,fvar(11) * 175 < 100, 100, root,fvar(11) * 175)),20
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFDP                    ;Flags of conditions that move can hit
-priority = 3, Hit                ;Attack priority: 0 (least) to 7 (most), 4 default
 ;Hit/Miss/Dodge type (Def: Hit)
 pausetime = 1, 1                ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;5park anim no (Def: set above)

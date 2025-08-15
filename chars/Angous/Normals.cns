@@ -4345,3 +4345,45 @@ type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
+
+;---------------------------------------------------------------------------
+;Assist
+[Statedef 500]
+type    = S
+movetype=I
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+anim = 1090
+sprpriority = 2
+velset = 0,0
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= 1
+map 		= "isAssist"
+value 		= 1
+ignorehitpause 	= 1
+persistent      = 1
+
+[State -3, Angous Voices]
+type = PlaySnd
+trigger1 = animelem = 1
+value = 8504,0
+channel=5
+
+;Tech not allowed
+[State 1060, Explod]
+type = Explod
+trigger1 = !NumExplod(44020)
+anim = 99856
+ID = 44020
+removetime = -1
+removeongethit = 0
+persistent = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1092
