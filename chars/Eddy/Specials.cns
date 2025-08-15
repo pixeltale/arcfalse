@@ -575,9 +575,9 @@ x = cond(p2dist x >15, 15, p2dist x)
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "x"  && time <= 12
-trigger2 = command = "y"  && time <= 12
-trigger3 = command = "z"  && time <= 12
+trigger1 = command = "holdx"  && time <= 12
+trigger2 = command = "holdy"  && time <= 12
+trigger3 = command = "holdz"  && time <= 12
 value = 1001
 
 [State 0, ChangeState]
@@ -867,7 +867,7 @@ y = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "x"   || command = "y" || command = "z"
+trigger1 = command = "holdx"   || command = "holdy" || command = "holdz"
 trigger1 = time = [10,24]
 value = 1101
 
@@ -1030,12 +1030,12 @@ y = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "unbuffer_ATK"  && time >= 5
+trigger1 = (command = "holdx" || command = "holdy" || command = "holdz")  && time >= 5
 value = 1001
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "unbuffer_5S"  && time >= 5
+trigger1 = command = "b"  && time >= 5
 value = 1002
 
 [State 0, ChangeState]
