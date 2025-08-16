@@ -300,12 +300,6 @@ value         = root, Map(Accumulation) * root, map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
-[State 0, Pause]
-type = Pause
-trigger1 = movehit && time < 5
-time = 10
-ignorehitpause = 1
-
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
@@ -317,7 +311,7 @@ damage = 250*(parent,MAP(P4)) + 50
 hitflag = MAFD
 guardflag = MA
 priority = 3
-pausetime = 0,15
+pausetime = 30,30
 guard.pausetime = 5, 5
 sparkno = 3
 sparkxy = random%20,10-random%20
@@ -336,20 +330,6 @@ getpower = (0)*(cond(var(var(3)) = 1, 1, .5))
 air.hittime = 34
 fall = 1
 envshake.time = 5
-
-
-[State 0, Zoom]
-type = zoom
-trigger1 = !winKO
-trigger1 = movehit
-trigger1 = time < 5
-time = 30
-scale = 1.2
-lag = .5
-stagebound = 1
-camerabound = 0
-pos =pos x, 0
-ignorehitpause=1
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -409,9 +389,28 @@ sprpriority = -15
 ownpal = 1
 supermovetime = -1
 
-[State 8990, DestroySelf]
-type = DestroySelf
-trigger1 = RoundState > 3
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = movehit
+trigger1 = time < 5
+value = 3001
+elem = root, animelemno(0)
+redirectid = root, id
+ignorehitpause = 1
+
+[State 0, Zoom]
+type = zoom
+triggerall = !WinKO
+trigger1 = movehit
+trigger1 = time < 5
+time = 1
+scale = 1.2
+lag = .2
+stagebound = 1
+camerabound = 0
+pos =pos x, 0
+ignorehitpause=1
+
 ;---------------------------------------------------------------------------
 [State -3, Hyper Finish Background]
 type = Helper
@@ -428,6 +427,9 @@ ownpal = 1
 supermovetime = 1000
 pausemovetime = 1000
 ignorehitpause = 1
+[State 8990, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState > 3
 
 [State 0, ChangeState]
 type = Changestate

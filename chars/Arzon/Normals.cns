@@ -1832,7 +1832,7 @@ ctrl = 0
 
 [State 0,	MapSet]
 type 		= MapSet
-trigger1		= animelemno(0) >= 4 && prevstateno != [1520,1560]
+trigger1		=  animelemno(0) >= 4 && prevstateno != [1520,1560]
 map 			= "RemixCancel"
 value 		= 1
 ignorehitpause 	= 1

@@ -162,9 +162,7 @@ trigger1 = ctrl
 [State -1, j2S] 
 type = ChangeState
 value = 1450
-triggerall = command = "b"
-triggerall = command = "holddown" || command = "down"
-triggerall = command != "holdback"
+triggerall = command = "c"
 triggerall = statetype = A
 triggerall = stateno!=1450
 triggerall = prevstateno!=1450

@@ -444,7 +444,7 @@ ctrl = 1
 
 [State 0,	MapSet]
 type 		= MapSet
-trigger1		= stateno = 803 || stateno = 801 && !movehit
+trigger1		= roundstate != 2 || stateno = 803 || stateno = 801 && !movehit
 map 		= "RemixCancel"
 value 		= 0
 ignorehitpause 	= 1

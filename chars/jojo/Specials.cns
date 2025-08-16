@@ -141,7 +141,7 @@ guardsound 		= 6,2
 ground.type 		= Low
 ground.slidetime 	= 15
 ground.hittime 		= 200
-ground.velocity		= -2,-3
+ground.velocity		= -5,-3
 air.velocity 		= -1,-2
 down.velocity		= -1, -6
 guard.velocity 		= -6
@@ -155,7 +155,7 @@ envshake.time 		= 15
 envshake.freq 		= 90
 envshake.ampl 		= -6
 envshake.phase 		= 100
-p2stateno 		= 5300
+p2stateno 		= cond(enemy,statetype=S,5250,5300)
 p2getp1state 		= 0
 [State 1110, 3]
 type 			= HitDef
@@ -351,14 +351,16 @@ persistent 		= 0
 
 [State 1110, 3]
 type 			= HitDef
+triggerall       = MAP(counterhit) = 1
 trigger1 		= !movereversed && !movecontact
+trigger1       = enemy,statetype=S||enemy,statetype=C
 attr 			= S, SA
 getpower 		= 50
 animtype  		= Up
 damage    		= 150*map(P4), 20
 guardflag 		= MA
 hitflag 		= MAFD
-pausetime 		= 16,16
+pausetime 		= 20,36
 guard.pausetime 	= 18,18
 sparkxy 		= 0,-60
 hitsound   		= 5,3
@@ -366,7 +368,7 @@ guardsound 		= 6,2
 ground.type 		= Low
 ground.slidetime 	= 15
 ground.hittime 		= 200
-ground.velocity		= -2,-7
+ground.velocity		= -5,-7
 air.velocity 		= -1,-8
 down.velocity		= -1, -9
 guard.velocity 		= -6
@@ -380,7 +382,41 @@ envshake.time 		= 15
 envshake.freq 		= 90
 envshake.ampl 		= -6
 envshake.phase 		= 100
-p2stateno 		= 5300
+p2stateno 		= 5250
+p2getp1state 		= 0
+[State 1110, 3]
+type 			= HitDef
+trigger1 		= !movereversed && !movecontact
+trigger1       = !MAP(counterhit) 
+attr 			= S, SA
+getpower 		= 50
+animtype  		= Up
+damage    		= 150*map(P4), 20
+guardflag 		= MA
+hitflag 		= MAFD
+pausetime 		= 20,20
+guard.pausetime 	= 18,18
+sparkxy 		= 0,-60
+hitsound   		= 5,3
+guardsound 		= 6,2
+ground.type 		= Low
+ground.slidetime 	= 15
+ground.hittime 		= 200
+ground.velocity		= -5,-7
+air.velocity 		= -1,-8
+down.velocity		= -1, -9
+guard.velocity 		= -6
+airguard.velocity 	= -4,-4.5
+p2facing 		= 1
+fall 			= 1
+fall.yvelocity		= -4
+yaccel 			= .2
+fall.recover 		= 0
+envshake.time 		= 15
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
+p2stateno 		= cond(enemy,statetype=S,5250,cond(enemy,statetype=C,5250,5300))
 p2getp1state 		= 0
 
 [State 1000, 1]
