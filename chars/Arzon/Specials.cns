@@ -248,11 +248,6 @@ ctrl = 0
 anim =1010
 sprpriority = 2
 
-[State 0, Special Counter UP]
-type = VarAdd
-trigger1 = time = 0
-v =  5
-value = 1
 
 [State Arzon Voices]
 type = PlaySnd
@@ -273,25 +268,6 @@ scale = .82,.82
 sprpriority = 3
 removeongethit = 1
 bindtime = 999
-
-[State 0, Special Cancel OKAY]
-type = Explod
-triggerall=moveguarded=0
-trigger1 = animelem = 8
-anim = 99999
-ID = 1000
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
-
-[State 0, Special Cancel NOT OKAY]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1000
-ignorehitpause = 1
-persistent = 0
 
 ;EX EFfects
 ;-------------------------------
@@ -839,7 +815,7 @@ air.hittime  = 34
 down.hittime = 34
 ground.velocity = .5,-6
 air.velocity = .5,-5
-envshake.time = 30
+envshake.time = 5
 fall.yvelocity = 0
 air.fall = 1
 fall = 1

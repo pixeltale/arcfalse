@@ -1529,7 +1529,7 @@ ground.velocity 	= 0,0
 air.velocity 	= 0,-3
 pausetime	= 0,0
 guard.ctrltime	= 30
-guard.hittime 	= 15
+guard.hittime 	= 14
 guard.pausetime = 8,8
 guard.velocity 	= -5
 
