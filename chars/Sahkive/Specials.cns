@@ -1528,7 +1528,7 @@ air.fall 		= 1
 ground.velocity 	= 0,0
 air.velocity 	= 0,-3
 pausetime	= 0,0
-guard.ctrltime	= 30
+guard.ctrltime	= 14
 guard.hittime 	= 14
 guard.pausetime = 8,8
 guard.velocity 	= -5
@@ -2842,7 +2842,7 @@ ignorehitpause     	=  1
 type         		= MapSet
 trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "P1"
-value         		=  1.20
+value         		=  1
 ignorehitpause     	= 1
 [State -2, P2 Value Set]
 type         		= MapSet
@@ -2895,6 +2895,7 @@ envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 6
 guard.velocity = p2dist x * 0.03
+airguard.velocity = p2dist x * 0.03
 guard.hittime = 25
 guard.slidetime = 90
 guard.ctrltime = 15
@@ -2927,15 +2928,14 @@ air.hittime  = 60-MAP(untechDecay)
 down.hittime = 60-MAP(untechDecay)
 ground.velocity = -1,-8
 air.velocity = -1,-8
+airguard.velocity = p2dist x * 0.03, -1
 fall  = 1
 fall.yvelocity = 0
 envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 6
 guard.velocity = p2dist x * 0.05
-guard.hittime = 25
-guard.slidetime = 95
-guard.ctrltime = 15
+guard.ctrltime = 5
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -3082,11 +3082,6 @@ guard.velocity = -5
 guard.hittime = 12
 guard.ctrltime = 11
 guard.slidetime = 15
-
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = enemy, vel y < -1
-flag = unguardable
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3773,11 +3768,6 @@ x = 1
 type = PlaySnd
 trigger1 = animelem = 4
 value = 0, 3
-
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = enemy, vel y < -1
-flag = unguardable
 
 [State 800, 1] ;With grab sound
 type = HitDef

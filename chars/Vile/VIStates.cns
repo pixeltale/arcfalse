@@ -434,7 +434,7 @@ value = Anim + 3
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time = 6
-value = 660
+value = 50
 ctrl = 0
 ;anim =
 ;ignorehitpause = 
@@ -539,7 +539,7 @@ removeongethit = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 ctrl = 0
 ;---------------------------------------------------------------------------
 
@@ -613,7 +613,7 @@ removeongethit = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState

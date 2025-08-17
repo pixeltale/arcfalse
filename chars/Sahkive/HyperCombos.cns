@@ -603,9 +603,9 @@ ignorehitpause = 1
  ;============================
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 	= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		=  2
+trigger1 		= movehit && !map(ComboStateCheck)
+map 			= "StarterLevel"
+value 		=  1
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
@@ -940,7 +940,7 @@ p2facing = 1
 trigger1 = animelem =15||animelem =19||animelem =23||animelem =27||animelem =31||animelem =35||animelem =41||animelem =38
 trigger2 = (time>95&&time<140) && time % 2
 attr = S, HT
-damage = 5*map(P4)+ 5
+damage = 5*map(P4)+ 2
 animtype = hard
 hitflag = MAFD
 guardflag = MAFD

@@ -449,7 +449,7 @@ value = 1601
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y>=0 
-value = 69000
+value = 50
 ;---------------------------------------------------------------------------
 ;J.5S: Rayzah Bohl (Charged)
 [Statedef 1601]
@@ -504,12 +504,12 @@ channel=2
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y>=0 
-value = 69000
+value = 50
 
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 
 ;J.5S: Rayzah (Bohl)
 ;---------------------------------------------------------------------------
@@ -1637,12 +1637,12 @@ channel=2
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = pos y>=0 
-value = 69000
+value = 50
 
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 
 ;j5S: EX Rayzah (Bohl)
 ;---------------------------------------------------------------------------
@@ -6033,7 +6033,7 @@ value = 0,1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 ctrl = 1
 
 [State 1055, 6] ;Change state when KFM is close to ground
@@ -6143,7 +6143,7 @@ value = 0,1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 ctrl = 1
 
 [State 1055, 6] ;Change state when KFM is close to ground
@@ -6253,7 +6253,7 @@ value = 0,1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 ctrl = 1
 
 [State 1055, 6] ;Change state when KFM is close to ground
@@ -6363,7 +6363,7 @@ value = 0,1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
-value = 69000
+value = 50
 ctrl = 1
 
 [State 1055, 6] ;Change state when KFM is close to ground

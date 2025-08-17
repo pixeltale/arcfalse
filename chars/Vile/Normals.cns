@@ -1384,7 +1384,7 @@ value = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 =animtime = 0 
-value = 69000
+value = 50
 ctrl = 1
 
 [State 0, ChangeState]
@@ -1493,7 +1493,7 @@ p2facing = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 =animtime = 0 
-value = 69000
+value = 50
 ctrl = 1
 
 [State 0, ChangeState]
@@ -1593,7 +1593,7 @@ p2facing = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 =animtime = 0 
-value = 69000
+value = 50
 ctrl = 1
 
 [State 0, ChangeState]
@@ -1738,7 +1738,7 @@ ignorehitpause = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 =animtime = 0 
-value = 69000
+value = 50
 ctrl = 1
 
 [State 0, StateTypeSet]

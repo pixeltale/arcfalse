@@ -49,6 +49,7 @@ trigger1 = ctrl
 trigger2 = stateno = [200,499]
 trigger2 = movecontact
 trigger2 = stateno!=421
+trigger3 = stateno = 1200 && time > 3 || stateno = 1203
 var(1) = 1
 
 ;Gentleman's Beatdown
@@ -360,9 +361,7 @@ triggerall = command = "y"
 triggerall = command != "holddown"
 trigger1 = statetype = S
 trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact
-trigger3 = (stateno = 210) && movecontact
-trigger4 = (stateno = 1203) && time > 5
+trigger2 = (stateno = [200, 210]) && movecontact
 
 [State -1, 5H]
 type = ChangeState

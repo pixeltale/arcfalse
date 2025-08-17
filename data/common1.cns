@@ -403,7 +403,7 @@ y = 0.9
 type = VelSet
 trigger1 = Time = 0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*0.5 + vel x * 0.5, const(velocity.jump.back.x)*0.5))*1.1
-y = -9.5 - 1 * (name = "Z")
+y = -9.5 - 1 * (name = "Z" || name = "Vile")
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -2876,17 +2876,11 @@ time = 32
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 1
-y = -1
+y = -2
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem =2
 y = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0
-v = 15     
-value = -1000
 
 [State -3, Burst Announcer]
 type = PlaySnd
@@ -2931,11 +2925,10 @@ guardsound 		= 6,2
 ground.type 		= HIGH
 air.type 			= HIGH
 airguard.velocity   = -2*(cond(p2dist x >= 0, 1, -1))
-ground.slidetime 		= 9999
-ground.hittime  		= 9999
-air.hittime  		    = 9999
-ground.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)),-5
-air.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)), -5
+ground.hittime  		= 999
+air.hittime  		    = 999
+ground.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)),-1
+air.velocity 		= -9*(cond(p2dist x >= 0, 1, -1)), 1
 down.velocity 		= -1*(cond(p2dist x >= 0, 1, -1)),0
 ground.cornerpush.veloff 	= 0
 down.cornerpush.veloff 	= 0
@@ -7778,7 +7771,7 @@ ctrl    =0
 sprpriority = -1
 
 [State 0, VelSet]
-type = Veladd
+type = VelAdd
 trigger1 = 1
 y = .2
 
@@ -8282,7 +8275,7 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 	= stateno = 40
 map 		= "AIRGUARD.LOCKOUT"
-value 		= 5
+value 		= 2
 ignorehitpause 	= 1
 [State -2, Wallbounce Type Set]
 type 		= MapAdd
@@ -8294,10 +8287,11 @@ ignorehitpause 	= 1
 [State 700, Flash]
 type = palfx
 triggerall = map(AIRGUARD.LOCKOUT) > 0
-trigger1 = enemy, movehit
-add = 255, 165, 0
-sinadd = -255, -165, 0, 60
-time = 15
+trigger1    = enemy, movehit
+add         = 255, 165, 0
+sinadd      = -255, -165, 0, 60
+time        = 15
+ignoreHitPause = 1
 
 ;=======================================
 ;Lose iframes after countered
@@ -8612,7 +8606,7 @@ value = 1000
 
 [State 0, MapAdd] ;Build Burst while hit
 type = MapAdd
-trigger1 = movetype = H && !map(BurstGauge_Lockout)
+trigger1 = movetype = H && !map(BurstGauge_Lockout) && enemy, stateno != 900
 map = "BurstGauge"
 value = gethitvar(damage) * 0.35 + 3 * (enemy, (map(ComboStateCheck))) 
 ignorehitpause = 1
