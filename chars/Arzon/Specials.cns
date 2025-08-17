@@ -855,31 +855,6 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0, Special Counter UP]
-type = VarAdd
-trigger1 = time = 0
-v =  5
-value = 1
-
-[State 0, Special Cancel NOT OKAY]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1000
-ignorehitpause = 1
-persistent = 0
-
-[State 0, Special Cancel OKAY]
-type = Explod
-trigger1 = animelem = 6
-anim = 99999
-ID = 1000
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
-
-
 [State -3, Arzon Voice]
 type = PlaySnd
 trigger1 = animelem = 1
@@ -2736,30 +2711,6 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 1
 
-[State 0, Special Counter UP]
-type = VarAdd
-trigger1 = time = 0
-v =  5
-value = 1
-
-[State 0, Special Cancel NOT OKAY]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1000
-ignorehitpause = 1
-persistent = 0
-
-[State 0, Special Cancel OKAY]
-type = Explod
-trigger1 = animelem = 5
-anim = 99999
-ID = 1000
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
-
 ;EX EFfects
 ;-------------------------------
 [State 0, PalFXWiz]
@@ -4006,26 +3957,6 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 1
 
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0
-fv =13     ;fv = 
-value = .75
-
-[State 0, Special Counter UP]
-type = VarAdd
-trigger1 = time = 0
-v =  5
-value = 1
-
-[State 0, Special Cancel NOT OKAY]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1000
-ignorehitpause = 1
-persistent = 0
-
 ;EX EFfects
 ;-------------------------------
 [State 0, PalFXWiz]
@@ -4116,18 +4047,6 @@ type = PlaySnd
 trigger1 = animelem =4
 value = 1100, (0+(Random%3))
 volumescale=130
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = animtime = 0
-fv =13     ;fv = 
-value = .25
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = animtime = 0
-fv =25     ;fv = 
-value = .25
 
 [State 0, Explod]
 type = Explod
@@ -4666,36 +4585,6 @@ trigger1 = animelem=3
 statetype = A       ;S,A,C,L
 movetype =A        ;I,A,H
 physics = A         ;A,C,S,N
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0
-fv =13     ;fv = 
-value = .55
-
-[State 0, Special Counter UP]
-type = VarAdd
-trigger1 = time = 0
-v =  5
-value = 1
-
-[State 0, Special Cancel NOT OKAY]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1000
-ignorehitpause = 1
-persistent = 0
-
-[State 0, Special Cancel OKAY]
-type = Explod
-trigger1 = animelem = 6
-anim = 99999
-ID = 1000
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
 
 ;EX EFfects
 ;-------------------------------
@@ -5263,30 +5152,6 @@ trigger1 = animelem=3
 statetype = A       ;S,A,C,L
 movetype =A        ;I,A,H
 physics = A         ;A,C,S,N
-
-[State 0, Special Counter UP]
-type = VarAdd
-trigger1 = time = 0
-v =  5
-value = 1
-
-[State 0, Special Cancel NOT OKAY]
-type = RemoveExplod
-trigger1 = time = 0
-id = 1000
-ignorehitpause = 1
-persistent = 0
-
-[State 0, Special Cancel OKAY]
-type = Explod
-trigger1 = animelem = 5
-anim = 99999
-ID = 1000
-sprpriority = -3
-removetime = -1
-removeongethit = 1
-ignorehitpause = 1
-persistent = 1
 
 ;EX EFfects
 ;-------------------------------
