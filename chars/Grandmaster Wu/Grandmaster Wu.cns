@@ -542,7 +542,7 @@ channel = 9
 
 [State 2001, Particles]
 type = Helper
-trigger1 = map(CHARGE.LEVEL) > 30 && !numhelper(9001)
+trigger1 = map(CHARGE.LEVEL) > 60 && !numhelper(9001)
 helperType = Normal
 stateNo = 9001
 ID = 9001

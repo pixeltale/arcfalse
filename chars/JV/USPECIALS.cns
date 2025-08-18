@@ -1087,7 +1087,7 @@ ignorehitpause=1
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy, GetHitVar(ChainID) = 1101
-trigger1 = animelem = 4
+trigger1 = animelem = 5
 trigger1 = anim = 1101 && movehit
 time = 6
 id = -1
@@ -1095,24 +1095,24 @@ pos = 40
 ignorehitpause = 1
 [State 0, Smash Hit - Drag Em']
 type = ChangeAnim
-triggerall = AnimElemTime(4) < 15
+triggerall = AnimElemTime(5) < 15
 trigger1 	= enemy, GetHitVar(ChainID) = 1101
-trigger1 	= animelem = 4
+trigger1 	= animelem = 5
 value 	= 1101
-elem 	= 4
-
-[State 0, VelSet]
-type = VelSet
-triggerall = anim = 1101 && enemy, GetHitVar(ChainID) = 1101
-trigger1 = movehit
-trigger1 = animelemno(0) = 4
-x = 30
+elem 	= 5
 
 [State 0, VelSet]
 type = VelSet
 triggerall = anim = 1101 && enemy, GetHitVar(ChainID) = 1101
 trigger1 = movehit
 trigger1 = animelemno(0) = 5
+x = 30
+
+[State 0, VelSet]
+type = VelSet
+triggerall = anim = 1101 && enemy, GetHitVar(ChainID) = 1101
+trigger1 = movehit
+trigger1 = animelemno(0) = 6
 x = -18
 y = -4
 redirectid = enemynear, id
@@ -1120,7 +1120,7 @@ redirectid = enemynear, id
 [State 0, Enemy ChangeState]
 type = ChangeState
 trigger1 = movehit && enemy, movetype = H && enemy, GetHitVar(ChainID) = 1101
-trigger1 = animelem = 5
+trigger1 = animelem = 6
 value = map(CornerSplat)
 persistent = 0
 redirectid = enemynear, id
@@ -3084,7 +3084,7 @@ ground.velocity 	= 0, -2
 air.fall 		= 1
 fall.yvelocity 	= 0
 yaccel		= 0.1
-getpower 	= (100)*(cond(var(var(2)) = 1, 1.5, 1))
+getpower 	= 100
 kill		= 0
 
 [State 0, PlayerPush]
@@ -3194,7 +3194,7 @@ trigger1	= time % 5 = 0
 attr 	= S, HA
 animtype  	= Heavy
 air.animtype 	= back
-damage 		= 2, 0
+damage 		= 10, 0
 pausetime 	= 0,1
 sparkno 		= 1
 sparkxy 		= -p2dist x + random * 0.01 ,-1 + random * 0.1
@@ -3211,7 +3211,7 @@ air.fall 		= 1
 fall.yvelocity 	= 0
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower 	= 2
+getpower 	= 10
 kill		= 0
 [State 210, 2]
 type 	= HitDef 
@@ -3237,7 +3237,7 @@ air.fall 		= 1
 fall.yvelocity 	= 0
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower 	= 2
+getpower 	= 100
 
 [State 0, Explod]
 type = Explod

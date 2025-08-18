@@ -101,30 +101,30 @@ _!GUNGNIR	-		^C
         <#983eff>Enhanced version launches higher and for longer.</>
 
 	<#190bd9>UNLIMITED MOVES</>
-SVIGA LAE: DREIFING	-		D_DF_F_-^Z
+SVIGA LAE: DREIFING	-		_D_DF_F_-^Z
    <#a000ff>JV unleashes an explosive punch that sends
    him into the Dreifing state. While in this state, 
    he can dash/airdash cancel any attack, gains unlimited
    wall-splats, and is able to ground bounce the opponent
    with j2H as much as he wants. State ends after a set duration
    or after the combo ends.</>
-CROSSROADS MURDER: PRE-EMPT	-		D_DB_B_-^Z
+CROSSROADS MURDER: PRE-EMPT	-		_D_DB_B_-^Z
    <#a000ff>JV performs crossroads murder without the need
    for a counter to be activated.</>
-KILL THE ESCAPE PATH: XENOCIDE	-		F_D_DF_-^Z
+KILL THE ESCAPE PATH: XENOCIDE	-		_F_D_DF_-^Z
    <#a000ff>JV creates a wave of explosions, covering
    the screen. High hitstun, low recovery.</>
 
 
 	<#55ffff>SUPER MOVES</>
-<#983eff>JUDGEMENT BLADE</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
+<#e900f5>JUDGEMENT BLADE</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
    <#a000ff>JV performs a powerful single cut at the opponent, dealing
    high damage. Has a clean hit near his body that boosts its damage.</>
-<#983eff>FANGS OF THE WORLD SERPENT</>	-		<#55ffff>(2 BARS)</> _D_D_-^Y
+<#e900f5>FANGS OF THE WORLD SERPENT</>	-		<#55ffff>(2 BARS)</> _D_D_-^Y
    <#a000ff>JV charges his energy, granting himself a Fang. These
    fangs can be used for his Unlimited Specials, and allow him to
    special cancel out of special moves.</>
-<#983eff>BEAUTIFUL DEATH</>		<#55ffff>(4 BARS)</> _D_DB_B_-^Y
+<#e900f5>BEAUTIFUL DEATH</>		<#55ffff>(4 BARS)</> _D_DB_B_-^Y
    <#a000ff>A slow, powerful, invincible attack.</>
 
 	SYSTEM MECHANICS
