@@ -616,6 +616,14 @@ ctrl = 1
 
 [Statedef -2]
 
+;Limiters
+[State 0, MAPSET]
+type = MapSet
+trigger1 = enemy, movetype != H
+map = "jR_UseCount"
+value = 0
+
+
 [State SP, MapSet]
 type = MapSet
 trigger1 = enemy, movetype != H

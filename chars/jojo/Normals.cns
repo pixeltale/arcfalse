@@ -1463,6 +1463,13 @@ persistent = 1
 
 [State 0, PosAdd]
 type = VelAdd
+triggerall = !map(ComboStateCheck)
+trigger1 = animelem = 4
+x = 2
+y = 0
+[State 0, PosAdd]
+type = VelAdd
+triggerall = map(ComboStateCheck)
 trigger1 = animelem = 4
 x = 6
 y = 0

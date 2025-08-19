@@ -7200,6 +7200,15 @@ ctrl = 0
 anim =1300
 sprpriority = 2
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = prevstateno = 100 && !time
+value = 1300
+elem = 3
+;ignorehitpause = 
+;persistent = 
+
+
 [State 0, AttackDist]
 type = AttackDist
 trigger1 = 1

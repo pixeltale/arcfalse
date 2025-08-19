@@ -402,7 +402,7 @@ guardsound 		= 6,2
 ground.type 		= Low
 ground.slidetime 	= 15
 ground.hittime 		= 200
-ground.velocity		= -5,-7
+ground.velocity		= -2.5,-7
 air.velocity 		= -1,-8
 down.velocity		= -1, -9
 guard.velocity 		= -6
@@ -416,7 +416,7 @@ envshake.time 		= 15
 envshake.freq 		= 90
 envshake.ampl 		= -6
 envshake.phase 		= 100
-p2stateno 		= cond(enemy,statetype=S,5250,cond(enemy,statetype=C,5250,5300))
+p2stateno 		= 5300
 p2getp1state 		= 0
 
 [State 1000, 1]

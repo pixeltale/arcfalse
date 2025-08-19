@@ -1120,7 +1120,7 @@ value = 30,0
 [State 100, 1]
 type = VelSet
 trigger1 = time >= 0
-x = 8
+x = 8 + (var(50) * 0.5)
 
 [State 0, CtrlSet]
 type = CtrlSet

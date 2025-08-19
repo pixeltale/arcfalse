@@ -340,7 +340,7 @@ ignorehitpause 	= 1
 ;Explod Limiter 
 [State 0, Explod]
 type = Explod
-triggerall	= !map(Counterhit)
+triggerall	= enemy, statetype != A
 trigger1 = !NumExplod(99855)
 trigger1 = MoveHit = 1 && !map(counterHit) && map(ComboStateCheck)
 anim = 99856
@@ -876,13 +876,13 @@ y = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "holdx"   || command = "holdy" || command = "holdz"
-trigger1 = time = [10,24]
+trigger1 = time = [7,24]
 value = 1101
 
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command = "b"  
-trigger1 = time = [10,24]
+trigger1 = time = [7,24]
 value = 1102
 
 [State 0, ChangeState]
@@ -1401,8 +1401,8 @@ air.hittime  		= 28* MAP(untechMOD)
 down.hittime 		= 40
 ground.velocity 	= 0.5
 air.velocity 		= -1.2,	16
-guard.slidetime 	= 18
-guard.ctrltime 		= 18
+guard.slidetime 	= 10
+guard.ctrltime 		= 10
 fall.yvelocity 		= 0
 air.fall 		= 0
 forcenofall 	= 1
@@ -1703,7 +1703,7 @@ type = HitDef
 p2facing = 1
 trigger1 = 1
 attr = A, SA
-damage 		= 20*map(P4), 10
+damage 		= 30*map(P4), 10
 guardflag 	= HA
 hitflag 		= MAFD
 pausetime 	= 2,2
@@ -1730,6 +1730,15 @@ type = VelMul
 trigger1 = animelemno(0) < 6
 x = 0.95
 y = 0.85
+
+[State 0, VelMul]
+type = VelMul
+trigger1 = vel x < 0
+x = 0.85
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelemno(0) < 13 && vel x < 0
+y = 0.1
 
 [State 0, VelAdd]
 type = VelAdd
@@ -2241,7 +2250,7 @@ animtype 		= medium
 air.animtype 	= back
 ground.slidetime 	= 14
 ground.hittime  	= 80
-ground.velocity 	= -11,-7 * MAP(untechMOD)
+ground.velocity 	= -11,-7
 air.velocity 	= -11,-7 * MAP(untechMOD)
 air.hittime 	= 80
 down.hittime	= 80

@@ -447,6 +447,12 @@ type    = A
 physics = A
 ctrl = 1
 
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = prevstateno = 40 && time = [0,3]
+y = -3
+
+
 [State 50, 1]
 type = VarSet
 trigger1 = Time = 0

@@ -998,7 +998,7 @@ ground.velocity = -4,0
 air.velocity = -vel x*.4,vel y*.7
 fall  = 1
 air.fall = 1
- envshake.time = 8
+envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
@@ -1024,14 +1024,14 @@ sparkxy = -10,0
 hitsound   = s8,2
 guardsound = 6,0
 ground.type = Low
+air.type = TRIP
 ground.slidetime = 12
 ground.hittime  = 999
 guard.ctrltime = 5
 air.hittime = 999
-p2stateno = 915020
 fall  = 1
 air.fall = 1
- envshake.time = 8
+envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
@@ -1042,6 +1042,11 @@ type = ChangeState
 trigger1 = pos y>=0 && vel y>=0
 value = cond(movehit, 52, 1059)
 ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeAnim
+trigger1 = animelemno(0) = 9 && !movehit
+value = 1023
 
 ;---------------------------------------------------------------------------
 ;j.4S: EX AirShredder
@@ -3509,7 +3514,6 @@ timegap = 1
 framegap = 2
 persistent = 0
 
-
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = var(50) = 0 && anim!=1051
@@ -3518,7 +3522,6 @@ elem = 1
 
 [State 0, VelSet]
 type = VelSet
-triggerall = map(swordDistX) && map(swordDistY)
 trigger1 = var(50) && time < 16
 x = -map(swordDistX)*0.09 + 5
 y = -map(SwordDistY)*0.05 - 3
@@ -3527,7 +3530,7 @@ y = -map(SwordDistY)*0.05 - 3
 type = VelSet
 triggerall = map(swordDistX) && map(swordDistY)
 triggerall = var(50)
-trigger1 = map(swordDistX) < 10 && map(swordDistX) > - 10
+trigger1 = abs(map(SwordDistX)) < 10
 trigger1 = map(swordDistY) < 0
 x = vel x * 0.5
 y = 15
@@ -3864,23 +3867,12 @@ ctrl = 0
 type    = A
 movetype= A
 physics = N
-poweradd= (-2000)*(cond(var(var(2)) = 1, 1, .5))
+poweradd= -1000
 ctrl = 0
 anim =1251 +((var(50)*20))
 velset = 5,-11
 sprpriority = 2
 facep2 = 1
-
-[State 0,????]
-type = varadd
-trigger1 = time = 0
-fvar(13) = 1
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 0.4
 
 [State Meter Burn State, VarSet]
 type = VarSet
@@ -3992,7 +3984,7 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  1	;100% Starting DMG
+value 		=  0.85	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -4015,7 +4007,7 @@ type = HitDef
 p2facing = 1
 trigger1 = time %2= 0
 attr = A, SA
-damage = 14,2
+damage = 14 * map(P4),2
 animtype  = Medium
 hitflag = MAF
 guardflag = MA
@@ -4362,20 +4354,20 @@ ampl = 3
 [State 400, 4]
 type = ChangeState
 trigger1 =command = "b" && command = "holdback"
-trigger1 = movecontact && enemynear, movetype = H
-value = 1020
+trigger1 = movehit
+value = 1000
 ctrl = 0
 
 [State 400, 4]
 type = ChangeState
 trigger1 =command = "b" && command = "holdfwd"
-trigger1 = movecontact && enemynear, movetype = H
+trigger1 = movehit
 value = 1040
 ctrl = 0
 
 [State 400, 4]
 type = ChangeState
-trigger1 =command = "b" && command = "holddown" && movecontact && enemynear, movetype = H
+trigger1 =command = "b" && command = "holddown" && movehit
 value = 1030
 ctrl = 0
 
@@ -4812,4 +4804,204 @@ trigger1 = animtime = 0
 value = 0
 ctrl = 1
 
+
+;ONO 6S
 ;-----------------------------
+[Statedef 1300]
+type    		= S
+movetype		= A
+physics 		= S
+ctrl 		= 0
+anim 		= 1045
+sprpriority 	= 2
+velset 		= vel x, 0
+
+[State One Voices]
+type 	= PlaySnd
+trigger1 	=  animelem = 6
+value 	= 190, 0
+volumescale=150
+channel 	= 6
+
+[State 200, 2]
+type 	= PlaySnd
+trigger1 	= animelem = 6
+value 	= 0, 0
+[State 200, 2]
+type 	= PlaySnd
+trigger1 	= animelem = 8
+value 	= 0, 1
+
+[State 100, 1]
+type = VelSet
+trigger1 = anim = 1045 && animelemno(0) >= 3
+x = 8
+[State 0, Custom Afterimage]
+type = Explod
+triggerall = anim = 1045
+trigger1 = time > 5 && time % 3 = 0
+anim = 1047
+ID = 1000
+vel = 0, -0.75
+accel = 0, 0.075
+postype = p1
+bindtime = 1
+facing = 1
+supermovetime = 0
+pausemovetime = 0
+scale = const(size.xscale), const(size.yscale)
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+trans = add
+removetime = 10
+palfx.time = 40
+palfx.sinmul = 50,50,50,20
+removeongethit = 0
+ignorehitpause = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time > 10
+trigger1 = p2dist x < 50 && anim != 1046
+value = 1046
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim = 1046 && animelem = 1
+x = 12
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = anim = 1046 && animelem = 3
+x = 15
+[State 0, VelSet]
+type = VelMul
+trigger1 = anim = 1046 && animelemno(0) >= 3
+x = 0.8
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = anim = 1046 && animelem = 1
+x = 15
+redirectid = enemynear, id
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = anim = 1046 && animelemno(0) < 4
+value = 0
+
+
+
+ ;============================
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		=  2
+ignorehitpause 	=  1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		=  0.86	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+;============================
+
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 	= 1
+map 		= "RapidDecay"
+value 		= 25*MAP(P4)-(time/8) -((var(30)>0))
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1 
+triggerall	= enemy, !map(ArmorActive)
+trigger1 	= time = 0
+attr 	= S, SA
+damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
+hitflag 	= MAFD
+guardflag = MA
+priority 	= 3
+pausetime 	= 18,22
+guard.pausetime 	= 20,20
+sparkno 		= 3
+sparkxy 		= -5,-45
+hitsound   	= 5,4
+getpower 		= 0
+guardsound 	= 6,2
+ground.type 	= Low
+animtype 		= medium
+air.animtype 	= back
+ground.slidetime 	= 14
+ground.hittime  	= 70 * map(UntechMOD)
+ground.velocity 	= 11,-7
+air.velocity 	= 11,-7 * MAP(untechMOD)
+guard.velocity	= 10
+air.hittime 	= 60 * map(UntechMOD)
+down.hittime	= 80
+envshake.time 	= 7
+fall 		= 1
+air.fall		= 1
+fall.yvelocity	= 0
+guard.ctrltime 	= 8
+guard.velocity  = -3
+ground.cornerpush.veloff = -20
+p2stateno 	= 5220
+p2getp1state 	= 0
+
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1 
+triggerall	= enemy, map(ArmorActive)
+trigger1 	= !movecontact && !movereversed
+hitonce 	= 1
+attr 	= S, SA
+damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
+hitflag 	= MAFD
+guardflag = MA
+priority 	= 3
+pausetime 	= 24,28
+guard.pausetime 	= 20,20
+sparkno 		= 3
+sparkxy 		= -5,-45
+hitsound   	= 5,4
+getpower 		= 0
+guardsound 	= 6,2
+ground.type 	= Low
+animtype 		= medium
+air.animtype 	= back
+ground.slidetime 	= 14
+ground.hittime  	= 80
+ground.velocity 	= 11,-7 * MAP(untechMOD)
+air.velocity 	= 11,-7 * MAP(untechMOD)
+air.hittime 	= 80
+down.hittime	= 80
+envshake.time 	= 7
+fall 		= 1
+air.fall		= 1
+fall.yvelocity	= 0
+guard.ctrltime 	= 8
+guard.velocity  = -3
+ground.cornerpush.veloff = -20
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !animtime
+value = 0
+ctrl = 1

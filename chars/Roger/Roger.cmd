@@ -33,7 +33,7 @@ var(1) = 0
 [State -1, Combo condition Check]
 type = VarSet
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 100
 trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || stateno = 656 || stateno = [500,562] && stateno != 550
 trigger2 = movecontact && !enemy, movereversed
 trigger2 = stateno!=421
@@ -263,7 +263,7 @@ triggerall = stateno != [500,562]
 triggerall = command = "c" && command="holddown"
 triggerall = command != "b"
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 100
 trigger2 = var(1)
 trigger2=stateno!=105
 
@@ -275,7 +275,7 @@ triggerall = stateno != [500,562]
 triggerall = command = "c" && command="holdback"
 triggerall = command != "b"
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 100
 trigger2 = var(1)
 trigger2=stateno!=105
 
@@ -287,7 +287,7 @@ triggerall = stateno != [500,562]
 triggerall = command = "c"
 triggerall = command != "b"
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 100
 trigger2 = var(1)
 trigger2=stateno!=105
 ;---------------------------------------------------------------------------
