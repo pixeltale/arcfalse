@@ -5029,6 +5029,15 @@ anim 		= 1360
 sprpriority 	= 2
 velset 		= vel x, 0
 
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = animelemno(0) > 4
+value = 0
+movecamera = 0,0
+;ignorehitpause = 
+;persistent = 
+
+
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = pos y < 0
