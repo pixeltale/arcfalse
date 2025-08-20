@@ -619,8 +619,8 @@ ctrl = 1
 ;Limiters
 [State 0, MAPSET]
 type = MapSet
-trigger1 = enemy, movetype != H
-map = "jR_UseCount"
+trigger1 = !map(ComboStateCheck)
+map = "j2H_UseCount"
 value = 0
 
 
@@ -634,8 +634,8 @@ ignorehitpause = 1
 [State 0, Distance Display]
 type = DisplaytoClipboard
 trigger1 = 1
-text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, var(50) = %d"
-params = map(swordDistX), frontedgedist, backedgedist, var(50)
+text = "swordDistX= %f, frontedgedist= %d, backedgedist = %d, var(50) = %d j2Hbounce = %f"
+params = map(swordDistX), frontedgedist, backedgedist, var(50), map(jR_useCount)
 
 [State 0. MapSet]
 type 		= MapSet

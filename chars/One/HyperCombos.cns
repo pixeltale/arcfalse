@@ -830,7 +830,7 @@ hitflag 	= MAFD
 air.animtype 	= back
 guardflag 	= MA
 priority 	= 3, Hit
-pausetime 	= 22,22
+pausetime 	= 12,12
 sparkno 	= 13
 sparkxy 	= -15+random%20,-50
 hitsound   	= s8,0
@@ -852,6 +852,19 @@ envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 getpower 	= 0
+
+[State 0, Turn]
+type = Turn
+trigger1 = animelem = 2
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = animelem = 2
+x = -10
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
 
 [State 0, PlaySnd]
 type = PlaySnd

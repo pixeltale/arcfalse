@@ -428,7 +428,7 @@ type 		= MapSet
 triggerall	= !var(50)
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  2
+value 		=  4
 ignorehitpause 	=  1
 [State -2, Starter Level]
 type 		= MapSet
@@ -1040,7 +1040,7 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  2
+value 		=  3
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
@@ -2637,7 +2637,7 @@ type 		= MapSet
 triggerall	= !var(50)
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  2
+value 		=  3
 ignorehitpause 	=  1
 [State -2, Starter Level]
 type 		= MapSet
@@ -2892,7 +2892,7 @@ facep2 = map(SJI)
 [State 0, MAPADD]
 type = MapAdd
 trigger1 = movehit = 1 && map(ComboStateCheck) && enemy, statetype = A
-map = "jR_UseCount"
+map = "j2H_UseCount"
 value = 1
 ignorehitpause = 1
 persistent = 0
@@ -2998,7 +2998,7 @@ guard.hittime 	= 20
 guard.ctrltime 	= 10
 air.fall 		= 1
 getpower 		= 50
-p2stateno = cond((enemy, statetype = A), cond(map(jR_useCount) < 1, 5255,  5070), 5000)
+p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
 p2getp1state = 0
 
 
