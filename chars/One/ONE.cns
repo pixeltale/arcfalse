@@ -1,6 +1,6 @@
 [Data]
 ;Amount of life to start with
-life = 1200
+life = 1300
 attack = 100
 defence = 100
 fall.defence_up = 0
@@ -622,7 +622,11 @@ type = MapSet
 trigger1 = !map(ComboStateCheck)
 map = "j2H_UseCount"
 value = 0
-
+[State 0, MAPSET]
+type = MapSet
+trigger1 = !map(ComboStateCheck)
+map = "SLAM_UseCount"
+value = 0
 
 [State SP, MapSet]
 type = MapSet

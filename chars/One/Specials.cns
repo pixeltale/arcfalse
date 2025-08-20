@@ -5017,3 +5017,247 @@ type = ChangeState
 trigger1 = !animtime
 value = 0
 ctrl = 1
+
+;ONO 2S - Fly Up
+;-----------------------------
+[Statedef 1310]
+type    		= S
+movetype		= A
+physics 		= S
+ctrl 		= 0
+anim 		= 1360
+sprpriority 	= 2
+velset 		= vel x, 0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+statetype = A
+physics = A
+
+[State 0, VelMul]
+type = VelMul
+trigger1 = animelemno(0) <= 4
+x = 0.9
+y = 0.1
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelAdd
+trigger1 = animelemno(0) >= 5
+y = -5
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !animtime
+value = 1311
+ctrl = 1
+
+;ONO 2S - Crash Down
+;-----------------------------
+[Statedef 1311]
+type    		= A
+movetype		= A
+physics 		= S
+ctrl 		= 0
+anim 		= 1361
+sprpriority 	= 2
+velset 		= vel x, 0
+facep2		= 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = animelemno(0) < 5
+trigger1 = p2dist x < 0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 6
+statetype = S
+physics = S
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = !time
+y = 0
+ignorehitpause = 1
+[State 0, PosAdd]
+type = PosSet
+trigger1 = !time
+x = helper(260), pos x
+ignorehitpause = 1
+
+;============================
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		=  4
+ignorehitpause 	=  1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		=  0.90	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		=  0.90	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent 		= 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+;============================
+
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1
+trigger1 	= !movecontact && !movereversed
+trigger1	= animelemno(0) = [2,3] && map(ComboStateCheck)
+attr 	= A, SA
+damage 	= 100*MAP(P4)
+hitflag 	= MAF
+guardflag 	= MA
+pausetime 	= 8,10
+sparkno 		= 3
+sparkxy 		= -5,-35
+hitsound   	= 5,3
+guardsound 	= 6,2
+ground.type 	= LOW
+air.type		= TRIP
+ground.slidetime 	= 6
+ground.hittime  	= 20 * MAP(UntechMOD)
+air.hittime  	= 99
+down.hittime 	= 99
+ground.velocity 	= -4
+fall.yvelocity 	= 0
+air.velocity 	= -1,16
+down.velocity 	= -2,-10
+guard.slidetime 	= 18
+guard.hittime 	= 20
+guard.ctrltime 	= 10
+air.fall 		= 1
+getpower 	= 50
+id = 1
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1
+trigger1	= animelemno(0) = 5 && !map(SLAM_UseCount)
+trigger1 	= (!movecontact && !movereversed) || enemy, GetHitVar(chainid) = 1
+hitonce 	= 1
+attr 	= A, SA
+damage 	= 100*MAP(P4)
+hitflag 	= MAFD
+guardflag 	= MA
+pausetime 	= 16,16
+sparkno 		= 3
+sparkxy 		= -5,-35
+hitsound   	= 5,3
+guardsound 	= 6,2
+ground.type 	= LOW
+air.type		= LOW
+ground.slidetime 	= 6
+ground.hittime  	= 30 * map(untechMOD)
+air.hittime  	= 30 * map(untechMOD)
+down.hittime 	= 99
+fall.yvelocity 	= 0
+ground.velocity = 0, 16
+air.velocity 	= -1,14
+down.velocity 	= -2,-10
+guard.slidetime 	= 18
+guard.hittime 	= 20
+guard.ctrltime 	= 10
+fall 		= 1
+air.fall 		= 1
+getpower 		= 50
+p2stateno 	= 5255
+p2getp1state 	= 0
+id = 2
+[State 630, 2]
+type = HitDef 
+p2facing 	= 1
+trigger1	= animelemno(0) = 5 && map(SLAM_UseCount)
+trigger1 	= (!movecontact && !movereversed) || enemy, GetHitVar(chainid) = 1
+hitonce 	= 1
+attr 	= A, SA
+damage 	= 100*MAP(P4)
+hitflag 	= MAFD
+guardflag 	= MA
+pausetime 	= 16,16
+sparkno 		= 3
+sparkxy 		= -5,-35
+hitsound   	= 5,3
+guardsound 	= 6,2
+ground.type 	= TRIP
+air.type		= TRIP
+ground.slidetime 	= 6
+ground.hittime  	= 30
+air.hittime  	= 30
+down.hittime 	= 99
+ground.velocity 	= -4
+fall.yvelocity 	= 0
+ground.velocity = 0, 16
+air.velocity 	= -1,16
+down.velocity 	= -2,-10
+guard.slidetime 	= 18
+guard.hittime 	= 20
+guard.ctrltime 	= 10
+fall 		= 1
+air.fall 		= 1
+getpower 		= 50
+
+[State 0, MAPSET]
+type = MapSet
+trigger1 = movehit = 1 && enemy, GetHitVar(chainid) = 2
+map = "SLAM_UseCount"
+value = 1
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+flag2 = NoAutoTurn
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = movehit && enemy, GetHitVar(chainId) = 2
+ignorehitpause = 1
+value = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 5
+anim = 194
+ID = 194
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = -2
+scale = .6,.6
+sprpriority = -1
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 5
+anim = 195
+ID = 195
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = -2
+scale = .6,.6
+sprpriority = 2
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !animtime
+value = 0
+ctrl = 1

@@ -7,7 +7,7 @@
    ONE to jump to his sword.
 
 	<#24ff24>SWORD UNIQUE MOVES</>
-VERTICAL	-		_B^B
+CLOSE SLASH	-		_B^B
    <#bbbbbb>An uppercut.</>
 SWEEP	-		_DF^C
    <#bbbbbb>A low-hitting sweep. Can be jump-canceled on hit.</>
@@ -17,22 +17,24 @@ SPIKE	-		<#65b5ff>(AIR ONLY)</> _D^C
 	<#0f43ff>SWORDLESS UNIQUE MOVE</>
 SWEEP	-		_DF^C
    <#bbbbbb>A low-hitting sweep.</>
+SPIKE	-		<#65b5ff>(AIR ONLY)</> _D^C
+   <#bbbbbb>A powerful downward double kick that ground bounces
+   the opponent once.</>
 
 	<#24ff24>SWORD SPECIAL MOVES</>
 ACID FLIP	-		<#aaffff>(GROUND OR AIR)</> ^Y
    <#bbbbbb>Makes One fly through the air, influenced
    by his prior momentum.
    Has unique followup attacks.</>
-_!PEDESTAL	-		^A
+_!DIVING STAB	-		^A
         <#bbbbbb>Drops straight down with an overhead attack.</>
-_!CUT	-		^B
+_!CROSS CUT	-		^B
         <#bbbbbb>A large sword attack. Can be jump-canceled on hit.</>
-_!GRAPPLE	-		^C
-        <#bbbbbb>An airborne command grab. Will not hit opponents who
-        are crouching.</>
+_!AIR BURIAL	-		^C
+        <#bbbbbb>An airborne command grab.</>
 ACID DASH	-		_F^Y
    <#bbbbbb>A forward moving attack that causes a sliding knockdown.</>
-CHOP	-		_B^Y
+TWIN SLASHES	-		_B^Y
    <#bbbbbb>A two-hit sword slash. Restands opponents.</>
 INCISION	-		<#65b5ff>(AIR ONLY)</> _F^Y
    <#bbbbbb>A strong, advancing cut that is great for extending
@@ -45,7 +47,13 @@ RISE	-		 _D^Y
 	<#0f43ff>SWORDLESS SPECIAL MOVES</>
 FLIP	-		<#aaffff>(GROUND OR AIR)</> ^Y
    <#bbbbbb>Makes One fly forward through the air, tracking his
-   sword.</>
+   sword if it's still airborne.</>
+UNDERMINE	-		<#aaffff>(GROUND ONLY)</> _F^Y
+   <#bbbbbb>A command dash. When One reaches the opponent,
+   he'll run behind the opponent and kick them backward.</>
+RETURN TO ORIGIN	-		<#aaffff>(GROUND OR AIR)</> _D^Y
+   <#bbbbbb>One flies into the air before crashing down with
+   a powerful sword strike at the position of his sword.</>
 
 	<#24ff24>SWORD REMIX MOVES</>
 SWORD THROW	-		^Z
@@ -61,12 +69,13 @@ ROUNDABOUT	-		(HOLD) ^Z
 _!AIM	-		(AS THE MOVE STARTS) _U
         <#bbbbbb>Holding up makes One throw the sword upwards.</>
 SWORD THROW	-		_D^Z
-   <#bbbbbb>One throws his sword diagonally upwards.</>
+   <#bbbbbb>One throws his sword diagonally upwards.
    Hold down-forward or dow-back to angle the throw.</>
 
 	<#0f43ff>SWORDLESS REMIX MOVES</>
-AXE	-		<#65b5ff>(AIR ONLY)</> ^Z
-           <#bbbbbb>A large kick with both legs.</>
+BACKSLASHING	-		^Z
+   <#bbbbbb>One runs to his sword, passing behind the opponent.
+   If he reaches it, he'll perform a slash behind himself to damage them.</>
 
 	<#ffef0f>EX MOVES</>
 _EX ACID FLIP	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> ^Y

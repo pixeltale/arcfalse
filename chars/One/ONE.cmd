@@ -128,6 +128,16 @@ trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
+[State 1030, 2S: SLAM]
+type = ChangeState
+value = 1310
+triggerall = var(50)
+triggerall = command = "b"
+triggerall = command = "holddown"
+trigger1 = ctrl
+trigger2 = var(1) ||(stateno = [600,650]) && movecontact || stateno = 1300 && movehit
+trigger3 = stateno = 450 || stateno = 640 || stateno = 11125
+
 ;[State 10301, j2EX: Air EX Shoryu]
 ;type = ChangeState
 ;value = 10301
