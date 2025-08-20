@@ -4979,6 +4979,7 @@ movecamera = 0,1
 
 [State 5221, Hit wall]
 type = SelfState
+triggerall = time > 3
 triggerall = Pos y < -15
 trigger1 = BackEdgeBodyDist <= 20
 trigger2 = FrontEdgeBodyDist <= 20

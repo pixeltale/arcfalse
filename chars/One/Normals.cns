@@ -99,6 +99,7 @@ air.fall		= 1
 air.type 		= High
 air.velocity 	= -1.4,-3
 guard.ctrltime 	= 8
+ground.cornerpush.veloff = -8 / map(untechMOD)
 getpower 		= (30)*(cond(var(var(5)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
@@ -328,8 +329,6 @@ down.hittime = 30 * map(UntechMod)
 ground.velocity = -5.1
 air.velocity = -2,-2
 air.fall = 1
-palfx.time = 12
-palfx.add = 100, 0,20
 envshake.time = 0
 fall.envshake.time = 0
  envshake.time = 8
@@ -337,7 +336,7 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 16
-guard.cornerpush.veloff = -10
+ground.cornerpush.veloff = -10 / map(untechMOD)
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 
 [State 210, 4]
@@ -426,9 +425,17 @@ ignorehitpause = 0
  ;============================
 [State -2, Starter Level]
 type 		= MapSet
+triggerall	= !var(50)
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		=  2
+ignorehitpause 	=  1
+[State -2, Starter Level]
+type 		= MapSet
+triggerall	= var(50)
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		=  3
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
@@ -646,6 +653,7 @@ down.hittime 	= 20 * map(UntechMod)
 ground.velocity 	= -3
 air.velocity 	= -1.5,-3
 guard.ctrltime 	= 8
+ground.cornerpush.veloff = -8 / map(untechMOD)
 air.fall 		= 1
 getpower 		= (20)*(cond(var(var(5)) = 1, 1, .5)) 
 
@@ -703,11 +711,18 @@ ignorehitpause = 0
  ;============================
 [State -2, Starter Level]
 type 		= MapSet
+triggerall	= !var(50)
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		=  1
 ignorehitpause 	=  1
-
+[State -2, Starter Level]
+type 		= MapSet
+triggerall	= var(50)
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		=  2
+ignorehitpause 	=  1
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -785,7 +800,7 @@ hitsound   = S8,1
 guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 16 * map(UntechMod)
+ground.hittime  = 22 * map(UntechMod)
 air.hittime  = 18 * map(UntechMod)
 down.hittime = 18 * map(UntechMod)
 ground.velocity = -3.7,-0
@@ -802,6 +817,7 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 14
+ground.cornerpush.veloff = -8 / map(untechMOD)
 forcenofall = 0
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 
@@ -1505,13 +1521,13 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.90	;100% Starting DMG
+value 		=  0.80	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		=  0.89	;80% DMG For next hit
+value 		=  0.80	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, P2 Accumulation - Scale]
@@ -1526,13 +1542,15 @@ persistent 		= 0
 [State 410, 2]
 type = HitDef 
 p2facing = 1
+triggerall = animelem = 4
 trigger1 = !MoveContact && !MoveReversed
-attr = S, HA
+trigger1 = p2dist x < 0 || map(Combostatecheck)
+attr = S, SA
 damage = 65 * MAP(P4),1
 animtype  = DIagup
 hitflag = MAF
 guardflag = MA
-pausetime = 12,12
+pausetime = 8,8
 sparkno = 11
 sparkxy = -10,0
 hitsound   = 5,1
@@ -2616,9 +2634,17 @@ value = 0, 0
 ;Note: Always have ignorehitpause on all of these.
 [State -2, Starter Level]
 type 		= MapSet
+triggerall	= !var(50)
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  2	;3 = Long Combo, 2 = Average Combo, 1 = Short Combo
+value 		=  2
+ignorehitpause 	=  1
+[State -2, Starter Level]
+type 		= MapSet
+triggerall	= var(50)
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		=  3
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
@@ -2888,7 +2914,7 @@ value = 0, 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  3
+value 		=  4
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
@@ -2930,7 +2956,7 @@ guardsound 	= 6,2
 ground.type 	= LOW
 air.type		= TRIP
 ground.slidetime 	= 6
-ground.hittime  	= 14 * MAP(UntechMOD)
+ground.hittime  	= 20 * MAP(UntechMOD)
 air.hittime  	= 99
 down.hittime 	= 99
 ground.velocity 	= -4
@@ -2952,7 +2978,7 @@ attr 	= A, NA
 damage 	= 100*MAP(P4)
 hitflag 	= AF
 guardflag 	= HA
-pausetime 	= 14,10
+pausetime 	= 10,10
 sparkno 		= 3
 sparkxy 		= -5,-35
 hitsound   	= 5,3

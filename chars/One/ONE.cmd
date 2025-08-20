@@ -425,15 +425,6 @@ triggerall = statetype != A
 trigger1 = ctrl || stateno = [100, 101]
 trigger2 = (stateno =[200,250] || stateno =[400,449]) && movecontact
 
-[State 250, 5R: Standing Sword Throw]
-type = ChangeState
-value = 250
-triggerall = command = "c" 
-triggerall = command != "holddown"
-triggerall = !var(50)
-triggerall = statetype != A
-trigger1 = ctrl || stateno = [100, 101]
-trigger2 = (stateno = [200, 250] || stateno = [400,450]) && movecontact
 
 [State 250, Ono 5R]
 type = ChangeState
@@ -444,6 +435,17 @@ triggerall = var(50)
 triggerall = statetype != A
 trigger1 = ctrl || stateno = [100, 101]
 trigger2 = (stateno = [200, 250] || stateno = [400,450]) && movecontact
+
+[State 250, 5R: Standing Sword Throw]
+type = ChangeState
+value = 250
+triggerall = command = "c" 
+triggerall = command != "holddown"
+triggerall = !var(50)
+triggerall = statetype != A
+trigger1 = ctrl || stateno = [100, 101]
+trigger2 = (stateno = [200, 250] || stateno = [400,450]) && movecontact
+
 
 ;---------------------------------------------------------------------------
 [State 610, jL: Jump Light Attack]

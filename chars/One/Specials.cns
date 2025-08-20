@@ -8,6 +8,7 @@ ctrl = 0
 anim =1000
 sprpriority = 2
 velset = vel x, 0
+facep2 = 1
 
 [State One Voices]
 type = PlaySnd
@@ -92,7 +93,7 @@ type = HitDef
 p2facing = 1 
 trigger1 = animelem = 6
 attr = S, SA
-damage = cond(map(RapidDecay) > 0, map(RapidDecay), 1) 10
+damage = 50 * map(P4), 10
 hitflag = MAF
 air.animtype = back
 guardflag = MA
@@ -106,7 +107,7 @@ ground.type = Low
 animtype = medium
 ground.slidetime = 14
 ground.hittime  = 25 * map(UntechMod)
-air.hittime  = 30 * map(UntechMod)
+air.hittime  = 30
 down.hittime = 30 * map(UntechMod)
 ground.velocity = -0.5 - time * 0.25
 guard.ctrltime = 18
@@ -125,7 +126,7 @@ type = HitDef
 p2facing = 1 
 trigger1 = animelem = 11
 attr = S, SA
-damage = cond(map(RapidDecay) > 0, map(RapidDecay), 1) 10
+damage = 50, 10
 hitflag = MAF
 air.animtype = back
 guardflag = MA
@@ -3348,6 +3349,7 @@ physics = S
 ctrl = 0
 anim =1050+((var(50)*20))
 sprpriority = 2
+facep2 = 1
 
 [State 200, 2]
 type = PlaySnd
@@ -4112,9 +4114,19 @@ movetype= A
 physics = N
 ctrl = 0
 anim =1052
-velset = 2,-5 
+velset = 2,-3 
 facep2 = prevstateno = 1251 || prevstateno = 12251
 sprpriority = 2
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = !TIME
+trigger1 = map(ComboStateCheck)
+value = anim
+elem = 2
+;ignorehitpause = 
+;persistent = 
+
 
 [State One Voices]
 type = PlaySnd
@@ -4192,7 +4204,7 @@ getpower = 0
 type = VelSet
 trigger1 = animelem = 4
 x = 0
-y = 12
+y = 15
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -4287,8 +4299,7 @@ envshake.ampl = 3
 envshake.phase = 1
 guard.velocity = -6
 guard.slidetime = 5
-guard.hittime = 30
-guard.ctrltime = 5
+guard.ctrltime = 15
 getpower = 0
 guard.cornerpush.veloff = -15
 
@@ -4869,7 +4880,7 @@ value = 1046
 [State 0, VelSet]
 type = VelSet
 trigger1 = anim = 1046 && animelem = 1
-x = 12
+x = 10
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = anim = 1046 && animelem = 3
@@ -4885,7 +4896,8 @@ x = 15
 redirectid = enemynear, id
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = anim = 1046 && animelemno(0) < 4
+trigger1 = anim = 1046
+trigger2 = movehit
 value = 0
 
 
@@ -4932,14 +4944,14 @@ persistent 		= 0
 type = HitDef 
 p2facing 	= 1 
 triggerall	= enemy, !map(ArmorActive)
-trigger1 	= time = 0
+trigger1 	= !movecontact && p2dist x < 0
 attr 	= S, SA
 damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
 hitflag 	= MAFD
 guardflag = MA
 priority 	= 3
-pausetime 	= 18,22
-guard.pausetime 	= 20,20
+pausetime 	= 16,16
+guard.pausetime 	= 10,10
 sparkno 		= 3
 sparkxy 		= -5,-45
 hitsound   	= 5,4
