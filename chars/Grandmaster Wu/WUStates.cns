@@ -832,7 +832,7 @@ ctrl = 0
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = (cond(prevstateno = [600,640], time = 10, time = 0))
+trigger1 = (cond(prevstateno = [600,640], time = 5, time = 0))
 value = 1
 [State 0, VelMul]
 type = VelMul

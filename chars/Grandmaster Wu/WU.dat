@@ -39,12 +39,11 @@ _EX FORCE PALM	-		<#55ffff>(1 BAR)</> _B^Y
 _EX RISING MASTER	-		<#55ffff>(1 BAR)</> _D^Y
    <#bbbbbb>An invincible upward kick.</>
 
-	<#55ffff>SUPER MOVES</>
-<#983eff>JUDGEMENT BLADE EXCEED</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
-   <#a000ff>JV charges energy in his arm and swipes at his opponent, delivering
-   a powerful cut that wall-bounces.</>
-<#983eff>BEAUTIFUL DEATH</>		<#55ffff>(4 BARS)</> _D_DB_B_-^Y
-   <#a000ff>A slow, powerful, invincible attack.</>
+	<#55ffff>SUPERS</>
+<#c63d3d>SOBRIETY</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A long-ranged projectile attack with a sweet spot up close.</>
+<#c63d3d>SOLEMNITY</>		<#65b5ff>(AIR ONLY)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+<#c63d3d>EQUANIMITY</>	-		<#55ffff>(4 BARS)</> _D_DB_B_-^A/^B/^C
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U

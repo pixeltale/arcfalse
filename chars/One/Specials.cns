@@ -4913,13 +4913,13 @@ ignorehitpause 	=  1
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "P1"
-value 		=  0.86	;100% Starting DMG
+map 			= "P1"
+value 		=  0.85	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
-map 		= "P2"
+map 			= "P2"
 value 		= 0.90	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
@@ -4932,21 +4932,13 @@ ignorehitpause 	= 1
 persistent 		= 0
 ;============================
 
-[State -2, P2 Accumulation - Scale]
-type 		= MapSet
-trigger1 	= 1
-map 		= "RapidDecay"
-value 		= 25*MAP(P4)-(time/8) -((var(30)>0))
-ignorehitpause 	= 1
-persistent 		= 0
-
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1 
 triggerall	= enemy, !map(ArmorActive)
 trigger1 	= !movecontact && p2dist x < 0
 attr 	= S, SA
-damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5
+damage 	= 100*MAP(P4)+50 + 100 * map(CounterHit), 5
 hitflag 	= MAFD
 guardflag = MA
 priority 	= 3
@@ -4961,9 +4953,9 @@ ground.type 	= Low
 animtype 		= medium
 air.animtype 	= back
 ground.slidetime 	= 14
-ground.hittime  	= 70 * map(UntechMOD)
-ground.velocity 	= 11,-7
-air.velocity 	= 11,-7 * MAP(untechMOD)
+ground.hittime  	= 70
+ground.velocity 	= 18,-7
+air.velocity 	= 18,-7
 guard.velocity	= 10
 air.hittime 	= 60 * map(UntechMOD)
 down.hittime	= 80
@@ -4971,7 +4963,7 @@ envshake.time 	= 7
 fall 		= 1
 air.fall		= 1
 fall.yvelocity	= 0
-guard.ctrltime 	= 8
+guard.ctrltime 	= 6
 guard.velocity  = -3
 ground.cornerpush.veloff = -20
 p2stateno 	= 5220
@@ -5032,11 +5024,13 @@ velset 		= vel x, 0
 [State 0, ScreenBound]
 type = ScreenBound
 trigger1 = animelemno(0) > 4
-value = 0
-movecamera = 0,0
-;ignorehitpause = 
-;persistent = 
+value = 1
+movecamera = 1,0
 
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
 
 [State 0, StateTypeSet]
 type = StateTypeSet
