@@ -1076,8 +1076,7 @@ guard.slidetime = 10
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = time>18 && command = "b"
-trigger2 = movecontact && command = "b"
+trigger1 = movecontact && command = "hold_b"
 value =1015
 ctrl = 0
 
@@ -1198,8 +1197,8 @@ fall = 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = time>13 && command = "b"
-trigger2 = movecontact && command = "b"
+triggerall = movecontact
+trigger1 = command = "b"
 value =1016
 ctrl = 0
 
@@ -1288,8 +1287,7 @@ guard.slidetime = 10
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = time>14 && command = "b"
-trigger2 = movecontact && command = "b"
+trigger1 = movecontact && command = "b"
 value =1017
 ctrl = 0
 
@@ -1630,9 +1628,8 @@ facep2 = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = time<90
-trigger1 = prevstateno = 750 && command = "hold_b"
-value = anim
+trigger1 = !time && map(Charge.level) >= 60
+value = 1035
 elem = 1
 
 [State 0, Explod]
@@ -1707,14 +1704,14 @@ ignorehitpause 	= 1
 [State -2, Charge Checker]
 type 	= MapAdd
 trigger1 	= time = 1
-trigger1	= map(CHARGE.LEVEL) > 60
+trigger1	= map(CHARGE.LEVEL) >= 60
 map 		= "FIREBALL_LEVEL"
 value 		= 1
 ignorehitpause 	= 1
 [State -2, Charge Checker]
 type 	= MapAdd
 trigger1 	= time = 1
-trigger1	= map(CHARGE.LEVEL) > 200
+trigger1	= map(CHARGE.LEVEL) >= 200
 map 		= "FIREBALL_LEVEL"
 value 		= 1
 ignorehitpause 	= 1
@@ -2061,6 +2058,7 @@ animtype = medium
 ground.slidetime = 14
 ground.hittime  = 33
 ground.velocity = vel x *-.8,1
+guard.ctrl
 fall.yvelocity = 0
 air.velocity = vel x *-1.5,-1
 air.hittime = 24
@@ -2213,22 +2211,22 @@ trigger1 = 1
 [State 0, Veladd]
 type = Veladd
 trigger1 = p2dist x>0
-x = .15
+x = .1
 
 [State 0, Veladd]
 type = Veladd
 trigger1 = p2dist x<0
-x = -.15
+x = -.1
 
 [State 0, Veladd]
 type = Veladd
 trigger1 = p2dist y>20
-y = .15
+y = .1
 
 [State 0, Veladd]
 type = Veladd
 trigger1 = p2dist y<40
-y = -.15
+y = -.1
 
 [State 0, VelSet]
 type = VelSet
@@ -2255,7 +2253,7 @@ hitflag = MAF
 air.animtype = back
 guardflag = MA
 priority = 3
-pausetime = 5,7
+pausetime = 3,3
 sparkno = 3
 sparkxy = random%20,10-random%20
 hitsound   = 5,3
@@ -2265,6 +2263,7 @@ animtype 			= medium
 ground.slidetime 	= 14
 ground.hittime  	= 33
 ground.velocity 	= vel x *-.8,1
+guard.ctrltime		= 5
 fall.yvelocity 	= 0
 air.velocity 		= vel x *-1.5,-1
 air.hittime 		= 24
@@ -2425,7 +2424,7 @@ physics = S
 juggle  = 2
 poweradd= -1000
 ctrl = 0
-anim =103000
+anim =1036
 sprpriority = 2
 
 ;-----
@@ -3467,6 +3466,15 @@ velset = 0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 101555                       ;Change animation (Def: no change)                   
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0
+y = 0
+;ignorehitpause = 
+;persistent = 
+
 
 [State Wu Voices]
 type = PlaySnd

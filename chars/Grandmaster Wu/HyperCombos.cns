@@ -407,6 +407,35 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause = 0
 
+;ARCFALSE DAMAGE SCALING - HEAVY
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.80
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 
 [State 1000, 1]
 type = HitDef 
@@ -414,7 +443,7 @@ p2facing = 1
 hitonce = 1
 trigger1 = time = 0
 attr = S, HP                     ;Attribute: Standing, Normal Attack
-damage = 300 * MAP(P4) + 75, 24
+damage = 250 * MAP(P4) + 25, 24
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFDP
 pausetime = 45, 45            ;Time attacker pauses, time opponent shakes
@@ -430,7 +459,7 @@ fall = 1
 air.fall = 1
 getpower = 0
 ground.velocity = -12,-3
-air.velocity = -12,-3    
+air.velocity = -12,0    
 down.velocity = -12,-3
 ground.hittime  = 36
 air.hittime  = 36
@@ -444,7 +473,7 @@ envshake.ampl = -2
 envshake.phase = 2
 p2sprpriority = 0 
 ground.cornerpush.veloff = -36
-air.cornerpush.veloff = -36
+air.cornerpush.veloff = -40
 p2stateno	= cond(abs(camerapos x) > 260 && frontedgedist < 800, 5225, 5220)
 p2getp1state	= 0
 

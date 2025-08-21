@@ -58,7 +58,7 @@
 
 [Data]
 ;Amount of life to start with
-life = 1400
+life = 1300
 power = 4000
 ;attack power (more is stronger)
 attack = 100
