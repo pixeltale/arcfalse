@@ -1069,11 +1069,6 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 ;Throw
 [Statedef 800]
-type    = S
-movetype= A
-physics = S
-juggle  = 0
-velset = 0,0
 ctrl = 0
 anim = 800
 sprpriority = 2
@@ -1089,6 +1084,44 @@ triggerall = name = "sahkive"
 trigger1 = time = 0
 value = 440, (0+(Random%4))
 volumescale=150
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "deus"
+trigger1 = time=0
+value = 800,0
+volumescale = 150
+persistent=0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+triggerall = name != "deus"
+trigger1 = time=0 
+statetype = S       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = S         ;A,C,S,N
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+triggerall = name != "deus"
+trigger1 = time=0 
+x = 0
+y = 0
+ignorehitpause = 1
+[State 0, StateTypeSet]
+type = StateTypeSet
+triggerall = name = "deus"
+trigger1 = time=0 
+statetype = S       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = N         ;A,C,S,N
+ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+triggerall = name = "deus"
+trigger1 = time=0 
+x = vel x
+y = 0
+ignorehitpause = 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1297,6 +1330,22 @@ triggerall = palno = 11
 trigger1 = animelem = 6
 value = 669,6
 
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "Deus"
+trigger1 = time=0
+value = 801,0+random%2
+volumescale = 100
+persistent=0
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "Deus"
+trigger1 = movehit
+value = 210,0+random%6
+volumescale = 100
+ignorehitpause = 1
+persistent=0
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -1334,6 +1383,7 @@ persistent 		= 0
 [State 0]
 type = HitDef 
 p2facing = 1
+triggerall = name != "Deus"
 trigger1 = time = 0
 attr = S, NT
 animtype  = hard
@@ -1343,6 +1393,28 @@ pausetime = 8,8
 sparkno = 2
 sparkxy = -10,-40
 hitsound = 5,4
+guardsound = 6,2
+ground.type = trip
+air.type = trip
+ground.slidetime = 12
+ground.hittime  = 17
+fall.yvelocity = 0
+ground.velocity = -5, -3.5
+air.velocity = -5.2,-3.5
+fall = 1
+getpower = 0
+[State 0]
+type = HitDef 
+p2facing = 1
+triggerall = name = "Deus"
+trigger1 = time = 0
+attr = S, NT
+animtype  = hard
+damage = 150*MAP(P4), 0
+guardflag = MA
+pausetime = 8,8
+sparkno = 2
+sparkxy = -10,-40
 guardsound = 6,2
 ground.type = trip
 air.type = trip
@@ -4979,7 +5051,6 @@ movecamera = 0,1
 
 [State 5221, Hit wall]
 type = SelfState
-triggerall = time > 3
 triggerall = Pos y < -15
 trigger1 = BackEdgeBodyDist <= 20
 trigger2 = FrontEdgeBodyDist <= 20
@@ -5070,8 +5141,16 @@ y = enemy, map(wallbounce_yvel)
 
 [State 5223, Vel X]
 type = VelSet
+triggerall = enemynear, name!="Deus"
 trigger1 = Time = 0
 x = 1.6
+
+[State 5223, Vel X]
+type = VelSet
+triggerall = enemynear, name="Deus"
+trigger1 = Time = 0
+x = 0
+
 
 [State 5223, Vel X] ;"Boomerang" Wall bounce check. Sends the hit player back to the first player instead of just having a set velocity.
 type = VelSet

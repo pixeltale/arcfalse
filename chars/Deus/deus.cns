@@ -48,15 +48,15 @@ shadowoffset = 0     ;Number of pixels to vertically offset the shadow
 draw.offset = 0,-0.2   ;Player drawing offset in pixels (x, y). Recommended 0,0
 
 [Velocity]
-walk.fwd  = 10     ;Walk forward
-walk.back = -10    ;Walk backward
+walk.fwd  = 15     ;Walk forward
+walk.back = -15    ;Walk backward
 run.fwd  = 4.6, 0    ;Run forward (x, y)
 run.back = -4.5,-3.8 ;Hop backward (x, y)
 jump.neu = 0,-8       ;Neutral jumping velocity (x, y)
-jump.back = -4    ;Jump back Speed (x, y)
-jump.fwd = 6    ;Jump forward Speed (x, y)
-runjump.back = -4 ;Running jump speeds (opt)
-runjump.fwd = 6     ;.
+jump.back = -8    ;Jump back Speed (x, y)
+jump.fwd = 10    ;Jump forward Speed (x, y)
+runjump.back = -6 ;Running jump speeds (opt)
+runjump.fwd = 8     ;.
 airjump.neu = 0,-6.5      ;.
 air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
 air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
@@ -390,7 +390,7 @@ value = 0
 type = DisplayToClipboard
 trigger1 = 1
 text = "facing %f stun %f  dmg %f smash %f mh %f D %f vel %f rina %f bmh %f"
-params = map(facing), fvar(25), fvar(13), map(smashattack), map(multihits), map(fulldsmash), map(vel), map(rina), map(bmhit)
+params = map(animcheck), fvar(25), fvar(13), map(smashattack), map(multihits), map(fulldsmash), map(vel), map(rina), map(bmhit)
 
 
 
@@ -460,106 +460,28 @@ removeongethit = 0
 ;supermove = 0
 ;pausemove = 0
 
-
-;===============================================================================
-; ------- Damage Dampener --------
-;===============================================================================
-
-[State -2, Counter Flag] 
-type = VarSet
-trigger1 = NumEnemy
-fvar(8) = (EnemyNear, MoveType = A)
-ignoreHitPause = 1
-
-[State -2, Reset Counter Flag] 
-type = VarSet
-trigger1 = NumEnemy
-trigger1=(EnemyNear,MoveType!=A)
-Trigger1=Enemy,Ctrl=1
-fvar(8) = 0
-ignoreHitPause = 1 
- 
-;Damage Dampener Variable (by POTS)
-[State -2, Hit Count] 
-type = VarAdd 
-triggerall = stateno!=610
-triggerall = stateno!=[3000,3001]
-triggerall = stateno!=[8012,8013]
-triggerall = !IsHelper
-trigger1 = MoveHit = 1 
-trigger1 = !HitPauseTime 
-trigger1 = !(HitDefAttr = SCA, AT,HA,AP) 
-trigger1 = stateno!=420
-fvar(13) = 1 
- 
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(13) 
-trigger1 = (combocount=0)&& (EnemyNear, StateNo != 5300) 
-fvar(13) = 0 
-ignoreHitPause = 1
- 
-[State -2, Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(10) = ifElse(fvar(13) < 2, 16, ifElse(fvar(13) >= 14, 1, 16 - fvar(13))) / 16.0
-ignoreHitPause = 1 
- 
-[State -2, Dampener Limit] 
-type = VarSet 
-trigger1 = fvar(10) < 0 
-fvar(10) = 0 
-ignoreHitPause = 1 
- 
-[State -2, Root Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(11) = fvar(10) * ifElse(fvar(8), 1.5, 1) 
-ignoreHitPause = 1
-
-
-;=======================================================================================
-;=======================================================================================
-;=================================== Stun Dampener =====================================
-;=======================================================================================
-;=======================================================================================
-;Normal Hitstun Decay
-
-;Damage Dampener Variable (by POTS)
-[State -2, Hit Count] 
-type = VarAdd 
-triggerall = stateno!=610
-trigger1 = !IsHelper
-trigger1 = MoveHit = 1 
-trigger1 = !HitPauseTime 
-trigger1 = !(HitDefAttr = SCA, AT,AP) 
-fvar(15) = 1 
-
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(15) 
-trigger1 =(combocount=0)&& (EnemyNear, StateNo != 5300) 
-fvar(15) = 0 
-ignoreHitPause = 1
-
-[State -2, Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(15) = ifElse(fvar(25) < 0, 13, ifElse(fvar(25) >= 14, 1, 13 - fvar(25))) / 13.0
-ignoreHitPause = 1 
-
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(25) 
-trigger1 =(combocount=0) && (EnemyNear, StateNo != 5300) 
-fvar(25) = 0 
-ignoreHitPause = 1
-
-
-
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 [Statedef -3]
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movetype=H
+trigger2 = prevstateno=1600
+trigger3 = prevstateno=1700
+value = 9999,9999
+volumescale = 0
+persistent=1
+channel=16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movetype=H
+trigger2 = prevstateno=3051
+trigger3=stateno=690000
+value = 9999,9999
+volumescale = 0
+persistent=1
+channel=11
 
 ;SLIPPITY SLIDE
 [State 0, 3]
@@ -582,7 +504,7 @@ triggerall=statetype=C
 triggerall=movetype!=H
 trigger1 = abs(vel x) >= 0.1
 trigger2 = abs(vel x) <= -0.1
-x = .9
+x = .925
 [State 0, 3]
 type = VelSet
 triggerall=statetype=C
@@ -599,7 +521,7 @@ triggerall=movetype!=H
 triggerall=stateno!=[900,902]&&stateno!=69002
 trigger1 = vel x < (const(velocity.jump.fwd.x))
 trigger1 = command = "holdfwd"
-x = .35
+x = .45
 [State 0, VelAdd]
 type = VelAdd
 triggerall=statetype=A
@@ -607,8 +529,17 @@ triggerall=movetype!=H
 triggerall=stateno!=[900,902]&&stateno!=69002
 triggerall = command = "holdback"
 trigger1 = vel x > (const(velocity.jump.back.x))
-x = -.35
+x = -.45
 ;===========
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = enemy,stateno=1226&&enemy,time=4
+trigger1 = enemy,movetype=H
+value = 300,0+random%2
+volumescale = 100
+ignorehitpause = 1
+persistent=0
 
 ;=====SCALING SHIT==================
 [State Stun Scaling]
@@ -638,61 +569,6 @@ triggerall= time=0
 time =0
 ignorehitpause = 1
 persistent=0
-
-[State 0, RemapPal]
-type = RemapPal
-triggerall = palno!=11
-trigger1 = facing=1
-source = 1,1
-dest =1,palno
-ignorehitpause = 1
-persistent = 1
-[State 0, RemapPal]
-type = RemapPal
-triggerall = palno!=11
-trigger1 = facing=-1
-source =  1,1
-dest =2,palno
-ignorehitpause = 1
-persistent = 1
-
-[State 0, RemapPal]
-type = RemapPal
-triggerall = palno=11
-trigger1 = map(rina)=1
-trigger1 = facing=1
-source = 1,1
-dest =1,11
-ignorehitpause = 1
-persistent = 1
-[State 0, RemapPal]
-type = RemapPal
-triggerall = palno=11
-trigger1 = map(rina)=1
-trigger1 = facing=-1
-source =  1,1
-dest =2,11
-ignorehitpause = 1
-persistent = 1
-
-[State 0, RemapPal]
-type = RemapPal
-triggerall = palno=11
-trigger1 = map(rina)>1
-trigger1 = facing=1
-source = 1,1
-dest =1,11+map(rina)
-ignorehitpause = 1
-persistent = 1
-[State 0, RemapPal]
-type = RemapPal
-triggerall = palno=11
-trigger1 = map(rina)>1
-trigger1 = facing=-1
-source =  1,1
-dest =2,11+map(rina)
-ignorehitpause = 1
-persistent = 1
 
 [State 0, VarSet]
 type = Mapset
@@ -742,6 +618,13 @@ persistent = 1
 
 [State 0, VarSet]
 type = MapSet
+trigger1 = combocount=0&&stateno!=202
+map = "AUTOCOMBO"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapSet
 trigger1 = combocount=0
 map = "fair"
 value = 0
@@ -781,6 +664,13 @@ trigger1 = combocount=0
 trigger1 = stateno!=1000
 trigger1 = stateno!=1010
 map = "ggta"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0, VarSet]
+type = MapSet
+trigger1 = combocount=0
+map = "schlide"
 value = 0
 ignorehitpause = 1
 persistent = 1
@@ -859,3 +749,33 @@ fvalue = 0
 first = 20
 last = 27 ;
 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=stateno = 3002&&anim=3002
+id = 777
+ignorehitpause=1
+persistent=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=stateno = 3002&&anim=3002
+id = 778
+ignorehitpause=1
+persistent=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=stateno = 3002&&anim=3002
+id = 779
+ignorehitpause=1
+persistent=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=stateno = 3002&&anim=3002
+id = 900
+ignorehitpause=1
+persistent=1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1=stateno = 3002&&anim=3002
+id = 7050
+ignorehitpause=1
+persistent=1

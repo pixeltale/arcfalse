@@ -1,0 +1,153 @@
+	<#bbbbbb>This move list assumes I am facing to the right.</>
+
+	<#107105>UNIQUE TRAIT: BOUNDLESS</>
+	I have many traits that make me play unlike any other character in this game.
+	I can face either direction at any time. I don't have a traditional walk,
+	backdash, or air dash. I can freely move back and forward in the air.
+	There's even more, so check the rest of the move list for more info. :)
+
+	<#107105>UNIQUE MOVES</>
+FORWARD KO	-		(HOLD)^C
+   <#bbbbbb>Increases in power the longer it's charged.</>
+DOWN KO	-		(HOLD)_D^C
+   <#bbbbbb>Increases in power the longer it's charged.</>
+BACK AIR (MEDIUM)	-		<#65b5ff>(AIR ONLY)</> _B^B
+BACK AIR	-		<#65b5ff>(AIR ONLY)</> _B^C
+   <#bbbbbb>Becomes more powerful if I hit the sweetspot.</>
+FASTFALL (AFTER HITTING ANY AIR NORMAL)		<#65b5ff>(AIR ONLY)</> _D
+
+	<#107105>STRINGS</>
+NEUTRAL ATTACK	-		^A_-^A_-^A
+
+
+
+_D	_D		_D
+
+	<#107105>SPECIAL MOVES</>
+BE NOT AFRAID	-		^Y
+   <#bbbbbb>A fullscreen command grab. Can be used in combos.</>
+HEAVEN'S BLESSING	-		<#65b5ff>(AIR ONLY)</> ^Y
+   <#bbbbbb>Fires a unblockable kiss that sticks to others.</>
+_!HEAVEN'S CALL	-		<#aaffff>(GROUND OR AIR)</> ^Y
+        <#bbbbbb>Can be done normally by pressing ^Y in the air, or can be done
+        at certain points during other special moves or during throws.</>
+HALO	-		<#aaffff>(GROUND OR AIR)</> _F^Y
+   <#bbbbbb>You can hold _B during startup to reduce the range of
+   the projectile, and to also make it drift backwards.</>
+SHINE THROUGH	-		(CAN BE HELD) _D^Y
+   <#bbbbbb>The slide is projectile immune. The uppercut is an anti-air.
+   Becomes more powerful when fully held.</>
+DIVINE INTERVENTION	-		<#65b5ff>(AIR ONLY)</> _D^Y
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#107105>REMIX MOVES</>
+REFLECTION	-		(HOLD)^Z
+   <#bbbbbb>Makes me face the opposition. I can also walk while this is active.</>
+_!DODGE	-		_F_F/_B_B/_D_D
+        <#bbbbbb>Functions like a typical back dash,
+        except I can do it in other directions. Passes through others.</>
+LIGHTSPEED	-		<#65b5ff>(AIR ONLY)</> (ANY DIRECTION)+^Z
+   <#bbbbbb>An 8-way airdash with invulnerability.
+   Passes through others during combos.</>
+
+
+
+
+
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#ffef0f>EX MOVES</>
+_EX BE NOT AFRAID	-		<#55ffff>(1 BAR)</> ^Y
+   <#bbbbbb>A fullscreen command grab that causes a wallbounce. Can be used in combos.</>
+_EX HEAVEN'S BLESSING	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> ^Y
+   <#bbbbbb>Fires a kiss that does damage and sticks to others.</>
+_!_EX HEAVEN'S CALL	-		<#65b5ff>(AIR ONLY)</> ^Y
+        <#bbbbbb>Can be done normally by pressing ^Y in the air, or can be done
+        at certain points during other special moves or during throws.</>
+_EX HALO	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _F^Y
+   <#bbbbbb>You can hold _B during startup to reduce the range of
+   the projectile, and to also make it drift backwards.</>
+_EX SHINE THROUGH	-		(CAN BE HELD)<#55ffff>(1 BAR)</> _D^Y
+   <#bbbbbb>Invincible startup. The rest of the attack is
+   an anti-air and projectile immune.</>
+_EX DIVINE INTERVENTION	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> _D^Y
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#55ffff>SUPERS</>
+<#107105>ALL THAT YOU KNOW OF</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+_!<#107105>AND ALL YOU DO NOT</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+   _!<#107105>ALL OF IT, IS ME.</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+<#107105>FUTILITY</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
+   <#bbbbbb>A counter that beats strikes and projectiles.
+   The opposition may have time to block when this is used to beat a projectile.</>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	UNIVERSAL MOVES
+OVERHEAD	-		(NOT AVAILABLE) </>
+   <#bbbbbb>I actually don't do this one. Oops!</>
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to airborne attacks.</>
+GRAB	-		ANY 2 NORMALS </>
+   <#bbbbbb>Cannot be blocked. Starts combos on counter-hit.</>
+FORCE BLOCK (WHILE BLOCKING)	-		<#55ffff>(1/4 BAR)</> _B^X
+   <#bbbbbb>Can push the opposition backwards while I block.</>
+RECOIL GUARD (WHILE BLOCKING)	-		<#55ffff>(2 BARS)</> _F^X
+   <#bbbbbb>A fullscreen-ranged reversal that knocks the
+   opposition down and beats projectiles. Refunds 1 BAR on hit.</>
+RECORD SCRATCH (WHILE ATTACKING)		<#55ffff>(1 BAR/2 BARS ON BLOCK)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.</>
+BURST (WHILE GETTING HIT)	-		^X+^A/^B/^C
+   <#bbbbbb>A large reversal that can be used while I'm getting hit.</>
+PANIC BURST (WHILE GETTING HIT)	-		<#55ffff>(4 BARS)</> ^X+^A/^B/^C
+   <#bbbbbb>An extra burst that can be used in an emergency.</>
+   <#ff0000>Using this PERMANENTLY limits my meter to a max of 1 BAR
+   for the rest of the game.</>
+
+ 
+_D	_D		_D
+
+	2V2 MODE
+SWITCH CHARACTERS	-		ASSIST </>
+ACTIVE SWITCH (WHILE ATTACKING)	-		<#55ffff>(2 BARS)</>ASSIST </>
+ASSIST ATTACK	-		_B/_D/_F+ASSIST </>
+   <#bbbbbb>Each character has 3 assist attacks.</>
+TAG SUPER (DURING A SUPER)		<#55ffff>(2 BARS)</>_D_DF_F+ASSIST OR _D_DB_B+ASSIST </>
+
+</>

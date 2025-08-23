@@ -1259,8 +1259,8 @@ value = 5062
 
 [State 1028, Hit ground]
 type = selfstate
-trigger1 = (Vel y > 0) && (Pos y >= 0)
-value = 999222
+trigger1 = (Vel y > 0) && (Pos y >= 30)
+value = 5041
 
 
 ;---------------------------------------------------------------------------

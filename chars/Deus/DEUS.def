@@ -25,10 +25,7 @@ sprite  = deus.sff           ;Sprite
 anim    = deus.air           ;Animation
 sound   = deus.snd           ;Sound
 ai      = deus.ai            ;AI hints data (not used)
-
-[RemapPreset Test]
-0,0 = 1,0
-
+movelist=deus.dat
 
 ; Maps character selection buttons to palette numbers.
 [Palette Keymap]

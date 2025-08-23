@@ -1,3 +1,732 @@
+[Command]
+name = "dash";Required (do not remove)
+command = w
+time = 1
+buffer.time=5
+[Command]
+name = "holddash";Required (do not remove)
+command = /w
+time = 1
+
+[Command]
+name = "SmashKFUpper"
+command = ~D, DB, B, x;~F, D, DF, F, D, DF, x
+time = 10
+[Command]
+name = "SmashKFUpper"   ;Same name as above
+command = ~D, DB, B, y;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "SmashKFUpper"   ;Same name as above
+command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "SmashKFUpper"
+command = ~D, DB, B+x;~F, D, DF, F, D, DF, x
+time = 10
+[Command]
+name = "SmashKFUpper"   ;Same name as above
+command = ~D, DB, B+y;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "SmashKFUpper"   ;Same name as above
+command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
+time = 10
+
+[Command]
+name = "QCF"
+command = ~D, DF, F, x
+time = 10
+[Command]
+name = "QCF"   ;Same name as above
+command = ~D, DF, F, y
+time = 10
+[Command]
+name = "QCF"   ;Same name as above
+command = ~D, DF, F, z
+time = 10
+[Command]
+name = "QCF"
+command = ~D, DF, F+x
+time = 10
+[Command]
+name = "QCF"  ;Same name as above
+command = ~D, DF, F+y
+time = 10
+[Command]
+name = "QCF"   ;Same name as above
+command = ~D, DF, F+z
+time = 10
+
+[Command]
+name = "QCFs"
+command = ~D, DF, F, b
+time = 10
+[Command]
+name = "QCFs"
+command = ~D, DF, F+b
+time = 10
+[Command]
+name = "QCBs"
+command = ~D, DB, B, b
+time = 10
+[Command]
+name = "QCBs"
+command = ~D, DB, B+b
+time = 10
+
+[Command]
+name = "QCB"
+command = ~D, DB, B, x;~F, D, DF, F, D, DF, x
+time = 10
+[Command]
+name = "QCB"   ;Same name as above
+command = ~D, DB, B, y;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "QCB"  ;Same name as above
+command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "QCB"
+command = ~D, DB, B+x;~F, D, DF, F, D, DF, x
+time = 10
+[Command]
+name = "QCB"   ;Same name as above
+command = ~D, DB, B+y;~F, D, DF, F, D, DF, y
+time = 10
+[Command]
+name = "QCB"   ;Same name as above
+command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
+time = 10
+
+[Command]
+name = "FDF"
+command = ~F, D, $F,b
+time = 10
+[Command]
+name = "FDF"
+command = ~F, D, F+b
+time = 10
+[Command]
+name = "FDF"
+command = ~F, D, DF+b
+time = 10
+
+[Command]
+name = "236x"
+command = ~D, DF, F, x
+time = 10
+
+[Command]
+name = "236x"   ;Same name as above
+command = ~D, DF, F, y
+time = 10
+
+[Command]
+name = "236x"   ;Same name as above
+command = ~D, DF, F, z
+time = 10
+
+[Command]
+name = "236x"
+command = ~D, DF, F+x
+time = 10
+
+[Command]
+name = "236x"   ;Same name as above
+command = ~D, DF, F+y
+time = 15
+buffer.time = 4
+
+[Command]
+name = "236x"   ;Same name as above
+command = ~D, DF, F+z
+time = 10
+
+[Command]
+name = "214b"   ;Same name as above
+command = ~D, DB, B, b
+time = 10
+
+[Command]
+name = "214x"
+command = ~D, DB, B, x;~F, D, DF, F, D, DF, x
+time = 10
+
+[Command]
+name = "214x"   ;Same name as above
+command = ~D, DB, B, y;~F, D, DF, F, D, DF, y
+time = 10
+
+[Command]
+name = "214x"   ;Same name as above
+command = ~D, DB, B, z;~F, D, DF, F, D, DF, y
+time = 10
+
+[Command]
+name = "214b"   ;Same name as above
+command = ~D, DB, B+b
+time = 10
+[Command]
+name = "214x"
+command = ~D, DB, B+x;~F, D, DF, F, D, DF, x
+time = 10
+
+[Command]
+name = "214x"   ;Same name as above
+command = ~D, DB, B+y;~F, D, DF, F, D, DF, y
+time = 10
+
+[Command]
+name = "214x"   ;Same name as above
+command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
+time = 10
+
+[Command]
+name = "lvl4"
+command = ~D, DF, F, b
+time = 10
+[Command]
+name = "lvl4"
+command = ~D, DF, F+b
+time =10
+
+[Command]
+name = "buffer_z" 
+command = z
+buffer.time = 6
+
+[Command]
+name = "buffer_x"
+command = x
+buffer.time = 6
+
+[Command]
+name = "buffer_y"
+command = y
+buffer.time = 6
+
+[Command]
+name = "buffer_a"
+command = a
+buffer.time = 6
+
+[Command]
+name = "buffer_b"
+command = b
+buffer.time = 6
+
+[Command]
+name = "buffer_c"
+command = c
+buffer.time = 6
+
+[Command]
+name = "throwtech"
+command = x+y
+time = 5
+[Command]
+name = "throwtech"
+command = x+z
+time = 5
+[Command]
+name = "throwtech"
+command = y+x
+time = 5
+[Command]
+name = "throwtech"
+command = y+z
+time = 5
+[Command]
+name = "throwtech"
+command = z+y
+time = 5
+[Command]
+name = "throwtech"
+command = z+x
+time = 5
+
+[Command]
+name = "rc"
+command = ~a
+buffer.time=5
+
+[Command]
+name = "TagShiftBack"
+command = d
+buffer.time = 1
+
+[Command]
+name = "TagShiftFwd"
+command = w
+buffer.time = 1
+
+[Command]
+name = "x"
+command = x
+
+
+[Command]
+name = "y"
+command = y
+
+
+[Command]
+name = "z"
+command = z
+
+[Command]
+name = "nobuffer_x"
+command = x
+buffer.time = 1
+
+[Command]
+name = "nobuffer_y"
+command = y
+buffer.time = 1
+
+[Command]
+name = "nobuffer_z"
+command = z
+buffer.time = 1
+
+[Command]
+name = "a"
+command = a
+
+
+[Command]
+name = "b"
+command = b
+
+
+[Command]
+name = "c"
+command = c
+
+[Command]
+name = "nobuffer_a"
+command = a
+buffer.time = 1
+
+[Command]
+name = "nobuffer_b"
+command = b
+buffer.time = 1
+
+[Command]
+name = "nobuffer_c"
+command = c
+buffer.time = 1
+
+[Command]
+name = "start"
+command = s
+
+
+[Command]
+name = "d"
+command = d
+
+
+[Command]
+name = "w"
+command = w
+
+
+[Command]
+name = "m"
+command = m
+
+
+[Command]
+name = "menu"
+command = m
+
+
+[Command]
+name = "jc" ;Required (do not remove)
+command = /$U
+
+
+[Command]
+name = "holdup"
+command = /$U
+buffer.time = 1
+
+[Command]
+name = "holddown"
+command = /$D
+buffer.time = 1
+ 
+[Command]
+name = "hold_start"
+command = /s
+
+
+;-| Hold Button |--------------------------------------------------------------
+[Command]
+name = "holdx"
+command = /x
+
+[Command]
+name = "holdy"
+command = /y
+
+[Command]
+name = "holdz"
+command = /z
+
+[Command]
+name = "holdw"
+command = /w
+
+[Command]
+name = "holda"
+command = /a
+
+[Command]
+name = "holdb"
+command = /b
+
+[Command]
+name = "holdc"
+command = /c
+
+[Command]
+name = "holdd"
+command = /d
+
+[Command]
+name = "holds"
+command = /s
+
+
+[Command]
+name = "holdx"
+command = /z
+
+[Command]
+name = "holda"
+command = /z
+
+[Command]
+name = "holdy"
+command = /c
+
+[Command]
+name = "holdb"
+command = /c
+
+
+[Command]
+name = "bfhold_x";Required (do not remove)
+command = /x
+buffer.time = 9
+
+[Command]
+name = "bfhold_y";Required (do not remove)
+command = /y
+buffer.time = 9
+
+[Command]
+name = "bfhold_z";Required (do not remove)
+command = /z
+buffer.time = 9
+
+[Command]
+name = "bfhold_a";Required (do not remove)
+command = /a
+buffer.time = 9
+
+[Command]
+name = "bfhold_b";Required (do not remove)
+command = /b
+buffer.time = 9
+
+[Command]
+name = "bfhold_c";Required (do not remove)
+command = /c
+buffer.time = 9
+
+[Command]
+name = "bfhold_EX";Required (do not remove)
+command = /d
+buffer.time = 9
+
+;-| Hold Button |--------------------------------------------------------------
+[Command]
+name = "hold_x"
+command = /x
+buffer.time=1
+[Command]
+name = "hold_y"
+command = /y
+buffer.time=1
+[Command]
+name = "hold_z"
+command = /z
+buffer.time=1
+[Command]
+name = "hold_w"
+command = /w
+
+buffer.time=1
+[Command]
+name = "hold_a"
+command = /a
+
+buffer.time=1
+[Command]
+name = "hold_b"
+command = /b
+
+buffer.time=1
+[Command]
+name = "hold_c"
+command = /c
+
+buffer.time=1
+[Command]
+name = "hold_d"
+command = /d
+
+buffer.time=1
+[Command]
+name = "hold_start"
+command = /s
+
+buffer.time=1
+
+;-| Hold Dir |--------------------------------------------------------------
+[Command]
+name = "holdfwd" ;Required (do not remove)
+command = /$F
+
+buffer.time=1
+[Command]
+name = "holddown" ;Required (do not remove)
+command = /$D
+
+buffer.time=2
+[Command]
+name = "holdback" ;Required (do not remove)
+command = /$B
+
+buffer.time=1
+[Command]
+name = "holdup" ;Required (do not remove)
+command = /$U
+
+buffer.time=2
+
+[Command]
+name = "holdfwd_r" ; Raw hold forward (REQUIRED for command buffering)
+command = /F
+
+[Command]
+name = "holddown_r" ; Raw hold forward (REQUIRED for command buffering)
+command = /D
+
+[Command]
+name = "holdback_r" ; Raw hold forward (REQUIRED for command buffering)
+command = /B
+
+[Command]
+name = "holdup_r" ; Raw hold forward (REQUIRED for command buffering)
+command = /U
+
+[Command]
+name = "fwd"
+command = F
+
+[Command]
+name = "back"
+command = B
+
+[Command]
+name = "up"
+command = U
+
+[Command]
+name = "down"
+command = D
+
+
+;-| Release Dir |-----------------------------------------------------------
+[Command]
+name = "release_fwd"
+command = ~F
+
+
+[Command]
+name = "release_down"
+command = ~D
+
+[Command]
+name = "release_back"
+command = ~B
+
+
+[Command]
+name = "release_up"
+command = ~U
+
+
+[Command]
+name = "release_fwd_g"    ; REQUIRED for command buffering
+command = ~$F
+
+
+[Command]
+name = "release_down_g"   ; REQUIRED for command buffering
+command = ~$D
+
+[Command]
+name = "release_back_g"   ; REQUIRED for command buffering
+command = ~$B
+
+
+[Command]
+name = "release_up_g"     ; REQUIRED for command buffering
+command = ~$U
+
+
+[Command]
+name = "release_downback" ; REQUIRED for command buffering
+command = ~DB
+
+
+[Command]
+name = "release_downfwd"  ; REQUIRED for command buffering
+command = ~DF
+
+
+;-| Release Button |---------------------------------------------------------
+[Command]
+name = "release_a"
+command = ~a
+
+
+[Command]
+name = "release_b"
+command = ~b
+
+
+[Command]
+name = "release_c"
+command = ~c
+
+[Command]
+name = "release_d"
+command = ~d
+
+[Command]
+name = "release_x"
+command = ~x
+
+
+[Command]
+name = "release_y"
+command = ~y
+
+
+[Command]
+name = "release_z"
+command = ~z
+
+[Command]
+name = "release_w"
+command = ~w
+
+[Command]
+name = "release_start"
+command = ~s
+
+
+[Command]
+name = "TagShiftBack"
+command = d
+
+
+[Command]
+name = "TagShiftFwd"
+command = w
+
+
+
+[Command]
+name = "EX"
+command = b+c
+
+buffer.time = 4
+[Command]
+name = "EX"
+command = c+b
+
+buffer.time = 4
+[Command]
+name = "EX"
+command = d
+
+
+[Command]
+name = "nobuffer_EX"
+command = b+c
+
+buffer.time = 1
+[Command]
+name = "nobuffer_EX"
+command = c+b
+
+buffer.time =1 
+[Command]
+name = "nobuffer_EX"
+command = d
+
+buffer.time =1 
+[Command]
+name = "hold_EX"
+command = /d
+
+
+;====== DOUBLE TAP =========
+[Command]
+name = "DD"
+command = D,D
+
+[Command]
+name = "aFF"     ;Required (do not remove)
+command = ~F, F
+time = 10
+buffer.time = 6
+
+[Command]
+name = "FF"     ;Required (do not remove)
+command = F, F
+time = 10
+
+[Command]
+name = "aBB"     ;Required (do not remove)
+command = ~B, B
+time = 10
+buffer.time = 6
+
+[Command]
+name = "BB"     ;Required (do not remove)
+command = B, B
+time = 10
+
+[Command]
+name = "holdupb"
+command = $U
+buffer.time = 5
+
+[Command]
+name = "DD"     ;Required (do not remove)
+command = D, D
+time = 10
 
 [Statedef -1]
 
@@ -10,7 +739,7 @@ var(1) = 0
 [State -1, Combo condition Check]
 type = VarSet
 trigger1 = ctrl
-trigger2 = hitdefattr = SCA, NA
+trigger2 = hitdefattr = SCA, NA|| stateno = [801,802]
 trigger2 = movecontact
 trigger3 = stateno = 105||stateno = 106||stateno = 107
 var(1) = 1
@@ -21,6 +750,16 @@ var(1) = 1
 ;===========================================================================
 ;===========================================================================
 ;===========================================================================
+;Super Jump
+[State -1, Super Jump]
+type = ChangeState
+value = 55
+triggerall = statetype != A
+triggerall = command = "28" || command = "27" || command = "29"
+trigger1 = ctrl || stateno = 100
+trigger2 = stateno = [220,250] || stateno = 420
+trigger2 = movehit
+
 [State Back Roll]
 type = ChangeState
 value = 105
@@ -59,8 +798,27 @@ trigger1 = statetype != A
 trigger1 = movetype=I
 triggerall = stateno!=105&&stateno!=106&&stateno!=107
 triggerall=ctrl
+[State -1, Grab]
+type = ChangeState
+value = 800
+triggerall=stateno!=40
+trigger1 = command = "throwtech"
+trigger1 = statetype != A
+trigger1 = ctrl
+
+[State Alpha Counter]
+type = ChangeState
+value = 7000
+triggerall = statetype != A
+triggerall = command = "holdfwd" 
+triggerall = command = "a"
+triggerall = stateno=[140,160]
+trigger1 = power>=1000
+
 
 ;===========================================================================
+
+;---------------------------------------------------------------------------
 [State 5L]
 type = ChangeState
 value = 200
@@ -70,7 +828,32 @@ triggerall = command != "QCF"&&command != "QCB"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 101 ; can be done while dashing
-trigger3 = stateno = 400 && movecontact && prevstateno !=200 
+trigger3 = stateno = 400 && movecontact && prevstateno !=200 && prevstateno !=201
+
+;---------------------------------------------------------------------------
+[State 5LL]
+type = ChangeState
+value = 201
+triggerall = command = "x"
+triggerall = command !="holddown"
+triggerall = command != "QCF"&&command != "QCB"
+triggerall = statetype != A
+triggerall = stateno = 200
+trigger1 = movecontact
+trigger2 = animelemtime(3)>=0
+
+;---------------------------------------------------------------------------
+[State 5LLL]
+type = ChangeState
+value = 202
+triggerall = command = "x"
+triggerall = command !="holddown"
+triggerall = command != "QCF"&&command != "QCB"
+triggerall = statetype != A
+triggerall = stateno = 201
+trigger1 = movecontact
+trigger2 = animelemtime(3)>=0
+
 ;---------------------------------------------------------------------------
 [State 5M]
 type = ChangeState
@@ -84,6 +867,7 @@ trigger2 = stateno = 200 && movecontact
 trigger3 = stateno = 400 && movecontact
 trigger4 = stateno = 101
 trigger5 = stateno =410 && movecontact && prevstateno !=210 && prevstateno !=211 && prevstateno !=212 
+trigger6 = stateno = 201 && movecontact
 
 ;---------------------------------------------------------------------------
 [State 5H]
@@ -98,7 +882,7 @@ trigger2 = stateno = 210 || stateno = 212
 trigger2 = movecontact
 trigger3 = stateno = 410 && movecontact
 trigger4 = stateno = 211 && movecontact
-trigger5 = stateno = 200 || stateno = 400
+trigger5 = stateno = 200 || stateno = 400 || stateno = 201
 trigger5 = movecontact
 trigger6 = stateno = 420 && movecontact && prevstateno !=220 
 ;---------------------------------------------------------------------------
@@ -110,7 +894,8 @@ triggerall = command ="holddown"
 triggerall = command != "QCF"&&command != "QCB"
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 200 && movecontact && prevstateno !=400 
+trigger2 = stateno = 200 ||  stateno=400
+trigger2 = movecontact && prevstateno !=400 
 
 ;---------------------------------------------------------------------------
 [State 2M]
@@ -125,7 +910,7 @@ trigger2 = stateno = 200 && movecontact
 trigger3 = stateno = 400 && movecontact
 trigger4 = stateno = 212 && movecontact
 trigger5 = stateno =210 && movecontact && prevstateno !=410 
-
+trigger6 = stateno = 201 && movecontact
 ;---------------------------------------------------------------------------
 [State 2H]
 type = ChangeState
@@ -138,7 +923,7 @@ trigger1 = ctrl
 trigger2 = stateno = 410 && movecontact
 trigger3 = stateno = 210 || stateno = 211 || stateno = 212
 trigger3 = movecontact
-trigger4 = stateno = 200 || stateno = 400
+trigger4 = stateno = 200 || stateno = 400 || stateno = 201
 trigger4 = movecontact
 trigger5 = stateno = 220 && movecontact && prevstateno !=420 
 
@@ -170,7 +955,7 @@ trigger4 = movecontact
 [State jH]
 type = ChangeState
 value = 620
-triggerall = command = "z"
+triggerall = command = "buffer_z"
 triggerall = command != "holdback"
 triggerall = command != "QCF"&&command != "QCB"
 trigger1 = statetype = A
@@ -197,7 +982,7 @@ trigger4 = movecontact
 [State j4H]
 type = ChangeState
 value = 640
-triggerall = command = "z"
+triggerall = command = "buffer_z"
 triggerall = command = "holdback"
 triggerall = command != "QCF"&&command != "QCB"
 trigger1 = statetype = A
@@ -215,7 +1000,6 @@ triggerall = command = "holdupb"
 triggerall = map(dj)=0
 trigger1 = movecontact 
 trigger1 = hitdefattr = A,NA
-
 ;---------------------------------------------------------------------------
 [State 5S]
 type = ChangeState
@@ -372,7 +1156,7 @@ trigger1 = var(1)
 type = ChangeState
 value = 2000
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
 triggerall = command ="holdfwd"
 triggerall = command !="holddown"
@@ -385,12 +1169,10 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2001
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
 triggerall = command ="holdfwd"
 triggerall = command ="holddown"
-triggerall = command !="holdback"
-triggerall = command !="holdup"
 triggerall = statetype = A
 trigger1 = var(1)&&!moveguarded
 
@@ -398,7 +1180,7 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2002
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
 triggerall = command !="holdfwd"
 triggerall = command ="holddown"
@@ -411,12 +1193,10 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2003
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
-triggerall = command !="holdfwd"
 triggerall = command ="holddown"
 triggerall = command ="holdback"
-triggerall = command !="holdup"
 triggerall = statetype = A
 trigger1 = var(1)&&!moveguarded
 
@@ -424,7 +1204,7 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2004
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
 triggerall = command !="holdfwd"
 triggerall = command !="holddown"
@@ -437,12 +1217,11 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2005
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
-triggerall = command !="holdfwd"
-triggerall = command !="holddown"
 triggerall = command ="holdback"
 triggerall = command ="holdup"
+triggerall = command !="holddown"
 triggerall = statetype = A
 trigger1 = var(1)&&!moveguarded
 
@@ -450,7 +1229,7 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2006
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
 triggerall = command !="holdfwd"
 triggerall = command !="holddown"
@@ -463,12 +1242,11 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2007
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
 triggerall = command ="holdfwd"
-triggerall = command !="holddown"
-triggerall = command !="holdback"
 triggerall = command ="holdup"
+triggerall = command !="holddown"
 triggerall = statetype = A
 trigger1 = var(1)&&!moveguarded
 
@@ -476,7 +1254,7 @@ trigger1 = var(1)&&!moveguarded
 type = ChangeState
 value = 2008
 triggerall=map(airdodge)=0
-triggerall = command = "c"
+triggerall = command = "buffer_c"
 triggerall = command != "EX"
 triggerall = command !="holdfwd"
 triggerall = command !="holddown"
@@ -491,20 +1269,10 @@ type = ChangeState
 value = 3000
 triggerall = power>=2000
 triggerall = command = "QCF"|| command = "QCB"
-triggerall = statetype != A
 trigger1 = var(1)
 trigger2 = hitdefattr=SCA,NA,SA,ST
 trigger2 = movehit
 
-[State Super]
-type = ChangeState
-value = 3005
-triggerall = power>=2000
-triggerall = command = "QCF"|| command = "QCB"
-triggerall = statetype = A
-trigger1 = var(1)
-trigger2 = hitdefattr=SCA,NA,SA,ST
-trigger2 = movehit
 ;---------------------------------------------------------------------------
 [State Counter Super]
 type = ChangeState
