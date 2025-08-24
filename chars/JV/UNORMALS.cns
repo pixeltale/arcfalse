@@ -80,7 +80,7 @@ envshake.time 	= 3
 envshake.freq 	= 5
 envshake.ampl 	= 2
 envshake.phase 	= 1
-getpower 		= (70)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 
 [State 200, 2]
@@ -193,7 +193,7 @@ envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 fall.yvelocity 	= 0
-getpower 		= (70)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 210, 2]
 type = HitDef 
@@ -353,7 +353,7 @@ envshake.freq 	= 5
 envshake.ampl 	= 2
 envshake.phase 	= 1
 ;==============================================
-getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State 0, 5H Limiter]
@@ -997,7 +997,7 @@ guard.slidetime 	= 6
 guard.hittime 	= 11
 air.fall 		= 1
 ground.cornerpush.veloff = -4.5
-getpower 		= 80
+getpower 		= 40
 
 [State 200, 2]
 type = PlaySnd
@@ -1084,7 +1084,7 @@ air.fall 		= 1
 guard.slidetime 	= 20
 guard.ctrltime 	= 8
 guard.hittime 	= 8
-getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (70)*(cond(var(var(2)) = 1, 1, .5))
 
 
 [State 0, VelAdd]

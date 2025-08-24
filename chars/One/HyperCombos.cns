@@ -786,7 +786,7 @@ y = 0
 [State 0, PosSet]
 type = PosAdd
 trigger1 = time = 0
-x = 10
+x = 50
 
 [State 630, 2]
 type = HitDef 
@@ -856,10 +856,6 @@ getpower 	= 0
 [State 0, Turn]
 type = Turn
 trigger1 = animelem = 2
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = animelem = 2
-x = -10
 [State 0, PlayerPush]
 type = PlayerPush
 trigger1 = 1

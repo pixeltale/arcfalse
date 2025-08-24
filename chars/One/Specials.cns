@@ -4894,6 +4894,12 @@ type = PosAdd
 trigger1 = anim = 1046 && animelem = 1
 x = 15
 redirectid = enemynear, id
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = movehit = 1
+x = -0.1
+redirectid = enemynear, id
+ignorehitpause = 1
 [State 0, PlayerPush]
 type = PlayerPush
 trigger1 = anim = 1046
@@ -4934,7 +4940,7 @@ persistent 		= 0
 
 [State 630, 2]
 type = HitDef 
-p2facing 	= 1 
+p2facing 	= -1 
 triggerall	= enemy, !map(ArmorActive)
 trigger1 	= !movecontact && p2dist x < 0
 attr 	= S, SA

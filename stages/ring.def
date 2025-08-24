@@ -1,6 +1,14 @@
 [Info]
 name = "KNOCKOUT RING"
 
+
+[Constants]
+DynamicLighting = 1
+DynamicR = 250
+DynamicG = 220
+DynamicB = 000
+DynamicAlpha = 75
+
 [Camera]
 startx = 0
 starty = 0

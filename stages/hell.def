@@ -4,6 +4,13 @@
 [Info]
 name = "HELL"
 
+[Constants]
+DynamicLighting = 1
+DynamicR = 200
+DynamicG = -255
+DynamicB = -55
+DynamicAlpha = 200
+
 [Camera]
 startx = 0
 starty = 0
@@ -84,6 +91,8 @@ type  = normal
 spriteno = 0,2
 delta = .12,.12
 start = 0, -30
+xscale = 0.5
+yscale = 0.5
 
 [BG Heaven]
 type  =normal
