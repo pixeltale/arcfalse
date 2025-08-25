@@ -51,7 +51,7 @@ value = 0
 type = NotHitBy
 trigger1 = time = 0
 value = SCA
-time = 19
+time = 90
 
 [State 0, RemoveExplod]
 type = RemoveExplod

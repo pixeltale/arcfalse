@@ -793,14 +793,14 @@ air.animtype = back
 damage = 30*MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
-pausetime = 12,12
+pausetime = 8,8
 sparkno = 1
 sparkxy = 0,-30
 hitsound   = S8,1
 guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 22 * map(UntechMod)
+ground.hittime  = 22
 air.hittime  = 18 * map(UntechMod)
 down.hittime = 18 * map(UntechMod)
 ground.velocity = -3.7,-0
@@ -817,7 +817,7 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 14
-ground.cornerpush.veloff = -8 / map(untechMOD)
+ground.cornerpush.veloff = -10 / map(untechMOD)
 forcenofall = 0
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 
