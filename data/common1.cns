@@ -7977,6 +7977,103 @@ trigger1 = (stateno = [200,230] && time < 4) && !movecontact
 
 ;==============================================================================
 
+;===============================================================================
+; ------- DYNAMIC LIGHTING - HELPER VERSION --------
+;===============================================================================
+[Statedef 909090]
+type    = U
+physics = N
+anim = root, anim
+sprpriority = -10
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = parent, !isHelper
+trigger1 = parent, movetype = H
+value = 1
+ignorehitpause = 1
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "parentID = %i  rootnumparent = %i numparent = %i"
+params = (parent, id), (root, NumHelper(parent, id)), NumHelper(parent, id)
+
+[State 0, PalFX]
+type = PalFX
+trigger1 = 1
+time = 40
+add = StageConst(DynamicR),StageConst(DynamicG),StageConst(DynamicB)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = AddAlpha
+alpha = StageConst(DynamicAlpha), StageConst(DynamicAlpha)
+ignorehitpause = 1
+
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = parent, movetype = H
+pos = 0, -1
+ignorehitpause = 1
+[State 0, BindToParent]
+type = BindToParent
+triggerall = parent, movetype != H
+trigger1 = abs(parent, p2dist x) > 32 || abs(parent, p2dist y) > 35
+pos = 0, -1
+ignorehitpause = 1
+[State 0, BindToParent]
+type = BindToParent
+triggerall = parent, movetype != H
+trigger1 = abs(parent, p2dist x) < 32 && abs(parent, p2dist y) < 35 && parent, vel x != 0
+pos = cond(((enemynear, vel x) - (parent, vel x) > 1), 0, -(parent, vel x) * (parent, facing) * 0.75), -1
+ignorehitpause = 1
+[State 0, BindToParent]
+type = BindToParent
+triggerall = parent, movetype != H
+trigger1 = abs(parent, p2dist x) < 32 && abs(parent, p2dist y) < 35 && parent, vel x = 0
+pos = ((enemynear, vel x > 0) * enemynear, vel x) * -0.5 * (parent, BackEdgeBodyDist != 0), -1
+ignorehitpause = 1
+[State 0, BindToParent]
+type = PosAdd
+triggerall = parent, movetype != H
+trigger1 = abs(parent, p2dist x) < 32 && abs(parent, p2dist y) < 35 && parent, vel x != 0
+x = -1
+ignorehitpause = 1
+persistent = 0
+[State 0, BindToParent]
+type = PosAdd
+triggerall = parent, movetype != H
+trigger1 = abs(parent, p2dist x) < 32 && abs(parent, p2dist y) < 35 && parent, vel x = 0
+x = -1 * root, facing
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Turn]
+type = Turn
+trigger1 = facing != parent, facing
+ignorehitpause = 1
+persistent = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = 1
+value = parent, anim
+elem = parent, animelemno(0)
+ignorehitpause = 1
+
+[State 0, ChangeAnim]
+type = DestroySelf
+trigger1 = parent, IsHelper
+trigger1 = !PlayerIdExist(parent, id)
 
 [Statedef +1]
 
@@ -8003,6 +8100,50 @@ ignorehitpause = 1
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+
+[State 0, Dynamic Lighting Helper]
+type = Helper
+trigger1 = StageConst(DynamicLighting)
+trigger1 = !numhelper(909090)
+helpertype = Normal ;Player
+name = "Lighting Helper"
+ID = 909090
+stateno = 909090
+pos = 0,-2
+postype = P1
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+
+;===============================================================================
+;------- DYNAMIC LIGHTING - DEPRECATED EXPLOD VERSION --------
+;===============================================================================
+; [State 0, Dynamic Lighting] 	;Uses basic explod tactics to simulate a rimlight effect.
+; type = Explod				;Will be triggered based on stage.
+; trigger1 = StageConst(DynamicLighting)
+; anim = anim
+; animelem = animelemno(0)
+; ID = 909090
+; pos	= cond((abs(camerapos x) > 260), cond((stagefrontedgedist < stagebackedgedist), -1, 1), 0), -1
+; postype = p1
+; bindtime = 1
+; facing = 1
+; supermovetime = 0
+; pausemovetime = 0
+; scale = const(size.xscale), const(size.yscale)
+; sprpriority = -10
+; ontop = 0
+; shadow = 0,0,0
+; ownpal = 1
+; trans = AddAlpha
+; removetime = 1
+; palfx.time = 40
+; palfx.add = StageConst(DynamicR),StageConst(DynamicG),StageConst(DynamicB)
+; alpha = StageConst(DynamicAlpha)
+; removeonchangestate = 1
+; removeongethit = 0
+; ignorehitpause = 1
 
 [State 8990, Play No Music]
 type = AssertSpecial
@@ -8167,7 +8308,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 0
+VALUE = 1
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)
@@ -10230,35 +10371,6 @@ map = "Low"
 value = 0
 
 [statedef -4]
-
-;===============================================================================
-; ------- DYNAMIC LIGHTING --------
-;===============================================================================
-[State 0, Dynamic Lighting] 	;Uses basic explod tactics to simulate a rimlight effect.
-type = Explod				;Will be triggered based on stage.
-trigger1 = StageConst(DynamicLighting)
-anim = anim
-animelem = animelemno(cond(movetype = H, -1, 0))
-ID = 0
-pos	= cond((abs(camerapos x) > 260), cond((stagefrontedgedist < stagebackedgedist), -1, 1), 0), -1
-postype = p1
-bindtime = 1
-facing = 1
-supermovetime = 0
-pausemovetime = 0
-scale = const(size.xscale), const(size.yscale)
-sprpriority = -10
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-trans = AddAlpha
-removetime = 1
-palfx.time = 40
-palfx.add = StageConst(DynamicR),StageConst(DynamicG),StageConst(DynamicB)
-alpha = StageConst(DynamicAlpha)
-removeonchangestate = 1
-removeongethit = 0
-ignorehitpause = 1
 
 ;===============================================================================
 ; ------- Team Lead Map Set --------

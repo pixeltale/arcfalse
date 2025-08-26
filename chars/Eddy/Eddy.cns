@@ -400,7 +400,7 @@ value = 0
 [Statedef 192]
 type = S
 ctrl = 0
-anim = 0
+anim = 1
 
 [State 193, 1]
 type = AssertSpecial
@@ -483,7 +483,7 @@ value = 1
 [State 191, 1] ;Freeze animation until PreIntro is over
 type = ChangeAnim
 trigger1 = RoundState = 0
-value = 0
+value = 1
 
 [State 191, 3] ;Change to stand state when done
 type = ChangeState
@@ -598,6 +598,21 @@ type = VelAdd
 trigger1=vel x <10
 trigger1 =anim=194
 x = .1
+
+[State 0, Helper]
+type = Helper
+trigger1 = StageConst(DynamicLighting)
+trigger1 = !time
+helpertype = Normal ;Player
+name = "Lighting Helper"
+ID = 909091
+stateno = 909090
+pos = 0,-2
+postype = P1    ;P2, Front, Back, Left, Right
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
 
 [State 0, DestroySelf]
 type = DestroySelf

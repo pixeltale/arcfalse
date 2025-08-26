@@ -462,7 +462,7 @@ ignorehitpause = 0
 
 [State 0, DAMAGE]
 type = TEXT
-triggerall = teamside = 1
+triggerall = teamside = 1 && !map(TrailerMode)
 trigger1 = 1
 removetime = 1
 layerno = 2

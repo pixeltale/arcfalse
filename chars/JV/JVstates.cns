@@ -1110,10 +1110,9 @@ type = VelAdd
 trigger1 = time % 2
 x = 2.5
 [State 0, VelSet]
-type = VelSet
-triggerall = anim = 100
-trigger1 = vel x >= 20 && enemy, map(Superfrost) = 0
-x = 20
+type = PosAdd
+trigger1 = p2dist x < 30 && abs(p2dist y) < 50
+x = -1
 [State 0, VelSet]
 type = VelAdd
 triggerall = prevstateno = 2000

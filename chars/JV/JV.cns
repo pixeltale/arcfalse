@@ -559,8 +559,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "roundstate = %i"
-params = roundstate
+text = "rimlight explod = %i"
+params = p2dist x
 ignorehitpause = 1
 persistent = 1
 

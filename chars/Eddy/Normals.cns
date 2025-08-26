@@ -2169,6 +2169,21 @@ movetype =A
 physics = N
 sprpriority = 2
 
+[State 0, Helper]
+type = Helper
+trigger1 = StageConst(DynamicLighting)
+trigger1 = !time
+helpertype = Normal ;Player
+name = "Lighting Helper"
+ID = 909091
+stateno = 909090
+pos = 0,-2
+postype = P1    ;P2, Front, Back, Left, Right
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+
 [State -2, P1 Value Set]
 type 		= ParentMapSet
 trigger1 		= movehit && !map(ComboStateCheck)
