@@ -257,7 +257,7 @@ trigger3 = movecontact
 type = ChangeState
 value = 2050
 triggerall=stateno!=40
-triggerall = command = "b" && command="holdback"
+triggerall = command = "b" && command="holdback" && command != "holddown"
 triggerall=command!="c"
 triggerall = statetype != A
 trigger1 = ctrl || var(1)

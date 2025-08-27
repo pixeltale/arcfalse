@@ -561,10 +561,10 @@ sprpriority = 9
 type = HitDef 
 p2facing = 1
 hitonce = 0
-trigger1 = enemynear,Gethitvar(chainID)!=99858 
+trigger1 = enemynear,Gethitvar(chainID)!=99858  && enemy, movetype != A
 trigger1 = time = 0
 attr = S, HP                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(11) * 175 < 100, 100, root,fvar(11) * 175)),20
+damage = 200 * root, map(P4),20
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFDP                    ;Flags of conditions that move can hit
 ;Hit/Miss/Dodge type (Def: Hit)
@@ -595,12 +595,53 @@ envshake.freq = 90
 envshake.ampl = -2
 envshake.phase = 2
 p2sprpriority = 9 
-;p2stateno = 915020
-;ID = 3011
+ID = 1
 ;NoChainID = 3010
+
+[State 1000, 1]
+type = HitDef 
+p2facing = 1
+hitonce = 0
+trigger1 = enemy, movetype = A
+trigger1 = time = 0
+attr = S, HP                     ;Attribute: Standing, Normal Attack
+damage = 250 * root, map(P4),20
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAFDP                    ;Flags of conditions that move can hit
+;Hit/Miss/Dodge type (Def: Hit)
+pausetime = 1, 30                ;Time attacker pauses, time opponent shakes
+sparkno = 3                      ;5park anim no (Def: set above)
+sparkxy = -10, -45               ;X-offset for the "hit spark" rel. to p2,
+;Y-offset for the spark rel. to p1
+hitsound = 5, 2                  ;5ound to play on hit
+guardsound = 6, 0                ;5ound to play on guard
+ground.type = High               ;Type: High, Low, Trip (def: Normal)
+air.type = high        
+animtype = heavy  ;Animation type: Light, B, Heavy, Back (def: Light)
+ground.slidetime = 5             ;Time that the opponent slides back
+fall = 1
+air.fall = 1
+getpower = 0
+ground.velocity = -8,-1.6
+air.velocity = -8,-1.6   
+down.velocity = -8,-1.6
+ground.hittime  = 999
+air.hittime  = 999
+down.hittime  = 999
+guard.slidetime = 5
+guard.hittime = 16
+guard.ctrltime = 9       
+envshake.time = 35
+envshake.freq = 90
+envshake.ampl = -2
+envshake.phase = 2
+p2sprpriority = 9 
+p2stateno = 5250
+p2getp1state = 0
 
 [state 300, targetstate]
 type = targetstate
+triggerall = enemynear, gethitvar(ChainID) = 1
 trigger1 = movehit = 1
 trigger1 = enemynear, life > 0
 value = 915020
@@ -609,6 +650,7 @@ persistent = 0
 
 [State 0, TargetState]
 type = TargetState
+triggerall = enemynear, gethitvar(ChainID) = 1
 trigger1 = movehit = 1
 trigger1 = enemynear, life < 1
 value = 3011020

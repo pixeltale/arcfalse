@@ -3257,7 +3257,7 @@ triggerall=enemynear,stateno!=900
 triggerall=enemynear,stateno!=901
 trigger1 = 1
 value = SCA
-time = 1
+time = 10
 
 [State 8000, flash]
 type = PalFX

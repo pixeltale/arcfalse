@@ -542,10 +542,10 @@ channel = 9
 
 [State 2001, Particles]
 type = Helper
-trigger1 = map(CHARGE.LEVEL) > 45 && !numhelper(9001)
+trigger1 = map(CHARGE.LEVEL) > 45 && !numhelper(9002)
 helperType = Normal
 stateNo = 9001
-ID = 9001
+ID = 9002
 name = "Particles"
 postype = P1
 pauseMoveTime = 65535
@@ -576,7 +576,7 @@ type 	= MapAdd
 trigger1 	= command != "BACK.CHARGE" && map(LeniencyTimer)
 map 		= "LeniencyTimer"
 value 		= -1
-ignorehitpause 	= 1
+ignorehitpause 	= 0
 
 ;[State 0, PalFX] ;Magic Pixel Check
 ;type = PalFX
@@ -827,46 +827,6 @@ type = RemoveExplod
 trigger1 = stateno != 812
 trigger1 = stateno != 803
 id = 44020
-
-;===============================================================================================
-;Vile's Poison
-[State -2,Poison Variable]
-type = VarAdd
-trigger1 = time%2=0 && fvar(17)>0
-fv = 17     ;fv = 
-value = -1
-;ignorehitpause = 
-;persistent = 
-[State -2,Poison Subtract]
-Type = LifeAdd
-triggerall = roundstate != 0
-Trigger1 = Time%5 = 0 && fvar(17)>0
-trigger2 = pos y = 0
-trigger2 = Time%5 = 0 && enemynear, name = "Vile" && (enemynear, var(20)= [-58,58]) 
-Value = -3
-Kill = 0
-Absolute = 1
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = Time%30 = 0 && enemynear, name = "Vile" && (enemynear, var(20)= [-58,58])&& enemynear, palno = 1
-trigger1 = roundstate = 2
-time = 30
-add = 0,120,0
-mul = 256,256,256
-sinadd = 0,70,0,30
-invertall = 0
-color = 256
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = Time%30 = 0 && enemynear, name = "Vile" && (enemynear, var(20)= [-58,58])&& enemynear, palno = 2
-trigger1 = roundstate = 2
-time = 30
-add = 120,0,0
-mul = 256,256,256
-sinadd = 70,0,0,30
-invertall = 0
-color = 256
-;===============================================================================================
 
 [State 0, Explod] ;Meditation LvL Indicator P1 Side
 type = Explod

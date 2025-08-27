@@ -1007,8 +1007,10 @@ flag = NoWalk
 
 [State 100, 3] ;Prevent from turning
 type = AssertSpecial
-trigger1 = 1
+trigger1 = time < 20
 flag = NoAutoTurn
+flag2 = NoStandGuard
+flag3 = NoCrouchGuard
 
 [State 100, 4]
 type = ChangeState

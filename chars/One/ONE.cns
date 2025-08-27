@@ -620,7 +620,7 @@ ctrl = 1
 type = LifeAdd
 triggerall = var(50) && !map(IBCheck)
 trigger1 = enemynear, moveguarded = 1
-value = -5
+value = -2.5
 kill = 1
 absolute = 0
 ignorehitpause = 1

@@ -316,7 +316,7 @@ triggerall = command = "x"
 triggerall = command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl 
-trigger2 = (stateno = 200 || stateno = 400) && movecontact
+trigger2 = (stateno = 400) && movecontact
 
 ;5M
 [State -1,5M]
@@ -364,7 +364,7 @@ triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(750)
-triggerall = command = "holdfwd" && command != "holddown"
+triggerall = command = "NOBUFFER.HOLDFWD" && command != "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
@@ -380,7 +380,7 @@ triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(750)
-triggerall = command = "holdback" && command != "holddown"
+triggerall = command = "NOBUFFER.HOLDBACK" && command != "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
@@ -443,7 +443,7 @@ triggerall = statetype != A
 triggerall = command = "x"
 triggerall = command = "holddown"
 trigger1 = ctrl
-trigger2 = (stateno = 200 || stateno = 400) && movecontact
+trigger2 = (stateno = 200) && movecontact
 
 ;---------------------------------------------------------------------------
 ;2M

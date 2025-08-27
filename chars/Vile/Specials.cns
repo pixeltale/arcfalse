@@ -384,7 +384,7 @@ value = 1006
 ;---------------------------------------------------------------------------
 [Statedef 1600]
 type    = A
-movetype= I
+movetype= A
 physics = N
 juggle  = 0
 ctrl = 0
@@ -592,7 +592,7 @@ persistent 		= 0
 [State 410, 2]
 type = HitDef
 trigger1 = time%2 = 0
-attr = S, NA
+attr = S, SP
 damage = 10 * MAP(P4) + 5, 4
 hitflag = MAFD
 guardflag = MA
@@ -614,7 +614,6 @@ air.velocity = 0.2,-0.5
 air.hittime = 35
 air.fall = 1
 getpower = 0
-getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 [State 0, AfterImage]
 type = AfterImage
 trigger1 = time=  0
@@ -1456,7 +1455,7 @@ trigger1 = time >=18
 ;---------------------------------------------------------------------------
 [Statedef 1030]
 type    = A
-movetype= I
+movetype= A
 physics = N
 juggle  = 0
 ctrl = 0
@@ -1803,7 +1802,7 @@ damage = 10*root, MAP(P4) + 3, 4
 hitflag = MAFDP
 guardflag = MA
 priority = 5
-pausetime = 5,5
+pausetime = 5,1
 guard.pausetime = 5,20
 sparkno = 12
 guard.sparkno = 40
@@ -1822,10 +1821,7 @@ air.hittime = 34
 fall=1
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
-;down.cornerpush.veloff = 0
-;guard.cornerpush.veloff = 0
 getpower = 0
-SNAP=30,0
 
 
 
@@ -2080,8 +2076,8 @@ envshake.time = 9
 envshake.freq = 90
 envshake.ampl = 2
 air.fall = 1
-guard.ctrltime = 16
-guard.hittime = 16
+guard.ctrltime = 18
+guard.hittime = 18
 getpower = (100)*(cond(var(var(6)) = 1, 1, .5))
 p2facing = 1
 
@@ -2900,7 +2896,7 @@ p2facing =1
 air.cornerpush.veloff = 12
 ground.cornerpush.veloff = -12
 down.cornerpush.veloff = -12
-getpower = 40*var(6)
+getpower = 40
 p2facing = 1
 
 [State 1050, 5]
@@ -3136,7 +3132,7 @@ envshake.phase = 100
 p2facing =1
 guard.hittime = 11
 guard.ctrltime  = 11
-getpower =(100)*(cond(var(var(2)) = 1, 1, 1))
+getpower =(40)*(cond(var(var(2)) = 1, 1, 1))
 p2facing = 1
 id = 910311
 
@@ -3158,23 +3154,11 @@ type = ChangeState
 trigger1 = Vel Y > 0 && Pos Y >= -5
 value = 1053
 
-;Do what you want Tommy
-;[State 1055, Naoto] ;Change state when KFM is close to ground
-;type = ChangeState
-;triggerall = !movecontact
-;trigger1 = Vel Y > 0 && Pos Y >= -5
-;value = 52
-
 ;------------------
 ; 6S: Rising Knee (Land)
-; Description: This is KFM's landing state. There is a velset in the
-;     Statedef to stop KFM from moving. Since KFM's y-position can be any
-;     number greater than -10 upon entering this state (see the ChangeState
-;     controller in State 1051), we need to reset it to 0, the ground
-;     level. That is what controller 1052,1 is for.
 [Statedef 1053]
 type    = S
-movetype= I
+movetype= A
 physics = S
 anim = 1023
 sprpriority = 1
@@ -3778,7 +3762,7 @@ value = 1063
 ; 6S: EX Rising Knee (Land)
 [Statedef 1063]
 type    = S
-movetype= I
+movetype= A
 physics = S
 anim = 1023
 sprpriority = 1
@@ -4805,6 +4789,7 @@ removeongethit = 0
 type = DestroySelf
 trigger1 = time > 2
 trigger1 = numhelper(2054) >= 2
+trigger2 = enemy, map(ComboStateCheck)
 
 
 
@@ -5793,7 +5778,7 @@ trigger3=root,movetype=H
 ;5R: Acid Spawn
 [Statedef 6000]
 type    = S
-movetype= I
+movetype= A	
 physics = S
 velset = 0,0
 ctrl = 0
@@ -5943,7 +5928,7 @@ physics = N                      ;Physics: S-stand, C-crouch, A-air
 ;Commonly-used controllers:
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1999                       ;Change animation (Def: no change)
-poweradd = (100)*(cond(var(var(6)) = 1, 1, .5))                  ;Power to add (Def: 0)
+poweradd = 0                 ;Power to add (Def: 0)
 sprpriority = 1                  ;Set p1's sprite layering priority to 2 (in front)
 
 [State 1050, PosFreeze]
@@ -6050,7 +6035,7 @@ value = 1
 ;j2R: (Air) D Acid Spawn
 [Statedef 6014]
 type    = A                    ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = N                      ;Physics: S-stand, C-crouch, A-air
 ;Commonly-used controllers:
 ctrl = 0                         ;Set ctrl (Def: no change)
@@ -6161,7 +6146,7 @@ value = 1
 ;j4R: (Air) B Acid Spawn
 [Statedef 6015]
 type    = A                    ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = N                      ;Physics: S-stand, C-crouch, A-air
 ;Commonly-used controllers:
 ctrl = 0                         ;Set ctrl (Def: no change)
@@ -6271,7 +6256,7 @@ value = 1
 ;j6R: (Air) F Acid Spawn
 [Statedef 6016]
 type    = A                    ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = N                      ;Physics: S-stand, C-crouch, A-air
 ;Commonly-used controllers:
 ctrl = 0                         ;Set ctrl (Def: no change)
@@ -6380,7 +6365,7 @@ value = 1
 ;6R: F Acid Spawn
 [Statedef 6010]
 type    = S
-movetype= I
+movetype= A
 physics = S
 velset = 0,0
 ctrl = 0
@@ -6515,7 +6500,7 @@ ctrl = 1
 ;4R: B Acid Spawn
 [Statedef 6011]
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      ;Physics: S-stand, C-crouch, A-air
 juggle  = 1                      ;Number of air juggle points move takes
 ;Commonly-used controllers:
@@ -6663,7 +6648,7 @@ ctrl = 1
 ;2R: Puddle Spawn
 [Statedef 6012]
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      ;Physics: S-stand, C-crouch, A-air
 juggle  = 1                      ;Number of air juggle points move takes
 ;Commonly-used controllers:
@@ -6803,7 +6788,7 @@ ctrl = 1
 ;3R: Puddle Spawn
 [Statedef 6017]
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      ;Physics: S-stand, C-crouch, A-air
 juggle  = 1                      ;Number of air juggle points move takes
 ;Commonly-used controllers:
@@ -6943,7 +6928,7 @@ ctrl = 1
 ;1R: Puddle Spawn
 [Statedef 6018]
 type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
-movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+movetype= A                      ;Move-type: A-attack, I-idle, H-gethit
 physics = S                      ;Physics: S-stand, C-crouch, A-air
 juggle  = 1                      ;Number of air juggle points move takes
 ;Commonly-used controllers:

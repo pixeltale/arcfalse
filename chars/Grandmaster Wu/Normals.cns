@@ -696,7 +696,7 @@ envshake.freq 		= 5
 envshake.ampl 		= 0.5
 envshake.phase 		= 0.8
 ;==============================================
-getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
+getpower 		= (25)*(cond(var(var(2)) = 1, 1, .5))
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State 400, 4]
@@ -1089,7 +1089,7 @@ ground.slidetime = 25
 air.hittime  = 44
 ground.hittime  = 32
 ground.velocity = -3.5,-2
-air.velocity = -1.3,-2
+air.velocity = -1.3,0
 down.velocity = -1.3,-4
 down.hittime = 22
 envshake.time = 8
@@ -1947,7 +1947,7 @@ facing = 1
 keyctrl = 1
 ownpal = 0
 
-[State 0, Helper]
+[State 0, Helper] ;5R summon
 type = Helper
 triggerall = fvar(26) = -1
 trigger1 = time = 0 && !numhelper(777)
@@ -1962,10 +1962,10 @@ facing = 1
 keyctrl = 1
 ownpal = 0
 
-[State 0, Helper]
+[State 0, Helper] ;6R Summon
 type = Helper
 triggerall = fvar(26) = -1
-trigger1 = time = 10 && !numhelper(777)
+trigger1 = !numhelper(777)
 trigger1 = prevstateno = 62000
 helpertype = normal ;player
 name = "Astral Projection"
@@ -2884,7 +2884,7 @@ physics = S
 type = ChangeAnim
 trigger1 = p2dist x >120
 trigger2 = time = 70
-triggerall = anim!=1000
+triggerall = anim!=1001
 value = 1019
 elem = 1
 
@@ -2892,8 +2892,8 @@ elem = 1
 type = ChangeAnim
 trigger1 = p2dist x < 300
 trigger2 = time = 70
-triggerall = anim!=1000
-value = 1000
+triggerall = anim!=1001
+value = 1001
 elem = 1
 
 [State 0, AfterImage]
@@ -3008,13 +3008,14 @@ persistent 		= 0
 
 [State 1000, 1]
 type = HitDef
-trigger1 = time = 0 
+triggerall = !map(CounterHit) || enemy, map(ArmorActive)
+trigger1 = !MoveContact && !MoveReversed
 attr = S, SA                     ;Attribute: Standing, Normal Attack
-damage = 150 * root, map(P4), 0
+damage = 150 * root, map(P4) + 100 * root, map(CounterHit), 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAF
-pausetime = 10, 10              ;Time attacker pauses, time opponent shakes
+pausetime = 10, 10 + 10 * root, map(CounterHit)          ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;Spark anim no (Def: set above)
 sparkxy =-14, -40
 fall = 1
@@ -3039,6 +3040,42 @@ ground.cornerpush.veloff =-8
 air.cornerpush.veloff=-8
 guard.dist = 0
 getpower = 0
+[State 1000, 1]
+type = HitDef
+triggerall = map(CounterHit)
+trigger1 = !MoveContact && !MoveReversed
+attr = S, SA                     ;Attribute: Standing, Normal Attack
+damage = 150 * root, map(P4) + 100 * root, map(CounterHit), 0
+animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAF
+pausetime = 10, 10 + 10 * root, map(CounterHit)          ;Time attacker pauses, time opponent shakes
+sparkno = 3                      ;Spark anim no (Def: set above)
+sparkxy =-14, -40
+fall = 1
+hitsound = 5, 2                  ;Sound to play on hit
+guardsound = 6, 0                ;Sound to play on guard
+ground.type = LOW         ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 35
+air.hittime  = 45
+down.hittime = 45
+ground.velocity = -18,-6
+air.velocity	= -18, -6
+guard.velocity = -20   ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+airguard.velocity = -6,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = TRIP                 ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -8,-2
+envshake.time = 14
+envshake.freq = 100
+envshake.ampl = 4
+fall.yvelocity = 0
+ground.cornerpush.veloff =-8
+air.cornerpush.veloff=-8
+guard.dist = 0
+p2stateno 	= 5220
+p2getp1state 	= 0
+getpower = 0
 
 [State 0, ParentVarAdd]
 type = ParentVarAdd
@@ -3048,9 +3085,10 @@ value = 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0 && anim = 1000
+trigger1 = animtime = 0 && anim = 1001
 trigger2 = root, movetype = H
 value = 770
+ignorehitpause = 1
 ctrl = 0
 
 ;-----------------------------
@@ -3101,8 +3139,8 @@ elem = 1
 type = ChangeAnim
 trigger1 = p2dist x <150
 trigger2 = time = 70
-triggerall = anim!=420
-value = 420
+triggerall = anim!=421
+value = 421
 elem = 1 
 
 [State 0, AfterImage]
