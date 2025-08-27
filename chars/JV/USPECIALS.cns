@@ -3205,8 +3205,8 @@ ground.hittime  	= 42
 air.hittime	= 42
 down.hittime	= 48
 fall		= 1
-ground.velocity 	= 0, -2
-air.velocity	= -100 * map(inverse), -6
+ground.velocity 	= 0
+air.velocity	= -100 * map(inverse), cond(p2dist y < 10, -4, 0)
 air.fall 		= 1
 fall.yvelocity 	= 0
 p2stateno 	= 5220
@@ -3228,11 +3228,11 @@ hitsound   	= 5,3
 guardsound 	= 6,2
 hitflag 		= MAFD
 ground.hittime  	= 42
-air.hittime	= 42
+air.hittime	= 60
 down.hittime	= 48
 fall		= 1
 ground.velocity 	= 0, -2
-air.velocity	= -100 * map(inverse), -6
+air.velocity	= -100 * map(inverse), 0
 air.fall 		= 1
 fall.yvelocity 	= 0
 p2stateno 	= 5220
@@ -3315,14 +3315,6 @@ trigger1 = movehit = 1
 value = 763
 ignorehitpause = 1
 persistent = 0
-
-[State -2, Wallbounce Type Set]
-type 		= MapSet
-trigger1 		= movehit
-map 		= "wallbounce_boomerang"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 0
 
 [State 77]
 type = bgpalfx

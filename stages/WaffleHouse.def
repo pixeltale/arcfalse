@@ -4,6 +4,13 @@
 [Info]
 name = "WAFFLE HOUSE"
 
+[Constants]
+DynamicLighting = 1
+DynamicR = 255
+DynamicG = 255
+DynamicB = 255
+DynamicAlpha = 170
+
 [Camera]
 startx = 0
 starty = 0

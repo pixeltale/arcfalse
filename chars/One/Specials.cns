@@ -110,8 +110,7 @@ ground.hittime  = 25 * map(UntechMod)
 air.hittime  = 30
 down.hittime = 30 * map(UntechMod)
 ground.velocity = -0.5 - time * 0.25
-guard.ctrltime = 18
-guard.hittime  = 18
+guard.ctrltime = 20
 air.velocity = -0.5,-0.5 + (map(untechDecay) * 0.1)
 envshake.time = 8
 envshake.freq = 10
@@ -3437,12 +3436,6 @@ anim = 10000
 ID = 115120
 removetime = -1
 
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = var(50)!=0
-trigger1 = time > 5
-value = 1
-
 [State 0, Veladd]
 type = Veladd
 trigger1 = command = "holdfwd" && time <5
@@ -4467,7 +4460,7 @@ hitsound   	= s8,1
 guardsound 	= 6,2
 ground.type 	= Low
 ground.slidetime 	= 12
-ground.hittime  	= 18 * map(UntechMod)
+ground.hittime  	= 30 * map(UntechMod)
 air.hittime  	= 36 * map(UntechMod)
 down.hittime 	= 36 * map(UntechMod)
 ground.velocity 	= -3.5,0
@@ -5264,6 +5257,78 @@ removetime = -2
 scale = .6,.6
 sprpriority = 2
 
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !animtime
+value = 0
+ctrl = 1
+
+;ONO 4S
+;-----------------------------
+[Statedef 1315]
+type    		= S
+movetype		= A
+physics 		= S
+ctrl 		= 0
+anim 		= 1049
+sprpriority 	= 2
+velset 		= vel x, 0
+
+[State One Voices]
+type 	= PlaySnd
+trigger1 	=  animelem = 6
+value 	= 190, 0
+volumescale=150
+channel 	= 6
+
+[State 200, 2]
+type 	= PlaySnd
+trigger1 	= animelem = 6
+value 	= 0, 0
+[State 200, 2]
+type 	= PlaySnd
+trigger1 	= animelem = 8
+value 	= 0, 1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = animelem = 3
+trigger1 = abs(pos x - (helper(260), pos x)) < 55
+trigger1 = abs(map(SworddistY) < 25)
+value = 665
+redirectid = helper(260), id
+
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+[State 40, 2]
+type = VarSet
+trigger1 = helper(260), stateno = 665
+sysvar(1) = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = sysvar(1)
+trigger1 = command = "28" || command = "27" || command = "29"
+value = 55
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = sysvar(1)
+trigger1 = command = "holdupb"
+value = 40
+
+[State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= sysvar(1)	        ;+
+time 		= 10				        ;+
+length 		= 25   				        ;+
+timegap 		= 1				        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 191, 64, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
 
 [State 0, ChangeState]
 type = ChangeState

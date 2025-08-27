@@ -314,11 +314,11 @@ type = HitDef
 trigger1 = animelem = 1
 kill = 0
 attr = S, HP
-damage = 3*MAP(P4)+4, 6
+damage = 20, 6
 hitflag = MAFDP
 guardflag = MA
 priority = 5
-pausetime = 14,18
+pausetime = 10,10
 sparkno = 12
 guard.sparkno = 40
 sparkxy = -20,-30
@@ -331,7 +331,7 @@ down.hittime = 40
 ground.velocity = -1,0
 fall.xvelocity = -2
 fall.yvelocity = -3
-air.velocity = -0.3,3.0
+air.velocity = -2,3
 air.hittime = 44
 air.fall = 1
 getpower = 0
@@ -341,6 +341,7 @@ p2facing = 1
 [State 410, 2]
 type = HitDef
 kill = 0
+triggerall = animelemno(0) > 1
 trigger1 = time%7 = 0
 trigger1 = time < 192
 attr = S, HP

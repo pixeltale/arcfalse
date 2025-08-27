@@ -260,7 +260,7 @@ triggerall=stateno!=40
 triggerall = command = "b" && command="holdback"
 triggerall=command!="c"
 triggerall = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || var(1)
 
 ;-------------------------------------------------------------------------
 

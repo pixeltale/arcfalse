@@ -9,7 +9,7 @@ DynamicLighting = 1
 DynamicR = 255
 DynamicG = 100
 DynamicB = 000
-DynamicAlpha = 75
+DynamicAlpha = 275
 
 [Camera]
 startx = 0

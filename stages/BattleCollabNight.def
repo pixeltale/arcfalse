@@ -1,6 +1,13 @@
 [Info]
 name = "BATTLE COLLAB -NIGHT-"
 
+[Constants]
+DynamicLighting = 1
+DynamicR = 255
+DynamicG = 165
+DynamicB = 0
+DynamicAlpha = 150
+
 [Camera]
 startx = 0
 starty = 0

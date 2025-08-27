@@ -4,6 +4,13 @@
 [Info]
 name = "INTO THE MIND"
 
+[Constants]
+DynamicLighting = 1
+DynamicR = 255
+DynamicG = 255
+DynamicB = 0
+DynamicAlpha = 150
+
 [Camera]
 startx = 0
 starty = 0

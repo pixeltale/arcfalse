@@ -16,10 +16,11 @@ var(1) = 0
 [State -1, Combo condition Check]
 type = VarSet
 trigger1 = statetype != A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = [100,101]
 trigger2 = (stateno = [200,299]) || (stateno = [400,499]) || (stateno=643 && animelemtime(6) = [3,6])
 trigger2 = movecontact
 trigger2 = stateno!=421 && stateno!= 453
+trigger3 = stateno = 252 && !var(50)
 var(1) = 1
 
 ;---------------------------------------------------------------------------
@@ -237,10 +238,18 @@ value = 1000
 triggerall = !var(50)
 triggerall = command = "b"
 triggerall = command = "holdback"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = [100,101]
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+
+[State 100, 4S: Slashes]
+type = ChangeState
+value = 1315
+triggerall = var(50)
+triggerall = command = "b"
+triggerall = command = "holdback"
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+
 
 
 [State 12251, jEX: EX Air Flip]
@@ -263,6 +272,7 @@ trigger1 = statetype = A
 triggerall = command = "b"
 trigger1 = ctrl
 trigger2 = (stateno = [600,650]) && movecontact && stateno != [642,643]
+trigger3 = stateno = [620,645] && helper(260), stateno = [666,667]
 
 
 [State 1250, 5EX: EX Flip]
@@ -326,7 +336,7 @@ triggerall = command = "66" || command = "M66" && command != "back" && command !
 triggerall = stateno!=100
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 1010 && movehit
+trigger2 = stateno = 1010 && movehit || stateno = 1315 && sysvar(1)
 
 
 

@@ -51,9 +51,13 @@ FLIP	-		<#aaffff>(GROUND OR AIR)</> ^Y
 UNDERMINE	-		<#aaffff>(GROUND ONLY)</> _F^Y
    <#bbbbbb>A command dash. When One reaches the opponent,
    he'll run behind the opponent and kick them backward.</>
-RETURN TO ORIGIN	-		<#aaffff>(GROUND OR AIR)</> _D^Y
+SWORD TO HELL	-		<#aaffff>(GROUND OR AIR)</> _D^Y
    <#bbbbbb>One flies into the air before crashing down with
    a powerful sword strike at the position of his sword.</>
+SWORD TO HEAVEN	-		<#aaffff>(GROUND OR AIR)</> _D^Y
+   <#bbbbbb>One quickly kicks his sword into the air.
+   If he kicks it successfully, he can dash or jump cancel
+   the recovery.</>
 
 	<#24ff24>SWORD REMIX MOVES</>
 SWORD THROW	-		^Z
@@ -73,9 +77,9 @@ SWORD THROW	-		_D^Z
    Hold down-forward or dow-back to angle the throw.</>
 
 	<#0f43ff>SWORDLESS REMIX MOVES</>
-BACKSLASHING	-		^Z
+DESPERATE STRUGGLE	-		^Z
    <#bbbbbb>One runs to his sword, passing behind the opponent.
-   If he reaches it, he'll perform a slash behind himself to damage them.</>
+   If he reaches it, he'll be able to cancel the recovery into special moves.</>
 
 	<#ffef0f>EX MOVES</>
 _EX ACID FLIP	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> ^Y

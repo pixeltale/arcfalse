@@ -638,23 +638,10 @@ ownpal = 1
 removeongethit = 0
 ignorehitpause = 0
 
-[State -1, Acrid Hurricane]
-type = ChangeState
-value = 1020
-triggerall = !var(50)
-trigger1 = command = "b" && command != "c" && time>12
-
-[State -1, Acrid Hurricane EX]
-type = ChangeState
-value = 1027
-triggerall = !var(50)
-triggerall = power>500
-trigger1 = command = "b" && command = "c" && time>12
-
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = vel y > 2
-value = 41
+value = 41 + var(50)
 elem = 4
 ignorehitpause = 1
 persistent = 0
@@ -1105,7 +1092,7 @@ type    = S
 physics = S
 anim = 100 +var(50)*7
 sprpriority = 1
-ctrl = 0
+ctrl = var(50)
 
 [State 0, changestate]
 type = changestate
@@ -1115,22 +1102,17 @@ trigger1 = prevstateno = [700, 701] || prevstateno = [703,704]
 [State 210, Width]
 type = Width
 trigger1 = 1;(AnimElemTime (1) >= 0) && (AnimElemTime (4) < 0)
-value = 30,0
+value = 15,0
 
 [State 100, 1]
 type = VelSet
-trigger1 = time >= 0
-x = 8 + (var(50) * 0.5)
+trigger1 = time || var(50)
+x = 6 + 1 *(Var(50) > 0)
 
 [State 0, CtrlSet]
 type = CtrlSet
 trigger1 = time > 1
 value = 1
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = time = 0
-x = 0
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1256,6 +1238,7 @@ physics = S
 ctrl = 0
 anim = 105+(var(50)*4)
 sprpriority = 1
+ctrl = 1
 
 [State 0, PowerAdd]
 type = PowerAdd
@@ -1301,9 +1284,17 @@ trigger1 = time =13
 x = -3
 y = 0
 
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = var(50) && time = 7
+value = 1
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, NotHitBy]
 type 	= NotHitBy
+triggerall = !var(50)
 trigger1 	= time <= 7
 value 	= SCA
 time 	= 1

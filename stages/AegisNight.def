@@ -1,6 +1,13 @@
 [Info]
 name = "AEGIS FIELDS -NIGHT-"
 
+[Constants]
+DynamicLighting = 1
+DynamicR = 255
+DynamicG = 245
+DynamicB = 255
+DynamicAlpha = 150
+
 [Camera]
 startx = 0
 starty = 0

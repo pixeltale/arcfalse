@@ -3,6 +3,13 @@
 [Info]
 name = "FRAUDWATCH"
 
+[Constants]
+DynamicLighting = 1
+DynamicR = 255
+DynamicG = 0
+DynamicB = 50
+DynamicAlpha = 200
+
 [Camera]
 startx = 0
 starty = 0
