@@ -1628,7 +1628,7 @@ facep2 = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = !time && map(Charge.level) >= 60
+trigger1 = !time && map(Charge.level) >= 45
 value = 1035
 elem = 1
 
