@@ -13,8 +13,18 @@ command = ~b
 buffer.time = 3
 time = 1
 [Command]
-name = "4S"
-command = /B, b
+name = "S"
+command = b
+[Command]
+name = "NOBUFFER.HOLDBACK"
+command = /B
+BUFFER.TIME = 0
+TIME = 1
+[Command]
+name = "NOBUFFER.HOLDFWD"
+command = /F
+BUFFER.TIME = 0
+TIME = 1
 [Command]
 name = "2S"
 command = /$D, b
@@ -208,7 +218,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 1000
 triggerall = statetype != A
-triggerall = command = "4S"
+triggerall = command = "S" && command = "NOBUFFER.HOLDBACK"
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -223,7 +233,7 @@ trigger2 = var(1)
 [State -1, 6S]
 type = ChangeState
 value = 1012
-triggerall = command = "6S"
+triggerall = command = "S" && command = "NOBUFFER.HOLDFWD"
 trigger1 = ctrl
 trigger2 = var(1)
 

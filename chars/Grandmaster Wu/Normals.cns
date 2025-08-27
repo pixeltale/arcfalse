@@ -1950,7 +1950,7 @@ ownpal = 0
 [State 0, Helper]
 type = Helper
 triggerall = fvar(26) = -1
-trigger1 = time = 10 && !numhelper(777)
+trigger1 = time = 0 && !numhelper(777)
 trigger1 = prevstateno = 42000
 helpertype = normal ;player
 name = "Astral Projection"
@@ -3099,7 +3099,7 @@ elem = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = p2dist x <100
+trigger1 = p2dist x <150
 trigger2 = time = 70
 triggerall = anim!=420
 value = 420
