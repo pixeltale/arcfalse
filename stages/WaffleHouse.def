@@ -3,6 +3,7 @@
 
 [Info]
 name = "WAFFLE HOUSE"
+attachedchar = data/dynamiclight/DynamicLight.def
 
 [Constants]
 DynamicLighting = 1
@@ -10,6 +11,10 @@ DynamicR = 255
 DynamicG = 255
 DynamicB = 255
 DynamicAlpha = 170
+StaticShadow	= 1
+ShadowRComponent = 20
+ShadowGComponent = 20
+ShadowBComponent = 10
 
 [Camera]
 startx = 0

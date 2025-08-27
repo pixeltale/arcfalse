@@ -6,7 +6,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 velset = vel x,0
-anim =3001
+anim =3000
 sprpriority = 8
 poweradd = -2000
 
@@ -28,9 +28,12 @@ ignorehitpause = 1
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = 1
+trigger1 = time = 30
 x = vel x + 15
-y = 0
+[State 0, VelSet]
+type = PosAdd
+trigger1 = p2dist x < 35
+x = -1
 
 [State Meter Burn State, VarSet]
 type = VarSet
@@ -85,28 +88,23 @@ value = 7
 v = 30
 trigger1 = time = 0
 
-[State 0, Explod]
-type = Explod
-trigger1 = time = 0
-anim = 3000
-ID = 3000
-pos = 0,0
-ignorehitpause = 1
-scale = .84, .84
-supermovetime = 200
-
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = time = 0
-time = 30
-anim = 3000
+time = 29
 sound = 20,0
 pos = 0,0
-movetime = 0
+movetime = 29
 darken = 1
 p2defmul = 1
 poweradd = 0
 unhittable = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 3000 && !animtime
+value = 3001
+
 
 [State Meter Burn State, VarSet]
 type = VarSet
@@ -119,7 +117,7 @@ type = NotHitBy
 trigger1 = time = 0
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 ;value2 = S,NA
-time = 8
+time = 40
 
 [State 200, 1]
 type = HitDef

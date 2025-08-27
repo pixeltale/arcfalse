@@ -119,7 +119,7 @@ trigger2 = stateno = 1000 && time > 5 || stateno = 1050 && animelemno(0) >= 5
 [State -1, bombos]
 type = ChangeState
 value = 1070
-triggerall = power > 1000
+triggerall = power >= 1000
 triggerall = command = "EX" 
 triggerall = command = "holdback"
 triggerall = !map(Limiter_4EX)
@@ -131,7 +131,7 @@ trigger2 = var(1)
 [State -1, RELOADRELOAD]
 type = ChangeState
 value = 1030
-triggerall = power > 1000
+triggerall = power >= 1000
 triggerall = command = "EX" && map(ShotCount) < 2
 trigger1 = statetype != A
 trigger1 = ctrl

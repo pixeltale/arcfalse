@@ -560,7 +560,7 @@ ignorehitpause 	= 1
 type = DisplayToClipboard
 trigger1 = 1
 text = "rimlight explod = %i"
-params = p2dist x
+params = camerapos x
 ignorehitpause = 1
 persistent = 1
 

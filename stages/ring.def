@@ -1,5 +1,6 @@
 [Info]
 name = "KNOCKOUT RING"
+attachedchar = data/dynamiclight/DynamicLight.def
 
 
 [Constants]
@@ -8,6 +9,11 @@ DynamicR = 250
 DynamicG = 220
 DynamicB = 000
 DynamicAlpha = 150
+DynamicShadow = 1
+ShadowMulValue = 0.25
+ShadowRComponent = 10
+ShadowGComponent = 20
+ShadowBComponent = 25
 
 [Camera]
 startx = 0

@@ -1785,9 +1785,10 @@ scale =0.84,0.84
 sprpriority = 3
 ontop = 0
 shadow = 0,0,0
-ownpal = 0
+ownpal = 1
 removeongethit = 1
 ignorehitpause = 0
+removeonchangestate = 1
 
 ;neutral hover explod 1
 [State 0, RemoveExplod]

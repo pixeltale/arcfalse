@@ -19,6 +19,7 @@ GRANDMASTER WU
 Z
 Akira
 ALICIA
+TUI
 
 
 [ExtraStages]
@@ -32,7 +33,7 @@ stages/BattleCollab.def, music = sound/PUSHTHETEMPO.mp3,zoom=0
 stages/BattleCollabNight.def, music = sound/EXILE.mp3,zoom=0
 stages/sakura.def, zoom=0, music = sound/ROCKTHEBEAT.mp3,
 stages/WaffleHouse.def,music = sound/LAME.mp3, music = sound/NAKEDGLOW.mp3, music = sound/FLESHTANGO.mp3, zoom=0
-stages/virtualbattleground.def, music = sound/MEDIUMPACE.mp3, music = sound/NIGGASINPARIS.mp3,  music = sound/NOTLIKEUS.mp3, zoom = 0
+stages/virtualbattleground.def, music = sound/MEDIUMPACE.mp3, music = sound/NIGGASINPARIS.mp3,  music = sound/NOTLIKEUS.mp3, zoom = 0, music = sound/DONTTAPTHEGLASS.mp3
 stages/ring.def, music = sound/KNOCKUOUT.mp3
 stages/ava.def, music = sound/LOVEDISPENSARY.mp3, music = sound/BOUND2.mp3
 stages/ballin.def, music = sound/STEPUP.mp3, music = sound/DIVEINTOTHEMELLOW.mp3

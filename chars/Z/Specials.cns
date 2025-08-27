@@ -1726,6 +1726,7 @@ id = 431
 ;6S Explod
 [State 0, Explod]
 type = Explod
+triggerall = !stageConst(DynamicLighting)
 trigger1 = time = 0
 anim = 1202
 ID = 1202
@@ -1741,7 +1742,7 @@ sprpriority = 1
 shadow = 0,0,0
 ownpal = 1
 removeongethit = 1
-ignorehitpause = 0
+ignorehitpause = 1
 
 ;dust loop
 [State 1900, dust]

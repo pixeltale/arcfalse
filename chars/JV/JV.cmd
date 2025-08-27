@@ -123,7 +123,7 @@ type = ChangeState
 value = 45
 triggerall = command = "up" || movecontact && command = "holdup"
 triggerall = Map(DJCL) > 0
-trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 30)
+trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 20)
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = hitdefattr = A, NA
 trigger2 = stateno!=620

@@ -4169,6 +4169,7 @@ trigger1 = Time = 0
 anim = F62
 pos = 0, 0
 postype = p1
+ownpal = 1
 sprpriority = 3
 
 [State 5111, 1] ;For hit up/up-diag type (from state 5081)
@@ -5102,6 +5103,7 @@ trigger1 = Time = 0
 anim = F72
 pos = 0, floor (screenpos y) - 50
 postype = back
+ownpal = 1
 sprpriority = 3
 
 [State 5222, Anim]
@@ -7986,6 +7988,15 @@ physics = N
 anim = root, anim
 sprpriority = -10
 
+[State 30001, AngleDraw]
+type = AngleDraw
+trigger1 = parent, stateno = 5301
+[State 30001, AngleAdd]
+type = AngleAdd
+triggerall = parent, stateno = 5301
+trigger1 = parent, Time%2 = 0
+value = 45
+
 [State 170, 1]
 type = NotHitBy
 trigger1 = 1
@@ -8064,7 +8075,7 @@ persistent = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = 1
+trigger1 = !numexplod(909090)
 value = parent, anim
 elem = parent, animelemno(0)
 ignorehitpause = 1
@@ -8073,6 +8084,8 @@ ignorehitpause = 1
 type = DestroySelf
 trigger1 = parent, IsHelper
 trigger1 = !PlayerIdExist(parent, id)
+trigger2 = parent, movetype != H
+trigger3 = enemynear, map(SlowDownTime)
 
 [Statedef +1]
 
@@ -8100,9 +8113,25 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+[State -2, Dynamic Shadows]
+type = palfx
+trigger1 = StageConst(DynamicShadow)
+add = -StageConst(ShadowRComponent) + abs(camerapos x) * StageConst(ShadowMulValue), -StageConst(ShadowGComponent) + abs(camerapos x) * StageConst(ShadowMulValue), -StageConst(ShadowBComponent) + abs(camerapos x) * StageConst(ShadowMulValue)
+time = 2
+ignorehitpause = 1
+persistent = 1
+[State -2, Dynamic Shadows]
+type = palfx
+trigger1 = StageConst(StaticShadow)
+add = -StageConst(ShadowRComponent), -StageConst(ShadowGComponent), -StageConst(ShadowBComponent)
+time = 2
+ignorehitpause = 1
+persistent = 1
+
 [State 0, Dynamic Lighting Helper]
 type = Helper
-triggerall = movetype != H
+triggerall = player(9), !numexplod(909090)
+triggerall = stateno > 3000
 trigger1 = StageConst(DynamicLighting)
 trigger1 = !numhelper(909090)
 helpertype = Normal ;Player
@@ -8116,35 +8145,36 @@ ownpal = 1
 size.xscale = const(size.xscale)
 size.yscale = const(size.yscale)
 
-;===============================================================================
-;------- DYNAMIC LIGHTING - DEPRECATED EXPLOD VERSION --------
-;===============================================================================
-[State 0, Dynamic Lighting] 	;Uses basic explod tactics to simulate a rimlight effect.
-type = Explod				;Will be triggered based on stage.
-trigger1 = movetype = H
-trigger1 = StageConst(DynamicLighting)
-anim = anim
-animelem = animelemno(0)
-ID = 909090
-pos	= 0, -1
-postype = p1
-bindtime = 1
-facing = 1
-supermovetime = 0
-pausemovetime = 0
-scale = const(size.xscale), const(size.yscale)
-sprpriority = -10
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-trans = Add
-removetime = 1
-palfx.time = 40
-palfx.add = StageConst(DynamicR),StageConst(DynamicG),StageConst(DynamicB)
-alpha = StageConst(DynamicAlpha)
-removeonchangestate = 1
-removeongethit = 0
-ignorehitpause = 1
+; ;===============================================================================
+; ;------- DYNAMIC LIGHTING - DEPRECATED EXPLOD VERSION --------
+; ;===============================================================================
+; [State 0, Dynamic Lighting] 	;Uses basic explod tactics to simulate a rimlight effect.
+; type = Explod				;Will be triggered based on stage.
+; triggerall = stateno != [5300, 5301]
+; triggerall = (map(ComboStateCheck) && (stateno < 3000)) || p2dist x < 40 || movetype = H
+; trigger1 = StageConst(DynamicLighting)
+; anim = anim
+; animelem = animelemno(0)
+; ID = 909090
+; pos	= 0, -1
+; postype = p1
+; bindtime = 1
+; facing = 1
+; supermovetime = 1
+; pausemovetime = 1
+; scale = const(size.xscale), const(size.yscale)
+; sprpriority = -10
+; ontop = 0
+; shadow = 0,0,0
+; ownpal = 1
+; trans = Add
+; removetime = 1
+; palfx.time = 40
+; palfx.add = StageConst(DynamicR),StageConst(DynamicG),StageConst(DynamicB)
+; alpha = StageConst(DynamicAlpha)/2
+; removeonchangestate = 1
+; removeongethit = 0
+; ignorehitpause = 0
 
 [State 8990, Play No Music]
 type = AssertSpecial
@@ -8158,7 +8188,7 @@ ignorehitpause = 1
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = map(PostRC_Hit)
-value = 18
+value = 30
 ignoreHitPause = 1
 
 [State 0, Custom Afterimage]
@@ -9284,6 +9314,7 @@ trigger1 = !(name = "Z" && (stateno = [2000,2008]))
 trigger1 = !(stateno = [3000,4000]) && stateno != 5610
 trigger1 = !(map(untechDecay) >= 2) && !(map(isAssist) > 0) && !(stateno = [56000,56100])
 trigger1 = !map(Dreifing.Active)
+trigger1 = name != "DEUS"
 value = vel x * 0.75
 
 ;==================================================================================================
@@ -10060,9 +10091,11 @@ map = "CanTT"
 value = 1
 [State Throw Tech]
 type = mapset
-trigger1 = movetype = A
+trigger1 = movetype = A || !ctrl
 map = "CanTT"
 value = 0
+ignorehitpause = 1
+persistent = 1
 ;==============================================
 ;Better Neutral Inputs
 [State Input]

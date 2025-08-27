@@ -349,7 +349,7 @@ Clsn2: 2
 ; GUARDSTART (air)
 [Begin Action 122]
 Clsn2: 1
-  Clsn2[0] = -19, -66, 24, -21
+  Clsn2[0] = -26, -76, 24, 7
 120,11, -1,28, 2
 
 [Begin Action 125]
@@ -392,7 +392,7 @@ Clsn2: 2
 ; GUARD (air)
 [Begin Action 132]
 Clsn2: 1
-  Clsn2[0] = -19, -66, 24, -21
+  Clsn2[0] = -26, -76, 24, 7
 120,9, 1,26, 2
 
 [Begin Action 135]
@@ -456,7 +456,7 @@ Clsn2: 2
 ; GUARDEND (air)
 [Begin Action 142]
 Clsn2: 1
-  Clsn2[0] = -18, -72, 23, -20
+  Clsn2[0] = -26, -76, 24, 7
 120,11, -1,26, 2
 
 ; Hit back while guarding (stand)
@@ -476,7 +476,7 @@ Clsn2: 2
 ; Hit back while guarding (air)
 [Begin Action 152]
 Clsn2: 1
-  Clsn2[0] = -19, -66, 24, -21
+  Clsn2[0] = -26, -76, 24, 7
 120,11, 0,27, 2
 
 ; Hit back while guarding (stand)
@@ -2579,7 +2579,6 @@ Clsn2: 2
 
 ; Start Hit
 [Begin Action 3001]
--1,0, 0,0, 1
 Clsn2Default: 1
   Clsn2[0] = -42, -110, 26, 0
 220,0, 0,0, 1

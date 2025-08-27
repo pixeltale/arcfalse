@@ -3,6 +3,7 @@
 
 [Info]
 name = "MOUNTAINTOP FALLS"
+attachedchar = data/dynamiclight/DynamicLight.def
 round1def = stages/falls.def
 round2def = stages/falls2.def
 round3def = stages/falls3.def

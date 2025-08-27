@@ -1,5 +1,6 @@
 [Info]
 name = "BATTLE COLLAB -NIGHT-"
+attachedchar = data/dynamiclight/DynamicLight.def
 
 [Constants]
 DynamicLighting = 1
@@ -7,6 +8,10 @@ DynamicR = 255
 DynamicG = 165
 DynamicB = 0
 DynamicAlpha = 150
+StaticShadow	= 1
+ShadowRComponent = 20
+ShadowGComponent = 30
+ShadowBComponent = 30
 
 [Camera]
 startx = 0

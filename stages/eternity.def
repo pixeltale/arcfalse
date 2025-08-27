@@ -3,6 +3,7 @@
 
 [Info]
 name = "ETERNITY"
+attachedchar = data/dynamiclight/DynamicLight.def
 
 [Constants]
 DynamicLighting = 1
@@ -10,6 +11,11 @@ DynamicR = 255
 DynamicG = 100
 DynamicB = 000
 DynamicAlpha = 275
+DynamicShadow = 1
+ShadowMulValue = 0.15
+ShadowRComponent = 50
+ShadowGComponent = 50
+ShadowBComponent = 50
 
 [Camera]
 startx = 0
@@ -114,8 +120,8 @@ delta=.6,.6
 type  = normal
 spriteno = 4,0
 delta=.5,.5
-sin.x=-50,1000,0
-sin.y=20,500,0
+sin.x=-10,1000,0
+sin.y=5,500,0
 trans=add
 
 [BG ball]
@@ -123,8 +129,8 @@ type  = anim
 actionno=2
 start = 0, 0
 delta=.5,.5
-sin.x=-50,1000,0
-sin.y=20,500,0
+sin.x=-10,1000,0
+sin.y=5,500,0
 
 [BG Heaven]
 type  =normal

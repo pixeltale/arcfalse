@@ -33,6 +33,7 @@ trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = 656 || stateno = 670
 trigger2 = movecontact
 trigger2 = stateno!=421
+trigger3 = stateno = 500 && animelemno(0) >= 7
 var(1) = 1
 
 ;---------------------------------------------------------------------------
@@ -47,13 +48,10 @@ trigger1 = ctrl
 trigger2 = statetype = A
 trigger2 = hitdefattr = A, NA, SA
 trigger2 = stateno != [3000,3050)
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 1030 && movecontact = 1 ;&& enemynear, movetype = H
-trigger5 = stateno = 1033 && movecontact = 1 ;&& enemynear, movetype = H
+trigger2 = movecontact
 ;---------------------------------------------------------------------------
 ;236X
-[State -1, Triple Kung Fu Palm]
+[State -1, Fireball Super]
 type = ChangeState
 value = 3010
 triggerall = var(26)<=0
@@ -64,8 +62,7 @@ trigger1 = ctrl
 trigger2 = statetype != A
 trigger2 = hitdefattr = SC, NA, SA
 trigger2 = stateno != [3000,3050)
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
 ;Super Jump
@@ -77,15 +74,23 @@ triggerall = command = "28" || command = "27" || command = "29"
 trigger1 = ctrl
 trigger2 = Map(JC)
 
+;Double Jump Raw
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdup"
-triggerall = stateno != 11 && stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099])
-triggerall = Map(DJL) > 0
-trigger1 = ctrl && stateno!= [40,60] && stateno!= 4260
+triggerall = Map(DJCL) > 0
+triggerall = command = "up"
+trigger1 = ctrl && stateno!= [40,60]
+
+[State -1,DJC]
+type = ChangeState
+value = 45
+triggerall = command = "up" || movecontact && command = "holdup"
+triggerall = Map(DJCL) > 0
+trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 20)
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = hitdefattr = A, NA
+trigger2 = stateno!=620
 trigger3 =  stateno=45 || stateno=46|| stateno=50
 trigger3 = vel y>.1
 
@@ -168,73 +173,55 @@ value = 1000
 triggerall = command = "b"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 500 && time > 8 ;Pheonix Dash
-trigger4 = stateno = [100,101] ;Runstop
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+trigger2 = stateno = 500 && animelemno(0) >= 7 ;Pheonix Dash
 
 [State -1, 6EX]
 type = ChangeState
-value = 1025
-triggerall = power>1000
-triggerall = var(52)<=0
-triggerall = command = "b"
-triggerall = command = "c"
-triggerall = command = "holdfwd"
-triggerall = fvar(22) = 0
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 500 && time > 8 ;Pheonix Dash
+value = 1034
+triggerall = power >= 1000
+triggerall = command = "EX" && command = "holdfwd"
+triggerall = statetype != A
+trigger1 = ctrl|| var(1)
+trigger3 = stateno = 500 && animelemno(0) >= 7 ;Pheonix Dash
 
 [State -1, 6S]
 type = ChangeState
-value = 1020
+value = 1030
 triggerall = command = "b"
 triggerall = command = "holdfwd"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = stateno = 500 && time > 8 ;Pheonix Dash
+trigger3 = stateno = 500 && animelemno(0) >= 7 ;Pheonix Dash
 
 ;stomperino
 [State -1, 4EX]
 type = ChangeState
 value = 1206
-triggerall = power>1000
-triggerall = var(53)<=0
-triggerall = fvar(24) = 0
-triggerall = command = "b" && command="holdback" && command = "c"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 500 && time > 8 ;Pheonix Dash
-trigger4 = stateno = 101 ;Runstop
+triggerall = power >= 1000
+triggerall = command = "EX" && command="holdback"
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+trigger3 = stateno = 500 && animelemno(0) >= 7 ;Pheonix Dash
 
 [State -1, 4S]
 type = ChangeState
 value = 1205
 triggerall = command = "b" && command="holdback"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 500 && time > 8 ;Pheonix Dash
-trigger4 = stateno = 101 ;Runstop
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+trigger3 = stateno = 500 && animelemno(0) >= 7 ;Pheonix Dash
 
 [State -1, 5EX]
 type = ChangeState
 value = 1015
-triggerall = power>1000
-triggerall = var(51)<=0
-triggerall = fvar(21) = 0
-triggerall = command = "b"
-triggerall = command = "c"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3 = stateno = 500 && time > 8 ;Pheonix Dash
-trigger4 = stateno = 101 ;Runstop
+triggerall = power >= 1000
+triggerall = command = "EX"
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
+trigger3 = stateno = 500 && animelemno(0) >= 7 
 
 [State -1, 5S]
 type = ChangeState
@@ -292,7 +279,7 @@ type = ChangeState
 value = 100
 triggerall = var(8)<=0
 triggerall = command = "66" || command = "M66" 
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 250
 triggerall = stateno!=100

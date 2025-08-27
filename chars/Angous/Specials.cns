@@ -6030,7 +6030,7 @@ channel = 6
 type 		= MapSet
 trigger1 		= 1
 map 		= "ScratchLockout"
-value 		= 30
+value 		= 2
 ignorehitpause 	= 1
 
 [State 0, EX Limiter]

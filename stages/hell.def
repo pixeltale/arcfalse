@@ -3,13 +3,14 @@
 
 [Info]
 name = "HELL"
+attachedchar = data/dynamiclight/DynamicLight.def
 
 [Constants]
 DynamicLighting = 1
 DynamicR = 200
 DynamicG = -255
 DynamicB = -55
-DynamicAlpha = 200
+DynamicAlpha = 220
 
 [Camera]
 startx = 0
