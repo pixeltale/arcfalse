@@ -4161,6 +4161,41 @@ sprpriority = 2
 type = Turn
 trigger1 = facing != root, facing
 
+[State 0, PosFreeze]
+type = PosFreeze
+trigger1 = time = [0,5]
+value = 1
+ignorehitpause = 1
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = [0, 5]
+value = anim 
+
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = F0
+ID = 665
+pos = 0,0
+postype = P1  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0. MapSet]
 type 		= parentMapSet
@@ -4217,6 +4252,31 @@ ctrl = 0
 anim = 259
 sprpriority = 2
 velset = 18,0
+
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = F0
+ID = 665
+pos = 0,0
+postype = P1  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause = 
+;persistent = 
 
 [State 0, HitOverride]
 type = HitOverride
@@ -4319,6 +4379,31 @@ ctrl = 0
 anim = 560
 sprpriority = 2
 velset = 18,18
+
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = F0
+ID = 665
+pos = 0,0
+postype = P1  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+;ignorehitpause = 
+;persistent = 
 
 [State 0, HitOverride]
 type = HitOverride

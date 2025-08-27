@@ -336,7 +336,7 @@ triggerall = command = "66" || command = "M66" && command != "back" && command !
 triggerall = stateno!=100
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 1010 && movehit || stateno = 1315 && sysvar(1)
+trigger2 = stateno = 1010 && movehit || stateno = 1315 && sysvar(1) && animelemno(0) > 3
 
 
 
