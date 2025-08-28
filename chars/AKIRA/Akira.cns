@@ -54,8 +54,8 @@ air.gethit.airrecover.down = 1.5      ;Extra y-velocity for holding down during 
 airjump.num = 0       ;Number of air jumps allowed (opt)
 airjump.height = 35   ;Minimum distance from ground before you can air jump (opt)
 yaccel = .44          ;Vertical acceleration
-stand.friction = 0.95 ;Friction coefficient when standing
-crouch.friction = 0.89 ;Friction coefficient when crouching
+stand.friction = 0.85 ;Friction coefficient when standing
+crouch.friction = 0.82 ;Friction coefficient when crouching
 stand.friction.threshold = 0          ;If player's speed drops below this threshold while standing, stop his movement **MUGEN 1.0**
 crouch.friction.threshold = 0.5      ;If player's speed drops below this threshold while crouching, stop his movement **MUGEN 1.0**
 air.gethit.groundlevel = 25           ;Y-position at which a falling player is considered to hit the ground **MUGEN 1.0**
@@ -225,7 +225,16 @@ value = 0
 ctrl = 1
 
 [Statedef -2]
-
+;Simulated Friction
+[State 0, VelAdd]
+type = VelMul
+trigger1 = statetype = S
+x = 0.95
+;Simulated Friction
+[State 0, VelAdd]
+type = VelMul
+trigger1 = statetype = C
+x = 0.89
 
 [State 0, DestroySelf]
 type = DestroySelf
@@ -260,7 +269,7 @@ value 		= 100
 ignorehitpause 	= 1
 [State -2, Clone - Cooldown Tick Down]
 type 		= MapAdd
-trigger1 		= map(clonecooldown)
+trigger1 		= map(clonecooldown) > -1
 map 			= "clonecooldown"
 value 		= -1
 ignorehitpause 	= 1
@@ -293,6 +302,18 @@ postype = P1    ;P2, Front, Back, Left, Right
 facing = 1
 keyctrl = 1
 ownpal = 1
+[State 0, Explod]	;Tipper Effect
+type = Explod
+trigger1 = map(Clonecooldown) = 0
+anim = 625
+ID = 625
+postype = p1
+pos = 0 + 20 * (statetype = C),-90 + 30 * (statetype = C)
+scale = 0.84, 0.14
+sprpriority = 10
+ontop	= 1
+ignorehitpause =1
+persistent = 0
 
 ;Debug Display. Press CTRL + D to show ingame.
 [State 0, DisplayToClipboard]

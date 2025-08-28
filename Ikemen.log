@@ -1,11 +1,8 @@
-.\external\script\start.lua:1401: data/common1.cns:7998:
-Invalid data: =
+external/script/main.lua:4048: <game end>
 stack traceback:
-	[G]: in function 'game'
-	.\external\script\start.lua:1401: in function 'f_game'
-	.\external\script\start.lua:1834: in function 'launchFight'
-	external/script/default.lua:2: in function <external/script/default.lua:0>
-	.\external\script\start.lua:1455: in function 'f'
-	external/script/main.lua:3119: in function 'loop'
+	[G]: in function 'refresh'
+	external/script/main.lua:4048: in function 'f_menuCommonDraw'
+	external/script/main.lua:3115: in function 'loop'
+	external/script/main.lua:3203: in function 'loop'
 	external/script/main.lua:4170: in main chunk
 	[G]: ?

@@ -3,7 +3,7 @@
 [Statedef 200]
 type    		= S
 movetype		= A
-physics 		= S
+physics 		= N
 velset 		= vel x * 0.8, 0
 ctrl 		= 0
 anim 		= 200
@@ -95,7 +95,7 @@ ctrl = 1
 [Statedef 210]
 type    = S
 movetype= A
-physics = S
+physics = N
 juggle  = 0
 poweradd= 0
 ctrl = 0
@@ -192,7 +192,7 @@ ctrl = 1
 [Statedef 220]
 type    = S
 movetype= A
-physics = S
+physics = N
 poweradd= 0
 ctrl = 0
 velset = vel x,0
@@ -245,13 +245,13 @@ guardsound 	= 6,2
 ground.type 	= High
 ground.slidetime 	= 12
 ground.hittime  	= 30 * map(UntechMod) 
-air.hittime  	= 35 * map(UntechMod)
+air.hittime  	= 30 * map(UntechMod)
 down.hittime 	= 45
 ground.velocity 	= -8,-0
-air.velocity 	= -5, -3
+air.velocity 	= -1, -3
 down.velocity 	= 3, -5
 guard.hittime 	= 17
-guard.ctrltime 	= 30
+guard.ctrltime 	= 20
 guard.pausetime	=15,15
 guard.velocity 	= -10
 guard.slidetime 	= 30
@@ -296,7 +296,7 @@ ctrl = 1
 [Statedef 400]
 type    	= C
 movetype= A
-physics 	= S
+physics 	= N
 poweradd= 0
 ctrl = 0
 anim = 400
@@ -392,7 +392,7 @@ ctrl = 1
 [Statedef 410]
 type    	= C
 movetype= A
-physics 	= S
+physics 	= N
 poweradd= 0
 ctrl = 0
 anim = 410
@@ -460,28 +460,27 @@ hitsound   	= 5,2
 guardsound 	= 6,1
 ground.type 	= Low
 ground.slidetime 	= 16
-ground.hittime  	= 26-MAP(untechDecay)
-air.hittime  	= 30-MAP(untechDecay)
-down.hittime 	= 22-MAP(untechDecay)
+ground.hittime  	= 26 * MAP(UNTECHMOD)
+air.hittime  		= 30 * MAP(UNTECHMOD)
+down.hittime 		= 22 * MAP(UNTECHMOD)
 ground.velocity 	= -6
-air.velocity 	= -3,-2.5;
-down.velocity 	= -3,-1.9;
+air.velocity 		= -3,-2.5;
+down.velocity 		= -3,-1.9;
  envshake.time 	= 12
-envshake.freq 	= 10
-envshake.ampl 	= 2
+envshake.freq 		= 10
+envshake.ampl 		= 2
 envshake.phase 	= 1
 fall.yvelocity 	= 0
-guard.slidetime 	= 13
-guard.hittime 	= 21
-guard.ctrltime 	= 17
+guard.slidetime 	= 15
+guard.ctrltime 	= 15
 air.fall 		= 1
 getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 0, VelSet]
 type = VelSet
 triggerall = ishelper
-trigger1 = prevstateno = 700 && !time
-x = root, map(velx)
+trigger1 	= prevstateno = 700 && !time
+x 		= root, map(velx)
 
 [State 410, 4]
 type = ChangeState
@@ -493,7 +492,7 @@ ctrl = 1
 [Statedef 420]
 type    = C
 movetype= A
-physics = S
+physics = N
 juggle  = 0
 poweradd= 0
 ctrl = 0
@@ -619,7 +618,7 @@ ctrl = 1
 [Statedef 430]
 type    = C
 movetype= A
-physics = S
+physics = N
 poweradd= 0
 ctrl = 0
 anim = 430

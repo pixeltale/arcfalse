@@ -1661,6 +1661,11 @@ type = VelSet
 trigger1 = time=1
 x = 3
 y = 4
+[State 0, VelSet]
+type = VelSet
+trigger1 = FrontEdgeBodyDist > 2
+x = 0
+y = 4
 
 [State 0, ParentVarAdd]
 type = ParentVarAdd
@@ -1783,7 +1788,7 @@ ground.hittime  = 17
 ground.velocity = -3
 fall.xvelocity = -2
 fall.yvelocity = -3
-air.velocity = -2,-2
+air.velocity = -2,-1
 air.hittime = 34
 forcestand = 1
 ground.cornerpush.veloff = 0
@@ -1802,7 +1807,7 @@ damage = 10*root, MAP(P4) + 3, 4
 hitflag = MAFDP
 guardflag = MA
 priority = 5
-pausetime = 5,1
+pausetime = 5,5
 guard.pausetime = 5,20
 sparkno = 12
 guard.sparkno = 40
@@ -1816,7 +1821,7 @@ ground.hittime  = 17
 ground.velocity = -3
 fall.xvelocity = 0
 fall.yvelocity = 0
-air.velocity = 0,0
+air.velocity = -vel x*0.5,vel y * 0.5
 air.hittime = 34
 fall=1
 ground.cornerpush.veloff = 0
@@ -5364,7 +5369,7 @@ trigger1 = animelem = 11
 name = "Acid Puddle"
 ID = 2054
 stateno = 2053
-pos = 120,0
+pos = 0,0
 scale = 2,1
 postype = p1   ;p2,front,back,left,right
 ownpal = 0

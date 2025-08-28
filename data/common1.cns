@@ -2477,14 +2477,14 @@ y = 0.4 + 0.2*(pos y > -10)
 [State 151, Ctrl]
 type = ctrlset
 triggerall = !map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0)
+trigger1 = time = gethitvar(ctrltime) + 2 - cond(map(IBCheck), 3, 0)
 value = 1
 ignorehitpause = 0
 persistent = 0
 [State 151, Ctrl]
 type = ctrlset
 triggerall = map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) + 5
+trigger1 = time = gethitvar(ctrltime) + 2 + 5
 value = 1
 ignorehitpause = 0
 persistent = 0
@@ -8511,27 +8511,27 @@ ignorehitpause = 1
 ;=======================================
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = map(AIRGUARD.LOCKOUT) > 0
+trigger1 = map(AIRGUARD.LOCKOUT) > 0 && enemynear, statetype = S
 flag = noairguard
 ignorehitpause = 1
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
-trigger1 	= stateno = 40
+trigger1 	= stateno = 40 || stateno = 55
 map 		= "AIRGUARD.LOCKOUT"
-value 		= 2
-ignorehitpause 	= 1
+value 		= 3
+ignorehitpause 	= 0
 [State -2, Wallbounce Type Set]
 type 		= MapAdd
-trigger1 	= map(AIRGUARD.LOCKOUT) > 0
+trigger1 	= map(AIRGUARD.LOCKOUT) > 0 && (stateno != 40 && stateno != 55)
 map 		= "AIRGUARD.LOCKOUT"
 value 		= -1
-ignorehitpause 	= 1
+ignorehitpause 	= 0
 
 [State 700, Flash]
 type = palfx
-triggerall = map(AIRGUARD.LOCKOUT) > 0
-trigger1    = enemy, movehit
+triggerall = map(AIRGUARD.LOCKOUT) > 0 || stateno = 40
+trigger1    = movetype = H
 add         = 255, 165, 0
 sinadd      = -255, -165, 0, 60
 time        = 15

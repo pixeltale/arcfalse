@@ -3,7 +3,7 @@
 [Statedef 1000]
 type    = S
 movetype= A
-physics = S
+physics = N
 poweradd = 0
 ctrl = 0
 anim =1000
@@ -157,7 +157,7 @@ y = 0.25
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = animelemno(0) = 5 - (1* (map(ComboStateCheck) > 0))
+trigger1 = animelemno(0) = 4
 value = 1
 
 [State 0, ChangeState]
@@ -246,7 +246,7 @@ ctrl 	= 1
 [Statedef 1020]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1020
@@ -327,7 +327,7 @@ ctrl = 1
 [Statedef 1021]		;Used for exiting stance after doing a followup that has unique recovery. Base stance has its own exit code already.
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= prevstateno = 1041
 anim 		=1021
@@ -357,7 +357,7 @@ ctrl = 1
 [Statedef 1025]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1025
@@ -513,7 +513,7 @@ value = 1020
 [Statedef 1030]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1030
@@ -622,7 +622,7 @@ value = 1020
 [Statedef 1035]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1035
@@ -752,7 +752,7 @@ value = 1020
 [Statedef 1040]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1040
@@ -852,7 +852,7 @@ value = 1020
 [Statedef 1041]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1040
@@ -976,7 +976,7 @@ value = 1085
 [Statedef 1045]		;Used for exiting stance after doing a followup that has unique recovery. Base stance has its own exit code already.
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1046
@@ -1004,26 +1004,11 @@ ctrl = 1
 [Statedef 1050]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1050
 sprpriority 	= 2
-
-[State 40, 1]
-type = VarSet
-trigger1 = Time = 0
-sysvar(1) = 0
-
-[State 40, 2]
-type = VarSet
-trigger1 = command = "holdfwd"
-sysvar(1) = 1
-
-[State 40, 3]
-type = VarSet
-trigger1 = command = "holdback"
-sysvar(1) = -1
 
 [State 0, Helper]
 type = Helper
@@ -1032,7 +1017,7 @@ helpertype = normal
 name = "ICE CLONE"
 ID = 1055
 stateno = 1055
-pos = 0,0
+pos = 40,0
 postype = p1
 facing = 1
 keyctrl = 0
@@ -1048,12 +1033,6 @@ trigger1 = animelem = 5
 value = SCA
 time = 1
 
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = animelem = 6
-x = 60 * sysvar(1)
-y = 0
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
@@ -1064,11 +1043,25 @@ ctrl = 1
 [Statedef 1055]
 type    		= S
 movetype	= I
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1055
 sprpriority 	= 2
+
+[State -2, ST Cancel - Reset]
+type 		= MapSet
+trigger1 		= 1
+map 		= "ArmorActive"
+value 		= 1
+ignorehitpause 	= 1
+persistent		= 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = !time
+value = SCA
+time = 1
 
 [State 0, HitOverride]
 type = HitOverride
@@ -1090,7 +1083,7 @@ ignorehitpause = 0
 [Statedef 1056]
 type    		= S
 movetype	= A
-physics 		= S
+physics 		= N
 poweradd 	= 0
 ctrl 		= 0
 anim 		=1056
@@ -1150,6 +1143,7 @@ persistent = 0
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = !animtime
+trigger2 = root, movetype = H
 ignorehitpause = 0
 
 ;j4S

@@ -369,7 +369,7 @@ x = .8
 type = VelAdd
 triggerall =vel x < const(velocity.walk.fwd.x)
 trigger1= command = "holdfwd"
-x = 1
+x = 0.5
 
 [State 20, 1]
 type = VelSet
