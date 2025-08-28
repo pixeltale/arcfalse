@@ -991,9 +991,20 @@ x = 3
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelemno(0) >= 5
-x = 6 * MAP(SPEED.MUL)
+x = 6 * MAP(SPEED.MUL) + 1 * (MAP(ITEM.SKOOMA))
 y = 0
 ignorehitpause = 1
+[State 0, AfterImage] ;SKOOMA Afterimage Effect ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= animelem = 4 && map(ITEM.SKOOMA)		        ;+
+time 		= 20				        ;+
+length 		= 10   				        ;+
+timegap 		= 1			        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 191, 64, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+;==================================================++
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1088,6 +1099,7 @@ sparkxy = -10,-50
 hitsound   = 5,4
 guardsound = 6,2
 ground.type = TRIP
+air.type	= HIGH
 ground.slidetime = 12
 ground.hittime  = 65
 air.hittime = 65
@@ -1212,7 +1224,7 @@ ignorehitpause = 1
 type 		= MapSet
 trigger1 	= !time && prevstateno != 5000
 map 		= "armorPoints"
-value 		= 1
+value 		= 1 + map(ITEM.ARMORX)
 ignorehitpause 	= 1
 persistent 	= 1
 [State 0. MapSet]
@@ -1336,7 +1348,7 @@ p2facing 	= 1
 trigger1 	= !movecontact && !movereversed
 attr 		= S, NA
 animtype 	= hard
-damage 		= 120 * MAP(P4) * MAP(SPEED.MUL), 30
+damage 		= 120 * MAP(P4) * MAP(SPEED.MUL), 30 + 10 * map(ITEM.JOURNAL)
 hitflag 	= MAFD
 guardflag 	= MA
 pausetime 	= 8,8 + 8*(enemy, movetype = A)
@@ -1464,7 +1476,7 @@ triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 attr 			= S, SA
 animtype  		= Up
-damage    		= 120 * map(P4) * MAP(SPEED.MUL), 20
+damage    		= 120 * map(P4) * MAP(SPEED.MUL), 20 + 10 * map(ITEM.JOURNAL)
 guardflag 		= MA
 hitflag 		= MAFD
 pausetime 		= 16,16

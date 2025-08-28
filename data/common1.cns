@@ -8112,7 +8112,7 @@ add = -StageConst(ShadowRComponent) + abs(camerapos x) * StageConst(ShadowMulVal
 time = 2
 ignorehitpause = 1
 persistent = 1
-[State -2, Dynamic Shadows]
+[State -2, Static Shadows]
 type = palfx
 trigger1 = StageConst(StaticShadow)
 add = -StageConst(ShadowRComponent), -StageConst(ShadowGComponent), -StageConst(ShadowBComponent)

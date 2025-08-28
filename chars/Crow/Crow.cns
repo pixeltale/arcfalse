@@ -315,6 +315,14 @@ value 		= 2
 ignorehitpause = 0
 persistent 	= 0
 
+;[State -2, ITEM RNG - Tier Add] ;Just leaving this commented for whenever I wanna test something
+;type 		= MapSet
+;trigger1 		= 1
+;map 			= "ITEM.CROWN"
+;value 		= 1
+;ignorehitpause = 0
+;persistent 	= 0
+
 ;========================================
 ; ITEM EFFECTS 	//
 ;========================================
@@ -346,16 +354,9 @@ ignorehitpause = 0
 persistent 	= 0
 [State -2, ITEM RNG - ATTACK MUL]
 type 		= MapSet
-trigger1 		= MAP(ITEM.MANUAL)
-map 			= "MANUAL.BUFF"
-value 		= (MAP(ITEM.MANUAL) * 0.03)
-ignorehitpause = 0
-persistent 	= 0
-[State -2, ITEM RNG - ATTACK MUL]
-type 		= MapSet
 trigger1 		= 1
 map 			= "ATK.MUL"
-value 		= 1 + MAP(MANUAL.BUFF) + MAP(REVOLVER)
+value 		= 1 ;When I make things that affect atk, I'll add them here
 ignorehitpause = 0
 persistent 	= 0
 [State 0, DefenceMulSet]
@@ -363,6 +364,52 @@ type = DefenceMulSet
 trigger1 = 1
 value = 1 * map(DEF.MUL)
 
+[State -2, ITEM RNG - ATTACK MUL]
+type 		= MapSet
+trigger1 		= map(ITEM.MARMITE) && ENEMYNEAR, stateno = 5120
+map 			= "MARMITEDEBUFF"
+value 		= 180 + (60 * map(ITEM.MARMITE))
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - ATTACK MUL]
+type 		= MapAdd
+trigger1 		= map(MARMITEDEBUFF) && ENEMYNEAR, stateno != 5120
+map 			= "MARMITEDEBUFF"
+value 		= -1
+ignorehitpause = 0
+persistent 	= 0
+[State 0, VelSet]
+type = VelSet
+triggerall = map(MARMITEDEBUFF) && enemy, movetype != H
+trigger1 = enemy, vel x > 2
+x = 2
+redirectid = enemynear, id
+[State 0, VelSet]
+type = VelSet
+triggerall = map(MARMITEDEBUFF) && enemy, movetype != H
+trigger1 = enemy, vel x < -2
+x = -2
+redirectid = enemynear, id
+
+[State -2, ITEM RNG - ATTACK MUL]
+type 		= MapSet
+trigger1 		= roundstate = 0
+map 			= "CROWNDEBUFF"
+value 		= 0
+ignorehitpause = 0
+persistent 	= 0
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = MAP(ITEM.CROWN)
+value = 1 - (0.02 * map(CROWNDEBUFF))
+REDIRECTID = ENEMY, ID
+
+;=====================================
+; PLACEHOLDER ITEM UI		 	//
+;===================================
+
+;======================================
+;WHITE ITEMS
 [State 0, DAMAGE]
 type = TEXT
 triggerall = teamside = 1 && !map(TrailerMode)
@@ -373,8 +420,8 @@ text = "S%.0f"
 params = map(ITEM.GRIPPYSOCKS)
 font = F3
 align = -1
-pos = 70, 35
-scale = 0.75, 0.75
+pos = 70, 32
+scale = 0.6, 0.6
 ignorehitpause = 1
 pausemovetime = 100
 [State 0, DAMAGE]
@@ -387,8 +434,8 @@ text = "G%.0f"
 params = map(ITEM.GREENHERB)
 font = F3
 align = -1
-pos = 80, 40
-scale = 0.75, 0.75
+pos = 80, 32
+scale = 0.6, 0.6
 ignorehitpause = 1
 pausemovetime = 100
 [State 0, DAMAGE]
@@ -401,8 +448,8 @@ text = "B%.0f"
 params = map(ITEM.BLUEHERB)
 font = F3
 align = -1
-pos = 90, 35
-scale = 0.75, 0.75
+pos = 90, 32
+scale = 0.6, 0.6
 ignorehitpause = 1
 pausemovetime = 100
 [State 0, DAMAGE]
@@ -415,8 +462,8 @@ text = "R%.0f"
 params = map(ITEM.REDHERB)
 font = F3
 align = -1
-pos = 100, 40
-scale = 0.75, 0.75
+pos = 100, 32
+scale = 0.6, 0.6
 ignorehitpause = 1
 pausemovetime = 100
 [State 0, DAMAGE]
@@ -429,8 +476,370 @@ text = "C%.0f"
 params = map(ITEM.COFFEE)
 font = F3
 align = -1
-pos = 110, 35
-scale = 0.75, 0.75
+pos = 110, 32
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+
+;GREEN ITEMS
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.CAPEOFBUSTER)
+font = F3
+align = -1
+pos = 70, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "J%.0f"
+params = map(ITEM.JOURNAL)
+font = F3
+align = -1
+pos = 80, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.CLEATS)
+font = F3
+align = -1
+pos = 90, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "R%.0f"
+params = map(ITEM.REVOLVER)
+font = F3
+align = -1
+pos = 100, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "A%.0f"
+params = map(ITEM.ARMORX)
+font = F3
+align = -1
+pos = 110, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+
+;RED ITEMS
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "T%.0f"
+params = map(ITEM.TYPEWRITER)
+font = F3
+align = -1
+pos = 70, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "M%.0f"
+params = map(ITEM.MARMITE)
+font = F3
+align = -1
+pos = 80, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "S%.0f"
+params = map(ITEM.SKOOMA)
+font = F3
+align = -1
+pos = 90, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "A%.0f"
+params = map(ITEM.AFTERGLOW)
+font = F3
+align = -1
+pos = 100, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.CROWN)
+font = F3
+align = -1
+pos = 110, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+
+
+;======================================
+;WHITE ITEMS
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "S%.0f"
+params = map(ITEM.GRIPPYSOCKS)
+font = F3
+align = -1
+pos = 220, 32
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "G%.0f"
+params = map(ITEM.GREENHERB)
+font = F3
+align = -1
+pos = 230, 32
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "B%.0f"
+params = map(ITEM.BLUEHERB)
+font = F3
+align = -1
+pos = 240, 32
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "R%.0f"
+params = map(ITEM.REDHERB)
+font = F3
+align = -1
+pos = 250, 32
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.COFFEE)
+font = F3
+align = -1
+pos = 260, 32
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+
+;GREEN ITEMS
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.CAPEOFBUSTER)
+font = F3
+align = -1
+pos = 220, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "J%.0f"
+params = map(ITEM.JOURNAL)
+font = F3
+align = -1
+pos = 230, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.CLEATS)
+font = F3
+align = -1
+pos = 240, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "R%.0f"
+params = map(ITEM.REVOLVER)
+font = F3
+align = -1
+pos = 250, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "A%.0f"
+params = map(ITEM.ARMORX)
+font = F3
+align = -1
+pos = 260, 38
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+
+;RED ITEMS
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "T%.0f"
+params = map(ITEM.TYPEWRITER)
+font = F3
+align = -1
+pos = 220, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "M%.0f"
+params = map(ITEM.MARMITE)
+font = F3
+align = -1
+pos = 230, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "S%.0f"
+params = map(ITEM.SKOOMA)
+font = F3
+align = -1
+pos = 240, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "A%.0f"
+params = map(ITEM.AFTERGLOW)
+font = F3
+align = -1
+pos = 250, 44
+scale = 0.6, 0.6
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 2 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.CROWN)
+font = F3
+align = -1
+pos = 260, 44
+scale = 0.6, 0.6
 ignorehitpause = 1
 pausemovetime = 100
 
@@ -455,18 +864,11 @@ map 		= "ShotCount"
 value 		= 2
 ignorehitpause 	= 1
 
-[State -2, THE GIRL'S RETRIBUTION]
-type 			= Mapadd
-trigger1 			= stateno = [1080,1081]
-map 				= "Retribution"
-value 			= gethitvar(damage)
-ignorehitpause 	= 1
-
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "RNG = %f ITEMTIER = %f GRIPPYSOCKS = %f"
-params = map(RNG), map(ITEM.TIER), map(ITEM.GRIPPYSOCKS)
+text = "RNG = %f ITEMTIER = %f crowndebuff = %f"
+params = map(RNG), map(ITEM.TIER), map(crowndebuff)
 ignorehitpause = 1
 persistent = 1
 

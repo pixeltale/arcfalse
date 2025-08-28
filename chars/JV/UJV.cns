@@ -477,7 +477,7 @@ pausemovetime = 100
 
 [State 0, DAMAGE]
 type = TEXT
-triggerall = teamside = 2
+triggerall = teamside = 2 && !map(TrailerMode)
 trigger1 = 1
 removetime = 1
 layerno = 2

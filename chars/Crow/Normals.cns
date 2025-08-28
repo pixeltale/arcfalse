@@ -156,7 +156,7 @@ p2facing 		= 1
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= 80*map(P4)
+damage 			= 80*map(P4), 10 * map(ITEM.JOURNAL)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -288,7 +288,7 @@ trigger1 		= !movereversed && !movecontact
 trigger1		= !map(CounterHit)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 120*map(P4), 20
+damage 			= 120*map(P4), 20 + 20 * map(ITEM.JOURNAL)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -339,7 +339,7 @@ trigger1 		= !movereversed && !movecontact
 trigger1		= map(CounterHit)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 150*map(P4), 50
+damage 			= 150*map(P4), 50 + 50 * map(ITEM.JOURNAL)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -393,7 +393,7 @@ triggerall		= anim = 221
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
-damage 			= 200*map(P4), 150
+damage 			= 200*map(P4), 150 + 50 * map(ITEM.JOURNAL)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -437,6 +437,7 @@ getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 ;==============================================
 p2stateno		= map(CornerSplat)
 p2getp1state		= 0
+ID			= 221
 ;++++++++++++++++++++++++++++++++++++++++++++++
 
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
@@ -496,6 +497,14 @@ map 		= "wallbounce_boomerang"
 value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
+
+[State -2, ITEM RNG - ATTACK MUL]
+type 		= MapAdd
+trigger1 		= enemy, GetHitVar(chainID) = 221
+map 			= "CROWNDEBUFF"
+value 		= 1
+ignorehitpause = 1
+persistent 	= 0
 
 [State -2, Reset Armorbreak Map]
 type 		= MapSet
@@ -647,7 +656,7 @@ trigger1 			= !movereversed && !movecontact
 trigger1			= !map(CounterHit)
 ;==============================================
 attr 			= S, NA                     
-damage 			= 150*map(P4), 30
+damage 			= 150*map(P4), 30 + 10 * map(ITEM.JOURNAL)
 animtype 			= light
 air.animtype 		= back
 ;==============================================
@@ -1041,7 +1050,7 @@ trigger1 		= !movecontact && !movereversed
 trigger1 		= animelem = 3
 ;==============================================
 attr 			= SC, NA                     
-damage 			= 100*map(P4)
+damage 			= 100*map(P4), 20 * map(ITEM.JOURNAL)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1063,7 +1072,7 @@ down.hittime 		= 24
 ground.slidetime 	= 5
 ;==============================================
 ground.velocity 	= -3
-air.velocity 		= 1,-4
+air.velocity 		= 1,-2 - (1.5 * map(untechMOD))
 down.velocity		= 1, -5
 guard.ctrltime 		= 18
 airguard.velocity 	= -1.9,-.8
@@ -1086,7 +1095,7 @@ p2facing 		= 1
 trigger1 		= animelem = 4 && !movereversed
 ;==============================================
 attr 			= SC, NA                     
-damage 			= 100*map(P4)
+damage 			= 100*map(P4), 20 * map(ITEM.JOURNAL)
 animtype 		= light
 air.animtype 		= back
 ;==============================================
@@ -1108,7 +1117,7 @@ down.hittime 		= 24
 ground.slidetime 	= 5
 ;==============================================
 ground.velocity 	= -3
-air.velocity 		= 1,-2 * map(GravMul)
+air.velocity 		= 1,-2 * map(untechMOD)
 guard.ctrltime 		= 18
 airguard.velocity 	= -1.9,-.8
 ground.cornerpush.veloff= -7
@@ -1374,7 +1383,7 @@ p2facing 	= 1
 trigger1 	= !movereversed && !movecontact
 trigger1	= enemy, statetype != L
 attr 		= C, NA
-damage 		= 150*map(P4), 0
+damage 		= 150*map(P4), 0 + 10 * map(ITEM.JOURNAL)
 animtype  	= Hard
 hitflag 		= MAF
 guardflag 	= LA
@@ -1574,7 +1583,7 @@ type = HitDef
 p2facing = 1
 trigger1 = !movereversed && !movecontact
 attr = A, NA
-damage 		= 90*map(P4)
+damage 		= 90*map(P4), 0 + 10 * map(ITEM.JOURNAL)
 guardflag 	= HA
 hitflag 	= MAFD
 pausetime 	= 10,10
@@ -1738,6 +1747,15 @@ envshake.ampl 		= 1.5
 envshake.phase 		= 0.2
 p2stateno 		= 5220
 p2getp1state 		= 0
+id			= 2
+
+[State -2, ITEM RNG - ATTACK MUL]
+type 		= MapAdd
+trigger1 		= enemy, GetHitVar(chainID) = 2
+map 			= "CROWNDEBUFF"
+value 		= 1
+ignorehitpause = 1
+persistent 	= 0
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1840,7 +1858,7 @@ persistent 	= 0
 [State -2, ITEM RNG - Tier Set]
 type 		= MapAdd
 triggerall	= map(ITEM.TIER) = 1
-trigger1 		= animelemno(0) = 3
+trigger1 		= animelemtime(3) = 0
 triggerall	= MAP(RNG) = [0,200]
 map 			= "ITEM.GRIPPYSOCKS"
 value 		= 1
@@ -1849,7 +1867,7 @@ persistent 	= 0
 [State -2, ITEM RNG - Tier Set]
 type 		= MapAdd
 triggerall	= map(ITEM.TIER) = 1
-trigger1 		= animelemno(0) = 3
+trigger1 		= animelemtime(3) = 0
 triggerall	= MAP(RNG) = [201,400]
 map 			= "ITEM.GREENHERB"
 value 		= 1
@@ -1858,7 +1876,7 @@ persistent 	= 0
 [State -2, ITEM RNG - Tier Set]
 type 		= MapAdd
 triggerall	= map(ITEM.TIER) = 1
-trigger1 		= animelemno(0) = 3
+trigger1 		= animelemtime(3) = 0
 triggerall	= MAP(RNG) = [401,600]
 map 			= "ITEM.BLUEHERB"
 value 		= 1
@@ -1867,7 +1885,7 @@ persistent 	= 0
 [State -2, ITEM RNG - Tier Set]
 type 		= MapAdd
 triggerall	= map(ITEM.TIER) = 1
-trigger1 		= animelemno(0) = 3
+trigger1 		= animelemtime(3) = 0
 triggerall	= MAP(RNG) = [601,800]
 map 			= "ITEM.REDHERB"
 value 		= 1
@@ -1876,17 +1894,114 @@ persistent 	= 0
 [State -2, ITEM RNG - Tier Set]
 type 		= MapAdd
 triggerall	= map(ITEM.TIER) = 1
-trigger1 		= animelemno(0) = 3
+trigger1 		= animelemtime(3) = 0
 triggerall	= MAP(RNG) = [801,999]
 map 			= "ITEM.COFFEE"
 value 		= 1
 ignorehitpause = 0
 persistent 	= 0
 
+;=================================================
+;---------------- GREEN ITEMS --------------------
+;=================================================
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [0,200]
+map 			= "ITEM.CAPEOFBUSTER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [201,400]
+map 			= "ITEM.JOURNAL"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [401,600]
+map 			= "ITEM.CLEATS"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [601,800]
+map 			= "ITEM.REVOLVER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [801,999]
+map 			= "ITEM.ARMORX"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+
+;=================================================
+;----------------- RED ITEMS ---------------------
+;=================================================
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [0,200]
+map 			= "ITEM.TYPEWRITER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [201,400]
+map 			= "ITEM.MARMITE"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [401,600]
+map 			= "ITEM.SKOOMA"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [601,800]
+map 			= "ITEM.AFTERGLOW"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapAdd
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= animelemtime(3) = 0
+triggerall	= MAP(RNG) = [801,999]
+map 			= "ITEM.CROWN"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
 
 [State -2, ITEM RNG - Itemcount Increase]
 type 		= MapAdd
-trigger1 		= animelemno(0) = 3
+trigger1 		= animelemtime(3) = 0
 map 			= "ITEM.COUNT"
 value 		= 1
 ignorehitpause = 0
@@ -1894,6 +2009,6 @@ persistent 	= 0
 
 [State 0, ChangeState]
 type 		= ChangeState
-trigger1 	= !animtime
+trigger1 		= !animtime
 value 		= 0
 ctrl 		= 1

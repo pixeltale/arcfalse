@@ -1,6 +1,6 @@
-.\external\script\start.lua:1401: chars\CROW/Crow.cns:368:
-1 * map(DEF.MUL
-value: Missing ')' before 
+.\external\script\start.lua:1401: chars\CROW/Normals.cns:1082:
+100*map(P4),  + 10 * map(ITEM.JOURNAL)
+damage: Invalid data: +
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

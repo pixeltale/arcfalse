@@ -264,7 +264,7 @@ y = const(velocity.jump.y)
 type = VelSet
 triggerall = sysvar(1) = -1
 trigger1 = animtime = 0
-x = const(velocity.jump.back.x)
+x = const(velocity.jump.back.x) + (vel x * 0.65)
 y = const(velocity.jump.y)
 
 [State 0, Explod]
