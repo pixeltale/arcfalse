@@ -1207,8 +1207,7 @@ guard.hittime = 1
 guard.ctrltime = 1
 envshake.freq = 3
 envshake.time = 10
-getpower = 8
-
+getpower = 15
 
 [State 0, VelMul]
 type = VelMul

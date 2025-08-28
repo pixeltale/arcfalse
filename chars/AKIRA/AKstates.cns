@@ -514,7 +514,7 @@ value = 1
 
 [State 52, 4]
 type = VelSet
-trigger1 = abs(vel x) < Const(movement.stand.friction.threshold)
+trigger1 = abs(vel x) < 0.95
 x = 0
 
 

@@ -712,10 +712,9 @@ sprpriority = 2
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = animelemno(0) < 4
+trigger1 = 1
 value = SCA
 time = 1
-
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -1027,13 +1026,13 @@ x = 0
 type 	= HitDef 
 p2facing 	= 1
 trigger1	= !movecontact && !movereversed
-attr 		= S, NA
+attr 		= S, SA
 animtype 		= Hard
 air.animtype 	= UP
-damage 		= 120
+damage 		= 120, 75
 hitflag 		= MAFD
 guardflag 	= MA
-pausetime 	= 12,12
+pausetime 	= 1,12
 sparkno 		= 1
 sparkxy 		= -15,-60
 hitsound   	= 5,1
@@ -1058,10 +1057,22 @@ down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
 guard.dist			= 0
 getpower 				= 75
 
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = movecontact=  1
+value = -250 - 200 * (movehit > 0)
+ignorehitpause = 1
+redirectid = enemynear, id
+persistent = 1
+
 [State 0, DestroySelf]
 type = Changestate
-Trigger1 = !animtime
+Trigger1 = !animtime && movehit
 value = 1043
+[State 0, DestroySelf]
+type = Changestate
+Trigger1 = !animtime && !movehit
+value = 1044
 
 [State 0, HitOverride]
 type = HitOverride
@@ -1079,13 +1090,66 @@ time = 1
 ;================================================================================
 ;Monster Die
 [Statedef 1043]
-type    = S
-movetype= A
-physics = S
-juggle  = 0
-poweradd= 0
-ctrl = 0
-anim =1044
+type    	= S
+movetype	= A
+physics 	= S
+juggle  	= 0
+poweradd	= 0
+ctrl 	= 0
+anim 	= 1044
+sprpriority = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = !time && isHelper(1041)
+helpertype = normal
+name = "L EYE"
+ID = 1015
+stateno = 1015
+pos = 20,-45
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+[State 0, Helper]
+type = Helper
+trigger1 = !time && isHelper(1042)
+helpertype = normal
+name = "M EYE"
+ID = 1016
+stateno = 1015
+pos = 20,-60
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+[State 0, Helper]
+type = Helper
+trigger1 = !time && isHelper(1043)
+helpertype = normal
+name = "H EYE"
+ID = 1017
+stateno = 1015
+pos = 20,-75
+postype = p1
+facing = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.yscale)
+
+[State 0, DestroySelf]
+type = DestroySelf
+Trigger1 = !animtime
+
+;================================================================================
+;Monster Die
+[Statedef 1044]
+type    	= S
+movetype	= A
+physics 	= S
+juggle  	= 0
+poweradd	= 0
+ctrl 	= 0
+anim 	= 1044
 sprpriority = 2
 
 [State 0, DestroySelf]

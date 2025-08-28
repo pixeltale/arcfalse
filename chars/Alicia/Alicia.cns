@@ -208,6 +208,11 @@ ctrl = 1
 ;=============================================================================
 [Statedef -2]
 
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = numhelper(1015) || numhelper(1016) || numhelper(1017)
+value = (numhelper(1015) + numhelper(1016) + numhelper(1017)) * 0.5
+
 [State - Airdash Momentum Preserve]
 type = mapadd
 trigger1 = map(AirDashTimer)
@@ -370,7 +375,8 @@ triggerall = time
 trigger1 = map(PowerDrain)
 value = map(PowerDrain)
 ignorehitpause = 1
-;persistent = 
+
+
 
 [State 0. MapSet] ;Combo Forever...
 type 		= MapAdd
@@ -397,6 +403,13 @@ map 		= "EXE"
 value 		= 0
 ignorehitpause 	= 1
 persistent 	= 1
+
+[State 0, PowerAdd]
+type = LifeAdd
+triggerall = map(Perfektwelt)
+trigger1 = enemy, movetype = H
+value = 2
+ignorehitpause = 0
 ;=============================================+
 
 [Statedef -4]

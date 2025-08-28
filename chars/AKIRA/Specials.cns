@@ -287,17 +287,17 @@ elem = 5
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = animelemno(0) >= 4
+triggerall = animelemno(0) >= 4 && animelemno(0) < 6
 trigger1 = command = "holdx"
 value = 1025
 [State 0, ChangeState]
 type = ChangeState
-triggerall = animelemno(0) >= 4
+triggerall = animelemno(0) >= 4 && animelemno(0) < 6
 trigger1 = command = "holdy"
 value = 1030
 [State 0, ChangeState]
 type = ChangeState
-triggerall = animelemno(0) >= 4
+triggerall = animelemno(0) >= 4 && animelemno(0) < 6
 trigger1 = command = "holdz"
 value = 1035
 
@@ -860,7 +860,7 @@ sprpriority 	= 2
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = 1
+trigger1 = time = [0,5]
 value = SCA
 time = 1
 

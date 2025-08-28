@@ -2508,7 +2508,7 @@ persistent 	= 0
 [State 0, ReversalDef]
 type = ReversalDef
 trigger1 = enemy, stateno != 900
-reversal.attr = SCA,NA,SA,HA
+reversal.attr = ,NA,SA,HA
 pausetime = 5,50
 sparkxy = 10,-10 ;offset
 hitsound = S1,0
@@ -2517,7 +2517,7 @@ p1stateno = 703
 [State 0, ReversalDef]
 type = ReversalDef
 trigger1 = enemy, stateno = 900
-reversal.attr = SCA,NA,SA,HA
+reversal.attr = ,NA,SA,HA
 pausetime = 1,20
 sparkxy = 10,-10 ;offset
 hitsound = S1,0
@@ -2548,7 +2548,7 @@ ignorehitpause = 1
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time=2
-value = S,NA
+value = ,NA, SA, HA
 time = 5
 
 [State 200, 3]
