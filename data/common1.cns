@@ -7988,15 +7988,6 @@ physics = N
 anim = root, anim
 sprpriority = -10
 
-[State 30001, AngleDraw]
-type = AngleDraw
-trigger1 = parent, stateno = 5301
-[State 30001, AngleAdd]
-type = AngleAdd
-triggerall = parent, stateno = 5301
-trigger1 = parent, Time%2 = 0
-value = 45
-
 [State 170, 1]
 type = NotHitBy
 trigger1 = 1
@@ -8086,6 +8077,7 @@ trigger1 = parent, IsHelper
 trigger1 = !PlayerIdExist(parent, id)
 trigger2 = parent, movetype != H
 trigger3 = enemynear, map(SlowDownTime)
+trigger4 = parent, stateno = 5301
 
 [Statedef +1]
 

@@ -1,6 +1,5 @@
-.\external\script\start.lua:1401: data/common1.cns:8118:
--1 * abs(camerapos) * 0.5, -1 * abs(camerapos) * 0.5, -1 * abs(camerapos) * 0.5
-add: Invalid data: )
+.\external\script\start.lua:1401: data/common1.cns:7998:
+Invalid data: =
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'
