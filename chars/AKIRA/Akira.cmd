@@ -13,7 +13,15 @@ command = /$D, b
 [Command]
 name = "6S"
 command = /F, b
-
+[Command]
+name = "BUFFER_L"
+command = /x
+[Command]
+name = "BUFFER_M"
+command = /y
+[Command]
+name = "BUFFER_H"
+command = /z
 
 [Statedef -1]
 
@@ -284,7 +292,7 @@ trigger2 = (stateno = [400,410] || stateno = [200,210]) && movecontact
 [State -1, j.L]
 type = ChangeState
 value = 600
-triggerall = command = "x"
+triggerall = command = "x" || command = "BUFFER_L"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = movehit && stateno = 610
@@ -294,7 +302,7 @@ trigger2 = movehit && stateno = 610
 [State -1, j.M]
 type = ChangeState
 value = 610
-triggerall = command = "y"
+triggerall = command = "y" || command = "BUFFER_M"
 triggerall = statetype = A && stateno != 610
 trigger1 = ctrl
 trigger2 = stateno = [600,601] && movecontact
@@ -305,7 +313,7 @@ trigger3 = movehit && stateno = [600, 610]
 [State -1, j.H]
 type = ChangeState
 value = 620
-triggerall = command = "z"
+triggerall = command = "z" || command = "BUFFER_H"
 triggerall = statetype = A && stateno != 620
 trigger1 = ctrl
 trigger2 = stateno = 1350 || stateno = 60
