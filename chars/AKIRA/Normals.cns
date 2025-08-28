@@ -1091,3 +1091,4 @@ ctrl = 1
 type = DestroySelf
 trigger1 = root, map(stateno) = 3000 && power < 2000
 ignorehitpause = 1
+ 

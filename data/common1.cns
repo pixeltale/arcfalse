@@ -7509,7 +7509,7 @@ physics 		= N
 juggle  		= 0
 poweradd		= 0
 ctrl 		= 0
-anim 		= 9999999999999999999999999999
+anim 		= 9999
 velset 		= -7
 
 [State 0, Explod]
