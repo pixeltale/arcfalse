@@ -1060,7 +1060,7 @@ getpower 				= 75
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = movecontact=  1
-value = -250 - 200 * (movehit > 0)
+value = -200
 ignorehitpause = 1
 redirectid = enemynear, id
 persistent = 1
