@@ -9,6 +9,14 @@ anim = 3000
 sprpriority = 8
 poweradd = -2000
 
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+trigger1 		= !time
+map 			= "ITEM.TIER"
+value 		= 2
+ignorehitpause = 0
+persistent 	= 0
+
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = time = 10

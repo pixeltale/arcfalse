@@ -89,6 +89,25 @@ triggerall = command = "holdup" || command = "up"
 trigger1 = map(JC)
 trigger2 = ctrl ||stateno = 100 && time > 3
 
+;Double Jump Raw
+[State -1,DJC]
+type = ChangeState
+value = 45
+triggerall = Map(AIRJUMP.COUNT) > 0
+triggerall = command = "up"
+trigger1 = ctrl && stateno!= [40,60]
+
+[State -1,DJC]
+type = ChangeState
+value = 45
+triggerall = command = "up" || movecontact && command = "holdup"
+triggerall = Map(AIRJUMP.COUNT) > 0
+trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 20)
+trigger2 = movecontact
+trigger2 = hitdefattr = A, NA
+trigger3 =  stateno=45 || stateno=46|| stateno=50
+trigger3 = vel y>.1
+
 ;--------------------------------------------------------------------------
 
 ;Dash
@@ -148,7 +167,7 @@ type = ChangeState
 value = 1080
 triggerall = command = "b" && command = "holddown"
 triggerall = statetype != A
-trigger1 = ctrl || prevstateno = [120,155] || stateno = 701
+trigger1 = ctrl || prevstateno = [120,155] && !HitPauseTime || stateno = 701
 trigger2 = var(1) && stateno != 105
 
 ;4S

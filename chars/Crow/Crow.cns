@@ -290,6 +290,150 @@ flag = Nobardisplay
 ;========================================
 [Statedef -2]
 
+;========================================
+; ITEM SYSTEM 	//
+;========================================
+[State -2, ITEM RNG - Tier Set]
+type 		= MapSet
+trigger1 		= roundstate = 0
+map 			= "ITEM.TIER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapSet
+trigger1 		= map(ITEM.TIER) > 3
+map 			= "ITEM.TIER"
+value 		= 3
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+trigger1 		= !time && STATENO = [4000, 4001]
+map 			= "ITEM.TIER"
+value 		= 2
+ignorehitpause = 0
+persistent 	= 0
+
+;========================================
+; ITEM EFFECTS 	//
+;========================================
+[State -2, ITEM RNG - WALKSPEED MUL]
+type 		= MapSet
+trigger1 		= 1
+map 			= "WALKSPEED.MUL"
+value 		= 1 + (MAP(ITEM.GRIPPYSOCKS) * 0.10)
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - SPEED MUL]
+type 		= MapSet
+trigger1 		= 1
+map 			= "SPEED.MUL"
+value 		= 1 + (MAP(ITEM.CLEATS) * 0.10) + (MAP(ITEM.COFFEE) * 0.05) + (MAP(ITEM.SKOOMA) * 0.20)
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ADDITIONAL AIR JUMPS]
+type 	= MAPSET
+trigger1 	= STATETYPE != A
+map 		= "AIRJUMP.COUNT"
+value 	= MAP(ITEM.CAPEOFBUSTER)
+[State -2, ITEM RNG - DEFENSE MUL]
+type 		= MapSet
+trigger1 		= 1
+map 			= "DEF.MUL"
+value 		= 1 + (MAP(ITEM.TYPEWRITER) * 0.05)
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - ATTACK MUL]
+type 		= MapSet
+trigger1 		= MAP(ITEM.MANUAL)
+map 			= "MANUAL.BUFF"
+value 		= (MAP(ITEM.MANUAL) * 0.03)
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - ATTACK MUL]
+type 		= MapSet
+trigger1 		= 1
+map 			= "ATK.MUL"
+value 		= 1 + MAP(MANUAL.BUFF) + MAP(REVOLVER)
+ignorehitpause = 0
+persistent 	= 0
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = 1
+value = 1 * map(DEF.MUL)
+
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "S%.0f"
+params = map(ITEM.GRIPPYSOCKS)
+font = F3
+align = -1
+pos = 70, 35
+scale = 0.75, 0.75
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "G%.0f"
+params = map(ITEM.GREENHERB)
+font = F3
+align = -1
+pos = 80, 40
+scale = 0.75, 0.75
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "B%.0f"
+params = map(ITEM.BLUEHERB)
+font = F3
+align = -1
+pos = 90, 35
+scale = 0.75, 0.75
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "R%.0f"
+params = map(ITEM.REDHERB)
+font = F3
+align = -1
+pos = 100, 40
+scale = 0.75, 0.75
+ignorehitpause = 1
+pausemovetime = 100
+[State 0, DAMAGE]
+type = TEXT
+triggerall = teamside = 1 && !map(TrailerMode)
+trigger1 = 1
+removetime = 1
+layerno = 2
+text = "C%.0f"
+params = map(ITEM.COFFEE)
+font = F3
+align = -1
+pos = 110, 35
+scale = 0.75, 0.75
+ignorehitpause = 1
+pausemovetime = 100
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 	= !map(ComboStateCheck)
@@ -321,8 +465,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "RNG = %f"
-params = map(RNG)
+text = "RNG = %f ITEMTIER = %f GRIPPYSOCKS = %f"
+params = map(RNG), map(ITEM.TIER), map(ITEM.GRIPPYSOCKS)
 ignorehitpause = 1
 persistent = 1
 

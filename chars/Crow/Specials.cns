@@ -729,6 +729,14 @@ anim = 1030
 sprpriority = 2
 facep2 = 1
 
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+trigger1 		= !time
+map 			= "ITEM.TIER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+
 [State -2, SHOT USED]
 type 		= MapSet
 trigger1 	= !time
@@ -983,14 +991,14 @@ x = 3
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelemno(0) >= 5
-x = 6
+x = 6 * MAP(SPEED.MUL)
 y = 0
 ignorehitpause = 1
 
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelemno(0) >= 4
-trigger1 = command = "x" || command = "y" || command = "z"
+trigger1 = command = "holdx" || command = "holdy" || command = "holdz"
 value = 1051
 ctrl = 0
 
@@ -1028,11 +1036,11 @@ x = 20
 [State 0, PosAdd]
 type = VelAdd
 trigger1 = animelem = 4
-x = 7
+x = 7 * MAP(SPEED.MUL)
 [State 0, VelAdd]
 type = VelSet
 trigger1 = animelemno(0) = 5
-x = 7
+x = 7 * MAP(SPEED.MUL)
 y = 0
 ignorehitpause = 1
 
@@ -1070,7 +1078,7 @@ p2facing = 1
 triggerall = !map(ArmorActive)
 trigger1 = !movecontact && !movereversed && !map(CounterHit)
 attr = S, SA
-damage = 100 * MAP(P4), 20
+damage = 100 * MAP(P4) * MAP(SPEED.MUL), 20 * MAP(SPEED.MUL)
 animtype  = Medium
 hitflag = MAFD
 guardflag = MAFD
@@ -1290,7 +1298,7 @@ facep2 = 1
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelemno(0) = [1,3]
-x = 6
+x = 6 * MAP(SPEED.MUL)
 ignorehitpause = 1
 
 [State -2, Starter Level]
@@ -1328,7 +1336,7 @@ p2facing 	= 1
 trigger1 	= !movecontact && !movereversed
 attr 		= S, NA
 animtype 	= hard
-damage 		= 120*MAP(P4), 30
+damage 		= 120 * MAP(P4) * MAP(SPEED.MUL), 30
 hitflag 	= MAFD
 guardflag 	= MA
 pausetime 	= 8,8 + 8*(enemy, movetype = A)
@@ -1371,6 +1379,13 @@ anim = 1065
 sprpriority = 2
 facep2 = 1
 
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+trigger1 		= !time
+map 			= "ITEM.TIER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 	= map(ComboStateCheck)
@@ -1381,7 +1396,7 @@ ignorehitpause 	= 1
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelemno(0) = [4,6]
-x = 4
+x = 4 * MAP(SPEED.MUL)
 ignorehitpause = 1
 
 [State 0, PalFXWiz]
@@ -1449,7 +1464,7 @@ triggerall		= enemy, !map(ArmorActive)
 trigger1 		= !movereversed && !movecontact
 attr 			= S, SA
 animtype  		= Up
-damage    		= 120*map(P4), 20
+damage    		= 120 * map(P4) * MAP(SPEED.MUL), 20
 guardflag 		= MA
 hitflag 		= MAFD
 pausetime 		= 16,16
@@ -1532,7 +1547,7 @@ type 		= MapSet
 trigger1 	= !time || enemy, movehit
 map 		= "HoldTimer"
 value 		= 0
-ignorehitpause 	= 0
+ignorehitpause 	= 1
 persistent 	= 0
 [State -2, Hold Timer - Tick Up]
 type 		= MapAdd
@@ -1551,7 +1566,7 @@ trigger2 	= prevstateno = [120, 155]
 trigger2 	= animelemno(0) = [2, 3]
 attr 		= SCA,NA,SA,HA,NP,SP,HA
 slot 		= 0
-stateno 		= 1080 + 1*(command = "buffered_holdfwd" || command = "buffered_holdback" || command = "buffered_holddown")
+stateno 		= 1080 + 1*(command = "buffered_holdfwd" || command = "buffered_holdback")
 time 		= 1
 [State 0. MapSet]				;This state isnt actually "armored"
 type 		= MapSet			;This is just so custom states dont whiff on it.
@@ -1574,9 +1589,16 @@ ignorehitpause 	= 1
 
 [State 0, ChangeAnim]
 type 		= ChangeAnim
+triggerall 	= prevstateno = 1080
+trigger1 		= !time
+value 		= 1080
+elem 		= 3
+ignorehitpause 	= 1
+[State 0, ChangeAnim]
+type 		= ChangeAnim
 triggerall 	= prevstateno != [120,155]
-trigger1 	= animelemno(0) = 3 || enemy, movehit = 1
-trigger1 	= ( command = "holdb" || command = "b" ) && map(HoldTimer) < 35
+trigger1 		= animelemno(0) = 3 || enemy, movehit = 1
+trigger1 		= (command = "holdb" || command = "b") && map(HoldTimer) < 35
 value 		= 1080
 elem 		= 3
 ignorehitpause 	= 1
@@ -1592,6 +1614,7 @@ type = PowerAdd
 trigger1 = enemy, movehit = 1
 value = 100
 ignorehitpause = 1
+persistent = 0
 
 
 
@@ -1678,13 +1701,13 @@ value = 0
 type = VelAdd
 trigger1 = time = 2
 trigger1 = sysvar(1) = 1
-x = 9
+x = 9 * MAP(SPEED.MUL)
 ignorehitpause = 1
 [State 0, VelSet]
 type = VelAdd
 trigger1 = time = 2
 trigger1 = sysvar(1) = -1
-x = -9
+x = -9 * MAP(SPEED.MUL)
 ignorehitpause = 1
 
 [State 0, ChangeAnim]

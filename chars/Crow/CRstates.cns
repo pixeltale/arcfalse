@@ -96,6 +96,7 @@ ctrl = 0
 [Statedef 10]
 type    = C
 physics = C
+velset  = vel x
 anim = 10
 
 [State 0, VarSet]
@@ -115,6 +116,7 @@ value = 11
 type    = C
 physics = C
 anim = 11
+velset = vel x
 sprpriority = 0
 
 [State 11, 1] ;Change from turning animation
@@ -167,12 +169,12 @@ value = S115,0
 [State 20, 1]
 type = VelSet
 trigger1 = command = "holdfwd"
-x = const(velocity.walk.fwd.x)
+x = const(velocity.walk.fwd.x) * MAP(WALKSPEED.MUL) * MAP(SPEED.MUL)
 
 [State 20, 2]
 type = VelSet
 trigger1 = command = "holdback"
-x = const(velocity.walk.back.x)
+x = const(velocity.walk.back.x) * MAP(WALKSPEED.MUL) * MAP(SPEED.MUL)
 
 [State 20, 3]
 type = ChangeAnim
@@ -304,38 +306,14 @@ velset = 0,0
 [State Category]
 type = mapadd
 trigger1 = time = 0
-map = "DJCL"
+map = "AIRJUMP.COUNT"
 value = -1
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = prevstateno = 610 && time = 0
-v = 27
-value =4
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-v = 23
-value = 3
 
 [State - Air Option Limiter - Airdash]
 type = mapadd
 trigger1 = time = 0
 map = "ADash"
 value = -1
-[State Category]
-type = mapadd
-trigger1 = time = 0
-map = "DJL"
-value = -1
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0 
-v =  45   ;fv = 
-value = -1
-ignorehitpause = 
-persistent = 
 
 [State -3, Tui Voices]
 type = PlaySnd
@@ -406,7 +384,7 @@ value = Anim + 3
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time = 6
-value = 660
+value = 50
 ctrl = 1
 ;anim = 660
 ;ignorehitpause = 
@@ -1005,14 +983,14 @@ type    = A
 physics = A
 anim 	= 100
 sprpriority = 1
-velset = 4, -3.5
+velset = 4 * MAP(SPEED.MUL), -3.5
 ctrl = 1
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = vel x > 15
+trigger1 = vel x > 8 * MAP(SPEED.MUL)
 trigger1 = prevstateno = 4000
-x = 15
+x = 8 * MAP(SPEED.MUL)
 
 [State 0, VelAdd]
 type = VelAdd
@@ -1162,14 +1140,14 @@ type    = A
 physics = A
 anim 	= 105
 sprpriority = 1
-velset 	= -4, -3.5
+velset 	= -4 * MAP(SPEED.MUL), -3.5
 ctrl 	= 1
 
 [State 0, VelSet]
 type 		= VelSet
-trigger1 	= vel x > 15
+trigger1 	= vel x > 15 * MAP(SPEED.MUL)
 trigger1 	= prevstateno = 4000
-x 		= 15
+x 		= 15 * MAP(SPEED.MUL)
 
 [State 0, VelAdd]
 type 		= VelAdd
