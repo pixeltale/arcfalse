@@ -1,43 +1,22 @@
 	<#bbbbbb>This move list assumes you are facing to the right.</>
 
-	<#190bd9>UNIQUE TRAIT: JÖRMUNGANDR DRIVE</>
-	JV can enhance his special, remix, and super moves by
-	dashing before doing them. Enhanced moves have unique,
-   improved properties over their regular counterparts.
+	<#190bd9>UNIQUE TRAIT: MCGUYVER</>
+	Crow can use her remix to pull random items.
 
 	<#190bd9>UNIQUE MOVES</>
-DIVIDER	-		_F^C
+UPPER-CUT	-		_DF^B
+   <#bbbbbb>A crouching upward slash that is good for combos but has
+   poor range.</>
+SKULL CRUSHER	-		_F^C
+   <#bbbbbb>A standing overhead. Jump cancelable on hit.</>
+ANKLE SLASHER	-		_DF^C
    <#bbbbbb>This attack can be jump cancelled on hit.</>
-EARTH SERPENT	-		_DF^C
-   <#bbbbbb>A low-hitting sweep.</>
-MJÖLLNIR	-		<#65b5ff>(AIR ONLY)</> _D^C
-   <#bbbbbb>A downward kick that inflicts a Hard Knockdown.
-   Has movement followups on hit.</>
-KING'S ARSENAL	-		(AFTER CERTAIN MOVES)^A/^B/^C
-        <#bbbbbb>After certain attacks, JV can use a set of moves
-        known as the King's Arsenal by pressing 
-        light, medium, or heavy.</>
-        _!SUNDR	-		^A
-        <#983eff>A dash-cancelable mid strike.
-        If spaced to connect at the tip, it will wallbounce.</>
-         _!NAORA	-		^B
-        <#983eff>A fast advancing kick for punishing enemy agression.</>
-         _!YGGDRASIL	-		^C
-        <#983eff>An overhead attack that deals great damage
-         and knocks down.</>
-SKYFALL	-		(AIR ONLY)</> _D^Y
-        <#bbbbbb>A fastfall JV can use to reach the ground.</>
 
 	<#190bd9>SPECIAL MOVES</>
-ONE-INCH PUNCH	-		^Y
-   <#bbbbbb>A simple punch.</>
-   <#983eff>Enhanced version launches higher and for longer.</>
-JÖTUNN'S WRATH	-		<#65b5ff>(AIR ONLY)</> ^Y
-   <#bbbbbb>An aerial punch.
-   <#983eff>Enhanced version wallbounces opponents.</>
-BERETTA DRIVER	-		(HOLD) ^Y
-   <#bbbbbb>A fullscreen attack that causes a sliding knockdown.
-   Can be dash cancelled on hit.</>
+GIRL'S BEST FRIEND	-		^Y
+   <#bbbbbb>Crow aims a sawn-off shotgun. Has two shots.</>
+_!FIRE!	-		^A/^B/^C
+_!ANOTHER TIME...	-		^X
 NAGANT DRIVER	-		(HOLD LONGER) ^Y
    <#bbbbbb>A fullscreen, highly damaging attack that causes a 
    sliding knockdown.

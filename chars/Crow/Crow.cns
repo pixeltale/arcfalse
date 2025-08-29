@@ -307,6 +307,13 @@ map 			= "ITEM.TIER"
 value 		= 3
 ignorehitpause = 0
 persistent 	= 0
+[State -2, ITEM RNG - Tier Set]
+type 		= MapSet
+trigger1 		= map(ITEM.TIER) < 1
+map 			= "ITEM.TIER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
 [State -2, ITEM RNG - Tier Add]
 type 		= MapAdd
 trigger1 		= !time && STATENO = [4000, 4001]
@@ -1025,58 +1032,161 @@ removeongethit = 0
  
 [Statedef -3]
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = enemy, movetype = A
-v = 2    ;fv = 10
-value = 1
-[State 0, VarSet]
-type = VarSet
-trigger1 = enemy, movetype != A
-v = 2    ;fv = 10
-value = 0
+[State -2, ITEM RNG - Tier Add] 
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+trigger1 		= command = "crow_fwd" && command = "HOLDSTART"
+map 			= "ITEM.TIER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add] 
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+trigger1 		= command = "crow_back" && command = "HOLDSTART"
+map 			= "ITEM.TIER"
+value 		= -1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add] 
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 1
+trigger1 		= command = "x" && command = "HOLDSTART"
+map 			= "ITEM.GREENHERB"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 1
+trigger1 		= command = "y" && command = "HOLDSTART"
+map 			= "ITEM.BLUEHERB"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 1
+trigger1 		= command = "z" && command = "HOLDSTART"
+map 			= "ITEM.REDHERB"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 1
+trigger1 		= command = "unbuffer_S" && command = "HOLDSTART"
+map 			= "ITEM.GRIPPYSOCKS"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 1
+trigger1 		= command = "F" && command = "HOLDSTART"
+map 			= "ITEM.COFFEE"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = !numtarget
-v = 23    ;fv = 10
-value = 0
+[State -2, ITEM RNG - Tier Add] 
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= command = "x" && command = "HOLDSTART"
+map 			= "ITEM.CAPEOFBUSTER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= command = "y" && command = "HOLDSTART"
+map 			= "ITEM.JOURNAL"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= command = "z" && command = "HOLDSTART"
+map 			= "ITEM.CLARITY"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= command = "unbuffer_S" && command = "HOLDSTART"
+map 			= "ITEM.REVOLVER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 2
+trigger1 		= command = "F" && command = "HOLDSTART"
+map 			= "ITEM.ARMORX"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = !numtarget
-v = 25    ;fv = 10
-value = 0
+[State -2, ITEM RNG - Tier Add] 
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= command = "x" && command = "HOLDSTART"
+map 			= "ITEM.TYPEWRITER"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= command = "y" && command = "HOLDSTART"
+map 			= "ITEM.MARMITE"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= command = "z" && command = "HOLDSTART"
+map 			= "ITEM.SKOOMA"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= command = "unbuffer_S" && command = "HOLDSTART"
+map 			= "ITEM.AFTERGLOW"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
+[State -2, ITEM RNG - Tier Add]
+type 		= MapAdd
+triggerall	= gamemode = "Training"
+triggerall	= map(ITEM.TIER) = 3
+trigger1 		= command = "F" && command = "HOLDSTART"
+map 			= "ITEM.CROWN"
+value 		= 1
+ignorehitpause = 0
+persistent 	= 0
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = !numtarget
-v = 27    ;fv = 10
-value = 0
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = statetype=S
-trigger2 = statetype=C
-v = 29    ;fv = 10
-value = 1
-[State 0, VarRangeSet]
-type = VarRangeSet
-trigger1 = !numtarget
-fvalue = 0
-first = 20
-last = 27 ;
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = statetype=S
-trigger2 = statetype=C
-v = 45    ;fv = 10
-value = 1
-;ignorehitpause = 
-;persistent = 
-;This controller plays a sound everytime KFM lands from a jump, or
-;from his back-dash.
 [State -3, Landing Sound]
 type = PlaySnd
 triggerall = Time = 1

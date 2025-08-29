@@ -30,6 +30,26 @@ time = 1
 name = "crow_holdback" ;Required (do not remove)
 command = /B
 buffer.time = 0
+[Command]
+name = "crow_fwd" ;Required (do not remove)
+command = F
+buffer.time = 0
+[Command]
+name = "crow_back" ;Required (do not remove)
+command = B
+buffer.time = 0
+[Command]
+name = "HOLDSTART" ;Required (do not remove)
+command = /s
+buffer.time = 0
+[Command]
+name = "unbuffer_S" ;Required (do not remove)
+command = b
+buffer.time = 0
+[Command]
+name = "F" ;Required (do not remove)
+command = a
+buffer.time = 0
 
 
 [Statedef -1]

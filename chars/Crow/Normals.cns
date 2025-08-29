@@ -1823,7 +1823,7 @@ juggle  	= 0
 poweradd	= 0
 ctrl 		= 0
 velset 		= 0,0
-anim 		= 700
+anim 		= 1100
 sprpriority 	= 2
 facep2 		= 1
 
@@ -1834,6 +1834,7 @@ map 			= "RNG"
 value 		= random
 ignorehitpause = 0
 persistent 	= 0
+
 [State 0, LifeAdd]
 type = LifeAdd
 trigger1 = !TIME
