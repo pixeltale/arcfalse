@@ -4044,7 +4044,7 @@ value 		= 0
 ignorehitpause 	= 1
 [State -2, Starter Level]
 type 		= MapAdd
-trigger1 		= movecontact = 1
+trigger1 		= movecontact = 1 || movereversed = 1
 map 			= "projHits"
 value 		= 1
 ignorehitpause 	= 0

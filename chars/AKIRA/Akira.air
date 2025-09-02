@@ -1086,6 +1086,24 @@ Clsn1: 3
 610,4, 0,-30, 7
 610,5, 0,-30, 7
 
+; Redline Guard
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -20, -114, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -113, 29, 4
+160,1, 0,0, 6
+160,0, 0,0, 10
+
+; Redline Guard (AIR)
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -21, -90, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -90, 29, 4
+160,3, 0,0, 6
+160,2, 0,0, 10
+
 ; 5S
 [Begin Action 1000]
 Clsn2Default: 1

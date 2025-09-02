@@ -1472,6 +1472,22 @@ Clsn2Default: 2
 13010,2, 0,0, 4
 13010,3, 0,0, 4
 
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -21, -95, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -95, 29, 4
+160,0, 0,0, 6
+160,1, 0,0, 10
+
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -35, -86, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -34, -85, 29, 4
+13000,0, -13,33, 6
+13000,1, -13,33, 10
+
 ; 4S - Backsway
 [Begin Action 1000]
 Clsn2: 1

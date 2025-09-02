@@ -2127,6 +2127,7 @@ ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
+triggerall = command != "holdfwd" && command != "fwd"
 triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
 trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
 helpertype = normal ;player
@@ -2281,6 +2282,7 @@ ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
+triggerall = command != "holdfwd" && command != "fwd"
 triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
 trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
 helpertype = normal ;player
@@ -2434,6 +2436,7 @@ ignorehitpause = 1
 
 [State 0, Helper]
 type = Helper
+triggerall = command != "holdfwd" && command != "fwd"
 triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
 trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
 helpertype = normal ;player
@@ -3022,6 +3025,271 @@ type = SelfState
 trigger1 = animtime = 0 
 value = 69002
 ctrl = 0
+
+;---------------------------------------------------------------------------
+;Red Guard
+[Statedef 910]
+type    = S
+movetype= A
+physics = S
+velset = vel x * 0.5,0
+anim = 910
+ctrl = 0
+poweradd = -1000 - 1000 * (prevstateno = [120,155])
+sprpriority = 2
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelem = 1
+value = SCA
+time = 1
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 		= 1
+map 		= "RCLockout"
+value 		= 30
+ignorehitpause 	= 1
+persistent 		= 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = F42	;RedGuard Spark
+ID = 42
+pos = 15,-45
+postype = P1
+facing = 1
+vfacing = 1
+bindtime = 10
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 0.15,0.3
+sprpriority = 2
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+
+[State 0, ReversalDef]
+type = ReversalDef
+trigger1 = 1
+reversal.attr = SCA,NA,SA,HA,NP,SP,HP,AP
+pausetime = 0,0
+hitsound = S2,0
+p1stateno = 912
+ignorehitpause = 1
+
+
+[State 1000, 7]
+type = ChangeState
+triggerall = prevstateno != [150,155]
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 1000, 7]
+type = ChangeState
+triggerall = prevstateno = [150,155]
+trigger1 = time >= map(ctrltime_set)*2
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Red Guard (Air)
+[Statedef 911]
+type    = A
+movetype= A
+physics = A
+velset = vel x,vel y + 1
+anim = 911
+ctrl = 0
+sprpriority = 2
+poweradd = -1000 - 1000 * (prevstateno = [120,155])
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = animelem = 1
+value = SCA
+time = 1
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 		= 1
+map 		= "RCLockout"
+value 		= 30
+ignorehitpause 	= 1
+persistent 		= 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = !time
+anim = F42	;RedGuard Spark
+ID = 42
+pos = 15,-45
+postype = P1
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 0.15,0.3
+sprpriority = 2
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+
+[State 0, ReversalDef]
+type = ReversalDef
+trigger1 = 1
+reversal.attr = SCA,NA,SA,HA,NP,SP,HP
+pausetime = 0,0
+hitsound = S2,0
+p1stateno = 913
+ignorehitpause = 1
+
+[State 1000, 7]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Red Guard - Success
+[Statedef 912] ;Redline guard success
+type    = S
+movetype= I
+physics = S
+poweradd= 1000
+velset = vel x * 0.5, 0
+anim = 910
+ctrl = 0
+sprpriority = 10
+
+[State 52, Assert: NoWalk]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+ignoreHitPause = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 3
+
+[State 0, Pause]
+type = Pause
+triggerall = enemy, hitdefattr != SCA,NP, SP, HP
+trigger1 = !time
+time = 15
+movetime = 1
+ignorehitpause = 1
+[State 0, Pause]
+type = Pause
+triggerall = enemy, hitdefattr = SCA,NP, SP, HP
+trigger1 = !time
+time = 5
+movetime = 1
+ignorehitpause = 1
+[State 0, PalFX]
+type = PalFX
+trigger1 = !time
+time = 10
+add = 200, 30, 30
+invertall = 0
+color = 0
+ignorehitpause = 1
+[State 0, PalFX]
+type = BGPalFX
+trigger1 = !time
+time = 15
+add = -20, -20, -20
+invertall = 0
+color = 0
+ignorehitpause = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = !time
+time = 20
+freq = 20
+ampl = -6
+phase = 120
+ignorehitpause = 1
+persistent = 1
+
+[State 1000, 7]
+type = CtrlSet
+trigger1 = time
+value = 1
+[State 1000, 7]
+type = ChangeState
+trigger1 = !animtime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Red Guard - Success (Air)
+[Statedef 913]
+type    = A
+movetype= I
+physics = A
+poweradd= 500
+velset = vel x * 0.75, -3 
+anim = 910
+ctrl = 0
+sprpriority = 2
+
+
+[State 0, Pause]
+type = Pause
+trigger1 = !time
+time = 15
+movetime = 1
+ignorehitpause = 1
+[State 0, PalFX]
+type = PalFX
+trigger1 = !time
+time = 10
+add = 200, 30, 30
+invertall = 0
+color = 0
+ignorehitpause = 1
+[State 0, PalFX]
+type = BGPalFX
+trigger1 = !time
+time = 15
+add = -20, -20, -20
+invertall = 0
+color = 0
+ignorehitpause = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = !time
+time = 20
+freq = 20
+ampl = -6
+phase = 120
+ignorehitpause = 1
+persistent = 1
+
+
+[State 1000, 7]
+type = ChangeState
+trigger1 = time = 1
+value = 50
+ctrl = 1
 
 ;---------------------------------------------------------------------------
 ; Stand get-hit (shaking)
@@ -4828,7 +5096,7 @@ id = 900
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time = 2
+trigger1 = time = 1
 value = 1
 
 ;===========================================================================
@@ -7932,13 +8200,23 @@ value = 6140
 ;===========================================================================
 ;SYSTEM MECHANICS ----------------------------------------------------------
 ;===========================================================================
+
+;REDLINE GUARD
+[State -1, REDLINE GUARD]
+type = ChangeState
+value = 910 + 1 * statetype = A
+triggerall = power >= 1000
+triggerall = command = "holdfwd" || command = "fwd"
+triggerall = command = "REDLINEGUARD" || stateno = 912 && command = "BUFFERED_REDLINEGUARD"
+trigger1 = ctrl || stateno = [120,155] && map(IBParam) && time > 0 || stateno = 912 && time
+
 ;RECORD SCRATCH
 [State -1, RC Jasta]
 type = ChangeState
 value = 4000
 triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag && !ishelper
 triggerall = power>=2000
-triggerall = stateno != 900 && stateno != 803
+triggerall = stateno != [900,915] && stateno != 803
 triggerall = command = "SP"
 triggerall = statetype != A
 trigger1 = movecontact
@@ -7950,7 +8228,7 @@ value = 4001
 triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag && !ishelper
 triggerall = power>=2000
 triggerall = stateno !=750
-triggerall = stateno != 900
+triggerall = stateno != [900,915]
 triggerall = command = "SP"
 triggerall = statetype = A
 trigger1 = movecontact
@@ -8104,6 +8382,23 @@ ignorehitpause = 1
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+
+[State -2, Parry Dash Cancel]
+type = Changestate
+triggerall = time > 2
+trigger1 = stateno = 912 && (command = "fwd" || command = "holdfwd")
+value = 100
+[State -2, RC Speed Boost]
+type = Changestate
+triggerall = time > 2
+trigger1 = stateno = 912 && (command = "back" || command = "holdback")
+value = 105
+[State -2, RC Speed Boost]
+type = VelMul
+trigger1 = prevstateno = 912
+trigger1 = time < 5
+x = 1.25
+
 
 [State -2, Dynamic Shadows]
 type = palfx
@@ -10465,16 +10760,6 @@ trigger1 = !map(ComboStateCheck)
 map = "CHStarter"
 value = 0
 ignorehitpause = 0
-
-;ALPHA COUNTER
-[State -1, Recoil Guard]
-type = ChangeState
-value = 7000
-trigger1 = stateno = [150,153]
-triggerall = command = "holdfwd" 
-triggerall = command = "SP"
-triggerall = statetype != A
-triggerall = power >= 2000
 
 ;How can I make this about Z...?
 [State 0, RemoveExplod]

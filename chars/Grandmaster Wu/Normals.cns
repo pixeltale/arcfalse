@@ -2608,7 +2608,7 @@ persistent 		= 0
 
 [State 0]
 type = HitDef
-trigger1 = time=0
+trigger1 = !movecontact && !MoveReversed
 attr = A, NA
 animtype  = Medium
 damage = 75 * root, map(P4), 0
@@ -2811,7 +2811,7 @@ persistent 		= 0
 
 [State 1000, 1]
 type = HitDef
-trigger1 = time = 0 
+trigger1 = !movecontact && !MoveReversed
 attr = S, SA                     ;Attribute: Standing, Normal Attack
 damage = 100 * Root, map(P4), 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -3232,7 +3232,7 @@ persistent 		= 0
 
 [State 0]
 type = HitDef
-trigger1 = !movecontact
+trigger1 = !movecontact && !MoveReversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back

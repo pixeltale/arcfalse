@@ -892,6 +892,22 @@ Clsn2Default: 1
 10,2, 0,0, 3
 10,1, 0,0, 3
 
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -27, -108, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -25, -107, 29, 4
+120,0, 0,0, 6
+120,1, 0,0, 10
+
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -35, -86, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -34, -85, 29, 4
+122,0, 0,18, 6
+122,1, 0,18, 10
+
 ; 5s grab
 [Begin Action 1000]
 Clsn2Default: 1

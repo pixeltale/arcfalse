@@ -1192,6 +1192,22 @@ Clsn1: 1
 700,3, 0,0, 7
 700,4, 0,0, 3
 
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -21, -96, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -95, 29, 4
+120,1, 0,0, 6
+120,3, 0,0, 10
+
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -36, -86, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -34, -85, 29, 4
+120,14, 0,23, 6
+120,15, 0,23, 10
+
 ; desp refill
 [Begin Action 905]
 Clsn2Default: 2

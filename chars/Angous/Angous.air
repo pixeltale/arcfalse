@@ -1307,6 +1307,30 @@ Clsn2: 1
   Clsn2[0] = -28, -116, 31, -13
 40,13, -8,4, 7
 
+; Redline Guard
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -22, -82, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -81, 29, 4
+120,1, 0,0, 6
+120,2, 0,0, 10
+
+; Redline Guard (AIR)
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -34, -69, 31, -2
+Clsn2Default: 1
+  Clsn2[0] = -34, -67, 29, -2
+122,1, -1,45, 3
+Clsn1: 1
+  Clsn1[0] = 0, -67, 31, -2
+Clsn2Default: 1
+  Clsn2[0] = -34, -67, 29, -2
+122,2, -1,45, 3
+122,3, -1,45, 6
+40,15, -13,40, 104
+
 ; KillSwitch
 [Begin Action 901]
 700,0, 0,0, 2

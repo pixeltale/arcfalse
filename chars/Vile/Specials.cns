@@ -88,6 +88,7 @@ size.xscale = .6
 size.yscale = .6
 size.ground.back = 15
 size.ground.front = 15
+pausemovetime = 0
 ;size.air.back = 
 ;size.air.front = 
 
@@ -297,7 +298,7 @@ persistent 		= 0
 [State 410, 2]
 type = HitDef
 trigger1 = time%2 = 0
-attr = , AP
+attr = A,SP
 air.animtype = back
 damage = 5*MAP(P4) + 1, 4
 hitflag = MAFD
@@ -339,7 +340,7 @@ value = 0
 
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed = 1
 v = 46 
 value = 1
 ;ignorehitpause = 

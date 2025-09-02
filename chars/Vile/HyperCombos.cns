@@ -391,7 +391,7 @@ sprpriority = 4
 
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed = 1
 fv = 14
 value = 1
 [State 0, VarSet]

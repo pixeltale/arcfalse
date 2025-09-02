@@ -1938,6 +1938,22 @@ Clsn2: 1
   Clsn2[0] = -21, -106, 36, 0
 700,4, 0,0, 4
 
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -22, -111, 35, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -111, 34, 4
+700,2, 0,0, 6
+700,3, 0,0, 10
+
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -35, -86, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -34, -85, 29, 4
+120,14, -2,53, 6
+120,13, -2,53, 10
+
 ; 4EX Startup
 [Begin Action 999]
 Clsn2: 2

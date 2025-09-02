@@ -1521,6 +1521,22 @@ Clsn1: 1
 190,17, 0,0, 3
 190,18, 0,0, 1
 
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -23, -97, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -95, 29, 4
+120,1, 0,0, 6
+120,2, 0,0, 10
+
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -37, -86, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -34, -85, 29, 4
+120,11, 0,45, 6
+120,12, 0,45, 10
+
 ; 5S
 [Begin Action 1000]
 Clsn2Default: 1

@@ -61,6 +61,15 @@ name = "SP"
 command = a
 time = 1
 buffer.time = 1
+[Command]
+name = "REDLINEGUARD"
+command = a
+time = 1
+buffer.time = 0
+[Command]
+name = "BUFFERED_REDLINEGUARD"
+command = a
+time = 1
 
 
 [Command]

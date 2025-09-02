@@ -1729,7 +1729,7 @@ facing = 1
 keyctrl = 0
 ownpal = 0
 supermovetime = 0
-pausemovetime = 999
+pausemovetime = 0
 size.xscale = 0.4 * cond(map(FIREBALL_LEVEL) > 0, map(FIREBALL_LEVEL), 1)
 size.yscale = 0.4 * cond(map(FIREBALL_LEVEL) > 0, map(FIREBALL_LEVEL), 1)
 
@@ -1795,7 +1795,7 @@ value 		= 0
 ignorehitpause 	= 0
 [State -2, Hitcount Tracker]
 type 		= MapAdd
-trigger1 	= movecontact = 1
+trigger1 	= movecontact = 1 || movereversed = 1
 map 		= "HitCount"
 value 		= 1
 ignorehitpause 	= 0
@@ -1901,7 +1901,7 @@ value 		= 0
 ignorehitpause 	= 0
 [State -2, Hitcount Tracker]
 type 		= MapAdd
-trigger1 	= movecontact = 1
+trigger1 	= movecontact = 1 || movereversed = 1
 map 		= "HitCount"
 value 		= 1
 ignorehitpause 	= 0
@@ -2097,7 +2097,7 @@ value 		= 0
 ignorehitpause 	= 0
 [State -2, Hitcount Tracker]
 type 		= MapAdd
-trigger1 	= movecontact = 1
+trigger1 	= movecontact = 1 || movereversed = 1
 map 		= "HitCount"
 value 		= 1
 ignorehitpause 	= 0
@@ -2281,7 +2281,7 @@ value = 0
 
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || movereversed = 1
 v = 20     ;fv = 
 value = 1
 
@@ -2576,7 +2576,7 @@ facing = 1
 keyctrl = 0
 ownpal = 0
 supermovetime = 0
-pausemovetime = 999
+pausemovetime = 0
 size.xscale = 0.99
 size.yscale = 0.99
 

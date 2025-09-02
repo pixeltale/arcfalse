@@ -1499,6 +1499,22 @@ Clsn2Default: 2
 120,18, 0,0, 4
 120,19, 0,0, 4
 
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -22, -97, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -95, 29, 4
+130,2, 0,0, 6
+130,3, 0,0, 10
+
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -36, -87, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -34, -85, 29, 4
+150,2, 0,23, 6
+150,1, -1,23, 10
+
 ; 5S-1: Bolt Primer (G)
 [Begin Action 1000]
 Clsn2Default: 2

@@ -1398,6 +1398,22 @@ Clsn2: 1
 LoopStart
 610,5, 0,0, 7
 
+[Begin Action 910]
+Clsn1: 1
+  Clsn1[0] = -22, -97, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -20, -95, 29, 4
+150,2, 0,0, 6
+150,1, 0,0, 10
+
+[Begin Action 911]
+Clsn1: 1
+  Clsn1[0] = -38, -86, 31, 4
+Clsn2Default: 1
+  Clsn2[0] = -34, -85, 29, 4
+152,2, 0,33, 6
+152,3, 0,33, 10
+
 ; 5S: Demon Time Fist
 [Begin Action 1000]
 Clsn2: 3

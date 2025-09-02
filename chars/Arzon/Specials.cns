@@ -794,7 +794,7 @@ persistent         = 0
 ;============================
 [State 630, 2]
 type = HitDef 
-trigger1 = !movecontact
+trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SP
 air.animtype = up
@@ -1042,18 +1042,6 @@ physics = N
 ctrl = 0
 anim =1305
 sprpriority = 2
-
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit
-fv = 13
-value = .175
-
-[State 0, ParentVarAdd]
-type = ParentVarAdd
-trigger1 = movehit
-fv = 25
-value = .075
 
 [State -3, Arzon WIND SFX 2]
 type = PlaySnd
@@ -1402,7 +1390,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -1456,7 +1444,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || movereversed
 trigger2 = time >80
 trigger3 = frontedgedist < -1
 ignorehitpause = 1
@@ -1517,7 +1505,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -1653,7 +1641,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -1784,7 +1772,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -1918,7 +1906,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -2051,7 +2039,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -2184,7 +2172,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -2316,7 +2304,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -2443,7 +2431,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -2569,7 +2557,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 animtype  = Light
 air.animtype = back
 hitonce = 1
@@ -2927,7 +2915,7 @@ value = 4
 
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed = 1
 v = 36
 value = -1
 
@@ -3150,7 +3138,7 @@ persistent 	= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = !movecontact
+trigger1 = !MoveContact && !MoveReversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back
@@ -3193,7 +3181,7 @@ persistent 		= 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed
 trigger2 = time >200
 trigger3 = frontedgedist<-60
 trigger4 = root, movetype = H
@@ -3278,7 +3266,7 @@ persistent 	= 0
 
 [State 2, Counter Hit]
 type = HitDef 
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = S, SA
 damage = 150*(parent,map(P4))
 hitflag = MAF
@@ -3312,7 +3300,7 @@ getpower = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed
 trigger2 = time >200
 trigger3 = frontedgedist<-60
 trigger4 = root, movetype = H
@@ -3436,7 +3424,7 @@ getpower = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed
 trigger2 = time >200
 trigger3 = frontedgedist<-60
 value = 12999
@@ -3444,7 +3432,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed
 trigger2 = time >200
 trigger3 = frontedgedist<-60
 trigger4 = pos y>=0
@@ -3534,7 +3522,7 @@ persistent 	= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 0
-trigger1 = !movecontact
+trigger1 = !MoveContact && !MoveReversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back
@@ -3585,7 +3573,7 @@ persistent 		= 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movecontact = 1
+trigger1 = movecontact = 1 || MoveReversed
 trigger2 = time >200
 trigger3 = frontedgedist<-60
 trigger4 = root, movetype = H
