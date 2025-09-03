@@ -1774,7 +1774,7 @@ ignorehitpause 	= 1
 [State -2, Charge Checker]
 type 	= MapAdd
 trigger1 	= time = 1
-trigger1	= map(CHARGE.LEVEL) >= 60
+trigger1	= map(CHARGE.LEVEL) >= 45
 map 		= "FIREBALL_LEVEL"
 value 		= 1
 ignorehitpause 	= 1
