@@ -342,10 +342,9 @@ trigger2 = (stateno = [200,220] || stateno = [400,420]) && movecontact
 [State -1, 5R]
 type = ChangeState
 value = 42000
-triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
-triggerall = !numhelper(750)
+triggerall = !numhelper(777)
 triggerall = command != "holddown"
 triggerall = command != "holdfwd"
 triggerall = command != "holdback"
@@ -353,71 +352,67 @@ triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043 || stateno = 1000 && anim = 1002
 trigger3 = movecontact
 
 [State -1, 6R]
 type = ChangeState
 value = 62000
 triggerall=stateno!=40
-triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
-triggerall = !numhelper(750)
+triggerall = !numhelper(777)
 triggerall = command = "NOBUFFER.HOLDFWD" && command != "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK)  || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK)  || stateno = 1043 || stateno = 1000 && anim = 1002
 trigger3 = movecontact
 
 [State -1, 4R]
 type = ChangeState
 value = 32000
 triggerall=stateno!=40
-triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
-triggerall = !numhelper(750)
+triggerall = !numhelper(777)
 triggerall = command = "NOBUFFER.HOLDBACK" && command != "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043 || stateno = 1000 && anim = 1002
 trigger3 = movecontact
 
 [State -1, 2R: Tranquililty 1]
 type = ChangeState
 value = 12000
 triggerall=stateno!=40
-triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
-triggerall = !numhelper(750)
+triggerall = !numhelper(777)
 triggerall = command = "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043 || stateno = 1000 && anim = 1002
 trigger3 = movecontact
 
 [State -1, 2R: Tranquililty 1]
 type = ChangeState
 value = 12000
 triggerall=stateno!=40
-triggerall = numexplod(893) = 0
 triggerall = !ishelper
 triggerall = stateno != 2000
-triggerall = !numhelper(750)
+triggerall = !numhelper(777)
 triggerall = command = "holddown"
 triggerall = command != "b"
 trigger1 = Ctrl
 triggerall = command = "buffer_c"
 trigger2 = var(1)
-trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043
+trigger3 = stateno = [600,640] || stateno =1003 || stateno = [1014,1017] && map(EXCHECK) || stateno = 1043 || stateno = 1000 && anim = 1002
 trigger3 = movecontact
 
 ;-----------------------------------------------------------------------------------------------------------

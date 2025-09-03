@@ -185,8 +185,8 @@ persistent 		= 1
 [State 0, TargetBind]
 type = TargetBind
 triggerall = NumTarget
-trigger1 = AnimElemNo(0) = 1
-time = 50
+trigger1 = 1
+time = 1
 pos = 40,0
 ;Pummel
 [State 0, ChangeState]
@@ -473,14 +473,6 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1007                       ;Change animation (Def: no change)
 sprpriority = 2   
 
-[State 0. MapSet]
-type 		= MapSet
-trigger1 	= 1
-map 		= "BurstLock"
-value 		= 30
-ignorehitpause 	= 1
-persistent 	= 1
-
 [State Sahkive Voices]
 type = PlaySnd
 trigger1 =  time = 0
@@ -495,6 +487,11 @@ map 		= "Combo5SM"
 value 		= 1
 ignorehitpause 	= 1
 persistent 	= 1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
 
 [State 0, SprPriority]
 type = SprPriority

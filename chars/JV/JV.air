@@ -303,8 +303,6 @@ Clsn2Default: 1
 ; Dash Img
 [Begin Action 101]
 LoopStart
-Clsn2Default: 1
-  Clsn2[0] = -52, -105, 60, 1
 15,0, 0,0, 4
 15,1, 0,0, 4
 15,2, 0,0, 4

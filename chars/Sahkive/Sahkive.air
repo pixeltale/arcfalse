@@ -1610,6 +1610,8 @@ LoopStart
 
 ; 5S > M
 [Begin Action 1007]
+Clsn2Default: 1
+  Clsn2[0] = -44, -92, 40, 1
 1006,0, 0,0, 2
 1006,1, 0,0, 2
 1006,2, 0,0, 2

@@ -639,9 +639,9 @@ persistent 		= 0
 
 [State 0, PalFX]
 type = PalFX
-trigger1 = !time
+trigger1 = time = 15 && anim != 231
 time = 20
-sinadd = 250-time, 70-time*2, 70-time*2, 30
+add = 100, 50, 50
 mul = 256,256,256
 invertall = 0
 color = 256

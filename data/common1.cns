@@ -2951,7 +2951,7 @@ time = 32
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 1
-y = -1.5
+y = -3
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem =2
@@ -3038,6 +3038,17 @@ ctrl = 0
 poweradd = -1000 - 1000 * (prevstateno = [120,155])
 sprpriority = 2
 
+[State 0, PalFX]
+type = PalFX
+triggerall = time < 10
+trigger1 = animelemno(0) = 1
+time = 1
+add = 200, 30, 30
+invertall = 0
+color = 0
+ignorehitpause = 1
+persistent = 1
+
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = animelem = 1
@@ -3052,28 +3063,17 @@ value 		= 30
 ignorehitpause 	= 1
 persistent 		= 1
 
-[State 0, Explod]
-type = Explod
+[State 0, Helper]
+type = Helper
 trigger1 = !time
-anim = F42	;RedGuard Spark
-ID = 42
+name = "Red Guard Spark"
+ID = 915
+stateno = 915
 pos = 15,-45
-postype = P1
-facing = 1
-vfacing = 1
-bindtime = 10
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-supermovetime = 0
-pausemovetime = 0
-scale = 0.15,0.3
-sprpriority = 2
-ontop = 1
-shadow = 0,0,0
+size.xscale = 0.15
+size.yscale = 0.30
+postype = p1    ;p2,front,back,left,right
 ownpal = 0
-removeongethit = 1
 
 [State 0, ReversalDef]
 type = ReversalDef
@@ -3084,6 +3084,13 @@ hitsound = S2,0
 p1stateno = 912
 ignorehitpause = 1
 
+[State 1000, 7]
+type = ChangeAnim
+triggerall = animelemno(0) = 1 && time < 4
+trigger1 = command = "HELD_REDLINEGUARD"
+value = 910
+elem = 1
+persistent = 1
 
 [State 1000, 7]
 type = ChangeState
@@ -3111,6 +3118,17 @@ ctrl = 0
 sprpriority = 2
 poweradd = -1000 - 1000 * (prevstateno = [120,155])
 
+[State 0, PalFX]
+type = PalFX
+triggerall = time < 10
+trigger1 = animelemno(0) = 1
+time = 1
+add = 200, 30, 30
+invertall = 0
+color = 0
+ignorehitpause = 1
+persistent = 1
+
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = animelem = 1
@@ -3125,28 +3143,17 @@ value 		= 30
 ignorehitpause 	= 1
 persistent 		= 1
 
-[State 0, Explod]
-type = Explod
+[State 0, Helper]
+type = Helper
 trigger1 = !time
-anim = F42	;RedGuard Spark
-ID = 42
+name = "Red Guard Spark"
+ID = 915
+stateno = 915
 pos = 15,-45
-postype = P1
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-supermovetime = 0
-pausemovetime = 0
-scale = 0.15,0.3
-sprpriority = 2
-ontop = 1
-shadow = 0,0,0
+size.xscale = 0.15
+size.yscale = 0.30
+postype = p1    ;p2,front,back,left,right
 ownpal = 0
-removeongethit = 1
 
 [State 0, ReversalDef]
 type = ReversalDef
@@ -3156,6 +3163,15 @@ pausetime = 0,0
 hitsound = S2,0
 p1stateno = 913
 ignorehitpause = 1
+
+[State 1000, 7]
+type = ChangeAnim
+triggerall = animelemno(0) = 1 && time < 4
+trigger1 = command = "HELD_REDLINEGUARD"
+value = 911
+elem = 1
+persistent = 1
+
 
 [State 1000, 7]
 type = ChangeState
@@ -3173,7 +3189,13 @@ poweradd= 1000
 velset = vel x * 0.5, 0
 anim = 910
 ctrl = 0
+facep2 = 1
 sprpriority = 10
+
+[State 700, Snd]
+type = playsnd
+trigger1 = !time
+value = S6700, 0
 
 [State 52, Assert: NoWalk]
 type = AssertSpecial
@@ -3246,10 +3268,14 @@ movetype= I
 physics = A
 poweradd= 500
 velset = vel x * 0.75, -3 
-anim = 910
+anim = 911
 ctrl = 0
 sprpriority = 2
 
+[State 700, Snd]
+type = playsnd
+trigger1 = !time
+value = S6700, 0
 
 [State 0, Pause]
 type = Pause
@@ -3290,6 +3316,24 @@ type = ChangeState
 trigger1 = time = 1
 value = 50
 ctrl = 1
+
+
+;---------------------------------------------------------------------------
+;Red Guard - Helper
+[Statedef 915]
+type    = A
+movetype= I
+physics = N
+velset = 0, 0
+anim = F42
+ctrl = 0
+sprpriority = 10
+
+
+[State 1000, 7]
+type = DestroySelf
+trigger1 = !animtime
+trigger2 = root, movetype = H
 
 ;---------------------------------------------------------------------------
 ; Stand get-hit (shaking)
@@ -8110,7 +8154,7 @@ value = 1
 ;persistent = 
 
 ;-----------------------------
-[Statedef 69002]
+[Statedef 69002] ;Burst Fall
 type    = A
 anim    = 69000
 movetype= A
@@ -8122,8 +8166,13 @@ sprpriority = -1
 
 [State 0, VelSet]
 type = VelAdd
+trigger1 = pos y < -100
+y = .25
+
+[State 0, VelSet]
+type = VelAdd
 trigger1 = 1
-y = .2
+y = .25
 
 [State 1055, 6] ;Change state when KFM is close to ground
 type = ChangeState
@@ -8386,12 +8435,12 @@ ignorehitpause = 1
 [State -2, Parry Dash Cancel]
 type = Changestate
 triggerall = time > 2
-trigger1 = stateno = 912 && (command = "fwd" || command = "holdfwd")
+trigger1 = stateno = 912 && (command = "66" || command = "M66")
 value = 100
 [State -2, RC Speed Boost]
 type = Changestate
 triggerall = time > 2
-trigger1 = stateno = 912 && (command = "back" || command = "holdback")
+trigger1 = stateno = 912 && (command = "44" || command = "M44")
 value = 105
 [State -2, RC Speed Boost]
 type = VelMul
@@ -8921,17 +8970,11 @@ ignorehitpause 	= 1
 type = SelfState
 value = 900
 triggerall = alive
-triggerall = statetype != L
 triggerall = map(BurstGauge)>=1000
-triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1) && stateno != [915020,915050] && stateno != 5070
+triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1)
 triggerall = command = "SP" && (command = "b" || command = "c" || command = "x" || command = "y" || command = "z") || command = "z" && command = "c"
-triggerall = movetype = H && enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
-;Average battle
-trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP
-;Wu support
-trigger2 = enemynear, numhelper(777)
-trigger2 = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
-trigger3 = enemynear, numhelper(1110)
+triggerall = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
+trigger1 = movetype = H
 
 ;====================================================================
 ;Alicia Power Drain

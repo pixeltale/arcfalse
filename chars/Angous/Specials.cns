@@ -4877,28 +4877,6 @@ type = VelAdd
 trigger1 = animelem = 1
 x = 14
 
-;Explod Limiter Trigger
-[State 0, TargetState]
-type = TargetState
-trigger1 = !NumExplod(99856)
-triggerall = NumTarget(99856)
-trigger1 = MoveHit = 1
-value = 915020
-persistent = 1
-ignorehitpause = 1
-
-;Explod Limiter 
-[State 0, Explod]
-type = Explod
-;triggerall = !stateno = 690000 && p2movetype = H
-trigger1 = !NumExplod(99856)
-trigger1 = MoveHit
-anim = 99856
-ID = 99856
-removetime = -1
-removeongethit = 1
-persistent = 1
-
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -5902,6 +5880,7 @@ sprpriority = -1
 ;Explod/SKD Limiter Trigger
 [State 0, TargetState]
 type = TargetState
+triggerall = enemynear, stateno != 900
 triggerall = NumTarget(910311)
 trigger1 = !NumExplod(910311)
 trigger1=movehit

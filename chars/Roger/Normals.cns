@@ -489,6 +489,7 @@ id = 910312
 ;Explod Limiter Trigger
 [State 0, TargetState]
 type = TargetState
+triggerall = enemy, stateno != 900
 trigger1 = !NumExplod(910312)
 triggerall = NumTarget(910312)
 trigger1 = MoveHit = 1
