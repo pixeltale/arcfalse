@@ -42,12 +42,6 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = animelemno(0) < 8
-value = SCA
-time = 1 
-
 [State 0, AfterImage]
 type = AfterImage
 trigger1 =  time = 0 

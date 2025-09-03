@@ -35,7 +35,7 @@ type = NotHitBy
 trigger1 = time = 0
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 ;value2 = S,NA
-time = 12
+time = 20
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -62,17 +62,6 @@ darken = 1
 p2defmul = 1
 poweradd = -2000
 unhittable = 1
-;ignorehitpause = 
-;persistent = 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time = 0
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
-;value2 = S,NA
-time = 7
-;ignorehitpause = 
-;persistent = 
-
 
 [State 0, Explod]
 type = Explod
