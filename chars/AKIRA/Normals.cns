@@ -307,7 +307,7 @@ facep2 = 1
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
+map 			= "StarterLevel"
 value 		= 1	;Light Starter
 ignorehitpause 	= 1
 
@@ -403,8 +403,8 @@ facep2 = 1
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
-value 		= 2	;Medium Starter
+map 			= "StarterLevel"
+value 		= 1	;Medium Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -721,7 +721,7 @@ facep2		= map(SJI)
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
-map 		= "StarterLevel"
+map 			= "StarterLevel"
 value 		= 1	;Light Starter
 ignorehitpause 	= 1
 
