@@ -76,7 +76,7 @@ kill = 0
 trigger1 = animelem = 7 || animelem = 12 || animelem = 18 || animelem = 23
 hitonce = 1
 attr = C, HA
-damage = 40*map(P4) + 15, 2
+damage = 30*map(P4) + 10, 2
 hitflag = MAFD
 guardflag = LA
 pausetime = 1,5 - 4*ishelper

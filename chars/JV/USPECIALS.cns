@@ -257,6 +257,7 @@ guard.ctrltime 	= 10
 p2stateno 	= 915020
 airguard.velocity = -1, -0.5
 ground.cornerpush.veloff = -10
+affectteam = E
 air.cornerpush.veloff 	= -22.5 / MAP(untechMOD) * 0.5
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 0, AllPalFX]

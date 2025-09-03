@@ -436,6 +436,7 @@ triggerall = power >=2000 && !map(FRC)
 triggerall = stateno != 803
 triggerall = command = "SP"
 triggerall = statetype != A
+triggerall = stateno != [900,915] && stateno != 803
 trigger1 = movecontact
 
 ;REDLINE CANCEL (AIR)
@@ -448,6 +449,7 @@ triggerall = stateno !=750
 triggerall = stateno != 900
 triggerall = command = "SP"
 triggerall = statetype = A
+triggerall = stateno != [900,915] && stateno != 803
 trigger1 = movecontact
 
 ;DEVIANT REDLINE CANCEL
@@ -457,6 +459,7 @@ value = 4005
 triggerall = power >=1000 && stateno != 4005
 triggerall = command = "SP"
 triggerall = statetype != A
+triggerall = stateno != [900,915] && stateno != 803
 trigger1 = map(FRC)
 
 ;DEVIANT REDLINE CANCEL (AIR)
@@ -466,6 +469,7 @@ value = 4006
 triggerall = power>=1000 && stateno != 4006
 triggerall = command = "SP"
 triggerall = statetype = A 
+triggerall = stateno != [900,915] && stateno != 803
 trigger1 = map(FRC)
 
 ;Float Cancels
