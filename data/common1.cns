@@ -8254,7 +8254,7 @@ value = 6140
 [State -1, REDLINE GUARD]
 type = ChangeState
 value = 910 + 1 * statetype = A
-triggerall = power >= 1000 + 1000 * stateno = [120,155]
+triggerall = power >= 1000 + 1000 * (stateno = [120,155])
 triggerall = command = "holdfwd" || command = "fwd"
 triggerall = command = "REDLINEGUARD" || stateno = 912 && command = "BUFFERED_REDLINEGUARD"
 trigger1 = ctrl || stateno = [120,155] && map(IBParam) && time > 0 || stateno = 912 && time
