@@ -3212,26 +3212,26 @@ channel = 6
 type = TargetBind
 triggerall = NumTarget
 trigger1 = AnimElemNo(0) = [1,2]
-time = 10
+time = 1
 pos = 40,-50
 [State 0, TargetBind]
 type = TargetBind
 triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 3
-time = 10
+time = 1
 pos = 20,-25
 [State 0, TargetBind]
 type = TargetBind
 triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 4
 trigger2 = AnimElemNo(0) = 5
-time = 10
+time = 1
 pos = 35,-25
 [State 0, TargetBind]
 type = TargetBind
 triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 6
-time = 10
+time = 1
 pos = 10,-20
 [State 0, TargetBind]
 type = TargetBind
@@ -3239,19 +3239,19 @@ triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 7
 trigger2 = AnimElemNo(0) = 8
 trigger3 = AnimElemNo(0) = 9
-time = 10
+time = 1
 pos = 20,-15
 [State 0, TargetBind]
 type = TargetBind
 triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 10
-time = 10
+time = 1
 pos = 20,-25
 [State 0, TargetBind]
 type = TargetBind
 triggerall = NumTarget
 trigger1 = AnimElemNo(0) = 11
-time = 10
+time = 1
 pos = 30,-35
 
 [State 0, TargetLifeAdd]

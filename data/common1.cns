@@ -8973,7 +8973,7 @@ triggerall = alive
 triggerall = map(BurstGauge)>=1000
 triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1)
 triggerall = command = "SP" && (command = "b" || command = "c" || command = "x" || command = "y" || command = "z") || command = "z" && command = "c"
-triggerall = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
+triggerall = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT && enemy,hitdefattr = SCA, NA, SA, NP, SP
 trigger1 = movetype = H
 
 ;====================================================================
