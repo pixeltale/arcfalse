@@ -3094,15 +3094,7 @@ persistent = 1
 
 [State 1000, 7]
 type = ChangeState
-triggerall = prevstateno != [150,155]
 trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-[State 1000, 7]
-type = ChangeState
-triggerall = prevstateno = [150,155]
-trigger1 = time >= map(ctrltime_set)*2
 value = 0
 ctrl = 1
 
@@ -8255,9 +8247,11 @@ value = 6140
 type = ChangeState
 value = 910 + 1 * statetype = A
 triggerall = power >= 1000
+triggerall = hitshakeover
 triggerall = command = "holdfwd" || command = "fwd"
-triggerall = command = "REDLINEGUARD" || stateno = 912 && command = "BUFFERED_REDLINEGUARD"
-trigger1 = ctrl || stateno = [120,155] && map(IBParam) && time > 0 || stateno = 912 && time
+triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912) && (command = "BUFFERED_REDLINEGUARD")
+trigger1 = ctrl || stateno = [120,155] && map(IBCheck) && time > 0 || stateno = 912 && time > 2
+ignorehitpause = 1
 
 ;RECORD SCRATCH
 [State -1, RC Jasta]

@@ -335,8 +335,7 @@ triggerall=stateno!=40
 triggerall = command = "x"
 triggerall = command = "holdback"
 trigger1 = statetype = S
-trigger1 = ctrl
-;trigger2 = (stateno = 200) && movecontact =1
+trigger1 = ctrl || stateno = 100
 
 ;5L
 [State -1, Stand Strong Punch]

@@ -564,7 +564,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
-trigger1 		= movehit
+trigger1 		= 1
 map 		= "wallbounce_boomerang"
 value 		= 1
 ignorehitpause 	= 1
@@ -1624,11 +1624,11 @@ guardsound 	= 6,2
 animtype 	= hard
 ground.type 	= high
 ground.slidetime = 12
-ground.hittime  = 40 * map(UntechMod)
-air.hittime  	= 35 - (MAP(untechDecay) * 1.5)
-down.hittime 	= 48 * map(UntechMod)
+ground.hittime  = 40
+air.hittime  	= 35
+down.hittime 	= 48
 ground.velocity = 0,13
-air.velocity 	= 0,13 - (map(untechDecay) * 0.5)
+air.velocity 	= 0,13
 envshake.time 	= 25
 envshake.freq 	= 80
 envshake.ampl 	= 5
@@ -1645,26 +1645,27 @@ getpower 	= (100)*(cond(var(var(3)) = 1, 1, .5))
 [State 610, 3]
 type 	= HitDef 
 p2facing 	= 1
-triggerall	= enemy, map(ArmorActive)
-trigger1 	= Time = 0 && (enemynear, stateno!= [5110,5119])
+triggerall	= enemy, map(ArmorActive) || map(jH_UseCount) >= 3
+trigger1 		= !MoveContact && !MoveReversed
 attr 		= A, NA
 damage 		= 60 * MAP(P4), 0
 guardflag 	= HA
-hitflag 	= MAF
-priority 	= 4
+hitflag 		= MAF
+priority 		= 4
 pausetime 	= 14,14
-sparkno 	= 2
-sparkxy 	= -10,-25
+sparkno 		= 2
+sparkxy 		= -10,-25
 hitsound   	= 5,3
 guardsound 	= 6,2
-animtype 	= hard
-ground.type 	= high
+animtype 		= hard
+ground.type 	= trip
+air.type		= trip
 ground.slidetime = 12
-ground.hittime  = 40 * map(UntechMod)
-air.hittime  	= 35 - (MAP(untechDecay) * 1.5)
-down.hittime 	= 48 * map(UntechMod)
+ground.hittime  = 40
+air.hittime  	= 35
+down.hittime 	= 48
 ground.velocity = 0,13
-air.velocity 	= 0,13 - (map(untechDecay) * 0.5)
+air.velocity 	= 0,13
 envshake.time 	= 25
 envshake.freq 	= 80
 envshake.ampl 	= 5
@@ -1677,17 +1678,24 @@ guard.ctrltime 	= 17
 guard.hittime 	= 20
 getpower 	= (100)*(cond(var(var(3)) = 1, 1, .5))
 
+[State -2, Groundbounce Limiter]
+type 		= MapAdd
+trigger1 		= movehit = 1
+map 			= "jH_UseCount"
+value 		=  1
+ignorehitpause =  1
+persistent	= 0
 
 [State 600, 1]
-type 		= PlaySnd
+type 	= PlaySnd
 trigger1 	= animelem = 6
-value 		= 0, 2
+value 	= 0, 2
 
 [State 0, ChangeState]
-type 		= ChangeState
+type 	= ChangeState
 trigger1 	= pos y >= 0
-value 		= 616
-ctrl 		= 1
+value 	= 616
+ctrl 	= 1
 
 ;-----------------------
 ;jH land

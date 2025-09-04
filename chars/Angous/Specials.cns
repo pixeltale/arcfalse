@@ -3991,7 +3991,7 @@ ctrl = 1
 
 ;Wave
 [Statedef 1093]
-type    = A
+type    = U
 movetype= A
 physics = N
 juggle  = 0
@@ -4012,7 +4012,7 @@ persistent = 1
 type = hitdef 
 p2facing = 1
 trigger1 = time % 3 = 0
-attr = A, SP
+attr = S, SP
 damage = 25*root, MAP(P4), 10
 hitflag = MAFD
 guardflag = MA
