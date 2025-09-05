@@ -3184,6 +3184,13 @@ ctrl = 0
 facep2 = 1
 sprpriority = 10
 
+[State -2, Parry Starter Level CHeck] 
+type = MapSet
+trigger1 = 1
+map = "ParryCheck"
+value = 30
+ignorehitpause = 1
+
 [State 700, Snd]
 type = playsnd
 trigger1 = !time
@@ -3263,6 +3270,13 @@ velset = vel x * 0.75, -3
 anim = 911
 ctrl = 0
 sprpriority = 2
+
+[State -2, Parry Starter Level CHeck] 
+type = MapSet
+trigger1 = 1
+map = "ParryCheck"
+value = 30
+ignorehitpause = 1
 
 [State 700, Snd]
 type = playsnd
@@ -8426,6 +8440,13 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+[State -2, Parry Starter Level CHeck] 
+type = MapAdd
+trigger1 = map(ParryCheck)
+map = "ParryCheck"
+value = -1
+ignorehitpause = 1
+
 [State -2, Parry Dash Cancel]
 type = Changestate
 triggerall = time > 2
@@ -10217,7 +10238,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) = 1
+trigger1 = map(StarterLevel) = 1 || map(StarterLevel) = 2 && map(ParryCheck)
 map = "ComboTimer"
 value = 120
 ignorehitpause = 1
@@ -10226,7 +10247,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag) && !map(ParryCheck)  || map(StarterLevel) = 3 && map(ParryCheck)
 map = "ComboTimer"
 value = 60
 ignorehitpause = 1
@@ -10235,7 +10256,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag) && !map(ParryCheck) || map(StarterLevel) = 4 && map(ParryCheck)
 map = "ComboTimer"
 value = -60
 ignorehitpause = 1
@@ -10244,7 +10265,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) >= 4 || map(StarterLevel) = 3 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) >= 4 || map(StarterLevel) = 3 && map(Counterhit_Flag) && !map(ParryCheck) 
 map = "ComboTimer"
 value = -240
 ignorehitpause = 1
@@ -10759,7 +10780,7 @@ value=player(1),map(teamlead)+player(3),map(teamlead)
 ;===============================================================================
 [State -2, CH Check - 1] 				;Checks if the opponent is
 type = MapSet	                        ;attacking or not
-trigger1 = enemynear, movetype = A		
+trigger1 = enemynear, movetype = A
 map = "CounterHit"
 value = 1
 ignorehitpause = 1
