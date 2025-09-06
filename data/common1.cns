@@ -8263,7 +8263,7 @@ value = 910 + 1 * statetype = A
 triggerall = power >= 1000
 triggerall = hitshakeover
 triggerall = command = "holdfwd" || command = "fwd"
-triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912) && (command = "BUFFERED_REDLINEGUARD")
+triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912 || stateno = 5120) && (command = "BUFFERED_REDLINEGUARD")
 trigger1 = ctrl || stateno = [120,155] && map(IBCheck) && time > 0 || stateno = 912 && time > 2
 ignorehitpause = 1
 
@@ -9656,6 +9656,7 @@ trigger1 = !(name = "Roger" && (Stateno = 1403 || stateno = [1453,1456]))
 trigger1 = !(name = "Vile" && (Stateno = [1050,1061] || stateno = 2059 || stateno = 1020))
 trigger1 = !(name = "ONE" && (Stateno = 1051 || stateno = 1151))
 trigger1 = !(name = "Z" && (stateno = [2000,2008]))
+trigger1 = !(name = "Grandmaster Wu" && (stateno = [1012,1014]))
 trigger1 = !(stateno = [3000,4000]) && stateno != 5610
 trigger1 = !(map(untechDecay) >= 2) && !(map(isAssist) > 0) && !(stateno = [56000,56100])
 trigger1 = !map(Dreifing.Active)

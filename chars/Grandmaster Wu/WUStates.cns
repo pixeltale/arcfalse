@@ -839,7 +839,6 @@ type = VelMul
 trigger1 = !ctrl
 y = 0
 
-
 [State 0, VelAdd]
 type = VelAdd
 triggerall = 1
@@ -847,10 +846,23 @@ trigger1 = command = "holdfwd" || command = "holdback"
 x = 0.1*(cond(command = "holdfwd" && command != "holdback", 1, -1))
 
 [State 0, VelAdd]
-type = VelSet
+type = VelAdd
 triggerall = time <= 30
 trigger1 = command = "holdup" || command = "up"
-y = -1
+y = -0.5
+
+[State 0, VelMul]
+type = VelMul
+trigger1 = animelemno(0) = 1
+x = 0.9
+y = 0.5
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 3
+statetype = A
+movetype = I
+physics = A
 
 [State 0, VarAdd]
 type = VarAdd
@@ -871,18 +883,7 @@ paladd = -30,-30,-30
 palmul = .9,.9,.9
 Trans = Add
 
-[State 0, VelMul]
-type = VelMul
-trigger1 = animelemno(0) = 1
-x = 0.9
-y = 0.9
 
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = animelem = 3
-statetype = A
-movetype = I
-physics = A
 
 [State 200, 2]
 type = PlaySnd
