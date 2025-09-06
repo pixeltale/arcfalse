@@ -10793,7 +10793,7 @@ ignorehitpause = 1
 
 [State -2, Counter Hit Start Flag] 		;Checks for counterhit starter for the combo.
 type = MapSet					
-trigger1 = map(CounterHit_Flag)
+trigger1 = map(CounterHit_Flag) && !map(ParryCheck)
 trigger1 = map(ComboStateCheck)
 map = "CHStarter"
 value = 1
