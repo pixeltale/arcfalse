@@ -20,10 +20,11 @@ channel = 6
 
 [State -3, Angous Voices]
 type = PlaySnd
+trigger1 = anim = 3001
 trigger1 = animelem = 3
 value = 3001, (0+(random%5))
 volume = 150
-channel = 6
+channel = 5
 
 [State -3, Hyper Finish Background]
 type = Helper
@@ -540,6 +541,7 @@ channel = 6
 
 [State -3, Angous Voices]
 type = PlaySnd
+triggerall = anim = 3004
 trigger1 = animelem = 3
 value = 3001, (0+(random%5))
 volume = 150
@@ -1173,20 +1175,6 @@ darken = 1
 p2defmul = 1
 unhittable = 1
 ;ignorehitpause = 
-;persistent = 
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 3
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 13
-value = 3
-
 
 [State 0, RemoveExplod]
 type = RemoveExplod
