@@ -10436,25 +10436,11 @@ map = "CanTT"
 value = 1
 [State Throw Tech]
 type = mapset
-trigger1 = movetype = A || !ctrl
+trigger1 = movetype = A || !ctrl && stateno != 812
 map = "CanTT"
 value = 0
 ignorehitpause = 1
 persistent = 1
-;==============================================
-;Better Neutral Inputs
-[State Input]
-type = mapset
-trigger1 = command != "holdfwd"
-trigger1 = command != "holdback"
-trigger1 = command != "holddown"
-trigger1 = command != "holdup"
-trigger1 = command != "fwd"
-trigger1 = command != "back"
-trigger1 = command != "down"
-map = "neutral"
-value = 1
-
 ;---------------------------------------------------------------------------------
 [Statedef -3]
 
