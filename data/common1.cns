@@ -8606,7 +8606,7 @@ persistent		= 1
 [State 0. MapSet]
 type 		= MapSet
 triggerall  = teammode = Tag
-trigger1 	= stateno = 56000
+trigger1 	= stateno = 56110
 map 		= "isAssist"
 value 		= 0
 ignorehitpause 	= 0
@@ -10455,6 +10455,7 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = name = "eddy"
@@ -10465,6 +10466,7 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = name = "eddy"
@@ -10475,6 +10477,7 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = name = "angous"
@@ -10484,6 +10487,27 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%3))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "Grandmaster Wu"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%3))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
 
 [State 0, VarAdd]
 type = MapAdd
