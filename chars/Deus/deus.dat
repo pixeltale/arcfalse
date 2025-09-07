@@ -117,37 +117,27 @@ _!<#107105>AND ALL YOU DO NOT</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 B
 
 
 
-_D	_D		_D
-
-	UNIVERSAL MOVES
-OVERHEAD	-		(NOT AVAILABLE) </>
-   <#bbbbbb>I actually don't do this one. Oops!</>
+	SYSTEM MECHANICS
+SUPERJUMP	-		_D_U
+   <#bbbbbb>Jump higher, faster, and further. Increases your air
+   drift.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne attacks.</>
-GRAB	-		ANY 2 NORMALS </>
-   <#bbbbbb>Cannot be blocked. Starts combos on counter-hit.</>
-FORCE BLOCK (WHILE BLOCKING)	-		<#55ffff>(1/4 BAR)</> _B^X
-   <#bbbbbb>Can push the opposition backwards while I block.</>
-RECOIL GUARD (WHILE BLOCKING)	-		<#55ffff>(2 BARS)</> _F^X
-   <#bbbbbb>A fullscreen-ranged reversal that knocks the
-   opposition down and beats projectiles. Refunds 1 BAR on hit.</>
-RECORD SCRATCH (WHILE ATTACKING)		<#55ffff>(1 BAR/2 BARS ON BLOCK)</> ^X
-   <#bbbbbb>Can be used to instantly cancel most attacks.</>
-BURST (WHILE GETTING HIT)	-		^X+^A/^B/^C
-   <#bbbbbb>A large reversal that can be used while I'm getting hit.</>
-PANIC BURST (WHILE GETTING HIT)	-		<#55ffff>(4 BARS)</> ^X+^A/^B/^C
-   <#bbbbbb>An extra burst that can be used in an emergency.</>
-   <#ff0000>Using this PERMANENTLY limits my meter to a max of 1 BAR
-   for the rest of the game.</>
-
- 
-_D	_D		_D
-
-	2V2 MODE
-SWITCH CHARACTERS	-		ASSIST </>
-ACTIVE SWITCH (WHILE ATTACKING)	-		<#55ffff>(2 BARS)</>ASSIST </>
-ASSIST ATTACK	-		_B/_D/_F+ASSIST </>
-   <#bbbbbb>Each character has 3 assist attacks.</>
-TAG SUPER (DURING A SUPER)		<#55ffff>(2 BARS)</>_D_DF_F+ASSIST OR _D_DB_B+ASSIST </>
-
-</>
+FALSE GUARD (WHILE BLOCKING)	-		</> _B^X
+   <#bbbbbb>Push the enemy away while you block.
+   Can be done freely, but extends your block stun.</>
+FALSE PARRY 	-		(1 BAR)</> _F^X
+   <#bbbbbb>If timed correctly, False Parry can redirect all non throw
+   attacks, freezing the enemy in place for a short period of time.
+   Additionally, it can be canceled into from blocking if you performed
+   an Instant Block.
+   Hold the False button to slightly extend its duration.</>
+RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^X + ANY BUTTON
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   Be careful not to get it baited.
+   </>
+   </>

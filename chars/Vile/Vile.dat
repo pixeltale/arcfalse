@@ -83,21 +83,24 @@ _EX CURB STOMP	-		<#55ffff>(1 BAR)</> _D^Y+^Z
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further. Increases the amount
-   of air-influence directional inputs have.</>   
+   <#bbbbbb>Jump higher, faster, and further. Increases your air
+   drift.</>   
 ANTI-AIR	-		_D^C
-   <#bbbbbb>This move has invulnerability to airborne enemies.</>
-FORCE BLOCK (WHILE BLOCKING)	-		(0.25 BARS)</> _B^X
-   <#bbbbbb>Can push the enemy away while you block.</>
-RECOIL GUARD (WHILE BLOCKING)	-		(2 BARS)</> _F^X
-   <#bbbbbb>A fullscreen-ranged reversal that knocks the
-   enemy down and beats projectiles. Returns 1 bar of
-   meter upon use.</>
+   <#bbbbbb>This move has invulnerability to airborne attacks.</>
+FALSE GUARD (WHILE BLOCKING)	-		</> _B^X
+   <#bbbbbb>Push the enemy away while you block.
+   Can be done freely, but extends your block stun.</>
+FALSE PARRY 	-		(1 BAR)</> _F^X
+   <#bbbbbb>If timed correctly, False Parry can redirect all non throw
+   attacks, freezing the enemy in place for a short period of time.
+   Additionally, it can be canceled into from blocking if you performed
+   an Instant Block.
+   Hold the False button to slightly extend its duration.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
    Holding a direction while you perform it will redirect
    you to move in said direction.</>
-BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^Z+^C or ^X+^Y
+BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^X + ANY BUTTON
    <#bbbbbb>A large reversal that can be used while you're getting hit.
    Be careful not to get it baited.
    </>
