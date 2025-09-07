@@ -2951,7 +2951,7 @@ time = 32
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 1
-y = -1.5
+y = -3
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem =2
@@ -3035,8 +3035,19 @@ physics = S
 velset = vel x * 0.5,0
 anim = 910
 ctrl = 0
-poweradd = -1000 - 1000 * (prevstateno = [120,155])
+poweradd = -1000
 sprpriority = 2
+
+[State 0, PalFX]
+type = PalFX
+triggerall = time < 10
+trigger1 = animelemno(0) = 1
+time = 1
+add = 200, 30, 30
+invertall = 0
+color = 0
+ignorehitpause = 1
+persistent = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -3052,28 +3063,17 @@ value 		= 30
 ignorehitpause 	= 1
 persistent 		= 1
 
-[State 0, Explod]
-type = Explod
+[State 0, Helper]
+type = Helper
 trigger1 = !time
-anim = F42	;RedGuard Spark
-ID = 42
+name = "Red Guard Spark"
+ID = 915
+stateno = 915
 pos = 15,-45
-postype = P1
-facing = 1
-vfacing = 1
-bindtime = 10
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-supermovetime = 0
-pausemovetime = 0
-scale = 0.15,0.3
-sprpriority = 2
-ontop = 1
-shadow = 0,0,0
+size.xscale = 0.15
+size.yscale = 0.30
+postype = p1    ;p2,front,back,left,right
 ownpal = 0
-removeongethit = 1
 
 [State 0, ReversalDef]
 type = ReversalDef
@@ -3084,18 +3084,17 @@ hitsound = S2,0
 p1stateno = 912
 ignorehitpause = 1
 
+[State 1000, 7]
+type = ChangeAnim
+triggerall = animelemno(0) = 1 && time < 4
+trigger1 = command = "HELD_REDLINEGUARD"
+value = 910
+elem = 1
+persistent = 1
 
 [State 1000, 7]
 type = ChangeState
-triggerall = prevstateno != [150,155]
 trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-[State 1000, 7]
-type = ChangeState
-triggerall = prevstateno = [150,155]
-trigger1 = time >= map(ctrltime_set)*2
 value = 0
 ctrl = 1
 
@@ -3109,7 +3108,18 @@ velset = vel x,vel y + 1
 anim = 911
 ctrl = 0
 sprpriority = 2
-poweradd = -1000 - 1000 * (prevstateno = [120,155])
+poweradd = -1000
+
+[State 0, PalFX]
+type = PalFX
+triggerall = time < 10
+trigger1 = animelemno(0) = 1
+time = 1
+add = 200, 30, 30
+invertall = 0
+color = 0
+ignorehitpause = 1
+persistent = 1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -3125,28 +3135,17 @@ value 		= 30
 ignorehitpause 	= 1
 persistent 		= 1
 
-[State 0, Explod]
-type = Explod
+[State 0, Helper]
+type = Helper
 trigger1 = !time
-anim = F42	;RedGuard Spark
-ID = 42
+name = "Red Guard Spark"
+ID = 915
+stateno = 915
 pos = 15,-45
-postype = P1
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-supermovetime = 0
-pausemovetime = 0
-scale = 0.15,0.3
-sprpriority = 2
-ontop = 1
-shadow = 0,0,0
+size.xscale = 0.15
+size.yscale = 0.30
+postype = p1    ;p2,front,back,left,right
 ownpal = 0
-removeongethit = 1
 
 [State 0, ReversalDef]
 type = ReversalDef
@@ -3156,6 +3155,15 @@ pausetime = 0,0
 hitsound = S2,0
 p1stateno = 913
 ignorehitpause = 1
+
+[State 1000, 7]
+type = ChangeAnim
+triggerall = animelemno(0) = 1 && time < 4
+trigger1 = command = "HELD_REDLINEGUARD"
+value = 911
+elem = 1
+persistent = 1
+
 
 [State 1000, 7]
 type = ChangeState
@@ -3173,7 +3181,20 @@ poweradd= 1000
 velset = vel x * 0.5, 0
 anim = 910
 ctrl = 0
+facep2 = 1
 sprpriority = 10
+
+[State -2, Parry Starter Level CHeck] 
+type = MapSet
+trigger1 = 1
+map = "ParryCheck"
+value = 30
+ignorehitpause = 1
+
+[State 700, Snd]
+type = playsnd
+trigger1 = !time
+value = S6700, 0
 
 [State 52, Assert: NoWalk]
 type = AssertSpecial
@@ -3246,10 +3267,21 @@ movetype= I
 physics = A
 poweradd= 500
 velset = vel x * 0.75, -3 
-anim = 910
+anim = 911
 ctrl = 0
 sprpriority = 2
 
+[State -2, Parry Starter Level CHeck] 
+type = MapSet
+trigger1 = 1
+map = "ParryCheck"
+value = 30
+ignorehitpause = 1
+
+[State 700, Snd]
+type = playsnd
+trigger1 = !time
+value = S6700, 0
 
 [State 0, Pause]
 type = Pause
@@ -3290,6 +3322,24 @@ type = ChangeState
 trigger1 = time = 1
 value = 50
 ctrl = 1
+
+
+;---------------------------------------------------------------------------
+;Red Guard - Helper
+[Statedef 915]
+type    = A
+movetype= I
+physics = N
+velset = 0, 0
+anim = F42
+ctrl = 0
+sprpriority = 10
+
+
+[State 1000, 7]
+type = DestroySelf
+trigger1 = !animtime
+trigger2 = root, movetype = H
 
 ;---------------------------------------------------------------------------
 ; Stand get-hit (shaking)
@@ -8110,7 +8160,7 @@ value = 1
 ;persistent = 
 
 ;-----------------------------
-[Statedef 69002]
+[Statedef 69002] ;Burst Fall
 type    = A
 anim    = 69000
 movetype= A
@@ -8122,8 +8172,13 @@ sprpriority = -1
 
 [State 0, VelSet]
 type = VelAdd
+trigger1 = pos y < -100
+y = .25
+
+[State 0, VelSet]
+type = VelAdd
 trigger1 = 1
-y = .2
+y = .25
 
 [State 1055, 6] ;Change state when KFM is close to ground
 type = ChangeState
@@ -8206,9 +8261,11 @@ value = 6140
 type = ChangeState
 value = 910 + 1 * statetype = A
 triggerall = power >= 1000
+triggerall = hitshakeover && teammode != Tag
 triggerall = command = "holdfwd" || command = "fwd"
-triggerall = command = "REDLINEGUARD" || stateno = 912 && command = "BUFFERED_REDLINEGUARD"
-trigger1 = ctrl || stateno = [120,155] && map(IBParam) && time > 0 || stateno = 912 && time
+triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912 || stateno = 5120) && (command = "BUFFERED_REDLINEGUARD")
+trigger1 = ctrl || stateno = [120,155] && map(IBCheck) && time > 0 || stateno = 912 && time > 2
+ignorehitpause = 1
 
 ;RECORD SCRATCH
 [State -1, RC Jasta]
@@ -8383,15 +8440,22 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+[State -2, Parry Starter Level CHeck] 
+type = MapAdd
+trigger1 = map(ParryCheck)
+map = "ParryCheck"
+value = -1
+ignorehitpause = 1
+
 [State -2, Parry Dash Cancel]
 type = Changestate
 triggerall = time > 2
-trigger1 = stateno = 912 && (command = "fwd" || command = "holdfwd")
+trigger1 = stateno = 912 && (command = "66" || command = "M66")
 value = 100
 [State -2, RC Speed Boost]
 type = Changestate
 triggerall = time > 2
-trigger1 = stateno = 912 && (command = "back" || command = "holdback")
+trigger1 = stateno = 912 && (command = "44" || command = "M44")
 value = 105
 [State -2, RC Speed Boost]
 type = VelMul
@@ -8536,28 +8600,6 @@ value 		= -0.15
 ignorehitpause 	= 1
 persistent		= 1
 ;=============================================================================
-
-;==============================================
-
-[State 0. MapSet]
-type 		= MapSet
-triggerall  = teammode = Tag
-trigger1 	= stateno = 56000
-map 		= "isAssist"
-value 		= 0
-ignorehitpause 	= 0
-persistent      = 0
-
-[State 0, ScreenBound]
-type = ScreenBound
-trigger1 = map(isAssist)=1 && movetype != H
-value = 0
-movecamera = 0,0
-[State 0, PlayerPush]
-type = PlayerPush
-trigger1 = map(isAssist)=1 && movetype = H
-value = 0
-
 
 
 ;MAIDEN SUPER CAMERA PUSSY LOCK #AWESOME
@@ -8921,17 +8963,11 @@ ignorehitpause 	= 1
 type = SelfState
 value = 900
 triggerall = alive
-triggerall = statetype != L
 triggerall = map(BurstGauge)>=1000
-triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1) && stateno != [915020,915050] && stateno != 5070
+triggerall = !(enemy, map(BurstLock) && !enemy,fvar(18)=1)
 triggerall = command = "SP" && (command = "b" || command = "c" || command = "x" || command = "y" || command = "z") || command = "z" && command = "c"
-triggerall = movetype = H && enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
-;Average battle
-trigger1 = enemy,hitdefattr = SCA, NA, SA, NP, SP
-;Wu support
-trigger2 = enemynear, numhelper(777)
-trigger2 = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT
-trigger3 = enemynear, numhelper(1110)
+triggerall = enemy, hitdefattr != SCA, HA, HP, NT, ST, HT && enemy,hitdefattr = SCA, NA, SA, NP, SP
+trigger1 = movetype = H
 
 ;====================================================================
 ;Alicia Power Drain
@@ -9598,6 +9634,7 @@ trigger1 = !(name = "Roger" && (Stateno = 1403 || stateno = [1453,1456]))
 trigger1 = !(name = "Vile" && (Stateno = [1050,1061] || stateno = 2059 || stateno = 1020))
 trigger1 = !(name = "ONE" && (Stateno = 1051 || stateno = 1151))
 trigger1 = !(name = "Z" && (stateno = [2000,2008]))
+trigger1 = !(name = "Grandmaster Wu" && (stateno = [1012,1014]))
 trigger1 = !(stateno = [3000,4000]) && stateno != 5610
 trigger1 = !(map(untechDecay) >= 2) && !(map(isAssist) > 0) && !(stateno = [56000,56100])
 trigger1 = !map(Dreifing.Active)
@@ -10180,7 +10217,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) = 1
+trigger1 = map(StarterLevel) = 1 || map(StarterLevel) = 2 && map(ParryCheck)
 map = "ComboTimer"
 value = 120
 ignorehitpause = 1
@@ -10189,7 +10226,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag) && !map(ParryCheck)  || map(StarterLevel) = 3 && map(ParryCheck)
 map = "ComboTimer"
 value = 60
 ignorehitpause = 1
@@ -10198,7 +10235,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag) && !map(ParryCheck) || map(StarterLevel) = 4 && map(ParryCheck)
 map = "ComboTimer"
 value = -60
 ignorehitpause = 1
@@ -10207,7 +10244,7 @@ ignorehitpause = 1
 type = MapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
-trigger1 = map(StarterLevel) >= 4 || map(StarterLevel) = 3 && map(Counterhit_Flag)
+trigger1 = map(StarterLevel) >= 4 || map(StarterLevel) = 3 && map(Counterhit_Flag) && !map(ParryCheck) 
 map = "ComboTimer"
 value = -240
 ignorehitpause = 1
@@ -10378,25 +10415,11 @@ map = "CanTT"
 value = 1
 [State Throw Tech]
 type = mapset
-trigger1 = movetype = A || !ctrl
+trigger1 = movetype = A || !ctrl && stateno != 812
 map = "CanTT"
 value = 0
 ignorehitpause = 1
 persistent = 1
-;==============================================
-;Better Neutral Inputs
-[State Input]
-type = mapset
-trigger1 = command != "holdfwd"
-trigger1 = command != "holdback"
-trigger1 = command != "holddown"
-trigger1 = command != "holdup"
-trigger1 = command != "fwd"
-trigger1 = command != "back"
-trigger1 = command != "down"
-map = "neutral"
-value = 1
-
 ;---------------------------------------------------------------------------------
 [Statedef -3]
 
@@ -10410,6 +10433,7 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = name = "eddy"
@@ -10420,6 +10444,7 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = name = "eddy"
@@ -10430,6 +10455,7 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = name = "angous"
@@ -10439,6 +10465,27 @@ loop = 0
 persistent = 0
 volumescale=150
 ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "arzon"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%3))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "Grandmaster Wu"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%3))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
 
 [State 0, VarAdd]
 type = MapAdd
@@ -10722,7 +10769,7 @@ value=player(1),map(teamlead)+player(3),map(teamlead)
 ;===============================================================================
 [State -2, CH Check - 1] 				;Checks if the opponent is
 type = MapSet	                        ;attacking or not
-trigger1 = enemynear, movetype = A		
+trigger1 = enemynear, movetype = A
 map = "CounterHit"
 value = 1
 ignorehitpause = 1
@@ -10748,7 +10795,7 @@ ignorehitpause = 1
 
 [State -2, Counter Hit Start Flag] 		;Checks for counterhit starter for the combo.
 type = MapSet					
-trigger1 = map(CounterHit_Flag)
+trigger1 = map(CounterHit_Flag) && !map(ParryCheck)
 trigger1 = map(ComboStateCheck)
 map = "CHStarter"
 value = 1

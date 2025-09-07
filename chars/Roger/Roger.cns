@@ -1183,6 +1183,14 @@ ctrl = 1
 
 ;=============================================================================
 [Statedef -2]
+
+[State -2, Groundbounce Limiter]
+type 		= MapSet
+trigger1 		= !map(ComboStateCheck)
+map 			= "jH_UseCount"
+value 		= 0
+ignorehitpause = 1
+
 [State 0, VarSet]
 type = VarSet
 trigger1 = enemynear,movetype!=H

@@ -70,6 +70,11 @@ buffer.time = 0
 name = "BUFFERED_REDLINEGUARD"
 command = a
 time = 1
+[Command]
+name = "HELD_REDLINEGUARD"
+command = /a
+time = 1
+buffer.time = 0
 
 
 [Command]
@@ -1141,7 +1146,7 @@ buffer.time = 0
 name = "M66"
 command = x+y
 time = 2
-buffer.time = 0
+buffer.time = 2
 
 
 [Command]

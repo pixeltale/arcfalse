@@ -4663,14 +4663,14 @@ value 	= 2000, 1
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = enemynear, stateno != 5228
+trigger1 = enemynear, stateno != 5228 && enemynear, stateno != 900
 x = -18
 y = -3
 redirectid = enemynear, id
 
 [State 0, Enemy ChangeState]
 type = ChangeState
-triggerall = enemy, stateno != [5245,5261]
+triggerall = enemy, stateno != [5245,5261] && enemynear, stateno != 900
 trigger1 = !time
 value = map(CornerSplat)
 persistent = 0

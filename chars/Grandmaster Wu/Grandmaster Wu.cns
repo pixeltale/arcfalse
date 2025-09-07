@@ -569,7 +569,7 @@ ignorehitpause 	= 1
 type 	= MapSet
 trigger1 	= command = "BACK.CHARGE"
 map 		= "LeniencyTimer"
-value 		= 5
+value 		= 7
 ignorehitpause 	= 1
 [State -2, Charge Input - Leniency Timer]
 type 	= MapAdd

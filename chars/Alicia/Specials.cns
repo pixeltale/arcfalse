@@ -1057,14 +1057,6 @@ down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
 guard.dist			= 0
 getpower 				= 75
 
-[State 0, PowerAdd]
-type = PowerAdd
-trigger1 = movecontact=  1
-value = -200
-ignorehitpause = 1
-redirectid = enemynear, id
-persistent = 1
-
 [State 0, DestroySelf]
 type = Changestate
 Trigger1 = !animtime && movehit
@@ -1098,43 +1090,6 @@ poweradd	= 0
 ctrl 	= 0
 anim 	= 1044
 sprpriority = 2
-
-[State 0, Helper]
-type = Helper
-trigger1 = !time && isHelper(1041)
-helpertype = normal
-name = "L EYE"
-ID = 1015
-stateno = 1015
-pos = 20,-45
-postype = p1
-facing = 1
-size.xscale = const(size.xscale)
-size.yscale = const(size.yscale)
-[State 0, Helper]
-type = Helper
-trigger1 = !time && isHelper(1042)
-helpertype = normal
-name = "M EYE"
-ID = 1016
-stateno = 1015
-pos = 20,-60
-postype = p1
-facing = 1
-size.xscale = const(size.xscale)
-size.yscale = const(size.yscale)
-[State 0, Helper]
-type = Helper
-trigger1 = !time && isHelper(1043)
-helpertype = normal
-name = "H EYE"
-ID = 1017
-stateno = 1015
-pos = 20,-75
-postype = p1
-facing = 1
-size.xscale = const(size.xscale)
-size.yscale = const(size.yscale)
 
 [State 0, DestroySelf]
 type = DestroySelf

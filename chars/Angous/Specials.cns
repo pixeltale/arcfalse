@@ -3991,7 +3991,7 @@ ctrl = 1
 
 ;Wave
 [Statedef 1093]
-type    = A
+type    = U
 movetype= A
 physics = N
 juggle  = 0
@@ -4012,19 +4012,18 @@ persistent = 1
 type = hitdef 
 p2facing = 1
 trigger1 = time % 3 = 0
-attr = A, SP
+attr = S, SP
 damage = 25*root, MAP(P4), 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 4,4
 guard.hittime = 24
 guard.ctrltime = 22
-ground.slidetime = 14
-ground.hittime  = 17
+ground.hittime  = 20
 ground.velocity = -3,0
 fall.xvelocity = -2
 fall.yvelocity = 0
-air.velocity = -3,-2
+air.velocity = -3,-1
 air.hittime = 34 * root, map(UNTECHMOD)
 air.fall = 1
 sparkno = 1
@@ -4876,28 +4875,6 @@ ontop = 1
 type = VelAdd
 trigger1 = animelem = 1
 x = 14
-
-;Explod Limiter Trigger
-[State 0, TargetState]
-type = TargetState
-trigger1 = !NumExplod(99856)
-triggerall = NumTarget(99856)
-trigger1 = MoveHit = 1
-value = 915020
-persistent = 1
-ignorehitpause = 1
-
-;Explod Limiter 
-[State 0, Explod]
-type = Explod
-;triggerall = !stateno = 690000 && p2movetype = H
-trigger1 = !NumExplod(99856)
-trigger1 = MoveHit
-anim = 99856
-ID = 99856
-removetime = -1
-removeongethit = 1
-persistent = 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -5902,6 +5879,7 @@ sprpriority = -1
 ;Explod/SKD Limiter Trigger
 [State 0, TargetState]
 type = TargetState
+triggerall = enemynear, stateno != 900
 triggerall = NumTarget(910311)
 trigger1 = !NumExplod(910311)
 trigger1=movehit

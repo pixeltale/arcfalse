@@ -1394,6 +1394,7 @@ ignorehitpause=0
 
 [State 1010, P2 Custom State]
 type = targetstate
+triggerall = enemy, stateno != 900
 trigger1 = MoveHit =1
 trigger1 = NumTarget(1010) 
 value = 615020

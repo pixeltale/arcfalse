@@ -559,8 +559,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "rimlight explod = %i"
-params = camerapos x
+text = "rimlight explod = %f"
+params = map(ComboTimer)
 ignorehitpause = 1
 persistent = 1
 

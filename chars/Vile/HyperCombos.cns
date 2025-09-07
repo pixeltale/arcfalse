@@ -17,7 +17,7 @@ physics = S
 juggle  = 0
 poweradd= 0
 ctrl = 0
-anim = 3001
+anim = 3000
 sprpriority = 2
 
 [State Meter Burn State, VarSet]
@@ -44,7 +44,7 @@ value = 3000, (0+(Random%3))
 volume=500
 [State -3, Vile Voices]
 type = PlaySnd
-trigger1 = animelem = 3
+trigger1 = animelem = 35
 value = 3001, (0+(Random%3))
 volume=200
 [State 0, EnvShake]
@@ -56,27 +56,7 @@ ampl = -5
 
 [State 0, Explod]
 type = Explod
-trigger1 = time = 0
-anim =3000
-ID = 3000
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 0.78,0.78
-sprpriority = 1
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
-supermovetime = 119
-
-[State 0, Explod]
-type = Explod
-trigger1 = time = 11
+trigger1 = animelem = 35
 anim = 221
 ID = 221
 pos = 40,0
@@ -99,7 +79,7 @@ ignorehitpause = 1
 
 [State 0, Explod]
 type = Explod
-trigger1 = time = 11
+trigger1 = animelem = 35
 anim = 6700
 ID = 6700
 pos = -35,0
@@ -217,7 +197,7 @@ getpower = 0
 
 [State -3, Vile Voices]
 type = PlaySnd
-trigger1 = animelem = 3
+trigger1 = animelem = 35
 value = 5000, 2
 channel=2
 [State -3, Vile Voices]
@@ -226,13 +206,13 @@ trigger1 = time = 0
 value = 3006,0
 [State -3, Vile Voices]
 type = PlaySnd
-trigger1 = time = 11
+trigger1 = animelem = 35
 value = 3007, (0+(Random%2))
 volume=200
 
 [State 0, Helper]
 type = Helper
-trigger1 = animelem = 4
+trigger1 = animelem = 35
 helpertype = normal ;player
 name = "Big Razer Ball"
 ID = 3000
@@ -251,10 +231,9 @@ size.yscale = 1.2
 type = SuperPause
 trigger1 = time = 0
 time = 118
-anim = 100
 sound = 20,0
 pos = 0,-50
-movetime = 0
+movetime = 118
 darken = 1
 p2defmul = 1
 poweradd = -2000

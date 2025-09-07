@@ -355,7 +355,7 @@ guardsound = 6,2
 ground.type = low
 ground.slidetime = 14
 ground.hittime  = 20 * map(untechMOD)
-air.hittime  = 35 * map(untechMOD)
+air.hittime  = 30 * map(untechMOD)
 down.hittime = 35 * map(untechMOD)
 ground.velocity = 4
 air.velocity = -2.8,-2
@@ -959,7 +959,7 @@ type = HitDef
 trigger1 = !movereversed && !movecontact
 attr = S, NA
 animtype  = up
-damage = 100 * Map(P4), 0
+damage = 90 * Map(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -970,7 +970,7 @@ guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
 ground.hittime  = 35 * map(untechMOD)
-air.hittime  = 35 * map(untechMOD)
+air.hittime  = 30 * map(untechMOD)
 down.hittime = 35
 ground.velocity = -1,-5
 air.velocity = -1,-4.5;
@@ -2613,7 +2613,7 @@ attr = A, NA
 animtype  = Medium
 damage = 75 * root, map(P4), 0
 hitflag = MAFD
-guardflag = MA
+guardflag = HA
 pausetime = 4,4
 sparkno = 2
 sparkxy = -15,0
@@ -2628,6 +2628,7 @@ down.hittime = 45
 guard.ctrltime = 8
 ground.velocity = -5
 air.velocity = -3,5
+down.velocity	= -1, -6
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -3273,7 +3274,7 @@ value = 770
 ctrl = 0
 
 ;-----------------------------
-;Projection Outtit
+;Projection Return
 [StateDef 770]
 type = S
 movetype = I
@@ -3285,7 +3286,7 @@ ctrl = 0
 type = VelSet
 triggerall = time=0
 trigger1 = prevstateno=1777||prevstateno=3777||prevstateno=4777||prevstateno=6777
-x = -3*root,facing*facing
+x = (-3 - 3 *(root, map(ComboStateCheck) > 0)) *root,facing*facing
 y = 0
 ignorehitpause = 1
  

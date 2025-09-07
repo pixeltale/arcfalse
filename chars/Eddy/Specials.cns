@@ -329,6 +329,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 ;Explod Limiter Trigger
 [State 0, TargetState]
 type 		= TargetState
+triggerall	= enemy, stateno != 900
 triggerall	= !map(Counterhit)
 trigger1 		= !NumExplod(99855)
 triggerall 		= NumTarget(99855)

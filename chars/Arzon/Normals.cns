@@ -2651,14 +2651,6 @@ trigger1 = animelem =1
 value = 1400, (0+(Random%3))
 volumescale=150
 
-[State 0,	MapSet]
-type 		= MapSet
-trigger1		= animelemno(0) >= 5
-map 			= "RemixCancel"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 0
-
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = time = 0

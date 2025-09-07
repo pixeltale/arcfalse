@@ -48,8 +48,8 @@ x = 4
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = animelem = 3
-x = 4
+trigger1 = animelemno(0) = 3
+x = 1
 
 [State 0, PosAdd]
 type = PosAdd
@@ -145,6 +145,7 @@ persistent 		= 0
 
 [State 1000, 1]
 type = HitDef
+trigger1 = anim = 1000
 trigger1 	= !movecontact && !movereversed
 attr 		= S, SA
 damage 		= 100 * MAP(P4), 8
@@ -178,17 +179,53 @@ guard.ctrltime = 35
 guard.slidetime = 12
 guard.velocity = -7
 
+[State 1000, 1]
+type = HitDef
+trigger1 = anim = 1002
+triggerall = enemy, !map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = S, SA                     ;Attribute: Standing, Normal Attack
+damage = 150 * map(p4), 20
+animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
+guardflag = MA                   ;Flags on how move is to be guarded against
+hitflag = MAFDP
+pausetime = 18, 20                ;Time attacker pauses, time opponent shakes
+sparkno = 3                      ;Spark anim no (Def: set above)
+sparkxy =-14, -40
+fall = 1
+hitsound = 5, 2                  ;Sound to play on hit
+guardsound = 6, 0                ;Sound to play on guard
+ground.type = TRIP            ;Type: High, Low, Trip (def: Normal)
+ground.slidetime = 5             ;Time that the opponent slides back
+ground.hittime  = 55             ;Time opponent is in hit state
+ground.velocity = -12,-4            ;Velocity at which opponent is pushed
+airguard.velocity = -6.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
+air.type = TRIP                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -12,-2.8
+down.velocity= -12, -4
+air.hittime = 60 * MAP(UNTECHMOD)
+DOWN.HITTIME = 60
+envshake.time = 14
+envshake.freq = 100
+envshake.ampl = 4
+fall.yvelocity = 0
+ground.cornerpush.veloff =-8
+air.cornerpush.veloff=-8
+guard.ctrltime = 25
+guard.slidetime = 35
+getpower = 0
 
 [State 1000, 1]
 type = HitDef
-trigger1 = ishelper
-trigger1 = time = 0 
-attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(root,fvar(11) *100 < 15, 15, root,fvar(11) * 100)), 8
+trigger1 = anim = 1002
+triggerall = enemy, map(ArmorActive)
+trigger1 = !movecontact && !movereversed
+attr = S, SA                     ;Attribute: Standing, Normal Attack
+damage = 150, 20
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAF
-pausetime = 15, 15                ;Time attacker pauses, time opponent shakes
+hitflag = MAFDP
+pausetime = 19, 19                ;Time attacker pauses, time opponent shakes
 sparkno = 3                      ;Spark anim no (Def: set above)
 sparkxy =-14, -40
 fall = 1
@@ -197,30 +234,63 @@ guardsound = 6, 0                ;Sound to play on guard
 ground.type = low            ;Type: High, Low, Trip (def: Normal)
 ground.slidetime = 5             ;Time that the opponent slides back
 ground.hittime  = 55             ;Time opponent is in hit state
-ground.velocity = -6,-2             ;Velocity at which opponent is pushed
+ground.velocity = -12,-2.8            ;Velocity at which opponent is pushed
 airguard.velocity = -6.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
-air.type = TRIP
-ground.type = TRIP
-air.velocity = -6.4,-1
-air.hittime = 15
+air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
+air.velocity = -12,-2.8
+down.velocity= -12, -4
+air.hittime = 40                 ;Time before opponent regains control in air
 envshake.time = 14
 envshake.freq = 100
 envshake.ampl = 4
 fall.yvelocity = 0
 ground.cornerpush.veloff =-8
 air.cornerpush.veloff=-8
-getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
+guard.hittime = 36
+guard.ctrltime = 35
+guard.slidetime = 12
+getpower = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time < 25 && animelemno(0) = 3
+trigger1 = command = "holdb"
+value = anim
+elem = 3
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = time = 25 && animelemno(0) = 3
+trigger1 = command = "holdb"
+value = 1002
+elem = 3
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 3 && anim = 1002
+anim = 1007
+ID = 1005
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 9
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 999
+scale = 1.2,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause = 0
 
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
-
-[State 430, 3]
-type = destroyself
-trigger1 = animtime = 0
-trigger1 = prevstateno = 750
 
 ;----------------------
 ;Lv2 4S. Ascension Palm
@@ -1277,7 +1347,7 @@ ground.velocity = -3,-9             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type 	= High
 air.velocity = -3,-7.3
-air.hittime = 42 * map(UntechMOD)
+air.hittime = cond(!map(EXCheck), 42 * map(UntechMOD), 45)
 envshake.time = 8
 envshake.freq = 140
 envshake.ampl = 2
@@ -1704,7 +1774,7 @@ ignorehitpause 	= 1
 [State -2, Charge Checker]
 type 	= MapAdd
 trigger1 	= time = 1
-trigger1	= map(CHARGE.LEVEL) >= 60
+trigger1	= map(CHARGE.LEVEL) >= 45
 map 		= "FIREBALL_LEVEL"
 value 		= 1
 ignorehitpause 	= 1
@@ -2097,10 +2167,19 @@ value 		= 0
 ignorehitpause 	= 0
 [State -2, Hitcount Tracker]
 type 		= MapAdd
-trigger1 	= movecontact = 1 || movereversed = 1
-map 		= "HitCount"
-value 		= 1
+trigger1 		= movecontact = 1 || movereversed = 1
+map 			= "HitCount"
+value 			= 1
 ignorehitpause 	= 0
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "HitCount = %f"
+params = map(HitCount)
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, ChangeAnim]
 type = ChangeAnim
@@ -2273,17 +2352,18 @@ yaccel 			= .22
 fall 			= 1
 givepower			= 100
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = prevstateno !=10323
-v = 20    ;fv = 10
-value = 0
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movecontact = 1 || movereversed = 1
-v = 20     ;fv = 
-value = 1
+[State -2, Hitcount Tracker]
+type 		= MapSet
+trigger1 	= !time
+map 		= "HitCount"
+value 		= 0
+ignorehitpause 	= 0
+[State -2, Hitcount Tracker]
+type 		= MapAdd
+trigger1 		= movecontact = 1 || movereversed = 1
+map 			= "HitCount"
+value 			= 1
+ignorehitpause 	= 0
 
 [State 0, HitOverride]
 type = HitOverride
@@ -2330,7 +2410,7 @@ removeongethit = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = var(20)>5
+trigger1 = map(HitCount) > 2
 trigger2 = numexplod(910311) = 3
 trigger3 = time >= 160
 trigger4 = root, movetype = H
