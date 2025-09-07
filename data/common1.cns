@@ -8323,6 +8323,13 @@ physics = N
 anim = root, anim
 sprpriority = -10
 
+[State 100, 3] ;No Chip Damage
+type = AssertSpecial
+trigger1 	= enemy, name = "Z" && enemy, stateno = 3051
+trigger2    = enemy, name = "Deus" && enemy, stateno = 3002
+trigger3    = root, stateno = 54322
+flag = Invisible
+
 [State 170, 1]
 type = NotHitBy
 trigger1 = 1

@@ -1838,11 +1838,11 @@ persistent 	= 0
 [State 0, LifeAdd]
 type = LifeAdd
 trigger1 = !TIME
-value = (20 * MAP(ITEM.GREENHERB)) + 50 * MAP(ITEM.REDHERB)
+value = (20 * MAP(ITEM.GREENHERB)) + 20 * MAP(ITEM.REDHERB)
 [State 0, POWERADD]
 type = PowerAdd
 trigger1 = !TIME
-value = (50 * MAP(ITEM.BLUEHERB)) + 50 * MAP(ITEM.REDHERB)
+value = (30 * MAP(ITEM.BLUEHERB)) + 30 * MAP(ITEM.REDHERB)
 
 
 [State -2, ITEM RNG - Tier Set]
