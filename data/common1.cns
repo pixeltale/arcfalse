@@ -8261,7 +8261,7 @@ value = 6140
 type = ChangeState
 value = 910 + 1 * statetype = A
 triggerall = power >= 1000
-triggerall = hitshakeover
+triggerall = hitshakeover && teammode != Tag
 triggerall = command = "holdfwd" || command = "fwd"
 triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912 || stateno = 5120) && (command = "BUFFERED_REDLINEGUARD")
 trigger1 = ctrl || stateno = [120,155] && map(IBCheck) && time > 0 || stateno = 912 && time > 2
