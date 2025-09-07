@@ -8601,28 +8601,6 @@ ignorehitpause 	= 1
 persistent		= 1
 ;=============================================================================
 
-;==============================================
-
-[State 0. MapSet]
-type 		= MapSet
-triggerall  = teammode = Tag
-trigger1 	= stateno = 56110
-map 		= "isAssist"
-value 		= 0
-ignorehitpause 	= 0
-persistent      = 0
-
-[State 0, ScreenBound]
-type = ScreenBound
-trigger1 = map(isAssist)=1 && movetype != H
-value = 0
-movecamera = 0,0
-[State 0, PlayerPush]
-type = PlayerPush
-trigger1 = map(isAssist)=1 && movetype = H
-value = 0
-
-
 
 ;MAIDEN SUPER CAMERA PUSSY LOCK #AWESOME
 [State 0, ScreenBound]
@@ -9453,7 +9431,7 @@ ignorehitpause = 1
 
 [State 0, EVERYTHING WILL FREEZE!]
 type = SuperPause
-triggerall = map(slowdownTime) && map(ComboStateCheck)
+triggerall = map(slowdownTime)
 trigger1 = gametime % 2 = 0
 time = 2
 anim = 99999
