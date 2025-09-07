@@ -1,12 +1,12 @@
 	<#bbbbbb>This move list assumes I am facing to the right.</>
 
-	<#107105>UNIQUE TRAIT: BOUNDLESS</>
+	<#ffa9de>UNIQUE TRAIT: BOUNDLESS</>
 	I have many traits that make me play unlike any other character in this game.
 	I can face either direction at any time. I don't have a traditional walk,
 	backdash, or air dash. I can freely move back and forward in the air.
 	There's even more, so check the rest of the move list for more info. :)
 
-	<#107105>UNIQUE MOVES</>
+	<#ffa9de>UNIQUE MOVES</>
 FORWARD KO	-		(HOLD)^C
    <#bbbbbb>Increases in power the longer it's charged.</>
 DOWN KO	-		(HOLD)_D^C
@@ -16,38 +16,26 @@ BACK AIR	-		<#65b5ff>(AIR ONLY)</> _B^C
    <#bbbbbb>Becomes more powerful if I hit the sweetspot.</>
 FASTFALL (AFTER HITTING ANY AIR NORMAL)		<#65b5ff>(AIR ONLY)</> _D
 
-	<#107105>STRINGS</>
+	<#ffa9de>STRINGS</>
 NEUTRAL ATTACK	-		^A_-^A_-^A
 
-
-
-_D	_D		_D
-
-	<#107105>SPECIAL MOVES</>
+	<#ffa9de>SPECIAL MOVES</>
 BE NOT AFRAID	-		^Y
    <#bbbbbb>A fullscreen command grab. Can be used in combos.</>
 HEAVEN'S BLESSING	-		<#65b5ff>(AIR ONLY)</> ^Y
-   <#bbbbbb>Fires a unblockable kiss that sticks to others.</>
+   <#bbbbbb>Fires an unblockable kiss that sticks to others.</>
 _!HEAVEN'S CALL	-		<#aaffff>(GROUND OR AIR)</> ^Y
         <#bbbbbb>Can be done normally by pressing ^Y in the air, or can be done
         at certain points during other special moves or during throws.</>
 HALO	-		<#aaffff>(GROUND OR AIR)</> _F^Y
    <#bbbbbb>You can hold _B during startup to reduce the range of
-   the projectile, and to also make it drift backwards.</>
+   the projectile and make it drift backwards.</>
 SHINE THROUGH	-		(CAN BE HELD) _D^Y
    <#bbbbbb>The slide is projectile immune. The uppercut is an anti-air.
    Becomes more powerful when fully held.</>
 DIVINE INTERVENTION	-		<#65b5ff>(AIR ONLY)</> _D^Y
 
-
-
-
-
-
-
-_D	_D		_D
-
-	<#107105>REMIX MOVES</>
+	<#ffa9de>REMIX MOVES</>
 REFLECTION	-		(HOLD)^Z
    <#bbbbbb>Makes me face the opposition. I can also walk while this is active.</>
 _!DODGE	-		_F_F/_B_B/_D_D
@@ -56,20 +44,6 @@ _!DODGE	-		_F_F/_B_B/_D_D
 LIGHTSPEED	-		<#65b5ff>(AIR ONLY)</> (ANY DIRECTION)+^Z
    <#bbbbbb>An 8-way airdash with invulnerability.
    Passes through others during combos.</>
-
-
-
-
-
-
-
-
-
-
-
-
-
-_D	_D		_D
 
 	<#ffef0f>EX MOVES</>
 _EX BE NOT AFRAID	-		<#55ffff>(1 BAR)</> ^Y
@@ -81,41 +55,19 @@ _!_EX HEAVEN'S CALL	-		<#65b5ff>(AIR ONLY)</> ^Y
         at certain points during other special moves or during throws.</>
 _EX HALO	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _F^Y
    <#bbbbbb>You can hold _B during startup to reduce the range of
-   the projectile, and to also make it drift backwards.</>
+   the projectile and make it drift backwards.</>
 _EX SHINE THROUGH	-		(CAN BE HELD)<#55ffff>(1 BAR)</> _D^Y
    <#bbbbbb>Invincible startup. The rest of the attack is
    an anti-air and projectile immune.</>
 _EX DIVINE INTERVENTION	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> _D^Y
 
-
-
-
-
-
-
-_D	_D		_D
-
 	<#55ffff>SUPERS</>
-<#107105>ALL THAT YOU KNOW OF</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
-_!<#107105>AND ALL YOU DO NOT</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
-   _!<#107105>ALL OF IT, IS ME.</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
-<#107105>FUTILITY</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
+<#ffa9de>ALL THAT YOU KNOW OF</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+_!<#ffa9de>AND ALL YOU DO NOT</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+   _!<#ffa9de>ALL OF IT, IS ME.</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+<#ffa9de>FUTILITY</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
    <#bbbbbb>A counter that beats strikes and projectiles.
    The opposition may have time to block when this is used to beat a projectile.</>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
