@@ -979,7 +979,7 @@ fall = 1
 type = HitDef 
 p2facing = 1
 triggerall = p2dist x > 0
-trigger1 = (time = [23,50]) && time%3=0
+trigger1 = (time = [23,50]) && time%5=0
 attr = A, SA
 damage = 15*MAP(P4),1
 animtype  = Medium
@@ -1045,7 +1045,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeAnim
-trigger1 = animelemno(0) = 9 && !movehit
+trigger1 = animelemno(0) = 9 && !movehit && !MoveReversed
 value = 1023
 
 ;---------------------------------------------------------------------------
