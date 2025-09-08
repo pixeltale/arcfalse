@@ -380,6 +380,7 @@ velset = vel x,0
 ctrl = 0
 anim = 1001
 poweradd = 0
+facep2 = 1
 sprpriority = 2
 
 [State -2, Starter Level]

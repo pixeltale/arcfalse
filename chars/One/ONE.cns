@@ -616,6 +616,11 @@ ctrl = 1
 
 [Statedef -2]
 
+[State 0, ChangeState]
+type = DestroySelf
+triggerall = isHelper(260)
+trigger1 = root, stateno = [3023,3026]
+
 [State 0, LifeAdd]
 type = LifeAdd
 triggerall = var(50) && !map(IBCheck)

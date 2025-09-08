@@ -3265,7 +3265,7 @@ ctrl = 1
 type    = A
 movetype= I
 physics = A
-poweradd= 500
+poweradd= 1000
 velset = vel x * 0.75, -3 
 anim = 911
 ctrl = 0
@@ -9438,7 +9438,7 @@ ignorehitpause = 1
 
 [State 0, EVERYTHING WILL FREEZE!]
 type = SuperPause
-triggerall = map(slowdownTime)
+triggerall = map(slowdownTime) && map(ComboStateCheck)
 trigger1 = gametime % 2 = 0
 time = 2
 anim = 99999
