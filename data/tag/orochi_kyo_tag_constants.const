@@ -68,7 +68,7 @@ startHeightForSwitch720 = 240; the height the character comes out from for MVC1/
 switchAttack = 640 ; ANIM: Switch attack. 
 ;I highly recommend to clone your favorite animation in Fighter Factory and extend the frametime of the animelem that has the red box.
 switchAirAttack = 610 ; ANIM: switch air attack.
-snapBackAttack = 210 ; ANIM: snapback attack
+snapBackAttack = 851 ; ANIM: snapback attack
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
 StateTagAssistSuper = 1000 ; STATENO: normal assist attack
 ;airAssistSuper = 1;  copy this to your character's constant block if you are planning to use an air assist attack!!
@@ -133,9 +133,7 @@ animationForAirSwitch = 850
 
 animationForVariableCross = 850
 backgroundForVariableCross = 855
-
-animationForSnapback = 850
-
+animationForSnapback = 851
 backgroundAssistType = 1
 
 ;-------Sounds for Orochi Kyo TAG----------------- 
