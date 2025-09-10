@@ -874,7 +874,7 @@ ignorehitpause if RoundState = 4 {
 				let partnerID = 0;
 			
 		ignorehitpause if ((map(airSwitchHit) > 0 && map(airSwitchCalled) = 1) ||
-		(((command="tagbutton1" && command != "HoldFwd" && command != "HoldBack")) && (map(switchOnCombo) || (stateno=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && power > 1999 && const(superSwitch) && !map(justSuperSwitched)))) || 
+		(((command="tagbutton1" && command != "HoldFwd" && command != "HoldBack")) && (map(switchOnCombo) || (stateno=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && power > 2000 && const(superSwitch) && !map(justSuperSwitched)))) || 
 		(map(SwitchA) && stateno = const(tauntBeforeSwitching)) ||
 		(map(variableCross) > 0 && map(partnerForVariableCross) = 1 && map(variableCrossIsOn) = 0) ||
 		(map(gotSnaped) && map(ForcedSwitch) = 1)) &&
@@ -900,7 +900,7 @@ ignorehitpause if RoundState = 4 {
 
 			if stateno=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && (movehit = 1 || projhit = 1 || map(customHyperSwitch)) && map(variableCross) = 0 {teammapset{map:"SUPERSWITCH";value:1}}						
 		} else ignorehitpause if ((map(airSwitchHit) > 0  && map(airSwitchCalled) = 2) ||
-		((command="tagbutton2" && (command != "HoldFwd" && command != "HoldBack")) && (map(switchOnCombo) || (stateno=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && power > 999 && const(superSwitch) && !map(justSuperSwitched)))) || 
+		((command="tagbutton2" && (command != "HoldFwd" && command != "HoldBack")) && (map(switchOnCombo) || (stateno=[const(superAttacksStartStateno),const(superAttacksEndStateno)] && power > 2000 && const(superSwitch) && !map(justSuperSwitched)))) || 
 		(map(SwitchB) && stateno = const(tauntBeforeSwitching)) ||
 		((map(variableCross) > 0 && map(partnerForVariableCross) = 2) && map(variableCrossIsOn) = 0) ||
 		(map(gotSnaped) && map(ForcedSwitch) = 2)) &&
