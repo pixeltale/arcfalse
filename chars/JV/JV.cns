@@ -559,8 +559,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "tagdriver = %f"
-params = map(tagdriver)
+text = "combotimer = %f"
+params = map(combotimer)
 ignorehitpause = 1
 persistent = 1
 

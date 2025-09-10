@@ -8449,6 +8449,13 @@ ignorehitpause = 1
 [Statedef -2]
 
 [State -2, Parry Starter Level CHeck] 
+type = TeamMapSet
+trigger1 = 1
+map = "P4"
+value = player(teamleader), map(p4)
+ignorehitpause = 1
+
+[State -2, Parry Starter Level CHeck] 
 type = MapAdd
 trigger1 = map(ParryCheck)
 map = "ParryCheck"
@@ -8593,14 +8600,14 @@ persistent		= 1
 ;=============================================================================
 ;JORMUNGANDR Hitstun Scaling System
 [State -2, JDR UNTECH DECAY]
-type 		= MapSET
+type 		= TeamMapSet
 trigger1 		= !map(ComboStateCheck)
 map 		= "untechMod"
 value 		= 1
 ignorehitpause 	= 1
 persistent		= 1
 [State -2, JDR UNTECH DECAY]
-type 		= MapAdd
+type 		= TeamMapAdd
 trigger1 		= map(ComboStateCheck) && map(ComboTimer) > 0 && map(UntechMod) > 0
 triggerall		= map(ComboTimer) % 180 = 0
 map 		= "untechMod"
@@ -10188,14 +10195,14 @@ value = 0
 ; ------- COMBO TIMER - Tick Up --------
 ;===============================================================================
 [State -2, Combo Timer Start Delay]
-type = MapSet
+type = TeamMapSet
 trigger1 = !map(comboTimer)
 map = "StartDelay"
 value = 2
 ignorehitpause = 0
 
 [State -2, Timer Start Delay]
-type = MapAdd						
+type = TeamMapAdd						
 trigger1 = enemy, movetype = H
 trigger1 = map(startDelay)
 map = "startDelay"
@@ -10204,7 +10211,7 @@ ignorehitpause = 1
 persistent = 1
 
 [State -2, Combo Timer - LVL 1 Starter - Short] 
-type = MapSet
+type = TeamMapSet
 triggerall = !map(startDelay) && !map(HasLevel)	
 trigger1 = enemy, movetype = H	
 trigger1 = p2stateno != [120,155]			
@@ -10222,7 +10229,7 @@ value = 1
 ignorehitpause = 1
 
 [State -2, Combo Timer - LVL 1 Starter - Short] 
-type = MapSet			
+type = TeamMapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
 trigger1 = map(StarterLevel) = 1 || map(StarterLevel) = 2 && map(ParryCheck)
@@ -10231,7 +10238,7 @@ value = 120
 ignorehitpause = 1
 
 [State -2, Combo Timer - LVL 2 Starter - Normal] 
-type = MapSet			
+type = TeamMapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
 trigger1 = map(StarterLevel) = 2 || map(StarterLevel) = 1 && map(Counterhit_Flag) && !map(ParryCheck)  || map(StarterLevel) = 3 && map(ParryCheck)
@@ -10240,7 +10247,7 @@ value = 60
 ignorehitpause = 1
 
 [State -2, Combo Timer - LVL 3 Starter - Long] 
-type = MapSet			
+type = TeamMapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
 trigger1 = map(StarterLevel) = 3 || map(StarterLevel) = 2 && map(Counterhit_Flag) && !map(ParryCheck) || map(StarterLevel) = 4 && map(ParryCheck)
@@ -10249,7 +10256,7 @@ value = -60
 ignorehitpause = 1
 
 [State -2, Combo Timer - LVL 4 Starter - Very Long] 
-type = MapSet			
+type = TeamMapSet			
 triggerall = !map(startDelay) && !map(HasLevel)		
 trigger1 = enemy, movetype = H				
 trigger1 = map(StarterLevel) >= 4 || map(StarterLevel) = 3 && map(Counterhit_Flag) && !map(ParryCheck) 
@@ -10258,21 +10265,21 @@ value = -240
 ignorehitpause = 1
 
 [State -2, Starter Level Reset]
-type = MapSet
+type = TeamMapSet
 trigger1 = map(ComboTimer)
 map = "StarterLevel"
 value = 0
 ignorehitpause = 1
 
 [State -2, Combo Timer Reset]
-type = MapSet
+type = TeamMapSet
 trigger1 = enemy, movetype != H
 map = "ComboTimer"
 value = 0
 ignorehitpause = 0
 
 [State -2, Combo State Check]
-type = MapSet
+type = TeamMapSet
 triggerall = enemy, stateno != [120, 155]
 trigger1 = enemy, movetype = H && !map(StartDelay)
 map = "ComboStateCheck"
@@ -10280,20 +10287,20 @@ value = 1
 ignorehitpause = 1
 persistent = 1
 [State -2, Combo State Check]
-type = MapSet
+type = TeamMapSet
 trigger1 = enemy, movetype != H
 map = "ComboStateCheck"
 value = 0
 ignorehitpause = 1
 
 [State -2, Prevent Starter Level Resetting]
-type = MapSet
+type = TeamMapSet
 trigger1 = map(ComboStateCheck) && map(StarterLevel)
 map = "HasLevel"
 value = 1
 ignorehitpause = 0
 [State -2, Prevent Starter Level Resetting]
-type = MapSet
+type = TeamMapSet
 trigger1 = !(map(ComboStateCheck) && map(StarterLevel))
 map = "HasLevel"
 value = 0
@@ -10304,28 +10311,28 @@ persistent = 1
 ; ------- Untechable Decay --------
 ;===============================================================================
 [State -2, Tier 1]
-type = MapSet
+type = TeamMapSet
 trigger1 = map(ComboTimer) = [60,99]
 map = "UntechDecay"
 value = 2
 ignorehitpause = 1
 
 [State -2, Tier 2]
-type = MapSet
+type = TeamMapSet
 trigger1 = map(ComboTimer) = [100,299]
 map = "UntechDecay"
 value = 4
 ignorehitpause = 1
 
 [State -2, Tier 3]
-type = MapSet
+type = TeamMapSet
 trigger1 = map(ComboTimer) >= 300
 map = "UntechDecay"
 value = 10
 ignorehitpause = 1
 
 [State -2, Untech Time Decay Reset]
-type = MapSet
+type = TeamMapSet
 trigger1 = enemy, movetype != H
 map = "UntechDecay"
 value = 0
