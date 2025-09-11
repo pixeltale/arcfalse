@@ -8448,13 +8448,47 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
-[State -2, Parry Starter Level CHeck] 
+;silly tag stuff that appeals to me specifically (cuses </3)
+[State -2, round start assist] 
+type = teamMapSet
+triggerall = teammode = tag
+trigger1 = roundstate < 2
+map = "firstassist"
+value = 1
+[State -2, round start assist] 
+type = teamMapSet
+triggerall = teammode = tag
+trigger1= roundstate = 2 && ctrl = 1
+map = "firstassist"
+value = 0
+[State -2, round start assist] 
+type = MapSet
+triggerall = teammode = tag
+trigger1 = map(firstassist)
+trigger2 = map(hardtag)
+map = "COOLDOWN"
+value = const(TagAssistCooldown)
+
+[State -2, round start assist] 
+type = teamMapSet
+triggerall = teammode = tag
+trigger1 = stateno = 56955
+map = "hardtag"
+value = 1
+[State -2, round start assist] 
+type = teamMapSet
+triggerall = teammode = tag
+trigger1= stateno = 56110
+map = "hardtag"
+value = 0
+[State -2, team shared scaling] 
 type = TeamMapSet
 trigger1 = 1
 map = "P4"
 value = player(teamleader), map(p4)
 ignorehitpause = 1
 
+;-----------------------------------------------------------
 [State -2, Parry Starter Level CHeck] 
 type = MapAdd
 trigger1 = map(ParryCheck)
