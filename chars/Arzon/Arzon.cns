@@ -142,7 +142,6 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 [Constants]
 ; NegativeStates.cns states
 switchAirAttack = 620 ; ANIM: switch air attack.
-snapBackAttack = 210 ; ANIM: snapback attack
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
 StateTagAssistSuper = 500 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000
@@ -441,6 +440,22 @@ ctrl = 1
 
 
 [Statedef -2]
+
+[State 0, Explod] ;snap FX, idk why i never thought to just do this
+type = Explod
+trigger1 = time = 0 && stateno = 56960
+anim = 852
+ID = 852
+pos = 0,0
+postype = p1
+removetime = -2
+pausemovetime = 0
+scale = 1.1,.84
+sprpriority = 2
+removeongethit = 1
+removeonchangestate = 1
+bindtime = 12
+ignorehitpause = 0
 
 [State 0,	MapSet]
 type 		= MapSet

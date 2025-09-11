@@ -61,9 +61,6 @@ fade.range = -400,-100
 [Reflection]
 intensity = 0
 
-[Music]
-bgmusic = sound/DAFRAME2R.mp3
-
 [BGdef]
 spr = battlecollab.sff
 debugbg = 0

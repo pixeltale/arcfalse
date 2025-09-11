@@ -254,6 +254,68 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 [Statedef -2]
 
+;snap FX
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 5 && stateno = 56960 
+anim = 6700
+ID = 6600
+pos = -24,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+scale =0.4,0.4
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause =0
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 5 && stateno = 56960
+anim = 6700
+ID = 6700
+pos = 54,0
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+scale =0.7,0.7
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause =0
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 5 && stateno = 56960
+anim = 6953
+ID = 6600
+pos = 30,0
+postype = p1  ;p2,front,back,left,right
+facing = -1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+scale =0.5,0.5
+sprpriority =2
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 0
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 	= !map(ComboStateCheck)

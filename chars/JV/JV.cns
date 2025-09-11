@@ -558,8 +558,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "combotimer = %f"
-params = map(combotimer)
+text = "absolutetime = %f"
+params = map(absoluteTime)
 ignorehitpause = 1
 persistent = 1
 

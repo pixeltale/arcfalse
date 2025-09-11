@@ -10055,6 +10055,7 @@ pos = 160,200
 ignorehitpause = 1
 pausemovetime = 100
 
+
 ;Punish
 ; [State 0, DAMAGE]
 ; type = AssertInput
