@@ -8469,18 +8469,34 @@ trigger2 = map(hardtag)
 map = "COOLDOWN"
 value = const(TagAssistCooldown)
 
-[State -2, round start assist] 
+[State -2, cd reset on hard tag] 
 type = teamMapSet
 triggerall = teammode = tag
 trigger1 = stateno = 56955
 map = "hardtag"
 value = 1
-[State -2, round start assist] 
+[State -2, cd reset on hard tag] 
 type = teamMapSet
 triggerall = teammode = tag
 trigger1= stateno = 56110
 map = "hardtag"
 value = 0
+
+[State -2, one assist per combo] 
+type = teamMapSet
+triggerall = teammode = tag
+triggerall = map(ComboStateCheck)
+trigger1= map(Assistd)
+trigger2= map(Assistw)
+map = "comboassist"
+value = 1
+[State -2, one assist per combo] 
+type = teamMapSet
+triggerall = teammode = tag
+trigger1 = !map(ComboStateCheck)
+map = "comboassist"
+value = 0
+
 [State -2, team shared scaling] 
 type = TeamMapSet
 trigger1 = 1
