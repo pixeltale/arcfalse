@@ -8657,7 +8657,7 @@ value 		= 1
 ignorehitpause 	= 1
 persistent		= 1
 [State -2, JDR UNTECH DECAY]
-type 		= TeamMapAdd
+type 		= MapAdd
 trigger1 		= map(ComboStateCheck) && map(ComboTimer) > 0 && map(UntechMod) > 0
 triggerall		= map(ComboTimer) % 180 = 0
 map 		= "untechMod"
@@ -10246,14 +10246,14 @@ value = 0
 ; ------- COMBO TIMER - Tick Up --------
 ;===============================================================================
 [State -2, Combo Timer Start Delay]
-type = TeamMapSet
+type = MapSet
 trigger1 = !map(comboTimer)
 map = "StartDelay"
 value = 2
 ignorehitpause = 0
 
 [State -2, Timer Start Delay]
-type = TeamMapAdd						
+type = MapAdd						
 trigger1 = enemy, movetype = H
 trigger1 = map(startDelay)
 map = "startDelay"

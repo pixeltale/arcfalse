@@ -914,8 +914,8 @@ id = 101010
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "ScratchLockout = %f, TeamLeader = %i"
-params = map(ScratchLockout), TeamLeader
+text = "timer = %f"
+params = map(combotimer)
  
 [Statedef -3]
 
