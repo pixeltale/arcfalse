@@ -10818,3 +10818,87 @@ trigger2 = stateno = 3051&&anim=3052
 id = 900
 ignorehitpause=1
 persistent=1
+
+;===============================================================================
+; god stuff
+;===============================================================================
+[State 0, RemapPal]
+type = RemapPal
+triggerall = name = "Deus"
+triggerall = !ishelper
+triggerall = palno!=11
+trigger1 = facing=1
+source = 1,1
+dest =1,palno
+ignorehitpause = 1
+persistent = 1
+[State 0, RemapPal]
+type = RemapPal
+triggerall = name = "Deus"
+triggerall = !ishelper
+triggerall = palno!=11
+trigger1 = facing=-1
+source =  1,1
+dest =2,palno
+ignorehitpause = 1
+persistent = 1
+
+[State 0, RemapPal]
+type = RemapPal
+triggerall = name = "Deus"
+triggerall = !ishelper
+triggerall = palno=11
+trigger1 = map(rina)=1
+trigger1 = facing=1
+source = 1,1
+dest =1,11
+ignorehitpause = 1
+persistent = 1
+[State 0, RemapPal]
+type = RemapPal
+triggerall = name = "Deus"
+triggerall = !ishelper
+triggerall = palno=11
+trigger1 = map(rina)=1
+trigger1 = facing=-1
+source =  1,1
+dest =2,11
+ignorehitpause = 1
+persistent = 1
+
+[State 0, RemapPal]
+type = RemapPal
+triggerall = name = "Deus"
+triggerall = !ishelper
+triggerall = palno=11
+trigger1 = map(rina)>1
+trigger1 = facing=1
+source = 1,1
+dest =1,11+map(rina)
+ignorehitpause = 1
+persistent = 1
+[State 0, RemapPal]
+type = RemapPal
+triggerall = name = "Deus"
+triggerall = !ishelper
+triggerall = palno=11
+trigger1 = map(rina)>1
+trigger1 = facing=-1
+source =  1,1
+dest =2,11+map(rina)
+ignorehitpause = 1
+persistent = 1
+
+
+[State 0, TargetLifeAdd]
+type = LifeAdd
+triggerall = player(map(enemyteamlead)),name="Deus"
+trigger1 = TimeRemaining <=60
+trigger1 = player(map(enemyteamlead)),map(notime)<=10
+trigger1 = player(map(enemyteamlead)),map(notime)>0
+value = 9999
+kill = 0
+absolute = 0
+ignorehitpause = 1
+persistent = 1
+;===============================================================================

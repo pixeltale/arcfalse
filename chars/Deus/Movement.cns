@@ -367,19 +367,20 @@ x = .8
 
 [State 20, 1]
 type = VelAdd
-triggerall =vel x < const(velocity.walk.fwd.x)
 trigger1= command = "holdfwd"
-x = 0.5
+x = 0.55
 
 [State 20, 1]
 type = VelSet
-trigger1 =vel x >= const(velocity.walk.fwd.x)
+trigger1 =vel x > const(velocity.walk.fwd.x)
 x = const(velocity.walk.fwd.x)
+
+
 [State 20, 1]
 type = VelSet
-trigger1 = vel x < 5
+trigger1 = vel x < 6
 trigger1 = command != "holdback"
-x = 5
+x = 6
 
 [State 20, 2]
 type = Turn
