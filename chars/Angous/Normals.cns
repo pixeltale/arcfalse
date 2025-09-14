@@ -3086,13 +3086,56 @@ persistent 		= 0
 [State 610, 3]
 type = hitdef 
 p2facing 		= 1
-triggerall		= enemy, stateno != 5210 && enemy, !(prevstateno = 5210 && time < 5)
+triggerall		= enemy, stateno != 5210 && enemy, !(prevstateno = 5210 && time < 5) && teammode != tag
 triggerall		= !map(ArmorActive)
 trigger1		= animelemno(0) = 11
 attr 		= S, SA
 damage 			= 150*MAP(P4),11
 animtype 			= hard
 hitflag 			= MAFD
+priority 			= 999
+pausetime 		= 35,35
+sparkno 			= 3
+sparkxy 			= -19, -22
+hitsound   		= 5,4
+ground.slidetime 		= 0
+ground.velocity 		= -1,18
+air.type 			= high
+air.velocity 		= -1,18  - (map(UntechDecay)/5)
+air.hittime 		= 9999
+ground.hittime 		= 9999
+down.hittime		= 9999
+air.fall 			= 1
+fall 			= 1 
+fall.yvelocity 		= 0
+envshake.time 		= 35
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
+ palfx.time 		= 16
+ palfx.add 		= 40, 30, -40
+palfx.sinadd 		= 50,50,50,16
+p2facing 			= 1
+guard.dist		= 0
+palfx.time 		= 35
+palfx.add 			= 100, 0,20
+ground.cornerpush.veloff 	= -1
+getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5))
+p2stateno 		= 5255
+p2getp1state 		= 0
+
+[State 610, 3]
+type = hitdef 
+p2facing 		= 1
+triggerall		= enemy, stateno != 5210 && enemy, !(prevstateno = 5210 && time < 5) && teammode = tag
+triggerall		= !map(ArmorActive)
+trigger1		= animelemno(0) = 11
+attr 		= S, SA
+damage 			= 150*MAP(P4),11
+animtype 			= hard
+hitflag 			= MAFD
+guardflag           = HA
+guardsound 	= 6,0
 priority 			= 999
 pausetime 		= 35,35
 sparkno 			= 3
@@ -3494,6 +3537,48 @@ attr 		= S, SA
 damage 			= 200*MAP(P4),11
 animtype 			= hard
 hitflag 			= MAFD
+priority 			= 999
+pausetime 		= 35,35
+sparkno 			= 3
+sparkxy 			= -19, -22
+hitsound   		= 5,4
+ground.slidetime 		= 0
+ground.velocity 		= -1,18
+air.type 			= high
+air.velocity 		= -1, 16 * map(UntechMOD)
+air.hittime 		= 40 * map(untechMOD)
+ground.hittime 		= 9999
+down.hittime		= 9999
+air.fall 			= 1
+fall 			= 1 
+fall.yvelocity 		= 0
+envshake.time 		= 35
+envshake.freq 		= 90
+envshake.ampl 		= -6
+envshake.phase 		= 100
+ palfx.time 		= 16
+ palfx.add 		= 40, 30, -40
+palfx.sinadd 		= 50,50,50,16
+p2facing 			= 1
+guard.dist		= 0
+palfx.time 		= 35
+palfx.add 			= 100, 0,20
+ground.cornerpush.veloff 	= -1
+getpower 			= (100)*(cond(var(var(2)) = 1, 1, .5))
+p2stateno 		= 5255
+p2getp1state 		= 0
+
+[State 610, 3]
+type = hitdef 
+p2facing 		= 1
+triggerall		= enemy, stateno != 5210 && enemy, !(prevstateno = 5210 && time < 5) && teammode = tag
+trigger1 		= animelem = 11
+attr 		= S, SA
+damage 			= 200*MAP(P4),11
+animtype 			= hard
+hitflag 			= MAFD
+guardflag           = HA
+guardsound 	= 6,0
 priority 			= 999
 pausetime 		= 35,35
 sparkno 			= 3

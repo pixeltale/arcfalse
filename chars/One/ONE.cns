@@ -73,7 +73,6 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 [Constants]
 ; NegativeStates.cns states
 switchAirAttack = 655
-snapBackAttack = 210 ; ANIM: snapback attack
 StateTagAssistSuper = 500 ; STATENO: normal assist attack
 AnimRunFwdOrHopForward = 56956
 
@@ -615,6 +614,11 @@ ctrl = 1
 
 
 [Statedef -2]
+
+[State 0, ChangeState]
+type = DestroySelf
+triggerall = isHelper(260)
+trigger1 = root, stateno = [3023,3026]
 
 [State 0, LifeAdd]
 type = LifeAdd

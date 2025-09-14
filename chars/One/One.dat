@@ -55,9 +55,9 @@ UNDERMINE	-		<#aaffff>(GROUND ONLY)</> _F^Y
 DOWNPOUR	-		<#aaffff>(GROUND OR AIR)</> _D^Y
    <#bbbbbb>One flies into the air before crashing down with
    a powerful sword strike at the position of his sword.</>
-UPRISING	-		<#aaffff>(GROUND OR AIR)</> _D^Y
+UPRISING	-		<#aaffff>(GROUND ONLY)</> _B^Y
    <#bbbbbb>One quickly kicks his sword into the air.
-   If he kicks it successfully, he can dash or jump cancel
+   If he kicks it successfully, he can jump cancel
    the recovery.</>
 
 	<#24ff24>SWORD REMIX MOVES</>

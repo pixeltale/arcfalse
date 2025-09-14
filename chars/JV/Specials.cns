@@ -165,7 +165,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 type 	= HitDef
 p2facing 	= 1
 triggerall 	= enemy, !map(ArmorActive)
-triggerall 	= map(chargelvl) = 3
+triggerall 	= map(chargelvl) = 3 && gamemode != "tag"
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
 attr 		= S, SA
@@ -173,6 +173,39 @@ damage 		= 9999, time
 hitflag 		= MAFD
 guardflag 	= 
 pausetime 	= 95,95
+guard.pausetime = 10,10
+sparkno 		= 2
+sparkxy 		= -25,-44
+hitsound  		= 5,3
+guardsound 	= 6,1
+ground.type 	= Low
+animtype 		= medium
+ground.hittime  	= 999 - MAP(untechDecay)
+ground.velocity 	= -100,-5
+air.velocity 	= -6.6,-1
+air.hittime 	= 999
+envshake.time 	= 35
+fall 		= 1
+fall.yvelocity 	= 0
+guard.slidetime 	= 21
+guard.hittime 	= 21
+guard.ctrltime 	= 5
+p2stateno 	= 915020
+airguard.velocity = -1, -0.5
+ground.cornerpush.veloff = 0
+getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
+[State 200, 1] ;Death (tag)
+type 	= HitDef
+p2facing 	= 1
+triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= map(chargelvl) = 3 && gamemode != "tag"
+trigger1 	= !movecontact && !movereversed
+hitonce 	= 1
+attr 		= S, SA
+damage 		= 500, 300
+hitflag 		= MAFD
+guardflag 	= MA
+pausetime 	= 50,50
 guard.pausetime = 10,10
 sparkno 		= 2
 sparkxy 		= -25,-44
@@ -380,6 +413,7 @@ velset = vel x,0
 ctrl = 0
 anim = 1001
 poweradd = 0
+facep2 = 1
 sprpriority = 2
 
 [State -2, Starter Level]

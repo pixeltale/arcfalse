@@ -7078,20 +7078,12 @@ ground.cornerpush.veloff = -10
 down.cornerpush.veloff = -10
 air.cornerpush.veloff = -10
 air.fall = 1
-guard.hittime = 24
-guard.pausetime= 14,14
-guard.velocity = -7
-guard.dist = 20
-guard.slidetime = 16
+guard.ctrltime = 10
+guard.velocity = -3
 envshake.time = 14
 envshake.freq = 100
 envshake.ampl = 7
 envshake.phase = 1
-palfx.color=256
-palfx.mul=128,128,128
-palfx.add=0,0,0
-palfx.sinadd=256,256,256,10
-palfx.time=32
 getpower = (0)*(cond(var(var(3)) = 1, 1, .5))
 p1sprpriority = -1
 

@@ -29,7 +29,16 @@ type = ChangeState
 value = 3013
 triggerall = command = "236X"
 triggerall = power >= 2000
-triggerall = statetype = A || var(50)
+triggerall = statetype = A && !var(50)
+trigger1 = ctrl
+trigger2 = stateno != [3000,3050)
+trigger2 = movecontact
+[State 3013, j236X: Air Super Dash Slash]
+type = ChangeState
+value = 3021
+triggerall = command = "236X"
+triggerall = power >= 2000
+triggerall = statetype = A && var(50)
 trigger1 = ctrl
 trigger2 = stateno != [3000,3050)
 trigger2 = movecontact
@@ -64,6 +73,17 @@ trigger2 = stateno != [3000,3050)
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = 1053 && movecontact ;&& enemynear, movetype = H
+[State 3010, 236X: ONO Super Dash Slash]
+type = ChangeState
+value = 3020
+triggerall = command = "236X"
+triggerall = power >= 2000
+triggerall = statetype != A && var(50)
+trigger1 = ctrl
+trigger2 = statetype != A
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3000,3050)
+trigger2 = movecontact
 
 ;---------------------------------------------------------------------------
 [State 3050, 214X: Timestop]

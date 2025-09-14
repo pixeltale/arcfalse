@@ -126,7 +126,6 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 
 [Constants]
 ; NegativeStates.cns states
-snapBackAttack = 210 ; ANIM: snapback attack
 switchAirAttack = 655
 StateTagAssistSuper = 2105 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
@@ -559,8 +558,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "rimlight explod = %f"
-params = map(ComboTimer)
+text = "firstassist = %f"
+params = map(firstassist)
 ignorehitpause = 1
 persistent = 1
 

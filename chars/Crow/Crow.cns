@@ -84,8 +84,8 @@ shadowoffset = 0     ;Number of pixels to vertically offset the shadow
 draw.offset = 0,0    ;Player drawing offset in pixels (x, y). Recommended 0,0
 
 [Velocity]
-walk.fwd  = 3      ;Walk forward
-walk.back = -3     ;Walk backward
+walk.fwd  = 2      ;Walk forward
+walk.back = -2     ;Walk backward
 run.fwd  = 5.6, 0    ;Run forward (x, y)
 run.back = -3.5,-3.8 ;Hop backward (x, y)
 jump.neu = 0,-7.5    ;Neutral jumping velocity (x, y)
@@ -874,8 +874,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "RNG = %f ITEMTIER = %f crowndebuff = %f"
-params = map(RNG), map(ITEM.TIER), map(crowndebuff)
+text = "teamleader = %i ITEMTIER = %f crowndebuff = %f"
+params = teamleader, map(ITEM.TIER), map(crowndebuff)
 ignorehitpause = 1
 persistent = 1
 

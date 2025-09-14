@@ -47,11 +47,11 @@ value = 1011
 [State 0, VelSet]
 type = VelSet
 trigger1 = anim = 1010
-x = 2
+x = 1 * MAP(WALKSPEED.MUL) * MAP(SPEED.MUL)
 [State 0, VelSet]
 type = VelSet
 trigger1 = anim = 1011
-x = -2
+x = -1 * MAP(WALKSPEED.MUL) * MAP(SPEED.MUL)
 [State 0, VelSet]
 type = VelSet
 trigger1 = anim = [1005,1007]

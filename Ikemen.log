@@ -1,6 +1,7 @@
-.\external\script\start.lua:1401: chars\Eddy/Normals.cns:650:
-250-time, 70-time*2, 70-time*2, 30
-add: Invalid data: ,
+.\external\script\start.lua:1401: chars/JV/JV.def:
+./data/tag/orochi_kyo_tag_main_file.zss
+data/tag/orochi_kyo_tag_main_file.zss:1193:
+Command doesn't exist: hardtag2
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1401: in function 'f_game'

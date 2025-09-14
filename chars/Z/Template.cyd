@@ -411,9 +411,7 @@ trigger2 = stateno != [3000,3101)
 trigger2 = movecontact
 trigger3 = stateno = 1010|| stateno = 1011
 trigger3 = enemy,movetype=H
-;trigger3 = stateno = 1003 || stateno = 8003 || stateno = 1106
-;trigger4 = stateno = 1002 || stateno = 8002
-;trigger4 = movecontact
+
 ;---------------------------------------------------------------------------
 
 ;Super 1: Blown Fuse (Ground)
@@ -430,7 +428,7 @@ trigger2 = stateno != [3000,3101]
 trigger2 = movecontact
 trigger3 = stateno = 1101
 trigger3 = enemy,movetype=H
-;trigger3 = stateno = [1100,1103] || stateno = 1001 || stateno = 1300 || stateno = 8001 || stateno = 8104 || stateno = 1105
+
 ;---------------------------------------------------------------------------
 
 ;Super 2: the jarms one
@@ -447,7 +445,6 @@ trigger2 = stateno != [3000,3101]
 trigger2 = movecontact
 trigger3 = stateno = 1101
 trigger3 = enemy,movetype=H
-;trigger3 = stateno = [1100,1103] || stateno = 1001 || stateno = 1300 || stateno = 8001 || stateno = 8104 || stateno = 1105
 
 ;Super 3: the dillon one (air)
 [State -1,QCF+S]
@@ -463,7 +460,7 @@ trigger2 = stateno != [3000,3101]
 trigger2 = movecontact
 trigger3 = stateno = 1010|| stateno = 1011
 trigger3 = enemy,movetype=H
-;trigger3 = stateno = [1100,1103] || stateno = 1001 || stateno = 1300 || stateno = 8001 || stateno = 8104 || stateno = 1105
+
 
 ;---------------------------------------------------------------------------
 
@@ -559,7 +556,7 @@ triggerall = command = "holddown"
 triggerall = command != "holdback"
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600,640] || stateno = 420
 trigger2 = movecontact
 trigger3 = stateno = 1011 
 trigger3 = movecontact
@@ -658,7 +655,7 @@ triggerall = command = "holdfwd"
 triggerall = command != "holdback"
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = 600) || (stateno = 610) || (stateno = 630) || (stateno = 420)
+trigger2 = stateno = [600,640] || stateno = 420
 trigger2 = movecontact
 trigger3 = stateno = 1003 || stateno = 8003
 trigger3 = var(6)=1

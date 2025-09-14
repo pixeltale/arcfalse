@@ -979,7 +979,7 @@ fall = 1
 type = HitDef 
 p2facing = 1
 triggerall = p2dist x > 0
-trigger1 = (time = [23,50]) && time%3=0
+trigger1 = (time = [23,50]) && time%5=0
 attr = A, SA
 damage = 15*MAP(P4),1
 animtype  = Medium
@@ -1045,7 +1045,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeAnim
-trigger1 = animelemno(0) = 9 && !movehit
+trigger1 = animelemno(0) = 9 && !movehit && !MoveReversed
 value = 1023
 
 ;---------------------------------------------------------------------------
@@ -4913,13 +4913,13 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 			= "P1"
-value 		=  0.85	;100% Starting DMG
+value 		=  0.75	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 			= "P2"
-value 		= 0.90	;80% DMG For next hit
+value 		= 0.90		;80% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -4937,7 +4937,7 @@ p2facing 	= -1
 triggerall	= enemy, !map(ArmorActive)
 trigger1 	= !movecontact && p2dist x < 0
 attr 	= S, SA
-damage 	= 100*MAP(P4)+50 + 100 * map(CounterHit), 5
+damage 	= 100*MAP(P4) + 100 * map(CounterHit), 5
 hitflag 	= MAFD
 guardflag = MA
 priority 	= 3
@@ -4956,7 +4956,7 @@ ground.hittime  	= 70
 ground.velocity 	= 18,-7
 air.velocity 	= 18,-7
 guard.velocity	= 10
-air.hittime 	= 60 * map(UntechMOD)
+air.hittime 	= 40 * map(UntechMOD)
 down.hittime	= 80
 envshake.time 	= 7
 fall 		= 1
@@ -5186,7 +5186,7 @@ id = 2
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1
-trigger1	= animelemno(0) = 5 && map(SLAM_UseCount)
+trigger1	= animelemno(0) = 5 && (map(SLAM_UseCount) || enemy, map(ARMORACTIVE))
 trigger1 	= (!movecontact && !movereversed) || enemy, GetHitVar(chainid) = 1
 hitonce 	= 1
 attr 	= A, SA

@@ -73,7 +73,6 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 [Constants]
 ; NegativeStates.cns states
 switchAirAttack = 620 ; ANIM: switch air attack.
-snapBackAttack = 211 ; ANIM: snapback attack
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
 StateTagAssistSuper = 1505 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
@@ -641,6 +640,25 @@ trigger1 = time>200
 
 [Statedef -2]
 
+;snapFX
+[State 0, Explod]
+type = Explod
+trigger1 =  stateno = 56960 && animelem = 6
+anim = 232
+ID = 232
+postype = P1  ;P2, Front, Back, Left, Right
+facing = 1
+vfacing = 1
+bindtime = 1
+scale = .84,.84
+pausemovetime = 0
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+;persistent = 
 [State 0, AfterImage] ;DC Afterimage Effect             ============ ++
 type 		= AfterImage
 triggerall		= prevstateno = [1000,1600]

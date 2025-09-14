@@ -1725,7 +1725,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = time>30 && (rootdist x=[-10,10])&& (rootdist y=[-40,40]) 
 value = 265
 ctrl = 0
@@ -1859,7 +1859,7 @@ y = 0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) 
 trigger1 = root, movetype != H
 value = 265
@@ -1902,7 +1902,7 @@ y = .45
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) 
 trigger1 = root, movetype != H
 value = 265
@@ -2000,7 +2000,7 @@ y = .3
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) && (root, stateno = 251) && root, time<19
 trigger2 = root, command = "start" && enemynear, name = "Training"
 trigger3 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) && root, stateno = 100 && root, command = "holddown"
@@ -2059,7 +2059,7 @@ y = .3
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) && (root, stateno = 251) && root, time<19
 trigger2 = root, command = "start" && enemynear, name = "Training"
 trigger3 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) && root, stateno = 100 && root, command = "holddown"
@@ -2281,7 +2281,7 @@ x = 0.5
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) 
 value = 265
 [State 0, ChangeState]
@@ -4025,7 +4025,7 @@ value = 0,0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = root, stateno != 251 && root, stateno != 111250
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-70, 70]) 
 value = 265
 ignorehitpause = 1
@@ -4064,7 +4064,7 @@ y = .5
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-30,30]) 
 value = 265
 [State 0, ChangeState]
@@ -4130,7 +4130,7 @@ value = 0,0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-40,40]) 
 value = 265
 [State 0, ChangeState]
@@ -4227,7 +4227,7 @@ value = 0,0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = 3011 || root, stateno = 1151 || root, stateno = 252
+triggerall = root, command = "c" || root, command = "hold_c" || root, stateno = [3023,3026] || root, stateno = 1151 || root, stateno = 252
 trigger1 = (rootdist x=[-40,40])&& (rootdist y=[-40,40]) 
 value = 265
 [State 0, ChangeState]

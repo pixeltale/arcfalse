@@ -3257,7 +3257,7 @@ p1sprpriority = -1
 [State 0]
 type = HitDef 
 p2facing = 1
-triggerall = anim = 656
+triggerall = anim = 656 && teammode != tag
 trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = back
@@ -3266,6 +3266,53 @@ damage = 999 * MAP(P4), 5
 hitflag = MAFD
 guardflag = 
 pausetime = 2,999
+guard.pausetime = 16, 16
+sparkno = 3
+sparkxy = -15,-30
+hitsound   = 5,4
+guardsound = 6,1
+ground.type = TRIP
+air.type    = TRIP
+ground.slidetime = 12
+ground.hittime  = 300
+air.hittime  = 300
+down.hittime = 300
+ground.velocity = -9,-3
+air.velocity = -9, -2 + map(untechDecay)
+down.velocity = -9, -5
+ground.cornerpush.veloff = -10
+down.cornerpush.veloff = -10
+air.cornerpush.veloff = -10
+air.fall = 1
+guard.hittime = 24
+guard.pausetime= 14,14
+guard.velocity = -7
+guard.dist = 20
+guard.slidetime = 16
+envshake.time = 14
+envshake.freq = 100
+envshake.ampl = 7
+envshake.phase = 1
+palfx.color=256
+palfx.mul=128,128,128
+palfx.add=0,0,0
+palfx.sinadd=256,100,256,10
+palfx.time=999
+getpower = 4000
+p1sprpriority = -1
+
+[State 0]
+type = HitDef 
+p2facing = 1
+triggerall = anim = 656 && teammode = tag
+trigger1 = !movecontact && !movereversed
+attr = S, SA
+animtype  = back
+air.animtype = back
+damage = 500 * MAP(P4), 5
+hitflag = MAFD
+guardflag = MA
+pausetime = 2,300
 guard.pausetime = 16, 16
 sparkno = 3
 sparkxy = -15,-30

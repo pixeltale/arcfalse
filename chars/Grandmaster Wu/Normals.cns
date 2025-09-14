@@ -1931,6 +1931,21 @@ pauseMoveTime = 65535
 superMoveTime = 65535
 ownPal = 0
 
+[State 0, Helper] ; assist
+type = Helper
+triggerall = fvar(26) = -1
+trigger1 = time = 10 && !numhelper(777)
+trigger1 = prevstateno = 500
+helpertype = normal ;player
+name = "Astral Projection"
+ID = 777
+stateno = 3777 
+pos = -200,50
+postype = p2    ;p2,front,back,left,right
+facing = 1
+keyctrl = 1
+ownpal = 0
+
 [State 0, Helper]
 type = Helper
 triggerall = fvar(26) = -1
