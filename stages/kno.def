@@ -2,6 +2,21 @@
 ;--------------------------------------------------------
 [Info]
 name = "FROM THE OTHER SIDE"
+attachedchar = data/dynamiclight/DynamicLight.def
+
+[Constants]
+DynamicLighting = 1
+DynamicR = 255
+DynamicG = 255
+DynamicB = 255
+DynamicAlpha =255
+
+StaticShadow = 0
+DynamicShadow = 1
+ShadowMulValue = -0.1
+ShadowRComponent = 0
+ShadowGComponent = 0
+ShadowBComponent = 0
 
 [Camera]
 startx = 0

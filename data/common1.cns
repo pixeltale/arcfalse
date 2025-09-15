@@ -421,6 +421,10 @@ FrameGap = 1
 Trans = Add
 time = 60
 palbright = 1, 1, 1
+paladd = 25,10,10
+palmul = .75,.65,.65
+palcontrast = 220,120,120
+
 
 ;---------------------------------------------------------------------------
 ; Air Dash Fwd
@@ -8532,6 +8536,7 @@ x = 1.25
 [State -2, Dynamic Shadows]
 type = palfx
 trigger1 = StageConst(DynamicShadow)
+triggerall = map(shadowoverride)=0
 add = -StageConst(ShadowRComponent) + abs(camerapos x) * StageConst(ShadowMulValue), -StageConst(ShadowGComponent) + abs(camerapos x) * StageConst(ShadowMulValue), -StageConst(ShadowBComponent) + abs(camerapos x) * StageConst(ShadowMulValue)
 time = 2
 ignorehitpause = 1
@@ -8539,10 +8544,21 @@ persistent = 1
 [State -2, Static Shadows]
 type = palfx
 trigger1 = StageConst(StaticShadow)
+triggerall = map(shadowoverride)=0
 add = -StageConst(ShadowRComponent), -StageConst(ShadowGComponent), -StageConst(ShadowBComponent)
 time = 2
 ignorehitpause = 1
 persistent = 1
+
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;Shadow Override
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[State 0]
+type = MapAdd
+trigger1 = map(shadowoverride)>0
+map = "ShadowOverride"
+value=-1
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 [State 0, Dynamic Lighting Helper]
 type = Helper
