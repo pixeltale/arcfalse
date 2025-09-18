@@ -1505,30 +1505,30 @@ value         = Map(Accumulation) * map(P2)
 ignorehitpause     = 1
 persistent         = 0
 [State 800, 1] ;With grab sound
-type 	= HitDef
+type     = HitDef
 triggerall =  enemynear,map(isassist)=0
-Trigger1 	= !movecontact
-attr 		= S, ST, SA
-hitflag 		= MAFD
-guardflag 		= MA
+Trigger1     = time = 0 && !movecontact
+attr         = S, ST, SA
+hitflag         = MAFD
+guardflag         = MA
 hitonce = 0
-sparkno 		= 1000
-sparkxy 		= -10,-30
-p1sprpriority 	= 1
-hitsound 		= S669,0
-guardsound 	= 6,2
-p1facing 		= 1
-p2facing 		= 1
-p1stateno 		= 1021
-p2stateno 		= 1023
-air.fall 		= 1
-ground.velocity 	= 0,0
-air.velocity 	= 0,-3
-pausetime	= 0,0
-guard.ctrltime	= 14
-guard.hittime 	= 14
+sparkno         = 1000
+sparkxy         = -10,-30
+p1sprpriority     = 1
+hitsound         = S669,0
+guardsound     = 6,2
+p1facing         = 1
+p2facing         = 1
+p1stateno         = 1021
+p2stateno         = 1023
+air.fall         = 1
+ground.velocity     = 0,0
+air.velocity     = 0,-3
+pausetime    = 0,0
+guard.ctrltime    = 14
+guard.hittime     = 14
 guard.pausetime = 8,8
-guard.velocity 	= -5
+guard.velocity     = -5
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3028,13 +3028,12 @@ persistent         	= 0
 
 [State 800, 1] ;With grab sound
 type = HitDef
-Trigger1 = !movecontact && p2stateno != [120,199]
+Trigger1 = time = 0 && !movecontact && enemy,statetype=A
 attr = S, ST, SA   
 guardflag = A       ;Attributes: Standing, Normal Throw
 hitflag = AFD          ;Affect only ground people who are not being hit
 pausetime = 0,50
 guard.pausetime = 15,10
-priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
 sparkno = 1000          ;No spark
 sparkxy = -20,-80
 p1sprpriority = 1
