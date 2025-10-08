@@ -2043,7 +2043,7 @@ p2facing = 1
 triggerall= enemy, statetype!=A
 trigger1 = time = 0
 hitonce = 1
-attr = S, ST
+attr = S, SA, ST
 damage = 0, 0
 hitflag = MAF
 guardflag = MA
