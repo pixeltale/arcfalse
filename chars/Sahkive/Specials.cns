@@ -1507,7 +1507,7 @@ persistent         = 0
 [State 800, 1] ;With grab sound
 type 	= HitDef
 triggerall =  enemynear,map(isassist)=0
-Trigger1 	= !movecontact
+Trigger1 	= time = 0 && !movecontact
 attr 		= S, ST, SA
 hitflag 		= MAFD
 guardflag 		= MA

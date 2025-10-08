@@ -630,7 +630,7 @@ facep2 = 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3	;Heavy Starter
+value 		= 2	;Heavy Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -843,7 +843,7 @@ triggerall = !movereversed
 trigger1 = animelem =3
 trigger2 = animelem =6
 attr = A, NA
-damage 		= 60*map(P4)
+damage 		= 40*map(P4)
 guardflag 	= HA
 hitflag 		= MAFD
 pausetime 	= 10,10
@@ -959,7 +959,7 @@ p2facing = 1
 trigger1 = !movecontact && !movereversed
 attr = A, NA
 animtype  	= hard
-damage 		= 100*map(P4)
+damage 		= 90*map(P4)
 hitflag 		= MAFD
 guardflag 	= HA
 pausetime 	= 2,2

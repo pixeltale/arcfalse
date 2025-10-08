@@ -2,7 +2,7 @@
   "AIRamping": true,
   "AIRandomColor": false,
   "AISurvivalColor": true,
-  "AudioDucking": true,
+  "AudioDucking": false,
   "AudioSampleRate": 44100,
   "AutoGuard": false,
   "BarGuard": false,

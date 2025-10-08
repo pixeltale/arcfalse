@@ -156,7 +156,7 @@ trigger2 = var(1) || stateno = [600, 620] && movecontact
 [State -1, 4S] ;LATTICE THEORY
 type = ChangeState
 value = 1020
-triggerall = command = "4S"
+triggerall = command = "holdback" && command = "b"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)

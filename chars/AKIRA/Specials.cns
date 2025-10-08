@@ -759,6 +759,7 @@ poweradd 	= 0
 ctrl 		= 0
 anim 		=1040
 sprpriority 	= 2
+velset		= -1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -789,19 +790,7 @@ ignorehitpause 	= 0
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelem = 3
-x = -15
-y = 0
-[State 0, PosAdd]
-type = VelAdd
-trigger1 = vel x <= 0
-trigger1 = animelem = 5
-x = -9
-y = 0
-[State 0, PosAdd]
-type = VelSet
-trigger1 = vel x > 0
-trigger1 = animelem = 5
-x = -9
+x = -80
 y = 0
 
 [State 0, ChangeState]
@@ -1784,6 +1773,7 @@ poweradd 	= 0
 ctrl 		= 0
 anim 		=1040
 sprpriority 	= 2
+velset		= -1
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1801,23 +1791,9 @@ persistent		= 0
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = animelem = 1
-x = -15
+trigger1 = animelem = 3
+x = -70
 y = 0
-[State 0, PosAdd]
-type = VelAdd
-trigger1 = vel x <= 0
-trigger1 = animelem = 2
-x = -9
-[State 0, PosAdd]
-type = VelSet
-trigger1 = vel x > 0
-trigger1 = animelem = 2
-x = -9
-[State 0, VelMul]
-type = VelMul
-trigger1 = animelemno(0) >= 5
-x = 0.8
 [State 0, VelMul]
 type = VelSet
 trigger1 = 1
