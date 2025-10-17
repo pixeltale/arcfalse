@@ -1563,8 +1563,23 @@ juggle = 0
 ctrl = 0
 anim = 615
 sprpriority = 2
-velset = 2, -4
+velset = cond(vel x < 0, 2, vel x), cond(vel y < -4, vel y, -4) 
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = animelem=5&&command="hold_z"
+value = 615
+elem = 2
+[State 0, VelSet]
+type = VelAdd
+triggerall = animelemtime(5)<0&&command="hold_z"&&animelemtime(2)>=0
+trigger1 = command="holdfwd"&&vel x < 4
+x = .5
+[State 0, VelSet]
+type = VelAdd
+triggerall = animelemtime(5)<0&&command="hold_z"&&animelemtime(2)>=0
+trigger1 = command="holdback"&&vel x > -4
+x = -.5
 
 [State 0, VelSet]
 type = VelSet

@@ -63,6 +63,15 @@ trigger2 = movecontact ;&& enemynear, movetype = H
 trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
 trigger4 = stateno = [100,101]
 
+;236X - Judgement
+;[State -1, 236x]
+;type = ChangeState
+;value = 699
+;triggerall = command = "SP" && command = "holdx"
+;triggerall = power >= 2000
+;trigger1 = statetype != A
+;trigger1 = ctrl || var(1)
+
 ;214X- Strike Heaven
 [State -1, 214x]
 type = ChangeState

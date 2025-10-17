@@ -1528,6 +1528,43 @@ type = ChangeState
 trigger1 =pos y>= 0
 value = 0
 ctrl = 1
+
+
+;================================
+;Limit Break
+;-----------------------------
+;[Statedef 699]
+;type    = S
+;movetype= I
+;physics = S
+;poweradd= 0
+;ctrl = 0
+;anim =1500
+;sprpriority = 2
+;
+;[State 0, SuperPause]
+;type = SuperPause
+;trigger1 = !time
+;time = 20
+;anim = -1
+;sound = S10,0
+;pos = 0,0
+;darken = 1
+;p2defmul = 0
+;poweradd = 0
+;unhittable = 1
+;movetime	= 20
+;;ignorehitpause = 
+;;persistent = 
+;
+;
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "Stance_Cancel" && time > 8
+;trigger2 = time > 20
+;value = 704
+;ctrl = 0
+
 ;================================
 ;5R - Coiled Serpent
 ;-----------------------------
