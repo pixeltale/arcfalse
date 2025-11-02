@@ -841,6 +841,15 @@ ctrl = 0
 anim = 1200
 sprpriority = 2
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 1210, (0+(Random%3))
+volumescale=150
+channel=7
+lowpriority=1
+
 [State 20, 2]
 type = Turn
 trigger1=time<=5
@@ -1216,6 +1225,15 @@ poweradd= -1000
 ctrl = 0
 anim = 1300
 sprpriority = 2
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 1210, (0+(Random%3))
+volumescale=150
+channel=7
+lowpriority=1
 
 [State EX Limiters]
 type = mapset

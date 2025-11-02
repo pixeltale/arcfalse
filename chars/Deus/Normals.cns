@@ -12,6 +12,15 @@ anim = 200                       ;Change animation (Def: no change)
 poweradd = 0                   ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 215, (0+(Random%10))
+volumescale=200
+channel=7
+lowpriority=1
+
 [State 20, 2]
 type = Turn
 trigger1=time<=2
@@ -147,6 +156,15 @@ anim = 201                       ;Change animation (Def: no change)
 poweradd = 0                   ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 215, (0+(Random%10))
+volumescale=200
+channel=7
+lowpriority=1
+
 [State 20, 2]
 type = Turn
 trigger1=time<=2
@@ -269,6 +287,15 @@ velset = 0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 poweradd = 0                   ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 310, (0+(Random%15))
+volumescale=200
+channel=7
+lowpriority=1
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -601,6 +628,15 @@ ctrl = 0
 anim = 210
 sprpriority = 2
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 310, (0+(Random%15))
+volumescale=200
+channel=7
+lowpriority=1 
+
 [State 20, 2]
 type = Turn
 trigger1=time<=2
@@ -729,6 +765,15 @@ ctrl = 0
 velset = vel x,0
 anim = 220
 sprpriority = 2
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = animelem=5
+value = 410, (0+(Random%36))
+volumescale=200
+channel=7
+lowpriority=1
 
  ;============================
 ;Note: Always have ignorehitpause on all of these.
@@ -1044,6 +1089,15 @@ ctrl = 0
 anim = 400
 sprpriority = 2
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 215, (0+(Random%10))
+volumescale=200
+channel=7
+lowpriority=1
+
 [State 20, 2]
 type = Turn
 trigger1=time<=2
@@ -1151,6 +1205,15 @@ juggle  = 0
 ctrl = 0
 anim = 410
 sprpriority = 2
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 310, (0+(Random%15))
+volumescale=200
+channel=7
+lowpriority=1
 
 [State 20, 2]
 type = Turn
@@ -1301,6 +1364,15 @@ juggle  = 0
 ctrl = 0
 anim = 420
 sprpriority = 2
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = animelem=6
+value = 410, (0+(Random%36))
+volumescale=200
+channel=7
+lowpriority=1
 
  ;============================
 ;Note: Always have ignorehitpause on all of these.
@@ -1708,6 +1780,15 @@ ctrl = 0
 anim = 600
 sprpriority = 2
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 215, (0+(Random%10))
+volumescale=200
+channel=7
+lowpriority=1
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = time<=8
@@ -1849,6 +1930,15 @@ juggle  = 0
 ctrl = 0
 anim = 610
 sprpriority = 2
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 310, (0+(Random%15))
+volumescale=200
+channel=7
+lowpriority=1
 
 ;=====SCALING SHIT==================
 [State -2, Starter Level]
@@ -2014,6 +2104,14 @@ trigger1 = animelem=5
 value = 219,0+random%8
 volumescale = 100
 persistent=0
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = animelem=3
+value = 410, (0+(Random%36))
+volumescale=200
+channel=7
+lowpriority=1
 
 ;Note: Always have ignorehitpause on all of these.
 [State -2, Starter Level]
@@ -2202,6 +2300,15 @@ juggle  = 0
 ctrl = 0
 anim = 630
 sprpriority = 2
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+value = 310, (0+(Random%15))
+volumescale=200
+channel=7
+lowpriority=1
 
 ;=====SCALING SHIT==================
 [State -2, Starter Level]
@@ -2485,6 +2592,14 @@ trigger1 = animelem=3
 value = 219,0+random%8
 volumescale = 100
 persistent=0
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = animelem=3
+value = 410, (0+(Random%26))
+volumescale=200
+channel=7
+lowpriority=1
 
 ;=====SCALING SHIT==================
 ;Note: Always have ignorehitpause on all of these.
