@@ -439,7 +439,7 @@ persistent         	= 0
 ;============================
 [State 1055, 5]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 attr = S,NA
 getpower = 25
@@ -481,7 +481,7 @@ guard.slidetime = 18
 ;Enhanced 6H code
 [State 1055, 5]
 type = HitDef
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 triggerall 		= prevstateno = 100
 trigger1 		= !movecontact && !movereversed
 attr 		= S,NA
@@ -2187,7 +2187,7 @@ getpower 			= 70
 [State 610, 3]
 type = hitdef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = animelem = 10
 hitonce = 1
 attr = S, SA
@@ -2571,7 +2571,7 @@ getpower = 40*var(2)
 [State 410, 2]
 type = hitdef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed && map(CounterHit)
 attr = S, SA
 damage = (150 + map(RChargeTime) + time*1.2) *MAP(P4), 10
@@ -2861,7 +2861,7 @@ p2getp1state 	= 0
 [State 410, 2]
 type = hitdef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = map(CounterHit)
 trigger1 = !movecontact && !movereversed
 attr = S, SA

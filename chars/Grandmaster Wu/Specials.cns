@@ -58,8 +58,8 @@ x = 13
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = animelem = 5
-x = 26
+trigger1 = animelemno(0) = 5
+x = 13
 
 [State 0, Explod]
 type = Explod
@@ -182,7 +182,7 @@ guard.velocity = -7
 [State 1000, 1]
 type = HitDef
 trigger1 = anim = 1002
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 attr = S, SA                     ;Attribute: Standing, Normal Attack
 damage = 150 * map(p4), 20
@@ -970,7 +970,7 @@ value = 7, 3
 
 [State 1000, 1]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 attr = S, SA                     ;Attribute: Standing, Normal Attack
 damage = 150 * map(p4), 20
@@ -2797,14 +2797,14 @@ y = -.14
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
@@ -3087,14 +3087,14 @@ movetime = 1
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1

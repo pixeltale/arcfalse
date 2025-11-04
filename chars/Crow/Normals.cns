@@ -282,7 +282,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 triggerall		= anim = 220
 trigger1 		= !movereversed && !movecontact
 trigger1		= !map(CounterHit)
@@ -333,7 +333,7 @@ getpower 		= (150)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 triggerall		= anim = 220
 trigger1 		= !movereversed && !movecontact
 trigger1		= map(CounterHit)
@@ -388,7 +388,7 @@ p2getp1state		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 triggerall		= anim = 221
 trigger1 		= !movereversed && !movecontact
 ;==============================================
@@ -651,7 +651,7 @@ x = 1
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 			= HitDef 
 p2facing 			= 1
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 trigger1 			= !movereversed && !movecontact
 trigger1			= !map(CounterHit)
 ;==============================================
@@ -701,7 +701,7 @@ p2getp1state		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 trigger1 		= !movereversed && !movecontact
 trigger1		= map(CounterHit)
 ;==============================================
@@ -1211,7 +1211,7 @@ persistent 		= 0
 [State 0]
 type 		= HitDef 
 p2facing 		= 1
-triggerall	 	= enemy, !map(ArmorActive)
+triggerall	 	= enemy, map(ArmorActive) = 0
 trigger1 		= !movereversed && !movecontact
 attr 			= S, NA
 animtype  		= Light

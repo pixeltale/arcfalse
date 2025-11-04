@@ -1038,13 +1038,13 @@ color = 256
 
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
-trigger1 		= root, !map(superfrost)
+trigger1 		= root, map(Superfrost) = 0
 map 			= "untechMOD"
 value 		= 0.3
 ignorehitpause 	= 1
 [State -2, P2 Accumulation - Scale]
 type 		= MapSet
-trigger1 		= root, !map(superfrost)
+trigger1 		= root, map(Superfrost) = 0
 map 			= "P4"
 value 		= 0.1
 ignorehitpause 	= 1

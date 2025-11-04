@@ -1660,14 +1660,14 @@ value = -vel x
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
@@ -2819,7 +2819,7 @@ persistent 		= 0
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
 attr 	= A, NA
@@ -3628,7 +3628,7 @@ y = .4
 
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2	;Very Long Starter
 ignorehitpause 	= 1
@@ -3735,7 +3735,7 @@ y = .4
 
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2	;Very Long Starter
 ignorehitpause 	= 1
@@ -3842,7 +3842,7 @@ y = .4
 
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2	;Very Long Starter
 ignorehitpause 	= 1
@@ -3925,7 +3925,7 @@ ignorehitpause = 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		=  0.87	;100% Starting DMG
 ignorehitpause 	= 1
@@ -4417,7 +4417,7 @@ ignorehitpause = 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		=  0.87	;100% Starting DMG
 ignorehitpause 	= 1

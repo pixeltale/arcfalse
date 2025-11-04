@@ -4,6 +4,7 @@
 
 [Info]
 name = "SAKURA FOREST"
+ikemenversion = 0.99
 
 [Camera]
 startx = 0
@@ -74,12 +75,14 @@ type  = normal
 spriteno = 100,0
 start = 0, -30
 delta = .1,.1
+mask = 1
 
 [BG FarthestTrees]
 type  = normal
 spriteno = 0,3
 start = 0, -10
 delta = .25,.25
+mask = 1
 
 [BG BackTrees]
 type  = normal
@@ -87,6 +90,7 @@ spriteno = 0,2
 start = 0, 0
 delta = .35,.35
 tile = 3, 0
+mask = 1
 
 [BG MidTrees]
 type  = anim
@@ -94,12 +98,14 @@ actionno = 2
 start = 0, -20
 delta = .7,.7
 tile = 3, 0
+mask = 1
 
 [BG River]
 type  = anim
 actionno = 3
 start = 0, -10
 delta = .8,.8
+mask = 1
 
 [BG FrontTrees]
 type  = anim
@@ -107,12 +113,14 @@ actionno = 1
 start = -26, -22
 delta = .8,.8
 tile = 1, 0
+mask = 1
 
 [BG Bridge]
 type  = normal
 spriteno = 0,1
 start = 0, 0
 tile = 1, 0
+mask = 1
 
 
 [Begin action 1]

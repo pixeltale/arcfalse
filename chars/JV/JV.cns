@@ -63,7 +63,6 @@ sparkno = 2
 guard.sparkno = 40
 KO.echo = 0
 volume = 0
-
 power = 4000
 IntPersistIndex = 4
 FloatPersistIndex = 40
@@ -129,6 +128,9 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 switchAirAttack = 655
 StateTagAssistSuper = 2105 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
+Super1 = 3000
+Super2 = 3100
+Super3 = 3200
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
@@ -558,8 +560,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "firstassist = %f"
-params = map(firstassist)
+text = "enemyhittime = %i P4 = %f"
+params = (enemy, gethitvar(hittime)), map(P4)
 ignorehitpause = 1
 persistent = 1
 

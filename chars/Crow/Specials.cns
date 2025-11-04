@@ -172,7 +172,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
@@ -364,7 +364,7 @@ persistent 		= 0
 [State 200, 1] ;++++++++++++++++++++++++++++++++++
 type 		= HitDef 
 p2facing 		= 1
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 trigger1 		= !movereversed && !movecontact
 ;==============================================
 attr 			= S, NA                     
@@ -867,7 +867,7 @@ facep2 = 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.8	;110% Starting DMG
 ignorehitpause 	= 1
@@ -1015,14 +1015,14 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = time >= 180 || enemy, !alive 
+trigger1 = time >= 180 || enemy, alive = 0
 trigger2 = command = "b"
 trigger2 = animelemno(0) >= 5
 value = 1052
 ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = time >= 180 || enemy, !alive 
+trigger1 = time >= 180 || enemy, alive = 0
 trigger2 = command = "holdback"
 trigger2 = animelemno(0) >= 5
 value = 1052
@@ -1472,7 +1472,7 @@ ignorehitpause = 1
 
 [State 1110, 3]
 type 			= HitDef
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 trigger1 		= !movereversed && !movecontact
 attr 			= S, SA
 animtype  		= Up
@@ -2132,7 +2132,7 @@ ctrl = 1
 ;[State 230, 1]
 ;type 	= hitdef 
 ;p2facing 	= 1
-;triggerall	= enemy, !map(ArmorActive)
+;triggerall	= enemy, map(ArmorActive) = 0
 ;trigger1 	= !movecontact && !movereversed
 ;attr 		= A, NA
 ;animtype 	= hard

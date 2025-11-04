@@ -129,6 +129,9 @@ switchAirAttack = 655 ; ANIM: switch air attack.
 snapBackAttack = 415 ; ANIM: snapback attack
 StateTagAssistSuper = 1060 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
+Super1 = 3000
+Super2 = 3000
+Super3 = 3000
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.

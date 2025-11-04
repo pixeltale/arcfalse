@@ -63,6 +63,7 @@ spr = Ballin.sff
 type  = normal
 spriteno = 0, 1
 start = -10, 0
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -80,21 +81,25 @@ alpha=256,100
 type  = normal
 spriteno = 0, 2
 start = -10, 0
+mask = 1
 
 [BG CourtAnim1]
 type  = anim
 actionno = 1
 start = -10, 0
+mask = 1
 
 [BG CourtAnim2]
 type  = anim
 actionno = 2
 start = -10, 0
+mask = 1
 
 [BG CourtAnim3]
 type  = anim
 actionno = 3
 start = -10, 0
+mask = 1
 
 
 [BG Heaven]
@@ -107,6 +112,7 @@ velocity = -10, 0
 tile = 1, 0
 id=1
 alpha=256,200
+mask = 1
 
 
 [BGCtrlDef Heaven]

@@ -79,6 +79,9 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 switchAirAttack = 655
 StateTagAssistSuper = 1500 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000
+Super1 = 3000
+Super2 = 3051
+Super3 = 3051
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.

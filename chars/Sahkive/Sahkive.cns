@@ -147,6 +147,9 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 ; NegativeStates.cns states
 StateTagAssistSuper = 2000
 switchAirAttack = 655
+Super1 = 3100
+Super2 = 3000
+Super3 = 3000
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
@@ -212,13 +215,13 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name!="angous"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11 && !decisiveround
 value = 180, (0+(Random%7))
 volumescale=200
 [State Sahkive Voices]
 type = PlaySnd
 triggerall = time=0
-trigger1 = palno=11&&roundtype>=2
+trigger1 = palno=11 && decisiveround
 value = 181,0
 volumescale=200
 
@@ -227,7 +230,7 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name="angous"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&& !decisiveround
 value = 180, (0+(Random%11))
 volumescale=200
 
@@ -329,13 +332,13 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name!="angous"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180, (0+(Random%7))
 volumescale=200
 [State Sahkive Voices]
 type = PlaySnd
 triggerall = time=0
-trigger1 = palno=11&&roundtype>=2
+trigger1 = palno=11&&decisiveround
 value = 181,0
 volumescale=200
 
@@ -344,7 +347,7 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name="angous"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180, (0+(Random%11))
 volumescale=200
 
@@ -366,13 +369,13 @@ triggerall = time=0
 triggerall = enemynear,name!="angous"
 triggerall = enemynear,name!="alicia"&&enemynear,name!="deus"&&enemynear,name!="crow"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180, (0+(Random%7))
 volumescale=200
 [State Sahkive Voices]
 type = PlaySnd
 triggerall = time=0
-trigger1 = palno=11&&roundtype>=2
+trigger1 = palno=11&&decisiveround
 value = 181,0
 volumescale=200
 
@@ -381,7 +384,7 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name="angous"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180, (0+(Random%11))
 volumescale=200
 
@@ -390,7 +393,7 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name="alicia"||enemynear,name="deus"||enemynear,name="crow"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180,0
 volumescale=200
 
@@ -425,13 +428,13 @@ triggerall = time=0
 triggerall = enemynear,name!="angous"
 triggerall = enemynear,name!="alicia"&&enemynear,name!="deus"&&enemynear,name!="crow"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180, (0+(Random%7))
 volumescale=200
 [State Sahkive Voices]
 type = PlaySnd
 triggerall = time=0
-trigger1 = palno=11&&roundtype>=2
+trigger1 = palno=11&&decisiveround
 value = 181,0
 volumescale=200
 
@@ -440,7 +443,7 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name="angous"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180, (0+(Random%11))
 volumescale=200
 
@@ -449,7 +452,7 @@ type = PlaySnd
 triggerall = time=0
 triggerall = enemynear,name="alicia"||enemynear,name="deus"||enemynear,name="crow"
 trigger1 = palno!=11
-trigger2 = palno=11&&roundtype<=1
+trigger2 = palno=11&&!decisiveround
 value = 180,0
 volumescale=200
 
@@ -825,7 +828,7 @@ value = 1
 [State 0, RemapPal]
 type = RemapPal
 triggerall=roundstate=0
-trigger1 = roundtype > 1
+trigger1 = !decisiveround
 trigger1 = map(YAPPERS)
 trigger1 = palno=11
 source = 1,1

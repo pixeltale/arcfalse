@@ -69,6 +69,7 @@ type  = anim
 actionno = 3
 delta = .11,.11
 start = 0, -30
+mask = 1
 [BG Heaven]
 type  =normal
 spriteno=3011,0
@@ -83,6 +84,7 @@ id=3
 type  = normal
 spriteno = 0,1
 velocity=-.1,0
+mask = 1
 sin.y=-10,1000,0
 tile = 1, 1
 delta = .1,.1
@@ -91,12 +93,14 @@ trans = add
 [BG Moon]
 type  = normal
 spriteno = 0,2
+mask = 1
 delta = .12,.12
 start = 0, -30
 
 [BG Heaven]
 type  =normal
 spriteno=3011,0
+mask = 1
 start = -40, 128
 delta =  0.2,.2
 mask = 1
@@ -109,6 +113,7 @@ alpha=256,100
 [BG FrontClouds]
 type  = normal
 spriteno = 0,3
+mask = 1
 start = 0, 0
 sin.x=5,500,0
 sin.y=-5,1000,0
@@ -118,18 +123,21 @@ trans = add
 [BG OceanBase]
 type  = anim
 actionno = 1
+mask = 1
 start = 0, -158
 delta = 1,0.6
 tile = 1, 1
 [BG OceanBase]
 type  = anim
 actionno = 1
+mask = 1
 start = -385, -158
 delta = 1,0.6
 tile = 5, 0
 [BG OceanBase]
 type  = anim
 actionno = 1
+mask = 1
 start = 385, -158
 delta = 1,.6
 tile = 5, 0
@@ -138,12 +146,14 @@ tile = 5, 0
 [BG OceanGlow]
 type  = anim
 actionno = 2
+mask = 1
 start = 0, 0
 delta = 0.45, 0.6
 
 [BG Heaven]
 type  =normal
 spriteno=3011,0
+mask = 1
 start = -40, 140
 delta = .5, .5
 mask = 1

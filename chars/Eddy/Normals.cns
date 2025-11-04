@@ -1246,7 +1246,7 @@ down.hittime 	= 25* MAP(untechMOD)
 ground.velocity = -6,0
 air.velocity = -3, -2 * MAP(untechMOD)
 down.velocity = -3, -3
-ground.cornerpush.veloff = -9
+ground.cornerpush.veloff = -5
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 guard.hittime = 22
@@ -2453,7 +2453,7 @@ ignorehitpause =0
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-triggerall 		= enemy, !map(ArmorActive)
+triggerall 		= enemy, map(ArmorActive) = 0
 trigger1 		= !MAP(counterHit) && movecontact = 0 && movereversed = 0
 attr 		= S, SA
 damage 		= 90*MAP(P4), 10
@@ -2483,7 +2483,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-triggerall 		= enemy, !map(ArmorActive)
+triggerall 		= enemy, map(ArmorActive) = 0
 trigger1 = MAP(counterhit) = 1 && movecontact = 0 && movereversed = 0
 attr = S, SA
 damage = 120*MAP(P4), 10

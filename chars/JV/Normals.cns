@@ -46,7 +46,7 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0 
+trigger1 = !MoveContact && !MoveReversed
 attr = S, NA                     ;Attribute: Standing, Normal Attack
 damage 		= 30*map(P4)
 animtype 		= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -60,7 +60,7 @@ hitsound 		= 5, 1
 guardsound 		= 6, 0
 ground.type 		= High
 ground.slidetime 	= 5
-ground.hittime  	= 12
+ground.hittime  	= 9
 air.hittime  		= 15
 down.hittime 		= 15-map(UntechDecay)
 ground.velocity 	= -4
@@ -149,7 +149,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing 	= 1
-trigger1 	= time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr 	= S, NA
 animtype  	= Light
 air.animtype	 = back
@@ -2040,7 +2040,7 @@ persistent 		= 0
 [State 200, 1] ;ENHANCER HIT
 type = HitDef 
 p2facing 	= 1
-triggerall	= enemy, !map(ArmorActive)
+triggerall	= enemy, map(ArmorActive) = 0
 triggerall 	= anim = 1521
 trigger1	= !movecontact && !movereversed
 attr 		= S, NA
@@ -2323,7 +2323,7 @@ ground.velocity 		= -1,-9.2
 air.velocity 		= -1,-4 + (map(untechDecay) * 0.3)
 down.velocity 		= -1,-7.1
 guard.cornerpush.veloff 	= -2
-air.cornerpush.veloff 	= -20 - map(UntechDecay)
+air.cornerpush.veloff 	= -10 - map(UntechDecay)
 guard.hittime = 40
 guard.pausetime = 16,16
 guard.velocity = -3
@@ -2366,7 +2366,7 @@ air.velocity 		= -1,-2 + (map(untechDecay) * 0.3)
 down.velocity 		= -1,-3.5
 guard.cornerpush.veloff 	= -2
 down.cornerpush.veloff 	= 0
-air.cornerpush.veloff 	= -20 - map(UntechDecay)
+air.cornerpush.veloff 	= -10 - map(UntechDecay)
 guard.hittime 		= 40
 guard.pausetime 		= 16,16
 guard.velocity 		= -3

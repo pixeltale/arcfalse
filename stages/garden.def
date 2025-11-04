@@ -63,6 +63,7 @@ spr = stages/garden.sff
 type=normal
 spriteno=0,3
 delta=.05,.05
+mask = 1
 
 [BG clouds]
 type = normal
@@ -70,6 +71,7 @@ spriteno=0,1
 velocity=1.4,0
 tile=1,0
 delta=.2,.2
+mask = 1
 
 [BG Heaven]
 type  = normal
@@ -87,18 +89,21 @@ spriteno=100,0
 delta=.72,.72
 start=0,0
 tile = 1, 0
+mask = 1
 
 [BG statues]
 type=normal
 spriteno=0,6
 delta=.783,.783
 start=0,-25	
+mask = 1
 
 [BG tree]
 type=anim
 actionno = 2
 start = 0,-38
 delta=.9,.7
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -117,22 +122,26 @@ type=normal
 spriteno = 0, 4
 start = 0, -10
 tile = 1, -1
+mask = 1
 
 [BG ground]
 type=anim
 start = 0, -10
 actionno=1
+mask = 1
 
 [BG leaves]
 type=anim
 actionno = 3
 start=0,-16
+mask = 1
 
 [BG temple]
 type=normal
 spriteno=0,2
 tile = 1, 1
 start = 0, -30
+mask = 1
 
 [BG bricks]
 type=normal
@@ -141,6 +150,7 @@ window = 0,163,360,360
 yscale=1.5
 start = 0, -10
 tile = 1, 0
+mask = 1
 
 [BGCtrlDef Heaven]
 looptime = -1

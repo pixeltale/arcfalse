@@ -1000,7 +1000,7 @@ value = 21
 
 [State 50, 3]
 type = changestate
-trigger1 = enemy, !alive
+trigger1 = enemy, alive = 0
 value = 47
 ;---------------------------------------------------------------------------
 ;Fastfall

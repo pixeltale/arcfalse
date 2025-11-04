@@ -43,7 +43,7 @@ ignorehitpause = 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1
@@ -207,7 +207,7 @@ poweradd = 0
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1
@@ -340,14 +340,14 @@ poweradd = 0
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
@@ -479,14 +479,14 @@ poweradd = 0
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.95	;90% Starting DMG
 ignorehitpause 	= 1
@@ -678,7 +678,7 @@ pos = 80,-49
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1
@@ -929,7 +929,7 @@ ignorehitpause = 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1
@@ -1073,7 +1073,7 @@ poweradd = 0
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1
@@ -1426,7 +1426,7 @@ ignorehitpause = 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1
@@ -1574,7 +1574,7 @@ x = p2dist x
 
 [State 0, PosAdd]
 type = PosAdd
-triggerall = root, !map(ComboStateCheck)
+triggerall = root, map(ComboStateCheck) = 0
 trigger1 = animelem = 1 || animelem = 2
 x = p2dist x * 0.5
 y = 0
@@ -1589,7 +1589,7 @@ ignorehitpause = 0
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 	= movehit && root, !map(ComboStateCheck)
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.9	;90% Starting DMG
 ignorehitpause 	= 1

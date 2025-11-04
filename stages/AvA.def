@@ -64,6 +64,7 @@ type  = normal
 spriteno = 0,5
 start = 0, 0
 delta=.1,.1
+mask = 1
 
 [BG Back Clouds]
 type  = normal
@@ -72,6 +73,7 @@ start = 0, 0
 delta=.1,.1
 velocity=.15,0
 tile=1,0
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -88,6 +90,7 @@ type  = normal
 spriteno = 0,8
 start = 0, 0
 delta=.3,.3
+mask = 1
 
 
 [BG Front Clouds]
@@ -97,18 +100,21 @@ start = 0, 0
 delta=.35,.15
 velocity=.05,0
 tile=1,0
+mask = 1
 
 [BG FG Grass -4]
 type  = anim
 actionno = 5
 delta=.4,.4
 start = 0, 0
+mask = 1
 
 [BG FG Grass -3]
 type  = anim
 actionno = 4
 delta=.5,.5
 start = 0, 0
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -127,17 +133,20 @@ type  = anim
 actionno = 3
 start = 0, 0
 delta=.8,.8
+mask = 1
 
 [BG BaseGrass]
 type  = anim
 actionno = 2
 start = -15, -7
+mask = 1
 
 [BG FrontGrass]
 type  = anim
 actionno = 1
 start = -15, 5
 layerno=1
+mask = 1
 
 [BG Heaven]
 type  =normal

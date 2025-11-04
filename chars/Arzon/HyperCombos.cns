@@ -275,7 +275,7 @@ ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = RootMapSet
-trigger1         = movehit && ROOT, !map(ComboStateCheck)
+trigger1         = movehit && root, map(ComboStateCheck) = 0
 map         = "P1"
 value         =  1    ;The scaling value of an attack when it's used to start a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.

@@ -2,8 +2,6 @@
 ; Definition file for ONE
 ; Contains all the filenames needed for the character
 
-;Last edit: 3/10/21 7:25 PM (Z)
-; - Added AA Invul to 2H 
 ; Player information
 [Info]
 name 		=  "ONE"
@@ -33,7 +31,7 @@ anim    = ONE.air           ;Animation
 sound   = ONE.snd           ;Sound
 ai      = ONE.ai            ;AI hints data (not used)
 movelist 		= ONE.dat
-pal1    = OG.act  ;Palettes (can have up to 12)
+pal1    = 1.act  ;Palettes (can have up to 12)
 pal2    = 2.act
 pal3    = 3.act
 ; Maps character selection buttons to palette numbers.

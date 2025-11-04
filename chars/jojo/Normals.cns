@@ -990,7 +990,7 @@ ignorehitpause 	= 1
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 attr = S, NA
 animtype  = Light
@@ -1791,7 +1791,7 @@ persistent 		= 0
 
 [State 200, 1]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movereversed && !movecontact
 attr = S, NA                     ;Attribute: Standing, Normal Attack
 damage = 120*MAP(P4), 0
@@ -2165,7 +2165,7 @@ persistent = 0
 
 [State 610, 3]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 triggerall = !map(jH_Charged)
 trigger1 = !movecontact && !movereversed
 attr = A, NA
@@ -2204,7 +2204,7 @@ guard.hittime	= 18
 
 [State 610, 3]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 triggerall = map(jH_Charged)
 trigger1 = !movecontact && !movereversed
 attr = A, NA
@@ -3299,7 +3299,7 @@ persistent 		= 0
 
 [State 200, 1]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movereversed && !movecontact
 attr = S, NA                     ;Attribute: Standing, Normal Attack
 damage = 120*MAP(P4), 0

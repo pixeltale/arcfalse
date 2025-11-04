@@ -186,7 +186,7 @@ value = 1
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1 
-triggerall	= enemy, !map(ArmorActive)
+triggerall	= enemy, map(ArmorActive) = 0
 trigger1	 	= map(Counterhit) && movecontact = 0
 attr 		= S, SA
 damage 		= 200*map(P4), 15
@@ -221,7 +221,7 @@ p2getp1state 	= 0
 [State 630, 2]
 type 	= HitDef 
 p2facing 		= 1 
-triggerall	= enemy, !map(ArmorActive)
+triggerall	= enemy, map(ArmorActive) = 0
 triggerall		= enemy, statetype != L
 trigger1 		= !map(Counterhit) && movecontact = 0 && movereversed = 0
 attr 		= S, SA
@@ -259,7 +259,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 630, 2]
 type 	= HitDef 
 p2facing 		= 1 
-triggerall	= enemy, !map(ArmorActive)
+triggerall	= enemy, map(ArmorActive) = 0
 triggerall		= enemy, statetype = L
 trigger1 		= !map(Counterhit) && movecontact = 0 && movereversed = 0
 attr 		= S, SA
@@ -1899,7 +1899,7 @@ ignorehitpause =0
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-triggerall 		= enemy, !map(ArmorActive)
+triggerall 		= enemy, map(ArmorActive) = 0
 trigger1 		= !MAP(counterHit) && movecontact = 0 && movereversed = 0
 attr 		= S, SA
 damage 		= 90*MAP(P4), 10
@@ -1929,7 +1929,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-triggerall 		= enemy, !map(ArmorActive)
+triggerall 		= enemy, map(ArmorActive) = 0
 trigger1 = MAP(counterhit) = 1 && movecontact = 0 && movereversed = 0
 attr = S, SA
 damage = 120*MAP(P4), 10
@@ -2232,7 +2232,7 @@ ignorehitpause =0
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1 
-triggerall	= enemy, !map(ArmorActive)
+triggerall	= enemy, map(ArmorActive) = 0
 trigger1 	= time = 0
 attr 	= S, SA
 damage 	= 120*MAP(P4)+50 + 100 * map(CounterHit), 5

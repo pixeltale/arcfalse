@@ -74,6 +74,7 @@ type  = normal
 spriteno = 0,18
 start = 0, 0
 delta=0.05,0
+mask = 1
 
 [BG bclouds]
 type  = normal
@@ -82,6 +83,7 @@ start = 0, 0
 velocity=-.5,0
 tile=1,0
 delta=0.05,0
+mask = 1
 
 [BG mclouds]
 type  = normal
@@ -90,18 +92,21 @@ start = 0, 0
 velocity=-1,0
 tile=1,0
 delta=0.1,0
+mask = 1
 
 [BG trees]
 type  = normal
 spriteno = 10,0
 start = 0, 0
 delta=0.37,0.05
+mask = 1
 
 
 [BG lightning]
 type  = anim
 actionno=3
 start = 0, 0
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -118,6 +123,7 @@ type  = anim
 actionno=1
 start = 0, 0
 delta=0.4,0.1
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -135,6 +141,7 @@ alpha=256,100
 type  = anim
 actionno=4
 start = 0, 0
+mask = 1
 
 [BG fclouds]
 type  = normal
@@ -143,6 +150,7 @@ start = 0, 0
 velocity=-2,0
 tile=1,0
 delta=0.15,0
+mask = 1
 
 
 [BG backmist]
@@ -154,6 +162,7 @@ tile = 1,0
 trans = add
 alpha = 150,100
 delta=0.5,0
+mask = 1
 
 [BG fmist]
 type  = normal
@@ -164,12 +173,14 @@ tile = 1,0
 trans = add
 alpha = 130,150
 delta=0.5,0
+mask = 1
 
 [BG cliffs]
 type  = normal
 spriteno = 0,13
 start 	= 0, 0
 delta	= 0.6,0.4
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -187,6 +198,7 @@ alpha=256,200
 type  = normal
 spriteno = 0, 3
 start = 0, 0
+mask = 1
 
 [BG rain]
 type  = anim
@@ -195,6 +207,7 @@ start = 0, -5
 trans=add
 alpha = 130,150
 layerno=1
+mask = 1
 
 [BGCtrlDef Heaven]
 looptime = -1

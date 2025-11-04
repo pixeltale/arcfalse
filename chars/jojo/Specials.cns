@@ -124,7 +124,7 @@ envshake.phase 		= 100
 [State 1110, 3]
 type 			= HitDef
 triggerall 		= anim = 1001
-triggerall		= enemy, !map(ArmorActive)
+triggerall		= enemy, map(ArmorActive) = 0
 trigger1 		= !movereversed && !movecontact
 attr 			= S, SA
 getpower 		= 50
@@ -2324,7 +2324,7 @@ yaccel = 0.3
 getpower=0
 [State 610, 3]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = animelem=21
 attr = A, NA
 damage = 100*MAP(P4), 0  
@@ -3667,7 +3667,7 @@ ignorehitpause = 1
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = map(CounterHit) && !movecontact && !movereversed
 attr = S, NA
 animtype  = Light

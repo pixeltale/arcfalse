@@ -1065,7 +1065,7 @@ forceair = 0
 
 [State 0, DestroySelf]
 type = DestroySelf
-trigger1 = time >= 200 && root, !map(Superfrost)
+trigger1 = time >= 200 && root, map(Superfrost) = 0
 trigger2 = root, movetype = H
 trigger3 = root, stateno = 1050 && root, animelemno(0) < 5
 ignorehitpause = 0

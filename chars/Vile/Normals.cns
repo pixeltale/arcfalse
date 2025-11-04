@@ -701,7 +701,7 @@ persistent 		= 0
 
 [State 1055, 5]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !map(CounterHIT) && !movecontact && !movereversed
 hitonce = 1
 attr = S, NA
@@ -737,7 +737,7 @@ yaccel = .27
 
 [State 1055, 5]
 type = HitDef
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = map(CounterHit) && !movecontact && !movereversed
 attr = S, NA
 damage = 150*MAP(P4), 0

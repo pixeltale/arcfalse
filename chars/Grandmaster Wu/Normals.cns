@@ -2594,14 +2594,14 @@ y = 10
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
@@ -2798,14 +2798,14 @@ removeongethit = 0
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
@@ -2995,14 +2995,14 @@ ignorehitpause = 1
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1
@@ -3219,14 +3219,14 @@ value = 1,1
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 2
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.85	;90% Starting DMG
 ignorehitpause 	= 1

@@ -3503,7 +3503,7 @@ value = 1
 
 [State 5001, 6]
 type = ChangeState
-trigger1 = HitOver
+trigger1 = gethitvar(hittime) = -1
 value = 0
 ctrl = 1
 
@@ -5453,7 +5453,7 @@ physics = N
 
 [State 5223, Vel Y] ;Default
 type = VelSet
-trigger1 = enemy, !map(wallbounce_yvel)
+trigger1 = enemy, map(wallbounce_yvel) = 0
 trigger1 = !time
 y = -6
 
@@ -8562,7 +8562,7 @@ value=-1
 
 [State 0, Dynamic Lighting Helper]
 type = Helper
-triggerall = player(9), !numexplod(909090)
+triggerall = player(9), numexplod(909090) = 0
 triggerall = stateno > 3000
 trigger1 = StageConst(DynamicLighting)
 trigger1 = !numhelper(909090)
@@ -9293,7 +9293,7 @@ type = text
 triggerall = teamside = 1
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
+triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
@@ -9314,7 +9314,7 @@ type = text
 triggerall = teamside = 1
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
+triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
@@ -9335,7 +9335,7 @@ type = text
 triggerall = teamside = 2
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
+triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
@@ -9356,7 +9356,7 @@ type = text
 triggerall = teamside = 2
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = (enemy, !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC))
+triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(SlowdownTimeC))
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
@@ -9388,7 +9388,7 @@ value = map(BurstGauge) / 10
 [State 0, Explod] ;Level 1 INDICATOR
 type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
-triggerall = enemy, !isHelper
+triggerall = enemy, isHelper = 0
 trigger1 = movehit = 1
 trigger1 = map(StarterLevel) = 1 && !map(Counterhit_Flag)
 anim = F1020
@@ -9406,7 +9406,7 @@ persistent = 0
 [State 0, Explod] ;Level 2 INDICATOR
 type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
-triggerall = enemy, !isHelper
+triggerall = enemy, isHelper = 0
 trigger1 = movehit = 1
 trigger1 = map(StarterLevel) = 2 && !map(Counterhit_Flag) || map(StarterLevel) = 1 && map(Counterhit_Flag)
 anim = F1021
@@ -9424,7 +9424,7 @@ persistent = 0
 [State 0, Explod] ;Level 3 INDICATOR
 type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
-triggerall = enemy, !isHelper
+triggerall = enemy, isHelper = 0
 trigger1 = movehit = 1
 trigger1 = map(StarterLevel) = 3 && !map(Counterhit_FLag) || map(StarterLevel) = 2 && map(Counterhit_Flag)
 anim = F1022
@@ -9442,7 +9442,7 @@ persistent = 0
 [State 0, Explod] ;Level 4 INDICATOR
 type = Explod
 triggerall = !map(ComboStateCheck) && !numexplod(1020) && !numexplod(1021) && !numexplod(1022) && !numexplod(1023)
-triggerall = enemy, !isHelper
+triggerall = enemy, isHelper = 0
 trigger1 = movehit = 1
 trigger1 = map(StarterLevel) = 4 && !map(Counterhit_Flag) || map(StarterLevel) = 3 && map(Counterhit_Flag)
 anim = F1023
@@ -9485,7 +9485,7 @@ ignorehitpause 	= 1
 persistent 		= 1
 [State 0, Mapadd]
 type 		= MapSet
-trigger1 	    = enemy, !map(BEAM)
+trigger1 	    = enemy, map(BEAM) = 0
 map 		    = "EnemyBeam"
 value 		    = 0
 ignorehitpause 	= 1
@@ -9921,22 +9921,6 @@ v = 21
 value = map(damage)
 ignorehitpause = 1
 
-[State 0, DAMAGE]
-type = text
-triggerall = map(_iksys_trainingAtkDataDisp)
-triggerall = teamside=2
-triggerall = GameMode = "Training"
-trigger1 = 1
-removetime = 1
-layerno = 2
-text = "Damage= %d  Frame Advantage= %d"
-params = var(21),var(20)
-font = F3
-align = 0
-pos = 161,70
-ignorehitpause = 1
-pausemovetime = 100
-
 [State 0, PalFX]
 type = PalFX
 triggerall = gamemode = "Training" && map(_iksys_trainingCtrlDataDisp) = 2 || map(_iksys_trainingCtrlDataDisp) = 3
@@ -9994,22 +9978,6 @@ color = 256
 ignorehitpause = 1
 persistent = 1
 
-[State 0, ENEMYCTRL]
-type = text
-triggerall = map(_iksys_trainingAtkDataDisp)
-triggerall = teamside = 2
-triggerall = GameMode = "Training"
-trigger1 = 1
-removetime = 1
-layerno = 2
-text = "Pressure Gap= %d"
-params = var(49)
-font = F3
-align = 0
-pos = 220,185
-ignorehitpause = 1
-pausemovetime = 100
-
 [State 0, VarSet] ;Gap Varset
 type = VarSet
 triggerall = gameMode = "Training"
@@ -10044,29 +10012,6 @@ trigger1 	= stateno = 0 && time >= 30
 map 		= "AWFreeze"
 value 		= 0
 
-[State 0, Untech Decay]
-type = text
-triggerall = map(_iksys_trainingAtkDataDisp)
-triggerall = teamside = 2
-triggerall = GameMode = "Training"
-trigger1 = 1
-removetime = 1
-layerno = 2
-text = "Untech Time %d"
-params = var(39)
-font = F3
-align = -1
-pos = 150,185
-ignorehitpause = 1
-pausemovetime = 100
-
-[State 0, VarSet] ;Display P1 Value
-type = VarSet
-triggerall = gameMode = "Training"
-trigger1 = 1
-v = 39
-value = enemy, MAP(UntechMOD) * 100
-ignorehitpause = 1
 
 [State 0, AssertSpecial]
 type = AssertSpecial
@@ -10104,23 +10049,6 @@ trigger1 = movetype = I
 v = 35  
 value = 1
 ignorehitpause = 1
-
-[State 0]
-type = text
-triggerall = teamside=2
-triggerall = GameMode = "Training"
-triggerall = !map(TrailerMode)
-trigger1 = 1
-removetime = 1
-layerno = 2  
-text = "-Press Taunt to Toggle-"
-scale = 0.8,0.8
-font = F3
-align = 0
-pos = 160,200
-ignorehitpause = 1
-pausemovetime = 100
-
 
 ;Punish
 ; [State 0, DAMAGE]
@@ -10468,7 +10396,7 @@ map = "CR"
 value = 1
 [State -2, P4 Proration Reset]
 type = MapSet
-trigger1 = enemy, movetype != H
+trigger1 = enemy, movetype != H || enemy, gethitvar(hittime) = -1
 map = "P4"
 value = 1
 [State -2, P2 Limit Reset]
@@ -10595,7 +10523,7 @@ type = Explod
 trigger1 = !numexplod(900)
 trigger1 = map(BurstGauge) >= 1000 && teamside = 1
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = !(enemy, (map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC)))
+triggerall = !(enemy, map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC))
 triggerall = cond(teammode != Tag, playerno = playerno, playerno = teamleader)
 triggerall = !map(TrailerMode) && roundstate = 2
 anim = F905
@@ -10618,7 +10546,7 @@ type = Explod
 trigger1 = !numexplod(900)
 trigger1 = map(BurstGauge) >= 1000 && teamside = 2
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
-triggerall = !(enemy, (map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC)))
+triggerall = !(enemy, map(SlowdownTime) && map(SlowdownTimeB) && map(SlowdownTimeC))
 triggerall = cond(teammode != Tag, playerno = playerno, playerno = teamleader)
 triggerall = !map(TrailerMode) && roundstate = 2
 anim = F906

@@ -66,6 +66,7 @@ type  = normal
 spriteno = 0,5
 start = 0, 0
 delta=.1,.1
+mask = 1
 
 [BG bclouds]
 type  = normal
@@ -74,6 +75,7 @@ start = 0, -10
 delta=.1,.1
 velocity=.3,0
 tile=1,0
+mask = 1
 
 [BG clouds]
 type  = normal
@@ -82,12 +84,14 @@ start = 0, -10
 delta=.15,.15
 velocity=-.3,0
 tile=1,0
+mask = 1
 
 [BG brocks]
 type  = normal
 spriteno = 10, 0
 start = 0, 0
 delta=.3,.3
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -104,6 +108,7 @@ type  = anim
 actionno=3
 start = 0, 0
 delta=.6,.6
+mask = 1
 
 [BG Heaven]
 type  =normal
@@ -120,6 +125,7 @@ alpha=256,100
 [BG rocks]
 type  = normal
 spriteno = 0, 3
+mask = 1
 start = 0, 0
 delta=.8,.8
 
@@ -138,6 +144,7 @@ alpha=256,200
 [BG ground]
 type  = normal
 spriteno = 0, 4
+mask = 1
 start = 0, 0
 
 [BGCtrlDef Heaven]

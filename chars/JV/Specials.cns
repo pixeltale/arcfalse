@@ -100,7 +100,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Beretta Driver
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 triggerall 	= map(chargelvl) = 1
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
@@ -132,7 +132,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Nagant Driver
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 triggerall 	= map(chargelvl) = 2
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
@@ -164,7 +164,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Death
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 triggerall 	= map(chargelvl) = 3 && gamemode != "tag"
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
@@ -197,8 +197,8 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Death (tag)
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
-triggerall 	= map(chargelvl) = 3 && gamemode != "tag"
+triggerall 	= enemy, map(ArmorActive) = 0
+triggerall 	= map(chargelvl) = 3 && gamemode = "tag"
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
 attr 		= S, SA
@@ -1285,7 +1285,7 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 trigger1 = p2dist x < 84
 attr = S, NA                     ;Attribute: Standing, Normal Attack
@@ -1325,7 +1325,7 @@ getpower 		= (100)*(cond(var(var(5)) = 1, 1, .5))
 [State 630, 2] ;Clean Hit
 type = HitDef 
 p2facing 	= 1 
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 trigger1 	= !movecontact && !movereversed
 trigger1	= p2dist x >= 84
 getpower 	= 100
@@ -1595,7 +1595,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall  	= enemy, !map(ArmorActive)
+triggerall  	= enemy, map(ArmorActive) = 0
 triggerall = enemy, statetype = A || enemy, statetype = L
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
@@ -1873,7 +1873,7 @@ guard.ctrltime = 2
 [State 630, 2] ;Clean Hit
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x <= 45 || enemy, !map(ArmorActive)
+triggerall = p2dist x <= 45 || enemy, map(ArmorActive) = 0
 trigger1 = time = 0
 attr = S, SA
 damage = 120*Map(P4)+5, 10
@@ -2134,7 +2134,7 @@ ignorehitpause = 1
 [State 630, 2]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = movecontact = 0 && enemy, statetype = A
 attr = S, NA
 animtype  = Light
@@ -2400,7 +2400,7 @@ ignorehitpause = 1
 [State 630, 2]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = movecontact = 0 && enemy, statetype = A
 attr = S, NA
 animtype  = Light
@@ -2584,7 +2584,7 @@ ignorehitpause = 1
 [State 200, 1]
 type = HitDef 
 p2facing 	= 1
-triggerall  	= enemy, !map(ArmorActive)
+triggerall  	= enemy, map(ArmorActive) = 0
 trigger1 	= time = 0
 trigger1 	= (enemy, statetype != A) && (enemy, statetype != L)
 attr 	= S, NA
@@ -2618,7 +2618,7 @@ getpower = 0
 [State 200, 1]
 type = HitDef 
 p2facing 	= 1
-triggerall  	= enemy, !map(ArmorActive)
+triggerall  	= enemy, map(ArmorActive) = 0
 trigger1 	= time = 0
 trigger1 	= (enemy, statetype = A) || (enemy, statetype = L)
 attr 	= S, NA
@@ -3074,7 +3074,7 @@ ignorehitpause = 1
 [State 630, 2] ;Always Clean Hit
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 hitonce = 1
 attr = S, SA

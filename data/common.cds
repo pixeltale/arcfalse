@@ -432,10 +432,6 @@ time = 1
 name = "CD"
 command = c+d
 time = 1
-[Command]
-name = "DE"
-command = d+e
-time = 1
 
 [Command]
 name = "ABC"
@@ -451,12 +447,6 @@ buffertime = 15
 
 [Command]
 name = "66"
-command = F, n, F
-time = 10
-buffertime = 5
-
-[Command]
-name = "66"
 command = ~F, F
 time = 5
 buffertime = 5
@@ -464,37 +454,22 @@ buffertime = 5
 
 [Command]
 name = "a66"
-command = ~F, F
+command = F, F
 time = 10
-buffertime = 15
-[Command]
-name = "a66"
-command = ~F, n, F
-time = 10
-buffertime = 15
+buffertime = 4
 
 
 [Command]
 name = "44"
 command = B, B
 time = 10
-buffertime = 15
-[Command]
-name = "44"
-command = ~B, n, B
-time = 10
-buffertime = 15
+buffertime = 4
 
 [Command]
 name = "a44"
-command = ~B, B
+command = B, B
 time = 10
-buffertime = 15
-[Command]
-name = "a44"
-command = ~B, n, B
-time = 10
-buffertime = 15
+buffertime = 4
 
 
 [Command]
@@ -502,66 +477,55 @@ name = "28"
 command = $D, U
 time = 10
 buffer.time = 10
-[Command]
-name = "28"
-command = $D, N, U
-time = 10
-buffer.time = 10
+
 [Command]
 name = "29"
 command = $D, UF
 time = 10
 buffer.time = 10
-[Command]
-name = "29"
-command = $D, F, N, U
-time = 10
-buffer.time = 10
+
 [Command]
 name = "29"
 command = $D, DF, F, U
 time = 10
 buffer.time = 10
-[Command]
-name = "29"
-command = $D, DF, F, N, U
-time = 10
-buffer.time = 10
+
 [Command]
 name = "29"
 command = $D, U, F
 time = 10
 buffer.time = 10
+
 [Command]
 name = "29"
 command = $D, F, U
 time = 10
 buffer.time = 10
+
 [Command]
 name = "27"
 command = $D, UB
 time = 10
 buffer.time = 10
+
 [Command]
 name = "27"
 command = $D, U, B
 time = 10
 buffer.time = 10
+
 [Command]
 name = "27"
 command = $D, B, U
 time = 10
 buffer.time = 10
+
 [Command]
 name = "27"
 command = $D, DB, B, U
 time = 10
 buffer.time = 10
-[Command]
-name = "27"
-command = $D, DB, B, N, U
-time = 10
-buffer.time = 10
+
 [Command]
 name = "88"
 command = ~U, U
@@ -897,11 +861,6 @@ time = 6
 [Command]
 name = "MistStep"
 command = ~$F, D, DF
-time = 20
-buffer.time = 15
-[Command]
-name = "MistStep"
-command = ~$F, N, D, DF
 time = 20
 buffer.time = 15
 

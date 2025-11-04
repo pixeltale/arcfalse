@@ -81,14 +81,14 @@ forceair = 0
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 1.1	;95% Starting DMG
 ignorehitpause 	= 1
@@ -284,14 +284,14 @@ ignorehitpause = 1
 ;=========================================
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit = 1 && root, !map(ComboStateCheck)
+trigger1 		= movehit = 1 && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 0.95	;95% Starting DMG
 ignorehitpause 	= 1

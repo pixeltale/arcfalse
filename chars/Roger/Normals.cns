@@ -455,7 +455,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = !map(ArmorActive)
+triggerall = map(ArmorActive) = 0
 trigger1 = animelemno(0) = 6
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
@@ -501,7 +501,7 @@ ignorehitpause = 1
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = animelemno(0) = 6
 trigger1 = map(CounterHit) && !movecontact && !movereversed
 attr = S, NA
@@ -1624,7 +1624,7 @@ persistent 	= 0
 [State 610, 3]
 type 	= HitDef 
 p2facing 	= 1
-triggerall	= enemy, !map(ArmorActive)
+triggerall	= enemy, map(ArmorActive) = 0
 trigger1 	= Time = 0 && (enemynear, stateno!= [5110,5119])
 attr 		= A, NA
 damage 		= 60 * MAP(P4), 0
@@ -2878,7 +2878,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall= enemy, !map(ArmorActive)
+triggerall= enemy, map(ArmorActive) = 0
 triggerall= enemy,movetype!=A
 trigger1 = !movecontact && !movereversed
 attr = S, SA
@@ -2916,7 +2916,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall= enemy, !map(ArmorActive)
+triggerall= enemy, map(ArmorActive) = 0
 triggerall= enemy,movetype=A
 trigger1 = !movecontact && !movereversed
 attr = S, SA
@@ -3109,7 +3109,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall= enemy, !map(ArmorActive)
+triggerall= enemy, map(ArmorActive) = 0
 triggerall=var(25)=0
 triggerall = enemy, movetype!=A 
 trigger1 = !movecontact && !movereversed
@@ -3150,7 +3150,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall= enemy, !map(ArmorActive)
+triggerall= enemy, map(ArmorActive) = 0
 triggerall=var(25)>0
 triggerall = enemy, movetype!=A 
 trigger1 = !movecontact && !movereversed
@@ -3192,7 +3192,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall= enemy, !map(ArmorActive)
+triggerall= enemy, map(ArmorActive) = 0
 triggerall = enemy, movetype=A 
 trigger1 = !movecontact && !movereversed
 attr = S, SA
@@ -3389,7 +3389,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light

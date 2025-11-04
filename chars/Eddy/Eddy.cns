@@ -76,6 +76,9 @@ switchAirAttack = 620 ; ANIM: switch air attack.
 snapBackHit = 5030 ; this is the ANIMATION used when the char get hit by the snapback attack
 StateTagAssistSuper = 1505 ; STATENO: normal assist attack
 StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
+Super1 = 3000
+Super2 = 3010
+Super3 = 3010
 
 ;Default language victory quotes (optional).  **MUGEN 1.0**
 ;If this section is included, the default language victory quotes must be in English.
@@ -1289,7 +1292,7 @@ ignoreHitPause = 1
 type = DisplayToClipboard
 trigger1 = 1
 text = "pbcheck = %f isassist = %f"
-params = map(PBCheck), map(isAssist)
+params = map(_iksys_trainingHoldDir)
 ignorehitpause = 1
 
 ;This controller plays a sound everytime KFM lands from a jump, or

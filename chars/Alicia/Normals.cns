@@ -339,7 +339,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = !map(Float) && enemy, !map(ArmorActive)
+triggerall = !map(Float) && enemy, map(ArmorActive) = 0
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
@@ -378,7 +378,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall = map(Float) && enemy, !map(ArmorActive)
+triggerall = map(Float) && enemy, map(ArmorActive) = 0
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
 animtype  = Heavy
