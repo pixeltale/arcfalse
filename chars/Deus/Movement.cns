@@ -553,11 +553,6 @@ trigger1 = map(FLIPLIMITERLMAO)=0&&vel x<0
 value = 45,0
 volumescale = 100
 persistent=0
-;[State 0, VarAdd]
-;type = VarAdd
-;trigger1 = time =0
-;v = 29     ;fv = 
-;value = -1
 
 [State 0, VarAdd]
 type = MapAdd
@@ -703,6 +698,137 @@ trigger1 = SelfAnimExist(anim + 3)
 trigger1 = anim >= 41 && anim <= 43
 persistent = 0
 value = Anim + 3
+
+
+;---------------------------------------------------------------------------
+;Super Jump Squat
+[Statedef 55] ;Superjumpsquat
+type    = A
+physics = S
+ctrl = 0
+velset = vel x,0
+anim = 40
+
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value =,NT,ST,HT
+time = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = command != "holdback"
+value = 40,0
+volumescale = 200
+persistent=0
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = command = "holdback"
+value = 45,0
+volumescale = 100
+persistent=0
+
+[State -3, Tui Voices]
+type = PlaySnd
+trigger1 = time=0
+value = 1017, (0+(Random%2))
+[State 0, Explod]
+type = Explod
+trigger1 = time = 1
+anim = 6500
+ID = 6500
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 52, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 56
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Super Jump
+[Statedef 56] ;Superjump
+type    = A
+physics = A
+ctrl = 1
+
+
+[State 50, 2]
+type = ChangeAnim
+trigger1 = Time = 0
+value = ifelse((vel x)=0, 42, ifelse((vel x)>0, 42, 43))
+
+[State 50, 2]
+type = ChangeAnim
+trigger1 = animtime=0&&anim!=45
+value = 45
+
+
+[State 0, VarSet]
+type = MapSet
+trigger1 = 1
+map = "FLIPLIMITERLMAO"
+value = cond(anim=43,1,0)
+ignorehitpause = 1
+persistent = 1
+
+
+[state 40, MapSet]
+type = MapSet
+trigger1 = time = 0
+map = "SJI" ;Super Jump Install
+value = 1
+
+
+[State 45, 6]
+type = VelMul
+trigger1 = Time = 5
+y = 0.9
+
+[State 45, 6]
+type = VelSet
+trigger1 = Time = 0
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x)*0.5 + vel x * 0.5, const(velocity.jump.back.x)*0.5))*1.1
+y = -9.5
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 0
+statetype = A       ;S,A,C,L
+movetype = I        ;I,A,H
+physics = A         ;A,C,S,N
+
+[State 1220, Afterimage]
+type = AfterImage
+trigger1 = Time = 0
+length = 15
+TimeGap  = 2
+FrameGap = 1
+Trans = Add
+time = 60
+palbright = 1, 1, 1
+paladd = 25,10,10
+palmul = .75,.65,.65
+palcontrast = 220,120,120
+
 
 ;--------------------------------------
 ;B Air Dash
