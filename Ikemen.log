@@ -2,15 +2,10 @@ Version: nightly
 Build Time: 2025.10.28
 
 Error log:
-.\external\script\start.lua:1691: chars/JenX2/jen.def:
-common1
-open common1: The system cannot find the file specified.
+external/script/main.lua:4329: <game end>
 stack traceback:
-	[G]: in function 'game'
-	.\external\script\start.lua:1691: in function 'f_game'
-	.\external\script\start.lua:2139: in function 'launchFight'
-	external/script/default.lua:2: in function <external/script/default.lua:0>
-	.\external\script\start.lua:1754: in function 'f'
-	external/script/main.lua:3231: in function 'loop'
+	[G]: in function 'refresh'
+	external/script/main.lua:4329: in function 'f_menuCommonDraw'
+	external/script/main.lua:3227: in function 'loop'
 	external/script/main.lua:4525: in main chunk
 	[G]: ?
