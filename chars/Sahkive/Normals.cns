@@ -506,6 +506,7 @@ air.hittime  		= 48-MAP(untechDecay)
 down.hittime 		= 48-MAP(untechDecay)
 ground.velocity 		= -20,-5
 air.velocity 		= -20,-4
+down.velocity		= -20, -6
 airguard.velocity 		= -2.6,-1.8
 air.type 			= high
 p2facing 			= 1
@@ -2565,7 +2566,8 @@ palfx.add = 100, 0,20
 guard.hittime = 5 + map(RChargeTime)
 guard.slidetime = 5 + map(RChargeTime)
 guard.ctrltime = 5 + map(RChargeTime)
-air.cornerpush.veloff = -26 * map(UntechMod)*2
+ground.cornerpush.veloff = -2
+air.cornerpush.veloff = -8 * map(UntechMod)*2
 getpower = 40*var(2)
 
 [State 410, 2]

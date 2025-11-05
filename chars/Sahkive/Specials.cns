@@ -528,8 +528,8 @@ fall = 0
 forcenofall = 1
 air.fall = 1
 forcestand = 1
-ground.cornerpush.veloff = -7
-air.cornerpush.veloff = -7
+ground.cornerpush.veloff = -2
+air.cornerpush.veloff = -2
 getpower = 25
 kill = 0
 
