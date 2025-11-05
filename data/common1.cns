@@ -8551,6 +8551,15 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = statetype = L
+value = 1.25
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = statetype != L
+value = 1
+
 ;silly tag stuff that appeals to me specifically (cuses </3)
 [State -2, round start assist] 
 type = teamMapSet
