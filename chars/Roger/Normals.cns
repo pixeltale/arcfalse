@@ -1245,20 +1245,20 @@ x = 4.35
  ;============================
 [State -2, Starter Level]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
 value 		=  3
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
-trigger1 		= movehit && !map(ComboTimer)
+trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
 value 		=  1.1	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
-trigger1 		= movehit && map(ComboTimer)
+trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
 value 		=  0.95	;80% DMG For next hit
 ignorehitpause 	= 1
@@ -1528,6 +1528,7 @@ ground.slidetime = 12
 ground.hittime  = 24 * map(UntechMod)
 air.hittime  = 29 * map(UntechMod)
 down.hittime = 26 * map(UntechMod)
+guard.ctrltime = 10
 ground.velocity = -6
 air.velocity = -1,-2;
 envshake.time = 8
@@ -1652,7 +1653,7 @@ fall 		= 1
 air.fall 	= 1
 fall.yvelocity 	= 0
 guard.velocity 	= -4
-guard.ctrltime 	= 17
+guard.ctrltime 	= 10
 guard.hittime 	= 20
 p2stateno 	= 5255
 p2getp1state 	= 0

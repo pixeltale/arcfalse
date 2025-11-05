@@ -99,7 +99,7 @@ air.fall		= 1
 air.type 		= High
 air.velocity 	= -1.4,-3
 guard.ctrltime 	= 8
-ground.cornerpush.veloff = -8 / map(untechMOD)
+ground.cornerpush.veloff = -4 / map(untechMOD)
 getpower 		= (30)*(cond(var(var(5)) = 1, 1, .5)) 
 
 [State 0, ChangeState]
@@ -199,7 +199,7 @@ envshake.phase 	= 1
 fall.envshake.time 	= 0
 guard.ctrltime 	= 16
 air.fall 		= 1
-ground.cornerpush.veloff = -6
+ground.cornerpush.veloff = -3.5
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 210, 4]
@@ -302,7 +302,7 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 14
-guard.cornerpush.veloff = -10
+guard.cornerpush.veloff = -4.5
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 
 [State 210, 2]
@@ -336,7 +336,7 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 16
-ground.cornerpush.veloff = -10 / map(untechMOD)
+ground.cornerpush.veloff = -5.5 / map(untechMOD)
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 
 [State 210, 4]
@@ -489,7 +489,7 @@ envshake.ampl = 2
 envshake.phase = 1
 guard.velocity = -5
 guard.ctrltime = 12
-guard.cornerpush.veloff = -10
+guard.cornerpush.veloff = -5.5
 air.fall 		= 1
 forcenofall = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
@@ -523,7 +523,7 @@ envshake.ampl = 2
 envshake.phase = 1
 guard.velocity = -5
 guard.ctrltime = 12
-guard.cornerpush.veloff = -10
+guard.cornerpush.veloff = -5.5
 air.fall 		= 1
 forcenofall = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
@@ -653,7 +653,7 @@ down.hittime 	= 20 * map(UntechMod)
 ground.velocity 	= -3
 air.velocity 	= -1.5,-3
 guard.ctrltime 	= 8
-ground.cornerpush.veloff = -8 / map(untechMOD)
+ground.cornerpush.veloff = -4.5 / map(untechMOD)
 air.fall 		= 1
 getpower 		= (20)*(cond(var(var(5)) = 1, 1, .5)) 
 
@@ -817,7 +817,7 @@ envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 14
-ground.cornerpush.veloff = -10 / map(untechMOD)
+ground.cornerpush.veloff = -5.5 / map(untechMOD)
 forcenofall = 0
 getpower = (50)*(cond(var(var(2)) = 1, 1, 1))
 
@@ -3672,7 +3672,7 @@ guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 45
-guard.hittime = 30
+guard.ctrltime = 10
 air.hittime  = 25 * root, map(untechMOD)
 ground.velocity = -3,-6
 air.velocity = -3,-6
@@ -3779,7 +3779,7 @@ guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 45
-guard.hittime = 30
+guard.ctrltime = 10
 air.hittime  = 15 * root, map(untechMOD)
 ground.velocity = -3,-6
 air.velocity = -3,-6
@@ -3886,7 +3886,7 @@ guardsound = 6,0
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 45
-guard.hittime = 30
+guard.ctrltime = 10
 air.hittime  = 20  * root, map(untechMOD)
 ground.velocity = -3,-6
 air.velocity = -3,-8

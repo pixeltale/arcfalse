@@ -1291,8 +1291,8 @@ ignoreHitPause = 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "pbcheck = %f isassist = %f"
-params = map(_iksys_trainingHoldDir)
+text = "bguardpen = %f"
+params = map(bguard_penalty)
 ignorehitpause = 1
 
 ;This controller plays a sound everytime KFM lands from a jump, or

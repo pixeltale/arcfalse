@@ -497,579 +497,6 @@ type = CtrlSet
 trigger1 = time
 value = 1
 
-;======================================================================================
-;PARRY SECTION                                                                       []
-;=====================================================================================
-
-;Stand Parry
-[Statedef 700]
-type = S
-physics = S
-movetype = I
-anim = 700;702+random%3
-velset = 0, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 78
-facep2 = 1
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = !animtime
-value = 1
-
-[State 0, Explod]
-type = Explod
-trigger1 = time = 0
-anim = 706
-ID = 706
-pos = 0,-61
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = .6,.6
-sprpriority = 0
-ontop = 1
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-ignorehitpause = 1
-pausemovetime = 22
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-
-
-[State 700, Stop]
-type = posfreeze
-trigger1 = 1
-value = 1
-
-[State 700, Pause]
-type = pause
-trigger1 = !time
-time = 8
-movetime = 4
-endcmdbuftime = 8
-pausebg = 1
-darken = 100
-
-[State 700, Pause]
-type = pause
-trigger1 = !time && numenemy
-trigger1 = (enemynear, movehit = 1)
-time = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-movetime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-endcmdbuftime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-pausebg = 1
-
-[State 700, Flash]
-type = palfx
-trigger1 = !time
-add = 0, 50, 255
-sinadd = 0, -50, -255, 60
-time = 15
-
-
-[State 700, Spark]
-type = explod
-trigger1 = animelem = 2
-anim = 7200
-ID = 7200
-sprpriority = 5
-postype = p1
-pos = 15, -71
-pausemovetime = 60
-ownpal = 1
-scale = 0.5, 0.5
-
-[State 700, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
-
-[State 700, End]
-type = changestate
-trigger1 = animtime = 0
-value = 0
-ctrl = 1
-
-
-;Crouch parry
-[Statedef 701]
-type = C
-physics = C
-movetype = I
-anim = 705
-velset = 0, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 78
-facep2 = 1
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = !animtime
-value = 1
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S37, 2
-
-[State 700, HB]
-type = hitby
-trigger1 = 1
-value = SCA, AT
-time = 1
-[State 700, Stop]
-type = posfreeze
-trigger1 = 1
-value = 1
-
-[State 701, Pause]
-type = pause
-trigger1 = !time
-time = 15
-movetime = 15
-endcmdbuftime = 15
-pausebg = 0
-[State 701, Pause]
-type = pause
-trigger1 = !time && numenemy
-trigger1 = (enemynear, movehit = 1)
-time = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-movetime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-endcmdbuftime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-pausebg = 0
-
-[State 701, Flash]
-type = palfx
-trigger1 = !time
-add = 0, 50, 255
-sinadd = 0, -50, -255, 60
-time = 15
-
-[State 701, Snd]
-type = playsnd
-trigger1 = !time
-value = S37, 2
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-[State 701, Spark]
-type = explod
-trigger1 = animelem = 2
-anim = 7200
-ID = 7200
-sprpriority = 5
-postype = p1
-pos = 49, -21
-pausemovetime = 60
-ownpal = 1
-scale = 0.5, 0.5
-
-[State 701, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
-[State 701, End]
-type = changestate
-trigger1 = !animtime
-value = 11
-ctrl = 1
-
-;Air Parry
-[Statedef 702]
-type = A
-physics = A
-movetype = I
-anim = 710
-ctrl = 0
-sprpriority = 2
-poweradd = 78
-facep2 = 1
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = !animtime
-value = 1
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S37, 2
-
-[State 702, HB]
-type = hitby
-trigger1 = time < 15
-value = SCA, AT
-time = 1
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 1
-[State 702, Pause]
-type = pause
-trigger1 = !time
-time = 15
-movetime = 15
-endcmdbuftime = 15
-pausebg = 0
-[State 702, Pause]
-type = pause
-trigger1 = !time && numenemy
-trigger1 = (enemynear, movehit = 1)
-time = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-movetime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-endcmdbuftime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-pausebg = 0
-
-[State 702, Type]
-type = statetypeset
-trigger1 = time < 15
-physics = A
-[State 702, Stop]
-type = posfreeze
-trigger1 = time < 15
-value = 1
-
-[State 702, Vel]
-type = velset
-trigger1 = time = 15
-x = ifelse(vel x > 2, 2, ifelse(vel x < -2, -2, vel x))
-y = ifelse(vel y < -1, vel y, -1)
-[State 702, Type]
-type = statetypeset
-trigger1 = time >= 15
-physics = A
-[State 702, Ctrl]
-type = ctrlset
-trigger1 = time >= 15
-value = 1
-
-[State 702, Flash]
-type = palfx
-trigger1 = !time
-add = 0, 64, 255
-sinadd = 0, -64, -255, 60
-time = 15
-
-[State 702, Snd]
-type = playsnd
-trigger1 = !time
-value = s37, 2
-[State 702, Spark]
-type = explod
-trigger1 = animelem = 2
-anim = 7200
-ID = 7200
-sprpriority = 5
-postype = p1
-pos = 33, -48
-pausemovetime = 60
-ownpal = 1
-scale = 0.5, 0.5
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = animtime= 0
-value =69000
-ctrl = 1
-;---------------------------------------------------------------------------
-; Stand RED Parry
-[Statedef 703]
-type = S
-physics = S
-movetype = I
-anim = 700;702+random%3
-velset = 0, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 200
-facep2 = 1
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = animelem = 3
-value = 1
-
-
-[State 0, Explod]
-type = Explod
-trigger1 = time=0
-anim = 706
-ID = 706
-pos = 0,-61
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = .6,.6
-sprpriority = 0
-ontop = 1
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-ignorehitpause =1
-;persistent =
-;supermove = 0
-pausemovetime = 22
-
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-
-
-[State 700, Stop]
-type = posfreeze
-trigger1 = 1
-value = 1
-
-[State 700, Pause]
-type = pause
-trigger1 = !time
-time = 8
-movetime = 4
-endcmdbuftime = 8
-pausebg = 0
-
-[State 700, Pause]
-type = pause
-trigger1 = !time && numenemy
-trigger1 = (enemynear, movehit = 1)
-time = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-movetime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-endcmdbuftime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-pausebg = 0
-
-[State 700, Flash]
-type = palfx
-trigger1 = !time
-add = 255, 50, 0
-sinadd = -255, -50, 0, 60
-time = 15
-
-
-[State 700, Spark]
-type = explod
-trigger1 = animelem = 2
-anim = 7200
-ID = 7200
-sprpriority = 5
-postype = p1
-pos = 15, -71
-pausemovetime = 60
-ownpal = 1
-scale = 0.5, 0.5
-
-[State 700, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
-
-[State 700, End]
-type = changestate
-trigger1 = animtime = 0
-value = 0
-ctrl = 1
-
-
-;Crouch RED parry
-[Statedef 704]
-type = C
-physics = C
-movetype = I
-anim = 705
-velset = 0, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 200
-facep2 = 1
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = animelem = 3
-value = 1
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S37, 2
-
-[State 700, HB]
-type = hitby
-trigger1 = 1
-value = SCA, AT
-time = 1
-[State 700, Stop]
-type = posfreeze
-trigger1 = 1
-value = 1
-
-[State 701, Pause]
-type = pause
-trigger1 = !time
-time = 15
-movetime = 15
-endcmdbuftime = 15
-pausebg = 0
-[State 701, Pause]
-type = pause
-trigger1 = !time && numenemy
-trigger1 = (enemynear, movehit = 1)
-time = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-movetime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-endcmdbuftime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-pausebg = 0
-
-[State 701, Flash]
-type = palfx
-trigger1 = !time
-add = 255, 50, 0
-sinadd = -255, -50, 0, 60
-time = 15
-
-[State 701, Snd]
-type = playsnd
-trigger1 = !time
-value = S37, 2
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-[State 701, Spark]
-type = explod
-trigger1 = animelem = 2
-anim = 7200
-ID = 7200
-sprpriority = 5
-postype = p1
-pos = 49, -21
-pausemovetime = 60
-ownpal = 1
-scale = 0.5, 0.5
-
-[State 701, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
-[State 701, End]
-type = changestate
-trigger1 = !animtime
-value = 11
-ctrl = 1
-
-;Air RED Parry
-[Statedef 705]
-type = A
-physics = A
-movetype = I
-anim = 710
-ctrl = 0
-sprpriority = 2
-poweradd = 200
-facep2 = 1
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = animelem = 3
-value = 1
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S37, 2
-
-[State 702, HB]
-type = hitby
-trigger1 = time < 15
-value = SCA, AT
-time = 1
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 1
-[State 702, Pause]
-type = pause
-trigger1 = !time
-time = 15
-movetime = 15
-endcmdbuftime = 15
-pausebg = 0
-[State 702, Pause]
-type = pause
-trigger1 = !time && numenemy
-trigger1 = (enemynear, movehit = 1)
-time = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-movetime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-endcmdbuftime = ifelse((enemynear, hitpausetime = [0, 15]), 15 -(enemynear, hitpausetime), 0)
-pausebg = 0
-
-[State 702, Type]
-type = statetypeset
-trigger1 = time < 15
-physics = A
-[State 702, Stop]
-type = posfreeze
-trigger1 = time < 15
-value = 1
-
-[State 702, Vel]
-type = velset
-trigger1 = time = 15
-x = ifelse(vel x > 2, 2, ifelse(vel x < -2, -2, vel x))
-y = ifelse(vel y < -.7, vel y, -1)
-[State 702, Type]
-type = statetypeset
-trigger1 = time >= 15
-physics = A
-[State 702, Ctrl]
-type = ctrlset
-trigger1 = time >= 15
-value = 1
-
-[State 702, Flash]
-type = palfx
-trigger1 = !time
-add = 255, 64, 0
-sinadd = -255, -64, 0, 60
-time = 15
-
-[State 702, Snd]
-type = playsnd
-trigger1 = !time
-value = s37, 2
-[State 702, Spark]
-type = explod
-trigger1 = animelem = 2
-anim = 7200
-ID = 7200
-sprpriority = 5
-postype = p1
-pos = 33, -48
-pausemovetime = 60
-ownpal = 1
-scale = 0.5, 0.5
-
-[State 0,   ChangeState]
-type        = ChangeState
-trigger1    = animtime= 0
-value       = 69000
-ctrl = 1
-
 ;---------------------------------------------------------------------------
 ;Throw
 [Statedef 800]
@@ -2053,6 +1480,161 @@ trigger3 = enemynear,hitdefattr=SCA,AT
 value = 140
 
 ;-------------------------------------------------------------------------------
+;BLUELINE GUARD
+[Statedef 135]
+type = S
+physics = S
+velset = 0
+
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+trigger1 = 1
+map = "BGuard"
+value = 1
+
+[State 130, Anim]
+type = changeanim
+trigger1 = anim!=130
+value = 130
+[State 130, AI fix]
+type = ctrlset
+trigger1 = AILevel && numenemy
+value = (enemynear,time>=120 || time>=180)
+[State 130, High to Low]
+type = changestate
+trigger1 = !AILevel && command = "holddown" && command = "HOLD_F"
+trigger2 = AILevel && ceil(random<(200*(AILevel**2/64.0)));(random<200+(15*var(54)))
+trigger2 = (enemynear,movetype=A) && (enemynear,statetype=C)
+value = 136
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+[State 130, Stop Guarding]
+type = changestate
+trigger1 = command != "HOLD_F" || command != "holdback"
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+;BLUELINE GUARD (CROUCHING)
+[Statedef 136]
+type = C
+physics = C
+
+[State 0, GEAR DECREASE]
+type 		= MapAdd
+trigger1 	= 1
+map 		= "GEAR.GAUGE"
+value 		= -1
+
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+trigger1 = 1
+map = "BGuard"
+value = 1
+
+[State 131, Anim]
+type = changeanim
+trigger1 = anim!=131
+value = 131
+[State 131, Low to High]
+type = changestate
+trigger1 = !AILevel && command != "holddown" && command = "HOLD_F"
+trigger2 = AILevel && ceil(random<(100*(AILevel**2/64.0)));(random<100+(20*var(54)))   
+trigger2 = (enemynear,movetype=A) && (enemynear,statetype!=C)
+value = 130
+[State 131, AI fix]
+type = ctrlset
+trigger1 = AILevel && numenemy
+value = (enemynear,time>=150 || time>=180)
+[State 131, Stop Guarding]
+type = changestate
+trigger1 = command != "HOLD_F" || command != "holdback"
+value = 11
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;BLUELINE GUARD (AIR)
+[Statedef 137]
+type = A
+physics = A
+
+[State 0, GEAR DECREASE]
+type 		= MapAdd
+trigger1 	= 1
+map 		= "GEAR.GAUGE"
+value 		= -1
+
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+trigger1 = 1
+map = "BGuard"
+value = 1
+
+[State 132, Anim]
+type = changeanim
+trigger1 = anim!=132
+value = 152
+[State 132, Var]
+type = varset
+trigger1 = 1
+sysvar(0) = (pos y>=0 && vel y>0)
+[State 132, Vel]
+type = velset
+trigger1 = sysvar(0)
+y = 0
+[State 132, Pos]
+type = posset
+trigger1 = sysvar(0)
+y = 0
+[State 132, AI fix]
+type = ctrlset
+trigger1 = AILevel && numenemy
+value = (enemynear,time>=150 || time>=180)
+[State 132, End]
+type = changestate
+trigger1 = sysvar(0) && InGuardDist
+trigger1 = command != "BLUELINE GUARD"
+value = 130
+[State 132, End]
+type = changestate
+trigger1 = sysvar(0)
+value = 52
+[State 132, stop guarding]
+type = changestate
+trigger1 = command != "HOLD_F"
+value = 50
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;BLUELINE Guard Helper
+[Statedef 138]
+type = U
+physics = N
+anim = F42
+sprpriority = 10
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 10
+add = -200,50,240
+persistent = 1
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+x = root, pos x + 10
+y = root, pos y -40
+ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = !animtime || root, movetype != H
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------
 ;GUARD (end)
 [Statedef 140]
 type = U
@@ -2105,6 +1687,14 @@ movetype = H
 physics = N
 velset = 0,0
 facep2 = 1
+
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+triggerall = !map(GC)
+trigger1 = prevstateno != [135,137] && command != "HOLD_F"
+map = "BGuard"
+value = 0
+
 [State 150, Anim]
 type = changeanim
 trigger1 = 1
@@ -2126,49 +1716,16 @@ trigger1 = time = 1 && map(IBTimer)
 map = "IBTimer"
 value = 0
 
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = !time
-map = "PBCheck"
-value = 0
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = numhelper(99149)
-map = "PBCheck"
-value = 1
-ignorehitpause = 1
-
-[State 0, Helper]
-type = Helper
-triggerall = command != "holdfwd" && command != "fwd"
-triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
-trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
-helpertype = normal ;player
-name = "pushblock"
-ID = 99149
-stateno = 99149
-pos = 20,0
-size.height = 500
-postype = p2
-facing = 1
-keyctrl = 0
-ownpal = 0
-supermovetime = 0
-pausemovetime = 0
-
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = enemy,Map(GC)=1 && enemy,movecontact
+trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
 value = 5275
 
-;Guard Cancel
-; [State 0, Guard Cancel]
-; type = ChangeState
-; triggerall = command = "AB"
-; triggerall = command = "holdfwd"
-; trigger1 = statetype = S
-; helpertype = normal
-; value = 4008
+[State 0, MapSet] ;Regain ctrl frame
+type = MapSet
+trigger1 = !time
+map = "CtrlTime_set"
+value = gethitvar(ctrltime)
 
 [State 150, End]
 type = changestate
@@ -2197,6 +1754,17 @@ movetype = H
 physics = S
 anim = 150
 
+[State 0, MapSet] ;Activate Blueline Guard During Blockstun
+type = MapSet
+triggerall = !map(GC)
+trigger1 = time && command = "HOLD_F" && command = "holdback"
+map = "BGuard"
+value = 1
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+trigger1 = !time
+map = "BGuard_Penalty"
+value = map(BGuard)
 
 [State 151, Vel]
 type = posset
@@ -2204,26 +1772,20 @@ trigger1 = !time
 y = 0
 
 [State 151, Vel]
-type = hitvelset
+type = VelSet
 trigger1 = !time
-x = 1
+x = gethitvar(xvel) * facing * map(BGuard_SlideMul)
+
 [State 151, Vel]
 type = velset
 trigger1 = time = gethitvar(slidetime)
-trigger2 = hitover
+trigger2 = abs(vel x) < 0.5 && map(BGuard_Slidemul)
 x = 0
 
 [State 151, Ctrl]
 type = ctrlset
-triggerall = !map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0)
-value = 1
-ignorehitpause = 0
-persistent = 0
-[State 151, Ctrl]
-type = ctrlset
-triggerall = map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) + 5
+triggerall = prevstateno != 155
+trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 2 - 2 * map(BGuard_Penalty), -2 * map(BGuard_Penalty))
 value = 1
 ignorehitpause = 0
 persistent = 0
@@ -2245,7 +1807,7 @@ physics = S
 
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = enemy,Map(GC)=1 && enemy,movecontact
+trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
 value = 5275
 
 [State 151, End]
@@ -2267,6 +1829,12 @@ type=changeanim
 trigger1= 1
 value=151
 
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+triggerall = !map(GC)
+trigger1 = prevstateno != [135,137] && command != "HOLD_F"
+map = "BGuard"
+value = 0
 
 [State 0, MapSet] ;Instant Block Check
 type = MapSet
@@ -2280,40 +1848,9 @@ trigger1 = time = 1 && map(IBTimer)
 map = "IBTimer"
 value = 0
 
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = !time
-map = "PBCheck"
-value = 0
-ignorehitpause = 1
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = numhelper(99149)
-map = "PBCheck"
-value = 1
-ignorehitpause = 1
-
-[State 0, Helper]
-type = Helper
-triggerall = command != "holdfwd" && command != "fwd"
-triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
-trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
-helpertype = normal ;player
-name = "pushblock"
-ID = 99149
-stateno = 99149
-pos = 20,0
-size.height = 500
-postype = p2    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 0
-supermovetime = 0
-pausemovetime = 0
-
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = enemy,Map(GC)=1 && enemy,movecontact
+trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
 value = 5275
 
 ;Guard Cancel
@@ -2352,10 +1889,23 @@ type=C
 movetype=H
 physics=C
 anim=151
-[State 153, Vel]
-type=hitvelset
-trigger1= !time
-x=1
+
+[State 0, MapSet] ;Activate Blueline Guard During Blockstun
+type = MapSet
+triggerall = !map(GC)
+trigger1 = time && command = "HOLD_F" && command = "holdback"
+map = "BGuard"
+value = 1
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+trigger1 = !time
+map = "BGuard_Penalty"
+value = map(BGuard)
+
+[State 151, Vel]
+type = VelSet
+trigger1 = !time
+x = gethitvar(xvel) * facing * map(BGuard_SlideMul)
 
 
 [State 153, Vel]
@@ -2366,15 +1916,7 @@ x = 0
 
 [State 151, Ctrl]
 type = ctrlset
-triggerall = !map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 3, 0)
-value = 1
-ignorehitpause = 0
-persistent = 0
-[State 151, Ctrl]
-type = ctrlset
-triggerall = map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) + 5
+trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 2 - 2 * map(BGuard_Penalty), -2 * map(BGuard_Penalty))
 value = 1
 ignorehitpause = 0
 persistent = 0
@@ -2396,7 +1938,7 @@ physics=S
 
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = enemy,Map(GC)=1 && enemy,movecontact
+trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
 value = 5275
 
 [State 153, End]
@@ -2417,6 +1959,12 @@ type=changeanim
 trigger1= 1
 value=152
 
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
+trigger1 = prevstateno != [135,137]
+map = "BGuard"
+value = 0
+
 [State 0, Turn]
 type = Turn
 trigger1 = !time
@@ -2434,37 +1982,10 @@ trigger1 = time = 1 && map(IBTimer)
 map = "IBTimer"
 value = 0
 
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = !time
-map = "PBCheck"
-value = 0
-ignorehitpause = 1
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = numhelper(99149)
-map = "PBCheck"
-value = 1
-ignorehitpause = 1
-
-[State 0, Helper]
-type = Helper
-triggerall = command != "holdfwd" && command != "fwd"
-triggerall = enemy, hitdefattr = SCA, NA, SA, HA, NT, ST, HT
-trigger1 = (Command = "pushblock") && !numhelper(99149) && !map(PBCheck)
-helpertype = normal ;player
-name = "pushblock"
-ID = 99149
-stateno = 99149
-pos = 20,0
-size.height = 500
-postype = p2    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 0
-supermovetime = 0
-pausemovetime = 0
-
+[State 0, Changestate] ;Guard Crush
+type = Changestate
+trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
+value = 5240
 
 [State 154, End]
 type=changestate
@@ -2479,28 +2000,32 @@ movetype=H
 physics=N
 anim=152
 
-[State 155, Vel]
-type = hitvelset
+[State 0, MapSet] ;Activate Blueline Guard During Blockstun
+type = MapSet
+triggerall = !map(GC)
+trigger1 = time && command = "HOLD_F" && command = "holdback"
+map = "BGuard"
+value = 1
+[State 0, MapSet] ;Blueline Guard Check
+type = MapSet
 trigger1 = !time
-x = 1
-y = 1
+map = "BGuard_Penalty"
+value = map(BGuard)
+
+[State 151, Vel]
+type = VelSet
+trigger1 = !time
+x = gethitvar(xvel) * facing * map(BGuard_SlideMul)
+y = gethitvar(yvel)
 
 [State 155, Vel]
 type = veladd
 trigger1 = 1
-y = 0.4 + 0.2*(pos y > -10) 
+y = 0.4 + 0.2*(pos y > -10)  - 0.1 *(map(GC))
 
 [State 151, Ctrl]
 type = ctrlset
-triggerall = !map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) + 2 - cond(map(IBCheck), 3, 0)
-value = 1
-ignorehitpause = 0
-persistent = 0
-[State 151, Ctrl]
-type = ctrlset
-triggerall = map(PBCheck)
-trigger1 = time = gethitvar(ctrltime) + 2 + 5
+trigger1 = time = gethitvar(ctrltime) - cond(map(IBCheck), 2 - 2 * map(BGuard_Penalty), -2 * map(BGuard_Penalty))
 value = 1
 ignorehitpause = 0
 persistent = 0
@@ -2518,6 +2043,11 @@ type=posset
 trigger1= sysvar(0)
 y=0
 
+[State 0, Changestate] ;Guard Crush
+type = Changestate
+trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
+value = 5240
+
 [State 155, End]
 type = changestate
 trigger1 = sysvar(0) && inguarddist
@@ -2527,6 +2057,7 @@ value = 130
 type = changestate
 trigger1 = sysvar(0)
 value = 52
+
 
 ;---------------------------------------------------------------------------
 ; Lose (time over)
@@ -2593,319 +2124,6 @@ ctrl = 0
 type = ChangeState
 trigger1 = Time = 0
 value = 0
-
-;======================================================================================
-;PARRY SECTION                                                                       []
-;=====================================================================================
-
-;Stand Parry Attempt
-[Statedef 700]
-type = S
-physics = S
-movetype = I
-anim = 700
-velset = vel x, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 0
-facep2 = 1
-
-[State 1300, 2]
-type = ReversalDef
-triggerall = enemy,Map(Low)!=1
-trigger1 = Time = [1,7]
-reversal.attr = SCA,AA
-pausetime = 0,0
-sparkno = 40
-sparkxy = 40,0
-hitsound = 6,0
-p1stateno = 710
-p1sprpriority = 2 ;Set P1's sprite in front of P2's
-p2sprpriority = 1
-
-[State 700, Changestate]
-type = Changestate 
-trigger1 = time = 20
-value = 0
-ctrl = 1
-
-
-;Standing Parry Success
-[Statedef 710]
-type = S
-physics = S
-movetype = I
-anim = 710
-velset = vel x, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 78
-facep2 = 1
-
-[State 0, MapSet] ;Is Style Active?
-type = MapSet
-trigger1 = time = 0
-map = "StyleActive"
-value = 1
-[State 0, MapSet] ;Style Reset
-type = MapSet
-trigger1 = time = 0
-map = "StyleTime"
-value = 120
-[State 0, MapSet] ;Style Gain
-type = MapAdd
-trigger1 = time = 0
-map = "StyleGain"
-value = 50
-
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = time = 5
-ignorehitpause = 1
-value = 1
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-
-
-[State 700, Stop]
-type = posfreeze
-trigger1 = 1
-value = 1
-
-[State 700, Pause]
-type = pause
-trigger1 = time = 0
-time = 10
-persistent = 0
-pausebg = 0
-
-[State 700, Flash]
-type = palfx
-trigger1 = time = 1
-ignorehitpause = 1
-add = 255, 30, 0
-sinadd = 255, -30, 0, 60
-time = 15
-
-[State 700, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
-
-[State 700, End]
-type = changestate
-trigger1 = animtime = 0
-value = 0
-ctrl = 1
-
-
-;Crouch parry (Attempt)
-[Statedef 701]
-type = C
-physics = C
-movetype = I
-anim = 701
-velset = vel x, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 78
-facep2 = 1
-
-[State 1300, 2]
-type = ReversalDef
-triggerall = enemy,Map(Overhead)!=1
-trigger1 = Time = [1,7]
-reversal.attr = SCA,AA
-pausetime = 0,0
-sparkno = 40
-sparkxy = 40,0
-hitsound = 6,0
-p1stateno = 711
-p1sprpriority = 2 ;Set P1's sprite in front of P2's
-p2sprpriority = 1
-
-[State 700, Changestate]
-type = Changestate 
-trigger1 = time = 20
-value = 11
-ctrl = 1
-
-;Crouch Parry (Success)
-[Statedef 711]
-type = C
-physics = C
-movetype = I
-anim = 711
-velset = vel x, 0
-ctrl = 0
-sprpriority = 2
-poweradd = 78
-facep2 = 1
-
-[State 0, MapSet] ;Is Style Active?
-type = MapSet
-trigger1 = time = 0
-map = "StyleActive"
-value = 1
-[State 0, MapSet] ;Style Reset
-type = MapSet
-trigger1 = time = 0
-map = "StyleTime"
-value = 120
-[State 0, MapSet] ;Style Gain
-type = MapAdd
-trigger1 = time = 0
-map = "StyleGain"
-value = 50
-
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = time = 5
-ignorehitpause = 1
-value = 1
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-
-
-[State 700, Stop]
-type = posfreeze
-trigger1 = 1
-value = 1
-
-[State 700, Pause]
-type = pause
-trigger1 = time = 0
-time = 10
-persistent = 0
-pausebg = 0
-
-[State 700, Flash]
-type = palfx
-trigger1 = time = 1
-ignorehitpause = 1
-add = 255, 30, 0
-sinadd = 255, -30, 0, 60
-time = 15
-
-[State 700, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
-
-[State 700, End]
-type = changestate
-trigger1 = animtime = 0
-value = 11
-ctrl = 1
-
-;Air Parry
-[Statedef 702]
-type = A
-physics = A
-movetype = I
-anim = 702
-velset = vel x, vel y
-ctrl = 0
-sprpriority = 2
-poweradd = 0
-facep2 = 1
-
-[State 1300, 2]
-type = ReversalDef
-trigger1 = Time = [1,7]
-reversal.attr = SCA,AA
-pausetime = 0,0
-sparkno = 40
-sparkxy = 40,0
-hitsound = 6,0
-p1stateno = 712
-p1sprpriority = 2 ;Set P1's sprite in front of P2's
-p2sprpriority = 1
-
-[State 700, Changestate]
-type = Changestate 
-trigger1 = time = 20
-value = 50
-ctrl = 1
-
-;Air Parry (Success)
-[Statedef 712]
-type = A
-physics = A
-movetype = I
-anim = 712
-ctrl = 0
-velset = vel x, vel y*.5-2
-sprpriority = 2
-poweradd = 78
-facep2 = 1
-
-[State 0, MapSet] ;Is Style Active?
-type = MapSet
-trigger1 = time = 0
-map = "StyleActive"
-value = 1
-[State 0, MapSet] ;Style Reset
-type = MapSet
-trigger1 = time = 0
-map = "StyleTime"
-value = 120
-[State 0, MapSet] ;Style Gain
-type = MapAdd
-trigger1 = time = 0
-map = "StyleGain"
-value = 50
-
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = time = 5
-ignorehitpause = 1
-value = 1
-
-[State 700, Snd]
-type = playsnd
-trigger1 = !time
-value = S6700, 0
-
-[State 700, Pause]
-type = pause
-trigger1 = time = 0
-time = 10
-persistent = 0
-pausebg = 0
-
-[State 700, Flash]
-type = palfx
-trigger1 = time = 1
-ignorehitpause = 1
-add = 255, 30, 0
-sinadd = 255, -30, 0, 60
-time = 15
-
-[State 700, No walking]
-type = assertspecial
-trigger1 = 1
-flag = nowalk
-
-[State 702, Type]
-type = statetypeset
-trigger1 = 0
-physics = A
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = animtime= 0
-value = 50
-ctrl = 1
 
 ;---------------------------------------------------------------------------
 ;Burst Mechanic
@@ -8415,6 +7633,30 @@ triggerall = command = "M44"
 trigger1 = prevstateno != [200,230]
 trigger1 = (stateno = [200,230] && time < 4) && !movecontact
 
+;BLUELINE GUARD (STANDING)
+[State -1, BLUELINE GUARD]
+type = ChangeState
+value = 135
+triggerall = power > 0 && statetype != A
+triggerall = command = "BLUELINE GUARD" || map(BGuard_CustomBuffer)
+trigger1 = ctrl || stateno = 100 && !map(noNormals) || stateno = 140
+
+;BLUELINE GUARD (CROUCHING)
+[State -1, BLUELINE GUARD]
+type = ChangeState
+value = 136
+triggerall = power > 0 && statetype != A
+triggerall = command = "BLUELINE GUARD" && command = "holddown"  || command = "holddown" && map(BGuard_CustomBuffer)
+trigger1 = ctrl || stateno = 100 && !map(noNormals) || stateno = 140
+
+;BLUELINE GUARD (AIR)
+[State -1, BLUELINE GUARD]
+type = ChangeState
+value = 137
+triggerall = power > 0 && statetype = A
+triggerall = command = "BLUELINE GUARD" || map(BGuard_CustomBuffer)
+trigger1 = ctrl || stateno = 100 && !map(noNormals)
+
 ;==============================================================================
 
 ;===============================================================================
@@ -8550,6 +7792,76 @@ ignorehitpause = 1
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+
+;=============================================================================
+;JORMUNGANDR Blueline Guard Calculations
+
+[State 0, BGuard Reset]
+type 		= MapSet
+trigger1 	= 1
+map 		= "BGuard_CustomBuffer"
+value 		= command = "holdback" && command = "HOLD_F"
+
+[State 0, BGuard Reset]
+type 		= MapSet
+trigger1 	= stateno != [120,155]
+map 		= "BGuard"
+value 		= 0
+[State 0, BGuard Reset]
+type 		= MapSet
+trigger1 	= stateno != [120,155]
+map 		= "BGuard_penalty"
+value 		= 0
+
+
+; [State 0, AssertSpecial]
+; type = AssertSpecial
+; trigger1 = map(BGuard)
+; flag =  NoGuardDamage
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = map(BGuard)
+value = -2.5
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = map(BGuard) && !time
+trigger1 = stateno = 150 || stateno = 152 || stateno = 154
+value = -gethitvar(hittime) * 5
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = enemy, moveguarded = 1 && map(BGuard)
+trigger1 = BackEdgeBodyDist < 10 && map(BGuard_Slidemul)
+x = -0.25
+ignorehitpause = 1
+redirectid = enemynear, id
+
+[State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier
+type = MapSet
+trigger1 = stateno = [120,155]
+map = "BGuard_SlideMul"
+value = cond(map(BGuard), 1.5, 1)
+
+[State 0, Helper]   ;Blueline Guard Visual
+type = Helper
+trigger1 = map(BGuard) && !NumHelper(138)
+helpertype = Normal ;Player
+name = "BlueLineFX"
+ID = 138
+stateno = 138
+pos = 10,-60
+postype = P1    ;P2, Front, Back, Left, Right
+facing = 1
+keyctrl = 0
+ownpal = 0
+ontop = 0
+supermovetime = 0
+ignorehitpause = 1
+size.xscale = 0.3
+size.yscale = 0.28
+
+;OTG DefenseMul
 
 [State 0, DefenceMulSet]
 type = DefenceMulSet
@@ -10145,10 +9457,31 @@ persistent = 1
 [State 0, DAMAGE]
 type = AssertInput
 triggerall =  map(_iksys_trainingGuardMode) = 3
-trigger1 = stateno = [120, 155] && !time
+trigger1 = stateno = [120, 155]
 flag = a
 ignorehitpause = 1
 persistent = 1
+[State 0, DAMAGE]
+type = AssertCommand
+triggerall =  map(_iksys_trainingGuardMode) = 3
+trigger1 = stateno = [120, 155] && enemy, movetype = A
+name = "HOLD_F"
+ignorehitpause = 1
+persistent = 1
+[State 0, DAMAGE]
+type = AssertCommand
+triggerall =  map(_iksys_trainingGuardMode) = 3
+trigger1 = stateno = [120, 155] && enemy, movetype = A
+name = "holdback"
+ignorehitpause = 1
+persistent = 1
+[State 0, 4] 
+type = ChangeState
+triggerall = map(_iksys_trainingGuardMode) = 3
+trigger1 = enemy, movetype = A
+trigger1 = ctrl
+value = 135 + 1 *(statetype = C) + 2*(statetype = A)
+
 
 [State 0, VarSet]
 type = VarSet

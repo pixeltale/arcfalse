@@ -226,6 +226,11 @@ time = 1
 name = "holds"
 command = /s
 time = 1
+[Command]
+name = "HOLD_F"
+command = /a
+time = 1
+buffer.time = 0
 
 
 
@@ -750,6 +755,14 @@ time = 3
 name = "blocking" ;Same name as above (buttons in opposite order)
 command = x,$F
 time = 3
+
+
+;FD
+[Command]
+name = "BLUELINE GUARD"
+command = /$B,/a
+time = 1
+buffer.time = 2
 
 ;===================================
 ; Command Inputs - Super

@@ -1283,7 +1283,6 @@ ctrl = 1
 ;---------------------------------------------------------------------------
 ;3H
 [Statedef 430]
-facep2 = 1
 type    = C
 movetype= A
 physics = C
@@ -1293,6 +1292,7 @@ ctrl = 0
 anim = 430
 sprpriority = 2
 velset = vel x,0
+facep2 = 1
 
 [State Eddy Voices]
 type = PlaySnd
@@ -1357,8 +1357,9 @@ fall 		= 1
 ground.type 	= Trip
 ground.slidetime 	= 10
 ground.hittime  	= 30 * MAP(untechMOD)
-air.hittime  	= 30 * MAP(untechMOD)
-down.hittime 	= 30 * MAP(untechMOD)
+air.hittime  		= 30 * MAP(untechMOD)
+down.hittime 		= 30 * MAP(untechMOD)
+guard.ctrltime		= 10
 ground.velocity 	= -1.5,-2.2
 air.velocity 	= -1.7,3
 guard.velocity 	= -5;
