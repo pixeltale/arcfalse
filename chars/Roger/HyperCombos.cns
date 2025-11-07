@@ -1703,6 +1703,8 @@ ownpal = 0
 removeongethit = 0
 ignorehitpause = 1
 
+
+
 [State 1041, 2]
 type = hitdef 
 p2facing = 1
@@ -1854,7 +1856,8 @@ value = 5050
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time = 400
-value = 5041
+trigger2 = pos y > 5
+value = 999222
 ctrl = 0
 
 ;Dynamo slam p2 state (lying down) 

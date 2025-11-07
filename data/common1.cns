@@ -9838,7 +9838,7 @@ map = "CR"
 value = 1
 [State -2, P4 Proration Reset]
 type = MapSet
-trigger1 = enemy, movetype != H || enemy, gethitvar(hittime) = -1
+trigger1 = enemy, movetype != H || enemy, gethitvar(hittime) = -1 && enemy, stateno = [5000, 5011]
 map = "P4"
 value = 1
 [State -2, P2 Limit Reset]
