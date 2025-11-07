@@ -1615,13 +1615,6 @@ physics = N
 anim = F42
 sprpriority = 10
 
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = 1
-time = 10
-add = -200,50,240
-persistent = 1
-
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
@@ -1631,7 +1624,7 @@ ignorehitpause = 1
 
 [State 0, DestroySelf]
 type = DestroySelf
-trigger1 = !animtime || root, movetype != H
+trigger1 = !animtime
 ignorehitpause = 1
 
 ;-------------------------------------------------------------------------------
@@ -7795,7 +7788,7 @@ ignorehitpause = 1
 [Statedef -2]
 
 ;=============================================================================
-;JORMUNGANDR Blueline Guard Calculations
+;Blueline Guard Common Actions
 
 [State 0, BGuard Reset]
 type 		= MapSet

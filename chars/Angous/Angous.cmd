@@ -441,7 +441,7 @@ trigger1 = Ctrl
 type = ChangeState
 value = 1062
 triggerall = !var(28)
-triggerall = stateno != 1060
+triggerall = stateno != 1060 && stateno != 230
 triggerall = command != "holddown"
 triggerall = command != "holdfwd"
 triggerall = command = "c"
@@ -459,7 +459,7 @@ trigger4 = movecontact
 type = ChangeState
 value = 1063
 triggerall = var(28)
-triggerall = stateno != 1060
+triggerall = stateno != 1060 && stateno != 230
 triggerall = command != "holddown"
 triggerall = command != "holdfwd"
 triggerall = command = "c"
