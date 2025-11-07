@@ -3814,6 +3814,7 @@ trigger1 = Time = 0
 trigger1 = !SysVar(0)
 anim = F(60 + (sysvar(1) > Const720p(20)) + (sysvar(1) > Const720p(56)))
 pos = 0, 0
+postype = p1
 sprpriority = ifelse (sysvar(1) <= Const720p(56), -10, 10)
 
 [State 5111, 8]

@@ -190,7 +190,7 @@ ignorehitpause=1
 [State 0, VelSet]
 type = ChangeAnim
 trigger1 = animelemtime(14)>=0 && animelemtime(29)<0
-trigger1 = !movecontact
+trigger1 = !movecontact && !MoveReversed
 trigger1 = command!="hold_z"&&command!="hold_x"&&command!="hold_y"
 value = 3000
 ignorehitpause=1
