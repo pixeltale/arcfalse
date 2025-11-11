@@ -1486,6 +1486,7 @@ type = S
 physics = S
 velset = 0
 
+
 [State 0, MapSet] ;Blueline Guard Check
 type = MapSet
 trigger1 = 1
@@ -7860,62 +7861,6 @@ type = DefenceMulSet
 trigger1 = statetype != L
 value = 1
 
-;silly tag stuff that appeals to me specifically (cuses </3)
-[State -2, round start assist] 
-type = teamMapSet
-triggerall = teammode = tag
-trigger1 = roundstate < 2
-map = "firstassist"
-value = 1
-[State -2, round start assist] 
-type = teamMapSet
-triggerall = teammode = tag
-trigger1= roundstate = 2 && ctrl = 1
-map = "firstassist"
-value = 0
-[State -2, round start assist] 
-type = MapSet
-triggerall = teammode = tag
-trigger1 = map(firstassist)
-trigger2 = map(hardtag)
-map = "COOLDOWN"
-value = const(TagAssistCooldown)
-
-[State -2, cd reset on hard tag] 
-type = teamMapSet
-triggerall = teammode = tag
-trigger1 = stateno = 56955
-map = "hardtag"
-value = 1
-[State -2, cd reset on hard tag] 
-type = teamMapSet
-triggerall = teammode = tag
-trigger1= stateno = 56110
-map = "hardtag"
-value = 0
-
-[State -2, one assist per combo] 
-type = teamMapSet
-triggerall = teammode = tag
-triggerall = map(ComboStateCheck)
-trigger1= map(Assistd)
-trigger2= map(Assistw)
-map = "comboassist"
-value = 1
-[State -2, one assist per combo] 
-type = teamMapSet
-triggerall = teammode = tag
-trigger1 = !map(ComboStateCheck)
-map = "comboassist"
-value = 0
-
-[State -2, team shared scaling] 
-type = TeamMapSet
-trigger1 = 1
-map = "P4"
-value = player(teamleader), map(p4)
-ignorehitpause = 1
-
 ;-----------------------------------------------------------
 [State -2, Parry Starter Level CHeck] 
 type = MapAdd
@@ -8557,73 +8502,6 @@ persistent	= 0
 ; type = velset
 ; trigger1 = enemy, numhelper(99149)
 ; x = -1
-
-;=================================
-;Invulnerability Types
-;=================================
-[State 0, NotHitBy] ;Strike Invul
-type = NotHitBy
-triggerall = movetype != H
-trigger1 = map(Invul_Strike)
-value = ,NA,SA,HA
-time = 1
-ignorehitpause = 1
-[State 0, NotHitBy] ;Projectile Invul
-type = NotHitBy
-triggerall = movetype != H
-trigger1 = map(Invul_Proj)
-value = ,NP,SP,HP
-time = 1
-ignorehitpause = 1
-[State 0, NotHitBy] ;Throw Invul
-type = NotHitBy
-triggerall = movetype != H
-trigger1 = map(Invul_Throw)
-value = ,NT,ST,HT
-time = 1
-ignorehitpause = 1
-[State 0, NotHitBy] ;Full Invul
-type = NotHitBy
-triggerall = movetype != H
-trigger1 = map(Invul_Full)
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 1
-ignorehitpause = 1
-[State 0, NotHitBy] ;Full Invul
-type = NotHitBy
-triggerall = enemy, statetype = A
-triggerall = movetype != H
-trigger1 = map(Invul_Air)
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 1
-ignorehitpause = 1
-
-[State 0, Mapset]
-type = MapAdd
-trigger1 = map(Invul_Strike)  > 0
-map = "Invul_Strike"
-value = -1
-[State 0, Mapset]
-type = MapAdd
-trigger1 = map(Invul_Proj)  > 0
-map = "Invul_Proj"
-value = -1
-[State 0, Mapset]
-type = MapAdd
-trigger1 = map(Invul_Throw) > 0
-map = "Invul_Throw"
-value = -1
-[State 0, Mapset]
-type = MapAdd
-trigger1 = map(Invul_Full)  > 0
-map = "Invul_Full"
-value = -1
-
-[State 0, Mapset]
-type = MapSet
-trigger1 = enemy, statetype != A || enemy, movetype = H
-map = "Invul_Air"
-value = 0
 
 ;=================================
 ;Ground Recovery - Can't Punish Landing
@@ -9520,7 +9398,7 @@ persistent = 1
 ;Throw Protection
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = (stateno = [120,155]) && !map(PBCheck)
+trigger1 = (stateno = [120,155]) && !map(BGuard)
 value = ,NT,ST,HT
 time = 1
 ignorehitpause = 1

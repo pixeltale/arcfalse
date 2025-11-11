@@ -550,8 +550,8 @@ persistent 		= 0
 type = HitDef 
 p2facing = 1
 trigger1 = animelemno(0) = 5 && enemy, stateno != [5225, 5228]
-trigger1 = !movecontact && !movereversed
-attr = S, SA, ST
+trigger1 = !map(Charged) && !movecontact && !movereversed
+attr = S, SA
 animtype  = Light
 air.animtype = back
 damage = 100*MAP(P4), 20
@@ -616,7 +616,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 
 [State -2, CHARGED]
 type 		= MapSet
-trigger1 		= !TIME && prevstateno != 5000
+trigger1 		= !TIME
 map 			= "CHARGED"
 value 		= 0
 ignorehitpause 	= 1
@@ -636,16 +636,6 @@ map 		= "wallbounce_boomerang"
 value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
-
-[State 0, PalFX]
-type = PalFX
-trigger1 = time >= 15 && anim != 231
-time = 1
-add = 100 + time * 2, 50 + time, 50 + time
-mul = 256,256,256
-invertall = 0
-color = 256
-
 
 [State 0, ChangeAnim]
 type 	= ChangeAnim

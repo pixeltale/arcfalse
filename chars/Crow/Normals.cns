@@ -614,6 +614,7 @@ ctrl = 0
 velset = vel x * 0.6,0
 anim = 225
 sprpriority = -1
+facep2	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -831,6 +832,7 @@ juggle  = 0
 ctrl = 0
 anim = 400
 sprpriority = 2
+facep2	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -921,6 +923,7 @@ ctrl = 0
 anim = 410
 sprpriority = 2
 facep2 = 0
+facep2	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1179,6 +1182,7 @@ ctrl = 0
 anim = 420
 velset = vel x,0
 sprpriority = 2
+facep2	= 1
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -1339,6 +1343,7 @@ juggle  = 0
 ctrl = 0
 anim = 430
 sprpriority = 2
+facep2	= 1
 
 [State -2, Starter Level]
 type 		= MapSet

@@ -9,6 +9,7 @@ velset 	= vel x,0
 ctrl 	= 0
 sprpriority = 2
 anim 	  = 200
+facep2	= 1
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -225,6 +226,7 @@ ctrl 	= 0
 velset 	= vel x,0
 anim 	= 220
 sprpriority = -1
+facep2	= 1
 
 [State -3, Angous Voices]
 type 	= PlaySnd
@@ -905,6 +907,7 @@ ctrl = 0
 sprpriority = 2
 anim = 400 
 velset = vel x,0
+facep2	= 1
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -1003,6 +1006,7 @@ ctrl = 0
 sprpriority = 2
 anim = 410
 velset = vel x,0
+facep2	= 1
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -1096,6 +1100,7 @@ ctrl = 0
 sprpriority = 2
 anim = 420
 velset = vel x,0
+facep2	= 1
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -1468,6 +1473,8 @@ ctrl = 0
 anim = 430
 sprpriority = 2
 velset = vel x,0
+facep2	= 1
+
 
 [State 0, PalFX]
 type = PalFX

@@ -342,7 +342,7 @@ trigger2 = (stateno = [200,220] || stateno = [400,420]) && movecontact
 [State -1, 5R]
 type = ChangeState
 value = 42000
-triggerall = !ishelper && pos y < -10
+triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(777)
 triggerall = command != "holddown"
@@ -359,7 +359,7 @@ trigger3 = movecontact
 type = ChangeState
 value = 62000
 triggerall=stateno!=40
-triggerall = !ishelper && pos y < -10
+triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(777)
 triggerall = command = "NOBUFFER.HOLDFWD" && command != "holddown"
@@ -374,7 +374,7 @@ trigger3 = movecontact
 type = ChangeState
 value = 32000
 triggerall=stateno!=40
-triggerall = !ishelper && pos y < -10
+triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(777)
 triggerall = command = "NOBUFFER.HOLDBACK" && command != "holddown"
@@ -389,7 +389,7 @@ trigger3 = movecontact
 type = ChangeState
 value = 12000
 triggerall=stateno!=40
-triggerall = !ishelper && pos y < -10
+triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(777)
 triggerall = command = "holddown"
@@ -404,7 +404,7 @@ trigger3 = movecontact
 type = ChangeState
 value = 12000
 triggerall=stateno!=40
-triggerall = !ishelper && pos y < -10
+triggerall = !ishelper
 triggerall = stateno != 2000
 triggerall = !numhelper(777)
 triggerall = command = "holddown"

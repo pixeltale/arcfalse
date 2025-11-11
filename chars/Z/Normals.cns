@@ -9,6 +9,7 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 200                       ;Change animation (Def: no change)
 poweradd = 0                   ;Power to add (Def: 0)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
+facep2	= 1
 
 [State 200, 2]
 type = PlaySnd
@@ -106,6 +107,7 @@ poweradd= 0
 ctrl = 0
 anim = 210
 sprpriority = -1
+facep2	= 1
 
 [State 0, VelSet]
 type = VelAdd
@@ -210,6 +212,7 @@ ctrl = 0
 ;velset = 0,0
 anim = 211
 sprpriority = -1
+facep2	= 1
 
 [State 200, 2]
 type = PlaySnd
@@ -344,6 +347,7 @@ poweradd= 0
 ctrl = 0
 anim = 213
 sprpriority = -1
+facep2	= 1
 
 [State 0, VelSet]
 type = VelAdd
@@ -489,6 +493,7 @@ ctrl = 0
 velset = vel x,0
 anim = 220
 sprpriority = 0
+facep2	= 1
 
 [State 0, VelSet]
 type = VelAdd
@@ -748,6 +753,7 @@ juggle  = 0
 ctrl = 0
 anim = 400
 sprpriority = 2
+facep2	= 1
 
 [State 200, 2]
 type = PlaySnd
@@ -832,6 +838,7 @@ juggle  = 0
 ctrl = 0
 anim = 410
 sprpriority = 1
+facep2	= 1
 
 [State 0, VelSet]
 type = VelAdd
@@ -955,6 +962,7 @@ physics = C
 ctrl = 0
 anim = 420
 sprpriority = 2
+facep2	= 1
 
 ;Startup Sound
 [State 200, 2]
@@ -1253,6 +1261,7 @@ juggle  = 0
 ctrl = 0
 anim = 430
 sprpriority = 2
+facep2	= 1
 
 ;Startup Sound
 [State 200, 2]
