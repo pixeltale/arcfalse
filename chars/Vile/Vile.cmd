@@ -553,16 +553,13 @@ trigger2 = (stateno = 215 || stateno = 420) && movehit
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "up" || movecontact && command = "holdup"
-triggerall = stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) && !(stateno = [55, 56] && time < 6)
-triggerall = var(45)>0
+triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
+triggerall = stateno!= [45, 46] && !(stateno = [55, 56] && time < 6)
+triggerall = var(45)>0 && vel y>.1
 triggerall = var(29)>0
-trigger1 = stateno!= 640 && ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260
-trigger2 = stateno!= 640 && movecontact ;&& enemynear, movetype = H
-trigger2 = stateno!= 640 && hitdefattr = A, NA
-trigger3 = stateno!= 640 && stateno=45 || stateno=46|| stateno=50
-trigger3 = stateno!= 640 && vel y>.1
-trigger4 = stateno = 640 && movehit =1
+trigger1 = ctrl
+trigger2 = movecontact
+trigger2 = hitdefattr = A, NA
 
 ;Backdash
 [State -1, Run Back]
@@ -598,7 +595,7 @@ triggerall = var(29)>0
 triggerall = stateno !=904
 trigger1 = statetype = A
 trigger1 = ctrl
-trigger2 = (stateno = [600,630])
+trigger2 = (stateno = [600,630]) || stateno = 1066
 trigger2 = movehit
 ;trigger4 = stateno = 1052 && movehit ;airdash cancel on 2nd hit
 ;trigger4 = stateno = 1062 && movehit ;airdash cancel on EX 2nd hit

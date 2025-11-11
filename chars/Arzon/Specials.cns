@@ -146,7 +146,7 @@ envshake.phase = 1
 guard.slidetime = 25
 guard.hittime = 9
 guard.ctrltime = 21
-guard.cornerpush.veloff = -7
+guard.cornerpush.veloff = -3.5
 fall = 1
 getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 
@@ -180,7 +180,7 @@ envshake.phase = 1
 guard.slidetime = 25
 guard.hittime = 14
 guard.ctrltime = 21
-guard.cornerpush.veloff = -7
+guard.cornerpush.veloff = -3.5
 ID = 220
 p2stateno = 30000
 yaccel = .27
@@ -217,7 +217,7 @@ envshake.phase = 1
 guard.slidetime = 25
 guard.hittime = 14
 guard.ctrltime = 21
-guard.cornerpush.veloff = -7
+guard.cornerpush.veloff = -3.5
 ID = 220
 p2stateno = 30000
 yaccel = .27
@@ -248,6 +248,13 @@ ctrl = 0
 anim =1010
 sprpriority = 2
 
+[State 0,	MapSet]
+type 		= MapSet
+trigger1	= !time && map(ComboStateCheck)
+map 		= "EX2SLimiter"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State Arzon Voices]
 type = PlaySnd
@@ -765,27 +772,27 @@ value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 999
  ;============================
 [State -2, Starter Level]
-type         = ParentMapSet
+type         = RootMapSet
 trigger1         = movehit && root, map(ComboStateCheck) = 0
 map         = "StarterLevel"
 value         =  1
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
-type         = ParentMapSet
+type         = RootMapSet
 trigger1         = movehit && root, map(ComboStateCheck) = 0
 map         = "P1"
 value         =  1
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
-type         = ParentMapSet
+type         = RootMapSet
 trigger1         = movehit && root, map(ComboStateCheck)
 map         = "P2"
 value         =  0.87
 ignorehitpause     = 1
 persistent         = 0
 [State -2, P2 Accumulation - Scale]
-type         = ParentMapSet
+type         = RootMapSet
 trigger1         = movehit
 map         = "Accumulation"
 value         = root, Map(Accumulation) * root, map(P2)
@@ -2192,12 +2199,12 @@ animtype = medium
 ground.slidetime = 14
 ground.hittime  = 29
 ground.velocity = 2.5,-4
-;fall.xvelocity = -1.5
 fall.yvelocity = 0
 air.velocity = -0.5,-6
 airguard.velocity = -1,-.25
 air.hittime = 35
 air.fall = 1
+fall	= 1
 guard.dist 	= 0
 getpower = (150)*(cond(var(var(2)) = 1, 1, .5))
 
@@ -3005,7 +3012,7 @@ damage = 20*(root,map(P4)), 15
 hitflag = MAF
 guardflag = MAF
 priority = 3
-pausetime = 3,9
+pausetime = 2,2
 guard.ctrltime = 8
 sparkno = 1
 sparkxy = 0,0
@@ -4061,20 +4068,20 @@ removeongethit = 0
  ;============================
 [State -2, Starter Level]
 type         = MapSet
-trigger1         = movehit && !map(ComboStateCheck)
+trigger1         = numtarget(1) && !map(ComboStateCheck)
 map         = "StarterLevel"
 value         =  2
 ignorehitpause     =  1
 
 [State -2, P1 Value Set]
 type         = MapSet
-trigger1         = movehit && !map(ComboStateCheck)
+trigger1         = numtarget(1) && !map(ComboStateCheck)
 map         = "P1"
 value         =  0.88
 ignorehitpause     = 1    ;You can also make it over 1 in order to make following attacks do bonus damage. Don't go too crazy though.
 [State -2, P2 Value Set]
 type         = MapSet
-trigger1         = movehit && map(ComboStateCheck)
+trigger1         = numtarget(1) && map(ComboStateCheck)
 map         = "P2"
 value         =  0.90  ;The scaling value of an attack when it's used to extend a combo. It's a percentage, so "0.90" is "90%."
 ignorehitpause     = 1
@@ -4087,57 +4094,9 @@ value         = Map(Accumulation) * map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
-[State 0, Close Projectile]
-type = Projectile
-trigger1=frontedgedist>70
-trigger1 = animelem = 6
-ProjID = 1112
-projanim = 1112
-projscale =.5,.5
-projremove = 1
-projremovetime = 64
-projhitanim = 1113
-velocity = 1,0
-remvelocity = 0,0
-accel = 0.25,0
-velmul = 1
-projhits = 3
-projmisstime = 2
-projpriority = 1
-projsprpriority = 1
-projedgebound = 40
-projstagebound = 40
-projheightbound = -240
-offset = 60,-40
-postype = p1         ;p2,front,back,left,right
-projshadow = 0,0,0
-supermovetime = 0
-pausemovetime = 0
-hitonce = 1
-attr = S, SP
-damage = 30*map(P4), 25
-hitflag = MAFD
-guardflag = MAF
-pausetime = 5,5
-guard.ctrltime = 4
-sparkno = 2
-sparkxy = 0,0
-hitsound   = 5,3
-guardsound = 6,0
-ground.type = high
-animtype = medium
-air.animtype = back
-air.fall = 1
-ground.slidetime = 14
-ground.hittime  = 20
-ground.velocity = -1.25,0
-air.velocity = -1.25,-1.25
-air.hittime = 45
-getpower = 0
 
-[State 0, Close Projectile]
+[State 0, Projectile]
 type = Projectile
-trigger1=frontedgedist<=70
 trigger1 = animelem = 6
 ProjID = 1112
 projanim = 1112
@@ -4145,9 +4104,9 @@ projscale =.6,.6
 projremove = 1
 projremovetime = 64
 projhitanim = 1113
-velocity = 0,0
+velocity = cond(frontedgebodydist  > 50, 2, 0),2
 remvelocity = 0,0
-accel = 0,0
+accel = cond(frontedgebodydist  > 50, -0.02, 0), -0.15
 velmul = 1
 projhits = 5
 projmisstime = 5
@@ -4156,17 +4115,17 @@ projsprpriority = 1
 projedgebound = 40
 projstagebound = 40
 projheightbound = -240
-offset = 60,-40
+offset = cond(frontedgebodydist  > 50, 60, 30),-40
 postype = p1
 projshadow = 0,0,0
 supermovetime = 0
 pausemovetime = 0
 hitonce = 1
 attr = S, SP
-damage = 35*map(P4)
+damage = 20*map(P4)
 hitflag = MAFD
 guardflag = MAF
-pausetime = 5,5
+pausetime = 1,1
 guard.ctrltime = 4
 sparkno = 2
 sparkxy = 0,0
@@ -4182,6 +4141,7 @@ ground.velocity = -1.25,0
 air.velocity = -1.25,-1.25
 air.hittime = 45
 getpower = 0
+id = 1
 
 
 [State 0, ChangeState]
@@ -4665,18 +4625,6 @@ type = PlaySnd
 trigger1 = animelem = 4
 value = 1010, (0+(Random%2))
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = animtime = 0
-fv =13     ;fv = 
-value = .25
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = animtime = 0
-fv =25     ;fv = 
-value = .25
-
 [State 0, Explod]
 type = Explod
 trigger1 = animelem = 4
@@ -4698,28 +4646,6 @@ ontop = 1
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
-
-;[State 0, Version Selector Light]
-;type = VarSet
-;triggerall = command != "hold_x"
-;triggerall = command != "hold_y"
-;triggerall = command != "hold_z"
-;triggerall = command != "hold_a"
-;trigger1 = time = [1,2]
-;var(15) = 0
-;
-;[State 0, Version Selector Medium]
-;type = VarSet
-;triggerall = command = "hold_x" || command = "hold_y"
-;trigger1 = time = [1,2]
-;var(15) = 1
-;
-;[State 0, Version Selector Heavy]
-;type = VarSet
-;triggerall = command != "hold_x" || command != "hold_y"
-;triggerall = command = "hold_z" || command = "hold_a"
-;trigger1 = time = [1,2]
-;var(15) = 2
 
  ;============================
 [State -2, Starter Level]
@@ -4750,20 +4676,20 @@ value         = Map(Accumulation) * map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
-[State 0, Air Projectile]
+
+[State 0, Projectile]
 type = Projectile
-trigger1 = FrontEdgeDist > 70
 trigger1 = animelem = 6
 ProjID = 1112
 projanim = 1112
-projscale =.8,.8
+projscale =.6,.6
 projremove = 1
 projremovetime = 64
 projhitanim = 1113
-velocity = 2,1
+velocity = cond(frontedgebodydist  > 50, 3, 0),4
 remvelocity = 0,0
-accel = 0,0
-velmul = 0.95, 0.97
+accel = cond(frontedgebodydist  > 50, -0.02, 0), -0.15
+velmul = 1
 projhits = 5
 projmisstime = 5
 projpriority = 1
@@ -4771,17 +4697,17 @@ projsprpriority = 1
 projedgebound = 40
 projstagebound = 40
 projheightbound = -240
-offset = 60,-40
-postype = p1         ;p2,front,back,left,right
+offset = cond(frontedgebodydist  > 50, 60, 30),-40
+postype = p1
 projshadow = 0,0,0
 supermovetime = 0
 pausemovetime = 0
 hitonce = 1
 attr = S, SP
-damage = 30*map(P4)
+damage = 20*map(P4)
 hitflag = MAFD
 guardflag = MAF
-pausetime = 5,5
+pausetime = 1,1
 guard.ctrltime = 4
 sparkno = 2
 sparkxy = 0,0
@@ -4790,13 +4716,14 @@ guardsound = 6,0
 ground.type = high
 animtype = medium
 air.animtype = back
+air.fall = 1
 ground.slidetime = 14
 ground.hittime  = 17
 ground.velocity = -1.25,0
-air.fall = 1
 air.velocity = -1.25,-1.25
 air.hittime = 45
 getpower = 0
+
 ;============================
 [State -2, Starter Level]
 type         = MapSet
@@ -4826,53 +4753,6 @@ value         = Map(Accumulation) * map(P2)
 ignorehitpause     = 1
 persistent         = 0
 ;============================
-[State 0, Air Projectile]
-type = Projectile
-trigger1 = FrontEdgeDist <= 70
-trigger1 = animelem = 6
-ProjID = 1112
-projanim = 1112
-projscale =.8,.8
-projremove = 1
-projremovetime = 64
-projhitanim = 1113
-velocity = 0,3
-remvelocity = 0,0
-accel = 0,0
-velmul = 0.98, 0.97
-projhits = 3
-projmisstime = 5
-projpriority = 1
-projsprpriority = 1
-projedgebound = 40
-projstagebound = 40
-projheightbound = -240
-offset = 60,-40
-postype = p1         ;p2,front,back,left,right
-projshadow = 0,0,0
-supermovetime = 0
-pausemovetime = 0
-hitonce = 1
-attr = S, SP
-damage = 30*map(P4)
-hitflag = MAFD
-guardflag = MAF
-pausetime = 5,5
-guard.ctrltime = 4
-sparkno = 2
-sparkxy = 0,0
-hitsound   = 5,3
-guardsound = 6,0
-ground.type = high
-animtype = medium
-air.animtype = back
-ground.slidetime = 14
-ground.hittime  = 17
-ground.velocity = -1.25,0
-air.fall = 1
-air.velocity = -1.25,-1.25
-air.hittime = 45
-getpower = 0
 
 [State 0, VelSet]
 type = VelSet

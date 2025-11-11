@@ -584,7 +584,7 @@ y = vel y * 0.9
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time < 8
-y = .40
+y = .40 - 0.20 * prevstateno = 1066
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time >= 8

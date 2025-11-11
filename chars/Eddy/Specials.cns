@@ -1039,12 +1039,12 @@ y = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = (command = "holdx" || command = "holdy" || command = "holdz")  && time >= 5
+trigger1 = (command = "holdx" || command = "holdy" || command = "holdz")  && time >= 10
 value = 1001
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = command = "b"  && time >= 5
+trigger1 = command = "b"  && time >= 10
 value = 1002
 
 [State 0, ChangeState]

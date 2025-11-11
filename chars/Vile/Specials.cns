@@ -4046,25 +4046,25 @@ persistent 		= 0
 
 [State 1050, 4]
 type = HitDef
-trigger1 = Time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = A, SA
 animtype  = up
 damage    = 50*MAP(P4), 10
 priority  = 5
 guardflag = MA
 hitflag = MAF
-pausetime = 12,12
+pausetime = 8,8
 sparkxy = -10,-35
 hitsound   = 5,2
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 20
-ground.hittime  = 50 * map(UntechMod)
-air.hittime  = 60 * map(UntechMod)
+ground.hittime  = 60 * map(UntechMod)
+air.hittime  = 40 * map(UntechMod)
 down.hittime = 60 * map(UntechMod)
 ground.velocity = -3,-6
 guard.velocity = -7
-air.velocity = -3,-5
+air.velocity = -3,-3
 fall = 1
 air.fall = 1
 p2facing =1

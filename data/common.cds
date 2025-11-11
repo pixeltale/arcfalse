@@ -461,7 +461,7 @@ buffertime = 5
 name = "a66"
 command = F, F
 time = 10
-buffertime = 4
+buffertime = 15
 
 
 [Command]
@@ -1129,7 +1129,7 @@ buffer.time = 2
 [Command]
 name = "EX"
 command = b+c
-time = 1
+time = 2
 buffer.time = 2
 
 [Command]

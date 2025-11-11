@@ -203,7 +203,7 @@
  ;
  ;Insert your characters below.
 
-blank
+Deus
 Eddy, order=1
 one, order=1
 roger, order=1
@@ -221,6 +221,7 @@ ALICIA
 
 ;-------------------------------------------------------------------------------
 [ExtraStages]
+
 stages/training_re.def, music = sound/LINKUP.mp3, music = sound/TINTS.mp3, music = sound/MOVEON.mp3
 stages/garden.def,zoom = 0
 stages/aegisdusk.def, zoom = 0, music=sound/MORALISTICCONFUSION.mp3, music=sound/SATURDAYS.mp3

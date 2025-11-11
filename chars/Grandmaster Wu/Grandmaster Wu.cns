@@ -533,8 +533,6 @@ type = VelAdd
 trigger1 = map(KUMJUMP)
 x = 0.5
 
-
-
 [State 0, StopSnd]
 type = StopSnd
 trigger1 = movetype = H || stateno = 52
@@ -618,49 +616,11 @@ trigger1 =1
 fv = 26 
 value = -1
 
-[State 0, ScreenBound]
-type = ScreenBound
-trigger1 = ishelper(777)
-value = 1
-movecamera = 0,0
-;ignorehitpause = 
-;persistent = 
-
-
 [State 0, VarSet]
 type = varSet
 trigger1 = !numtarget
 v = 26 
 value = 0
-
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = ishelper(777)
-trigger1 = root, stateno!=2001
-value = 770
-
-[State 0, RemapPal]
-type = RemapPal
-trigger1 = fvar(19) <100
-source = 1,1
-dest = 1,var(17)
-
-[State 0, RemapPal]
-type = RemapPal
-;trigger1 = !numhelper(777)
-trigger1 = fvar(19) = [100,199]
-source = 1,1
-dest = 2,var(17)
-;ignorehitpause =
-;persistent =
-
-[State 0, RemapPal]
-type = RemapPal
-;trigger1 = !numhelper(777)
-trigger1 = fvar(19) >200
-source = 1,1
-dest = 3,var(17)
 
 [State 0, VarSet]
 type = VarSet
@@ -700,121 +660,9 @@ trigger1 = fvar(18) >0
 fv = 18
 value = -1
 
-[State 0,P1 Desp Bar Back]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 1
-anim = F1901
-ID = 777
-pos = 135,217
-postype = left  ;P2, Front, Back, Left, Right
-facing = 1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 999999999999999999999
-pausemovetime = 999999999999999999999
-scale = 0.15,.1
-sprpriority = -1
-ontop = 1
-ownpal = 1
-
-[State 0,P1 Desp Bar Bar]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 1
-anim = F1902
-ID = 779
-pos = 38,217
-postype = left  ;P2, Front, Back, Left, Right
-facing = 1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 999999999999999999999
-pausemovetime = 999999999999999999999
-scale = 0.000148*abs(var(15)),.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-
-[State 0,P1 Desp Bar Frame]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 1
-anim = F1900
-ID = 778
-pos = 135,217
-postype = left  ;P2, Front, Back, Left, Right
-facing = 1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = 0.15,.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-
-[State 0,P2 Desp Bar Back]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 2
-anim = F1901
-ID = 777
-pos = -135,217
-postype = right  ;P2, Front, Back, Left, Right
-facing = -1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = .15,.1
-sprpriority = -1
-ontop = 1
-ownpal = 1
-
-[State 0,P2 Desp Bar Bar]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 2
-anim = F1902
-ID = 779
-pos = -38,217
-postype = right  ;P2, Front, Back, Left, Right
-facing = -1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = 0.000148*abs(var(15)),.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-[State 0,P2 Desp Bar Frame]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 2
-anim = F1900
-ID = 778
-pos = -135,217
-postype = right  ;P2, Front, Back, Left, Right
-facing = -1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = .15,.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-
 [State 0, ChangeState] ;Clone die, Wu die
 type = ChangeState
+triggerall = numhelper(777)
 trigger1 = helper(777), movetype = H
 trigger1 = stateno = 2001
 value = 2004
@@ -828,46 +676,6 @@ trigger1 = stateno != 812
 trigger1 = stateno != 803
 id = 44020
 
-[State 0, Explod] ;Meditation LvL Indicator P1 Side
-type = Explod
-trigger1 = teamside = 1
-anim =7050
-ID = 7050
-pos = 148,227
-postype = left  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -2
-pausemovetime = 999
-supermovetime = 999
-scale =0.16,0.16
-sprpriority = 9
-ontop = 1
-ignorehitpause = 1
-
-
-
-
-[State 0, Explod] ;Meditation LvL Indicator P2 Side
-type = Explod
-trigger1 = teamside = 2
-anim =7050
-ID = 7050
-pos = 172,227
-postype = left  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -2
-pausemovetime = 999
-supermovetime = 999
-scale =0.16,0.16
-sprpriority = 9
-ontop = 1
-ignorehitpause = 1
-
-
 [State 0, VarSet]
 type = VarSet
 trigger1 =  GetHitVar(fall) = 1 
@@ -880,19 +688,6 @@ type = DisplayToClipboard
 trigger1 = 1
 text = "SCharge = %f kumjump = %f"
 params = map(CHARGE.LEVEL), map(KUMJUMP)
-;persistent = 
-
-
-
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = helper, numexplod(900)=1
-time = 15
-add = 100,100,100
-mul = 256,256,256
-sinadd = 30,30,30,3
-invertall = 0
-color = 256
 
 
 [State 0, VarSet]
@@ -1153,13 +948,6 @@ type = VarSet
 trigger1 = statetype != A
 v = 29    ;fv = 10
 value = 1
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = ishelper(777)
-trigger1 = root, stateno!=2001
-value = 770
-ctrl = 0
 
 [State 0, VarSet]
 type = VarSet

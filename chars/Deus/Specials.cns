@@ -1193,6 +1193,8 @@ palfx.mul=256,256,256
 palfx.add=0,0,0
 palfx.sinadd=256,256,256,-60
 palfx.time=30
+p2stateno=5250
+p2getp1state 	= 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 0, PlaySnd]
@@ -2713,6 +2715,8 @@ guard.hittime = 25
 guard.slidetime = 6
 guard.ctrltime = 14
 guard.cornerpush.veloff = -10
+fall = 1
+air.fall = 1
 forcenofall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1,1)) 
 [State 210, 2]
@@ -2731,11 +2735,10 @@ sparkno = 3
 sparkxy = -20,-43
 hitsound   = 5,1
 guardsound = S300, 2
-ground.type = trip
+ground.type = Trip
 ground.slidetime = 12
-ground.hittime  = 21-MAP(untechDecay)
-down.hittime = 31-MAP(untechDecay)
-down.hittime = 31-MAP(untechDecay)
+ground.hittime  = 99 * map(untechMOD)
+down.hittime = 99 * map(untechMOD)
 ground.velocity =  -2,-6.5
 air.velocity = -2,-6.5
 down.velocity =  -2,-6.5
@@ -2745,6 +2748,8 @@ guard.hittime = 24
 guard.slidetime = 6
 guard.ctrltime =24
 guard.cornerpush.veloff = -10
+fall = 1
+air.fall = 1
 forcenofall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1,1)) 
 
@@ -2772,7 +2777,7 @@ sparkno = 1
 sparkxy = -20,-43
 hitsound   = 5,1
 guardsound =S300, 2
-ground.type = high
+ground.type = Trip
 ground.slidetime = 12
 ground.hittime  = 21-MAP(untechDecay)
 down.hittime = 31-MAP(untechDecay)
@@ -2786,6 +2791,8 @@ guard.hittime = 25
 guard.slidetime = 6
 guard.ctrltime = 14
 guard.cornerpush.veloff = -10
+fall = 1
+air.fall = 1
 forcenofall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
 [State 210, 2]
@@ -2804,7 +2811,7 @@ sparkno = 3
 sparkxy = -20,-43
 hitsound   = 5,1
 guardsound = S300, 2
-ground.type =trip
+ground.type = Trip
 ground.slidetime = 12
 ground.hittime  = ceil(cond(fvar(15) *21 < 9, 9, fvar(15) * 21))
 air.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
@@ -2818,7 +2825,9 @@ guard.hittime = 24
 guard.slidetime = 6
 guard.ctrltime =24
 guard.cornerpush.veloff = -10
-forcenofall = 1
+fall = 1
+air.fall = 1
+forcenofall = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1,1)) 
 
 [State 0, VarSet]

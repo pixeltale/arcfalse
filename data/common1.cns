@@ -3633,6 +3633,7 @@ type = Explod
 trigger1 = Time = 1
 anim = F(60 + (sysvar(1) > Const720p(20)) + (sysvar(1) > Const720p(56)))
 pos = 0, 0
+postype = P1
 sprpriority = ifelse (sysvar(1) <= Const720p(56), -10, 10)
 
 [State 5100, 9]
@@ -3757,6 +3758,7 @@ pos = 0, 0
 postype = p1
 ownpal = 1
 sprpriority = 3
+postype = P1
 
 [State 5111, 1] ;For hit up/up-diag type (from state 5081)
 type = ChangeAnim
@@ -4231,6 +4233,7 @@ trigger1 = Time = 0
 anim = F60
 pos = 0, -floor(vel y)
 sprpriority = -10
+postype = P1
 
 ;---------------------------------------------------------------------------
 ; Air get-hit (fall recovery in air)
@@ -10058,32 +10061,44 @@ value = 0
 [statedef -4]
 
 ;===============================================================================
+; ------- Fixing the Double Jump Buffer --------
+;===============================================================================
+[State -2, Up Detector]
+type 		= MapSet
+trigger1 		= command != "up" && command != "holdup"
+map 		= "doubleJump_BUFFFIX"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Up Detector]
+type 		= MapAdd
+trigger1 		= command = "up"
+map 		= "doubleJump_BUFFFIX"
+value 		= 1
+ignorehitpause 	= 1
+
+;===============================================================================
 ; ------- Team Lead Map Set --------
 ;===============================================================================
 [state 0]
-type=Mapset
-triggerall = teammode = tag
-trigger1=partner,map(teamlead)=0
-map="teamlead"
-value=playerno
+type = Mapset
+trigger1 = teamleader
+map = "teamlead"
+value = playerno
 [state 0]
-type=Mapset
-triggerall = teammode = tag
-trigger1=!alive
-map="teamlead"
-value=0
+type = Mapset
+trigger1 = !alive
+map = "teamlead"
+value = 0
 [state 0]
-type=Mapset
-triggerall = teammode = tag
-trigger1=teamside=1
-map="enemyteamlead"
-value=player(2),map(teamlead)+player(4),map(teamlead)
+type = Mapset
+trigger1 = teamside=1
+map = "enemyteamlead"
+value = player(2),map(teamlead)+player(4),map(teamlead)
 [state 0]
-type=Mapset
-triggerall = teammode = tag
-trigger1=teamside=2
-map="enemyteamlead"
-value=player(1),map(teamlead)+player(3),map(teamlead)
+type = Mapset
+trigger1 = teamside=2
+map = "enemyteamlead"
+value = player(1),map(teamlead)+player(3),map(teamlead)
 
 ;===============================================================================
 ; ------- Counter-Hit --------

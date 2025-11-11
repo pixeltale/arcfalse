@@ -468,6 +468,7 @@ value 		= 0
 ignorehitpause 	= 1
 persistent 		= 0
 
+
 [State 0,	MapSet]
 type 		= MapSet
 trigger1	= !map(ComboStateCheck)
@@ -476,14 +477,6 @@ value 		= 0
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0. MapSet]
-type 		= ParentMapSet
-trigger1 	= !numhelper(1204)
-map 		= "airball"
-value 		= 0
-ignorehitpause 	= 1
-persistent 		= 1
-
 [State 0, MAPADD]
 type = MapSet
 trigger1 = !map(ComboStateCheck)
@@ -491,6 +484,13 @@ map = "jH_UseCount"
 value = 0
 ignorehitpause = 1
 persistent = 0
+[State 0,	MapSet]
+type 		= MapSet
+trigger1		= !map(ComboStateCheck)
+map 		= "EX2SLimiter"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 0
 [State 0,	MapSet]
 type 		= MapSet
 trigger1		= !map(ComboStateCheck)
@@ -551,157 +551,6 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 1
 
-;[State 0, PalFX] ;Magic Pixel Check
-;type = PalFX
-;trigger1 = life = 1
-;time = 2
-;add = (80 + 20 + 50 * sin(2 * pi * gametime / 160)),0,0 ;sinadd but manual
-;mul = 256,256,256
-;sinadd = 50,0,0,120 ;this part doesn't work and it's gonna make me fucking cry holy shit
-;invertall = 0
-;color = 256
-
-
-[State 0, Pause]
-type = Pause
-trigger1 = time%2 = 0
-trigger1 = fvar(18) > 0
-time = 1
-movetime = 1
-;endcmdbuftime = 0
-pausebg = 1
-;ignorehitpause = 
-;persistent = 
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = fvar(18) >0 
-fv = (18)
-value = -1
-
-
-[State 0,P1 Desp Bar Back]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 1
-anim = F1901
-ID = 777
-pos = 135,217
-postype = left  ;P2, Front, Back, Left, Right
-facing = 1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 999999999999999999999
-pausemovetime = 999999999999999999999
-scale = 0.15,.1
-sprpriority = -1
-ontop = 1
-ownpal = 1
-
-[State 0,P1 Desp Bar Bar]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 1
-anim = F1902
-ID = 779
-pos = 38,217
-postype = left  ;P2, Front, Back, Left, Right
-facing = 1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 999999999999999999999
-pausemovetime = 999999999999999999999
-scale = 0.000148*abs(var(15)),.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-
-[State 0,P1 Desp Bar Frame]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 1
-anim = F1900
-ID = 778
-pos = 135,217
-postype = left  ;P2, Front, Back, Left, Right
-facing = 1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = 0.15,.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-
-[State 0,P2 Desp Bar Back]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 2
-anim = F1901
-ID = 777
-pos = -135,217
-postype = right  ;P2, Front, Back, Left, Right
-facing = -1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = .15,.1
-sprpriority = -1
-ontop = 1
-ownpal = 1
-
-[State 0,P2 Desp Bar Bar]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 2
-anim = F1902
-ID = 779
-pos = -38,217
-postype = right  ;P2, Front, Back, Left, Right
-facing = -1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = 0.000148*abs(var(15)),.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-
-[State 0,P2 Desp Bar Frame]
-type = Explod
-ignorehitpause = 1
-trigger1 = teamside = 2
-anim = F1900
-ID = 778
-pos = -135,217
-postype = right  ;P2, Front, Back, Left, Right
-facing = -1
-vfacing = 1
-bindtime = 1
-removetime = -2
-supermovetime = 1999999999999999999999
-pausemovetime = 1999999999999999999999
-scale = .15,.1
-sprpriority = 2
-ontop = 1
-ownpal = 1
-
-;------------------------------------
-;Either he techs throws or he doesnt it depends
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = stateno != 812
-trigger1 = stateno != 803
-id = 44020
-
 
 ;------------------------
 [State -2, VarSet]
@@ -709,51 +558,6 @@ type = VarSet
 trigger1 = !numtarget
 v = 3
 value = 1
-
-[State 0, Explod] ;BURST EXPLOD
-type = Explod
-triggerall = !numexplod(900)
-trigger1 = var(15) = 1000 && teamside = 1
-anim =F905
-ID = 900
-pos = -3,18
-postype = left  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -1
-pausemovetime = 0
-scale =0.60,0.60
-sprpriority = 8
-ontop = 1
-ignorehitpause = 1
-[State 0, Explod]
-type = Explod
-triggerall = !numexplod(900)
-trigger1 = var(15) = 1000 && teamside = 2
-anim =F906
-ID = 900
-pos = -53,18
-postype = right  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-removetime = -1
-pausemovetime = 0
-scale = 0.64,0.64
-sprpriority = 8
-ontop = 1
-ignorehitpause = 1
-
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = stateno = 900
-id = 900
-
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = numhelper(99149)
-id = 900
 
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -763,74 +567,11 @@ id = 900
 ignorehitpause=1
 persistent=1
 
-[State 0, VarSet]
-type = VarSet
-trigger1 =  GetHitVar(fall) = 1 
-v = 50    ;fv = 10
-value = 0
-
-
-;[State 0, Regulat Display]
-;type = DisplayToClipboard
-;trigger1 = 1
-;text = "Counter Hit = %d Scale Counter = %d Scaling = %f Fireball Charge = %d"
-;params = fvar(8),var(27),fvar(11), var(10)
-
-;[State 0, Special Display]
-;type = DisplayToClipboard
-;trigger1 = 1
-;text = "Special Counter: %i, Special OKAY: %i, jH limiter: %i"
-;params = var(5), numexplod(1000), numexplod(90101)
-
-
-;var(54) = Cam Left Bound
-;var(51) = Cam Right Bound
-;var(52) = Player Left Bound
-;var(53) = Player Right Bound
-;[State 0, Position Display]
-;type = DisplayToClipboard
-;trigger1 = 1
-;text = "Pos: %i, CameraPos: %i, clb: %i, crb: %i, plb: %i, prb: %i"
-;params = Pos X, CameraPos X, var(54), var(51), var(52), var(53)
-
 [State 0, Double Jump Display]
 type = DisplaytoClipboard
 trigger1 = 1
-text = "Pos Y: %f"
-params = Pos Y
-
-
-;[State 0, Stage Selector Test]
-;type = Varset
-;trigger1 = StageVar(PlayerInfo.p1startx)
-;var(50) = 1
-
-;[State 0, Selector Display]
-;type = DisplayToClipboard
-;trigger1 = 1
-;text = "Var(15): %i, S Input Detector: %i"
-;params = var(15), numexplod(1599)
-
-
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = helper, numexplod(900)=1
-time = 15
-add = 100,100,100
-mul = 256,256,256
-sinadd = 30,30,30,3
-invertall = 0
-color = 256
-
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = stateno = [400,420]
-trigger1 = movecontact = 1
-v = 30 	;fv = 10
-value = 1
-;ignorehitpause = 
-;persistent = 
+text = "RemixCancel: %f"
+params = map(RemixCancel)
 
 
 [State 0, VarAdd]
@@ -878,58 +619,6 @@ removeongethit = 0
 ;supermove = 0
 ;pausemove = 0
 
-
-;===============================================================================
-; ------- Damage Dampener --------
-;===============================================================================
-
-[State -2, Counter Flag] 
-type = VarSet
-trigger1 = NumEnemy
-fvar(8) = (EnemyNear, MoveType = A)
-ignoreHitPause = 1
- 
-;Damage Dampener Variable (by POTS)
-[State -2, Hit Count] 
-type = VarAdd 
-triggerall = stateno!=[1000,1003]
-triggerall = stateno!=1010
-triggerall = stateno!=1020
-triggerall = stateno!=502
-triggerall = stateno!=[3000,3001]
-triggerall = stateno!=[1101,1103]
-;triggerall = stateno!=
-trigger1 = !IsHelper
-trigger1 = MoveHit = 1 
-trigger1 = !HitPauseTime 
-trigger1 = !(HitDefAttr = SCA, AT) 
-fvar(13) = 1 
- 
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(13) 
-trigger1 = (EnemyNear, MoveType != H) && (EnemyNear, StateNo != 5300) 
-fvar(13) = 0 
-ignoreHitPause = 1
- 
-[State -2, Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(10) = ifElse(fvar(13) < 2, 16, ifElse(fvar(13) >= 14, 1, 16 - fvar(13))) / 16.0
-ignoreHitPause = 1 
- 
-[State -2, Dampener Limit] 
-type = VarSet 
-trigger1 = fvar(10) < 0 
-fvar(10) = 0 
-ignoreHitPause = 1 
- 
-[State -2, Root Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(11) = fvar(10) * ifElse(fvar(8), 1.5, 1) 
-ignoreHitPause = 1
-
 ;----------------------------------------
 ;Empty Var
 [State -2, Reset var when the opponent recovers]
@@ -961,201 +650,6 @@ trigger1= p2stateno = 5110
 var(11)=0
 
 
-;----------------------------------------
-;EX fiyahbowl reset var
-[State -2, Reset var when the opponent recovers]
- type=varset
- triggerall = var(51) != 0
- trigger1= numenemy
- trigger1= (enemynear,movetype!=H)
- trigger2= !numenemy    ;I think this may be what's messing things up.....
- var(51)=0
-
-[State -2, reset var when opponent lies down]
-type=varset
-triggerall = var(51) != 0
-trigger1= p2stateno = 5110
-var(51)=0
-
-;6S reset var
-[State -2, Reset var when the opponent recovers]
- type=varset
- triggerall = var(52) != 0
- trigger1= numenemy
- trigger1= (enemynear,movetype!=H)
- trigger2= !numenemy    ;I think this may be what's messing things up.....
- var(52)=0
-
-[State -2, reset var when opponent lies down]
-type=varset
-triggerall = var(52) != 0
-trigger1= p2stateno = 5110
-var(52)=0
-
-;EX stompu reset var
-[State -2, Reset var when the opponent recovers]
- type=varset
- triggerall = var(53) != 0
- trigger1= numenemy
- trigger1= (enemynear,movetype!=H)
- trigger2= !numenemy    ;I think this may be what's messing things up.....
- var(53)=0
-
-[State -2, reset var when opponent lies down]
-type=varset
-triggerall = var(53) != 0
-trigger1= p2stateno = 5110
-var(53)=0
-
-;EX dive reset var
-[State -2, Reset var when the opponent recovers]
- type=varset
- triggerall = var(54) != 0
- trigger1= numenemy
- trigger1= (enemynear,movetype!=H)
- trigger2= !numenemy    ;I think this may be what's messing things up.....
- var(54)=0
-
-[State -2, reset var when opponent lies down]
-type=varset
-triggerall = var(54) != 0
-trigger1= p2stateno = 5110
-var(54)=0
-
-;-----------------------------------
-;3H
-[State -2, Reset var when the opponent recovers]
- type=varset
- triggerall = var(2) != 0
- trigger1= numenemy
- trigger1= (enemynear,movetype!=H)
- trigger2= !numenemy    ;I think this may be what's messing things up.....
- var(2)=0
-
-[State -2, reset var when opponent lies down]
-type=varset
-triggerall = var(2) != 0
-trigger1= p2stateno = 5110
-var(2)=0
-
-;===============================================================================
-; COUNTER HIT (Taken from FA)
-;Copy 13000 - 13103ANIMS
-;Copy 13100 - 13100/2 SOUNDS
-;===============================================================================
-[State -2, Training stuff, it won't effect the gameplay]
-;also I'm tired of pressing the spacebar. :P
-type = AssertSpecial
-trigger1 = Enemy, Name = "Training"
-flag = timerfreeze
-ignorehitpause = 1
-
-[State -2, VarSet];Checks if opponent is in attack state
-type = VarSet
-triggerall = numenemy
-trigger1 = enemy, movetype = A
-var(56) = 1
-ignorehitpause = 1
-
-[State -2, VarSet];This resets the condition if counter not succesful and succesful
-type = VarSet
-triggerall = numenemy
-trigger1 = enemy, movetype = I || var(57) >= 1  ;Enemy is Idle | Counter was Succesful
-trigger2 = var(57) > 10 && enemy, movetype = H  ;10 ticks passed & enemy is on gethit state
-var(56) = 0
-ignorehitpause = 1
-
-[State -2, VarSet];Counter Hit Succesful
-type = VarSet
-trigger1 = var(56) = 1 && movehit ;Counter Check Ok, Move Hit Succesfully.
-trigger1 = stateno != [190,199] ;Does not activate during intros.
-trigger1 = stateno != [800,820] ;Does not activate during throws.
-trigger1 = stateno != [950,951] ;Don't activate during throws.
-trigger2 = var(56) = 1 && projhit = 1  ;Counter Check Ok, Projectile Hit Succesfully.
-var(57) = 1
-ignorehitpause = 1
-
-[State -2, VarAdd];Counter Hit Timer
-type = VarAdd
-trigger1 = var(57) >= 1 ;Counter was succesful
-var(57) = 1
-ignorehitpause = 1
-
-[State -2, VarSet];Counter Hit Reset
-type = VarSet
-trigger1 = var(57) >= 22 && movehit ;Reset if 22 ticks passed and move hit
-trigger2 = p2movetype != H ;Reset if P2 is no longer in gethit state
-trigger3 = movetype = H ;Reset if P1 is getting hit
-trigger4 = var(57) >= 22 && projhit = 1 ;Reset if 22 ticks passed and projectile hit
-var(57) = 0
-ignorehitpause = 1
-
-[State -2, AssertSpecial];This will award free juggles for Counter Hit.
-type = AssertSpecial
-trigger1 = var(57) > 0
-flag = nojugglecheck
-
-
-[State -2, counterhit damage change]
-type=attackmulset
-trigger1 = var(57) >= 1
-value = 1.0;only for test;1.1;1.8;2;0.7
-ignorehitpause=0
-
-[State 0, PlaySnd]; NUTTERBUTTER FIRST HIT
-type = PlaySnd
-trigger1 = var(16) = 1
-value = 13100, (0+(Random%3))
-
-;=======================================================================================
-;=======================================================================================
-;=================================== Stun Dampener =====================================
-;=======================================================================================
-;=======================================================================================
-
-;Normal Hitstun Decay
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(15) 
-trigger1 = (EnemyNear, MoveType != H) && (EnemyNear, StateNo != 5300) 
-fvar(15) = 0 
-ignoreHitPause = 1
-
-[State -2, Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(15) = ifElse(fvar(25) < 0, 13, ifElse(fvar(25) >= 14, 1, 13 - fvar(25))) / 13.0
-ignoreHitPause = 1 
-
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(25) 
-trigger1 = (EnemyNear, MoveType != H) && (EnemyNear, StateNo != 5300) 
-fvar(25) = 0 
-ignoreHitPause = 1
-
-;---------------------------
-;Aerial Hitstun Decay
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(1) 
-trigger1 = (EnemyNear, MoveType != H) && (EnemyNear, StateNo != 5300) 
-fvar(1) = 0 
-ignoreHitPause = 1
-
-[State -2, Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(1) = ifElse(fvar(2) < 0, 8, ifElse(fvar(2) >= 14, 1, 8 - fvar(2))) / 8.0
-ignoreHitPause = 1 
-
-
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(2) 
-trigger1 = (EnemyNear, MoveType != H) && (EnemyNear, StateNo != 5300) 
-fvar(2) = 0 
-ignoreHitPause = 1
 
 
 [State 0, Special Cancel RESET]
@@ -1163,9 +657,6 @@ type = RemoveExplod
 trigger1 = stateno = [0,50]
 trigger2 = stateno = 4000
 id = 1000
-;ignorehitpause = 
-;persistent = 
-
 
 [State 0, Special Counter Reset]
 type = VarSet
@@ -1173,8 +664,6 @@ trigger1 = stateno = [0,50]
 trigger2 = stateno = 4000
 v = 5   ;fv = 10
 value = 0
-;ignorehitpause = 
-;persistent = 
 
 [State 1000, 2S RESET]
 type = RemoveExplod
@@ -1264,69 +753,10 @@ ignorehitpause = 1
 persistent = 0
 
 
-
-
-;---Version Selector------
-
-[State 0, Version Selector Light]
-type = VarSet
-triggerall = command != "bfhold_x"
-triggerall = command != "bfhold_y"
-triggerall = command != "bfhold_z"
-triggerall = command != "bfhold_a"
-trigger1 = numexplod(1599)
-var(17) = 0
-ignorehitpause = 1
-
-[State 0, Version Selector Medium]
-type = VarSet
-triggerall = command = "bfhold_x" || command = "bfhold_y"
-trigger1 = numexplod(1599)
-var(17) = 1
-ignorehitpause = 1
-
-[State 0, Version Selector Heavy]
-type = VarSet
-triggerall = command != "bfhold_x" || command != "bfhold_y"
-triggerall = command = "bfhold_z" || command = "bfhold_a"
-trigger1 = numexplod(1599)
-var(17) = 2
-ignorehitpause = 1
-
-[State 0, S Input Detector]
-type = Explod
-trigger1 = command = "b"
-trigger1 = time < 2
-anim = 99999
-removetime = -2
-ID = 1599
-ignorehitpause = 1
-
-[State 0, S Input Non-Detector]
-type = RemoveExplod
-trigger1 = command != "b"
-id = 1599
-ignorehitpause = 1
-;persistent = 
-
-
-
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 [Statedef -3]
-
-;[State 0, VarSet]
-;type = VarSet
-;trigger1 = stateno != [1500,1510]
-;v = 34   ;fv = 10
-;value = 0
-
-;[State 0, VarSet]
-;type = VarSet
-;trigger1 = stateno != [1520,1530]
-;v = 35    ;fv = 10
-;value = 0
 
 [State 0, VarSet] ;Start with BURST
 type = VarSet

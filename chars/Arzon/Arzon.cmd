@@ -54,6 +54,7 @@ trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600,670] || stateno = [801,802]
 trigger2 = movecontact
 trigger2 = stateno!=421
+trigger3 = stateno = [1520,1540] && animelemno(0) > 4
 var(1) = 1
 
 ;---------------------------------------------------------------------------
@@ -173,7 +174,7 @@ trigger2 = var(1) || stateno = [600, 640] && movecontact
 type = ChangeState
 value = 1010
 triggerall=stateno!=40
-triggerall = power>=1000
+triggerall = power>=1000 && !map(EX2SLimiter)
 triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
@@ -181,7 +182,6 @@ triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger4=stateno=105
 
 [State -1, 2S] ; lol whats this called
 type = ChangeState
@@ -194,20 +194,6 @@ triggerall = command != "holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger3 = !numexplod(10000)
-trigger4=stateno=105
-
-
-[State -1, 662S]
-type = ChangeState
-value = 1000
-triggerall=stateno!=40
-triggerall = command = "buffer_b"
-triggerall=command!="c"
-triggerall = command = "holddown"
-triggerall = statetype != A
-trigger1 = stateno = 100 && time >= 9
 
 [State -1, 4EX]
 type = ChangeState
@@ -221,7 +207,6 @@ triggerall = command = "holdback"
 triggerall = statetype != A
 trigger1 = var(1)
 trigger2 = ctrl
-trigger3 = numexplod(1000) && (var(5) <= 2)
 
 [State -1, 4Sset] ; trap metal
 type = ChangeState
@@ -232,9 +217,8 @@ triggerall = NumHelper(1303) <= 0
 triggerall=command!="c"
 triggerall = command = "b" && command="holdback"
 triggerall = statetype != A
-trigger1 = var(1)
+trigger1 = var(1) || map(RemixToSpecial)
 trigger2 = ctrl
-trigger3 = numexplod(1000) && (var(5) <= 2)
 
 [State -1, 4S] 
 type = ChangeState
@@ -246,9 +230,6 @@ triggerall = command = "b" && command="holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger3 = stateno != 1300
-trigger3 = stateno != 1301
 
 [State -1, j4S] 
 type = ChangeState
@@ -260,9 +241,6 @@ triggerall = statetype = A
 triggerall = !numexplod(1301)
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger3 = stateno != 1300
-trigger3 = stateno != 1301
 
 
 [State -1, 5EX] ; no longer gay; hate those people (I lied)
@@ -276,7 +254,6 @@ triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
 
 [State -1, 5S]
 type = ChangeState
@@ -290,7 +267,6 @@ triggerall = statetype != A
 triggerall = !numexplod(1200)
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
 
 [State -1, 5SS] 
 type = ChangeState
@@ -304,8 +280,6 @@ triggerall = command = "b"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
-trigger3 = !numexplod(1201)
 
 [State -1, 6S] ; Painwheel!
 type = ChangeState
@@ -320,7 +294,6 @@ triggerall = statetype != A
 triggerall = !numexplod(1100)
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
 
 [State -1, EX 6S] ; Now THIS is a real painwheel!
 type = ChangeState
@@ -334,7 +307,6 @@ triggerall = command = "holdfwd"  && command != "holdback" && command != "holddo
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
 
 [State -1, j6S]
 type = ChangeState
@@ -380,7 +352,6 @@ triggerall = command = "b" && command = "c" || command = "EX"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
-trigger3 = numexplod(1000) && (var(5) <= 2)
 
 [State -1, 4R: Wind Push]
 type = ChangeState
@@ -476,14 +447,10 @@ value = 200
 triggerall=stateno!=40
 triggerall = command = "x"
 triggerall = command != "holddown" && var(59) !=4
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = command = "buffer_x"
-trigger2 = movecontact =1 ;&& enemynear, movetype = H
-trigger2 = stateno = 400 && time>1
-trigger2 = movecontact = 1 ;&& enemynear, movetype = H
-trigger3 = stateno = 101 
- 
+trigger2 = stateno = 400 && MoveContact
+
 ;5M: Standing Medium
 [State -1, Standing Medium]
 type = ChangeState
@@ -491,25 +458,20 @@ value =  210
 triggerall=stateno!=40
 triggerall = command = "y"
 triggerall = command != "holddown"
-trigger1 = statetype = S
+triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact ;5L
-;trigger3 = stateno = 100 && time > 3
-trigger3 = stateno = 400 && movecontact ;2L
+trigger2 = (stateno = 200 || stateno = 400) && movecontact
 
 ;5H: Standing Heavy
 [State -1, Standing Heavy]
 type = ChangeState
 value =  220
 triggerall=stateno!=40
-trigger1 = statetype = S
+triggerall = statetype != A
 triggerall = command = "z"
 triggerall = command != "holddown"
 trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact ;5L
-trigger3 = (stateno = 210) && movecontact ;5M
-trigger4 = (stateno = 410) && movecontact ;2M
-trigger5 = (stateno = 420) && movecontact ;2H
+trigger2 = (stateno = [200,210] || stateno = [410,420]) && movecontact
 
 ;6H: Standing Heavy
 [State -1, Standing Heavy]
@@ -522,26 +484,9 @@ triggerall = command = "holddown"
 triggerall = command = "holdfwd"
 triggerall = numhelper(230) = 0
 trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact ;5L
-trigger3 = (stateno = 210) && movecontact ;5M
-trigger4 = (stateno = 410) && movecontact ;2M
-trigger5 = (stateno = 420) && movecontact ;2H
+trigger2 = (stateno = [200,220] || stateno = [410,420]) && movecontact
 
-;6H: Standing Heavy
-[State -1, Standing Heavy]
-type = ChangeState
-value =  231
-triggerall=stateno!=40
-triggerall = statetype != A
-triggerall = command = "z"
-triggerall = command = "holddown"
-triggerall = command = "holdfwd"
-triggerall = numhelper(230) != 0
-trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact ;5L
-trigger3 = (stateno = 210) && movecontact ;5M
-trigger4 = (stateno = 410) && movecontact ;2M
-trigger5 = (stateno = 420) && movecontact ;2H
+
 ;---------------------------------------------------------------------------
 ;2L: Crouching Light
 [State -1, Crouching Light]
@@ -550,7 +495,7 @@ value = 400
 triggerall=stateno!=40
 triggerall = command = "buffer_x"
 triggerall = command = "holddown"
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = 200 && movecontact ;5L
 ;---------------------------------------------------------------------------
@@ -561,7 +506,7 @@ value = 410
 triggerall=stateno!=40
 triggerall = command = "y"
 triggerall = command = "holddown"
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 200)  || (stateno = 210) 
 trigger2 = (movecontact) ;&& enemynear, movetype = H
@@ -576,7 +521,7 @@ triggerall=stateno!=40
 triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command != "holdfwd"
-trigger1 = statetype = C
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = (stateno = 400) || (stateno = 410)|| (stateno = 200)|| (stateno = 210) || (stateno = 430)
 trigger2 = movecontact
@@ -592,10 +537,8 @@ value = 600
 triggerall = command = "buffer_x"
 triggerall = statetype = A
 trigger1 = ctrl
-trigger2 = movehit && stateno = 600 ;&& enemynear, movetype = H
-trigger3 = stateno = 1350 ;Air blocking
-trigger4 = stateno = 630 && movehit
-trigger5 = stateno = 610 && movehit
+trigger2 = stateno = 630 && movehit
+trigger3 = stateno = 610 && movehit
 ;trigger4 = stateno = 904 && time > 3
 ;---------------------------------------------------------------------------
 ;j.5M: Jumping Medium
