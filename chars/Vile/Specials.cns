@@ -2338,7 +2338,7 @@ air.fall = 1
 fall = 1
 getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 p2facing = 1
-ground.cornerpush.veloff = -13
+ground.cornerpush.veloff = -7.5
 ;[State 0, Helper]
 ;type = Helper
 ;trigger1 = animelem = 4

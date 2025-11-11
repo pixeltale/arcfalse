@@ -1536,12 +1536,12 @@ ground.hittime  		= 20 * MAP(untechMOD)
 air.hittime  		= 25 * MAP(untechMOD)
 down.hittime 		= 20 * MAP(untechMOD)
 ground.velocity 		= -1
-air.velocity 		= -1,-1;
+air.velocity 		= -1,-0.5;
 air.fall 			= 1
 guard.slidetime 		= 8
 guard.ctrltime 		= 12
 guard.hittime 		= 12
-getpower 		= (75)*(cond(var(var(3)) = 1, 1, .5)) 
+getpower 		= (25)*(cond(var(var(3)) = 1, 1, .5)) 
 
 [State 0, VelMul]
 type = VelMul

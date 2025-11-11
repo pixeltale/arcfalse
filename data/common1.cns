@@ -4666,7 +4666,7 @@ y = .45
 
 [State 5221, No scroll]
 type = ScreenBound
-triggerall = Pos y < -15
+triggerall = Pos y < -5
 trigger1 = BackEdgeBodyDist < 65
 trigger2 = FrontEdgeBodyDist < 65
 value = 1
@@ -4674,7 +4674,7 @@ movecamera = 0,1
 
 [State 5221, Hit wall]
 type = SelfState
-triggerall = Pos y < -15 && time > 1
+triggerall = Pos y < -5 && time > 1
 trigger1 = BackEdgeBodyDist <= 20
 trigger2 = FrontEdgeBodyDist <= 20
 value = 5222
@@ -7681,12 +7681,6 @@ trigger1 = 1
 value = 0
 ignorehitpause = 1
 
-[State 0, DisplayToClipboard]
-type = DisplayToClipboard
-trigger1 = 1
-text = "parentID = %i  rootnumparent = %i numparent = %i"
-params = (parent, id), (root, NumHelper(parent, id)), NumHelper(parent, id)
-
 [State 0, PalFX]
 type = PalFX
 trigger1 = 1
@@ -7787,7 +7781,7 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
-;=============================================================================
+;============================================================================= ;Blue Guard Blueguard FD <- Ignore my CTRL+F Optimizations
 ;Blueline Guard Common Actions
 
 [State 0, BGuard Reset]
@@ -7827,7 +7821,7 @@ value = -gethitvar(hittime) * 5
 type = VelAdd
 triggerall = enemy, moveguarded = 1 && map(BGuard)
 trigger1 = BackEdgeBodyDist < 10 && map(BGuard_Slidemul)
-x = -0.25
+x = -0.35
 ignorehitpause = 1
 redirectid = enemynear, id
 
@@ -8542,27 +8536,27 @@ persistent	= 0
 ;====================================================================
 ;=============================================================================
 ;Pushblock Stuff
-[State 0, MapSet] ;Pushblock Boolean Reset
-type = MapSet
-trigger1 = enemy, movehit
-map = "PBCheck"
-value = 0
-ignorehitpause = 1
-[State -2, Pushblock Improvement]
-type = velmul
-trigger1 = numhelper(99149)
-x = 0.5
-y = 0.05
+; [State 0, MapSet] ;Pushblock Boolean Reset
+; type = MapSet
+; trigger1 = enemy, movehit
+; map = "PBCheck"
+; value = 0
+; ignorehitpause = 1
+; [State -2, Pushblock Improvement]
+; type = velmul
+; trigger1 = numhelper(99149)
+; x = 0.5
+; y = 0.05
 
-[State -2, Pushblock Improvement]
-type = velmul
-trigger1 = enemy, numhelper(99149)
-x = 0.80
+; [State -2, Pushblock Improvement]
+; type = velmul
+; trigger1 = enemy, numhelper(99149)
+; x = 0.80
 
-[State -2, Pushblock Improvement]
-type = velset
-trigger1 = enemy, numhelper(99149)
-x = -1
+; [State -2, Pushblock Improvement]
+; type = velset
+; trigger1 = enemy, numhelper(99149)
+; x = -1
 
 ;=================================
 ;Invulnerability Types
@@ -10190,21 +10184,25 @@ value = 0
 ;===============================================================================
 [state 0]
 type=Mapset
+triggerall = teammode = tag
 trigger1=partner,map(teamlead)=0
 map="teamlead"
 value=playerno
 [state 0]
 type=Mapset
+triggerall = teammode = tag
 trigger1=!alive
 map="teamlead"
 value=0
 [state 0]
 type=Mapset
+triggerall = teammode = tag
 trigger1=teamside=1
 map="enemyteamlead"
 value=player(2),map(teamlead)+player(4),map(teamlead)
 [state 0]
 type=Mapset
+triggerall = teammode = tag
 trigger1=teamside=2
 map="enemyteamlead"
 value=player(1),map(teamlead)+player(3),map(teamlead)
