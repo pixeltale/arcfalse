@@ -1407,8 +1407,6 @@ guard.ctrltime 		= 10
 fall.yvelocity 		= 0
 air.fall 		= 0
 forcenofall 	= 1
-p2stateno 		= cond(enemy,statetype=S,5250,5020)
-p2getp1state		= 0
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State Cancel]
