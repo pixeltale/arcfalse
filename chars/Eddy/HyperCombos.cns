@@ -541,10 +541,7 @@ value = 671,0
 
 [State 0, Zoom]
 type = zoom
-triggerall=map(Big)<3
-triggerall=map(BigSide)<=1
 triggerall=backedgebodydist<=100
-trigger1 = !winKO
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.1
@@ -555,10 +552,7 @@ pos =0,-20
 ignorehitpause=1
 [State 0, Zoom]
 type = zoom
-triggerall=map(Big)<3
-triggerall=map(BigSide)<=1
 triggerall=backedgebodydist>100
-trigger1 = !winKO
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.1
@@ -1187,8 +1181,6 @@ envshake.phase = 2
 
 [State 0, Zoom]
 type = zoom
-triggerall=map(Big)<3
-triggerall=map(BigSide)<=1
 triggerall=backedgebodydist<=100
 triggerall = time > 50
 trigger1  = !winKO
@@ -1196,21 +1188,19 @@ trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.2
 lag = 0
-stagebound = 1
+stagebound = 0
 camerabound = 0
-pos =0,0
+pos =pos x, pos y
 ignorehitpause=1
 [State 0, Zoom]
 type = zoom
-triggerall=map(Big)<3
-triggerall=map(BigSide)<=1
 triggerall=backedgebodydist>100
 triggerall = time > 50
 trigger1 = movehit
 trigger1 = enemy,HitShakeOver = 0
 scale = 1.5
 lag = 0.5
-stagebound = 1
+stagebound = 0
 camerabound = 0
 pos = pos x,-20
 ignorehitpause=1

@@ -12,7 +12,7 @@
 
 mapset{map: "_pots_clashing_cfg_prioritycheck"; value: 0}		# Clash only if both attacks have the same priority
 mapset{map: "_pots_clashing_cfg_attrcheck"; value: 1}			# Clash only if both attacks are of the same type (normal, special, super)
-mapset{map: "_pots_clashing_cfg_clsn2check"; value: 0}			# Clash only if the hurtboxes are not hit
+mapset{map: "_pots_clashing_cfg_clsn2check"; value: 1}			# Clash only if the hurtboxes are not hit
 mapset{map: "_pots_clashing_cfg_flagguard"; value: 1}			# Makes a clash count as if the attacks were guarded
 mapset{map: "_pots_clashing_cfg_pause"; value: 20}				# Duration of pause upon a clash
 mapset{map: "_pots_clashing_cfg_zoom"; value: 1.2}				# Amount to zoom during a clash
@@ -242,7 +242,7 @@ ignorehitpause if !ishelper {
 				# Create sparks
 				# You can add your own sparks here by adding them to the fightfx
 				explod{
-					anim: F 60;
+					anim: F -60;
 					postype: left;
 					pos: $sparkx, $sparky;
 					scale: 2.00, 0.67;
@@ -254,7 +254,7 @@ ignorehitpause if !ishelper {
 					ownpal: 1
 				}
 				explod{
-					anim: F 60;
+					anim: F -60;
 					postype: left;
 					pos: $sparkx, $sparky;
 					scale: 2.00, 0.67;

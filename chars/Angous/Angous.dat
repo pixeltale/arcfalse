@@ -60,8 +60,6 @@ _!CANCEL	-		(BEFORE IT HITS) _F_F
         <#bbbbbb>Cancels the attack early by dashing. 
         Angous is locked out of blocking for a certain 
         period of time after dash canceling.</>
-_!UPPERCUT	-		(AFTER IT HITS) _D^C
-        <#bbbbbb>A followup after landing the attack.</>
 RAMPAGE	-		_D^Z
    <#bbbbbb>A multi-hit barrage. Special cancelable.</>
 _!RAMPAGE ENDER	-		^C

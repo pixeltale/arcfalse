@@ -502,11 +502,6 @@ envshake.time = 25
 envshake.freq = 100
 envshake.ampl = -6
 envshake.phase = 100
-palfx.time = 10
-palfx.add = 30,-40,-140
-palfx.sinadd = 60,60,50,10
-palfx.color = 0
-palfx.invertall = 1
 air.fall=1
 kill=0
 

@@ -1185,6 +1185,7 @@ type = Explod
 trigger1 = animelem = 11
 anim = 3052
 ID = 3052
+postype = p1
 pausemovetime = 0
 ignorehitpause = 0
 removeongethit = 1
