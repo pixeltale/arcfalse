@@ -175,7 +175,7 @@ persistent 		= 0
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = S, NA
 animtype  = Light
 air.animtype = back
@@ -197,7 +197,7 @@ air.velocity = -1.5,-3.5
 down.velocity = -1.5,-3
 envshake.phase = 1
 guard.slidetime = 15
-guard.ctrltime = 8
+guard.ctrltime = 14
 guard.cornerpush.veloff = -5
 air.fall = 1
 getpower = (75)*(cond(var(var(2)) = 1, 1, 1)) 
@@ -904,7 +904,7 @@ persistent 		= 0
 [State 410, 3]
 type = HitDef 
 p2facing 	= 1
-trigger1 	= time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr 	= C, NA
 damage 	= 60*MAP(P4)
 animtype  	= Light
@@ -929,7 +929,7 @@ envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 fall.yvelocity 	= 0
-guard.ctrltime 	= 10
+guard.ctrltime 	= 12
 air.fall 		= 1
 getpower 		= (75)*(cond(var(var(2)) = 1, 1, .5)) 
 
@@ -1273,10 +1273,10 @@ persistent         = 0
 [State 610, 3]
 type = HitDef 
 p2facing = 1
-trigger1 = Time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = A, NA
 damage = 45*map(P4)
-guardflag = MA
+guardflag = HA
 hitflag = MAF
 priority = 4
 pausetime = 9,9

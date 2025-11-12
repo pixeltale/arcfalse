@@ -54,7 +54,7 @@ trigger1 = ctrl
 trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600,670] || stateno = [801,802]
 trigger2 = movecontact
 trigger2 = stateno!=421
-trigger3 = stateno = [1520,1540] && animelemno(0) > 4
+trigger3 = stateno = [1520,1550] && animelemno(0) > 4
 var(1) = 1
 
 ;---------------------------------------------------------------------------
