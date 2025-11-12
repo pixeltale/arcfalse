@@ -2292,7 +2292,7 @@ value = 0
 [State 0, TargetLifeAdd]
 type = SelfState
 trigger1 = TimeRemaining <=60
-triggerall = gamemode!="Training"
+triggerall = gamemode!="Training" && gamemode != "Trials"
 trigger1 = stateno!=185
 value = 185
 ignorehitpause = 1
@@ -2309,7 +2309,7 @@ persistent = 1
 type = AssertSpecial
 trigger1 = TimeRemaining <=60
 trigger1 = map(notime)<=10
-triggerall = gamemode!="Training"
+triggerall = gamemode!="Training" && gamemode != "Trials"
 flag = timerfreeze
 ignorehitpause = 1
 persistent = 1
@@ -2326,14 +2326,14 @@ persistent = 1
 type = RoundTimeSet
 trigger1 = TimeRemaining <=60
 trigger1 = map(notime)<=10
-triggerall = gamemode!="Training"
+triggerall = gamemode!="Training"  && gamemode != "Trials"
 value=60
 ignorehitpause = 1
 persistent = 1
 [State 0, VarSet]
 type = MapAdd
 trigger1 = TimeRemaining <=60
-triggerall = gamemode!="Training"
+triggerall = gamemode!="Training"  && gamemode != "Trials"
 map = "notime"
 value = 1
 ignorehitpause = 1

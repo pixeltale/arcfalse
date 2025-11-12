@@ -36,10 +36,12 @@ pal5    = 5.act
 pal6    = 6.act
 pal7    = 7.act
 pal8    = 8.act
-pal9=9.act
-pal10=10.act
-pal11=11.act
-pal12=12.act
+pal9		=9.act
+pal10	=10.act
+pal11	=11.act
+pal12	=12.act
+pal13	= defined in palette file
+pal14	= defined in palette file
 
 
 ; Maps character selection buttons to palette numbers.

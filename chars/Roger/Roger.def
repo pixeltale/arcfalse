@@ -34,10 +34,18 @@ anim    = Roger.air           ;Animation
 sound   = Roger.snd           ;Sound
 ai      = Roger.ai            ;AI hints data (not used)
 movelist 		= Roger.dat
+pal1		= 1.act
 pal2    = 2.act
 pal3    = 3.act
+pal4		= thanos.act
+pal5		= 5.act
+pal6		= 6.act
 pal7 = English.act
 pal8 = maoroger.act
+pal9=9.act
+pal0=10.act
+pal11=11.act
+pal12=12.act
 
 ; Maps character selection buttons to palette numbers.
 [Palette Keymap]

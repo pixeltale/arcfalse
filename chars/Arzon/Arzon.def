@@ -33,6 +33,7 @@ anim    		= Arzon.air           ;Animation
 sound   		= Arzon.snd           ;Sound
 ai      		= Arzon.ai            ;AI hints data (not used)
 movelist 		= Arzon.dat
+pal1			= 1.act
 pal2    		= 2.act
 pal3    		= 3.act
 pal4    		= 4.act

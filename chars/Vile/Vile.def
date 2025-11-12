@@ -42,6 +42,7 @@ anim    = Vile.air                       ;Animation
 sound   = Vile.snd                    ;Sound
 ai      = Vile.ai                            ;AI hints data (not used)
 movelist 		= Vile.dat
+pal1		= 1.act
 pal2    = 2.act
 pal3    = 3.act
 pal4    = 4.act
