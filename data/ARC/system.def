@@ -160,9 +160,9 @@ menu.item.spacing = 0, 15
 ; MAIN MENU
 menu.itemname.online	 = "ONLINE"                            ;Ikemen feature
 menu.itemname.local		= "VS PLAYER"
-menu.itemname.freebattle = "VS CPU" 
+menu.itemname.freebattle 	= "VS CPU" 
 menu.itemname.arcade 	= "ARCADE"
-menu.itemname.training 	= "TRAINING MODE"
+menu.itemname.lab		= "PRACTICE"
 menu.itemname.extras 	= "EXTRAS"                             	;Ikemen feature
 menu.itemname.replay 	= "REPLAY"                      		;Ikemen feature
 menu.itemname.options 	= "OPTIONS"
@@ -170,14 +170,15 @@ menu.itemname.exit 		= "EXIT"
 
 ; VS MENU STUFF
 menu.itemname.local.versus 	= "SOLO BATTLE"
-menu.itemname.local.teamversus = "TAG BATTLE"
+;menu.itemname.local.teamversus = "TAG BATTLE" 				Commented out until I feel like fixing tag.
 
 ; LAB STUFF
+menu.itemname.lab.training 	= "TRAINING MODE"
 
 ; MAIN MENU -> ONLINE SUBMENU
 menu.itemname.online.serverhost = "HOST GAME"               ;Ikemen feature
 menu.itemname.online.serverjoin = "JOIN GAME"               ;Ikemen feature
-menu.itemname.online.back = "BACK"                          ;Ikemen feature
+menu.itemname.online.back 		= "BACK"                          ;Ikemen feature
 
 
 
@@ -211,7 +212,7 @@ menu.itemname.extras.bonusgames.back = "BACK"               ;Ikemen feature
 ; This group is hidden and should not be moved to other menus.
 ; It's opened automatically, after synchronization with online player.
 menu.itemname.server.netplayversus = "VERSUS"              ;Ikemen feature
-menu.itemname.server.netplayteamversus = "TEAM VERSUS"
+;menu.itemname.server.netplayteamversus = "TEAM VERSUS"	Commented Out until I feel like fixing tag.
 ;menu.itemname.server.netplayteamcoop = "ARCADE CO-OP"       ;Ikemen feature
 ;menu.itemname.server.netplaysurvivalcoop = "SURVIVAL CO-OP" ;Ikemen feature
 menu.itemname.server.back = "EXIT"                          ;Ikemen feature
@@ -1279,7 +1280,7 @@ bgclearcolor = 0, 0, 0
 	; trialsteps.horizontal.padding: horizontal layouts only - padding between glyphs and edges of the background element along the x (horizontal) axis.
 	; trialsteps.window: X1,Y1,X2,Y2: display window for trials--will create automated scrolling or line returns, depending on the trial layout of choice
 	; --------------------------------------------------------------------------
-	trialsteps.pos = 40,115
+	trialsteps.pos = 60,215
 	trialsteps.spacing = 0,11
 	trialsteps.window = 40,100, 320,140
 

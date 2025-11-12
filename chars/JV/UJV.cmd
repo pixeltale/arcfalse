@@ -7,7 +7,7 @@ command.buffer.time = 5
 [Command]
 name = "EDD"
 command = ~$F, $B, $D, $F, $B, x
-time = 120
+time = 30
 [Command]
 name = "6246L"
 command = ~$F, $D, $B, F, x
@@ -61,20 +61,20 @@ command = ~$D, B, c
 buffer.time = 10
 [Command]
 name = "236L"
-command = ~D, >F, x
+command = ~D, F, x
 [Command]
 name = "236M"
-command = ~D, >F, y
+command = ~D, F, y
 [Command]
 name = "236H"
-command = ~D, >F, z
+command = ~D, F, z
 [Command]
 name = "236R"
-command = ~$D, >F, c
+command = ~$D, F, c
 buffer.time = 10
 [Command]
 name = "236S"
-command = ~$D, >F, b
+command = ~$D, F, b
 buffer.time = 10
 [Command]
 name = "22L"

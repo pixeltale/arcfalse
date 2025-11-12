@@ -100,7 +100,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Beretta Driver
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 triggerall 	= map(chargelvl) = 1
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
@@ -133,7 +133,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Nagant Driver
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 triggerall 	= map(chargelvl) = 2
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
@@ -166,7 +166,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Death
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 triggerall 	= map(chargelvl) = 3
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
@@ -229,7 +229,7 @@ getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 200, 1] ;Crossroad Murder
 type 	= HitDef
 p2facing 	= 1
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 triggerall 	= isHelper
 trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
@@ -1220,7 +1220,7 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, !map(ArmorActive)
+triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 trigger1 = p2dist x < 84
 attr = S, NA                     ;Attribute: Standing, Normal Attack
@@ -1260,7 +1260,7 @@ getpower 		= (100)*(cond(var(var(5)) = 1, 1, .5))
 [State 630, 2] ;Clean Hit
 type = HitDef 
 p2facing 	= 1 
-triggerall 	= enemy, !map(ArmorActive)
+triggerall 	= enemy, map(ArmorActive) = 0
 trigger1 	= !movecontact && !movereversed
 trigger1	= p2dist x >= 84
 getpower 	= 100
@@ -1532,7 +1532,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall  	= enemy, !map(ArmorActive)
+triggerall  	= enemy, map(ArmorActive) = 0
 triggerall = enemy, statetype = A || enemy, statetype = L
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
@@ -1810,7 +1810,7 @@ guard.ctrltime = 2
 [State 630, 2] ;Clean Hit
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x <= 45 && abs(p2dist y) < 20 || enemy, !map(ArmorActive)
+triggerall = p2dist x <= 45 && abs(p2dist y) < 20 || enemy, map(ArmorActive) = 0
 trigger1 = time = 0
 attr = S, SA
 damage = 120*Map(P4)+5, 10
@@ -2600,9 +2600,9 @@ guard.ctrltime 	= 15
 airguard.ctrltime	= 40
 guard.slidetime	= 20
 guard.velocity		= -15
-guard.cornerpush.veloff = -30
-ground.cornerpush.veloff = -30
-air.cornerpush.veloff	= -35
+guard.cornerpush.veloff = -14
+ground.cornerpush.veloff = -14
+air.cornerpush.veloff	= -16
 airguard.velocity 	= -2.5,-1
 air.type 		= High
 envshake.time 	= 0;
@@ -2669,7 +2669,7 @@ type = HitDef
 p2facing = 1
 triggerall = !map(Beast_UseCount)
 trigger1 = !movereversed && !movecontact
-trigger1 = map(CounterHit) && !map(ArmorActive)
+trigger1 = map(CounterHit) && map(ArmorActive) = 0
 attr = S, SA
 damage 		= 250*map(P4)
 animtype 	= light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
@@ -2861,7 +2861,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall  	= enemy, !map(ArmorActive)
+triggerall  	= enemy, map(ArmorActive) = 0
 triggerall = enemy, statetype = A || enemy, statetype = L
 trigger1 = movecontact = 0 && movereversed = 0
 attr = S, NA
@@ -4046,14 +4046,14 @@ velset = vel x, 0
 
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 1	;100% Starting DMG
 ignorehitpause 	= 1
@@ -4143,14 +4143,14 @@ ignorehitpause = 0
 
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 1	;100% Starting DMG
 ignorehitpause 	= 1
@@ -4248,14 +4248,14 @@ velset = vel x, 0
 
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "StarterLevel"
 value 		= 3
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= RootMapSet
-trigger1 		= movehit && root, !map(ComboStateCheck)
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
 map 		= "P1"
 value 		= 1	;100% Starting DMG
 ignorehitpause 	= 1

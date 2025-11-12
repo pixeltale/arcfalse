@@ -1198,17 +1198,6 @@ value = 0
 ;text = "Counter Hit = %d Scale Counter = %d Scaling = %f RC Time = %d, Install Time = %d"
 ;params = fvar(8),var(27),fvar(11), fvar(18), var(28)
 
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = helper, numexplod(900)=1
-time = 15
-add = 100,100,100
-mul = 256,256,256
-sinadd = 30,30,30,3
-invertall = 0
-color = 256
-
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = stateno = [400,420]

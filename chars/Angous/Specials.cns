@@ -3079,6 +3079,11 @@ ID = 1051
 NoChainID = 1051
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
+[State Test]
+type = Height
+trigger1 = 1
+value = 30, 0
+
 [State 1055, 6]
 type = ChangeState
 trigger1 = Vel Y > 0 && Pos Y >= 0
@@ -6287,8 +6292,8 @@ sparkno = 3
 sparkxy = -20,-20
 hitsound   = 5,3
 guardsound = 6,2
-ground.type = TRIP
-air.type    = TRIP
+ground.type = Low
+air.type    = Low
 animtype = medium
 ground.slidetime = 14
 ground.hittime  = 999

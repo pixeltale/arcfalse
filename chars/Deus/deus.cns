@@ -2508,24 +2508,24 @@ value = 0
 ignorehitpause=0
 ;------------------------------------------------
 
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = movetype=H
-trigger2 = prevstateno=1600
-trigger3 = prevstateno=1700
-value = 9999,9999
-volumescale = 0
-persistent=1
-channel=16
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = movetype=H
-trigger2 = prevstateno=3051
-trigger3=stateno=690000
-value = 9999,9999
-volumescale = 0
-persistent=1
-channel=11
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = movetype=H
+;trigger2 = prevstateno=1600
+;trigger3 = prevstateno=1700
+;value = 9999,9999
+;volumescale = 0
+;persistent=1
+;channel=16
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = movetype=H
+;trigger2 = prevstateno=3051
+;trigger3=stateno=690000
+;value = 9999,9999
+;volumescale = 0
+;persistent=1
+;channel=11
 
 ;SLIPPITY SLIDE
 [State 0, 3]

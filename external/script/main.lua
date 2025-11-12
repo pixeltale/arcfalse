@@ -3026,7 +3026,6 @@ main.t_itemname = {
 		main.teamMenu[1].ratio = true
 		main.teamMenu[1].simul = true
 		main.teamMenu[1].single = true
-		main.teamMenu[1].tag = true
 		main.teamMenu[1].turns = true
 		main.teamMenu[2].single = true
 		main.matchWins.draw = {0, 0}
