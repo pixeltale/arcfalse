@@ -106,7 +106,7 @@ trigger3 = Map(DCFH) > 0 || Map(DCFB) > 0
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "up" || movecontact && command = "holdup"
+triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 triggerall = stateno!=45 && stateno!=46 && stateno!= 434 && (stateno!=[4000,4099]) && !(stateno = [55, 56] && time < 6)
 triggerall = var(45)>0
 ;triggerall = var(29)>0

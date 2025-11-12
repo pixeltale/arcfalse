@@ -1731,7 +1731,7 @@ sprpriority 	= 2
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 value = S6,0
 
 [State 0, Explod]
@@ -1990,14 +1990,14 @@ persistent = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 value = 700,17
 channel = 1
 
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 value = 7,1
 
 [State 0, VarSet]
@@ -2664,9 +2664,11 @@ persistent = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
-value = 700,18
-channel = 1
+trigger1 = time = 10
+value = 700,17+random%2
+volumescale=125
+channel=1
+
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -2794,7 +2796,7 @@ sprpriority = 2
 
 [State 0, PlaySnd] ;cursed palette sound lol
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed && palno = 9
+trigger1 = !time && palno = 9
 value = 7618,1
 
 [State 0, PlaySnd]
@@ -3020,7 +3022,7 @@ sprpriority = 2
 
 [State 0, PlaySnd] ;cursed palette sound lol
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed && palno = 9
+trigger1 = !time && palno = 9
 value = 7618,2
 
 [State 0, PosAdd]
@@ -3288,7 +3290,7 @@ sprpriority = 2
 
 [State 0, PlaySnd] ;cursed palette sound lol
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed && palno = 9
+trigger1 = !time && palno = 9
 value = 7618,3
 
 ;Throw Tech not allowed
@@ -3498,9 +3500,10 @@ persistent = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
-value = 700,17
-channel = 1
+trigger1 = time = 0
+value = 700,17+random%2
+volumescale=125
+channel=1
 
 [State 0, Stopsnd]
 type = Stopsnd
@@ -3509,7 +3512,7 @@ channel = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 value = 7,1
 
 [State 0, Explod]
@@ -4104,7 +4107,7 @@ anim = 552
 
 [State 0, PlaySnd] ;SIKE
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed && palno = 9
+trigger1 = !time && palno = 9
 value = 7615,6
 
 [State 0, ChangeState]
@@ -4147,6 +4150,7 @@ forcenofall = 0
 ground.velocity = 0,0
 snap = 50,0
 air.velocity=0,30
+p2clsncheck = size
 
 [State 0, PlaySnd] ;Throw Woosh
 type = PlaySnd
@@ -4630,14 +4634,14 @@ persistent = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 value = 700,17
 channel = 1
 
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 value = 7,1
 
 [State 0, VarSet]

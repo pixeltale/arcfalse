@@ -1364,12 +1364,11 @@ trigger3 = stateno = 2000 && time >=10
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdupb" && stateno != 56 || stateno = 56 && command = "up"
-triggerall = stateno!=45 && stateno!=46 
+triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
+triggerall = stateno!= [40, 46]
 triggerall = stateno!=2000 && stateno!=20000
 triggerall = var(45)>0
-triggerall = stateno!=904
-triggerall = stateno!=903
+triggerall = stateno!= [903, 904]
 trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 
 trigger2 = movecontact && enemynear, movetype = H && stateno !=420
 trigger2 = hitdefattr = A,NA

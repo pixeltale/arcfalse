@@ -114,7 +114,7 @@ trigger2 = ctrl ||stateno = 100 && time > 3
 type = ChangeState
 value = 45
 triggerall = Map(AIRJUMP.COUNT) > 0
-triggerall = command = "up"
+triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 trigger1 = ctrl && stateno!= [40,60]
 
 [State -1,DJC]

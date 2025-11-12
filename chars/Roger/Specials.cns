@@ -285,11 +285,20 @@ sprpriority = 2
 type = PlaySnd
 trigger1 = time = 8 && palno = 9
 value = 7613,1
+volumescale = 70
+
+[State 0, PlaySnd] ;FREAKY
+type = PlaySnd
+trigger1 = time = 8 &&palno=6
+value = 1111,0+random%3
+volumescale = 200
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time = 8 && palno != 9
-value = 8000,0
+triggerall=map(baby)=0
+trigger1 = time = 8 && palno != 9&&palno!=6
+value = 10000,0+random%2
+volumescale = 200
 
 [State -3, Win Voices] ;Win
 type = PlaySnd
@@ -2499,7 +2508,8 @@ sprpriority = 2
 [State 0, PlaySnd] ;futile
 type = PlaySnd
 trigger1 = time = 3 && palno != 9
-value =8000,7
+value =10050,0+random%2
+volumescale =200
 
 [State -3, Cursed Voices] ;3000!!!!
 type = PlaySnd
@@ -5152,24 +5162,28 @@ ctrl = 0
 anim =1103
 sprpriority = 2
 
-[State 0, PlaySnd] ;HELLLLL
+
+[State 0, PlaySnd] ;futile
 type = PlaySnd
 triggerall=prevstateno!=1351
-trigger1=palno!=9
+trigger1=palno!=9&&palno!=6
 trigger1 = time = 0 
-value = 8000,2
-[State 0, PlaySnd] ;DELIVERY.
+value = 10000,0+random%3
+volumescale = 200
+[State 0, PlaySnd] ;futile
 type = PlaySnd
 triggerall=prevstateno=1351
-trigger1=palno!=9
+trigger1=palno!=9&&palno!=6
 trigger1 = time = 0 
-value = 8000,5
+value = 1300,0+random%3
+volumescale = 150
 
 [State 0, PlaySnd] ;futile
 type = PlaySnd
 trigger1=palno=9
 trigger1 = time = 0 
 value = 7613,5
+volumescale = 60
 
 
 [State 0, VelAdd]
@@ -5766,15 +5780,18 @@ sprpriority = 2
 [State 0, PlaySnd] ;futile
 type = PlaySnd
 triggerall=prevstateno!=1301
-trigger1=palno!=9
+trigger1=palno!=9&&palno!=6
 trigger1 = time = 0 
-value = 8000,0
+value = 10000,0+random%2
+volumescale = 200
+
 [State 0, PlaySnd] ;futile
 type = PlaySnd
 triggerall=prevstateno=1301
-trigger1=palno!=9
+trigger1=palno!=9&&palno!=6
 trigger1 = time = 0 
-value = 8000,3+random%2
+value = 1300,0+random%2
+volumescale = 150
 
 [State -3, WTF Voices] ;cursed palette sound lol
 type = PlaySnd
@@ -6725,10 +6742,17 @@ anim =1301
 sprpriority = 2
 velset = 7,0
 
-[State 0, PlaySnd] ;REFRESHING
+[State 0, PlaySnd] ;ISN'T THIS
 type = PlaySnd
-trigger1 = time = 0 
-value = 7615,2
+trigger1 = time = 0 &&palno!=11
+value = 1400,0+random%2
+volumescale = 150
+
+[State 0, PlaySnd] ;bounds check
+type = PlaySnd
+trigger1 = time = 0 && palno=11
+value = 1420,0
+volumescale = 150
 
 [State Meter Burn State, VarSet]
 type = VarSet
@@ -7018,6 +7042,18 @@ ctrl = 0
 anim =1302
 sprpriority = 2
 velset = 0,0
+
+[State 0, PlaySnd] ;REFRESHING
+type = PlaySnd
+trigger1 = time = 0&&palno!=11
+value = 1450,0+random%2
+volumescale = 150
+
+[State 0, PlaySnd] ;bounds check
+type = PlaySnd
+trigger1 = time = 0 && palno=11
+value = 1430,0+random%2
+volumescale = 150
 
 [State 0, Zoom]
 type = zoom

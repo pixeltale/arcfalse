@@ -231,18 +231,11 @@ triggerall = command = "holdup" || command = "up"
 trigger1 = map(JC)
 trigger2 = ctrl ||stateno = 100 && time > 3
 
-;Double Jump Raw
-[State -1,DJC]
-type = ChangeState
-value = 45
-triggerall = Map(DoubleJump)  < 1
-triggerall = command = "up"
-trigger1 = ctrl && stateno!= [40,60]
 
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "up" || movecontact && command = "holdup"
+triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 triggerall = Map(DoubleJump) < 1
 trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 30)
 trigger2 = movecontact ;&& enemynear, movetype = H

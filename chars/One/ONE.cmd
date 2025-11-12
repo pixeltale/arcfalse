@@ -117,7 +117,7 @@ trigger3 = ctrl
 [State 45, DJC]
 type = ChangeState
 value = 45
-triggerall = command = "up" || movecontact && command = "holdup"
+triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 triggerall = numexplod(2045)
 triggerall = stateno!=45 && stateno!=46 && stateno!= 434 && stateno != [903, 904] && !(stateno = [55, 56] && time < 6)
 triggerall = var(45)>0
