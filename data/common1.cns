@@ -1622,7 +1622,7 @@ sprpriority = 10
 type = PosSet
 trigger1 = 1
 x = root, pos x + 2
-y = root, pos y -20 + 30 * (root, stateno = [152,153] || root, stateno = 136) + 20*(root, statetype = A)
+y = root, pos y -20 + 30 * (root, stateno = [152,153] || root, stateno = 136 || root, stateno = 140 && root, statetype = C) + 20*(root, statetype = A)
 ignorehitpause = 1
 
 [State 140, Anim]

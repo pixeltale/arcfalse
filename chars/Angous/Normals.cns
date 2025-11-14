@@ -2972,6 +2972,7 @@ type = explod
 trigger1 = animelemtime(6)=0
 anim = 6800
 id = 6900
+postype = p1
 pos = 0,0
 sprpriority = 4
 bindtime = -1

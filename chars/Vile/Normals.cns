@@ -286,6 +286,11 @@ x = 2
 type = PosAdd
 trigger1 = animelem = 8
 x = 8
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = p2dist x < 15
+trigger1 = animelemno(0)<9
+x = -1
 
 [State 0, PosAdd]
 type = PosAdd
@@ -348,7 +353,7 @@ ignorehitpause = 1
 
 [State 0]
 type = HitDef
-trigger1 = Time= 0
+trigger1 = !MoveContact && !MoveReversed
 attr = S, NA
 animtype  = Hard
 air.animtype = back
