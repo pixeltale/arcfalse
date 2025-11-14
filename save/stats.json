@@ -4,11 +4,14 @@
       "playtime": 0
     },
     "netplayversus": {
-      "playtime": 2813.35
+      "playtime": 7025.35
     },
     "versus": {
+      "playtime": 25.4
+    },
+    "trials": {
       "playtime": 0
     }
   },
-  "playtime": 2813.35
+  "playtime": 7050.75
 }

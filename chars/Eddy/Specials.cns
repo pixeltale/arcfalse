@@ -1380,6 +1380,7 @@ forcestand 	= 0
 [State 630, 2]
 type = HitDef 
 p2facing = -1 
+triggerall = p2dist x > -30
 trigger1 = animelem = 11
 attr 			= S, SA
 damage 			= 60*map(P4), 5

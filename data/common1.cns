@@ -1615,19 +1615,28 @@ ctrl = 1
 [Statedef 138]
 type = U
 physics = N
-anim = F42
+anim = F43
 sprpriority = 10
 
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
-x = root, pos x + 10
-y = root, pos y -40
+x = root, pos x + 2
+y = root, pos y -20 + 30 * (root, stateno = [152,153] || root, stateno = 136) + 20*(root, statetype = A)
 ignorehitpause = 1
+
+[State 140, Anim]
+type = changeanim
+trigger1 = root, stateno = 150 || root, stateno = 152 || root, stateno = 154
+value = F44
+[State 140, Anim]
+type = changeanim
+trigger1 = Anim = 44 && !animtime
+value = F43
 
 [State 0, DestroySelf]
 type = DestroySelf
-trigger1 = !animtime
+trigger1 = root, stateno != [120,155]
 ignorehitpause = 1
 
 ;-------------------------------------------------------------------------------
@@ -7844,7 +7853,7 @@ helpertype = Normal ;Player
 name = "BlueLineFX"
 ID = 138
 stateno = 138
-pos = 10,-60
+pos = 10,-40 + 25*(statetype = C)
 postype = P1    ;P2, Front, Back, Left, Right
 facing = 1
 keyctrl = 0
@@ -7852,8 +7861,8 @@ ownpal = 0
 ontop = 0
 supermovetime = 0
 ignorehitpause = 1
-size.xscale = 0.3
-size.yscale = 0.28
+size.xscale = 1
+size.yscale = 1
 
 ;OTG DefenseMul
 

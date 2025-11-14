@@ -3467,8 +3467,8 @@ fall.yvelocity = 0
 guard.slidetime = 25
 guard.velocity = -12
 guard.ctrltime = 12
-air.cornerpush.veloff = -15 / map(UntechMOD)
-down.cornerpush.veloff = -15 / map(UntechMOD)
+air.cornerpush.veloff = -8 / map(UntechMOD)
+down.cornerpush.veloff = -8 / map(UntechMOD)
 getpower = 0
 
 ;ARMOR ============================++++
