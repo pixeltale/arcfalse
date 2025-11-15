@@ -23,6 +23,7 @@ st3      	= HyperCombos.cns
 st4      	= Target.cns
 st5      	= Helpers.cns
 st6 		= JVstates.cns
+st7		= AI.zss
 stcommon 	= common1.cns      ;Common states (from data/ or motif)
 sprite  		= JV.sff           ;Sprite
 anim    		= JV.air           ;Animation

@@ -1784,12 +1784,16 @@ y = 0
 [State 151, Vel]
 type = VelSet
 trigger1 = !time
-x = gethitvar(xvel) * facing * map(BGuard_SlideMul)
+x = gethitvar(xvel) * facing
+[State 151, Vel]
+type = VelMul
+trigger1 = time = 2
+x = map(BGuard_SlideMul)
 
 [State 151, Vel]
 type = velset
-trigger1 = time = gethitvar(slidetime)
-trigger2 = abs(vel x) < 0.5 && map(BGuard_Slidemul)
+trigger1 = time = gethitvar(slidetime) && map(BGuard_Slidemul) = 1
+trigger2 = abs(vel x) < 0.5 && map(BGuard_Slidemul) != 1
 x = 0
 
 [State 151, Ctrl]
@@ -1915,13 +1919,17 @@ value = map(BGuard)
 [State 151, Vel]
 type = VelSet
 trigger1 = !time
-x = gethitvar(xvel) * facing * map(BGuard_SlideMul)
+x = gethitvar(xvel) * facing
+[State 151, Vel]
+type = VelMul
+trigger1 = time = 2
+x = map(BGuard_SlideMul)
 
 
-[State 153, Vel]
+[State 151, Vel]
 type = velset
-trigger1 = time=gethitvar(slidetime)
-trigger2 = hitover || ctrl = 1
+trigger1 = time = gethitvar(slidetime) && map(BGuard_Slidemul) = 1
+trigger2 = abs(vel x) < 0.5 && map(BGuard_Slidemul) != 1
 x = 0
 
 [State 151, Ctrl]
@@ -7846,9 +7854,8 @@ ignorehitpause = 1
 redirectid = enemynear, id
 [State 0, VelAdd]
 type = VelAdd
-triggerall = enemy, moveguarded = 1 && map(BGuard)
-trigger1 = map(BGuard_Slidemul)
-x = -0.10
+trigger1 = map(BGuard_Slidemul) && vel x < 0
+x = -0.01
 ignorehitpause = 1
 
 [State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier

@@ -65,6 +65,8 @@ ground.hittime  	= 20
 ground.hittime  	= 26 - MAP(UntechDecay)
 air.hittime  		= 999
 ground.velocity 	= -3
+guard.velocity		= -5
+guard.slidetime	= 20
 air.velocity 		= -3,-1.8 * MAP(untechMOD)
 down.velocity	= -3, -3
 fall  		= 0
@@ -213,6 +215,8 @@ fall.envshake.ampl = 0
 palfx.time = 12
 palfx.add = 100, 0,20
 guard.ctrltime = 12
+guard.velocity = -5
+guard.slidetime = 12
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 410, Counter Hit]

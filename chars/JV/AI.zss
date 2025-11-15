@@ -154,7 +154,7 @@ ignoreHitPause if aiLevelF && roundState = 2 && !standby {
 			#-----------------------------------------------------------------------
 			#anti air normals
 			if random <= (420 * (aiLevelF ** 2 / 48.0)) && p2BodyDist x < 45 && p2BodyDist y = [-70+(floor(p2,vel y*.4)*-5), -20] && !$nojug && jugglePoints(p2, ID) = 0 {
-				changeState{value: 410}
+				changeState{value: 420}
 			}
 
 			#-----------------------------------------------------------------------
