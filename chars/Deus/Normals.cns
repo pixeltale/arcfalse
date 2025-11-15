@@ -1300,6 +1300,7 @@ type = explod
 trigger1 = animelem = 6
 anim = 6600
 id = 6600
+postype = p1
 pos = 60,0
 scale = .6,.6
 sprpriority = 2
