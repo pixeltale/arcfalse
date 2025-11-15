@@ -1736,7 +1736,7 @@ value = S6,0
 
 [State 0, Explod]
 type = Explod
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 anim = 6900
 ID = 6900
 pos = 0,0
@@ -1758,7 +1758,7 @@ removeongethit = 0
 
 [State 0, Explod]
 type = Explod
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 anim = 6952
 ID = 206
 pos = 0,0
@@ -1787,7 +1787,7 @@ ampl = 6
 
 [State 52, 2]
 type = PosSet
-trigger1 = !MoveContact && !MoveReversed
+trigger1 = !time
 y = 0
 
 [State 0, CtrlSet]
@@ -1802,149 +1802,6 @@ type = ChangeState
 trigger1 = animtime = 0
 value = 0
 ctrl = 1
-;---------------------------------------------------------------------------
-;old jH
-[Statedef 630]
-type    = A
-movetype= A
-physics = N
-juggle = 0 ;  = 3
-poweradd= 20*var(2)
-ctrl = 0
-sprpriority = 2
-velset = vel x, vel y
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = !MoveContact && !MoveReversed
-fv = 6  ;fv = 10
-value = 620 ;State of this attack
-;ignorehitpause = 
-;persistent = 
-
-[State 200, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv = 16   
-value = 1; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State -2, VarSet]
-type = VarSet
-trigger1 = !numtarget
-fv = 16
-value = 0
-
-
-;Armor
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = !MoveContact && !MoveReversed && anim!=620 ;Animation of this state
-value = 620
-elem = 1
-
-[State 0, HitOverride]
-type = HitOverride
-triggerall = var(30)>0
-triggerall = movetype != H
-trigger1=  1
-attr = SCA ,NA,NP,SP,HP
-slot = 0
-stateno = 666999 
-time = 1
-forceair = 0
-
-
-[State 0, VelAdd]
-
-type = VelAdd
-trigger1 = 1
-y = .44
-
-[State 630, 1]
-type = PlaySnd
-trigger1 = Time = 1
-value = 0, 0
-
-[State 630, 2]
-type = HitDef 
-p2facing = 1
-trigger1 = !MoveContact && !MoveReversed
-hitonce = 1
-attr = A, NA
-damage = ceil(cond(fvar(11) *100 < 65, 65, fvar(11) * 100)), 15
-hitflag = MAFD
-guardflag = HA
-priority = 3
-pausetime = 16,16
-sparkno = 1
-sparkxy = -5,-35
-hitsound   = 5,0
-guardsound = 6,0
-ground.type = High
-ground.slidetime = 6
-ground.hittime  = 16
-ground.velocity = -4,10
-fall = 1
-air.velocity = -4,3
-air.hittime = 24;
-fall.yvelocity = 0
-guard.slidetime = 14
-guard.ctrltime = 18
-getpower = 25*var(2)
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 =pos y>= 0
-value = 52
-ctrl = 1
-
-
-[Statedef 660]
-type    = A
-physics = A
-juggle = 0 ;  = 0
-poweradd= 0
-ctrl = 1
-anim = 660
-sprpriority = 2
-
-[State 0, Null]
-type = Null
-trigger1 = 1
-
-
-;-----------------------------
-[Statedef 4260]
-type    = A
-movetype= A
-physics = A
-juggle = 0 ;  = 0
-poweradd= 0
-ctrl =1
-anim =69000
-sprpriority = -1
-velset = 1,-9
-
-;[State 0, Null]
-;type = Null
-;trigger1 = 1
-;ignorehitpause = 
-;persistent = 
-
-[State 0, Null]
-type = Null
-trigger1 = 1
-;ignorehitpause = 
-;persistent = 
-
-;[State 0, CtrlSet]
-;type = CtrlSet
-;trigger1 = 1
-;value = 1
-;ignorehitpause = 
-;persistent = 
 
 ;-----------------------------
 [Statedef 69000]

@@ -2405,8 +2405,9 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "facing %f stun %f  dmg %f smash %f mh %f D %f vel %f rina %f bmh %f"
-params = map(animcheck), fvar(25), fvar(13), map(smashattack), map(multihits), map(fulldsmash), map(vel), map(rina), map(bmhit)
+text = "Action Window = %f"
+params = map(actionwindow)
+ignorehitpause = 1
 
 
 

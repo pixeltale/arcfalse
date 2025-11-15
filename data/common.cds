@@ -19,17 +19,17 @@ time = 1
 name = "x"
 command = x
 time = 1
-buffer.time = 1
+buffer.time = 2
 [Command]
 name = "y"
 command = y
 time = 1
-buffer.time = 1
+buffer.time = 2
 [Command]
 name = "z"
 command = z
 time = 1
-buffer.time = 1
+buffer.time = 2
 
 [Command]
 name = "w"
@@ -1099,11 +1099,7 @@ name = "M44"
 command = /DB, w
 time = 1
 buffer.time = 0
-[Command]
-name = "M44"
-command = /$B, x+y
-time = 1
-buffer.time = 0
+
 [Command]
 name = "M66"
 command = w
@@ -1114,11 +1110,6 @@ name = "M66Hold"
 command = /w
 time = 1
 buffer.time = 0
-[Command]
-name = "M66"
-command = x+y
-time = 2
-buffer.time = 2
 
 
 [Command]

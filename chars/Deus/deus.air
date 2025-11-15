@@ -282,7 +282,7 @@ Clsn2Default: 1
 [Begin Action 131]
 Clsn2Default: 1
   Clsn2[0] = -33, -65, 44, -1
-121,0, 0,0, 0
+121,0, 0,0, 1
 
 ; GUARDEND (crouch)
 [Begin Action 141]

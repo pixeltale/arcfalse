@@ -1618,10 +1618,15 @@ physics = N
 anim = F43
 sprpriority = 10
 
+[State 0, Turn]
+type = Turn
+trigger1 = facing != root, facing
+ignorehitpause = 1
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
-x = root, pos x + 2
+x = root, pos x + 20 * facing
 y = root, pos y -20 + 30 * (root, stateno = [152,153] || root, stateno = 136 || root, stateno = 140 && root, statetype = C) + 20*(root, statetype = A)
 ignorehitpause = 1
 
@@ -7830,21 +7835,27 @@ value = -2.5
 type = PowerAdd
 trigger1 = map(BGuard) && !time
 trigger1 = stateno = 150 || stateno = 152 || stateno = 154
-value = -gethitvar(hittime) * 5
+value = -gethitvar(hitdamage) * 2
 
 [State 0, VelAdd]
 type = VelAdd
 triggerall = enemy, moveguarded = 1 && map(BGuard)
-trigger1 = BackEdgeBodyDist < 10 && map(BGuard_Slidemul)
-x = -0.35
+trigger1 = map(BGuard_Slidemul)
+x = -0.10 - 0.20 * (BackEdgeBodyDist < 10)
 ignorehitpause = 1
 redirectid = enemynear, id
+[State 0, VelAdd]
+type = VelAdd
+triggerall = enemy, moveguarded = 1 && map(BGuard)
+trigger1 = map(BGuard_Slidemul)
+x = -0.10
+ignorehitpause = 1
 
 [State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier
 type = MapSet
 trigger1 = stateno = [120,155]
 map = "BGuard_SlideMul"
-value = cond(map(BGuard), 1.5, 1)
+value = cond(map(BGuard), 1.75, 1)
 
 [State 0, Helper]   ;Blueline Guard Visual
 type = Helper
@@ -9287,7 +9298,7 @@ value = MAP(AWFreeze)
 
 [State -2, ActionWindow Tick Up]
 type 		= MapAdd
-trigger1 	= ctrl && (stateno != 150 || stateno != 152 || stateno != 154)
+trigger1 	= ctrl && (stateno != 150 || stateno != 152 || stateno != 154) && (stateno != [135,137])
 trigger1    = stateno != [10, 11]
 trigger1    = map(ActionWindow) < 30
 map 		= "ActionWindow"
@@ -9295,7 +9306,7 @@ value 		= 1
 ignorehitpause 	= 1
 [State -2, ActionWindow Reset]
 type 		= MapSet
-trigger1    = (stateno = 0 || stateno = [10,11]) && time >= 30
+trigger1    = (stateno = 0 || stateno = [10,11] || stateno = [135,137]) && time >= 30
 map 		= "ActionWindow"
 value 		= 0
 ignorehitpause 	= 0
@@ -9333,35 +9344,20 @@ trigger1 = map(_iksys_trainingGuardMode) = 3
 flag = autoGuard
 ignorehitpause = 1
 persistent = 1
-;Punish
-[State 0, DAMAGE]
-type = AssertInput
-triggerall =  map(_iksys_trainingGuardMode) = 3
-trigger1 = stateno = [120, 155]
-flag = a
+[State 0, MapSet]
+type = MapSet
+trigger1 = map(_iksys_trainingGuardMode) = 3
+map = "BGuard"
+value = 1
 ignorehitpause = 1
 persistent = 1
-[State 0, DAMAGE]
-type = AssertCommand
-triggerall =  map(_iksys_trainingGuardMode) = 3
-trigger1 = stateno = [120, 155] && enemy, movetype = A
-name = "HOLD_F"
+[State 0, MapSet]
+type = MapSet
+trigger1 = map(_iksys_trainingGuardMode) = 3
+map = "BGuard_Penalty"
+value = 1
 ignorehitpause = 1
 persistent = 1
-[State 0, DAMAGE]
-type = AssertCommand
-triggerall =  map(_iksys_trainingGuardMode) = 3
-trigger1 = stateno = [120, 155] && enemy, movetype = A
-name = "holdback"
-ignorehitpause = 1
-persistent = 1
-[State 0, 4] 
-type = ChangeState
-triggerall = map(_iksys_trainingGuardMode) = 3
-trigger1 = enemy, movetype = A
-trigger1 = ctrl
-value = 135 + 1 *(statetype = C) + 2*(statetype = A)
-
 
 [State 0, VarSet]
 type = VarSet
@@ -9404,7 +9400,7 @@ value = 0
 [State 0, AttackDist]
 type = AttackDist
 trigger1 = 1
-value = 0
+value = 0, 0
 ignorehitpause = 1
 persistent = 1
 
