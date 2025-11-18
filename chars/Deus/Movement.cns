@@ -20,10 +20,10 @@ elem=3
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = anim=[4,5]||anim=[101,102]||anim=[22,23]||anim=47
+trigger1 = anim=[4,5]||anim=[101,103]||anim=[22,23]||anim=47
 trigger1 = animtime=0
 trigger2 = time=0
-trigger2 = anim!=[4,5]&&anim!=[20,23]&&anim!=[100,102]&&anim!=47
+trigger2 = anim!=[4,5]&&anim!=[20,23]&&anim!=[100,103]&&anim!=47
 value = 0
 ignorehitpause = 1
 persistent=1
@@ -339,7 +339,7 @@ type = ChangeAnim
 triggerall = command="holdback"
 trigger1 = anim=100&&animelemtime(2)>=0
 trigger2 = anim=101
-value = 102
+value = 103
 ignorehitpause = 1
 
 [State 0, ChangeAnim]
@@ -1299,7 +1299,7 @@ juggle  = 4
 poweradd= 11
 ctrl = 0
 velset = vel x,0
-anim =102
+anim =103
 sprpriority = 2
 
 

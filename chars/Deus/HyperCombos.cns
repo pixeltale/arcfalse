@@ -53,8 +53,26 @@ persistent         = 0
 [State Voice From Above]
 type = PlaySnd
 triggerall=map(december)=0
+triggerall=palno!=7
 trigger1 = time=0
 value = 3010, (0+(Random%3))
+volumescale=200
+channel=7
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = animelemtime(4)>=0&& animelemtime(32)<0&&combocount>0
+value = 3011,0
+volumescale=200
+channel=7
+persistent=0
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = animelem=32
+value = 3011,1
 volumescale=200
 channel=7
 
@@ -371,6 +389,22 @@ velset = vel x,0
 anim = 3001
 sprpriority = 0
 facep2=1
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = time=0
+value = 3011,2
+volumescale=200
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = animelem=17
+value = 3011,3
+volumescale=200
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -765,6 +799,15 @@ ctrl = 0
 velset =0,0
 sprpriority = -1
 anim=3008
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = time=35
+value = 3011,4
+volumescale=200
+
 
 [State 0, ChangeAnim]
 type = ChangeAnim
