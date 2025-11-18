@@ -1121,8 +1121,8 @@ x = 4
 [State 0, VelSet]
 type = VelSet
 triggerall = anim = 99
-trigger1 = vel x >= 28
-x = 28
+trigger1 = vel x >= 24
+x = 24
 
 [State 0, Explod]
 type = Explod

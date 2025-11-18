@@ -5,6 +5,12 @@ command.time = 15
 command.buffer.time = 3
 
 [Command]
+name = "UNBUFFER_hold_z"
+command = /z
+time = 1
+BUFFER.TIME = 0
+
+[Command]
 name = "236S"
 command = ~$D, >F, b
 buffer.time = 10

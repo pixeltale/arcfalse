@@ -178,13 +178,13 @@ ground.velocity 	= -4.5
 air.velocity 	= -1.5,-2.5  * MAP(untechMOD)
 down.velocity 	= -1.5,-3
 guard.velocity	= -5
-guard.slidetime	= 20
 ground.cornerpush.veloff = -6*(prevstateno = 410)
 envshake.time 	= 8
 envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 guard.ctrltime 	= 11
+guard.slidetime	= 11
 air.fall 		= 1
 getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
 
@@ -328,6 +328,8 @@ ground.hittime  	= 22 * MAP(untechMOD)
 air.hittime  	= 30
 down.hittime 	= 60 * MAP(untechMOD)
 ground.velocity 	= -3
+guard.velocity		= -6
+guard.slidetime 	= 10 
 down.velocity 	= -3,-3.5
 air.velocity 	= -1.5,-2  * MAP(untechMOD)
 air.cornerpush.veloff = -10
@@ -774,11 +776,8 @@ envshake.time	= 40
 envshake.freq 	= 120
 envshake.ampl 	= 5
 envshake.phase 	= 1
-palfx.time 	= 12
-palfx.add 		= 100, 0,20
-guard.hittime 	= 22
-guard.slidetime 	= 40
-guard.ctrltime 	= 28
+guard.ctrltime 	= 22
+guard.slidetime 	= 22
 guard.velocity 	= -8
 fall.yvelocity 	= 0
 air.fall 		= 1
@@ -817,11 +816,8 @@ envshake.time 	= 40
 envshake.freq 	= 120
 envshake.ampl 	= 5
 envshake.phase 	= 1
-palfx.time 	= 12
-palfx.add 		= 100, 0,20
-guard.hittime 	= 22
-guard.slidetime	= 40
-guard.ctrltime 	= 28
+guard.ctrltime 	= 22
+guard.slidetime 	= 22
 guard.velocity 	= -8
 guard.dist 	= 2
 fall.yvelocity 	= 0
@@ -1249,18 +1245,14 @@ value = 0
 
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = time%3=0 && command = "hold_z"
+trigger1 = time%3=0 && command = "UNBUFFER_hold_z"
 v = 10    
 value = 2
 
+
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = command = "hold_z" && time = [2, 7]
-value = 420
-elem = 1
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = command = "hold_z" && time = [8, 10]
+trigger1 = command = "UNBUFFER_hold_z" && time = [5, 10]
 value = 420
 elem = 2
 
@@ -4131,8 +4123,6 @@ envshake.time = 7
 guard.slidetime = 12
 guard.hittime = 28
 guard.ctrltime = 28
-palfx.time = 12
-palfx.add = 100, 0,20
 air.fall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 ID = 1071
@@ -4153,7 +4143,7 @@ hitsound   = 5,1
 guardsound = 6,2
 ground.type = Low
 animtype = medium
-ground.slidetime = 14
+ground.slidetime = 23
 ground.hittime  = 24
 air.hittime  = 42 * MAP(untechMOD)*1.5
 down.hittime = 55
@@ -4162,11 +4152,8 @@ guard.velocity = 3
 air.velocity = p2dist x * 0.02 + 2,-4  * MAP(untechMOD)
 fall.yvelocity = 0
 envshake.time = 7
-guard.slidetime = 12
-guard.hittime = 23
+guard.slidetime = 23
 guard.ctrltime = 23
-palfx.time = 12
-palfx.add = 100, 0,20
 air.fall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 ID = 1071

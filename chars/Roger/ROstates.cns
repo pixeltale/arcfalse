@@ -432,7 +432,7 @@ value = Anim + 3
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time = 6
-value = 660
+value = 50
 ctrl = 0
 ;anim =
 ;ignorehitpause = 
@@ -450,32 +450,6 @@ type = VarSet
 trigger1 = Time = 0
 sysvar(1) = 0
 
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-fv = 6  ;fv = 10
-value = 0 ;State of this attack
-;ignorehitpause = 
-;persistent = 
-
-[State 0, HitOverride]
-type = HitOverride
-triggerall = var(30)>0
-triggerall = movetype != H
-triggerall = stateno = [0,105]
-trigger1=  enemynear, stateno = 200
-trigger2=  enemynear, stateno = 400
-trigger3=  enemynear, stateno = 210
-trigger4=  enemynear, stateno = 410
-trigger5=  enemynear, stateno = 600
-trigger6 = enemynear, stateno!= [1000, 1999] ;Time is how many ticks the Armor lasts
-attr = SCA ,NA,SA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 666999 
-time = 1
-forceair = 0
-
 [State 50, 2]
 type = ChangeAnim
 trigger1 = Time = 0
@@ -488,6 +462,8 @@ trigger1 = SelfAnimExist(anim + 3)
 trigger1 = anim >= 41 && anim <= 43
 persistent = 0
 value = Anim + 3
+
+
 ;--------------------------------------
 [Statedef 903]
 type    = A

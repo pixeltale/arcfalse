@@ -5707,6 +5707,16 @@ sprpriority = 2
 type = PosSet
 trigger1 = Time = 0
 y = 0
+[State 0, PosAdd]
+type = PosAdd
+triggerall = !time
+trigger1 = FrontEdgeBodyDist < 50
+x = -50
+[State 0, PosAdd]
+type = PosAdd
+triggerall = !time
+trigger1 = BackEdgeBodyDist < 50
+x = 50
 
 
 [State 0, PlaySnd]
