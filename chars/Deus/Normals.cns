@@ -960,7 +960,7 @@ triggerall = animelem = 5
 trigger1 = facing != player(map(enemyteamlead)),facing
 trigger2 = combocount>0
 trigger3 = player(map(enemyteamlead)),name="Deus"
-x = 12+(map(smashattack)/8)
+x = 15+(map(smashattack)/8)
 ignorehitpause=1
 
 [State 0, VelSet]
@@ -969,7 +969,7 @@ trigger1 = animelem = 5
 trigger1 = facing = player(map(enemyteamlead)),facing
 trigger1 = combocount=0
 triggerall = player(map(enemyteamlead)),name!="Deus"
-x = 5
+x = 8
 ignorehitpause=1
 
 [State EX Limiters]
@@ -1233,7 +1233,7 @@ triggerall = animelem = 6
 trigger1 = facing != player(map(enemyteamlead)),facing
 trigger2 = combocount>0
 trigger3 = player(map(enemyteamlead)),name="Deus"
-x = 16
+x = 19
 ignorehitpause=1
 
 [State 0, VelSet]
@@ -1242,7 +1242,7 @@ trigger1 = animelem = 6
 trigger1 = facing = player(map(enemyteamlead)),facing
 trigger1 = combocount=0
 triggerall = player(map(enemyteamlead)),name!="Deus"
-x = 8
+x = 11
 ignorehitpause=1
 
  ;============================

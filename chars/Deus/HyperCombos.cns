@@ -266,7 +266,7 @@ scale = 1.5
 lag = 0.8
 stagebound = 1
 camerabound = 0
-pos =0,-10
+pos =20*facing,cond(pos y>=-10,-10,-50)
 ignorehitpause=1
 [State 0, Zoom]
 type = zoom
@@ -278,7 +278,7 @@ scale = 1.5
 lag = 0.8
 stagebound = 1
 camerabound = 0
-pos = pos x,-10
+pos =20*facing,cond(pos y>=-10,-10,-50)
 ignorehitpause=1
 [State 0]
 type = MapAdd
@@ -701,7 +701,7 @@ scale = 1.5
 lag = 0.8
 stagebound = 1
 camerabound = 0
-pos =0,-50
+pos =-30*facing,-50
 ignorehitpause=1
 [State 0, Zoom]
 type = zoom
@@ -839,6 +839,12 @@ trigger1 = time>=17&&anim=3002
 flag = timerfreeze
 flag2 = noFG
 flag3 = noBG
+ignorehitpause=1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time>=17&&anim=3002
+flag = nocombodisplay
 ignorehitpause=1
 
 [State 0, TargetState]
@@ -1515,13 +1521,12 @@ value = 3500,3
 volumescale = 100
 persistent=0
 channel=11
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = animelem=14
-value = 999,999
-volumescale = 0
-persistent=1
-channel=11
+[State Test]
+type = ModifySnd
+trigger1 = animelem=13
+channel = 11
+volumescale =0
+ignorehitpause=1
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1=anim=3501

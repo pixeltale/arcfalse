@@ -4,6 +4,16 @@ type = S
 physics = N
 sprpriority = 0
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+trigger1 = time=0
+trigger1 = prevstateno=3002
+value = 3050, (0+(Random%4))
+volumescale=150
+channel=7
+lowpriority=1
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = prevstateno=20&&vel x >=8
