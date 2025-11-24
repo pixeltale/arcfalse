@@ -8654,7 +8654,9 @@ triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(Slowdo
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
-trigger1 = 1
+triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
+trigger1 = 1 &&name!="Deus"
+trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
 removetime = 1
 layerno = 2
 text = "%d"
@@ -8675,7 +8677,9 @@ triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(Slowdo
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
-trigger1 = 1
+triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
+trigger1 = 1 &&name!="Deus"
+trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
 removetime = 1
 layerno = 2
 text = "PERCENT"
@@ -8696,7 +8700,9 @@ triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(Slowdo
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
-trigger1 = 1
+triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
+trigger1 = 1 &&name!="Deus"
+trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
 removetime = 1
 layerno = 2
 text = "%d"
@@ -8717,7 +8723,9 @@ triggerall = (enemy, map(SlowdownTime) = 0 && !map(SlowdownTimeB) && !map(Slowdo
 triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
-trigger1 = 1
+triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
+trigger1 = 1 &&name!="Deus"
+trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
 removetime = 1
 layerno = 2
 text = "PERCENT"

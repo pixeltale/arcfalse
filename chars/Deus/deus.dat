@@ -2,7 +2,7 @@
 
 	<#ffa9de>UNIQUE TRAIT: BOUNDLESS</>
 	I have many traits that make me play unlike any other character in this game.
-	I can face either direction at any time. I don't have a traditional walk,
+	I can face either direction at any time, I don't have a traditional walk,
 	backdash, or air dash. I can freely move back and forward in the air.
 	There's even more, so check the rest of the move list for more info. :)
 
@@ -33,7 +33,7 @@ HALO	-		<#aaffff>(GROUND OR AIR)</> _F^Y
 SHINE THROUGH	-		(CAN BE HELD) _D^Y
    <#bbbbbb>The slide is projectile immune. The uppercut is an anti-air.
    Becomes more powerful when fully held.</>
-DIVINE INTERVENTION	-		<#65b5ff>(AIR ONLY)</> _D^Y
+LIGHT FROM ABOVE	-		<#65b5ff>(AIR ONLY)</> _D^Y
 
 	<#ffa9de>REMIX MOVES</>
 REFLECTION	-		(HOLD)^Z
@@ -59,37 +59,37 @@ _EX HALO	-		<#aaffff>(GROUND OR AIR)<#55ffff>(1 BAR)</> _F^Y
 _EX SHINE THROUGH	-		(CAN BE HELD)<#55ffff>(1 BAR)</> _D^Y
    <#bbbbbb>Invincible startup. The rest of the attack is
    an anti-air and projectile immune.</>
-_EX DIVINE INTERVENTION	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> _D^Y
+_EX LIGHT FROM ABOVE	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> _D^Y
 
 	<#55ffff>SUPERS</>
-<#ffa9de>ALL THAT YOU KNOW OF</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
-_!<#ffa9de>AND ALL YOU DO NOT</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
-   _!<#ffa9de>ALL OF IT, IS ME.</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+<#ffa9de>DIVINE INTERVENTION</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+_!<#ffa9de>HOLY TRINITY</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+   _!<#ffa9de>ABSOLUTION.</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
 <#ffa9de>FUTILITY</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^Y
    <#bbbbbb>A counter that beats strikes and projectiles.
    The opposition may have time to block when this is used to beat a projectile.</>
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further. Increases your air
+   <#bbbbbb>Jump higher, faster, and further. Increases my air
    drift.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne attacks.</>
 FALSE GUARD (WHILE BLOCKING)	-		</> _B^X
-   <#bbbbbb>Push the enemy away while you block.
-   Can be done freely, but extends your block stun.</>
+   <#bbbbbb>Push the opposition away while I block.
+   Can be done freely, but extends my block stun.</>
 FALSE PARRY 	-		(1 BAR)</> _F^X
    <#bbbbbb>If timed correctly, False Parry can redirect all non throw
-   attacks, freezing the enemy in place for a short period of time.
-   Additionally, it can be canceled into from blocking if you performed
+   attacks, freezing the opposition in place for a short period of time.
+   Additionally, it can be canceled into from blocking if I performed
    an Instant Block.
    Hold the False button to slightly extend its duration.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
-   Holding a direction while you perform it will redirect
-   you to move in said direction.</>
+   Holding a direction while I perform it will redirect
+   me to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^X + ANY BUTTON
-   <#bbbbbb>A large reversal that can be used while you're getting hit.
+   <#bbbbbb>A large reversal that can be used while I'm getting hit.
    Be careful not to get it baited.
    </>
    </>

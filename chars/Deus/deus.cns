@@ -58,6 +58,8 @@ jump.fwd = 10    ;Jump forward Speed (x, y)
 runjump.back = -6 ;Running jump speeds (opt)
 runjump.fwd = 8     ;.
 airjump.neu = 0,-6.5      ;.
+airjump.fwd = 6
+airjump.back = -4
 air.gethit.groundrecover = -.15,-3.5  ;Velocity for ground recovery state (x, y) **MUGEN 1.0**
 air.gethit.airrecover.mul = .5,.2     ;Multiplier for air recovery velocity (x, y) **MUGEN 1.0**
 air.gethit.airrecover.add = 0,-4.5    ;Velocity offset for air recovery (x, y) **MUGEN 1.0**
@@ -981,7 +983,7 @@ lowpriority=1
 [State Voice From Above]
 type = PlaySnd
 triggerall=map(december)=1
-trigger1 = time=0
+trigger1 = time=1
 value = 1225,0
 volumescale=200
 channel=7
@@ -1273,7 +1275,7 @@ lowpriority=1
 [State Voice From Above]
 type = PlaySnd
 triggerall=map(december)=1
-trigger1 = time=0
+trigger1 = time=1
 value = 1225,0
 volumescale=200
 channel=7
@@ -2008,7 +2010,7 @@ lowpriority=1
 [State Voice From Above]
 type = PlaySnd
 triggerall=map(december)=1
-trigger1 = time=0
+trigger1 = time=1
 value = 1225,0
 volumescale=200
 channel=7
@@ -2756,7 +2758,8 @@ persistent = 1
 [State 0, VarSet]
 type = Mapset
 triggerall = palno=12
-trigger1 =consecutivewins>=5
+trigger1 =command = "hold_start"
+triggerall = StageVar(info.name) = "From the Other Side"
 trigger1 =roundno=1&&roundstate=0
 map = "december"
 value = 1
@@ -2773,7 +2776,7 @@ value=1
 [State 0, PlaySnd] ;HEAVEN-SENT
 type = PlayBgm
 trigger1=map(december)=1
-triggerall=roundstate=0&&time=0
+triggerall=roundstate=0&&time=1
 ignorehitpause=1
 persistent=0
 bgm = "sound/black.mp3"

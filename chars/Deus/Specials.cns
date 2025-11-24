@@ -337,7 +337,7 @@ ground.velocity = 0
 air.velocity = 0,0
 down.velocity = 0,0
 forcenofall = 1
-getpower = (50)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (60)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 210, 2]
 type = HitDef 
@@ -992,6 +992,19 @@ value = 1220
 ctrl = 0
 
 [State j5S]
+type = MapSet
+map = "kissrefresh"
+value = 0
+trigger1 = time=0
+ignorehitpause=1
+[State j5S]
+type = MapSet
+map = "kissrefresh"
+value = 1
+trigger1 =root,stateno!=1300
+ignorehitpause=1
+
+[State j5S]
 type = ChangeState
 triggerall = root,command = "b"|| root,command = "EX"
 triggerall =  root,command !="holddown"
@@ -999,6 +1012,8 @@ triggerall =  root,command !="holdfwd"
 triggerall =  root,command !="holdback"
 triggerall =  root,statetype = A
 trigger1 =  root,var(1)
+trigger2 = root,stateno=1200||root,stateno=1300
+trigger2 = map(kissrefresh)
 value = 1211
 
 [State 210, 5]
@@ -1417,6 +1432,19 @@ value = 1320
 ctrl = 0
 
 [State j5S]
+type = MapSet
+map = "kissrefresh"
+value = 0
+trigger1 = time=0
+ignorehitpause=1
+[State j5S]
+type = MapSet
+map = "kissrefresh"
+value = 1
+trigger1 =root,stateno!=1300
+ignorehitpause=1
+
+[State j5S]
 type = ChangeState
 triggerall = root,command = "b"|| root,command = "EX"
 triggerall =  root,command !="holddown"
@@ -1424,6 +1452,8 @@ triggerall =  root,command !="holdfwd"
 triggerall =  root,command !="holdback"
 triggerall =  root,statetype = A
 trigger1 =  root,var(1)
+trigger2 = root,stateno=1200||root,stateno=1300
+trigger2 = map(kissrefresh)
 value = 1211
 
 [State 210, 5]

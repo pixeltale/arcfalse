@@ -53,8 +53,26 @@ persistent         = 0
 [State Voice From Above]
 type = PlaySnd
 triggerall=map(december)=0
+triggerall=palno!=7
 trigger1 = time=0
 value = 3010, (0+(Random%3))
+volumescale=200
+channel=7
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = animelemtime(4)>=0&& animelemtime(32)<0&&combocount>0
+value = 3011,0
+volumescale=200
+channel=7
+persistent=0
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = animelem=32
+value = 3011,1
 volumescale=200
 channel=7
 
@@ -248,7 +266,7 @@ scale = 1.5
 lag = 0.8
 stagebound = 1
 camerabound = 0
-pos =0,-10
+pos =20*facing,cond(pos y>=-10,-10,-50)
 ignorehitpause=1
 [State 0, Zoom]
 type = zoom
@@ -260,7 +278,7 @@ scale = 1.5
 lag = 0.8
 stagebound = 1
 camerabound = 0
-pos = pos x,-10
+pos =20*facing,cond(pos y>=-10,-10,-50)
 ignorehitpause=1
 [State 0]
 type = MapAdd
@@ -371,6 +389,22 @@ velset = vel x,0
 anim = 3001
 sprpriority = 0
 facep2=1
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = time=0
+value = 3011,2
+volumescale=200
+
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = animelem=17
+value = 3011,3
+volumescale=200
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -667,7 +701,7 @@ scale = 1.5
 lag = 0.8
 stagebound = 1
 camerabound = 0
-pos =0,-50
+pos =-30*facing,-50
 ignorehitpause=1
 [State 0, Zoom]
 type = zoom
@@ -766,6 +800,15 @@ velset =0,0
 sprpriority = -1
 anim=3008
 
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0
+triggerall=palno=7
+trigger1 = time=35
+value = 3011,4
+volumescale=200
+
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = time=17
@@ -796,6 +839,12 @@ trigger1 = time>=17&&anim=3002
 flag = timerfreeze
 flag2 = noFG
 flag3 = noBG
+ignorehitpause=1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time>=17&&anim=3002
+flag = nocombodisplay
 ignorehitpause=1
 
 [State 0, TargetState]
@@ -1472,13 +1521,12 @@ value = 3500,3
 volumescale = 100
 persistent=0
 channel=11
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = animelem=14
-value = 999,999
-volumescale = 0
-persistent=1
-channel=11
+[State Test]
+type = ModifySnd
+trigger1 = animelem=13
+channel = 11
+volumescale =0
+ignorehitpause=1
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1=anim=3501
