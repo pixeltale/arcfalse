@@ -278,6 +278,15 @@ phase = 90
 mul = 1.2
 ignorehitpause = 1
 
+;Sample Code for Guard Crush!
+;[State - Guard Crush] 
+;type = mapset
+;trigger1 = movecontact && anim != 1000
+;map = "GC"
+;value = 1
+;ignorehitpause = 1
+;redirectid = enemynear, id
+
 [State 0, AfterImage] ;Enhancer Afterimage Effect ============ ++
 type 		= AfterImage			        ;+
 trigger1 		= time 	=  0 && map(EN)		        ;+

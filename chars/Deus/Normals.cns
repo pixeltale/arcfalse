@@ -1685,7 +1685,9 @@ envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 3
 envshake.phase = 1
-forcenofall = 1
+fall = 1
+air.fall = 1
+forcenofall = 0
 getpower = (60)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 0]
@@ -2680,6 +2682,8 @@ guard.hittime = 8
 guard.pausetime= 14,14
 guard.velocity = 6
 airguard.velocity= 4,-3
+ground.cornerpush.veloff = -5
+air.cornerpush.veloff = -5
 air.fall = 1
 getpower = (60)*(cond(var(var(2)) = 1, 1, 1)) 
 
@@ -2731,6 +2735,8 @@ palfx.sinadd=256,256,256,10
 palfx.time=32
 guard.velocity = 6
 airguard.velocity= 4,-3
+ground.cornerpush.veloff = -5
+air.cornerpush.veloff = -5
 fall = 1
 air.fall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 

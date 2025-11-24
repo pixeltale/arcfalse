@@ -5294,13 +5294,13 @@ value 	= 0, 1
 [State 0, PosFreeze]
 type = PosFreeze
 triggerall = sysvar(1)
-trigger1 = time < 10
+trigger1 = time < 5
 value = 1
 ignorehitpause = 1
 [State 0, ChangeAnim]
 type = ChangeAnim
 triggerall = sysvar(1)
-trigger1 = time < 10
+trigger1 = time < 5
 value = Anim 
 elem = AnimElemNo(0)
 
@@ -5323,12 +5323,12 @@ sysvar(1) = 1
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = sysvar(1) && time > 10
+trigger1 = sysvar(1) && time > 5
 trigger1 = command = "28" || command = "27" || command = "29"
 value = 55
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = sysvar(1) && time > 10
+trigger1 = sysvar(1) && time > 5
 trigger1 = command = "holdupb"
 value = 40
 

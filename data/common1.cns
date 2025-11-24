@@ -1728,8 +1728,8 @@ value = 0
 
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
-value = 5275
+trigger1 = Map(GC)=1 && !map(BGuard)
+value = 5250
 
 [State 0, MapSet] ;Regain ctrl frame
 type = MapSet
@@ -1821,8 +1821,8 @@ physics = S
 
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
-value = 5275
+trigger1 = map(GC)=1 && !map(BGuard)
+value = 5250
 
 [State 151, End]
 type = changestate
@@ -1864,8 +1864,8 @@ value = 0
 
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
-value = 5275
+trigger1 = map(GC)=1 && !map(BGuard)
+value = 5250
 
 ;Guard Cancel
 ; [State 0, Guard Cancel]
@@ -1956,8 +1956,8 @@ physics=S
 
 [State 0, Changestate] ;Guard Crush
 type = Changestate 
-trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
-value = 5275
+trigger1 = map(GC)=1 && !map(BGuard)
+value = 5250
 
 [State 153, End]
 type=changestate
@@ -2003,7 +2003,7 @@ value = 0
 [State 0, Changestate] ;Guard Crush
 type = Changestate
 trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
-value = 5240
+value = 5225
 
 [State 154, End]
 type=changestate
@@ -5947,6 +5947,35 @@ movetype= H
 physics = N
 velset = 0,0
 
+;Guard CRUSH ZOOM ================================================
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist <= 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0,-10
+ignorehitpause = 1
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist > 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0, -10
+ignorehitpause = 1
+[State 0]
+type = MapSet
+trigger1 = map(GC)
+map = "SlowDownTime"
+value = 15
+ignorehitpause = 0
+;==============================================================
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
@@ -7809,6 +7838,16 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+
+;=============================================================================
+;GUARD CRUSH RESET
+;=============================================================================
+[State 0, MapSet] ;No more guard crush
+type        = MapSet
+trigger1    = ctrl
+map         = "GC"
+value       = 0
+
 ;============================================================================= ;Blue Guard Blueguard FD <- Ignore my CTRL+F Optimizations
 ;Blueline Guard Common Actions
 
@@ -8134,7 +8173,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 0
+VALUE = 1
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)
