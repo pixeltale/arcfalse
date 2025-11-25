@@ -3183,6 +3183,12 @@ trigger1 = animelem = 3
 trigger2 = animelem = 4
 x = 18
 
+;Pass-through correction.
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = p2dist x < 100 && animelemno(0) < 5 && animelemno(0) > 2
+x = -15
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 4
@@ -3296,6 +3302,14 @@ airguard.ctrltime = 48
 getpower = 70*var(2)
 ground.cornerpush.veloff = -30
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
+
+[State - Guard Crush] 
+type = mapset
+trigger1 = moveguarded
+map = "GC"
+value = 1
+ignorehitpause = 1
+redirectid = enemynear, id
 
 [State 0, Zoom]
 type = zoom

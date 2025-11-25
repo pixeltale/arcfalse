@@ -27,13 +27,13 @@ Clsn2: 1
 Clsn2Default: 2
   Clsn2[0] = -23, -80, 28, 1
   Clsn2[1] = -15, -105, 19, -73
-200,0, 0,0, 4
+10,0, 0,0, 4
 
 ; Crouch Turning
 [Begin Action 6]
 Clsn2: 1
   Clsn2[0] = -28, -56, 32, 1
-11,3, 0,0, 4, H
+10,4, 0,0, 4, H
 
 ; Stand to crouch
 [Begin Action 10]

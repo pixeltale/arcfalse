@@ -455,7 +455,7 @@ type = Explod
 trigger1 = time = 1
 anim = 6951
 ID = 6951
-pos = 0,-50
+pos = 0,0
 postype = p1  ;p2,front,back,left,right
 facing = -1
 vfacing = 1
@@ -553,7 +553,7 @@ type = Explod
 trigger1 = animelem = 2
 anim = 6951
 ID = 6951
-pos = 0,-50
+pos = 0,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1

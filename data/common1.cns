@@ -1727,7 +1727,7 @@ map = "IBTimer"
 value = 0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
+type = SelfState 
 trigger1 = Map(GC)=1 && !map(BGuard)
 value = 5250
 
@@ -1820,7 +1820,7 @@ statetype = S
 physics = S
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
+type = Selfstate 
 trigger1 = map(GC)=1 && !map(BGuard)
 value = 5250
 
@@ -1863,7 +1863,7 @@ map = "IBTimer"
 value = 0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
+type = selfstate 
 trigger1 = map(GC)=1 && !map(BGuard)
 value = 5250
 
@@ -1955,7 +1955,7 @@ statetype=S
 physics=S
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
+type = selfstate 
 trigger1 = map(GC)=1 && !map(BGuard)
 value = 5250
 
@@ -2001,8 +2001,8 @@ map = "IBTimer"
 value = 0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate
-trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
+type = selfstate
+trigger1 = Map(GC)=1 && !map(BGuard)
 value = 5225
 
 [State 154, End]
@@ -2062,7 +2062,7 @@ trigger1= sysvar(0)
 y=0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate
+type = selfstate
 trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
 value = 5240
 
@@ -4416,6 +4416,7 @@ ignorehitpause = 1
 
 [State 0. MapSet]
 type 		= MapSet
+triggerall  = enemy, map(GC) = 0
 trigger1 	= time = 0
 map 		= "SlowdownTime"
 value 		= 35
@@ -4513,6 +4514,7 @@ ignorehitpause = 1
 
 [State 0. MapSet]
 type 		= MapSet
+triggerall  = enemy, map(GC) = 0
 trigger1 	= time = 0
 map 		= "SlowdownTimeC"
 value 		= 30
@@ -4896,6 +4898,41 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
+
+;Guard CRUSH ZOOM ================================================
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist <= 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0,-10
+ignorehitpause = 1
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist > 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0, -10
+ignorehitpause = 1
+[State 0]
+type = MapSet
+trigger1 = map(GC)
+map = "SlowDownTime"
+value = 30
+ignorehitpause = 0
+[State -3, Shatter Sound Effect] 
+type = PlaySnd
+triggerall = map(GC)
+trigger1 = time = 0
+value = F5250
+volumescale=130
+;==============================================================
 
 [State -3, Win Voices] 
 type = PlaySnd
@@ -5947,6 +5984,8 @@ movetype= H
 physics = N
 velset = 0,0
 
+
+
 ;Guard CRUSH ZOOM ================================================
 [State 0, Zoom]
 type = zoom
@@ -5972,8 +6011,14 @@ ignorehitpause = 1
 type = MapSet
 trigger1 = map(GC)
 map = "SlowDownTime"
-value = 15
+value = 30
 ignorehitpause = 0
+[State -3, Shatter Sound Effect] 
+type = PlaySnd
+triggerall = map(GC)
+trigger1 = time = 0
+value = F5250
+volumescale=130
 ;==============================================================
 
 [State 0, PosSet]
@@ -5999,6 +6044,38 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
+
+;Guard CRUSH ZOOM ================================================
+[State 0, Zoom]
+type = zoom
+triggerall = time < 10
+triggerall = backedgebodydist <= 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0,-10
+ignorehitpause = 1
+[State 0, Zoom]
+type = zoom
+triggerall = time < 10
+triggerall = backedgebodydist > 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0, -10
+ignorehitpause = 1
+[State 0]
+type = MapSet
+triggerall = time < 10
+trigger1 = map(GC)
+map = "SlowDownTime"
+value = 30
+ignorehitpause = 0
+;==============================================================
 
 [State -3, Win Voices] 
 type = PlaySnd
@@ -7844,7 +7921,7 @@ ignorehitpause = 1
 ;=============================================================================
 [State 0, MapSet] ;No more guard crush
 type        = MapSet
-trigger1    = ctrl
+trigger1    = ctrl || movetype = H && stateno != [120,155] && stateno != [5250, 5255]
 map         = "GC"
 value       = 0
 
@@ -7869,10 +7946,10 @@ map 		= "BGuard_penalty"
 value 		= 0
 
 
-; [State 0, AssertSpecial]
-; type = AssertSpecial
-; trigger1 = map(BGuard)
-; flag =  NoGuardDamage
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = map(BGuard)
+flag =  NoGuardDamage
 
 [State 0, PowerAdd]
 type = PowerAdd
@@ -7921,8 +7998,19 @@ ignorehitpause = 1
 size.xscale = 1
 size.yscale = 1
 
-;OTG DefenseMul
+[State 700, Flash]
+type = palfx
+trigger1 = map(BGuard) && enemy, moveguarded = 1
+add         = 0, 165, 255
+sinadd      = 0, -165, -255, 60
+time        = 15
+ignoreHitPause = 1
 
+;OTG Fixes
+[State 0, DefenceMulSet]
+type = HitFallSet
+trigger1 = statetype = L
+value = 1
 [State 0, DefenceMulSet]
 type = DefenceMulSet
 trigger1 = statetype = L
@@ -9064,7 +9152,7 @@ value = -1
 [State 0, VelMul]
 type = VelMul
 triggerall = stateno = [120,155]
-trigger1 = map(IBcheck)
+trigger1 = map(IBcheck) && !map(BGuard)
 x = 0.5
 ignorehitpause = 1
 persistent = 0
