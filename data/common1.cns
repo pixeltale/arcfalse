@@ -7948,7 +7948,7 @@ value 		= 0
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = map(BGuard)
+trigger1 = map(BGuard) || map(_iksys_trainingGuardMode) = 3
 flag =  NoGuardDamage
 
 [State 0, PowerAdd]
@@ -9113,29 +9113,13 @@ type = AssertSpecial
 trigger1 	= map(IBTimer) > 20
 flag = NoGuardDamage
 
-[State 0. MapSet]
-type 		= MapSet
-trigger1    = stateno = 150 || stateno = 152 || stateno = 154
-trigger1 	= map(IBTimer) > 20 && time = 0
-map 		= "IBPalFX"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 1
-
-[State 0. MapSet]
-type 		= MapAdd
-trigger1 	= map(IBPalFX)
-map 		= "IBPalFX"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 1
-
-[State 0, PalFX Perfect Guard]
-type = PalFX
-trigger1 = map(IBPalFX)
-time = 1
-add = cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0),cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0),cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0)
-ignorehitpause = 1
+[State 700, Flash]
+type = palfx
+trigger1 = map(IBCheck) && enemy, moveguarded = 1
+add         = 155, 155, 155
+sinadd      = -155, -155, -155, 60
+time        = 15
+ignoreHitPause = 1
 
 [State 0, MapSet] ;Map for "remembering" that you instant blocked
 type = MapSet
