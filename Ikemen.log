@@ -2,8 +2,8 @@ Version: nightly
 Build Time: 2025.10.28
 
 Error log:
-.\external\script\start.lua:1691: chars/vile/Specials.cns:278:
-'!' operator cannot be used within a trigger redirection
+.\external\script\start.lua:1691: chars/Deus/Normals.cns:1724:
+Invalid data: \
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1691: in function 'f_game'
