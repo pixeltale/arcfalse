@@ -1362,13 +1362,13 @@ x = const(velocity.walk.fwd.x)
 
 [State 100, 1]
 type = veladd
-trigger1 = time <30
+trigger1 = prevstateno != 4000
 x = .15
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time >= 30
-x = 4
+trigger1 = vel x > 10
+x = 10
 
 [State 0, Explod]
 type = Explod
@@ -1453,11 +1453,11 @@ flag2 = NoAutoTurn
 flag3 = nocrouch
 
 [State 100, 4]
-type = selfstate
-triggerall = time>20
+type = ChangeState
+triggerall = time>5
 trigger1 = command!="holdfwd" && teammode =tag 
 trigger2 = command!="holdfwd" && command != "holddash" && teammode !=tag 
-value = 101
+value = 20
 ctrl = 1
 
 ;---------------------------------------------------------------------------

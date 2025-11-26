@@ -628,6 +628,13 @@ map 			= "CHARGED"
 value 		= 1
 ignorehitpause 	= 0
 persistent 		= 0
+[State - Guard Crush] 
+type = mapset
+trigger1 = moveguarded && map(CHARGED)
+map = "GC"
+value = 1
+ignorehitpause = 1
+redirectid = enemynear, id
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet

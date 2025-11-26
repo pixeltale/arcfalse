@@ -1727,9 +1727,9 @@ map = "IBTimer"
 value = 0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
-trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
-value = 5275
+type = SelfState 
+trigger1 = Map(GC)=1 && !map(BGuard)
+value = 5250
 
 [State 0, MapSet] ;Regain ctrl frame
 type = MapSet
@@ -1820,9 +1820,9 @@ statetype = S
 physics = S
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
-trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
-value = 5275
+type = Selfstate 
+trigger1 = map(GC)=1 && !map(BGuard)
+value = 5250
 
 [State 151, End]
 type = changestate
@@ -1863,9 +1863,9 @@ map = "IBTimer"
 value = 0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
-trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
-value = 5275
+type = selfstate 
+trigger1 = map(GC)=1 && !map(BGuard)
+value = 5250
 
 ;Guard Cancel
 ; [State 0, Guard Cancel]
@@ -1955,9 +1955,9 @@ statetype=S
 physics=S
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate 
-trigger1 = map(GC)=1 && BackEdgeBodyDist <= 0 && !map(BGuard)
-value = 5275
+type = selfstate 
+trigger1 = map(GC)=1 && !map(BGuard)
+value = 5250
 
 [State 153, End]
 type=changestate
@@ -2001,9 +2001,9 @@ map = "IBTimer"
 value = 0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate
-trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
-value = 5240
+type = selfstate
+trigger1 = Map(GC)=1 && !map(BGuard)
+value = 5225
 
 [State 154, End]
 type=changestate
@@ -2062,7 +2062,7 @@ trigger1= sysvar(0)
 y=0
 
 [State 0, Changestate] ;Guard Crush
-type = Changestate
+type = selfstate
 trigger1 = Map(GC)=1 && BackEdgeBodyDist <=0 && !map(BGuard)
 value = 5240
 
@@ -4416,6 +4416,7 @@ ignorehitpause = 1
 
 [State 0. MapSet]
 type 		= MapSet
+triggerall  = enemy, map(GC) = 0
 trigger1 	= time = 0
 map 		= "SlowdownTime"
 value 		= 35
@@ -4513,6 +4514,7 @@ ignorehitpause = 1
 
 [State 0. MapSet]
 type 		= MapSet
+triggerall  = enemy, map(GC) = 0
 trigger1 	= time = 0
 map 		= "SlowdownTimeC"
 value 		= 30
@@ -4896,6 +4898,41 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
+
+;Guard CRUSH ZOOM ================================================
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist <= 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0,-10
+ignorehitpause = 1
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist > 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0, -10
+ignorehitpause = 1
+[State 0]
+type = MapSet
+trigger1 = map(GC)
+map = "SlowDownTime"
+value = 30
+ignorehitpause = 0
+[State -3, Shatter Sound Effect] 
+type = PlaySnd
+triggerall = map(GC)
+trigger1 = time = 0
+value = F5250
+volumescale=130
+;==============================================================
 
 [State -3, Win Voices] 
 type = PlaySnd
@@ -5947,6 +5984,43 @@ movetype= H
 physics = N
 velset = 0,0
 
+
+
+;Guard CRUSH ZOOM ================================================
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist <= 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0,-10
+ignorehitpause = 1
+[State 0, Zoom]
+type = zoom
+triggerall = backedgebodydist > 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0, -10
+ignorehitpause = 1
+[State 0]
+type = MapSet
+trigger1 = map(GC)
+map = "SlowDownTime"
+value = 30
+ignorehitpause = 0
+[State -3, Shatter Sound Effect] 
+type = PlaySnd
+triggerall = map(GC)
+trigger1 = time = 0
+value = F5250
+volumescale=130
+;==============================================================
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
@@ -5970,6 +6044,38 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
+
+;Guard CRUSH ZOOM ================================================
+[State 0, Zoom]
+type = zoom
+triggerall = time < 10
+triggerall = backedgebodydist <= 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0,-10
+ignorehitpause = 1
+[State 0, Zoom]
+type = zoom
+triggerall = time < 10
+triggerall = backedgebodydist > 100
+trigger1 = map(GC)
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos = 0, -10
+ignorehitpause = 1
+[State 0]
+type = MapSet
+triggerall = time < 10
+trigger1 = map(GC)
+map = "SlowDownTime"
+value = 30
+ignorehitpause = 0
+;==============================================================
 
 [State -3, Win Voices] 
 type = PlaySnd
@@ -7809,6 +7915,16 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
+
+;=============================================================================
+;GUARD CRUSH RESET
+;=============================================================================
+[State 0, MapSet] ;No more guard crush
+type        = MapSet
+trigger1    = ctrl || movetype = H && stateno != [120,155] && stateno != [5250, 5255]
+map         = "GC"
+value       = 0
+
 ;============================================================================= ;Blue Guard Blueguard FD <- Ignore my CTRL+F Optimizations
 ;Blueline Guard Common Actions
 
@@ -7830,10 +7946,10 @@ map 		= "BGuard_penalty"
 value 		= 0
 
 
-; [State 0, AssertSpecial]
-; type = AssertSpecial
-; trigger1 = map(BGuard)
-; flag =  NoGuardDamage
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = map(BGuard) || map(_iksys_trainingGuardMode) = 3
+flag =  NoGuardDamage
 
 [State 0, PowerAdd]
 type = PowerAdd
@@ -7882,8 +7998,19 @@ ignorehitpause = 1
 size.xscale = 1
 size.yscale = 1
 
-;OTG DefenseMul
+[State 700, Flash]
+type = palfx
+trigger1 = map(BGuard) && enemy, moveguarded = 1
+add         = 0, 165, 255
+sinadd      = 0, -165, -255, 60
+time        = 15
+ignoreHitPause = 1
 
+;OTG Fixes
+[State 0, DefenceMulSet]
+type = HitFallSet
+trigger1 = statetype = L
+value = 1
 [State 0, DefenceMulSet]
 type = DefenceMulSet
 trigger1 = statetype = L
@@ -8134,7 +8261,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 0
+VALUE = 1
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)
@@ -8986,29 +9113,13 @@ type = AssertSpecial
 trigger1 	= map(IBTimer) > 20
 flag = NoGuardDamage
 
-[State 0. MapSet]
-type 		= MapSet
-trigger1    = stateno = 150 || stateno = 152 || stateno = 154
-trigger1 	= map(IBTimer) > 20 && time = 0
-map 		= "IBPalFX"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 1
-
-[State 0. MapSet]
-type 		= MapAdd
-trigger1 	= map(IBPalFX)
-map 		= "IBPalFX"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 1
-
-[State 0, PalFX Perfect Guard]
-type = PalFX
-trigger1 = map(IBPalFX)
-time = 1
-add = cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0),cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0),cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0)
-ignorehitpause = 1
+[State 700, Flash]
+type = palfx
+trigger1 = map(IBCheck) && enemy, moveguarded = 1
+add         = 155, 155, 155
+sinadd      = -155, -155, -155, 60
+time        = 15
+ignoreHitPause = 1
 
 [State 0, MapSet] ;Map for "remembering" that you instant blocked
 type = MapSet
@@ -9025,7 +9136,7 @@ value = -1
 [State 0, VelMul]
 type = VelMul
 triggerall = stateno = [120,155]
-trigger1 = map(IBcheck)
+trigger1 = map(IBcheck) && !map(BGuard)
 x = 0.5
 ignorehitpause = 1
 persistent = 0

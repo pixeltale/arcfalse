@@ -459,9 +459,9 @@ buffertime = 5
 
 [Command]
 name = "a66"
-command = F, F
-time = 10
-buffertime = 15
+command = ~$F, F
+time = 5
+buffertime = 5
 
 
 [Command]

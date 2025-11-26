@@ -75,7 +75,7 @@ down.friction.threshold = .05         ;If the player's speed drops below this th
 switchAirAttack = 655
 StateTagAssistSuper = 500 ; STATENO: normal assist attack
 AnimRunFwdOrHopForward = 56956
-Super1 = 3000
+Super1 = 3021
 Super2 = 3050
 Super3 = 3050
 

@@ -1075,7 +1075,7 @@ persistent 		= 0
 [State 430, 2]
 type = HitDef 
 p2facing = 1
-trigger1 =  time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = C, NA
 damage = 80*MAP(P4),4
 animtype  = Hard
@@ -1092,7 +1092,7 @@ ground.slidetime = 25
 air.hittime  = 44-map(untechDecay)
 ground.hittime  = 32-map(untechDecay)
 down.hittime = 22-map(untechDecay)
-ground.velocity = -5,-2
+ground.velocity = -5,-2 -1*(var(50) != 0)
 fall = 1
 fall.yvelocity = 0
 air.velocity = -5,-2

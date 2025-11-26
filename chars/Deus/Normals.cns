@@ -960,7 +960,7 @@ triggerall = animelem = 5
 trigger1 = facing != player(map(enemyteamlead)),facing
 trigger2 = combocount>0
 trigger3 = player(map(enemyteamlead)),name="Deus"
-x = 15+(map(smashattack)/8)
+x = 12+(map(smashattack)/8)
 ignorehitpause=1
 
 [State 0, VelSet]
@@ -969,7 +969,7 @@ trigger1 = animelem = 5
 trigger1 = facing = player(map(enemyteamlead)),facing
 trigger1 = combocount=0
 triggerall = player(map(enemyteamlead)),name!="Deus"
-x = 8
+x = 5
 ignorehitpause=1
 
 [State EX Limiters]
@@ -980,6 +980,13 @@ map = "fullfsmash"
 value = 1
 ignorehitpause=1
 persistent=1
+[State - Guard Crush] 
+type = mapset
+trigger1 = moveguarded && map(SmashAttack) >= 40
+map = "GC"
+value = 1
+ignorehitpause = 1
+redirectid = enemynear, id
 
 [State 200, 1]
 type = HitDef 
@@ -1233,7 +1240,7 @@ triggerall = animelem = 6
 trigger1 = facing != player(map(enemyteamlead)),facing
 trigger2 = combocount>0
 trigger3 = player(map(enemyteamlead)),name="Deus"
-x = 19
+x = 16
 ignorehitpause=1
 
 [State 0, VelSet]
@@ -1242,7 +1249,7 @@ trigger1 = animelem = 6
 trigger1 = facing = player(map(enemyteamlead)),facing
 trigger1 = combocount=0
 triggerall = player(map(enemyteamlead)),name!="Deus"
-x = 11
+x = 8
 ignorehitpause=1
 
  ;============================
@@ -1685,7 +1692,9 @@ envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 3
 envshake.phase = 1
-forcenofall = 1
+fall = 1
+air.fall = 1
+forcenofall = 0
 getpower = (60)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 0]
@@ -2680,6 +2689,8 @@ guard.hittime = 8
 guard.pausetime= 14,14
 guard.velocity = 6
 airguard.velocity= 4,-3
+ground.cornerpush.veloff = -5
+air.cornerpush.veloff = -5
 air.fall = 1
 getpower = (60)*(cond(var(var(2)) = 1, 1, 1)) 
 
@@ -2731,6 +2742,8 @@ palfx.sinadd=256,256,256,10
 palfx.time=32
 guard.velocity = 6
 airguard.velocity= 4,-3
+ground.cornerpush.veloff = -5
+air.cornerpush.veloff = -5
 fall = 1
 air.fall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
