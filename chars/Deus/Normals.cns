@@ -1640,6 +1640,27 @@ air.fall=1
 fall.yvelocity=0
 getpower = (20)*(cond(var(var(2)) = 1, 1,1)) 
 
+[State - Guard Crush] 
+type = mapset
+trigger1 = time=0
+map = "dsmashGC"
+value = 0
+ignorehitpause = 1
+[State - Guard Crush] 
+type = mapAdd
+trigger1 = animelemtime(9)<=0
+trigger1 = enemynear,stateno=152
+map = "dsmashGC"
+value = 1
+ignorehitpause = 1
+persistent=0
+[State - Guard Crush] 
+type = mapset
+trigger1 = enemynear,stateno=152 && map(SmashAttack) >= 40  && animelemtime(12)>=0 && map(dsmashGC)
+map = "GC"
+value = 1
+ignorehitpause = 1
+redirectid = enemynear, id
 
 [State 0, TargetBind]
 type = TargetBind

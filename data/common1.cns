@@ -4929,8 +4929,14 @@ ignorehitpause = 0
 [State -3, Shatter Sound Effect] 
 type = PlaySnd
 triggerall = map(GC)
-trigger1 = time = 0
-value = F5250
+trigger1 = time = 0&&enemynear,name!="Deus"
+value = F5250,0
+volumescale=130
+[State -3, Shatter Sound Effect] 
+type = PlaySnd
+triggerall = map(GC)
+trigger1 = time = 0&&enemynear,name="Deus"
+value = F5250,1+random%3
 volumescale=130
 [State 5230, Shatter Visual]
 type = Explod
@@ -6025,8 +6031,14 @@ ignorehitpause = 0
 [State -3, Shatter Sound Effect] 
 type = PlaySnd
 triggerall = map(GC)
-trigger1 = time = 0
-value = F5250
+trigger1 = time = 0&&enemynear,name!="Deus"
+value = F5250,0
+volumescale=130
+[State -3, Shatter Sound Effect] 
+type = PlaySnd
+triggerall = map(GC)
+trigger1 = time = 0&&enemynear,name="Deus"
+value = F5250,1+random%3
 volumescale=130
 [State 5230, Shatter Visual]
 type = Explod
