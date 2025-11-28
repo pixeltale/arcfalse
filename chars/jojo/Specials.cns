@@ -109,6 +109,7 @@ ground.type 		= Low
 air.hittime		= 200
 ground.hittime  	= 200
 down.hittime		= 200
+guard.ctrltime		= 10
 ground.velocity 	= -2,-4
 air.velocity 		= -1,-2
 down.velocity		= -1,-5
@@ -190,6 +191,14 @@ envshake.time 		= 15
 envshake.freq 		= 90
 envshake.ampl 		= -6
 envshake.phase 		= 100
+
+[State - Guard Crush] 
+type = mapset
+trigger1 = moveguarded && anim = 1001
+map = "GC"
+value = 1
+ignorehitpause = 1
+redirectid = enemynear, id
 
 [State 1000, 1]
 type = PlaySnd
@@ -374,6 +383,7 @@ down.velocity		= -1, -9
 guard.velocity 		= -6
 airguard.velocity 	= -4,-4.5
 p2facing 		= 1
+guard.ctrltime		= 10
 fall 			= 1
 fall.yvelocity		= -4
 yaccel 			= .2
@@ -397,6 +407,7 @@ hitflag 		= MAFD
 pausetime 		= 20,20
 guard.pausetime 	= 18,18
 sparkxy 		= 0,-60
+guard.ctrltime		= 10
 hitsound   		= 5,3
 guardsound 		= 6,2
 ground.type 		= Low
@@ -418,6 +429,8 @@ envshake.ampl 		= -6
 envshake.phase 		= 100
 p2stateno 		= 5300
 p2getp1state 		= 0
+
+
 
 [State 1000, 1]
 type = PlaySnd
@@ -1648,6 +1661,7 @@ ground.slidetime 	= 5
 ground.cornerpush.veloff = -5
 ;==============================================
 ground.velocity 	= -2
+guard.velocity	= -6
 air.velocity 		= -2.4,-2.8
 guard.ctrltime 		= 12
 airguard.velocity 	= -1.9,-.8
@@ -1688,7 +1702,7 @@ removeongethit = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = movecontact
+trigger1 = movecontact && command = "b"
 value =2000
 
 

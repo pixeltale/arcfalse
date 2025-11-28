@@ -317,6 +317,7 @@ value 		= 3
 ignorehitpause 	= 1
 persistent 		= 0
 
+
 [State 0, Explod]
 type = Explod
 trigger1 = anim = 1005
@@ -341,13 +342,18 @@ scale = 0.84,0.84
 removeongethit = 0
 ignorehitpause = 1
 persistent = 0
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = anim = 1005 && animelem = 2
+value = 1000, 2 + random % 3
+volumescale = 200
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = anim = 1005 && map(chargeLvl)
 value = 1000, 1
 ignorehitpause = 1
 persistent = 0
-volumescale = 160
+volumescale = 100
 
 [State 0, ChangeAnim] ;Beretta
 type = ChangeAnim
@@ -886,6 +892,12 @@ ctrl = 0
 anim =1050 + 1 * (map(EN) > 0)
 sprpriority = 2
 
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = !time && map(EN)
+value = 700, 2
+volumescale = 200
+
 [State 0, Helper]
 type = Helper
 trigger1 = !time && map(EN)
@@ -950,10 +962,6 @@ type = VelSet
 trigger1 = time = 15
 x = vel x*.9
 
-[State -3, Tui Voices]
-type = PlaySnd
-trigger1 = animelem = 4
-value = 1009, (0+(Random%4))
 
 [State 0, Explod]
 type = Explod
@@ -2191,12 +2199,6 @@ guard.ctrltime = 17
 fall.yvelocity = 0
 getpower = 0
 
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 2
-value = 700, 0
-channel = 0
-
 [State -2, Wallbounce Type Set]
 type 		= MapSet
 trigger1 		= movehit
@@ -2456,12 +2458,6 @@ airguard.hittime = 45
 guard.ctrltime = 17
 fall.yvelocity = 0
 getpower = 0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 2
-value = 700, 0
-channel = 0
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet

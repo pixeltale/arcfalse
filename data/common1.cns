@@ -4940,12 +4940,13 @@ value = F5250,1+random%3
 volumescale=130
 [State 5230, Shatter Visual]
 type = Explod
+triggerall = map(GC)
 trigger1 = Time = 0
 anim = F48
-postype = p1
-pos = 0, 0
-postype = back
-sprpriority = 3
+postype = p2
+pos = 10, -10
+scale = 0.65, 0.55
+sprpriority = -7
 ;==============================================================
 
 [State -3, Win Voices] 
@@ -5092,7 +5093,6 @@ y = 0
 type = Explod
 trigger1 = Time = 0
 anim = F72
-postype = p1
 pos = 0, floor (screenpos y) - 50
 postype = back
 sprpriority = 3
@@ -5621,8 +5621,9 @@ x = -5 - BackEdgeBodyDist
 
 [State 210, Width]
 type = Width
-trigger1 = AnimElemTime (1) >= 0
-player = 15,0
+trigger1 = 1
+edge    = 15, 1
+player = -5,0
 
 [State 5232, Turn]
 type = Turn
@@ -5669,6 +5670,12 @@ value =5243
 type    = A
 movetype= H
 physics = N
+
+[State 210, Width]
+type = Width
+trigger1 = 1
+edge    = 15, 1
+player = -5,0
 
 [State 210, Width]
 type = Width
@@ -6042,6 +6049,7 @@ value = F5250,1+random%3
 volumescale=130
 [State 5230, Shatter Visual]
 type = Explod
+triggerall = map(GC)
 trigger1 = Time = 0
 anim = F48
 postype = p2
@@ -8290,7 +8298,7 @@ ignorehitpause 	= 1
 type = MAPSET
 trigger1 = 1
 map = "TrailerMode"
-VALUE = 1
+VALUE = 0
 [State 8990, Play No Music]
 type = AssertSpecial
 trigger1 = map(TrailerMode)

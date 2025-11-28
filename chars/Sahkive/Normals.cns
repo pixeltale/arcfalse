@@ -1572,7 +1572,7 @@ ignorehitpause     = 1
 persistent         = 0
 [State 600, 2]
 type = HitDef
-trigger1 = Time = 0
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 air.animtype = back
 damage = 30*MAP(P4), 0
@@ -1588,7 +1588,7 @@ ground.type = low
 animtype = light
 ground.slidetime = 6
 ground.hittime  = 8
-air.hittime  = 19-MAP(untechDecay)
+air.hittime  = 18
 down.hittime = 19-MAP(untechDecay)
 guard.ctrltime = 4
 ground.velocity = -1.5

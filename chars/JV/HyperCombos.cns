@@ -18,6 +18,12 @@ value 		= 10
 ignorehitpause 	= 1
 persistent		= 1
 
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = TIME = 0
+value = 3000, 3 + random % 3
+volumescale = 200
+
 [State 0, Targetbind]
 type = Targetbind
 trigger1 = movehit = 1
@@ -688,6 +694,11 @@ trigger1 = movehit = 1
 v = 2
 value = 0
 
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = time = 0
+value = 3000, 7 + random % 1
+volumescale = 200
 
 [State -3, Hyper Finish Background]
 type = Helper
@@ -1053,6 +1064,10 @@ ignorehitpause=1
 
 [State 0, ChangeState]
 type = ChangeState
+trigger1 = movehit = 5
+value = 650
+[State 0, ChangeState]
+type = ChangeState
 trigger1 = animtime = 0
 value = 50
 ctrl = 1
@@ -1070,6 +1085,11 @@ anim = 3050
 poweradd = -4000
 sprpriority = 2
 
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = TIME = 0
+value = 3000, 9
+volumescale = 200
 
 [State 77]
 type = bgpalfx
@@ -1107,13 +1127,6 @@ ownpal = 1
 supermovetime = 1000
 pausemovetime = 1000
 ignorehitpause = 1
-
-[State 0, PlayerPush]
-type = PlayerPush
-trigger1 = movehit
-value = 0
-ignorehitpause = 1
-;persistent = 
 
 [State 4000, NotHitBy]
 type = NotHitBy

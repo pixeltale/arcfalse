@@ -209,6 +209,18 @@ value = 5,3
 type = PlaySnd
 trigger1 = animelem=16
 value = 8000,4
+[State 200, VOICE - FLAWLESS VICTORY]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = life = 1689
+value = 700, 0 + random % 2
+volumescale = 200
+[State 200, VOICE - NORMAL VICTORY]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = life < 1689
+value = 180, 2
+volumescale = 200
 
 [State 0, Explod]
 type = Explod
@@ -271,6 +283,18 @@ sprpriority = -1
 type = PlaySnd
 trigger1 = time=0
 value = 7410, (0+(Random%2))
+[State 200, VOICE - FLAWLESS VICTORY]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = life = 1689
+value = 700, 0 + random % 2
+volumescale = 200
+[State 200, VOICE - NORMAL VICTORY]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = life < 1689
+value = 180, 0
+volumescale = 200
 
 [State 8990, AssertSpecial]
 type = AssertSpecial
@@ -292,6 +316,18 @@ value = 8000,4
 type = PlaySnd
 trigger1 = time=0
 value = 7410, (0+(Random%2))
+[State 200, VOICE - FLAWLESS VICTORY]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = life = 1689
+value = 700, 0 + random % 2
+volumescale = 200
+[State 200, VOICE - NORMAL VICTORY]
+type = PlaySnd
+trigger1 = time=0
+trigger1 = life < 1689
+value = 180, 3 + random % 2
+volumescale = 200
 
 [State 8990, AssertSpecial]
 type = AssertSpecial
@@ -315,7 +351,7 @@ velset = 0,0
 type = selfstate
 triggerall=time=0
 trigger1 = prevstateno!=191
-value = 191+random%3
+value = cond((enemy, name != "ROGER"), 191+random%3, 191)
 
 [State 193, 1]
 type = AssertSpecial
@@ -323,6 +359,18 @@ trigger1 = 1
 flag = Intro
 flag2 = nomusic
  
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = enemy, name != "ROGER"
+trigger1 = animelem = 2
+value = 190, random % 3
+volumescale = 200
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = enemy, name = "ROGER"
+trigger1 = animelem = 2
+value = 191 +  random % 2, 1
+volumescale = 200
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = animelem=11
@@ -367,6 +415,18 @@ trigger1 = 1
 flag = Intro
 flag2 = nomusic
  
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = enemy, name != "ROGER"
+trigger1 = animelem = 2
+value = 190, random % 3
+volumescale = 200
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = enemy, name = "ROGER"
+trigger1 = animelem = 2
+value = 191 +  random % 2, 1
+volumescale = 200
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = animelem=11
@@ -397,6 +457,11 @@ trigger1 = 1
 flag = Intro
 flag2 = nomusic
  
+[State 200, VOICE]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 189, 0
+volumescale = 200
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = animelem=13
@@ -456,6 +521,22 @@ trigger1 = animtime=0
 
 
 [Statedef -2]
+
+[State 200, VOICE - NORMAL VICTORY]
+type = PlaySnd
+trigger1 = enemy, name = "ANGOUS"
+trigger1 = enemy, stateno = 3010
+trigger1 = enemy, time = 60
+value = 800, 1
+volumescale = 200
+[State 200, VOICE - NORMAL VICTORY]
+type = PlaySnd
+trigger1 = enemy, name = "ROGER"
+trigger1 = enemy, stateno = 30004
+trigger1 = stateno = 1052 && time = 10
+value = 800, 0
+volumescale = 200
+priority = 2
 
 [State 0, 5RL Limiter]
 type 		= MapSet

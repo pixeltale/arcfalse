@@ -11,7 +11,10 @@
     },
     "trials": {
       "playtime": 0
+    },
+    "freebattle": {
+      "playtime": 0.03
     }
   },
-  "playtime": 10773.18
+  "playtime": 10773.21
 }
