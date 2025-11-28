@@ -775,7 +775,7 @@ trigger1 = palno = 1
 trigger2 = roundstate = 0
 trigger2 = gamemode = "Training"
 source = 1, 1
-dest = 1, palno + map(AltPal)
+dest = 2, 1
 
 [State 0, AfterImage]
 type = AfterImage
