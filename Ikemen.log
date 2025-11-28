@@ -2,15 +2,12 @@ Version: nightly
 Build Time: 2025.10.28
 
 Error log:
-.\external\script\start.lua:1691: chars/vile/Specials.cns:278:
-'!' operator cannot be used within a trigger redirection
+external/script/main.lua:4328: <game end>
 stack traceback:
-	[G]: in function 'game'
-	.\external\script\start.lua:1691: in function 'f_game'
-	.\external\script\start.lua:2139: in function 'launchFight'
-	external/script/default.lua:2: in function <external/script/default.lua:0>
-	.\external\script\start.lua:1754: in function 'f'
-	external/script/main.lua:3194: in function 'loop'
-	external/script/main.lua:3321: in function 'loop'
+	[G]: in function 'refresh'
+	external/script/main.lua:4328: in function 'f_menuCommonDraw'
+	.\external\script\options.lua:1450: in function 'loop'
+	.\external\script\options.lua:1482: in function 'f'
+	external/script/main.lua:3230: in function 'loop'
 	external/script/main.lua:4524: in main chunk
 	[G]: ?

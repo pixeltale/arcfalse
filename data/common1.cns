@@ -4932,6 +4932,14 @@ triggerall = map(GC)
 trigger1 = time = 0
 value = F5250
 volumescale=130
+[State 5230, Shatter Visual]
+type = Explod
+trigger1 = Time = 0
+anim = F48
+postype = p1
+pos = 0, 0
+postype = back
+sprpriority = 3
 ;==============================================================
 
 [State -3, Win Voices] 
@@ -5078,6 +5086,7 @@ y = 0
 type = Explod
 trigger1 = Time = 0
 anim = F72
+postype = p1
 pos = 0, floor (screenpos y) - 50
 postype = back
 sprpriority = 3
@@ -6019,6 +6028,14 @@ triggerall = map(GC)
 trigger1 = time = 0
 value = F5250
 volumescale=130
+[State 5230, Shatter Visual]
+type = Explod
+trigger1 = Time = 0
+anim = F48
+postype = p2
+pos = 10, -10
+scale = 0.65, 0.55
+sprpriority = -7
 ;==============================================================
 
 [State 0, PosSet]

@@ -8,7 +8,7 @@ velset 		= vel x, 0
 ctrl 		= 0
 anim 		= 200
 facep2 		= 1
-poweradd 	= 0
+poweradd 		= 0
 sprpriority 	= 2
 
 [State -2, Starter Level]

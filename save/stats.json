@@ -1,17 +1,17 @@
 {
   "modes": {
     "training": {
-      "playtime": 0
+      "playtime": -0.02
     },
     "netplayversus": {
-      "playtime": 7025.35
+      "playtime": 10459.87
     },
     "versus": {
-      "playtime": 25.4
+      "playtime": 313.33
     },
     "trials": {
       "playtime": 0
     }
   },
-  "playtime": 7050.75
+  "playtime": 10773.18
 }
