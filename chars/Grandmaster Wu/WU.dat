@@ -54,8 +54,9 @@ SUPERJUMP	-		_D_U
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne attacks.</>
 FALSE GUARD (WHILE BLOCKING)	-		</> _B^X
-   <#bbbbbb>Push the enemy away while you block.
-   Can be done freely, but extends your block stun.</>
+   <#bbbbbb>A special type of blocking which negates
+   chip damage at the cost of meter and extra blockstun.
+   You cannot be guard crushed while defending this way.</>
 FALSE PARRY 	-		(1 BAR)</> _F^X
    <#bbbbbb>If timed correctly, False Parry can redirect all non throw
    attacks, freezing the enemy in place for a short period of time.

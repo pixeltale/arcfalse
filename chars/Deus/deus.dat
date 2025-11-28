@@ -71,25 +71,26 @@ _!<#ffa9de>HOLY TRINITY</>		<#aaffff>(GROUND OR AIR)<#55ffff><#55ffff>(1 BAR)</>
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
-   <#bbbbbb>Jump higher, faster, and further. Increases my air
+   <#bbbbbb>Jump higher, faster, and further. Increases your air
    drift.</>   
 ANTI-AIR	-		_D^C
    <#bbbbbb>This move has invulnerability to airborne attacks.</>
 FALSE GUARD (WHILE BLOCKING)	-		</> _B^X
-   <#bbbbbb>Push the opposition away while I block.
-   Can be done freely, but extends my block stun.</>
+   <#bbbbbb>A special type of blocking which negates
+   chip damage at the cost of meter and extra blockstun.
+   You cannot be guard crushed while defending this way.</>
 FALSE PARRY 	-		(1 BAR)</> _F^X
    <#bbbbbb>If timed correctly, False Parry can redirect all non throw
-   attacks, freezing the opposition in place for a short period of time.
-   Additionally, it can be canceled into from blocking if I performed
+   attacks, freezing the enemy in place for a short period of time.
+   Additionally, it can be canceled into from blocking if you performed
    an Instant Block.
    Hold the False button to slightly extend its duration.</>
 RECORD SCRATCH (WHILE ATTACKING)	-		(2 BARS)</> ^X
    <#bbbbbb>Can be used to instantly cancel most attacks.
-   Holding a direction while I perform it will redirect
-   me to move in said direction.</>
+   Holding a direction while you perform it will redirect
+   you to move in said direction.</>
 BURST (WHILE GETTING HIT)	-		(BURST OK)</> ^X + ANY BUTTON
-   <#bbbbbb>A large reversal that can be used while I'm getting hit.
+   <#bbbbbb>A large reversal that can be used while you're getting hit.
    Be careful not to get it baited.
    </>
    </>
