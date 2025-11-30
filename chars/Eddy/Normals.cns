@@ -616,11 +616,11 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 
 [State -2, CHARGED]
 type 		= MapSet
-trigger1 		= !TIME
+trigger1 		= !TIME || !(time >= 25)
 map 			= "CHARGED"
 value 		= 0
 ignorehitpause 	= 1
-persistent 		= 0
+persistent 		= 1
 [State -2, CHARGED]
 type 		= MapSet
 trigger1 		= time >= 25 && animelem = 5
