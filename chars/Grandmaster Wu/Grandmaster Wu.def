@@ -62,6 +62,7 @@ pal9		= 9.act
 pal10	= 10.act
 pal11	= 11.act
 pal12	= 12.act
+pal13	= nigguz
 
 ; Maps character selection buttons to palette numbers.
 [Palette Keymap]

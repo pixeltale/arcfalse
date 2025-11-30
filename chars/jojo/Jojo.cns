@@ -418,16 +418,6 @@ trigger1 = !numhelper(2054)
 v = 21    ;fv = 10
 value = -999
 
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = helper, numexplod(900)=1
-time = 15
-add = 100,100,100
-mul = 256,256,256
-sinadd = 30,30,30,3
-invertall = 0
-color = 256
-
 
 [State 0, VarSet]
 type = VarSet
@@ -438,51 +428,6 @@ value = 1
 ;ignorehitpause = 
 ;persistent = 
 
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = command = "holdup"
-v = 44     ;fv = 
-value = 1
-;ignorehitpause = 
-;persistent = 
-
-[State 0, VarAdd]
-type = VarSet
-trigger1 = command!= "holdup" 
-v =44     ;fv = 
-value = 0
-;ignorehitpause = 
-;persistent = 
-
-
-[State 0, Explod]
-type = Explod
-triggerall = prevstateno = 410
-trigger1 = animelemtime(1) = 0
-anim = 9900
-ID = 9900
-pos = 0,10-random%35
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = .23,.23
-sprpriority = 0
-ontop = 1
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-;ignorehitpause =
-;trans = 
-;persistent =
-;supermove = 0
-;pausemove = 0
 
 
 ;===============================================================================
@@ -551,75 +496,6 @@ var(33)=0
 ;-----
 
 
-;===============================================================================
-; ------- Damage Dampener --------
-;===============================================================================
-
-[State -2, Counter Flag] 
-type = VarSet
-trigger1 = NumEnemy
-fvar(8) = (EnemyNear, MoveType = A)
-ignoreHitPause = 1
- 
-;Damage Dampener Variable (by POTS)
-[State -2, Hit Count] 
-type = VarAdd 
-triggerall = stateno!=1000
-triggerall = stateno!=1010
-triggerall = stateno!=1020
-trigger1 = !IsHelper
-trigger1 = MoveHit = 1 
-trigger1 = !HitPauseTime 
-trigger1 = !(HitDefAttr = SCA, AT) 
-fvar(13) = 1 
- 
-[State -2, Hit Count Reset] 
-type = VarSet 
-trigger1 = NumEnemy && fvar(13) 
-trigger1 = (EnemyNear, MoveType != H) && (EnemyNear, StateNo != 5300) 
-fvar(13) = 0 
-ignoreHitPause = 1
- 
-[State -2, Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(10) = ifElse(fvar(13) < 2, 24, ifElse(fvar(13) >= 23, 1, 24 - fvar(13))) / 24.0 
-ignoreHitPause = 1 
- 
-[State -2, Dampener Limit] 
-type = VarSet 
-trigger1 = fvar(10) < 0 
-fvar(10) = 0 
-ignoreHitPause = 1 
- 
-[State -2, Root Dampener] 
-type = VarSet 
-trigger1 = 1 
-fvar(11) = fvar(10) * ifElse(fvar(8), 1.5, 1) 
-ignoreHitPause = 1
-
-;---------------------- Integer variable list ----------------------
-
-; var(1):= 105, -1
-;var(12):= 10020, 10120, 10124, 10125, 10220, 10221, 1022500
-;var(13):= 0, 10, 11, 12
-;var(17):= 5900
-;var(20):= 3011, 3012
-;var(23):= 150, 152
-;var(30):= -2, 1000020
-;var(40):= 40
-;var(44):= -2
-;var(45):= -3, 45
-;var(50):= -2
-;var(58):= -2
-;var(59):= 191, 0
-
-;---------------------- Float variable list ----------------------
-
-; fvar(8):= -2
-;fvar(10):= -2
-;fvar(11):= -2
-;fvar(13):= -2
 
 
 

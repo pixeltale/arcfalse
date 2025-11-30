@@ -641,8 +641,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "enemyhittime = %i P4 = %f"
-params = (enemy, gethitvar(hittime)), map(P4)
+text = "gethitvar(damage) = %i P4 = %f"
+params = gethitvar(damage)
 ignorehitpause = 1
 persistent = 1
 

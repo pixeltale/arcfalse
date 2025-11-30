@@ -558,6 +558,7 @@ sparkxy = -10,-50
 hitsound   = s8,0
 guardsound = 6,1
 ground.type = Low
+guard.ctrltime = 5
 ground.slidetime = 12
 ground.hittime  = 35
 air.hittime = 60

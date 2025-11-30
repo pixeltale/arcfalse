@@ -1990,26 +1990,12 @@ trigger1 = Time = 0
 x = 1
 y = 1
 
-[State 5030, 4]
-type = selfState
-triggerall = !HitFall
-trigger1 = HitOver
-trigger2 = Vel Y > 0    ;Hit ground
-trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
-value = 5040 ;HITA_RECOV
-
 [State 5030, 5]
 type = ChangeState
-triggerall = HitFall
 trigger1 = HitOver
 trigger2 = Vel Y > 0    ;Hit ground
 trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
 value = 43333 ;HITA_FALL
-
-[State 5030, 6]
-type = selfState
-trigger1 = AnimTime = 0
-value = 5035 ;Air get-hit (transition)
 
 ;BOUNCE CUSTOM STATE (falling)
 [Statedef 43333]
@@ -2045,7 +2031,7 @@ y = GetHitVar(yaccel)
 [State 5050, 6]
 type = changestate
 trigger1 = Vel Y > 0
-trigger1 = Pos Y >= ifelse((anim = [5051,5059]) || (anim = [5061,5069]), 0, Const(movement.air.gethit.groundlevel))
+trigger1 = Pos Y >= 0
 value = 54321;Downed get-hit (hit ground from fall)
 
 ;--------------------------------------------------------------------------------------
@@ -2056,7 +2042,7 @@ movetype= H
 physics = N
 
 [State 5100, 2004.04.14 behavior]
-type = null;VelSet
+type = VelSet
 trigger1 = Time = 0
 trigger1 = GetHitVar(fall.yvel) = 0
 trigger1 = vel x < -1
@@ -2129,7 +2115,7 @@ trigger1 = 1
 
 [State 5100, 12]
 type = ChangeState
-trigger1 = AnimTime = 0
+trigger1 = time = 3
 value = 54322 ;Downed get-hit (bounce off ground)
 
 [State 5100, 13]

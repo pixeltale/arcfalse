@@ -26,6 +26,9 @@ command = /F
 BUFFER.TIME = 0
 TIME = 1
 [Command]
+name = "NEUTRAL"
+command = N
+[Command]
 name = "2S"
 command = /$D, b
 [Command]
@@ -226,7 +229,7 @@ trigger2 = var(1)
 type = ChangeState
 value = 2010
 triggerall = statetype != A
-triggerall = command = "2S"
+triggerall = command = "S" && command = "holddown"
 trigger1 = ctrl
 trigger2 = var(1)
 

@@ -874,7 +874,7 @@ time = 6
 [Command]
 name = "MistStep"
 command = ~$F, D, DF
-time = 20
+time = 25
 buffer.time = 15
 
 ;===================================

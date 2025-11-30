@@ -2921,11 +2921,11 @@ type    = A
 movetype= I
 physics = A
 juggle  = 0
-poweradd= 5
+poweradd= 0
 ctrl = 0
 anim = 2062
 sprpriority = 2
-velset = vel x * 0.5, vel y - 2
+velset = vel x * 0.5, - 2
 facep2 = 1
 
 [State JoJo Voices]
@@ -2947,7 +2947,7 @@ value = 0, 0
 [State 1000, 5]
 type = ChangeState
 trigger1 = Vel Y > 0
-trigger1 = Pos Y >=-13
+trigger1 = Pos Y >= -14
 value = 2074
 
 ;---------------------------------------------------------------------------
@@ -2978,7 +2978,7 @@ y = 0
 
 [State 0, Explod]
 type = Explod
-trigger1 = animelem = 3
+trigger1 = !time
 anim = 6900
 ID = 6900
 pos =40,0
@@ -2999,7 +2999,7 @@ ignorehitpause = 0
 
 [State 0, Explod]
 type = Explod
-trigger1 = animelem = 2
+trigger1 = !time
 anim = 6952
 ID = 6952
 pos = 40,0
@@ -3027,7 +3027,7 @@ x = 6
 
  [State 1200, Shake Screen]
 type = EnvShake
-trigger1 = animelem = 3
+trigger1 = !time
 time = 15    ;Time to shake screen
 ampl = 3     ;Amount to shake
 freq = 100   ;A frequency of 180 shakes the screen rapidly
