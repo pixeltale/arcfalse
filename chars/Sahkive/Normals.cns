@@ -1180,11 +1180,10 @@ ignorehitpause     	= 1
 persistent         	= 0
 [State 800, 1]
 type = HitDef
-Trigger1 = time = 0
-attr = C, NA, NT          ;Attributes: Standing, Normal Throw
+Trigger1 = !movecontact && !movereversed
+attr = C, NA, ST
 hitflag = MFD         ;Affect only ground people who are not being hit
 guardflag = L
-priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.
 sparkno = 1000          ;No spark
 sparkxy = -20,-20
 p1sprpriority = -1     ;Draw p1's sprite in front of p2

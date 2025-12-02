@@ -2032,7 +2032,7 @@ persistent 		= 0
 type = HitDef 
 p2facing = 1 
 triggerall= enemy, statetype!=A
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 hitonce = 1
 attr = S, SA, ST
 damage = 0, 0
@@ -2065,7 +2065,7 @@ type = HitDef
 p2facing = 1 
 triggerall= enemy, statetype=A
 triggerall = enemy, movetype!=A 
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 hitonce = 1
 attr = S, ST
 damage = 0, 0
@@ -6621,7 +6621,7 @@ p2facing = 1
 trigger1 = !map(ComboStateCheck)
 trigger1 = p2stateno != [120,199]
 trigger1 = p2stateno != [40, 43]
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = S, ST
 animtype  = Hard
 damage = 0, 0

@@ -9580,7 +9580,7 @@ persistent = 1
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = (stateno = [120,155]) && !map(BGuard)
-value = ,NT,ST,HT
+attr = ,NT,ST,HT
 time = 1
 ignorehitpause = 1
 ;persistent = 

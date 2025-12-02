@@ -2769,7 +2769,7 @@ guard.ctrltime = 22
 guard.pausetime= 14,14
 guard.velocity = -9
 airguard.velocity = -7,-2
-ground.cornerpush.veloff = -22
+ground.cornerpush.veloff = -12
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 210, 2]
@@ -2807,7 +2807,7 @@ guard.velocity = -7
 airguard.velocity = -7,-2
 guard.dist = 20
 guard.slidetime = 30;
-ground.cornerpush.veloff = -22
+ground.cornerpush.veloff = -12
 getpower 	= (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 210, 2]
@@ -2842,7 +2842,7 @@ guard.ctrltime = 22
 guard.pausetime= 14,14
 guard.velocity = -9
 airguard.velocity = -7,-2
-ground.cornerpush.veloff = -22
+ground.cornerpush.veloff = -12
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State -2, Wallbounce Velocity Set]
@@ -2995,7 +2995,7 @@ guard.pausetime= 22,22
 guard.velocity = -7
 guard.dist = 20
 guard.slidetime = 30;
-ground.cornerpush.veloff = -22
+ground.cornerpush.veloff = -12
 p2stateno 	= 5220
 p2getp1state 	= 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
@@ -3034,7 +3034,7 @@ guard.pausetime= 22,22
 guard.velocity = -7
 guard.dist = 20
 guard.slidetime = 30;
-ground.cornerpush.veloff = -22
+ground.cornerpush.veloff = -12
 p2stateno 	= 5220
 p2getp1state 	= 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
@@ -3075,7 +3075,7 @@ guard.pausetime= 22,22
 guard.velocity = -7
 guard.dist = 20
 guard.slidetime = 30;
-ground.cornerpush.veloff = -22
+ground.cornerpush.veloff = -12
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 210, 2]
@@ -3111,7 +3111,7 @@ guard.pausetime= 22,22
 guard.velocity = -7
 guard.dist = 20
 guard.slidetime = 30;
-ground.cornerpush.veloff = -22
+ground.cornerpush.veloff = -12
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State -2, Wallbounce Velocity Set]
@@ -3268,7 +3268,7 @@ fall.envshake.time = 0
 guard.ctrltime  = 34
 airguard.ctrltime = 48
 getpower = 70*var(2)
-ground.cornerpush.veloff = -30
+ground.cornerpush.veloff = -10
 p2stateno = map(CornerSplat)
 p2getp1state = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
@@ -3301,7 +3301,7 @@ fall.envshake.time = 0
 guard.ctrltime  = 34
 airguard.ctrltime = 48
 getpower = 70*var(2)
-ground.cornerpush.veloff = -30
+ground.cornerpush.veloff = -10
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State - Guard Crush] 
