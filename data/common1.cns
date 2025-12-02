@@ -8754,7 +8754,7 @@ persistent = 0
 type    = MapAdd
 trigger1    = enemy, movehit = 1
 map         = "BurstGauge"
-value       = gethitvar(damage) * 0.30
+value       = gethitvar(damage) * 0.15
 ignorehitpause = 1
 persistent = 0
 

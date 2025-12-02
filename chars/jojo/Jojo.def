@@ -29,18 +29,7 @@ sprite  = Jojo.sff                        ;Sprite
 anim    = Jojo.air                       ;Animation
 sound   = Jojo.snd                    ;Sound
 ai      = Jojo.ai                            ;AI hints data (not used)
-pal1    = 1.act
-pal2    = 2.act
-pal3    = 3.act
-pal4    = 4.act
-pal5    = 5.act
-pal6=6.act
-pal7=7.act
-pal8=8.act
-pal9=9.act
-pal10=10.act
-pal11=11.act
-pal12=12.act
+
 movelist=Jojo.dat
 
 ; Maps character selection buttons to palette numbers.

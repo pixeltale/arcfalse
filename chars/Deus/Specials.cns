@@ -984,6 +984,7 @@ trigger1 = parent,movetype = H
 
 [State stick]
 type = ChangeState
+triggerall = enemy, stateno != [5250, 5251] && enemy, prevstateno != [5250, 5251]
 trigger1 = p2dist x <=10
 trigger1 = p2dist x >=-40
 trigger1 = p2bodydist y >=0
@@ -1996,7 +1997,7 @@ trigger1 = parent,movetype = H
 
 [State 210, 5]
 type = ChangeState
-trigger1 = time>127
+trigger1 = time>127 && combocount > 0 || time = 75
 trigger2 = movecontact
 trigger3 = parent,stateno=3001||parent,stateno=3002
 value = 1411
@@ -2450,7 +2451,7 @@ ctrl = 1
 
 [State 210, 5]
 type = ChangeState
-trigger1 = time>335
+trigger1 = time > 335 && combocount > 0 || time > 127 && combocount = 0
 trigger2 = map(EXhalohits)>=3
 trigger3 = parent,stateno=3001||parent,stateno=3002
 value = 1511

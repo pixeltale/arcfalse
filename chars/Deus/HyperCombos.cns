@@ -327,7 +327,7 @@ persistent = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = command="hold_z"||command="hold_x"||command="hold_y"
-trigger1 = power>=100
+trigger1 = power>=1000
 trigger1 = movehit
 trigger1 = animelem=35
 value = 3001

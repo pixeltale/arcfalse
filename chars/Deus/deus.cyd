@@ -806,16 +806,6 @@ trigger1 = command = "throwtech"
 trigger1 = statetype != A
 trigger1 = ctrl
 
-[State Alpha Counter]
-type = ChangeState
-value = 7000
-triggerall = statetype != A
-triggerall = command = "holdfwd" 
-triggerall = command = "a"
-triggerall = stateno=[140,160]
-trigger1 = power>=1000
-
-
 ;===========================================================================
 
 ;---------------------------------------------------------------------------

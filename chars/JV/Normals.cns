@@ -2218,7 +2218,7 @@ getpower = (60)*(cond(var(var(3)) = 1, 1, .5))
 type = PlaySnd
 trigger1 = animelem = 4
 value = 1010, 1 + random % 3
-volumescale = 200
+volumescale = 100
 
 [State 0, Jump Cancel]
 type 		= MapSet
@@ -2304,7 +2304,7 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 type = PlaySnd
 trigger1 = animelem = 4
 value = 1010, 0
-volumescale = 200
+volumescale = 100
 
 [State 0, Veladd]
 type = veladd
@@ -2395,7 +2395,7 @@ ground.velocity 		= -1,-9.2
 air.velocity 		= -1,-4 + (map(untechDecay) * 0.3)
 down.velocity 		= -1,-7.1
 guard.cornerpush.veloff 	= -2
-air.cornerpush.veloff 	= -5.5 - map(UntechDecay)
+air.cornerpush.veloff 	= -7 - map(UntechDecay)
 guard.hittime = 40
 guard.pausetime = 16,16
 guard.velocity = -3
@@ -2651,9 +2651,9 @@ getpower 		= (60)*(cond(var(var(3)) = 1, 1, .5))
 [State 200, VOICE]
 type = PlaySnd
 trigger1 = animelem = 4
-triggerall = random < 500
+triggerall = random < 200
 value = 1010, 4 + random % 2
-volumescale = 200
+volumescale = 100
 
 [State 0, VelAdd]
 type = VelAdd

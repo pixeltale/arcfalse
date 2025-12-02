@@ -40,6 +40,8 @@ pal9 	= Gokous.act
 pal10 	= Mono_Rainbow.act
 pal11 	= pepsigous.act
 pal12 	= bones.act
+pal13	= Vi 
+pal14 	= ejiro 
 
 ; Maps character selection buttons to palette numbers.
 [Palette Keymap]

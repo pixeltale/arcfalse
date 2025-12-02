@@ -484,6 +484,7 @@ envshake.ampl = 2
 envshake.phase = 1
 guard.ctrltime = 22
 fall.yvelocity = 0
+air.cornerpush.veloff = -5
 getpower = (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 id = 910312
 
