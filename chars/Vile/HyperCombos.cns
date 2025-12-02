@@ -1751,14 +1751,44 @@ time = 10
 ignorehitpause = 1  
 persistent = 0
 
+;============================
+[State -2, Starter Level]
+type 		= ParentMapSet
+trigger1 	= movehit && root, map(ComboStateCheck) = 0
+map 		= "StarterLevel"
+value 		=  1
+ignorehitpause 	=  1
+
+[State -2, P1 Value Set]
+type 		= ParentMapSet
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
+map 		= "P1"
+value 		=  0.9
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= ParentMapSet
+trigger1 		= movehit && root, map(ComboStateCheck)
+map 			= "P2"
+value 		=  0.80
+ignorehitpause 	= 1
+persistent 		= 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+;============================
+
 [State 0]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = S, NA
 animtype  = hard
 air.animtype = up
-damage = 270*(parent, MAP(P4)) + 60, 0
+damage = 170*(parent, MAP(P4)) + 30, 0
 hitflag = MAFD
 guardflag = MAFD
 pausetime 		= 10, 10
