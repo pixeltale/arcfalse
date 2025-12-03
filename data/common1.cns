@@ -1618,6 +1618,12 @@ physics = N
 anim = F43
 sprpriority = 10
 
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+attr = SCA
+time = 1
+
 [State 0, Turn]
 type = Turn
 trigger1 = facing != root, facing
