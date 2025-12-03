@@ -4400,7 +4400,7 @@ persistent 		= 0
 [State 410, 2]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = S, SA
 damage = 120*MAP(P4),40
 animtype  =hard
@@ -4417,9 +4417,9 @@ ground.slidetime = 12
 ground.hittime  = 18 * map(untechMOD) + 10
 air.hittime  = 99
 ground.velocity = -4
-air.velocity = -2,-4 * MAP(untechMOD)
+air.velocity = -2,-3 * MAP(untechMOD)
 yaccel = .24
-air.cornerpush.veloff = -10
+air.cornerpush.veloff = -15
 air.fall = 1
 envshake.time = 9
 envshake.freq = 90
