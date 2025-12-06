@@ -207,6 +207,14 @@ triggerall = statetype = A && pos y <= -20
 triggerall = !map(Float) && map(CanFloat)
 trigger1 = ctrl || stateno = [600,620] && movecontact
 
+;5S
+[State -1, Eye Rally]
+type = ChangeState
+value = 1050
+triggerall = statetype != A
+triggerall = command = "b"
+trigger1 = var(1)
+
 ;632146M
 [State -1, Desire Distortion M]
 type = ChangeState

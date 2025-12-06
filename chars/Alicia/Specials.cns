@@ -514,12 +514,26 @@ size.xscale = const(size.xscale)
 postype = p1
 facing = 1
 ignorehitpause = 1
+[State 0, Helper]
+type = Helper
+triggerall = root, stateno = 1050
+trigger1 = root, animelem = 2
+helpertype = normal
+name = "BUTTERFLY"
+ID = 1055
+stateno = 1055
+pos = 0,0
+size.xscale = const(size.xscale)
+postype = p1
+facing = 1
+ignorehitpause = 1
 
 [State 0, DestroySelf]
 type = Changestate
 value = 1016
 trigger1 = root, movetype = H && root, stateno != [120,155]
 trigger2 = root, stateno = 1020 && numhelper (1018)
+trigger3 = root, stateno = 1050 && numhelper (1055)
 
 ;================================================================================
 ;Eye Die
@@ -1051,9 +1065,6 @@ guard.velocity 		= -5
 air.fall 				= 0
 fall.yvelocity 		= 0
 forcenofall			= 1
-ground.cornerpush.veloff = -10 / MAP(untechMOD)
-air.cornerpush.veloff 	= -14.5 / MAP(untechMOD)
-down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
 guard.dist			= 0
 getpower 				= 75
 
@@ -1110,3 +1121,76 @@ sprpriority = 2
 [State 0, DestroySelf]
 type = DestroySelf
 Trigger1 = !animtime
+
+;Summon Eye
+[Statedef 1050]
+type    	= S
+movetype	= A
+physics 	= S
+poweradd	= 0
+ctrl 	= 0
+anim 	= 1011
+sprpriority = 2
+
+
+
+[State 0, ChangeState]
+type 	= Changestate
+Trigger1 	= !animtime
+value 	= 0
+ctrl		= 1
+
+;Eye Fly To Alicia
+[Statedef 1055]
+type    = A
+movetype= I
+physics = N
+ctrl = 0
+anim = 1055
+sprpriority = -1
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "id = %i"
+params = id
+;ignorehitpause = 
+;persistent = 
+
+[State 0, MapSet]
+type = RootMapAdd
+trigger1 = time % 5 = 0
+map = "Terror"
+value = 1
+ignorehitpause = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 9
+x = root, pos x - 10 * root, facing
+y = root, pos y - 30 + 10*(isHelper(1016)) + 25*(isHelper(1017))
+
+;Can be commanded.
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1015)
+map 		= "EyeAction_L"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1016)
+map 		= "EyeAction_M"
+value 		= 0
+ignorehitpause 	= 1
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= isHelper(1017)
+map 		= "EyeAction_H"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 0, ChangeState]
+type = 	Changestate
+Trigger1 	= time = 10
+value 	= 1056
