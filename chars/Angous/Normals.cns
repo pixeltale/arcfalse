@@ -3932,6 +3932,11 @@ value = SCA, NT,ST,HT
 type = PlayerPush
 trigger1 = AnimElemTime(2) > 0
 value = 0
+[State 810, Push]
+type = PlayerPush
+trigger1 = animelemTime(9) >= 0
+value = 1
+priority = 5
 
 ;Tech not allowed
 [State 1060, Explod]
