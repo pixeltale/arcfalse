@@ -21,8 +21,8 @@ ShadowBComponent = 0
 [Camera]
 startx = 0
 starty = 0
-zoomin = 1
-zoomout = 1
+zoomin = 1.1
+zoomout = 0.9
 boundleft = -700
 boundright = 700
 boundhigh = -700
@@ -30,6 +30,8 @@ boundlow = 0
 verticalfollow = .2
 floortension = 0
 tension = 300
+tensionhigh = 200
+tensionlow = 300
 overdrawhigh = 120
 overdrawlow = 120
 cuthigh = 0
@@ -49,8 +51,8 @@ p2facing = -1
 
 ;--- Common ---
  ;Don't change these values.
-leftbound  = -1000 ;Left bound (x-movement)
-rightbound = 1000 ;Right bound
+leftbound  = -1100 ;Left bound (x-movement)
+rightbound = 1100 ;Right bound
 topbound  =  0     ;Top bound (z-movement)
 botbound  =  0     ;Bottom bound
 
@@ -172,8 +174,8 @@ velocity = 0.1,0.1
 TRANS=add
 
 [BG 1]
-type = anim
-actionno=1
+type = normal
+spriteno = 5, 0
 start = 0,340
 delta = 0,1.4
 tile = 1,0
@@ -221,13 +223,14 @@ mask=1
 ; 0
 
 [BG 1] ; Floor
-type  = anim
-actionno=10
+type  = normal
+spriteno = 2, 0
 start = 0,-50
 delta = 0, 1;.25, .35
 tile = 1, 0
 velocity=0,0
 tilespacing = 0, 0
+trans = ADD
 
 ;yscalestart = 100
 layerno=0

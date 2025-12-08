@@ -3262,6 +3262,7 @@ guardsound = 6,2
 ground.type = low
 ground.slidetime = 12
 ground.hittime  = 50
+guard.ctrltime = 10
 air.hittime  = 90
 fall = 1
 air.fall = 1
@@ -3466,8 +3467,7 @@ ground.velocity = -3.5,-7
 air.velocity = -2.2,-4
 guard.velocity = -7
 guard.slidetime = 16
-guard.hittime = 20
-guard.ctrltime = 16
+guard.ctrltime = 5
 envshake.time = 20
 envshake.freq = 20
 envshake.ampl = 2
@@ -5761,10 +5761,10 @@ ctrl = 1
 [Statedef 9969]
 type    = A
 movetype= A
-physics = A
+physics = N
 poweradd= 0
 ctrl = 0
-velset = 1, -4
+velset = 1, -2
 anim = 10337
 sprpriority = -1
 
@@ -5818,7 +5818,7 @@ persistent 		= 0
 type = VelSet
 trigger1 = animelem = 5
 x = 12
-y = 10
+y = 12
 ;ignorehitpause = 
 ;persistent = 
 
@@ -5844,8 +5844,8 @@ hitsound = S669,0
 guardsound = 6,2
 ground.type = low
 ground.slidetime = 12
-ground.hittime  = 50
-air.hittime  = 50
+ground.hittime  = 99
+air.hittime  = 99
 ground.velocity = -3.5,-6
 air.velocity = -2.2,-6
 guard.velocity = -7
@@ -5861,10 +5861,11 @@ palfx.add = 100, 0,20
 
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = movehit = 1
+trigger1 = movehit
 time = 99
 id = -1
 pos = 30,-15
+persistent = 1
 
 [State 1055, 6] ;Change state when KFM is close to ground
 type = ChangeState
