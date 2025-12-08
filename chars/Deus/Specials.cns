@@ -939,7 +939,7 @@ trigger1=pos y<-40
 y = .01
 [State 0, VelSet]
 type = VelMul
-trigger1 = StageFrontEdgeDist <= 10
+trigger1 = StageFrontEdgeDist <= 5
 trigger1 = vel x > 0
 x = -1
 ignorehitpause = 1
@@ -1386,7 +1386,7 @@ trigger1=pos y<-40
 y = .04
 [State 0, VelSet]
 type = VelMul
-trigger1 = StageFrontEdgeDist <= 10
+trigger1 = StageFrontEdgeDist <= 5
 trigger1 = vel x > 0
 x = -1
 ignorehitpause = 1
@@ -2815,7 +2815,7 @@ ground.hittime  = 21-MAP(untechDecay)
 down.hittime = 31-MAP(untechDecay)
 down.hittime = 31-MAP(untechDecay)
 ground.velocity =  -2,-4
-air.velocity = -2,-4
+air.velocity = -2,-4*map(untechMOD)
 down.velocity =  -2,-4
 palfx.time = 12
 palfx.add = 100, 0,20
