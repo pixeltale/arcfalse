@@ -7,7 +7,7 @@ name = "VIEW FROM THE FALSE HORIZON"
 startx = 0
 starty = 0
 zoomin = 1
-zoomout = 1
+zoomout = 0.9
 boundleft = -700
 boundright = 700
 boundhigh = -700
@@ -34,8 +34,8 @@ p2facing = -1
 
 ;--- Common ---
  ;Don't change these values.
-leftbound  = -1000 ;Left bound (x-movement)
-rightbound = 1000 ;Right bound
+leftbound  = -1100 ;Left bound (x-movement)
+rightbound = 1100 ;Right bound
 topbound  =  0     ;Top bound (z-movement)
 botbound  =  0     ;Bottom bound
 
@@ -105,20 +105,7 @@ intensity 	= 95
 [BGdef]
  ;Filename of sprite data
 spr = stages/training_re.sff
-
- ;Set to 1 if you want to clear the screen to magenta before
- ;drawing layer 0 (the default background). Good for spotting "holes"
- ;in your background.
- ;Remember to turn this off when you are done debugging the background,
- ;because it slows down performance.
 debugbg = 0
-
-
-;----------
-; Start each background element with the following:
-; Make sure it's "[BG n]", where n is anything you like (it's only used to
-; report errors.) For example, you could use:  [BG TheFloor]
-; Specify as many as you like. This is an example of a normal background:
 
 [BG Black]
 type  = normal
@@ -157,10 +144,10 @@ velocity = -0.1,0.1
 TRANS=add
 
 [BG 1]
-type = anim
-actionno=1
+type = normal
+spriteno = 5, 0
 start = 0,340
-delta = 0,1.ccec4
+delta = 0,1
 tile = 1,0
 velocity = 0,0
 mask = 1
@@ -206,16 +193,15 @@ mask=1
 ; 0
 
 [BG 1] ; Floor
-type  = anim
-actionno=10
+type  = normal
+spriteno = 2, 0
 start = 0,-50
 delta = 0, 1;.25, .35
 tile = 1, 0
 velocity=0,0
 tilespacing = 0, 0
-
-;yscalestart = 100
 layerno=0
+trans = ADD
 [Begin Action 1]
 LoopStart
 5,0, 0,0, 10, , AS225D256

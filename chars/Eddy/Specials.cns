@@ -798,12 +798,12 @@ value = 1
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelem = 2
-x = cond(p2dist x >50, 50, p2dist x)
+x = cond(p2dist x >50, 50, p2dist x * 0.5)
 
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = animelem = 3
-x = cond(p2dist x >10, 10, p2dist x)
+x = cond(p2dist x >10, 10, p2dist x * 0.5)
 
 [State 0, AssertSpecial]
 type = AssertSpecial

@@ -47,7 +47,7 @@
 ;fvar(26):= -2, 1020
 
 [Data]
-life = 1500
+life = 1300
 attack = 100
 defence = 100
 fall.defence_up = 0

@@ -6,7 +6,7 @@ physics = N
 ctrl = 0
 anim =1000
 sprpriority = 2
-velset = vel x*.4,-1.7
+velset = vel x*.4,-1.8
 
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -36,7 +36,7 @@ ignorehitpause = 1
 [State -2, FRC]
 type 		= MapSet
 trigger1 		= animelemno(0) = [3,4]
-map 		= "FRC"
+map 			= "FRC"
 value 		= 1
 ignorehitpause 	= 1
 
@@ -118,7 +118,7 @@ hitflag 		= MAFP
 guardflag 	= MAFD
 guard.ctrltime 	= 18
 priority 		= 999
-pausetime 	= 3,3
+pausetime 	= 6,6
 sparkno 		= S3012
 sparkxy =		 0,0
 hitsound   	= 5,1
@@ -321,7 +321,7 @@ hitflag = MAFP
 guardflag = MAFD
 guard.ctrltime = 8
 priority = 999
-pausetime = 3,3
+pausetime = 6,6
 sparkno = S3012
 sparkxy = 0,0
 hitsound   = 5,1
@@ -514,26 +514,20 @@ size.xscale = const(size.xscale)
 postype = p1
 facing = 1
 ignorehitpause = 1
-[State 0, Helper]
-type = Helper
-triggerall = root, stateno = 1050
-trigger1 = root, animelem = 2
-helpertype = normal
-name = "BUTTERFLY"
-ID = 1055
-stateno = 1055
-pos = 0,0
-size.xscale = const(size.xscale)
-postype = p1
-facing = 1
-ignorehitpause = 1
+
+[State 0, Transition To Butterfly State]
+type 		= Changestate
+value 		= 1055
+triggerall 	= root, stateno = 1050
+trigger1 		= root, animelem = 2
 
 [State 0, DestroySelf]
 type = Changestate
 value = 1016
 trigger1 = root, movetype = H && root, stateno != [120,155]
 trigger2 = root, stateno = 1020 && numhelper (1018)
-trigger3 = root, stateno = 1050 && numhelper (1055)
+
+
 
 ;================================================================================
 ;Eye Die
@@ -1147,50 +1141,54 @@ movetype= I
 physics = N
 ctrl = 0
 anim = 1055
-sprpriority = -1
+sprpriority = 7
 
-[State 0, DisplayToClipboard]
-type = DisplayToClipboard
-trigger1 = 1
-text = "id = %i"
-params = id
-;ignorehitpause = 
-;persistent = 
-
-[State 0, MapSet]
+[State Air Dash]
 type = RootMapAdd
-trigger1 = time % 5 = 0
+triggerall = !map(noTerror)
+trigger1 = time % 8 = 0
 map = "Terror"
 value = 1
-ignorehitpause = 0
 
-[State 0, PosSet]
-type = PosSet
-trigger1 = time = 9
-x = root, pos x - 10 * root, facing
-y = root, pos y - 30 + 10*(isHelper(1016)) + 25*(isHelper(1017))
+[State 0, Turn]
+type = Turn
+trigger1 = facing != root, facing
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = ishelper(1015)
+x = ((rootdist x - 35) * 0.05)
+y = (rootdist y - 30) * 0.05
+[State 0, VelSet]
+type = VelSet
+trigger1 = ishelper(1016)
+x = ((rootdist x - 37) * 0.05)
+y = (rootdist y - 40) * 0.05
+[State 0, VelSet]
+type = VelSet
+trigger1 = ishelper(1017)
+x = ((rootdist x - 39) * 0.05)
+y = (rootdist y - 50) * 0.05
 
 ;Can be commanded.
 [State -2, Starter Level]
 type 		= RootMapSet
+triggerall	= time < 10
 trigger1 		= isHelper(1015)
 map 		= "EyeAction_L"
 value 		= 0
 ignorehitpause 	= 1
 [State -2, Starter Level]
 type 		= RootMapSet
+triggerall	= time < 10
 trigger1 		= isHelper(1016)
 map 		= "EyeAction_M"
 value 		= 0
 ignorehitpause 	= 1
 [State -2, Starter Level]
 type 		= RootMapSet
+triggerall	= time < 10
 trigger1 		= isHelper(1017)
 map 		= "EyeAction_H"
 value 		= 0
 ignorehitpause 	= 1
-
-[State 0, ChangeState]
-type = 	Changestate
-Trigger1 	= time = 10
-value 	= 1056

@@ -60,9 +60,9 @@ GENTLEMAN'S NECESSITY	-		_D^Z
 _EX GENTLEMAN'S BODY BLOW	-		<#55ffff>(1 BAR)</> ^Y+^Z
    <#bbbbbb>A fast-moving straight punch that ignores projectiles.
    Causes a wall-bounce.</>
-_EX GENTLEMAN'S STEP	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+_EX GENTLEMAN'S STEP	-		<#55ffff>(1 BAR)</> _B^Y+^Z
    <#bbbbbb>A large step backwards. Is invincible to normal attacks.</>
-_EX GENTLEMAN'S DANCE	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+_EX GENTLEMAN'S DANCE	-		<#55ffff>(1 BAR)</> _F^Y+^Z
    <#bbbbbb>A quick step forward that can pass through the enemy.</>
 _EX GENTLEMAN'S UPPER	-		<#55ffff>(1 BAR)</> _D^Y+^Z
    <#bbbbbb>An invincible uppercut.</>

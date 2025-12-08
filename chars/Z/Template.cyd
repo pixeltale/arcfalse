@@ -1222,7 +1222,6 @@ type = ChangeState
 value = 210
 triggerall = command = "y"
 triggerall = command !="holdback"
-triggerall = command != "holdfwd"
 triggerall = command !="holddown"
 trigger1 = statetype != A
 trigger1 = ctrl
