@@ -5,14 +5,22 @@
 name = "ANGOUS VS ARZON"
 
 [Camera]
-startx = -0
+startx = 0
 starty = 0
-boundleft = -315
-boundright = 315
-boundhigh = -62
+zoomin = 1.1
+zoomout = 0.9
+boundleft = -350
+boundright = 350
+boundhigh = -150
 boundlow = 0
-verticalfollow = 0
-tension = 100
+verticalfollow = .2
+tension = 150
+tensionhigh = 120
+tensionlow = 50
+overdrawhigh = 120
+overdrawlow = 120
+cuthigh = 0
+cutlow = 0
 
 [PlayerInfo]
 p1startx = -70
@@ -62,14 +70,15 @@ spr = AvA.sff
 [BG sky]
 type  = normal
 spriteno = 0,5
-start = 0, 0
+start = 0, -100
 delta=.1,.1
 mask = 1
+tile = 0, -1
 
 [BG Back Clouds]
 type  = normal
 spriteno = 0, 1
-start = 0, 0
+start = 0, -50
 delta=.1,.1
 velocity=.15,0
 tile=1,0
@@ -88,15 +97,15 @@ id=3
 [BG Rocks]
 type  = normal
 spriteno = 0,8
-start = 0, 0
-delta=.3,.3
+start = 50, 20
+delta=.3,.2
 mask = 1
 
 
 [BG Front Clouds]
 type  = normal
 spriteno = 0, 2
-start = 0, 0
+start = 0, -75
 delta=.35,.15
 velocity=.05,0
 tile=1,0
@@ -138,7 +147,12 @@ mask = 1
 [BG BaseGrass]
 type  = anim
 actionno = 2
-start = -15, -7
+start = -30, -7
+mask = 1
+[BG BaseGrass]
+type  = anim
+actionno = 2
+start = 350, -7
 mask = 1
 
 [BG FrontGrass]

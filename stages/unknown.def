@@ -7,15 +7,16 @@ name = "INTO THE UNKNOWN"
 [Camera]
 startx = 0
 starty = 0
-zoomin = 1
-zoomout = 1
+zoomin = 1.1
+zoomout = 0.9
 boundleft = -350
 boundright = 350
-boundhigh = -700
+boundhigh = -150
 boundlow = 0
 verticalfollow = .2
-floortension = 0
-tension = 300
+tension = 150
+tensionhigh = 120
+tensionlow = 50
 overdrawhigh = 120
 overdrawlow = 120
 cuthigh = 0
@@ -70,6 +71,7 @@ actionno = 3
 delta = .11,.11
 start = 0, -30
 mask = 1
+zoomdelta = 0.5
 [BG Heaven]
 type  =normal
 spriteno=3011,0
@@ -78,6 +80,7 @@ delta = 0.1,.1
 mask = 1
 velocity = -1, 0
 tile = 1, 0
+zoomdelta = 0.5
 id=3
 
 [BG BackClouds]

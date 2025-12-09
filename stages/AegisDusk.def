@@ -1,5 +1,6 @@
 [Info]
 name = "AEGIS FIELDS"
+ikemenversion = 0.99
 
 [Camera]
 startx = 0
@@ -8,13 +9,12 @@ zoomin = 1.1
 zoomout = 0.9
 boundleft = -350
 boundright = 350
-boundhigh = -350
+boundhigh = -150
 boundlow = 0
 verticalfollow = .2
-floortension = 0
 tension = 150
-tensionhigh = 100
-tensionlow = 150
+tensionhigh = 120
+tensionlow = 50
 overdrawhigh = 120
 overdrawlow = 120
 cuthigh = 0
@@ -47,8 +47,8 @@ topscale = 1       ;Scale to use at top
 botscale = 1.2     ;Scale to use at bottom 
 
 [Bound]
-screenleft = 25
-screenright = 25
+screenleft = 15
+screenright = 15
 
 [StageInfo]
 zoffset = 200
@@ -71,7 +71,7 @@ debugbg =0
 [BG ground]
 type  = normal
 spriteno = 0, 6
-start = 160, 0
+start = 160, -20
 delta = 0.1, 0.1
 mask = 1
 velocity = 0, 0
@@ -85,6 +85,15 @@ delta = 0.1, 0.1
 mask = 1
 velocity = 0, 0
 tile = 1, 0
+tilespacing = 0, 0
+[BG ground]
+type  = anim
+actionno = 11
+start = 0, 0
+delta = 0.1, 0.1
+trans = add
+velocity = 0, 0
+tile = 0, 0
 tilespacing = 0, 0
 [BG ground]
 type  = normal
@@ -106,11 +115,20 @@ tilespacing = 0, 0
 [BG ground]
 type  = normal
 spriteno = 0, 76
-start = 160, 140
+start = 160, 170
 delta = 0.1, 0.1
 mask = 1
 velocity = 0.2, 0
 tile = 1, 0
+tilespacing = 0, 0
+[BG ground]
+type  = anim
+actionno = 77
+start = 160, 165
+delta = 0.1, 0.1
+trans = add
+velocity = 0, 0
+tile = 0, 0
 tilespacing = 0, 0
 [BG ground]
 type  = normal
@@ -130,33 +148,6 @@ velocity = 0.2, -0.4
 tile = 0, 0
 tilespacing = 0, 0
 [BG ground]
-type  = normal
-spriteno = 0, 4
-start = 60, 90
-delta = 0.9, 0.9
-mask = 1
-velocity = 0, 0
-tile = 0, 0
-tilespacing = 0, 0
-[BG ground]
-type  = normal
-spriteno = 0, 11
-start = -45, 90
-delta = 0.9, 0.9
-mask = 1
-velocity = 0, 0
-tile = 0, 0
-tilespacing = 0, 0
-[BG ground]
-type  = normal
-spriteno = 0, 10
-start = 280, 76
-delta = 0.9, 0.9
-mask = 1
-velocity = 0, 0
-tile = 0, 0
-tilespacing = 0, 0
-[BG ground]
 type  = anim
 actionno = 9
 start = -50, 222
@@ -165,6 +156,34 @@ trans = add
 velocity = 0, 0
 tile = 0, 0
 tilespacing = 0, 0
+[BG ground]
+type  = normal
+spriteno = 0, 4
+start = 100, 90
+delta = 0.9, 0.9
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+[BG ground]
+type  = normal
+spriteno = 0, 11
+start = -100, 90
+delta = 0.9, 0.9
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+[BG ground]
+type  = normal
+spriteno = 0, 10
+start = 410, 45
+delta = 0.9, 0.9
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+
 [BG ground]
 type  = normal
 spriteno = 0, 1
@@ -185,7 +204,7 @@ tile = 5, 0
 tilespacing = 0, 0
 [BG ground2]
 type  = normal
-spriteno = 100,0
+spriteno = 100, 0
 start = 0, 185
 delta = 1, 1
 mask = 1
@@ -193,17 +212,45 @@ velocity = 0, 0
 tile = 1, 0
 tilespacing = 0, 0
 
+[BG ground]
+type  = anim
+actionno = 6
+start = -150,190
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+[BG ground]
+type  = anim
+actionno = 7
+start = -148,190
+delta = 1, 1
+trans = add
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
 
 [BG clouds 3.1 medium]
 type = normal
 spriteno = 0, 2
+layerno = 1
 start = -20,200
 delta = 1.2,1.2
 tile = 1,0
 mask = 1
-layerno=1
 
-
+[BG ground3]
+type  = normal
+spriteno = 0, 15
+start = 0, 200
+delta = 1, 1
+layerno = 1
+mask = 1
+trans = add
+velocity = 0.6, 0
+tile = 1, 0
+tilespacing = 0, 0
 
 [BG ground]
 type  = anim
@@ -215,7 +262,6 @@ layerno = 1
 velocity = 0, 0
 tile = 5, 0
 tilespacing = 0, 0
-
 
 
 [Begin Action 9]

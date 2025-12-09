@@ -1,6 +1,7 @@
 [Info]
 name = "AEGIS FIELDS -NIGHT-"
 attachedchar = data/dynamiclight/DynamicLight.def
+ikemenversion = 0.99
 
 [Constants]
 DynamicLighting = 1
@@ -12,15 +13,16 @@ DynamicAlpha = 150
 [Camera]
 startx = 0
 starty = 0
-zoomin = 1
-zoomout = 1
-boundleft = -360
-boundright = 360
-boundhigh = -700
+zoomin = 1.1
+zoomout = 0.9
+boundleft = -350
+boundright = 350
+boundhigh = -150
 boundlow = 0
 verticalfollow = .2
-floortension = 0
-tension = 300
+tension = 150
+tensionhigh = 120
+tensionlow = 50
 overdrawhigh = 120
 overdrawlow = 120
 cuthigh = 0
@@ -46,19 +48,21 @@ topbound  =  0
 botbound  =  0     
 
 [Scaling]
-topz     = 0       ;Top z-coordinate for scaling
-botz     = 50      ;Bottom z-coordinate for scaling
-topscale = 1       ;Scale to use at top
-botscale = 1.2     ;Scale to use at bottom  
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
 
 [Bound]
-screenleft = 25    
-screenright = 25  
+screenleft = 15
+screenright = 15
 
 [StageInfo]
 zoffset = 200
 autoturn = 1
-resetBG = 1
+resetBG =1
+localcoord = 320, 240
+
 
 [shadow]
 Intensity = 100
@@ -185,7 +189,7 @@ tilespacing = 0, 0
 [BG ground]
 type  = normal
 spriteno = 0, 10
-start = 280, 76
+start = 410, 45
 delta = 0.9, 0.9
 mask = 1
 velocity = 0, 0

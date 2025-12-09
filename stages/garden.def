@@ -7,53 +7,50 @@ startx = 0
 starty = 0
 zoomin = 1.1
 zoomout = 0.9
-boundleft = -700
-boundright = 700
-boundhigh = -700
+boundleft = -350
+boundright = 350
+boundhigh = -150
 boundlow = 0
 verticalfollow = .2
-floortension = 0
-tension = 300
-tensionhigh = 200
-tensionlow = 300
+tension = 150
+tensionhigh = 120
+tensionlow = 50
 overdrawhigh = 120
 overdrawlow = 120
 cuthigh = 0
 cutlow = 0
 
-;--------------------------------------------------------
 [PlayerInfo]
-;--- Player 1 ---
-p1startx = -140          ;Starting x coordinates
-p1starty = 0            ;Starting y coordinates
-p1facing = 1            ;Direction player faces: 1=right, -1=left
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
 
-;--- Player 2 ---
-p2startx = 140
+p2startx = 70
 p2starty = 0
+p2startz = 0
 p2facing = -1
 
-;--- Common ---
-leftbound  = -1100 ;Left bound (x-movement)
-rightbound = 1100 ;Right bound
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
 
-;--------------------------------------------------------
 [Scaling]
 topz     = 0
-botz     = 50
+botz     = 100
 topscale = 1
-botscale = 1.2
+botscale = 1.9
 
-;--------------------------------------------------------
 [Bound]
-screenleft = 25
-screenright = 25
+screenleft = 15
+screenright = 15
 
 [StageInfo]
-zoffset = 400
+zoffset = 200
 autoturn = 1
 resetBG = 0
-localcoord = 640,480
+localcoord = 320, 240
 
 [Shadow]
 intensity=100
@@ -83,7 +80,7 @@ mask = 1
 [BG Heaven]
 type  = normal
 spriteno=3011,0
-start = -40, 180
+start = -40, 80
 delta = 0.5, 0.35
 mask = 1
 velocity = -1, 0
@@ -94,7 +91,7 @@ id=3
 type=normal
 spriteno=100,0
 delta=.72,.72
-start=0,105
+start=0,0
 tile = 1, 0
 mask = 1
 
@@ -102,13 +99,13 @@ mask = 1
 type=normal
 spriteno=0,6
 delta=.783,.783
-start=0,105	
+start=0,-25	
 mask = 1
 
 [BG tree]
 type=anim
 actionno = 2
-start = 0,80
+start = 0,-38
 delta=.9,.7
 mask = 1
 
@@ -127,35 +124,35 @@ alpha=256,100
 [BG wall]
 type=normal
 spriteno = 0, 4
-start = 0, 140
-tile = 1, 0
+start = 0, -10
+tile = 1, -1
 mask = 1
 
 [BG ground]
 type=anim
-start = 0, 150
+start = 0, -10
 actionno=1
 mask = 1
-start = 0, 10
 
 [BG leaves]
 type=anim
 actionno = 3
 start=0,-16
 mask = 1
-start = 0, 10
 
 [BG temple]
 type=normal
 spriteno=0,2
-tile = 1, 0
-start = 0, 175
+tile = 1, 1
+start = 0, -30
 mask = 1
 
 [BG bricks]
 type=normal
 spriteno= 0,5
-start = 0, 200
+window = 0,163,360,360
+yscale=1.5
+start = 0, -10
 tile = 1, 0
 mask = 1
 

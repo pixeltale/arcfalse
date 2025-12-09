@@ -1291,7 +1291,7 @@ ignoreHitPause = 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "backedgebodydist = .2%f"
+text = "backedgebodydist = %i"
 params = backedgebodydist
 ignorehitpause = 1
 

@@ -9,12 +9,20 @@ name = "ALL EXISTENCE DENIED..."
 [Camera]
 startx = 0
 starty = 0
-boundleft = -330
-boundright = 330
-boundhigh = -62
+zoomin = 1.1
+zoomout = 0.9
+boundleft = -350
+boundright = 350
+boundhigh = -150
 boundlow = 0
 verticalfollow = .2
-tension = 300
+tension = 150
+tensionhigh = 120
+tensionlow = 50
+overdrawhigh = 120
+overdrawlow = 120
+cuthigh = 0
+cutlow = 0
 
 [PlayerInfo]
 p1startx = -70
@@ -71,7 +79,7 @@ mask = 1
 [BG bclouds]
 type  = normal
 spriteno = 0, 1
-start = 0, -10
+start = 0, -60
 delta=.1,.1
 velocity=.3,0
 tile=1,0
@@ -80,7 +88,7 @@ mask = 1
 [BG clouds]
 type  = normal
 spriteno = 0, 2
-start = 0, -10
+start = 0, -50
 delta=.15,.15
 velocity=-.3,0
 tile=1,0

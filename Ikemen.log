@@ -2,10 +2,18 @@ Version: nightly
 Build Time: 2025.10.28
 
 Error log:
-external/script/main.lua:4328: <game end>
+.\external\script\start.lua:1691: chars/angous/angous.def:
+data/addons/intro_delay.zss
+data/addons/intro_delay.zss:270:
+player(1), map(bbtag_stageTextColorR),player(1), map(bbtag_stageTextColorG),player(1), map(bbtag_stageTextColorB),0
+color: Invalid data: ,
 stack traceback:
-	[G]: in function 'refresh'
-	external/script/main.lua:4328: in function 'f_menuCommonDraw'
-	external/script/main.lua:3226: in function 'loop'
+	[G]: in function 'game'
+	.\external\script\start.lua:1691: in function 'f_game'
+	.\external\script\start.lua:2139: in function 'launchFight'
+	external/script/default.lua:2: in function <external/script/default.lua:0>
+	.\external\script\start.lua:1754: in function 'f'
+	external/script/main.lua:3194: in function 'loop'
+	external/script/main.lua:3321: in function 'loop'
 	external/script/main.lua:4524: in main chunk
 	[G]: ?
