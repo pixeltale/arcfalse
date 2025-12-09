@@ -6,8 +6,9 @@ command.buffer.time = 5
 
 [Command]
 name = "EDD"
-command = ~$F, $B, $D, $F, $B, x
+command = ~$F, B, $D, $F, $B, x
 time = 30
+buffer.time = 10
 [Command]
 name = "6246L"
 command = ~$F, $D, $B, F, x
@@ -342,6 +343,15 @@ trigger1 = movecontact || var(2)
 ;===========================================================================
 ;SPECIAL ATTACKS
 ;===========================================================================
+
+[State -1, EGO DEATH DRIVER]
+type = changeState
+value = 1207
+triggerall = command = "EDD"
+triggerall = statetype != A
+trigger1 = ctrl || stateno = [200, 707]
+trigger2 = stateno = 1100 && movecontact
+
 ;623L
 [State -1, Boom.]
 type = ChangeState
@@ -406,13 +416,6 @@ triggerall = statetype != A
 trigger1 = MAP(StrikeCount) = 2
 trigger2 = stateno = 1100 && movecontact
 
-[State -1, EGO DEATH DRIVER]
-type = changeState
-value = 1207
-triggerall = command = "EDD"
-triggerall = statetype != A
-trigger1 = ctrl || stateno = [200, 707]
-trigger2 = stateno = 1100 && movecontact
 
 ;===========================================================================
 ;214L - Dead Pulse

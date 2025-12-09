@@ -210,8 +210,11 @@ roger, order=1
 angous, order=1
 vile, order=1
 Arzon, order=1
-JV
-JV/UJV.def
+slot = {
+    JV/JV.def, previous=d, next=w
+    JV/UJV.def, previous=d, next=w
+}
+
 Sahkive, order=1
 CROW
 JOJO

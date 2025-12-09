@@ -244,6 +244,7 @@ ctrl = 0
 velset = 0,0
 anim = 1001
 sprpriority = 2
+facep2 = 1
 
 [State JoJo Voices]
 type = PlaySnd

@@ -628,6 +628,13 @@ name = "hold_EX"
 command = /d
 
 [Command]
+name = "MistStep"
+command = ~F, D, F
+time = 15
+buffer.time = 15
+buffer.shared = 1
+
+[Command]
 name = "dash";Required (do not remove)
 command = w
 time = 1
@@ -871,11 +878,6 @@ time = 6
 name = "214"
 command = ~D, DB, B
 time = 6
-[Command]
-name = "MistStep"
-command = ~$F, D, ~DF
-time = 25
-buffer.time = 15
 
 ;===================================
 ; Command Inputs - Special, With Buttons
