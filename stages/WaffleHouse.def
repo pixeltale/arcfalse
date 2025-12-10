@@ -84,6 +84,7 @@ spriteno = 0,5
 start = 0, 0
 delta=.1,.1
 mask = 1
+zoomdelta = 0
 
 [BG Stars]
 type  = normal
@@ -102,6 +103,7 @@ delta=.5,.5
 start = 0, 0
 trans=add
 mask = 1
+zoomdelta = 0
 
 [BG ball]
 type  = normal
@@ -109,6 +111,7 @@ spriteno = 0,6
 delta=.5,.5
 start = 0, 0
 mask = 1
+zoomdelta = 0
 
 [BG Clouds]
 type  = normal
@@ -121,13 +124,13 @@ trans=add
 mask = 1
 zoomdelta = 0.1
 
-[BG Stars]
+[BG Cityscape]
 type  = normal
 spriteno = 0, 8
 start = 0, 0
 delta=.7,.7
 mask = 1
-zoomdelta = 0
+zoomdelta = 0.5
 
 
 [BG Heaven]
@@ -167,7 +170,7 @@ mask = 1
 [BG House of Waffles]
 type  = normal
 spriteno = 0, 4
-start = 0, 0
+start = 0, 10
 mask = 1
 
 [BG Heaven]

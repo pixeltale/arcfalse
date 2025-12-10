@@ -4026,8 +4026,7 @@ damage = 25*root, MAP(P4), 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 2,2
-guard.hittime = 24
-guard.ctrltime = 22
+guard.ctrltime = 10
 ground.hittime  = 20
 ground.velocity = -3,0
 fall.xvelocity = -2
@@ -6163,10 +6162,11 @@ getpower =0
 
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = movehit = 1
+trigger1 = movehit
 time = 99
 id = -1
 pos = 30,-15
+persistent = 1
 
 ;snap = 30,0
 ;guard.dist = 0
