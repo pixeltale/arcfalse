@@ -272,7 +272,7 @@ value = 0, 2
 [State 210, 2]
 type = HitDef 
 p2facing 		= 1
-trigger1 		= time = 0
+trigger1 		= !movecontact && !movereversed
 attr 		= S, NA
 animtype  	= Light
 air.animtype 	= back
@@ -291,8 +291,6 @@ ground.hittime  	= 20 * MAP(untechMOD)
 air.hittime  	= 20 * MAP(untechMOD)
 down.hittime 	= 20 * MAP(untechMOD)
 ground.velocity = -2.5
-guard.slidetime = 5
-guard.ctrltime = 14
 air.velocity = -1.5,-2  * MAP(untechMOD)
 air.fall = 1
 palfx.time = 12
@@ -301,6 +299,9 @@ fall.yvelocity = 0
 envshake.time = 0
 fall.envshake.time = 0
 fall.yvelocity = 0
+guard.velocity = -7
+guard.ctrltime = 14
+guard.slidetime = 14
 getpower = (50)*(cond(var(var(2)) = 1, 1, .5)) 
 
 [State 210, 4]

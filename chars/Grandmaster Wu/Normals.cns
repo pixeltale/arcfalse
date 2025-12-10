@@ -1349,7 +1349,7 @@ persistent 		= 0
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1
-trigger1 	= time = 0
+trigger1 	= !movecontact && !movereversed
 attr 	= A, NA
 damage 	= 100*MAP(P4)
 hitflag 	= MAF
@@ -1362,8 +1362,8 @@ guardsound 	= 6,2
 ground.type 	= high
 air.type		= high
 ground.slidetime 	= 6
-ground.hittime  	= 18 - MAP(UntechDecay)
-air.hittime  		= 22 - MAP(UntechDecay)
+ground.hittime  	= 18 * map(untechMOD)
+air.hittime  		= 22 * map(untechMOD) + 5
 ground.velocity 	= -4
 fall.yvelocity 	= 0
 air.velocity 	= -5,1

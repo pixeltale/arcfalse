@@ -4,6 +4,7 @@
 [Info]
 name = "WAFFLE HOUSE"
 attachedchar = data/dynamiclight/DynamicLight.def
+ikemenversion = 0.99
 
 [Constants]
 DynamicLighting = 1
@@ -92,6 +93,7 @@ delta=.15,.15
 velocity=.05,0
 tile=1,0
 mask = 1
+zoomdelta = 0
 
 [BG glow]
 type  = normal
@@ -117,6 +119,7 @@ velocity=.15,0
 tile=1,0
 trans=add
 mask = 1
+zoomdelta = 0.1
 
 [BG Stars]
 type  = normal
@@ -124,6 +127,7 @@ spriteno = 0, 8
 start = 0, 0
 delta=.7,.7
 mask = 1
+zoomdelta = 0
 
 
 [BG Heaven]
@@ -136,6 +140,7 @@ velocity = -1, 0
 tile = 1, 0
 id=3
 mask = 1
+zoomdelta = 0
 
 [BG Heaven]
 type  =normal
@@ -149,6 +154,7 @@ id=2
 trans=add
 alpha=256,100
 mask = 1
+zoomdelta = 0
 
 [BG Road]
 type  = normal

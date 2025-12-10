@@ -235,17 +235,17 @@ stages/BattleCollab.def, music = sound/PUSHTHETEMPO.mp3, music=sound/DAFRAME2R.m
 stages/BattleCollabNight.def, music = sound/EXILE.mp3,zoom=0
 stages/sakura.def, zoom=0, music = sound/ROCKTHEBEAT.mp3,
 stages/WaffleHouse.def,music = sound/Noises.mp3, music = sound/SUPERSONIC.mp3, music = sound/Illegal.mp3, zoom=0
-;just making sure absolutely NO ONE picks fraudwatch.
-stages/virtualbattleground.def, music = sound/MEDIUMPACE.mp3, music = sound/NIGGASINPARIS.mp3,  music = sound/NOTLIKEUS.mp3, music = sound/DONTTAPTHEGLASS.mp3,  music = sound/BIHYAH.mp3, music=sound/ERIKASANS.mp3, music=sound/JERSEYMEETTHEGRAHAMS.mp3, music=sound/FOREVERTURBOHEATDANCE.mp3, music=sound/WAITINGFOR.mp3, zoom = 0
-stages/ring.def, music = sound/KNOCKUOUT.mp3
 stages/ava.def, music = sound/LOVEDISPENSARY.mp3, music = sound/BOUND2.mp3
-stages/ballin.def, music = sound/STEPUP.mp3, music = sound/DIVEINTOTHEMELLOW.mp3
-stages/falls.def, music = sound/OCEANPRIME.mp3
 stages/eternity.def, music = sound/STRANGERIREMAIN.mp3, music = sound/REDSUN.mp3, music = sound/HOTWINDBLOWING.mp3, music = sound/RULESOFNATURE.mp3
 stages/eternityRED.def, music = sound/ITHASTOBETHISWAY.mp3, music = sound/BURYTHELIGHTFINAL.mp3
 stages/mind.def, music = sound/TWILIGHT.mp3, music = sound/DUVET.mp3, music = sound/ELEPHANT.mp3
 stages/unknown.def, music = music = sound/APPARITIONOFSOLIDxDREAMTOTHEEAST.mp3,  music = sound/TAISHIGOLDENSLAUGHTERER.mp3
-stages/hell.def, music = sound/THEWORLDATMIDNIGHT.mp3, music = sound/easSYSTEMA.wav
+stages/hell.def, music = sound/THEWORLDATMIDNIGHT.mp3, music = sound/SHOUTATNIGHTMARE.mp3
+;just making sure absolutely NO ONE picks fraudwatch.
+stages/virtualbattleground.def, music = sound/MEDIUMPACE.mp3, music = sound/NIGGASINPARIS.mp3,  music = sound/NOTLIKEUS.mp3, music = sound/DONTTAPTHEGLASS.mp3,  music = sound/BIHYAH.mp3, music=sound/ERIKASANS.mp3, music=sound/JERSEYMEETTHEGRAHAMS.mp3, music=sound/FOREVERTURBOHEATDANCE.mp3, music=sound/WAITINGFOR.mp3, zoom = 0
+stages/ring.def, music = sound/KNOCKUOUT.mp3
+stages/ballin.def, music = sound/STEPUP.mp3, music = sound/DIVEINTOTHEMELLOW.mp3
+stages/falls.def, music = sound/OCEANPRIME.mp3
 stages/kno.def, music = sound/POPTIMISM.mp3, music = sound/CANTCONTROL.mp3, zoom=0, music = sound/IFI.mp3,
 
 ;-------------------------------------------------------------------------------

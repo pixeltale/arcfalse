@@ -8002,19 +8002,20 @@ value = -2.5
 type = PowerAdd
 trigger1 = map(BGuard) && !time
 trigger1 = stateno = 150 || stateno = 152 || stateno = 154
-value = -gethitvar(hitdamage) * 2
+value = -gethitvar(hitdamage) * 1.5
 
 [State 0, VelAdd]
 type = VelAdd
-triggerall = enemy, moveguarded = 1 && map(BGuard)
-trigger1 = map(BGuard_Slidemul)
-x = -0.10 - 0.20 * (BackEdgeBodyDist < 10)
+triggerall = backedgebodydist < 10
+trigger1 = map(BGuard_Slidemul) > 1
+trigger1 = time < 10
+x = -0.5
 ignorehitpause = 1
 redirectid = enemynear, id
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = map(BGuard_Slidemul) && vel x < 0
-x = -0.01
+trigger1 = map(BGuard) && vel x < 0
+x = -0.02
 ignorehitpause = 1
 
 [State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier
@@ -8022,6 +8023,11 @@ type = MapSet
 trigger1 = stateno = [120,155]
 map = "BGuard_SlideMul"
 value = cond(map(BGuard), 1.75, 1)
+[State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier
+type = MapSet
+trigger1 = stateno != [120,155]
+map = "BGuard_SlideMul"
+value = 1
 
 [State 0, Helper]   ;Blueline Guard Visual
 type = Helper

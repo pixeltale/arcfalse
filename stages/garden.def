@@ -15,7 +15,7 @@ verticalfollow = .2
 tension = 150
 tensionhigh = 120
 tensionlow = 50
-overdrawhigh = 120
+overdrawhigh = 320
 overdrawlow = 120
 cuthigh = 0
 cutlow = 0
@@ -68,6 +68,8 @@ type=normal
 spriteno=0,3
 delta=.05,.05
 mask = 1
+start = 0, -40
+zoomdelta = 0
 
 [BG clouds]
 type = normal
@@ -105,7 +107,7 @@ mask = 1
 [BG tree]
 type=anim
 actionno = 2
-start = 0,-38
+start = -249,-125
 delta=.9,.7
 mask = 1
 
@@ -140,17 +142,34 @@ actionno = 3
 start=0,-16
 mask = 1
 
-[BG temple]
+[BG PILLARS1]
 type=normal
-spriteno=0,2
-tile = 1, 1
+spriteno=0,7
+tile = 0, 0
 start = 0, -30
+mask = 1
+[BG PILLARS2]
+type=normal
+spriteno=0,8
+tile = 0, 0
+start = 0, -30
+mask = 1
+[BG PILLARS2]
+type=normal
+spriteno=0,8
+tile = 0, 0
+start = 150, -30
+mask = 1
+[BG PILLARS2]
+type=normal
+spriteno=0,7
+tile = 0, 0
+start = -150, -30
 mask = 1
 
 [BG bricks]
 type=normal
 spriteno= 0,5
-window = 0,163,360,360
 yscale=1.5
 start = 0, -10
 tile = 1, 0
