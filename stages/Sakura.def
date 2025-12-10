@@ -64,10 +64,6 @@ fade.range = -400,-100
 [Reflection]
 intensity = 0
 
-[Music]
-bgmusic = sound/FIGHTOFLIGHTANDSHADOW.mp3
-bgvolume = 255
-
 [BGdef]
 spr = Sakura.sff
 
