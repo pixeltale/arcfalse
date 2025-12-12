@@ -8009,7 +8009,7 @@ type = VelAdd
 triggerall = backedgebodydist < 10
 trigger1 = map(BGuard_Slidemul) > 1
 trigger1 = time < 10
-x = -0.5
+x = -0.5 + 0.2 * (enemy, statetype = A_)
 ignorehitpause = 1
 redirectid = enemynear, id
 [State 0, VelAdd]

@@ -2785,6 +2785,7 @@ ignorehitpause = 1
 
 [State 0, PosAdd]
 type = VelAdd
+triggerall = p2dist x > 15
 trigger1 = animelemno(0) = [4,6]
 x = 2
 [State 0, PosAdd]
@@ -2877,7 +2878,7 @@ fall.yvelocity 	= 0
 envshake.freq 	= 80
 envshake.ampl 	= 2
 envshake.phase 	= 1
-guard.ctrltime 	= 22
+guard.ctrltime 	= 32
 fall.yvelocity 	= 0
 getpower 	= (100)*(cond(var(var(2)) = 1, 1.5, 1)) 
 p2stateno 	= 915020
@@ -2913,6 +2914,19 @@ envshake.phase 	= 1
 guard.ctrltime 	= 22
 fall.yvelocity 	= 0
 getpower 	= (100)*(cond(var(var(2)) = 1, 1.5, 1))
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = p2dist x < 15
+x = -5
+
+[State - Guard Crush] 
+type = mapset
+trigger1 = moveguarded
+map = "GC"
+value = 1
+ignorehitpause = 1
+redirectid = enemynear, id
 
 [State 200, 2]
 type = PlaySnd
