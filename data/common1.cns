@@ -1787,13 +1787,22 @@ type = posset
 trigger1 = !time
 y = 0
 
+[State 0, VelAdd]
+type = VelAdd
+triggerall = backedgebodydist < 10
+triggerall = time = [0, 2]
+trigger1 = map(BGuard)
+x = -2
+ignorehitpause = 1
+redirectid = enemynear, id
+
 [State 151, Vel]
 type = VelSet
 trigger1 = !time
-x = gethitvar(xvel) * facing
+x = gethitvar(xvel) * facing - 2 * map(BGuard)
 [State 151, Vel]
 type = VelMul
-trigger1 = time = 2
+trigger1 = time = [0, 2]
 x = map(BGuard_SlideMul)
 
 [State 151, Vel]
@@ -1922,13 +1931,22 @@ trigger1 = !time
 map = "BGuard_Penalty"
 value = map(BGuard)
 
+[State 0, VelAdd]
+type = VelAdd
+triggerall = backedgebodydist < 10
+triggerall = time = [0, 2]
+trigger1 = map(BGuard)
+x = -2
+ignorehitpause = 1
+redirectid = enemynear, id
+
 [State 151, Vel]
 type = VelSet
 trigger1 = !time
-x = gethitvar(xvel) * facing
+x = gethitvar(xvel) * facing - 2 * map(BGuard)
 [State 151, Vel]
 type = VelMul
-trigger1 = time = 2
+trigger1 = time = [0, 2]
 x = map(BGuard_SlideMul)
 
 
@@ -8004,25 +8022,13 @@ trigger1 = map(BGuard) && !time
 trigger1 = stateno = 150 || stateno = 152 || stateno = 154
 value = -gethitvar(hitdamage) * 1.5
 
-[State 0, VelAdd]
-type = VelAdd
-triggerall = backedgebodydist < 10
-trigger1 = map(BGuard_Slidemul) > 1
-trigger1 = time < 10
-x = -0.5 + 0.2 * (enemy, statetype = A_)
-ignorehitpause = 1
-redirectid = enemynear, id
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = map(BGuard) && vel x < 0
-x = -0.02
-ignorehitpause = 1
+
 
 [State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier
 type = MapSet
 trigger1 = stateno = [120,155]
 map = "BGuard_SlideMul"
-value = cond(map(BGuard), 1.75, 1)
+value = cond(map(BGuard), 1.15, 1)
 [State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier
 type = MapSet
 trigger1 = stateno != [120,155]
