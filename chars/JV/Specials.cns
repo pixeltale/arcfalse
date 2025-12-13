@@ -1929,7 +1929,7 @@ persistent = 0
 type 		= MapSet
 trigger1 		= movehit
 map 		= "wallbounce_yvel"
-value 		= -5.5 + -1*(enemy, backedgedist < 10)
+value 		= -5.5
 ignorehitpause 	= 1
 persistent 		= 0
 
