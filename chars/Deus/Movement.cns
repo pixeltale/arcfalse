@@ -1651,12 +1651,6 @@ movetype = I        ;I,A,H
 physics = S         ;A,C,S,N
 ignorehitpause = 1
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time <=15
-value = SCA,NA,SA,HA,NP,SP,HP
-time = 1
-
 [State 0, Explod]
 type = Explod
 trigger1 = time=0
