@@ -2948,7 +2948,7 @@ envshake.time = 7
 fall = 1
 fall.yvelocity = 0
 guard.slidetime = 21
-guard.ctrltime = 18
+guard.ctrltime = 10
 getpower = 0
 
 ;ARMOR ============================++++

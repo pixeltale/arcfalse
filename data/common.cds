@@ -19,17 +19,17 @@ time = 1
 name = "x"
 command = x
 time = 1
-buffer.time = 2
+buffer.time = 4
 [Command]
 name = "y"
 command = y
 time = 1
-buffer.time = 2
+buffer.time = 4
 [Command]
 name = "z"
 command = z
 time = 1
-buffer.time = 2
+buffer.time = 4
 
 [Command]
 name = "w"

@@ -3584,7 +3584,7 @@ sparkxy = -10,0
 hitsound   = S8,0
 guardsound = 6,2
 ground.type = Low
-ground.slidetime = 12
+ground.slidetime = 35
 ground.hittime  = 35
 ground.velocity = -2,-4
 air.velocity = -3,-4
@@ -3593,6 +3593,7 @@ yaccel = .30
 envshake.time = 0
 envshake.freq = 0
 envshake.ampl = 0
+guard.ctrltime = 18
 fall.envshake.time = 0
 fall.envshake.freq = 0
 fall.envshake.ampl = 0
@@ -3982,6 +3983,7 @@ envshake.freq = 0
 envshake.ampl = 0
 fall.envshake.time = 0
 fall.envshake.freq = 0
+guard.ctrltime = 20
 fall.envshake.ampl = 0
 getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 
