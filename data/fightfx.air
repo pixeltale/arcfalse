@@ -216,6 +216,11 @@ LoopStart
 48,0, 0,0, 2, , AS50D256
 48,0, 0,0, 2, , AS25D256
 
+; Training Box
+[Begin Action 50]
+LoopStart
+50,0, 0,0, -1, , AS256D100
+
 ; Small floor dust
 [Begin Action 120]
 120,0, 0,0, 3

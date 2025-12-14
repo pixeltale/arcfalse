@@ -13,7 +13,7 @@
 # Text
 mapset{map: "_pots_attackdata_cfg_starthidden"; value: 1}				# Hide text by default
 mapset{map: "_pots_attackdata_cfg_font"; value: -1}						# Lifebar font number. Default -1 (debug font)
-mapset{map: "_pots_attackdata_cfg_layer"; value: 0}						# Layer number for text. 0 behind chars. 1 in front
+mapset{map: "_pots_attackdata_cfg_layer"; value: 1}						# Layer number for text. 0 behind chars. 1 in front
 mapset{map: "_pots_attackdata_cfg_text_x"; value: 125}					# X offset. Default 125
 mapset{map: "_pots_attackdata_cfg_text_y"; value: 35}					# Y offset. Default 35
 mapset{map: "_pots_attackdata_cfg_text_scale"; value: 0.25}				# Font scale. Default 0.50
@@ -171,7 +171,7 @@ if numenemy {
 			font: F map(_pots_attackdata_cfg_font);
 			text: "Hitstun Decay";
 			removetime: 1;
-			layerno: 0;
+			layerno: map(_pots_attackdata_cfg_layer);
 			align: 1;
 			localcoord: 320, 240;
 			pos: map(_pots_attackdata_cfg_text_x), map(_pots_attackdata_cfg_text_y) + 6 * map(_pots_attackdata_cfg_text_linespacing);
@@ -183,7 +183,7 @@ if numenemy {
 			text: "%d%%";
 			params: ceil(root, enemy, map(UntechMOD) * 100);
 			removetime: 1;
-			layerno: 0;
+			layerno: map(_pots_attackdata_cfg_layer);
 			align: -1;
 			localcoord: 320, 240;
 			pos: map(_pots_attackdata_cfg_text_x) + map(_pots_attackdata_cfg_text_columnspacing), map(_pots_attackdata_cfg_text_y) + 6 * map(_pots_attackdata_cfg_text_linespacing);
@@ -194,7 +194,7 @@ if numenemy {
 			font: F map(_pots_attackdata_cfg_font);
 			text: "Starter Scaling";
 			removetime: 1;
-			layerno: 0;
+			layerno: map(_pots_attackdata_cfg_layer);
 			align: 1;
 			localcoord: 320, 240;
 			pos: map(_pots_attackdata_cfg_text_x), map(_pots_attackdata_cfg_text_y) + 7 * map(_pots_attackdata_cfg_text_linespacing);
@@ -206,7 +206,7 @@ if numenemy {
 			text: "%d%%";
 			params: ceil(root, enemy, map(P1) * 100);
 			removetime: 1;
-			layerno: 0;
+			layerno: map(_pots_attackdata_cfg_layer);
 			align: -1;
 			localcoord: 320, 240;
 			pos: map(_pots_attackdata_cfg_text_x) + map(_pots_attackdata_cfg_text_columnspacing), map(_pots_attackdata_cfg_text_y) + 7 * map(_pots_attackdata_cfg_text_linespacing);
@@ -216,7 +216,7 @@ if numenemy {
 			font: F map(_pots_attackdata_cfg_font);
 			text: "Extender Scaling";
 			removetime: 1;
-			layerno: 0;
+			layerno: map(_pots_attackdata_cfg_layer);
 			align: 1;
 			localcoord: 320, 240;
 			pos: map(_pots_attackdata_cfg_text_x), map(_pots_attackdata_cfg_text_y) + 8 * map(_pots_attackdata_cfg_text_linespacing);
@@ -228,7 +228,7 @@ if numenemy {
 			text: "%d%%";
 			params: ceil(root, enemy, map(P2) * 100);
 			removetime: 1;
-			layerno: 0;
+			layerno: map(_pots_attackdata_cfg_layer);
 			align: -1;
 			localcoord: 320, 240;
 			pos: map(_pots_attackdata_cfg_text_x) + map(_pots_attackdata_cfg_text_columnspacing), map(_pots_attackdata_cfg_text_y) + 8 * map(_pots_attackdata_cfg_text_linespacing);
@@ -428,7 +428,7 @@ if numenemy {
 		font: F map(_pots_attackdata_cfg_font);
 		text: "Pressure Gap";
 		removetime: 1;
-		layerno: 0;
+		layerno: map(_pots_attackdata_cfg_layer);
 		align: 1;
 		localcoord: 320, 240;
 		pos: map(_pots_attackdata_cfg_text_x), map(_pots_attackdata_cfg_text_y) + 5 * map(_pots_attackdata_cfg_text_linespacing);
@@ -440,7 +440,7 @@ if numenemy {
 		text: "%d";
 		params: ceil(root, map(AWFreeze));
 		removetime: 1;
-		layerno: 0;
+		layerno: map(_pots_attackdata_cfg_layer);
 		align: -1;
 		localcoord: 320, 240;
 		pos: map(_pots_attackdata_cfg_text_x) + map(_pots_attackdata_cfg_text_columnspacing), map(_pots_attackdata_cfg_text_y) + 5 * map(_pots_attackdata_cfg_text_linespacing);
