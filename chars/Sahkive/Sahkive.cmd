@@ -77,7 +77,7 @@ value = 45
 triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 triggerall = stateno!=45 && stateno!=46
 triggerall = var(29)>0
-trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260 && !(stateno = 56 && time < 30)
+trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260
 trigger2 = movecontact ;&& enemynear, movetype = H
 trigger2 = statetype = A
 trigger3 =  stateno=45 || stateno=46|| stateno=50

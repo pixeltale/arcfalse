@@ -1672,14 +1672,14 @@ persistent         = 0
 [State 610, 3]
 type = HitDef 
 p2facing = 1
-trigger1 = Time = 0
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 air.animtype = back
 damage = 60*MAP(P4), 0
 guardflag = HA
 hitflag = MAFD
 priority = 4
-pausetime = 13,13
+pausetime = 10,10
 sparkno = 2
 sparkxy = -15,-55
 hitsound   = 5,1
@@ -1770,14 +1770,14 @@ persistent         = 0
 
 [State 0]
 type = HitDef
-trigger1 = !movecontact
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 animtype  = Medium
 air.animtype = back
 damage = 80*MAP(P4), 0
 hitflag = MAFD
 guardflag = HA
-pausetime = 15,15
+pausetime = 12,12
 sparkno = 3
 sparkxy = -15,-55
 hitsound   = 5,3

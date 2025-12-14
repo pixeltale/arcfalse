@@ -61,7 +61,7 @@ value = 45
 triggerall = statetype = A
 triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 triggerall = var(29) > 0
-trigger1 = ctrl && stateno!= [40,55] && !(stateno = 56 && time < 30) && stateno != 40
+trigger1 = ctrl && stateno!= [40,55] && stateno != 40
 trigger2 = movecontact
 trigger2 = hitdefattr = A, NA
 trigger2 = stateno!=620

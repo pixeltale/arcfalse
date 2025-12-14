@@ -122,7 +122,7 @@ type = ChangeState
 value = 45
 triggerall = command = "holdup"
 triggerall = numexplod(45) = 2 && map(floatjump)
-triggerall = stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) && !(stateno = [55, 56] && time < 6)
+triggerall = stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) 
 triggerall = var(45)
 trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260 && stateno != 1450
 trigger2 = movecontact
