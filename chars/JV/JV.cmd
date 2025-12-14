@@ -126,11 +126,10 @@ value = 45
 triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 triggerall = Map(DJCL) > 0
 trigger1 = ctrl && stateno!= [40,55]
-trigger2 = movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact
 trigger2 = hitdefattr = A, NA
 trigger2 = stateno!=620
 trigger3 =  stateno=45 || stateno=46|| stateno=50
-trigger3 = vel y>.1
 
 
 

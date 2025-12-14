@@ -462,6 +462,7 @@ sysvar(1) = 0
 
 [State 50, 2]
 type = ChangeAnim
+triggerall = Prevstateno != 46
 trigger1 = Time = 0
 value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
 

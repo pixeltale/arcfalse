@@ -554,8 +554,8 @@ trigger2 = (stateno = 215 || stateno = 420) && movehit
 type = ChangeState
 value = 45
 triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
-triggerall = stateno!= [45, 46] 
-triggerall = var(45)>0 && vel y>.1
+triggerall = stateno!= [45, 46]  && stateno != 40
+triggerall = var(45)>0
 triggerall = var(29)>0
 trigger1 = ctrl
 trigger2 = movecontact

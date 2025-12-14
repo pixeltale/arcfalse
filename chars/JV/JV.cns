@@ -641,8 +641,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "gethitvar(damage) = %i P4 = %f"
-params = gethitvar(damage)
+text = "DJ  Buffer = %0.0f"
+params = map(doubleJump_BUFFFIX)
 ignorehitpause = 1
 persistent = 1
 

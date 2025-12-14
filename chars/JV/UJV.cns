@@ -655,8 +655,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "DreiDash = %f StrikeCount = %f Var(1)=%d"
-params = map(Dreifing.Active), map(StrikeCount), var(1)
+text = "DJ  Buffer = %0.0f"
+params = map(doubleJump_BUFFFIX)
 ignorehitpause = 1
 persistent = 1
 
@@ -781,19 +781,6 @@ shadow = 0,0,0
 ownpal = 1
 removeongethit = 0
 ignorehitpause =1
-
-[State -2, Up Detector]
-type 		= MapSet
-trigger1 		= command != "up" && command != "holdup"
-map 		= "doubleJump_BUFFFIX"
-value 		= 0
-ignorehitpause 	= 1
-[State -2, Up Detector]
-type 		= MapAdd
-trigger1 		= command = "up"
-map 		= "doubleJump_BUFFFIX"
-value 		= 1
-ignorehitpause 	= 1
 
 [State -2, FRC]
 type 		= MapSet

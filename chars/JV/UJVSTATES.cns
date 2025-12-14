@@ -307,13 +307,13 @@ ctrl = 1
 type    = A
 physics = N
 ctrl = 0
-velset = vel x,0
+velset = 0,0
 
-[State - Air Option Limiter - Double Jump]
+[State Category]
 type = mapadd
 trigger1 = time = 0
-map = "DoubleJump"
-value = 1
+map = "DJCL"
+value = -1
 
 [State 0, VarAdd]
 type = VarAdd
@@ -377,7 +377,7 @@ sysvar(1) = -1
 [State 45, 6]
 type = VelSet
 trigger1 = Time = 2
-x = ifelse(sysvar(1)=0, const(velocity.airjump.neu.x) + vel x, ifelse(sysvar(1)=1, const(velocity.airjump.fwd.x), const(velocity.airjump.back.x)))
+x = ifelse(sysvar(1)=0, const(velocity.airjump.neu.x), ifelse(sysvar(1)=1, const(velocity.airjump.fwd.x), const(velocity.airjump.back.x)))
 y = const(velocity.airjump.y)
 
 [State 45, 7]
@@ -414,7 +414,7 @@ value = Anim + 3
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = time = 6
-value = 50
+value = 660
 ctrl = 1
 ;anim = 660
 ;ignorehitpause = 
