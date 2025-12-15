@@ -78,7 +78,7 @@ actionno = 3
 delta = .11,.11
 start = 0, -30
 mask = 1
-zoomdelta = 0.5
+zoomdelta = 0.35
 [BG Heaven]
 type  =normal
 spriteno=3011,0
@@ -87,7 +87,7 @@ delta = 0.1,.1
 mask = 1
 velocity = -1, 0
 tile = 1, 0
-zoomdelta = 0.5
+zoomdelta = 0.35
 id=3
 
 [BG BackClouds]
@@ -97,12 +97,14 @@ velocity=-.1,0
 sin.y=-10,1000,0
 tile = 1, 1
 delta = .1,.1
+zoomdelta = 0.3
 mask = 1
 
 [BG Moon]
 type  = normal
 spriteno = 0,2
 delta = .12,.12
+zoomdelta = 0.3
 start = 0, -30
 mask = 1
 
@@ -117,6 +119,7 @@ tile = 1, 0
 id=2
 trans=add
 alpha=256,100
+zoomdelta = 0.3
 
 [BG FrontClouds]
 type  = normal
@@ -126,6 +129,7 @@ start = 0, 0
 sin.x=5,500,0
 sin.y=-5,1000,0
 delta = .3,0.2
+zoomdelta = 0.3
 
 [BG OceanBase]
 type  = anim

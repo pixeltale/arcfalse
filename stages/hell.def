@@ -79,7 +79,7 @@ actionno = 3
 delta = .11,.11
 start = 0, -30
 mask = 1
-zoomdelta = 0.5
+zoomdelta = 0.35
 [BG Heaven]
 type  =normal
 spriteno=3011,0
@@ -88,7 +88,7 @@ delta = 0.1,.1
 mask = 1
 velocity = -1, 0
 tile = 1, 0
-zoomdelta = 0.5
+zoomdelta = 0.35
 id=3
 
 [BG Moon]
@@ -99,6 +99,7 @@ start = 0, -30
 mask = 1
 xscale = 0.5
 yscale = 0.5
+zoomdelta = 0.3
 
 [BG Heaven]
 type  =normal
@@ -111,6 +112,7 @@ tile = 1, 0
 id=2
 trans=add
 alpha=256,100
+zoomdelta = 0.3
 
 [BG OceanBase]
 type  = anim

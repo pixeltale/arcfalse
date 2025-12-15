@@ -23,7 +23,8 @@ FLYING GUARDIAN SLAMMER	-		<#65b5ff>(AIR ONLY)</> ^Y
    <#bbbbbb>An airborne command grab.</>
 GOD CRUSH	-		_F^Y
    <#bbbbbb>A forward moving command grab that takes
-   the enemy to the corner of the stage.</>
+   the enemy to the corner of the stage. It's startup
+   is reduced if performed from a dash.</>
 _!A PRAYER UNANSWERED	-		^Y
         <#bbbbbb>Cancels the move early.</>
 UMBRAL SNATCH	-		_B^Y
