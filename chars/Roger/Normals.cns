@@ -4022,7 +4022,6 @@ forcenofall = 0
 ground.velocity = 0,0
 snap = 50,0
 air.velocity=0,30
-p2clsncheck = size
 
 [State 0, PlaySnd] ;Throw Woosh
 type = PlaySnd

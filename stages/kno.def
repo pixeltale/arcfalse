@@ -21,7 +21,7 @@ ShadowBComponent = 0
 [Camera]
 startx = 0
 starty = 0
-zoomin = 1.1
+zoomin = 1
 zoomout = 0.9
 boundleft = -700
 boundright = 700

@@ -15,7 +15,7 @@ DynamicAlpha = 220
 [Camera]
 startx = 0
 starty = 0
-zoomin = 1.1
+zoomin = 1
 zoomout = 0.9
 boundleft = -350
 boundright = 350
