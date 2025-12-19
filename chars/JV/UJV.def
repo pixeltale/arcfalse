@@ -42,7 +42,8 @@ pal11	=11.act
 pal12	=12.act
 pal13	= defined in palette file
 pal14	= defined in palette file
-
+pal15	= defined in palette file
+pal16	= defined in palette file
 
 ; Maps character selection buttons to palette numbers.
 [Palette Keymap]
