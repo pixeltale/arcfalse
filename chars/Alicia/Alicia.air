@@ -1285,6 +1285,26 @@ Clsn1: 2
 1020,3, 0,0, 6
 1020,4, 0,0, 6
 
+; Eye Projectile
+[Begin Action 1060]
+1016,2, 0,0, 5, , , 2.2,2.2
+Clsn1: 1
+  Clsn1[0] = -14, -20, 15, 10
+1016,2, 0,0, 999, , , 2.2,2.2
+
+; 5R Centipede
+[Begin Action 2000]
+Clsn1: 1
+  Clsn1[0] = -12, -10, 12, 9
+2000,1, 0,0, 99
+
+; 2R Goop Squart
+[Begin Action 2010]
+2010,0, 0,0, 4
+2010,1, 0,0, 4
+2010,2, 0,0, 4
+2010,3, 0,0, 4
+
 ; Malice Call
 [Begin Action 3000]
 Clsn2Default: 1

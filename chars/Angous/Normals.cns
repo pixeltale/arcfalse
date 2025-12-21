@@ -1252,7 +1252,8 @@ value = 2
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = command = "UNBUFFER_hold_z" && time = [5, 10]
+triggerall = command = "UNBUFFER_hold_z" && time = 5
+trigger1 = time = [5,10]
 value = 420
 elem = 2
 

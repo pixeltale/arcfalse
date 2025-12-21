@@ -3502,7 +3502,7 @@ value = 1053
 ;5S - Startup
 [Statedef 1090]
 type    = S
-movetype=I
+movetype= A 
 physics = S
 juggle  = 0
 poweradd= 0

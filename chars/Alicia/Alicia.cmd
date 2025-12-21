@@ -305,6 +305,16 @@ value = 1039
 triggerall = command = "236H" && numhelper(1017) && map(EyeAction_H)
 trigger1 = var(1)
 ;===========================================================================
+;Remix						   | |
+;===========================================================================
+;5R
+[State -1, The Demons The Demons The Demons L]
+type = ChangeState
+value = 2000
+triggerall = statetype != A
+triggerall = command = "c" && map(Terror) >= 150
+trigger1 = var(1)
+;===========================================================================
 ;Normal Moves								   | |
 ;===========================================================================
 ;5L: Standing Light
@@ -484,7 +494,7 @@ trigger1 = map(FRC)
 [State 20, 4]
 type = Changestate
 value = 115
-triggerall = map(Float)
+triggerall = map(Float) && (time > 5 || movecontact)
 triggerall = command = "down" || command = "holddown"
 triggerall = command = "c"
 trigger1 = movecontact || movehit
