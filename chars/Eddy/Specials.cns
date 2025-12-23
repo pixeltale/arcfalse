@@ -469,7 +469,7 @@ value = 1
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1 
-trigger1 	= time = 0 && (enemynear, stateno!= [5110,5119])
+trigger1 	= !MoveContact && !MoveReversed
 attr 		= S, SA
 damage 		= 90*map(P4) + 10, 5
 hitflag 		= MAFD
@@ -1540,8 +1540,8 @@ ground.velocity 		= -1
 air.velocity 		= -1,-0.5;
 air.fall 			= 1
 guard.slidetime 		= 8
-guard.ctrltime 		= 12
-guard.hittime 		= 12
+guard.ctrltime 		= 6
+guard.hittime 		= 6
 getpower 		= (25)*(cond(var(var(3)) = 1, 1, .5)) 
 
 [State 0, VelMul]
@@ -1705,8 +1705,8 @@ type = HitDef
 p2facing = 1
 trigger1 = 1
 attr = A, SA
-damage 		= 30*map(P4), 10
-guardflag 	= HA
+damage 		= 30*map(P4), 2
+guardflag 	= MA
 hitflag 		= MAFD
 pausetime 	= 2,2
 sparkno 			= 1
@@ -1723,8 +1723,8 @@ ground.velocity 		= -1
 air.velocity 		= -1,-1;
 air.fall 			= 1
 guard.slidetime 		= 8
-guard.ctrltime 		= 12
-guard.hittime 		= 12
+guard.ctrltime 		= 6
+guard.hittime 		= 6
 getpower 		= 0
 
 [State 0, VelMul]

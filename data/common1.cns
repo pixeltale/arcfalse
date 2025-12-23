@@ -2794,8 +2794,8 @@ movetype= H
 physics = S
 
 [State 5002, ChangeAnim2]
-type = ChangeAnim2
-trigger1 = time = 0
+type = ChangeAnim
+trigger1 = 1
 value = 5012
 elem = 2
 [State , Sound - Grond Impact - Land]
@@ -2818,19 +2818,10 @@ y = 0
 type = HitVelSet
 trigger1 = Time = 0
 x = 1
-[State 5002, 4]
-type = VelSet
-trigger1 = HitOver
-x = 0
-
-;[State 5002, 5]
-;type = DefenceMulSet
-;trigger1 = HitOver
-;value = 1
 
 [State 5002, 6]
 type = SelfState
-trigger1 = pos y = 0 && hitover
+trigger1 = pos y = 0 && !gethitvar(hittime)
 value = 0
 ctrl = 1
 
@@ -4034,7 +4025,7 @@ value = 1
 [State 5120, 5] ;Can't be thrown right after getting up
 type = NotHitBy
 trigger1 = AnimTime = 0
-value = , NT,ST,HT
+attr = , NT,ST,HT
 time = 12
 ignorehitpause = 1
 
@@ -4132,7 +4123,7 @@ value = 999222
 
 ;---------------------------------------------------------------------------
 ;Slide (lying down)
-[Statedef 999222]
+[Statedef 999222] ;Soft Knockdown Before Ground Tech
 type    = L
 movetype= H
 physics = N
@@ -4169,7 +4160,6 @@ removeongethit = 0
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = time >= 0
-trigger1 = !(enemynear, name = "Sahkive" && enemynear, stateno = 3101)
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST
 time = 1
 
@@ -4177,7 +4167,6 @@ time = 1
 type = PalFX
 triggerall = map(_iksys_trainingCtrlDataDisp) != [2, 3] && enemy, map(_iksys_trainingCtrlDataDisp) != 1
 trigger1 = Time
-trigger1 = !(enemynear, name = "Sahkive" && enemy, stateno = 3101)
 time = 1
 add = cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0),cond(128 - time*8 >= 0, 128 - time*8, 0)
 
@@ -4193,7 +4182,7 @@ y = 0
 
 [State 0, ChangeState]
 type = SelfState
-trigger1 = time>20
+trigger1 = time > 10
 value = 5201
 ctrl = 0
 
@@ -4237,13 +4226,13 @@ time = 1
 type = VelSet
 trigger1 = Time = 0 && command != "holdfwd"
 trigger1 = Time = 0 && command != "holdback"
-x = .5*(Const(velocity.air.gethit.groundrecover.x))
+x = .5 * vel x
 y = -3
 
 [State 5201, 2]
 type = VelSet
 trigger1 = Time = 0 && command = "holdback"
-x = -3.5
+x = -5.5
 y = -3.75
 
 [State 5201, 2]
@@ -4254,7 +4243,7 @@ y = -0.1
 [State 5201, 2]
 type = VelSet
 trigger1 = Time = 0 && command = "holdfwd"
-x = 3.5
+x = 5.5
 y = -3.75
 
 [State 0, Width]
@@ -4296,6 +4285,12 @@ ctrl = 0
 type = PlayerPush
 trigger1 = time = [0,20]
 value = 0
+[State 810, Push Priority For Hurt Player]
+type = PlayerPush
+trigger1 = time >= 20
+trigger1 = frontedgebodydist = 0 || backedgebodydist = 0
+value = 1
+priority = 5
 
 [State 0, Explod]
 type = Explod
@@ -4369,14 +4364,14 @@ y = -5
 type = VelSet
 trigger1 = Time = 0
 trigger1 = Command = "holdfwd"
-x = 4
+x = 6
 y = -5.5
 
 [State 5210, 2] ;Go back
 type = VelSet
 trigger1 = Time = 0
 trigger1 = Command = "holdback"
-x = -4
+x = -6
 y = -5.5
 
 [State 5210, 4]
@@ -7773,7 +7768,7 @@ value = 910 + 1 * statetype = A
 triggerall = power >= 1000
 triggerall = hitshakeover && teammode != Tag
 triggerall = command = "holdfwd" || command = "fwd"
-triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912 || stateno = 5120) && (command = "BUFFERED_REDLINEGUARD")
+triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912 || stateno = 5120 || prevstateno = 5120 || prevstateno = 0) && (command = "BUFFERED_REDLINEGUARD") || prevstateno = 5120 && command = "HELD_REDLINEGUARD"
 trigger1 = ctrl || stateno = [120,155] && map(IBCheck) && time > 0 || stateno = 912 && time > 2
 ignorehitpause = 1
 
@@ -7975,6 +7970,14 @@ ignorehitpause = 1
 
 ;------------------------------------------------------------------------------
 [Statedef -2]
+
+[State 810, Push Priority For Hurt Player]
+type = PlayerPush
+trigger1 = movetype = H && stateno != [120,155]
+trigger1 = backedgebodydist = 0
+value = 1
+priority = 5
+
 [State 0, Explod]
 type = Explod
 triggerall = !numexplod(50)

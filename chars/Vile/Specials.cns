@@ -722,7 +722,7 @@ persistent 		= 0
 type = HitDef
 triggerall=p2statetype != A
 trigger1 = time = 0
-attr = S, NA
+attr = A, SP
 damage = 50*parent,MAP(P4), 10
 hitflag = MAFD
 guardflag=MA
@@ -759,7 +759,7 @@ guard.slidetime = 12
 type = HitDef
 triggerall=p2statetype = A
 trigger1 = time = 0
-attr = S, SP
+attr = A, SP
 damage = 50*MAP(P4), 10
 hitflag = MAFD
 air.animtype = back

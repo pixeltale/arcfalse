@@ -1454,6 +1454,7 @@ type = ChangeState
 trigger1 = movecontact = 1 || movereversed
 trigger2 = time >80
 trigger3 = frontedgedist < -1
+trigger4 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 ignorehitpause = 1
 value = 1299
 ctrl = 0 
@@ -1569,6 +1570,7 @@ type = ChangeState
 trigger1 = movecontact = 1
 trigger2 = time >80
 trigger3 = frontedgedist < -1
+trigger4 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 ignorehitpause = 1
 value = 1299
 ctrl = 0 
@@ -1701,6 +1703,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = root, stateno = 1540
+trigger2 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1246
 ctrl = 0 
 
@@ -1966,6 +1969,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = root, stateno = 1540
+trigger2 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1246
 ctrl = 0 
 
@@ -2098,6 +2102,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = root, stateno = 1540
+trigger2 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1246
 ctrl = 0 
 
@@ -2231,6 +2236,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = root, stateno = 1540
+trigger2 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1246
 ctrl = 0 
 
@@ -2364,6 +2370,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = root, stateno = 1540
+trigger2 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1246
 ctrl = 0 
 
@@ -2490,6 +2497,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = root, stateno = 1520
+trigger2 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1226
 ctrl = 0 
 
@@ -2616,6 +2624,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = root, stateno = 1520
+trigger2 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1226
 ctrl = 0 
 
@@ -3063,6 +3072,7 @@ trigger2 = time >100 && pos y>-100
 trigger3 = time >100 && pos y<-100
 trigger4 = pos y>=0
 trigger5 = root, movetype = H
+trigger6 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 12999
 ctrl = 0 
 
@@ -3784,6 +3794,12 @@ ctrl = 0
 anim =1102
 sprpriority = 2
 
+[State 0, ScreenBound]
+type = ScreenBound
+triggerall = FrontEdgeBodyDist < 10
+trigger1 = 1
+value = 1
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = !time
@@ -3845,6 +3861,7 @@ type = ChangeState
 trigger1 = map(HitCount) > 4
 trigger2 = time >= 60
 trigger3 = root, movetype = H
+trigger4 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1103
 ctrl = 0
 

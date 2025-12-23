@@ -387,7 +387,7 @@ x = 4
 [State 0]
 type 	= HitDef 
 p2facing 	= 1
-trigger1 	= Time= 0
+trigger1 	= !movecontact && !MoveReversed
 attr 	= S, NA
 animtype 	= Hard
 air.animtype 	= back
@@ -2167,6 +2167,13 @@ movetype =A
 physics = N
 sprpriority = 2
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+
 [State 0, Helper]
 type = Helper
 trigger1 = StageConst(DynamicLighting)
@@ -2268,6 +2275,7 @@ type = ChangeState
 trigger1 = movecontact
 trigger2 = pos y >=0
 trigger3 = parent,movetype = H
+trigger4 = clsnoverlap(clsn2, (enemynear, id), clsn1)
 value = 1052
 
 ;[State 0, destroyself]

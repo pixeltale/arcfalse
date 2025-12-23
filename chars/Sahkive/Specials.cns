@@ -1507,7 +1507,7 @@ persistent         = 0
 [State 800, 1] ;With grab sound
 type 	= HitDef
 triggerall =  enemynear,map(isassist)=0
-Trigger1 	= time = 0 && !movecontact
+Trigger1 	= !movereversed && !movecontact
 attr 		= S, ST, SA
 hitflag 		= MAFD
 guardflag 		= MA
@@ -2569,9 +2569,8 @@ envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 6
 guard.velocity = -6
-guard.hittime = 25-MAP(untechDecay)
-guard.slidetime = 24
-guard.ctrltime = 24
+guard.slidetime = 28
+guard.ctrltime = 28
 ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 air.cornerpush.veloff = 0

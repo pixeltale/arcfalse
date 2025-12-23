@@ -19,17 +19,17 @@ time = 1
 name = "x"
 command = x
 time = 1
-buffer.time = 4
+buffer.time = 2
 [Command]
 name = "y"
 command = y
 time = 1
-buffer.time = 4
+buffer.time = 2
 [Command]
 name = "z"
 command = z
 time = 1
-buffer.time = 4
+buffer.time = 2
 
 [Command]
 name = "w"
@@ -65,11 +65,12 @@ buffer.time = 1
 name = "REDLINEGUARD"
 command = a
 time = 1
-buffer.time = 0
+buffer.time = 2
 [Command]
 name = "BUFFERED_REDLINEGUARD"
 command = a
 time = 1
+buffer.time = 10
 [Command]
 name = "HELD_REDLINEGUARD"
 command = /a
@@ -476,6 +477,12 @@ command = B, B
 time = 10
 buffertime = 4
 
+[Command]
+name = "SUPERJUMP"
+command = $D, $U
+time = 10
+buffer.time = 3
+buffer.hitpause = 1
 
 [Command]
 name = "28"
@@ -1142,7 +1149,16 @@ command = y+z
 time = 3
 [Command]
 name = "throw"
+command = z+y
+time = 3
+[Command]
+name = "throw"
 command = /y, z
+time = 1
+buffer.time = 3
+[Command]
+name = "throw"
+command = /z, y
 time = 1
 buffer.time = 3
 

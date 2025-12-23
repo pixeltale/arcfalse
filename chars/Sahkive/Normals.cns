@@ -312,8 +312,7 @@ persistent         = 0
 ;============================
 [State 1055, 5]
 type = HitDef
-triggerall = !movecontact
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 attr = S,NA
 getpower = 25
 air.animtype = back
@@ -1469,12 +1468,6 @@ type = ChangeAnim
 trigger1 = 1
 value = 5101
 ignorehitpause = 1
-
-[State 430, 3]
-type = ChangeState
-trigger1 = enemy, stateno != 441
-value = 999222
-ctrl = 0
 
 
 ;-----------------------------------------------------------------

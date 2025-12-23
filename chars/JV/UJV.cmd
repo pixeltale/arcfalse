@@ -59,10 +59,11 @@ buffer.time = 5
 [Command]
 name = "214R"
 command = ~$D, B, c
-buffer.time = 10
+steptime = 6
 [Command]
 name = "236L"
 command = ~D, F, x
+steptime = 6
 [Command]
 name = "236M"
 command = ~D, F, y
@@ -72,7 +73,7 @@ command = ~D, F, z
 [Command]
 name = "236R"
 command = ~$D, F, c
-buffer.time = 10
+steptime = 6
 [Command]
 name = "236S"
 command = ~$D, F, b
@@ -215,12 +216,12 @@ trigger1 = ctrl || var(1) || var(2) || stateno < 3000 && movehit && stateno != [
 ;===============================================================================
 ;---------------------------------------------------------------------------
 
-;Super Jump
+;SuperJump
 [State -1, Super Jump]
 type = ChangeState
 value = 55
 triggerall = statetype != A
-triggerall = command = "28" || command = "27" || command = "29"
+triggerall = command = "SUPERJUMP"
 trigger1 = ctrl
 trigger2 = Map(JC)
 
@@ -298,6 +299,7 @@ trigger2 = stateno = 250
 [State -1, EX Crossroads Murder]
 type = ChangeState
 value = 2000
+triggerall = command != "holdfwd"
 triggerall = command = "214R" && map(SERPENT.FANG) 
 triggerall = statetype != A && stateno != 2000
 trigger1 = ctrl
