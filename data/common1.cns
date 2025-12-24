@@ -2303,7 +2303,7 @@ ctrl = 0
 ;Red Guard
 [Statedef 910]
 type    = S
-movetype= A
+movetype= I
 physics = S
 velset = vel x * 0.5,0
 anim = 910
@@ -2375,7 +2375,7 @@ ctrl = 1
 ;Red Guard (Air)
 [Statedef 911]
 type    = A
-movetype= A
+movetype= I
 physics = A
 velset = vel x,vel y + 1
 anim = 911

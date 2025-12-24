@@ -413,11 +413,8 @@ triggerall = command = "y"
 triggerall = command != "holddown"
 triggerall = !map(NoNormals)
 triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact ;5L
-;trigger3 = stateno = 100 && time > 3
-trigger3 = stateno = [400,410] && movecontact ;2L
-trigger4 = stateno = [100,101]   ;runstop
+trigger1 = ctrl || stateno = [100,101]
+trigger2 = (stateno = 200 || stateno = [400,410]) && movecontact
 
 ;5H: Standing Heavy
 [State -1, Standing Heavy]
@@ -427,14 +424,8 @@ triggerall = statetype != A
 triggerall = command = "z"
 triggerall = command != "holddown"
 triggerall = !map(NoNormals)
-trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact ;5L
-trigger3 = (stateno = 210) && movecontact ;5M
-trigger4 = (stateno = 410) && movecontact ;2M
-trigger5 = (stateno = 420) && movecontact ;2H
-;trigger6 = stateno = 100 && time > 3
-trigger6 = stateno = 400 && movecontact ;2L
-trigger7 = stateno = [100,101] ;run and runstop
+trigger1 = ctrl || stateno = [100,101]
+trigger2 = (stateno = [200,210] || stateno = [400,420]) && movecontact
 
 ;---------------------------------------------------------------------------
 ;---------------------------------------------------------------------------

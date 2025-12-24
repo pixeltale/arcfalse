@@ -19,17 +19,17 @@ time = 1
 name = "x"
 command = x
 time = 1
-buffer.time = 2
+buffer.time = 3
 [Command]
 name = "y"
 command = y
 time = 1
-buffer.time = 2
+buffer.time = 3
 [Command]
 name = "z"
 command = z
 time = 1
-buffer.time = 2
+buffer.time = 3
 
 [Command]
 name = "w"
@@ -636,7 +636,7 @@ command = /d
 
 [Command]
 name = "MistStep"
-command = ~F, D, F
+command = ~F, D, DF
 time = 15
 buffer.time = 15
 buffer.shared = 1

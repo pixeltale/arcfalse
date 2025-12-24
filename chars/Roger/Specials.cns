@@ -1382,7 +1382,7 @@ trigger1 = 1
 value = 5050
 
 [State 0, ChangeState]
-type = ChangeState
+type = SelfState
 trigger1 = time = 400
 value = 5210
 ctrl = 0
@@ -2203,7 +2203,7 @@ trigger1 = 1
 value = 5050
 
 [State 0, ChangeState]
-type = ChangeState
+type = SelfState
 trigger1 = time = 35
 value = 5210
 ctrl = 0
@@ -2278,7 +2278,7 @@ trigger1 = 1
 value = 5050
 
 [State 0, ChangeState]
-type = ChangeState
+type = SelfState
 trigger1 = time = 400
 value = 5210
 ctrl = 0
@@ -3036,7 +3036,7 @@ trigger1 = 1
 value = 5100
 
 [State 0, ChangeState]
-type = ChangeState
+type = SelfState
 trigger1 = time = 35
 value = 5210
 ctrl = 0
@@ -4831,7 +4831,7 @@ trigger1 = vel y>=0 && anim!=5061
 value = 5061
 
 [State 0, ChangeState]
-type = ChangeState
+type = SelfState
 trigger1 = time = 55
 value = 5210
 ctrl = 0

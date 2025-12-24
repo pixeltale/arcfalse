@@ -131,7 +131,7 @@ value = 60
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
 triggerall = pos y<-30
-trigger1 	= (stateno = 1105 && !map(DCBurnJ6S)) && Map(ADash) > 0 || stateno = 1106
+trigger1 	= (stateno = 1105 && !map(DCBurnJ6S)) && Map(ADash) > 0 || stateno = 1106 && movehit
 trigger1	= movecontact
 
 ;---------------------------------------------------------------------------
@@ -152,7 +152,7 @@ trigger1 = ctrl
 [State -1, EX Gentle Dash]
 type = ChangeState
 value = 1120
-triggerall = power>1000
+triggerall = power >= 1000
 triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command = "holdfwd"
 triggerall = command != "holddown"
@@ -214,7 +214,7 @@ triggerall = command != "holdback"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger3 = stateno = 100
+
 ;---------------------------------------------------------------------------
 [State -1, EX Gentle Step]
 type = ChangeState
@@ -240,8 +240,8 @@ trigger2 = var(1)
 [State -1, EX Gentle Thrust]
 type = ChangeState
 value = 1510
-triggerall = power>1000
-triggerall = var(50)<=0
+triggerall = power>=1000
+triggerall = !map(EXLimiter1)
 triggerall = command = "b" && command = "c" || (command = "EX") 
 trigger1 = statetype != A
 trigger1 = ctrl

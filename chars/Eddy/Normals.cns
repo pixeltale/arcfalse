@@ -2275,7 +2275,7 @@ type = ChangeState
 trigger1 = movecontact
 trigger2 = pos y >=0
 trigger3 = parent,movetype = H
-trigger4 = clsnoverlap(clsn2, (enemynear, id), clsn1)
+trigger4 = clsnoverlap(clsn2, (enemynear, id), clsn1) && enemynear, movetype = A
 value = 1052
 
 ;[State 0, destroyself]
