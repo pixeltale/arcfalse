@@ -1,0 +1,126 @@
+;236X - Witch Piercer
+[Statedef 3000]
+type    		= A
+movetype		= A
+physics 		= N
+velset 		= vel x * 0.5, 0
+ctrl 		= 0
+anim 		= 1010
+facep2 		= 0
+poweradd 		= -2000
+sprpriority 	= 2
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time = 1
+time = 20
+sound = S10,0
+pos = 0,0
+movetime = 5
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+
+[State 0, Turn]
+type = Turn
+triggerall = PrevStateNo = [1013,1015]
+trigger1 = !time
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = [0,1]
+y = -4
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 4
+x = 16
+[State 0, VelMul]
+type = VelMul
+trigger1 = animelemno(0) >= 5
+x = 0.75
+
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 3	;Heavy Starter
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 0]
+type = HitDef 
+p2facing = 1
+trigger1 = !MoveContact && !MoveReversed
+attr = S, NA
+animtype  	= Light
+air.animtype 	= back
+damage 		= 250*MAP(P4) + 100
+hitflag 		= MAFD
+guardflag 	= MA
+pausetime 	= 25,25 + 5 * (map(CounterHit) > 0)
+guard.pausetime	= 10,10
+sparkno 		= 2
+sparkxy 		= -10,-50
+hitsound   	= 5,3
+guardsound 	= 6,2
+ground.type 	= high
+air.type	 	= high
+ground.slidetime 	= 12
+ground.hittime  	= 30
+air.hittime  		= 35 * MAP(untechMOD)
+down.hittime 		= 35 * MAP(untechMOD)
+ground.velocity 	= -2, -5
+air.velocity 		= -3, -2.5 * MAP(untechMOD)
+down.velocity 		= -3, -3
+ground.cornerpush.veloff = -5
+down.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.ctrltime		= 10
+guard.velocity 	= -7
+guard.slidetime 	= 30
+envshake.time 		= 8
+envshake.freq 		= 10
+envshake.ampl 		= 2
+envshake.phase 	= 1
+fall.yvelocity 	= 0
+fall = 1
+air.fall = 1
+getpower = (75)*(cond(var(var(2)) = 1, 1, .5)) 
+
+[State 0, Zoom]
+type = zoom
+trigger1 = movehit
+trigger1 = enemy,HitShakeOver = 0
+scale = 1.2
+lag = 0
+stagebound = 0
+camerabound = 0
+pos = pos x + 30*facing, pos y + 20
+ignorehitpause=1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1009
+ctrl = 1
