@@ -1280,7 +1280,7 @@ p2stateno 	= cond(map(CHARGEDJH.USECOUNT) > 1 && enemy, statetype != L, 5070, 52
 p2getp1state 	= 0
 getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5)) 
 [State 0]
-type = ModifyHitDef 
+type = HitDef 
 trigger1 = enemy, map(ArmorActive) && !MoveContact
 attr = A, NA
 animtype  	= hard

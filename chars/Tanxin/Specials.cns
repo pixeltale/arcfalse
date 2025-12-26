@@ -68,6 +68,14 @@ value = 998
 
 [State 0, Changestate]
 type = Changestate
+trigger1 = root, command = "c" && root, command = "UPRIGHT"
+value = 2040
+[State 0, Changestate]
+type = Changestate
+trigger1 = root, command = "c" && root, command = "UPLEFT"
+value = 2039
+[State 0, Changestate]
+type = Changestate
 trigger1 = root, command = "c" && root, command = "RIGHT"
 value = 2020
 [State 0, Changestate]
@@ -965,7 +973,7 @@ ignorehitpause 	= 1
 type 		= RootMapSet
 trigger1 	= movehit && root, map(ComboStateCheck)
 map 		= "P2"
-value 		= 0.75	;80% DMG For next hit
+value 		= 0.85	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -1142,8 +1150,8 @@ attr = S, SA
 damage = 120*root, Map(P4), 150
 hitflag = MAFD
 guardflag = MAF
-pausetime 	= 25,25
-guard.pausetime= 10, 10
+pausetime 	= 5,25
+guard.pausetime= 5, 10
 sparkno 		= 3
 sparkxy 		= -10,-45
 hitsound   	= 5,4
@@ -1312,13 +1320,13 @@ y = 0
 type = ChangeAnim
 triggerall = animelemno(0) >= 3 && anim != 2031
 trigger1 = enemy, movetype = H
-trigger1 = abs(p2dist x) < 50
+trigger1 = abs(p2dist x) < 50 && abs(p2dist y) < 100
 value = 2031
 
 [State -2, Starter Level]
 type 		= RootMapSet
-trigger1 	= movehit && root, map(ComboStateCheck) = 0
-map 		= "StarterLevel"
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
+map 			= "StarterLevel"
 value 		= 1
 ignorehitpause 	= 1
 
@@ -1332,7 +1340,7 @@ ignorehitpause 	= 1
 type 		= RootMapSet
 trigger1 		= movehit && root, map(ComboStateCheck)
 map 			= "P2"
-value 		= 0.85	;80% DMG For next hit
+value 		= 0.9	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent = 0
 [State -2, P2 Accumulation - Scale]
@@ -1379,5 +1387,189 @@ getpower 		= (25)*(cond(var(var(5)) = 1, 1, .5))
 type = ChangeState
 trigger1 = time = 300 && anim != 2031
 trigger2 = !animtime && anim = 2031
+value = 999
+ctrl = 0
+
+;7R Puppet State
+[Statedef 2039]
+type    = A
+movetype= A
+physics = N
+ctrl = 0
+anim = 2040
+facep2 = 0
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = 1
+value = 2040
+ctrl = 0
+
+;9R Puppet State
+[Statedef 2040]
+type    = A
+movetype= A
+physics = N
+ctrl = 0
+anim = 2040
+facep2 = 0
+velset = 0, 0
+
+[State 0, Turn]
+type = Turn
+triggerall = !time
+triggerall = facing = 1
+trigger1 = prevstateno = 2039
+ignorehitpause = 1
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = !time
+value = -150
+kill = 0
+absolute = 0
+ignorehitpause = 1
+redirectid = root, id
+[State -2, Blood Drain -Again-]
+type 		= RootMapAdd
+trigger1 		= !time
+map 			= "BLOOD"
+value 		= -15
+ignorehitpause 	= 1
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = animelem = 1
+y = 0
+[State 0, PosSet]
+type = PosAdd
+trigger1 = anim = 2040
+trigger1 = animelem = 4
+y = -90
+[State 0, PosSet]
+type = VelSet
+trigger1 = anim = 2040
+trigger1 = animelem = 4
+x = 3.5
+y = -6
+[State 0, PosSet]
+type = VelAdd
+trigger1 = anim = 2040 && animelemno(0) > 4
+y = 0.5
+[State 0, ScreenBound]
+type = ScreenBound
+triggerall = FrontEdgeBodyDist < 10
+trigger1 = 1
+value = 1
+
+[State -2, Starter Level]
+type 		= RootMapSet
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
+map 			= "StarterLevel"
+value 		= 3
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, map(ComboStateCheck) = 0
+map 			= "P1"
+value 		= 0.95	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= RootMapSet
+trigger1 		= movehit && root, map(ComboStateCheck)
+map 			= "P2"
+value 		= 0.95	;80% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= RootMapSet
+trigger1 		= movehit
+map 			= "Accumulation"
+value 		= root, Map(Accumulation) * root, map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 630, 2]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed
+attr = A, NA
+damage = 120*root, MAP(P4)
+hitflag = MAFD
+guardflag 	= HA
+priority 		= 3
+pausetime 	= 10,15
+sparkno 		= 3
+sparkxy 		= -5,-35
+hitsound   	= 5,3
+guardsound 	= 6,2
+ground.type 	= high
+air.type		= high
+ground.slidetime 	= 6
+ground.hittime  	= 45 * root, MAP(untechMOD)
+air.hittime  		= 30
+down.hittime 		= 30
+ground.velocity 		= -2,16
+fall.yvelocity 		= 0
+air.velocity 		= -2,16
+down.velocity 		= -2,16
+guard.slidetime 		= 14
+guard.ctrltime 		= 14
+guard.velocity		= 4
+air.fall 		= 1
+fall 		= 1
+p2stateno 	= cond(map(CHARGEDJH.USECOUNT) > 1 && enemy, statetype != L, 5070, 5255)
+p2getp1state 	= 0
+getpower 		= (100)*(cond(var(var(3)) = 1, 1, .5))
+[State 0]
+type = HitDef 
+trigger1 = enemy, map(ArmorActive) && !MoveContact
+attr = A, NA
+animtype  	= hard
+damage 		= 120
+hitflag 		= MAFD
+guardflag 	= HA
+pausetime 	= 12,12
+sparkno 		= 2
+sparkxy 		= -10,0
+hitsound   	= 5,3
+guardsound 	= 6,2
+air.type 		= trip
+ground.type 	= high
+ground.slidetime 	= 12
+ground.hittime  	= 20
+air.hittime  		= 999
+down.hittime 		= 30
+ground.velocity 	= -1.7,0
+down.velocity 		= -1.7, 9
+air.velocity 		= -1.7, 9
+guard.hittime 		= 30
+guard.pausetime	= 10,10
+guard.velocity 	= -7
+guard.slidetime 	= 10
+guard.ctrltime 	= 10
+guard.hittime		= 10
+air.fall 			=1 
+envshake.time 		= 8
+envshake.freq 		= 10
+envshake.ampl 		= 2
+envshake.phase 	= 1
+getpower 			= (100)*(cond(var(var(3)) = 1, 1, .5)) 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = anim != 2041
+trigger1 = pos y >= 0 && animelemno(0) = 11
+value = 2041
+[State 0, VelSet]
+type = VelSet
+trigger1 = anim = 2041
+x = 0
+y = 0
+
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = anim = 2041 && !animtime
 value = 999
 ctrl = 0

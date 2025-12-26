@@ -11,6 +11,16 @@ time = 1
 buffer.time = 0
 
 [Command]
+name = "UPRIGHT"
+command = /UR
+time = 1
+buffer.time = 0
+[Command]
+name = "UPLEFT"
+command = /UL
+time = 1
+buffer.time = 0
+[Command]
 name = "RIGHT"
 command = /R
 time = 1

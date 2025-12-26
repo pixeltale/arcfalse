@@ -1,84 +1,56 @@
 	<#bbbbbb>This move list assumes you are facing to the right.</>
 
-	<#383371>UNIQUE TRAIT: HEAVY HANDS, LIGHT FEET</>
-	Eddy's special attacks can all be Dash-Canceled once per combo
-   and grant much larger rewards on counter-hit.
+	<#FF1499>UNIQUE TRAIT: WARM BODIES</>
+	Tanxin can remove her blood from her body to perform various
+   attacks. Doing so causes her to take damage over time, but
+   builds her a lot of meter and lets her run unique simultaenous
+   offense.
 
-	<#383371>UNIQUE MOVES</>
-REAR UPPER	-		_B^B
-   <#bbbbbb>A short-range uppercut.</>
-LOW HOOK	-		_DF^C
-   <#bbbbbb>A low-hitting sweep.</>
-DOWNWARD CROSS	-		<#65b5ff>(AIR ONLY)</> _D^C
-   <#bbbbbb>A quick aerial attack.</>
+	<#FF1499>UNIQUE MOVES</>
+Double Kick	-		_B^B
+   <#bbbbbb>A double kick that can be canceled into or out of 
+   heavy attacks.</>
+Sanguine Slicer	-		_F^C
+   <#bbbbbb>A long-ranged attack with a blood blade, great for
+   creating or maintaining space.</>
 
 
-	<#383371>SPECIAL MOVES</>
-GENTLEMAN'S BODY BLOW	-		^Y
-   <#bbbbbb>A fast-moving straight punch.
-   Wallbounces on counter-hit.</>
-GENTLEMAN'S STEP	-		_F^Y
+	<#FF1499>SPECIAL MOVES</>
+RAVE ON/RAVE OFF	-		^Y
+   <#bbbbbb>Tanxin removes the blood from her body to control it
+   for attacks. When the puppet is active, this input can be used
+   to recall it.</>
+WITCH LANCER	-		_F^Y
    <#bbbbbb>A step forward with unique followups. Can be interrupted
    with a dash to serve as a low-recovery feint cancel.</>
-_!GENTLEMAN'S LAUNCHER	-		^A/^B/^C
-        <#bbbbbb>A launching uppercut. Cannot be dash canceled,
-        but has a large amount of stun making it conducive to
-        extending combos.</>
-_!GENTLEMAN'S GATLING	-		^Y
-        <#bbbbbb>A multi-hitting attack.
-        Can be dash-canceled.</>
-GENTLEMAN'S DANCE	-		_B^Y
-   <#bbbbbb>A backsway with unique followups.</>
-_!GENTLEMAN'S HAIRCUT	-		^A/^B/^C
-        <#bbbbbb>An overhead strike that causes a sliding knockdown.
-        Bounces the enemy on counter-hit. Can be dash canceled.</>
-_!GENTLEMAN'S SHOESHINE	-		^Y
-        <#bbbbbb>A low-hitting sweep.
-        Can be dash canceled.</>
-GENTLEMAN'S UPPER	-		</> _D^Y
-   <#bbbbbb>An uppercut with invincibility
-   partway into the move. Can be dash canceled.</>
-_!GENTLEMAN'S OPPRESSOR	-		^Y
-        <#bbbbbb>A followup dunk. Can only 
-        be performed if the first part of
-        the attack hit.</>
-GENTLEMAN'S GATLING	-		</> _F^Y
-   <#bbbbbb>A multihit flurry of blows in mid-air.
-   Can be air-dash canceled.</>
+_!GOUGE AND KILL	-		ANY DIRECTION + _^Y
+        <#bbbbbb>Followups. Can do up to 3 attacks total before stopping.</>
+VITALITY DRAIN	-		_B^Y
+   <#bbbbbb>A lunging command grab that steals the opponent's life and meter.
+   She cannot combo after this command grab, no matter what.</>
+BREAK FICTION	-		</> _D^Y
+   <#bbbbbb>An invincible blood explosion. Does a lot of damage.</>
 
-	<#383371>REMIX MOVES</>
-GENTLEMAN'S STRAIGHT	-		^Z
-   <#bbbbbb>Eddy charges up a mean right that deals 
-   a large amount of damage, even if guarded. Can be dash
-   canceled during the charge time, and on contact if it's
-   been charged beyond a certain point.</>
-GENTLEMAN'S NECESSITY	-		_D^Z
-   <#bbbbbb>Eddy tosses his comb in the air. Best used after
-   a knockdown. Causes a restand on air hit.</>
-
-	<#ffef0f>EX MOVES</>
-_EX GENTLEMAN'S BODY BLOW	-		<#55ffff>(1 BAR)</> ^Y+^Z
-   <#bbbbbb>A fast-moving straight punch that ignores projectiles.
-   Causes a wall-bounce.</>
-_EX GENTLEMAN'S STEP	-		<#55ffff>(1 BAR)</> _B^Y+^Z
-   <#bbbbbb>A large step backwards. Is invincible to normal attacks.</>
-_EX GENTLEMAN'S DANCE	-		<#55ffff>(1 BAR)</> _F^Y+^Z
-   <#bbbbbb>A quick step forward that can pass through the enemy.</>
-_EX GENTLEMAN'S UPPER	-		<#55ffff>(1 BAR)</> _D^Y+^Z
-   <#bbbbbb>An invincible uppercut.</>
-_!GENTLEMAN'S OPPRESSOR	-		^Y
-        <#bbbbbb>A followup overhead dunk that knocks down the enemy.
-        Happens automatically if the uppercut hits.</>
-GENTLEMAN'S GATLING	-		</> _D^Y+Z
-   <#bbbbbb>A multihit flurry of blows that must be guarded standing.
-   Can be air-dash canceled, even if Eddy has already
-   spent his airdash.</>
+	<#FF1499>REMIX MOVES</>
+ENABLER	-		^Z
+   <#bbbbbb>A multihitting saw that can be used to lock down
+   opponents. Can be canceled into Sanguine Slide.</>
+SANGUINE SLIDE	-		_F^Z OR _B^Z
+   <#bbbbbb>The puppet moves in the direction pressed.</>
+UGLY DOG	-		_DF^Z OR _DB^Z
+   <#bbbbbb>The puppet transforms into a biting mouth,
+   guard crushing the opponent on block and wallbouncing on
+   hit.</>
+CHUD FISH	-		_UF^Z OR _UB^Z
+   <#bbbbbb>An overhead puppet attack.</>
+LIE IN WAIT	-		_D^Z
+   <#bbbbbb>The blood puppet turns into a puddle, awaiting the
+   enemy to come near while in hit or blockstun to attack them
+   with a subtle low strike.</>
 
 	<#55ffff>SUPERS</>
-<#383371>VIOLENT GATTLING</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
-   <#bbbbbb>A high-damage barrage of punches.</>
-<#383371>VIOLENT UPPER</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
-   <#bbbbbb>An invincible uppercut. Bounces the enemy on counter-hit.</>
+<#FF1499>PLACEHOLDER LANCER</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A placeholder super.</>
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U

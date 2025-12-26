@@ -4,17 +4,10 @@ type = S
 physics = S
 sprpriority = 0
 
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time=0
-v = 13    ;fv = 10
-value = 0
-
 [State 0, 1]
 type = ChangeAnim
 trigger1 = Anim != 0 && Anim != 5 
-trigger2 = Anim = 5 && AnimTime = 0 ;Turn anim over
+trigger2 = Anim = 5 && AnimTime = 0
 value = 0
 
 [State 0, 2]
@@ -649,22 +642,6 @@ time = 1
 add = 64 - time*3,100- time*3,191- time*3
 invertall = 0
 color = 256
-ignorehitpause = 1
-;persistent = 
-
-[State 0, Explod]
-type = Explod
-anim = 9999999
-triggerall = !numexplod(10100)
-trigger1 = prevstateno = 1001
-trigger2 = prevstateno = 1002
-trigger3 = prevstateno = 1101
-trigger4 = prevstateno = 1102
-trigger5 = prevstateno = 1500
-trigger6 = prevstateno = 1300
-trigger7 = prevstateno % 100 = 20
-ID = 10100
-removetime = -1
 ignorehitpause = 1
 
 [State 200, 2]
