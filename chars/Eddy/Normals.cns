@@ -2264,9 +2264,7 @@ airguard.velocity = 1.5,-3
 fall.yvelocity = 0
 forcenofall = 1
 guard.slidetime = 5
-guard.hittime = 10
 guard.ctrltime = 4
-airguard.hittime = 15
 airguard.ctrltime = 4
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
 

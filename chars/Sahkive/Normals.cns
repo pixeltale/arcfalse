@@ -1199,6 +1199,7 @@ guard.velocity = 5
 guard.ctrltime = 8
 guard.slidetime = 15
 p2stateno = 445
+p2facing = 1
 id = 440
 
 [State 0, VarSet]

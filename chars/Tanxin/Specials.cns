@@ -923,7 +923,7 @@ facep2 = 0
 [State 0, LifeAdd]
 type = LifeAdd
 trigger1 = !time
-value = -150
+value = -50
 kill = 0
 absolute = 0
 ignorehitpause = 1
@@ -1078,7 +1078,7 @@ redirectid = enemynear, id
 [State 0, LifeAdd]
 type = LifeAdd
 trigger1 = !time
-value = -100
+value = -25
 kill = 0
 ignorehitpause = 1
 redirectid = root, id
@@ -1299,7 +1299,7 @@ velset = 0, 0
 [State 0, LifeAdd]
 type = LifeAdd
 trigger1 = !time
-value = -150
+value = -30
 kill = 0
 absolute = 0
 ignorehitpause = 1
@@ -1424,7 +1424,7 @@ ignorehitpause = 1
 [State 0, LifeAdd]
 type = LifeAdd
 trigger1 = !time
-value = -150
+value = -50
 kill = 0
 absolute = 0
 ignorehitpause = 1
