@@ -68,14 +68,6 @@ color = 20,20,20
 fade.range = 0,-50
 yscale = 0.3
 
-
-;--------------------------------------------------------
-[Music]
-bgmusic = sound/watercave.mp3
-
- ;Adjust the volume. 0 is normal, negative for softer, and
- ;positive for louder (only for mp3, mods and CDA)
-
 ;========================================================
 ;--------------------------------------------------------
 ; Background definition
