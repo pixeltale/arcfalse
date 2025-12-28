@@ -62,7 +62,7 @@ guard.ctrltime = 16
 envshake.time = 14
 envshake.freq = 100
 envshake.ampl = 6
-forcenofall = 1
+air.fall = 1
 yaccel = .18
 p2sprpriority = -1
 getpower = (50)*(cond(var(var(2)) = 1, 1, .65)) 
@@ -341,7 +341,7 @@ guard.ctrltime = 16
 envshake.time = 14
 envshake.freq = 100
 envshake.ampl = 6
-forcenofall = 1
+air.fall = 1
 yaccel = .18
 p2sprpriority = -1
 getpower = (50)*(cond(var(var(2)) = 1, 1, .65)) 
@@ -1117,7 +1117,7 @@ guard.velocity = 0
 guard.hittime = 35
 guard.ctrltime = 17
 fall.yvelocity = 0
-forcenofall = 1
+air.fall = 1
 forcestand = 1
 id = 1102
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
@@ -1156,7 +1156,7 @@ guard.velocity = 0
 guard.hittime = 35
 guard.ctrltime = 17
 fall.yvelocity = 0
-forcenofall = 1
+air.fall = 1
 forcestand = 1
 id = 1102
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
@@ -1268,7 +1268,7 @@ airguard.velocity = -2,-3
 getpower = 0
 envshake.time = 5
 yaccel = .21
-forcenofall = 1
+air.fall = 1
 guard.dist=0
 
 [State 0, Collide with ANY Projectile]

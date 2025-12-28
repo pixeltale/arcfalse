@@ -738,7 +738,7 @@ var(1) = 0
 
 [State -1, Combo condition Check]
 type = VarSet
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 1010
 trigger2 = hitdefattr = SCA, NA|| stateno = [801,802]
 trigger2 = movecontact
 trigger3 = stateno = 105||stateno = 106||stateno = 107
@@ -1259,7 +1259,7 @@ type = ChangeState
 value = 3000
 triggerall = power>=2000
 triggerall = command = "QCF"|| command = "QCB"
-trigger1 = var(1)
+trigger1 = var(1) || stateno = 1010
 trigger2 = hitdefattr=SCA,NA,SA,ST
 trigger2 = movehit
 

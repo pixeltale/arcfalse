@@ -11,792 +11,77 @@ s = s
 [Defaults]
 ; Default value for the "time" parameter of a Command. Minimum 1.
 command.time = 15
-
-; Default value for the "buffer.time" parameter of a Command. Minimum 1,
-; maximum 30.
 command.buffer.time =1
 
-
-;-| Super Motions |--------------------------------------------------------
-;The following two have the same name, but different motion.
-;Either one will be detected by a "command = TripleKFPalm" trigger.
-;Time is set to 20 (instead of default of 15) to make the move
-;easier to do.
-;
-
-[Command]
-name = "dash";Required (do not remove)
-command = w
-time = 1
-buffer.time=5
-[Command]
-name = "holddash";Required (do not remove)
-command = /w
-time = 1
-[Command]
-name = "rc"
-command = ~a
-time = 1
-buffer.time=5
-
-[Command]
-name = "TripleKFPalm"
-command = ~D, DF, F, x
-time = 10
-[Command]
-name = "TripleKFPalm"   ;Same name as above
-command = ~D, DF, F, y
-time = 10
-[Command]
-name = "TripleKFPalm"   ;Same name as above
-command = ~D, DF, F, z
-time = 10
-[Command]
-name = "TripleKFPalm"
-command = ~D, DF, F+x
-time = 10
-[Command]
-name = "TripleKFPalm"   ;Same name as above
-command = ~D, DF, F+y
-time = 10
-[Command]
-name = "TripleKFPalm"   ;Same name as above
-command = ~D, DF, F+z
-time = 10
-
-
-[Command]
-name = "SmashKFUpper"
-command = ~D, DB, B, x;~F, D, DF, F, D, DF, x
-time = 10
-[Command]
-name = "SmashKFUpper"   ;Same name as above
-command = ~D, DB, B, y;~F, D, DF, F, D, DF, y
-time = 10
-[Command]
-name = "SmashKFUpper"   ;Same name as above
-command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
-time = 10
-[Command]
-name = "SmashKFUpper"
-command = ~D, DB, B+x;~F, D, DF, F, D, DF, x
-time = 10
-[Command]
-name = "SmashKFUpper"   ;Same name as above
-command = ~D, DB, B+y;~F, D, DF, F, D, DF, y
-time = 10
-[Command]
-name = "SmashKFUpper"   ;Same name as above
-command = ~D, DB, B+z;~F, D, DF, F, D, DF, y
-time = 10
-
-[Command]
-name = "DP_a"
-command = ~F, D, DF, a
-
-[Command]
-name = "DP_b"
-command = ~F, D, DF, b
-
-[Command]
-name = "DP_c"
-command = ~F, D, DF, c
-
-[Command]
-name = "DP_KEX"
-command = ~F, D, DF, a+b
-
-[Command]
-name = "DP_KEX"
-command = ~F, D, DF, c+b
-
-[Command]
-name = "DP_KEX"
-command = ~F, D, DF, a+c
-
-[Command]
-name = "DP_x"
-command = ~F, D, DF, x
-
-[Command]
-name = "DP_y"
-command = ~F, D, DF, y
-
-[Command]
-name = "DP_z"
-command = ~F, D, DF, z
-
-[Command]
-name = "DP_xy"
-command = ~F, D, DF, x+y
-[Command]
-name = "DP_xy"
-command = ~F, D, DF, z+y
-[Command]
-name = "DP_xy"
-command = ~F, D, DF, x+z
-
-[Command]
-name = "DD_x"
-command = D,D,x
-
-[Command]
-name = "DD_y"
-command = D,D,y
-
-[Command]
-name = "DD_z"
-command = D,D,z
-
-
-[Command]
-name = "QCF_x"
-command = ~D, DF, F, x
-
-[Command]
-name = "QCF_y"
-command = ~D, DF, F, y
-
-[Command]
-name = "QCF_z"
-command = ~D, DF, F, z
-
-[Command]
-name = "QCF_xy"
-command = ~D, DF, F, x+y
-
-[Command]
-name = "QCB_x"
-command = ~D, DB, B, x
-
-[Command]
-name = "QCB_y"
-command = ~D, DB, B, y
-
-[Command]
-name = "QCB_z"
-command = ~D, DB, B, z
-
-[Command]
-name = "QCB_xy"
-command = ~D, DB, B, x+y
-
-[Command]
-name = "QCF_a"
-command = ~D, DF, F, a
-
-[Command]
-name = "QCF_b"
-command = ~D, DF, F, b
-
-[Command]
-name = "QCF_c"
-command = ~D, DF, F, c
-
-[Command]
-name = "QCF_KEX"
-command = ~D, DF, F, a+b
-
-[Command]
-name = "QCF_KEX"
-command = ~D, DF, F, b+c
-
-[Command]
-name = "QCF_KEX"
-command = ~D, DF, F, a+c
-
-
-
-[Command]
-name = "QCB_a"
-command = ~D, DB, B, a
-
-[Command]
-name = "QCB_b"
-command = ~D, DB, B, b
-
-[Command]
-name = "QCB_c"
-command = ~D, DB, B, c
-
-[Command]
-name = "QCB_KEX"
-command = ~D, DB, B, a+b
-
-[Command]
-name = "QCB_KEX"
-command = ~D, DB, B, b+c
-
-[Command]
-name = "QCB_KEX"
-command = ~D, DB, B, a+c
-
-[Command]
-name = "reset"
-command = ~D,D,c
-
-[Command]
-name = "FF_ab"
-command = F, F, a+b
-
-[Command]
-name = "FF_a"
-command = F, F, a
-
-[Command]
-name = "FF_b"
-command = F, F, b
-;-| Double Tap |-----------------------------------------------------------
-[Command]
-name = "DU"
-command = $D,$U
-buffer.time = 6
-time = 10
-
-[Command]
-name = "DD"
-command = D,D
-
-[Command]
-name = "FF"     ;Required (do not remove)
-command = F, F
-time = 10
-
-[Command]
-name = "aFF"     ;Required (do not remove)
-command = ~F, F
-time = 10
-buffer.time = 6
-
-[Command]
-name = "BB"     ;Required (do not remove)
-command = B, B
-time = 10
-
-[Command]
-name = "aBB"     ;Required (do not remove)
-command = ~B, B
-time = 10
-buffer.time = 6
-
-[Command]
-name = "holdupb"
-command = $U
-time = 1
-buffer.time = 5
-
-;-| 2/3 Button Combination |-----------------------------------------------
-
-[Command]
-name = "burst"
-command = a+x
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = x+a
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = y+a
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = a+y
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = z+a
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = a+z
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = b+a
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = a+b
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = c+a
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = a+c
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = d+a
-time = 1
-buffer.time = 4
-[Command]
-name = "burst"
-command = a+d
-time = 1
-buffer.time = 4
-
-[Command]
-name = "EX"
-command = b+c
-time = 1
-buffer.time = 4
-[Command]
-name = "EX"
-command = c+b
-time = 1
-buffer.time = 4
-[Command]
-name = "EX"
-command = d
-time = 1
-
-[Command]
-name = "recovery";Required (do not remove)
-command = x+y
-time = 1
-[Command]
-name = "AA";Required (do not remove)
-command = x+y
-time = 1
-[Command]
-name = "AA";Required (do not remove)
-command = x+z
-time = 1
-[Command]
-name = "AA";Required (do not remove)
-command = z+y
-time = 1
-
-;-| Dir + Button |---------------------------------------------------------
-[Command]
-name = "down_a"
-command = /$D,a
-time = 1
-
-[Command]
-name = "down_b"
-command = /$D,b
-time = 1
-
-;-| Single Button |---------------------------------------------------------
-
-
-[Command]
-name = "hold_x";Required (do not remove)
-command = /x
-time = 1
-[Command]
-name = "hold_y";Required (do not remove)
-command = /y
-time = 1
-[Command]
-name = "hold_z";Required (do not remove)
-command = /z
-time = 1
-[Command]
-name = "hold_a";Required (do not remove)
-command = /a
-time = 1
-[Command]
-name = "hold_b";Required (do not remove)
-command = /b
-time = 1
-
-[Command]
-name = "hold_c";Required (do not remove)
-command = /c
-time = 1
-
-
-[Command]
-name = "CRHK2Buffer"
-command = c
-time = 1
-buffer.time = 22
-
-[Command]
-name = "buffer_z" 
-command = c
-time = 1
-buffer.time = 14
-
-[Command]
-name = "buffer_c" 
-command = c
-time = 1
-buffer.time = 14
-
-[Command]
-name = "pushblock"
-command = x+y
-time = 1
-
-[Command]
-name = "pushblock"
-command = y+z
-time = 1
-
-[Command]
-name = "pushblock"
-command = x+z
-time = 1
-
-[Command]
-name = "a"
-command = a
-time = 1
-
-[Command]
-name = "b"
-command = b
-time = 1
-buffer.time = 5
-
-
-[Command]
-name = "throwtech"
-command = a
-time = 1
-buffer.time = 13
-[Command]
-name = "c"
-command = c
-time = 1
-buffer.time = 5
-
-[Command]
-name = "buffer_x"
-command = x
-time = 1
-buffer.time = 1
-
-[Command]
-name = "buffer_a"
-command = a
-time = 1
-buffer.time = 1
-
-[Command]
-name = "bufferedx"
-command = x
-time = 1
-buffer.time = 8
-
-[Command]
-name = "bufferedfx"
-command = x
-time = 1
-buffer.time = 10
-
-[Command]
-name = "bufferedy"
-command = y
-time = 1
-buffer.time = 8
-
-[Command]
-name = "bufferedfy"
-command = y
-time = 1
-buffer.time = 10
-
-[Command]
-name = "bufferedz"
-command = z
-time = 1
-buffer.time = 8
-
-[Command]
-name = "bufferedfz"
-command = z
-time = 1
-buffer.time = 10
-
-[Command]
-name = "buffereda"
-command = a
-time = 1
-buffer.time = 8
-
-[Command]
-name = "bufferedfa"
-command = a
-time = 1
-buffer.time = 10
-
-[Command]
-name = "bufferedfa"
-command = b
-time = 1
-buffer.time = 10
-
-[Command]
-name = "bufferedb"
-command = b
-time = 1
-buffer.time = 8
-
-[Command]
-name = "x"
-command = x
-time = 1
-buffer.time = 5
-
-[Command]
-name = "y"
-command = y
-time = 1
-buffer.time = 5
-
-[Command]
-name = "buffer_free_z"
-command = z
-time = 1
-buffer.time = 2
-
-[Command]
-name = "z"
-command = z
-time = 1
-buffer.time = 5
-
-[Command]
-name = "start"
-command = s
-time = 1
-
-[Command]
-name = "hold_z";Required (do not remove)
-command = /z
-time = 1
-
-
-;-| Hold Dir |--------------------------------------------------------------
-[Command]
-name = "holdfwd";Required (do not remove)
-command = /$F
-time = 1
-
-[Command]
-name = "holdback";Required (do not remove)
-command = /$B
-time = 1
-
-[Command]
-name = "jc" ;Required (do not remove)
-command = /$U
-time = 1
-buffer.time = 1
-
-[Command]
-name = "superjump" ;Required (do not remove)
-command = /$U
-buffer.time = 1
-
-[Command]
-name = "holdup" ;Required (do not remove)
-command = /$U
-time = 1
-buffer.time=5
-
-[Command]
-name = "holddown";Required (do not remove)
-command = /$D
-time = 1
-buffer.time=5
-
-[Command]
-name = "fwd"
-command = F
-time = 1
-buffer.time=1
-
-[Command]
-name = "back"
-command = B
-time = 1
-buffer.time=1
-[Command]
-name = "up"
-command = U
-time = 1
-buffer.time=1
-[Command]
-name = "down"
-command = D
-time = 1
-buffer.time=1
-
-;---------------------------------------------------------------------------
-; 2. State entry
-; --------------
-; This is where you define what commands bring you to what states.
-;
-; Each state entry block looks like:
-;   [State -1, Label]           ;Change Label to any name you want to use to
-;                               ;identify the state with.
-;   type = ChangeState          ;Don't change this
-;   value = new_state_number
-;   trigger1 = command = command_name
-;   . . .  (any additional triggers)
-;
-; - new_state_number is the number of the state to change to
-; - command_name is the name of the command (from the section above)
-; - Useful triggers to know:
-;   - statetype
-;       S, C or A : current state-type of player (stand, crouch, air)
-;   - ctrl
-;       0 or 1 : 1 if player has control. Unless "interrupting" another
-;                move, you'll want ctrl = 1
-;   - stateno
-;       number of state player is in - useful for "move interrupts"
-;   - movecontact
-;       0 or 1 : 1 if player's last attack touched the opponent
-;                useful for "move interrupts"
-;
-; Note: The order of state entry is important.
-;   State entry with a certain command must come before another state
-;   entry with a command that is the subset of the first.
-;   For example, command "fwd_a" must be listed before "a", and
-;   "fwd_ab" should come before both of the others.
-;
-; For reference on triggers, see CNS documentation.
-;
-; Just for your information (skip if you're not interested):
-; This part is an extension of the CNS. "State -1" is a special state
-; that is executed once every game-tick, regardless of what other state
-; you are in.
-
-
-; Don't remove the following line. It's required by the CMD standard.
 [Statedef -1]
 
 ;===========================================================================
-
-
-;===========================================================================
-;This is not a move, but it sets up var(1) to be 1 if conditions are right
-;for a combo into a special move (used below).
-;Since a lot of special moves rely on the same conditions, this reduces
-;redundant logic.
 [State -1, Combo condition Reset]
-type = VarSet
-trigger1 = 1
-var(1) = 0
+type = null
+triggerall = 1
+trigger1 = var(1) := 0
+trigger2 = var(2) := 0
 
 [State -1, Combo condition Check]
 type = VarSet
-trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = [200,499]
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger2 = stateno!=421
-trigger3 = stateno = 1330 ;From blocking
-trigger4 = stateno = 105 && time > 10
-trigger5 = stateno = 1203
+trigger2 = stateno = [200,620]
+trigger2 = movecontact
 var(1) = 1
-
-[State -1, Grab]
-type = ChangeState
-value = 800
-triggerall=stateno!=40
-triggerall = roundstate = 2 ;only attack during the round
-trigger1 = command = "a"
-trigger1 = statetype != A
-trigger1 = ctrl
+[State -1, Combo condition Check]
+type = VarSet
+trigger1 = stateno = [1000,3000) && MoveContact
+var(2) = 1
 
 ;Triple Kung Fu Palm (uses one super bar)
 [State -1, Triple Kung Fu Palm]
 type = ChangeState
 value = 3000
-triggerall=stateno!=40
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "TripleKFPalm"
+triggerall= statetype != A
+triggerall = command = "236x"
 triggerall = power >= 2000
-triggerall = stateno != 3000
-triggerall = stateno != 3001
-triggerall = stateno != 3004
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = hitdefattr = SC, NA, SA, HA && movecontact
-trigger2=movecontact
-trigger3 = (stateno = [200,499]) && movecontact ;&& enemynear, movetype = H
-trigger4 = stateno = 1303 && enemy,movetype=H
+trigger1 = ctrl || var(1) || var(2)
 
-
-;---------------------------------------------------------------------------
 ;Triple Kung Fu Palm (uses one super bar)
 [State -1, Triple Kung Fu Palm]
 type = ChangeState
 value = 3010
-triggerall=stateno!=40
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "SmashKFUpper"
+triggerall= statetype != A
+triggerall = command = "214x"
 triggerall = power >= 2000
-triggerall = stateno != 3000
-triggerall = stateno != 3001
-triggerall = stateno != 3004
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = hitdefattr = SCA, NA, SA && movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 1303 
-triggerall = stateno != 3010
+trigger1 = ctrl || var(1) || var(2)
 
-;---------------------------------------------------------------------------
-;Triple Kung Fu Palm (uses one super bar)
-[State -1, Triple Kung Fu Palm]
-type = ChangeState
-value = 3015
-triggerall=stateno!=40
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "SmashKFUpper"
-triggerall = power >= 2000
-triggerall = stateno != 3000
-triggerall = stateno != 3001
-triggerall = stateno != 3004
-triggerall=stateno!=750
-triggerall = statetype = A
-trigger1 = ctrl
-trigger2 = hitdefattr = SCA, NA, SA && movecontact
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 1303 
-triggerall = stateno != 3010
 ;===========================================================================
+;Super Jump
+[State -1, Super Jump]
+type = ChangeState
+value = 55
+triggerall = statetype != A
+triggerall = command = "28" || command = "27" || command = "29"
+trigger1 = stateno = [200,220] || stateno = 420
+trigger1 = movehit
+trigger2 = ctrl || stateno = 100
+
+[State -1, JC]
+type = ChangeState
+value = 40
+triggerall = command = "up" || movecontact && command = "holdup"
+trigger1 = stateno = [200,230] || stateno = 420
+trigger1 = movehit
 
 [State -1,DJC]
 type = ChangeState
 value = 45
-triggerall = command = "holdup"
-triggerall = stateno != 11 && stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099])
-;triggerall = var(45)>0
-triggerall = var(29)>0
-trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger2 = hitdefattr = A, NA
-trigger3 =  stateno=45 || stateno=46|| stateno=50
-trigger3 = vel y>.1
-
+triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
+triggerall = Map(DoubleJump) < 2 && stateno != 40
+trigger1 = ctrl  || hitdefattr = A, NA && movecontact
 ;
 ;---------------------------------------------------------------------------
 ;Aerial Dash
 [State -1, Airdash]
 type = ChangeState
-value =904
-triggerall = command = "aFF" || (command = "dash" && teammode !=tag) || (command = "dash" && teammode=tag && partner,stateno=5150)
+value = 60
+triggerall = command = "a66" || (command = "dash" && teammode !=tag) || (command = "dash" && teammode=tag && partner,stateno=5150)
 triggerall = command != "holdback" 
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -806,8 +91,8 @@ triggerall = (pos y<-30 && vel y < 0) || (vel y >=0)
 ;Aerial Backdash
 [State -1, Air Backdash]
 type = ChangeState
-value =903
-triggerall = command = "aBB" || (command = "dash" && teammode !=tag) || (command = "dash" && teammode=tag && partner,stateno=5150)
+value = 61
+triggerall = command = "a44" || (command = "dash" && teammode !=tag) || (command = "dash" && teammode=tag && partner,stateno=5150)
 triggerall = command = "holdback" 
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -816,46 +101,25 @@ triggerall = var(29)>0
 triggerall = (pos y<-30 && vel y < 0) || (vel y >=0)
 
 ;---------------------------------------------------------------------------
-[State -1, JC]
-type = ChangeState
-value = 40
-triggerall = command = "holdup"
-trigger1 = stateno = 220 && movehit = 1 ;&& enemynear, movetype = H
-trigger2 = stateno = 210 && movehit = 1 ;&& enemynear, movetype = H
-trigger3 = stateno = 211 && movehit = 1 ;&& enemynear, movetype = H
-trigger4 = stateno = 220 && movehit = 1 ;&& enemynear, movetype = H
-trigger5 = stateno = 420 && movehit = 1 ;&& enemynear, movetype = H
-
-;---------------------------------------------------------------------------
 [State -1, EX 6S]
 type = ChangeState
 value = 1120
 triggerall=map(EXLimiter1)=0
-triggerall = roundstate = 2 ;only attack during the round
 triggerall = power>=1000
-triggerall=stateno!=40
 triggerall = command = "EX"
 triggerall = command = "holdfwd"
 triggerall = command != "holddown"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3=stateno=105
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
 ;---------------------------------------------------------------------------
 [State -1, 6S]
 type = ChangeState
 value = 1100
-triggerall=stateno!=40
-triggerall = roundstate = 2 ;only attack during the round
 triggerall = command = "b"
-triggerall = command != "c"
 triggerall = command = "holdfwd"
 triggerall = command != "holddown"
-trigger1 = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-trigger3=stateno=105
-;trigger3 = stateno = 100
+triggerall = statetype != A
+trigger1 = ctrl || var(1)
 
 ;---------------------------------------------------------------------------
 [State -1, EX 2S]
@@ -884,7 +148,7 @@ triggerall = power>=1000
 triggerall = command = "EX"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
-trigger1 = statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
 trigger2 =movecontact
 trigger2 = hitdefattr = A, NA
@@ -898,7 +162,7 @@ triggerall = command = "b"
 triggerall = command != "c"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=105
@@ -914,7 +178,7 @@ triggerall = command = "b"
 triggerall = command != "c"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
-trigger1 = statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
 trigger2 =movecontact
 trigger2 = hitdefattr = A, NA
@@ -929,7 +193,7 @@ triggerall = roundstate = 2 ;only attack during the round
 triggerall = power>=1000
 triggerall = command = "EX"
 triggerall = command = "holdback"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=105
@@ -943,7 +207,7 @@ triggerall = roundstate = 2 ;only attack during the round
 triggerall = command = "b"
 triggerall = command != "c"
 triggerall = command = "holdback"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=105
@@ -958,7 +222,7 @@ triggerall = roundstate = 2 ;only attack during the round
 triggerall = !numexplod(924680) ;this is the new ex limiter
 triggerall = power>=1000
 triggerall = command = "EX"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=105
@@ -974,7 +238,7 @@ triggerall=stateno!=40
 triggerall = roundstate = 2 ;only attack during the round
 triggerall = command = "b"
 triggerall = command != "c"
-trigger1 = statetype != A
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 trigger3=stateno=105
@@ -989,7 +253,7 @@ triggerall = command = "c"
 triggerall = command != "b"
 triggerall = command = "holdback"
 triggerall = command != "holddown"
-trigger1 = statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = (stateno = 600) && movecontact ;&& enemynear, movetype = H
 trigger3 = (stateno = 610) && movecontact ;&& enemynear, movetype = H

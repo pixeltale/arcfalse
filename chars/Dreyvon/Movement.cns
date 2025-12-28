@@ -177,18 +177,11 @@ value = 21
 ; Jump Start
 [Statedef 40]
 type    = A
-movetype= I
-physics =S
+physics = S
 anim = 40
+ctrl = 0
 sprpriority = 1
 facep2 = 1
-ctrl=0
-
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = 1
-value =,NT,ST,HT
-time = 1
 
 [State 40, 1]
 type = VarSet
@@ -253,30 +246,8 @@ trigger1 = prevstateno = 100 ;RUN_FWD
 trigger1 = sysvar(1) = 1
 x = const(velocity.runjump.fwd.x)
 
-[State 0, Explod]
-type = Explod
-trigger1 = animelem = 1
-anim = 7010
-ID = 673
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.3,0.3
-sprpriority = 0
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
-
 [State 40, 6]
-type = selfstate
+type = ChangeState
 trigger1 = AnimTime = 0
 value = 50
 ctrl = 1
@@ -288,30 +259,13 @@ type    = A
 physics = N
 ctrl = 0
 velset = 0,0
+anim = 41
 
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time = 0 
-v =  45   ;fv = 
-value = -1
-;ignorehitpause = 
-;persistent = 
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time =0
-v = 29     ;fv = 
-value = -1
-
-[State 45, 1]
-type = ChangeAnim
-trigger1 = SelfAnimExist(44)
-value = 44
-
-[State 45, 2]
-type = ChangeAnim
-trigger1 = !SelfAnimExist(44)
-value = 41
+[State Category]
+type = mapadd
+trigger1 = time = 0
+map = "DoubleJump"
+value = 1
 
 [State 45, 3]
 type = VarSet
@@ -335,215 +289,25 @@ x = ifelse(sysvar(1)=0, const(velocity.airjump.neu.x), ifelse(sysvar(1)=1, const
 y = const(velocity.airjump.y)
 
 [State 45, 7]
-type = selfstate
+type = ChangeState
 trigger1 = Time = 2
-value = 46
+value = 50
 ctrl = 1
 
-
-
-;---------------------------------------------------------------------------
-; AirJump Up
-[Statedef 46]
-type    = A
-physics = A
-ctrl = 1
-[State 50, 1]
-type = VarSet
-trigger1 = Time = 0
-sysvar(1) = 0
-
-[State 50, 2]
-type = ChangeAnim
-trigger1 = Time = 0
-value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
-
-[State 50, 3]
-type = ChangeAnim
-trigger1 = Vel y > Const720p(-8)
-trigger1 = SelfAnimExist(anim + 3)
-trigger1 = anim >= 41 && anim <= 43
-persistent = 0
-value = Anim + 3
-
+;--------------------------------------
 ;---------------------------------------------------------------------------
 ; Jump Up
 [Statedef 50]
 type    = A
 physics = A
+anim = 41
 ctrl = 1
-
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = time<=2
-flag = noairguard
-ignorehitpause = 1
 
 [State 50, 1]
 type = VarSet
 trigger1 = Time = 0
 sysvar(1) = 0
 
-[State 50, 2]
-type = ChangeAnim
-trigger1 = Time = 0
-value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
-
-[State 50, 3]
-type = ChangeAnim
-trigger1 = Vel y > Const720p(-8)
-trigger1 = SelfAnimExist(anim + 3)
-trigger1 = anim >= 41 && anim <= 43
-persistent = 0
-value = Anim + 3
-;--------------------------------------
-[Statedef 903]
-type    = A
-movetype= I
-physics = N
-anim = 160
-ctrl = 1
-
-[State 0, Explod]
-type = MapSet
-triggerall = time = 0
-trigger1 = prevstateno = 1305
-trigger2 = prevstateno = 1301
-trigger3 = prevstateno = 1304
-map = "dc"
-value = 1
-[State 0, Explod]
-type = MapSet
-triggerall = time = 0
-trigger1 = map(ndccheck)=1
-map = "ndc"
-value = 1
-
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = 1
-flag = noairguard
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time =0
-v = 29     ;fv = 
-value = -1
-[State 0, VelSet]
-type = VelSet
-trigger1 = time=0
-x = -4-(cond(var(8)>0,1,0))
-y = 0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = time = 0
-value = 900, 0
-[State 0, Explod]
-type = Explod
-trigger1 = time = 1
-anim = 6951
-ID = 6951
-pos = 0,-10
-postype = p1  ;p2,front,back,left,right
-facing = -1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.7,0.7
-sprpriority = 0
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = animelem = 6
-statetype = A       ;S,A,C,L
-movetype = I        ;I,A,H
-physics = A         ;A,C,S,N
-;ignorehitpause = 
-;persistent = 
-
-;---------------------------------------------------------------------------
-
-;--------------------------------------
-[Statedef 904]
-type    = A
-movetype= I
-physics = N
-anim = 161
-ctrl = 1
-
-[State 0, Explod]
-type = MapSet
-triggerall = time = 0
-trigger1 = prevstateno = 1305
-trigger2 = prevstateno = 1301
-trigger3 = prevstateno = 1304
-map = "dc"
-value = 1
-[State 0, Explod]
-type = MapSet
-triggerall = time = 0
-trigger1 = map(ndccheck)=1
-map = "ndc"
-value = 1
-
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = 1
-flag = noairguard
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time =0
-v = 29     ;fv = 
-value = -1
-[State 0, VelSet]
-type = VelSet
-trigger1 =time=0
-x = 4+(cond(var(8)>0,1,0))
-y = 0
-
-[State 200, 2]
-type = PlaySnd
-trigger1 = time = 0
-value = 900, 1
-[State 0, Explod]
-type = Explod
-trigger1 = time = 1
-anim = 6951
-ID = 6951
-pos = 0,-10
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 0
-scale = 0.7,0.7
-sprpriority = 0
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = animelem = 6
-statetype = A       ;S,A,C,L
-movetype = I        ;I,A,H
-physics = A         ;A,C,S,N
-;ignorehitpause = 
-;persistent = 
-;---------------------------------------------------------------------------
 ;---------------------------------------------------------------------------
 ; Jump Down (empty state for compatibility)
 [Statedef 51]
@@ -559,7 +323,7 @@ trigger1 = 1
 [Statedef 52]
 type    = S
 physics = S
-ctrl = 1
+ctrl = 0
 anim = 47
 facep2 = 1
 
@@ -572,7 +336,6 @@ y = 0
 type = PosSet
 trigger1 = Time = 0
 y = 0
-
 
 [State 0, Explod]
 type = Explod
@@ -608,7 +371,7 @@ x = 0
 
 
 [State 52, 5]
-type = selfstate
+type = ChangeState
 trigger1 = command = "holddown"
 value = 10
 ctrl = 1
@@ -619,6 +382,76 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
+;---------------------------------------------------------------------------
+; Air Dash Fwd
+[Statedef 60]
+type    = A
+physics = A
+anim = 60
+sprpriority = 1
+ctrl = 0
+velset = 0,vel y *.4
+
+[State 100, 1]
+type = VelSet
+trigger1 = time = 0
+x = 6
+
+[State - Air Option Limiter - Airdash]
+type = mapadd
+trigger1 = time = 0
+map = "ADash"
+value = -1
+[State - Air Option Limiter - Double Jump]
+type = mapset
+trigger1 = time = 0
+map = "DJCL"
+value = -1
+
+[State - Airdash Momentum Preserve]
+type = mapset
+trigger1 = time = 0
+map = "ADM" ;AirDash Momentum Preserve
+value = 16
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = time
+value = 1
+;---------------------------------------------------------------------------
+; Air Dash Back
+[Statedef 61]
+type    = A
+physics = A
+anim = 61
+sprpriority = 1
+ctrl = 0
+velset = 0,vel y *.1
+
+[State 100, 1]
+type = VelSet
+trigger1 = time = 0
+x = -4.25
+[State 100, 1]
+type = VelSet
+trigger1 = time < 12
+y = 0
+
+[State Limiter]
+type = mapadd
+trigger1 = time = 0
+map = "ADash"
+value = -1
+[State Category]
+type = mapset
+trigger1 = time = 0
+map = "DJCL"
+value = -1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = time
+value = 1
 
 ;-----------------------------
 [Statedef 990]
