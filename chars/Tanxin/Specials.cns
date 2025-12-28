@@ -775,7 +775,7 @@ sparkxy = -15,-30
 hitsound   = 5,4
 guardsound = 6,1
 ground.type = TRIP
-air.type    = High
+air.type    = TRIP
 ground.slidetime = 12
 ground.hittime  = 120
 air.hittime  = 120
@@ -794,7 +794,7 @@ trigger1 = map(ComboStateCheck)
 attr = S, ST
 animtype  = back
 air.animtype = back
-hitflag = MAF
+hitflag = MAFD
 p2facing = 1
 id = 1
 
@@ -896,7 +896,7 @@ velset		= 0, 0
 type = NotHitBy
 trigger1 = 1
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 20
+time = 40
 
 
 [State 0, VelMul]
@@ -908,7 +908,7 @@ y = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = enemy, anim = 1031 && enemy, animelem = 3
-value = 5030
+value = 5071
 ctrl = 0
 
 ;5R Puppet State

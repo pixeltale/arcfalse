@@ -701,27 +701,27 @@ absolute = 0
 ignorehitpause = 1
 [State -2, Limiter Reset]	;This resets the Witch Lancer Map so that it can be used again.
 type 		= MapAdd
-trigger1 		= numhelper(999)
-map 		= "HealthRefund"
+trigger1 		= numhelper(999) && life > 1
+map 			= "HealthRefund"
 value 		= 1
 ignorehitpause 	= 1
 [State -2, Limiter Reset]	;This resets the Witch Lancer Map so that it can be used again.
 type 		= MapSet
 trigger1 		= movetype = H && stateno != [120,155]
-map 		= "HealthRefund"
+map 			= "HealthRefund"
 value 		= 0
 ignorehitpause 	= 1
 
 [State -2, Limiter Reset]	;This resets the Witch Lancer Map so that it can be used again.
 type 		= MapSet
 trigger1 		= statetype != A
-map 		= "DoubleJump"
+map 			= "DoubleJump"
 value 		= 0
 ignorehitpause 	= 1
 [State -2, Limiter Reset]	;This resets the Witch Lancer Map so that it can be used again.
 type 		= MapSet
 trigger1 		= statetype != A
-map 		= "Lancer"
+map 			= "Lancer"
 value 		= 0
 ignorehitpause 	= 1
 [State -2, Limiter Reset]	;Reset DF Lancer Limiter
