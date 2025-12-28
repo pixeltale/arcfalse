@@ -193,7 +193,6 @@ pos = 40,0
 type = ChangeState
 triggerall = map(Pummel)<3
 triggerall = p2stateno = 1010
-triggerall = time < 50
 trigger1 = command = "x"
 trigger2 = command = "buffer_x"
 value = 1006
@@ -386,7 +385,7 @@ absolute = 0
 [State 0, EnvShake]
 type = Pause
 trigger1 = animelem = 5
-time = 10
+time = 2
 
 [State 0, EnvShake]
 type = EnvShake
@@ -456,6 +455,12 @@ type = TargetState
 trigger1 = animelem = 5
 value = 1011
 
+[State 0, ChangeState]
+type = ChangeState
+triggerall = map(Pummel)<3
+trigger1 = animtime = 0 && command = "hold_x"
+value = 1006
+ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
@@ -3331,6 +3336,13 @@ value = 1046
 
 [State 0, ChangeState]
 type = ChangeState
+triggerall = map(Pummel)<3
+trigger1 = animtime = 0 && command = "hold_x"
+value = 1042
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
 trigger1 = animtime = 0 || map(Pummel) > 3
 value = 1041
 ctrl = 1
@@ -4014,6 +4026,17 @@ guard.ctrltime 		= 20
 getpower 			= 25*var(2)
 p2stateno 		= 1225
 id=1043
+
+[State 0, Zoom]
+type = zoom
+trigger1 	= movehit
+trigger1 	= enemy,HitShakeOver = 0
+scale 	= 1.5
+lag 	= 0.5
+stagebound 	= 1
+camerabound 	= 0
+pos 		= pos x,0
+ignorehitpause	=1
 
 [State 0, TargetLifeAdd]
 type = TargetLifeAdd
