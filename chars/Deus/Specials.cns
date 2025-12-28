@@ -321,7 +321,7 @@ trigger1 = time%4=1
 attr = S,ST
 animtype  = med
 air.animtype = back
-damage = 20*MAP(P4), 0
+damage = 3*MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,5
@@ -337,7 +337,7 @@ ground.velocity = 0
 air.velocity = 0,0
 down.velocity = 0,0
 forcenofall = 1
-getpower = (60)*(cond(var(var(2)) = 1, 1, 1)) 
+getpower = (10)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State 210, 2]
 type = HitDef 
@@ -346,7 +346,7 @@ trigger1=animelem=2
 attr = S, ST
 animtype  = med
 air.animtype = back
-damage =  251*MAP(P4), 0
+damage =  105*MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,0
@@ -1173,6 +1173,27 @@ invertall = 0
 color = 256
 ignorehitpause = 1
 
+[State -2, P1 Value Set]
+type 		= ParentMapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.80	;110% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= ParentMapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 			= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= ParentMapSet
+trigger1 		= movehit
+map 			= "Accumulation"
+value 		= parent, Map(Accumulation) * parent, map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 [State 0]
 type = HitDef 
 p2facing = cond(combocount>0,1,0)
@@ -1928,6 +1949,27 @@ type = PosSet
 trigger1 = pos y >=0
 y = 0
 ignorehitpause = 1
+
+[State -2, P1 Value Set]
+type 		= ParentMapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.80	;110% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= ParentMapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 			= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= ParentMapSet
+trigger1 		= movehit
+map 			= "Accumulation"
+value 		= parent, Map(Accumulation) * parent, map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 200, 1]
 type = HitDef 
