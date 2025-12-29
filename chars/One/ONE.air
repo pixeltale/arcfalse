@@ -21,26 +21,6 @@ Clsn2Default: 2
   Clsn2[1] = -16, -107, 18, -78
 235,0, 0,0, 10
 
-; Turning
-[Begin Action 5]
-Clsn2Default: 2
-  Clsn2[0] = -24, -81, 23, 0
-  Clsn2[1] = -16, -107, 18, -78
-200,0, 0,0, 4
-
-; swordless turning
-[Begin Action 6]
-Clsn2Default: 2
-  Clsn2[0] = -24, -81, 23, 0
-  Clsn2[1] = -16, -107, 18, -78
-235,0, 0,0, 10
-
-; Crouch Turning
-[Begin Action 6]
-Clsn2: 1
-  Clsn2[0] = -31, -67, 34, 1
-11,5, 0,0, 4, H
-
 ; Stand to crouch
 [Begin Action 10]
 Clsn2: 1

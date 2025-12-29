@@ -92,69 +92,6 @@ value = 5050
 ctrl = 0
 
 ;---------------------------------------------------------------------------
-; Stand to Crouch
-[Statedef 10]
-type    = C
-physics = C
-anim = 10
-[State 0, VarSet]
-type = VarSet
-trigger1 = time=0
-v = 13    ;fv = 10
-value = 0
-
-[State 10, 2] ;Stop moving if low velocity
-type = VelSet
-trigger1 = abs(vel x) < Const(movement.crouch.friction.threshold)
-x = 0
-
-[State 10, 3]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 11
-
-;---------------------------------------------------------------------------
-; Crouching
-[Statedef 11]
-type    = C
-physics = C
-anim = 11
-sprpriority = 0
-
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time=0
-v = 13    ;fv = 10
-value = 0
-
-[State 11, 1] ;Change from turning animation
-type = ChangeAnim
-trigger1 = Anim = 6 && AnimTime = 0
-value = 11
-
-[State 11, 2] ;Stop moving if low velocity
-type = VelSet
-trigger1 = abs(vel x) < Const(movement.crouch.friction.threshold)
-x = 0
-
-;---------------------------------------------------------------------------
-; Crouch to Stand
-[Statedef 12]
-type    = S
-physics = S
-anim = 12
-[State 0, VarSet]
-type = VarSet
-trigger1 = time=0
-v = 13    ;fv = 10
-value = 0
-[State 12, 1]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-
-;---------------------------------------------------------------------------
 ; Walk
 [Statedef 20]
 type    = S

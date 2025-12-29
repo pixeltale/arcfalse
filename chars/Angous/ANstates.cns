@@ -107,6 +107,7 @@ type    = C
 physics = C
 anim = 10
 velset = vel x,0
+facep2 = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim

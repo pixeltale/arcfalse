@@ -65,6 +65,7 @@ ctrl = 0
 type    = C
 physics = C
 anim = 10
+facep2 = 1
 
 [State 10, 1]
 type = VelMul

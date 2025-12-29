@@ -117,7 +117,7 @@ ctrl = 0
 type    = C
 physics = C
 anim = 10
-
+facep2 = 1
 ;Idle Explod Removal
 [State 0, RemoveExplod]
 type = RemoveExplod
