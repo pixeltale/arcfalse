@@ -1485,7 +1485,7 @@ ctrl = 0
 type = VelSet
 trigger1 = !time
 x = -0.5
-y = -9
+y = -8
 
 [State 1016, VelAdd]
 type = VelAdd

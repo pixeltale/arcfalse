@@ -3711,6 +3711,14 @@ sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in fro
 facep2 = 1
 poweradd=-1000
 
+[State 0, RC LOCKOUT]
+type 		= MapSet
+trigger1 	= time < 10
+map 		= "ScratchLockout"
+value 		= 20
+ignorehitpause 	= 1
+persistent		= 1
+
  ;============================
 ;Note: Always have ignorehitpause on all of these.
 [State -2, Starter Level]
