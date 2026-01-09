@@ -2626,49 +2626,55 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "Deus"
 triggerall=map(december)=0
 triggerall = prevstateno!=812
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%50))
 volumescale=150
 lowpriority=1
@@ -2836,49 +2842,55 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "Deus"
 triggerall=map(december)=0
 triggerall = prevstateno!=812
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%50))
 volumescale=150
 lowpriority=1
@@ -3002,49 +3014,55 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "Deus"
 triggerall=map(december)=0
 triggerall = prevstateno!=812
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%50))
 volumescale=150
 lowpriority=1
@@ -3405,48 +3423,54 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "Deus"
 triggerall=map(december)=0
 triggerall = prevstateno!=812
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%50))
 volumescale=150
 lowpriority=1
@@ -3503,39 +3527,45 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 channel=6
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 channel=6
@@ -3543,9 +3573,20 @@ channel=6
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
 channel=6
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Deus"
+triggerall=map(december)=0
+triggerall = prevstateno!=812
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%50))
+volumescale=150
+lowpriority=1
+channel=7
+
 [State 5080, 1] ;Set default anim
 type = VarSet
 trigger1 = time = 0
@@ -4629,43 +4670,59 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Deus"
+triggerall=map(december)=0
+triggerall = prevstateno!=812
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%50))
+volumescale=150
+lowpriority=1
+channel=7
 [State 5220, Anim] ;Custom animation
 type = ChangeAnim2
 trigger1 = 1
@@ -5196,43 +5253,59 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Deus"
+triggerall=map(december)=0
+triggerall = prevstateno!=812
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%50))
+volumescale=150
+lowpriority=1
+channel=7
 
 [State 5230, Anim]
 type = ChangeAnim2
@@ -5343,43 +5416,59 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Deus"
+triggerall=map(december)=0
+triggerall = prevstateno!=812
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%50))
+volumescale=150
+lowpriority=1
+channel=7
 
 [State 5220, Anim] ;Custom animation
 type = ChangeAnim2
@@ -5550,43 +5639,59 @@ velset = 0,0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Deus"
+triggerall=map(december)=0
+triggerall = prevstateno!=812
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%50))
+volumescale=150
+lowpriority=1
+channel=7
 [State 5230, Anim]
 type = ChangeAnim2
 trigger1 = 1
@@ -6181,43 +6286,59 @@ ctrl = 0
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "angous"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%22))
 volumescale=120
 [State -3, Win Voices] ;hurt
 type = PlaySnd
 triggerall = name = "vile"
-trigger1 = time=0
+trigger1 = time=0 && alive
 value = 3004, (0+(Random%19))
 channel=6
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "one"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%10))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%8))
+volumescale=150
+[State -3, Win Voices] 
+type = PlaySnd
 triggerall = name = "Grandmaster Wu" 
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "arzon"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (4+(Random%24))
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "sahkive"
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%24))
 volumescale=150
 [State -3, Win Voices] 
 type = PlaySnd
 triggerall = name = "eddy"
 triggerall=palno!=11
-trigger1 = time = 1
+trigger1 = time = 1 && alive
 value = 5000, (0+(Random%20))
+[State -3, Win Voices] 
+type = PlaySnd
+triggerall = name = "Deus"
+triggerall=map(december)=0
+triggerall = prevstateno!=812
+trigger1 = time = 1 && alive
+value = 5000, (0+(Random%50))
+volumescale=150
+lowpriority=1
+channel=7
 
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
@@ -10042,6 +10163,36 @@ type = PlaySnd
 triggerall = name = "Grandmaster Wu"
 trigger1 = map(DIE)=1
 value = 9000,(0+(Random%3))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "Roger"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%2))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "One"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%3))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "Deus"
+trigger1 = map(DIE)=1
+value = 9000,(0+(Random%4))
 loop = 0
 persistent = 0
 volumescale=150
