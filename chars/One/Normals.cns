@@ -234,7 +234,7 @@ facep2	= 1
 
 [State One Voices]
 type = PlaySnd
-trigger1 =  animelem = 4
+trigger1 =  animelem = 3
 value = 1000, (2+(Random%2))
 volumescale=150
 channel = 6
@@ -381,7 +381,7 @@ facep2 = 1
 
 [State One Voices]
 type = PlaySnd
-trigger1 =  animelem = 4
+trigger1 =  animelem = 3
 value = 1000, (4+(Random%2))
 volumescale=150
 channel = 6
@@ -2740,10 +2740,10 @@ getpower 		= (75)*(cond(var(var(3)) = 1, 1, .5))
 type = ChangeState
 triggerall = enemy, HitPauseTime = 0
 triggerall = var(50)
-triggerall = helper(260), stateno = 665 || helper(260), stateno = 261 || helper(260), stateno = 661
+triggerall = helper(260), stateno = 665 || helper(260), stateno = 261 || helper(260), stateno = 666 || helper(260), stateno = 661 || helper(260), stateno = 667
 triggerall = animelem = 7
-trigger1 = abs(map(SwordDIstX)) < 100
-trigger1 = abs(map(SworddistY) < 75)
+trigger1 = map(SwordDIstX) < 30 && map(SwordDIstX) >-80
+trigger1 = map(SworddistY) < 70 && map(SworddistY) > -20
 value = 666
 redirectid = helper(260), id
 
@@ -3032,15 +3032,18 @@ getpower 		= 50
 p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
 p2getp1state = 0
 
+
 [State 0, ChangeState]
 type = ChangeState
 triggerall = enemy, HitPauseTime = 0
-triggerall = helper(260), stateno = 665 || helper(260), stateno = 261 || helper(260), stateno = 661
-triggerall = animelem = 7
-trigger1 = abs(map(SwordDIstX)) < 50
-trigger1 = abs(map(SworddistY) < 85)
+triggerall = var(50)
+triggerall = helper(260), stateno = 665 || helper(260), stateno = 261 || helper(260), stateno = 666 || helper(260), stateno = 661
+triggerall = animelem =6
+trigger1 = map(SwordDIstX) < 30 && map(SwordDIstX) > -70
+trigger1 = map(SworddistY) < 75 && map(SwordDIsty) > -10
 value = 667
 redirectid = helper(260), id
+
 
 [State 40, 1]
 type = VarSet

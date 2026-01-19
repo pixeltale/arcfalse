@@ -1625,6 +1625,7 @@ ground.slidetime = 12
 ground.hittime  = 99999999999
 air.hittime  = 99999999999
 down.hittime  = 99999999999
+guard.ctrltime 	= 1 ;fuck you
 ground.velocity = 3,-5
 air.velocity = 3,-5
 down.velocity = 5, -5

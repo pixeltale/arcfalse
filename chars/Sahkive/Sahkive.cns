@@ -763,9 +763,9 @@ persistent 	= 1
 [State 0, MapSet]
 type 	= RemapPal
 trigger1 	= roundstate = 0
-trigger1 	= palno != 1
+trigger1 	= palno = 1
 source 	= 1, 1
-dest 	= 1, palno + map(AltPal)
+dest 	= 1+(map(altpal)), 1
 
 [State 0, MapSet]
 type = RemapPal
@@ -808,13 +808,14 @@ trigger1 = roundsexisted = 0
 trigger1 = roundstate = 0
 trigger1 = command = "holds"
 map = "AltPal"
-value = 12
+value = 1
 ignorehitpause = 1
 
 [State 0, MapSet]
 type = MapSet
-trigger1 = !alive && palno = 1 && map(AltPal)=12
-trigger2 = palno = 1&&map(AltPal)=12
+triggerall = map(AltPal)
+trigger1 = !alive && palno = 1
+trigger2 = palno = 1
 trigger2 = gamemode = "Training"
 map = "TREASURE"
 value = 1

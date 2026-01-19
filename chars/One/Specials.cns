@@ -4829,8 +4829,9 @@ velset 		= vel x, 0
 
 [State One Voices]
 type 	= PlaySnd
-trigger1 	=  animelem = 6
-value 	= 190, 0
+triggerall = anim = 1046
+trigger1 	=  animelem = 3
+value 	= 190, 1
 volumescale=150
 channel 	= 6
 
@@ -5074,6 +5075,13 @@ sprpriority 	= 2
 velset 		= vel x, 0
 facep2		= 1
 
+[State One Voices]
+type 	= PlaySnd
+trigger1 	=  time = 0
+value 	= 181, 0+random%2
+volumescale=150
+channel 	= 6
+
 [State 0, Turn]
 type = Turn
 trigger1 = animelemno(0) < 5
@@ -5284,8 +5292,10 @@ velset 		= vel x, 0
 
 [State One Voices]
 type 	= PlaySnd
-trigger1 	=  animelem = 6
-value 	= 190, 0
+triggerall = animelem = 3
+trigger1 = abs(pos x - (helper(260), pos x)) < 55
+trigger1 = abs(map(SworddistY) < 25)
+value 	= 1000, 2
 volumescale=150
 channel 	= 6
 
