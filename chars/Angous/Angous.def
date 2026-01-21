@@ -28,20 +28,6 @@ anim    	= Angous.air           ;Animation
 sound   	= Angous.snd           ;Sound
 ai      	= Angous.ai            ;AI hints data (not used)
 movelist 		= Angous.dat
-pal1    	= 1.act
-pal2    	= 2.act
-pal3    	= 3.act
-pal4    	= 4.act
-pal5    	= 5.act
-pal6   	= 6.act
-pal7   	= 7.act
-pal8   	= zeeheebeef.act
-pal9 	= Gokous.act
-pal10 	= Mono_Rainbow.act
-pal11 	= pepsigous.act
-pal12 	= bones.act
-pal13	= Vi 
-pal14 	= ejiro 
 
 ; Maps character selection buttons to palette numbers.
 [Palette Keymap]

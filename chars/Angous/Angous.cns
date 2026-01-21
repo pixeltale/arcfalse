@@ -835,10 +835,18 @@ ignorehitpause = 1
 ;persistent = 
 
 
-[State 20022, bucky map]
+
+[State 0, VarSet]
 type = MapSet
-trigger1 =  !map(ComboStateCheck)
-map = "AGAIN"
+trigger1 	= !map(ComboStateCheck)
+map="armed" 
+value = 0
+
+[State 0, VarSet]
+type = MapSet
+trigger1 	= !map(ComboStateCheck)
+trigger2  = movehit && stateno!=20022
+map="AGAIN" 
 value = 0
 
 ;======================================================
@@ -902,8 +910,8 @@ ignorehitpause = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "p2distx: %0.1f"
-params = p2dist x
+text = "nobar: %f"
+params = map(nobar)
 
 ;=============================
 ;ARMOR POINTS ASSIGNMENT
@@ -1188,6 +1196,13 @@ id = 900
 type = RemoveExplod
 trigger1 = numhelper(99149)
 id = 900
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1= stateno = [3016,3019] || stateno = 3025
+id = 900
+ignorehitpause=1
+persistent=1
 
 [State 0, VarSet]
 type = VarSet

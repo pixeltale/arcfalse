@@ -5238,9 +5238,13 @@ x = .7
 
 [State 1028, Hit ground]
 type = SelfState
-trigger1 = (Vel y > 0) && (Pos y >= 0)
+trigger1 = (Vel y > 0) && (Pos y >= 0) && alive
 value = 5111
 
+[State 1028, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0) && !alive
+value = 5251
 
 ;------------------
 ;Wall Stick - Shake
@@ -5399,6 +5403,13 @@ triggerall = alive
 triggerall = gethitvar(hittime) = -1
 trigger1 = 1
 value = 5210 
+
+[State 5050, 5]; Recover in mid air
+type = ChangeState
+triggerall = !alive
+triggerall = time = 0
+trigger1 = 1
+value = 5228
 
 [State 5232, Sound]
 type = PlaySnd
@@ -7689,6 +7700,8 @@ type    = A
 movetype= H
 physics = N
 ctrl = 0
+velset=0,0
+sprpriority=2
 
 [State 30000, Width]
 type = Width
@@ -7719,6 +7732,7 @@ trigger1 = 1
 value = 1
 movecamera = 1,0
 
+
 ;[State 1317, Muteki]
 ;type = NotHitBy
 ;trigger1 = AnimElemTime(2)<0
@@ -7732,8 +7746,30 @@ value = 6160
 [State 30001, Velset]
 type = VelSet
 trigger1 = time = 0 ;AnimElemTime(2)=0
-x = -1.1
+x = -7
 y = -11
+
+[State 30001, Velset]
+type = VelSet
+triggerall=stateowner,stateno=3010
+trigger1 = time = 0 ;AnimElemTime(2)=0
+x = -.5
+y = -14
+
+[State 30001, Velset]
+type = VelSet
+trigger1=stateowner,stateno=3015
+trigger2=stateowner,stateno=3020
+triggerall = time = 0 ;AnimElemTime(2)=0
+x = -5
+y = -15
+
+[State 30001, Velset]
+type = VelSet
+trigger1=stateowner,stateno=3025
+triggerall = time = 0 ;AnimElemTime(2)=0
+x = -55
+y = -2
 
 [State 30001, AngleDraw]
 type = AngleDraw
@@ -7748,10 +7784,65 @@ type = VelAdd
 trigger1 = 1
 y = 0.38
 
+[State 30001, Gravity]
+type = VelAdd
+triggerall=stateowner,stateno=3010
+trigger1 = 1
+y = 0.05
+
+[State 30001, Gravity]
+type = VelAdd
+trigger1=stateowner,stateno=3015
+trigger2=stateowner,stateno=3020
+triggerall = 1
+y = 0.005
+[State 30001, Gravity]
+type = VelAdd
+trigger1=stateowner,stateno=3025
+triggerall = 1
+y = 0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = stateowner,stateno=3016
+flag = invisible
+ignorehitpause=1
+persistent=1
+[State 30001, Velset]
+type = VelSet
+trigger1=stateowner,stateno=3016
+x = 0
+y = 0
+ignorehitpause=1
+persistent=1
+[State 30001, Velset]
+type = PosSet
+trigger1=stateowner,stateno=3016&&stateowner,numexplod(3018)=0
+y =-7
+ignorehitpause=1
+persistent=1
+[State 30001, Velset]
+type = PosSet
+trigger1=stateowner,stateno=3016&&stateowner,numexplod(3018)
+y =-500
+ignorehitpause=1
+persistent=1
+
+[State 30001, ChangeAnim]
+type = ChangeAnim
+trigger1 = stateowner,stateno=3025
+value = 5030
+
 [State 30001, ChangeState]
 type = selfstate
-trigger1 = pos y>=0  && vel y>=0
-value = 5100
+triggerall=stateowner,stateno!=3015
+triggerall=stateowner,stateno!=3020
+triggerall=stateowner,stateno!=3016
+triggerall = time > 5
+trigger1 = BackEdgeBodyDist <= 1
+trigger2 = FrontEdgeBodyDist <= 1
+value = 5227
+
 
 ;-----------------------------
 [Statedef 69000]
@@ -8964,6 +9055,7 @@ value = -1
 
 [State 0, DAMAGE]
 type = text
+triggerall = map(nobar)=0||enemy,map(nobar)=0
 triggerall = teamside = 1
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
@@ -8972,8 +9064,10 @@ triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
-trigger1 = 1 &&name!="Deus"
+triggerall=enemy,name!="Angous"||(enemy,name= "Angous"&&enemynear,stateno!=3016&&enemynear,stateno!=3025)
+trigger1 = 1 &&name!="Deus"&&name!="Angous"
 trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
+trigger3 = name= "Angous"&&stateno != 3016&&stateno!=3025
 removetime = 1
 layerno = 2
 text = "%d"
@@ -8987,6 +9081,7 @@ pausemovetime = 100
 
 [State 0, DAMAGE]
 type = text
+triggerall = map(nobar)=0||enemy,map(nobar)=0
 triggerall = teamside = 1
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
@@ -8995,8 +9090,10 @@ triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
-trigger1 = 1 &&name!="Deus"
+triggerall=enemy,name!="Angous"||(enemy,name= "Angous"&&enemynear,stateno!=3016&&enemynear,stateno!=3025)
+trigger1 = 1 &&name!="Deus"&&name!="Angous"
 trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
+trigger3 = name= "Angous"&&stateno != 3016&&stateno!=3025
 removetime = 1
 layerno = 2
 text = "PERCENT"
@@ -9010,6 +9107,7 @@ pausemovetime = 100
 
 [State 0, DAMAGE]
 type = text
+triggerall = map(nobar)=0||enemy,map(nobar)=0
 triggerall = teamside = 2
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
@@ -9018,8 +9116,10 @@ triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
-trigger1 = 1 &&name!="Deus"
+triggerall=enemy,name!="Angous"||(enemy,name= "Angous"&&enemynear,stateno!=3016&&enemynear,stateno!=3025)
+trigger1 = 1 &&name!="Deus"&&name!="Angous"
 trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
+trigger3 = name= "Angous"&&stateno != 3016&&stateno!=3025
 removetime = 1
 layerno = 2
 text = "%d"
@@ -9033,6 +9133,7 @@ pausemovetime = 100
 
 [State 0, DAMAGE]
 type = text
+triggerall = map(nobar)!=1||enemy,map(nobar)!=1
 triggerall = teamside = 2
 triggerall = stateno != 5611
 triggerall = !map(SlowdownTime) && !map(SlowdownTimeB) && !map(SlowdownTimeC)
@@ -9041,8 +9142,10 @@ triggerall = playerno = teamleader
 triggerall = !map(TrailerMode) && roundstate = 2
 triggerall = !((enemy, name = "ONE") && enemy, var(30)) && !((name = "ONE") && var(30))
 triggerall=enemy,name!="Deus"||(enemy,name="Deus"&&enemynear,stateno != 3002&&enemynear,anim!=3002)
-trigger1 = 1 &&name!="Deus"
+triggerall=enemy,name!="Angous"||(enemy,name= "Angous"&&enemynear,stateno!=3016&&enemynear,stateno!=3025)
+trigger1 = 1 &&name!="Deus"&&name!="Angous"
 trigger2 = name="Deus"&&stateno != 3002&&anim!=3002
+trigger3 = name= "Angous"&&stateno != 3016&&stateno!=3025
 removetime = 1
 layerno = 2
 text = "PERCENT"
@@ -10141,8 +10244,20 @@ channel=6
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = name = "angous"
+triggerall = palno != 6
 trigger1 = map(DIE)=1
 value = 9000,(0+(Random%4))
+loop = 0
+persistent = 0
+volumescale=150
+ignorehitpause=1
+channel=6
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = name = "angous"
+triggerall = palno = 6
+trigger1 = map(DIE)=1
+value = 3013,(3+(Random%4))
 loop = 0
 persistent = 0
 volumescale=150
@@ -10273,6 +10388,7 @@ trigger1 = stateno = 900 || map(BurstGauge) < 1000 || roundstate = 3 || !alive
 ignorehitpause = 1
 persistent = 1
 id = 900
+
 
 ;============================
 ; Instant Block Timer       ||
@@ -10546,6 +10662,8 @@ trigger2 = name="Z"
 trigger2 = stateno = 3051&&anim=3052
 trigger3=enemy,name="Deus"
 trigger3 = enemynear,stateno = 3002&&enemynear,anim=3002
+trigger4=enemy,name="Angous"
+trigger4 = enemynear,stateno = 3016 || enemynear,stateno=3025
 id = 900
 ignorehitpause=1
 persistent=1

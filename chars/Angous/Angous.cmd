@@ -77,6 +77,37 @@ var(1) = 1
 ;trigger1 = ctrl
 ;trigger2 = movecontact && hitdefattr = SC
 
+;True Buster
+[State -1, BH]
+type = ChangeState
+value = 3015
+triggerall=stateno!=40
+triggerall = var(28)
+triggerall = command = "214x"
+triggerall = power >= 4000
+triggerall=enemy,movetype!=H
+trigger1 = statetype != A
+trigger1 = ctrl
+
+;Combo Buster
+[State -1, BH]
+type = ChangeState
+value = 3020
+triggerall=enemy,movetype=H
+triggerall=enemy,life<=(enemy,lifemax)/4
+triggerall=stateno!=40
+triggerall = var(28)
+triggerall = command = "214x"
+triggerall = power >= 4000
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = hitdefattr = SC, NA, SA, HA||stateno=[1062,1063]
+trigger2 = stateno != [3000,3050)
+trigger2 = movecontact
+trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+trigger4 = stateno = 10410 || stateno = 10415 ;From blocking
+trigger4=map(grab)>0
+
 ;SUPER1: Buster Horizon
 [State -1, BH]
 type = ChangeState

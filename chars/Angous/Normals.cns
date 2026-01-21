@@ -1100,6 +1100,7 @@ facep2	= 1
 
 [State -3, Angous Voices]
 type = PlaySnd
+triggerall = anim != 421
 trigger1 = animelem = 5
 value = 220, (0+(Random%6))
 volume = 150
@@ -1296,6 +1297,13 @@ poweradd= 0
 ctrl = 0
 anim = 421
 sprpriority = 2
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time = 0
+channel = 6
+;ignorehitpause = 
+;persistent = 
 
 [State -3, Angous Voices]
 type = PlaySnd

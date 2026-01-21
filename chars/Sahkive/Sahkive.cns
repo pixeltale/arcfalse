@@ -918,8 +918,8 @@ id = 101010
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "timer = %f"
-params = map(combotimer)
+text = "speed = %f"
+params = map(speedbonus)
  
 [Statedef -3]
 

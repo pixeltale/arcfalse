@@ -5,6 +5,8 @@
 	EXPLOSIVE RAGE super. This form increases his speed and power, while
 	also giving him access to new moves. Moves that can only be used
 	in this form are marked with (RAGE).
+	Angous can short hop by tapping jump or holding the dash macro as
+	you jump.
 
 	<#790909>UNIQUE MOVES</>
 PRIMAL	-		_F^C
@@ -93,6 +95,11 @@ _EX RED UPPER	-		<#55ffff>(1 BAR)</> _D^Y+^Z
 <#790909>EXPLOSIVE RAGE</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
    <#bbbbbb>This move puts Angous in <#ff0000>RAGE <#bbbbbb>for the rest of
    the round.</>
+<#790909>TRUE HORIZON BUSTER</>	-		<#ffffff>(RAGE)<#55ffff>(4 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>Unblockable attack that transitions into a cutscene attack that kills the 
+   opponent instantly.
+   Can not be comboed into unless the opponent has less than 25% of their
+   max HP.</>
 
 	SYSTEM MECHANICS
 SUPERJUMP	-		_D_U
