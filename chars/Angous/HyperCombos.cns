@@ -1204,7 +1204,7 @@ sprpriority = 8
 
 [State 0, PlaySnd] 
 type = PlaySnd
-trigger1 = animelem = 9 && palno !=11 && palno !=10 && palno !=6
+trigger1 = animelem = 9 && palno !=11 && palno !=10 && palno !=6 && palno != 19
 value = 3010,7+random%2
 ignorehitpause = 1
 channel = 99
@@ -1240,6 +1240,12 @@ type = PlaySnd
 trigger1 = animelem = 10 && palno = 15
 value = 3011,1
 volumescale=100
+
+[State 0, PlaySnd] 
+type = PlaySnd
+trigger1 = time = 0 && palno = 19
+value = 3014,0
+volumescale=150
 
 [State Meter Burn State, VarSet]
 type = VarSet
