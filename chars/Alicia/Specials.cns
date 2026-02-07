@@ -1313,7 +1313,7 @@ sparkno 			= 2
 sparkxy 			= -30,-35
 hitsound   		= 5,1
 guardsound 		= 6,0
-ground.hittime  	= 30
+ground.hittime  	= 10
 air.hittime  		= 40 * root, map(UntechMod)
 down.hittime 		= 30
 ground.velocity 	= -2.5
@@ -1328,7 +1328,7 @@ getpower 			= 80
 
 [State 0, destroyself]
 type = destroyself
-trigger1 = animtime = 0 || movehit
+trigger1 = animtime = 0 || movecontact
 trigger2 = parent, movetype = H
 trigger2 = parent, stateno != [120, 155]
 trigger3 = pos y >= 0 || frontedgedist <= -10

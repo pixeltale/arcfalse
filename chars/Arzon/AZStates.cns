@@ -461,6 +461,10 @@ removeongethit = 0
 type = Ctrlset
 trigger1 = animelem = 1
 value =1
+[State 0, ChangeState]
+type = Changestate
+trigger1 = !animtime
+value = 50
 ;---------------------------------------------------------------------------
 
 ;--------------------------------------

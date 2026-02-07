@@ -432,7 +432,7 @@ value 		= 1
 type 		= MapSet
 trigger1 	= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 2
+value 		= 1
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -1373,7 +1373,7 @@ ground.hittime  	= 20
 air.hittime  	= 30
 down.hittime 	= 30
 ground.velocity 	= p2dist x * 0.02
-air.velocity 	= -0.2,-.9
+air.velocity 	= -1,-.9
 down.velocity 	= 0, -5
 forcestand 	= 0
 
@@ -2006,7 +2006,7 @@ physics = N
 poweradd= -1000
 ctrl = 0
 anim =1212
-velset = vel x,0
+velset = vel x * 0.5,0
 sprpriority = 2
 
 [State Eddy Voices]
@@ -2037,7 +2037,7 @@ channel = 2
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 3	;Heavy Starter
+value 		= 2	;Heavy Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
@@ -2207,7 +2207,7 @@ x = 10
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem =3
-x =12
+x =10
 
 [State 0, VelMul]
 type = VelMul

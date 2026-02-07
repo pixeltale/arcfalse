@@ -637,7 +637,7 @@ velset = vel x, 0
 
 [State 0, NotHitBy]
 type 	= NotHitBy
-trigger1 	= time <= 17
+trigger1 	= time <= 7
 value 	= SCA
 time 	= 1
 ignorehitpause = 1

@@ -925,13 +925,6 @@ ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
- [State 1200, Shake Screen]
-type = EnvShake
-trigger1 = animelem = 1
-time = 15     ;Time to shake screen
-ampl = 6     ;Amount to shake
-freq = 50   ;A frequency of 180 shakes the screen rapidly
-;EX Effects End
 ;---------------------------------------------------------------
 
 [State 0, Explod]
@@ -2773,13 +2766,7 @@ ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
- [State 1200, Shake Screen]
-type = EnvShake
-trigger1 = animelem = 1
-time = 15     ;Time to shake screen
-ampl = 6     ;Amount to shake
-freq = 50   ;A frequency of 180 shakes the screen rapidly
-;EX Effects End
+
 ;---------------------------------------------------------------
 
 [State 0, VarAdd]
@@ -4027,13 +4014,7 @@ ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
- [State 1200, Shake Screen]
-type = EnvShake
-trigger1 = animelem = 1
-time = 15     ;Time to shake screen
-ampl = 6     ;Amount to shake
-freq = 50   ;A frequency of 180 shakes the screen rapidly
-;EX Effects End
+
 ;---------------------------------------------------------------
 
 [State 0, Explod]
@@ -4609,13 +4590,6 @@ ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
- [State 1200, Shake Screen]
-type = EnvShake
-trigger1 = animelem = 1
-time = 15     ;Time to shake screen
-ampl = 6     ;Amount to shake
-freq = 50   ;A frequency of 180 shakes the screen rapidly
-;EX Effects End
 ;---------------------------------------------------------------
 
 [State 0, Explod]
@@ -5096,13 +5070,6 @@ ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
- [State 1200, Shake Screen]
-type = EnvShake
-trigger1 = animelem = 1
-time = 15     ;Time to shake screen
-ampl = 6     ;Amount to shake
-freq = 50   ;A frequency of 180 shakes the screen rapidly
-;EX Effects End
 ;---------------------------------------------------------------
 
 [State 0, VarAdd]

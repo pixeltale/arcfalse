@@ -584,7 +584,7 @@ value = Anim + 3
 type    = A
 movetype= I
 physics = A
-velset = -3,-2
+velset = -2.5,-2
 anim = 105
 ctrl = 0
 
@@ -662,7 +662,7 @@ value =1
 type    = A
 movetype= I
 physics = A
-velset = 4,-3
+velset = 3,-3
 anim = 100
 ctrl = 0
 
@@ -1292,7 +1292,7 @@ physics = S
 sprpriority = 1
 ctrl = 0
 anim = 110
-velset = 6, 0
+velset = 4, 0
 
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -1308,7 +1308,7 @@ value = 0, 1
 type = VelSet
 triggerall = enemy, map(superfrost) = 0
 trigger1 = time % 2 = 0
-x = 6.5+var(28)
+x = 5.5+var(28)
 [State 100, 1]
 type = VelSet
 triggerall = enemy, map(superfrost) > 0

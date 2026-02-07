@@ -105,7 +105,7 @@ trigger3 = stateno = 240 && movecontact
 type = ChangeState
 value = 40
 triggerall = command = "up" || movecontact && command = "holdup"
-trigger1 = stateno = [200,240] || stateno = 420
+trigger1 = stateno = [200,220] || stateno = 420
 trigger1 = movecontact
 [State -1,DJC]
 type = ChangeState
@@ -113,7 +113,7 @@ value = 45
 triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
 triggerall = stateno!= [45,46]
 triggerall = Map(DJCL) > 0
-triggerall	= statetype = A
+triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = movecontact
 trigger2 = hitdefattr = A, NA
@@ -156,7 +156,7 @@ value = 60
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
 triggerall = map(ADashUse) < const(AirDashMax)
-triggerall = pos y<-35
+triggerall = pos y<-30
 triggerall = statetype = A 
 trigger1 	= ctrl
 
@@ -166,7 +166,7 @@ trigger1 	= ctrl
 type = ChangeState
 value = 61
 triggerall = command = "a44" || command = "M44"
-triggerall = pos y<-35
+triggerall = pos y<-30
 triggerall = map(ADashUse) < const(AirDashMax)
 triggerall = statetype = A
 trigger1 	= ctrl

@@ -51,7 +51,7 @@ var(1) = 0
 type = VarSet
 trigger1 = statetype != A
 trigger1 = ctrl
-trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600,670] || stateno = [801,802]
+trigger2 = (stateno = [200,299]) || (stateno = [400,503]) || stateno = [600,670]
 trigger2 = movecontact
 trigger2 = stateno!=421
 trigger3 = stateno = [1520,1550] && animelemno(0) > 4
@@ -123,7 +123,7 @@ value = 45
 triggerall = command = "holdup"
 triggerall = numexplod(45) = 2 && map(floatjump)
 triggerall = stateno!=45 && stateno!=46 && stateno!= 4260 && (stateno!=[4000,4099]) 
-triggerall = var(45)
+triggerall = var(45) && stateno != [903,904]
 trigger1 = ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 4260 && stateno != 1450
 trigger2 = movecontact
 trigger2 = hitdefattr = A, NA

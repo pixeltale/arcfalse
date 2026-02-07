@@ -42,7 +42,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.86	;100% Starting DMG
+value 		= 0.75	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -134,7 +134,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.89	;100% Starting DMG
+value 		= 0.80	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -368,7 +368,7 @@ guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
 ground.hittime  = 20 * map(UntechMod)
-air.hittime  = 34 * map(UntechMod)
+air.hittime  = 34 * map(UntechMod) + 5
 down.hittime = 38 * map(UntechMod)
 ground.velocity = -4.0
 air.velocity = -2,-3
@@ -868,7 +868,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.86	;100% Starting DMG
+value 		= 0.75	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1335,14 +1335,14 @@ value = 0, 0
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		= 1	;Heavy Starter
+value 		= 1	;Light Starter
 ignorehitpause 	= 1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.83	;100% Starting DMG
+value 		= 0.70	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1368,7 +1368,7 @@ damage = 50 * MAP(P4), 0
 guardflag = HA
 hitflag = MAFD
 priority = 3
-pausetime = 8,9
+pausetime = 8,8
 sparkno = 0
 sparkxy = -10,-56
 hitsound   = 5,0
@@ -1450,7 +1450,7 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.90	;100% Starting DMG
+value 		=  0.85	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1486,8 +1486,8 @@ animtype = Med
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 24 * map(UntechMod)
-air.hittime  = 24 * map(UntechMod)
-down.hittime = 24 * map(UntechMod)
+air.hittime  = 28 * map(UntechMod)
+down.hittime = 28 * map(UntechMod)
 ground.velocity = -1.5,-5
 air.velocity = -1.9,-3.3;
 envshake.time = 17
@@ -1543,20 +1543,20 @@ y = .44
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "StarterLevel"
-value 		=  3
+value 		=  2
 ignorehitpause 	=  1
 
 [State -2, P1 Value Set]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  1	;100% Starting DMG
+value 		=  0.9	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		=  0.95	;80% DMG For next hit
+value 		=  0.90	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, P2 Accumulation - Scale]
@@ -1587,7 +1587,7 @@ ground.hittime  = 18 * map(UntechMod)
 air.hittime  = 28 * map(UntechMod)
 down.hittime = 24 * map(UntechMod)
 ground.velocity = -4
-air.velocity = -4, -3
+air.velocity = -4, -1
 ground.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -1665,13 +1665,13 @@ ignorehitpause 	=  1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		=  0.95	;100% Starting DMG
+value 		=  0.8	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
 trigger1 		= movehit && map(ComboStateCheck)
 map 		= "P2"
-value 		=  0.93	;80% DMG For next hit
+value 		=  0.8	;80% DMG For next hit
 ignorehitpause 	= 1
 persistent 		= 0
 [State -2, P2 Accumulation - Scale]

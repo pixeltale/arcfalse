@@ -590,7 +590,7 @@ type = ChangeState
 value = 904
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
-triggerall = pos y<-20
+triggerall = pos y<-40
 triggerall = var(29)>0
 triggerall = stateno !=904
 trigger1 = statetype = A
@@ -605,7 +605,7 @@ trigger2 = movehit
 type = ChangeState
 value = 903
 triggerall = command = "a44" || command = "M44"
-triggerall = pos y<-20
+triggerall = pos y<-40
 triggerall = var(29)>0
 triggerall = stateno !=903
 trigger1 = statetype = A

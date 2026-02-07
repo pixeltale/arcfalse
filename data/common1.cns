@@ -8285,7 +8285,7 @@ value = -gethitvar(hitdamage) * 1.5
 type = MapSet
 trigger1 = stateno = [120,155]
 map = "BGuard_SlideMul"
-value = cond(map(BGuard), 1.15, 1)
+value = cond(map(BGuard), 1.5, 1)
 [State 0, MapSet] ;Blueline Guard Check - Velocity Multiplier
 type = MapSet
 trigger1 = stateno != [120,155]
