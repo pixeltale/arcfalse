@@ -76,7 +76,7 @@ ignorehitpause     	=  1
 type         		= MapSet
 trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "P1"
-value        	 	=  0.90
+value        	 	=  0.85
 ignorehitpause     	= 1
 [State -2, P2 Value Set]
 type         		= MapSet
@@ -106,14 +106,13 @@ hitsound = S669,0
 guardsound = 6,2            ;p2's sprite priority is set to 0 by default
 p1facing = 1
 p2facing = 1          ;Force p2 to face KFM
-p1stateno = 1005
 p2stateno = 1010
 guard.dist = 0        ;This prevents p2 from going into a guard state if close
 forcestand = 1              ;Force p2 into falling down
 air.fall = 1
 ground.velocity = 0,0
 air.velocity=0,30
-pausetime=0,0
+pausetime=1,1
 guard.pausetime = 12,12
 guard.velocity = -5
 guard.hittime = 12
@@ -135,19 +134,23 @@ hitsound = S669,0
 guardsound = 6,2            ;p2's sprite priority is set to 0 by default
 p1facing = 1
 p2facing = 1          ;Force p2 to face KFM
-p1stateno = 1005
 p2stateno = 1010
 guard.dist = 0        ;This prevents p2 from going into a guard state if close
 forcestand = 1              ;Force p2 into falling down
 air.fall = 1
 ground.velocity = 0,0
 air.velocity=0,30
-pausetime=0,0
+pausetime=1,1
 guard.pausetime = 12,12
 guard.velocity = -5
 guard.hittime = 8
 guard.ctrltime = 8
 guard.slidetime = 8
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movehit = 2
+value = 1005
 
 [State 0, ChangeState]
 type = ChangeState
