@@ -15,9 +15,13 @@ map 			= "Float"
 value 		= 0
 
 [State 0, Velset]
-type = Velset
-trigger1 = animelem = 4
-y = .12
+type = VelMul
+trigger1 = animelem = 5
+y = 0.3
+[State 0, Velset]
+type = VelAdd
+trigger1 = animelemno(0) > 4
+y = 0.14
 
 [State 0, Helper]
 type = Helper
