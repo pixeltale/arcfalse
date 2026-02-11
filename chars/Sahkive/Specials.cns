@@ -3047,7 +3047,7 @@ value = -1
 [State 0, Pummel Bool Check]
 type 		= MapSet
 trigger1 		= 0
-map 		= "Pummel_Check"
+map 		= "Pummel_Check_4S"
 value 		= 1
      
 [State 0, Pummel Limiter]
