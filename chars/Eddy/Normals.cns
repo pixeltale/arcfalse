@@ -83,8 +83,8 @@ air.type 	= High
 envshake.time 	= 0
 air.fall 	= 1
 fall.yvelocity 	= 0
-guard.velocity = -6
-guard.cornerpush.veloff = -8
+guard.velocity 	= -4
+guard.cornerpush.veloff = -6
 ;==============================================
 envshake.time 	= 3
 envshake.freq 	= 5
@@ -185,7 +185,7 @@ down.hittime 	= 20* MAP(untechMOD)
 ground.velocity 	= -2.5
 guard.ctrltime 	= 16
 guard.velocity		= -6
-guard.cornerpush.veloff = -8
+guard.cornerpush.veloff = -6
 air.velocity 	= -1.5,-2 * MAP(untechMOD)
 air.fall 		= 1
 envshake.time 	= 8
@@ -410,7 +410,7 @@ ground.velocity 	= -8,-0
 air.velocity 	= -5, -3 * MAP(untechMOD)
 down.velocity 	= -5, -3
 guard.hittime 	= 17
-guard.ctrltime 	= 20
+guard.ctrltime 	= 17
 guard.pausetime	=15,15
 guard.velocity 	= -10
 guard.slidetime 	= 30
@@ -624,14 +624,15 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 
 [State -2, CHARGED]
 type 		= MapSet
-trigger1 		= !TIME || !(time >= 25)
+trigger1		= anim = 230
+trigger1 		= animelemno(0) < 4
 map 			= "CHARGED"
 value 		= 0
 ignorehitpause 	= 1
 persistent 		= 1
 [State -2, CHARGED]
 type 		= MapSet
-trigger1 		= time >= 25 && animelem = 5
+trigger1 		= anim = 230 && animelemno(0) = 4 && time > 30 
 map 			= "CHARGED"
 value 		= 1
 ignorehitpause 	= 0
@@ -654,7 +655,7 @@ persistent 		= 0
 
 [State 0, ChangeAnim]
 type 	= ChangeAnim
-triggerall = time < 25
+triggerall = time < 35
 trigger1 	= command = "focusATK_CHARGE" && animelemno(0) = 4
 value 	= 230
 elem 	= 4
@@ -1818,7 +1819,7 @@ value = 1
 [State 630, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !MoveContact && !MoveReversed
 attr = A, NA
 damage = 100*MAP(P4)
 hitflag = MAFD

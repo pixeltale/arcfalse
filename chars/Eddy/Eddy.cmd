@@ -128,10 +128,11 @@ trigger1 = ctrl
 [State -1, Forward Airdash]
 type = ChangeState
 value = 60
+triggerall = statetype = A
 triggerall = command != "holdback"
 triggerall = command = "a66" || command = "M66"
 triggerall = pos y<-30
-trigger1 	= (stateno = 1105 && !map(DCBurnJ6S)) && Map(ADash) > 0 || stateno = 1106 && movehit
+trigger1 	= (stateno = 1105 && !map(DCBurnJ6S)) && Map(ADash) > 0 || stateno = 1106 && movehit || stateno = [1300,1301] && !map(DCBurn2S)
 trigger1	= movecontact
 
 ;---------------------------------------------------------------------------
@@ -200,10 +201,22 @@ triggerall = var(51)<=0
 triggerall = command = "b" && command = "c" || (command = "EX") 
 triggerall = command = "holddown"
 triggerall = command != "holdback"
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = hitdefattr = A, NA & movecontact
+
+[State -1, EX Gentle Rocket]
+type = ChangeState
+value = 1310
+triggerall = power>=1000
+triggerall = var(51)<=0
+triggerall = command = "b" && command = "c" || (command = "EX") 
+triggerall = command = "holddown"
+triggerall = command != "holdback"
 trigger1 = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
-;trigger4 = stateno = 100
+
 ;---------------------------------------------------------------------------
 [State -1, Gentle Rocket]
 type = ChangeState
@@ -211,7 +224,17 @@ value = 1300
 triggerall = command = "b"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
-trigger1 = statetype != A
+triggerall = statetype = A
+trigger1 = ctrl
+trigger2 = hitdefattr = A, NA & movecontact
+
+[State -1, Gentle Rocket]
+type = ChangeState
+value = 1300
+triggerall = command = "b"
+triggerall = command = "holddown"
+triggerall = command != "holdback"
+triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
@@ -288,7 +311,7 @@ triggerall = statetype != A
 triggerall = stateno != 100
 trigger1 = ctrl
 trigger2 = Map(DCFH) > 0 || Map(DCFB) > 0
-trigger3 = stateno = 230 && ((anim = 230 && animelemno(0) = 4 && time > 12) || movecontact && map(Charged))
+trigger3 = stateno = 230 && ((anim = 230 && animelemno(0) = 4 && time > 16) || movecontact && map(Charged))
 
 ;---------------------------------------------------------------------------
 ;Run Back
@@ -299,7 +322,7 @@ triggerall = command = "44" || command = "M44"
 triggerall = stateno!=105
 triggerall = statetype != A
 trigger1 = ctrl
-trigger2 = stateno = 230 && ((anim = 230 && animelemno(0) = 4 && time > 12) || movecontact && map(Charged))
+trigger2 = stateno = 230 && ((anim = 230 && animelemno(0) = 4 && time > 16) || movecontact && map(Charged))
 
 ;Super Jump
 ;[State -1, Super Jump]

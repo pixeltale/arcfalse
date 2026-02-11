@@ -1455,11 +1455,17 @@ ctrl = 0
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr =SCA ,NP,SP,HP
 slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Arzonball(Z Kai)
@@ -1577,6 +1583,11 @@ stateno = 1299
 time = 1
 forceair = 0
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 ;---------------------------------------------------------------------------
 ;Arzonball(Z) F
 ;---------------------------------------------------------------------------
@@ -1708,6 +1719,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Arzonball(Z Kai) F
@@ -1839,6 +1855,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 ;---------------------------------------------------------------------------
 
 ;---------------------------------------------------------------------------
@@ -1974,6 +1995,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Arzonball(Z Kai) D
@@ -2107,6 +2133,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 ;---------------------------------------------------------------------------
 
 ;---------------------------------------------------------------------------
@@ -2241,6 +2272,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Arzonball(Z Kai) U
@@ -2375,6 +2411,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 ;---------------------------------------------------------------------------
 
 ;---------------------------------------------------------------------------
@@ -2503,6 +2544,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Arzonball(Z Kai) B
@@ -2629,6 +2675,11 @@ slot = 0
 stateno = 1299
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 ;---------------------------------------------------------------------------
 
 [Statedef 1299]
@@ -3071,6 +3122,11 @@ slot = 0
 stateno = 12999
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Destructo Disk F
@@ -3200,6 +3256,11 @@ slot = 0
 stateno = 12999
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Destructo Disk U
@@ -3319,6 +3380,11 @@ slot = 0
 stateno = 12999
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Destructo Disk D
@@ -3452,6 +3518,11 @@ slot = 0
 stateno = 12999
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;---------------------------------------------------------------------------
 ;Destructo Disk B
@@ -3592,6 +3663,11 @@ slot = 0
 stateno = 12999
 time = 1
 forceair = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NT,ST,HT
+time = 1
 
 ;||--Fireball Hit
 ;-----------------------------

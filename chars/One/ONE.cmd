@@ -118,8 +118,7 @@ trigger3 = ctrl
 type = ChangeState
 value = 45
 triggerall = command = "up" && map(doubleJump_BUFFFIX) < 2 || movecontact && command = "holdup"
-triggerall = numexplod(2045)
-triggerall = stateno!=45 && stateno!=46 && stateno!= 434 && stateno != [903, 904]
+triggerall = stateno!=45 && stateno!= 434 && !(stateno = [903, 904] && time < map(ADM))
 triggerall = var(45)>0
 triggerall = !(stateno = 4001 && vel y < 0)
 trigger1 = stateno!= 1055 && stateno !=1052 && ctrl && stateno!=45 && stateno!=46 && stateno!=50 && stateno!=40 && stateno!= 434
@@ -127,6 +126,7 @@ trigger2 = stateno!= 1055 && stateno !=1052 && movecontact  && enemynear, movety
 trigger2 = stateno!= 1055 && stateno !=1052 && stateno != 650 && hitdefattr = A, NA
 trigger3 = stateno!= 1055 && stateno !=1052 && stateno=45 || stateno=46|| stateno=50 
 trigger4 = stateno = 1055 && movehit =1
+trigger5 = (stateno = 1031 || stateno = 10300) && movehit
 
 [State 1034, 2EX: EX Shoryu]
 type = ChangeState
@@ -159,31 +159,31 @@ trigger1 = ctrl
 trigger2 = var(1) ||(stateno = [600,650]) && movecontact || stateno = 1300 && movehit
 trigger3 = stateno = 450 || stateno = 640 || stateno = 11125
 
-;[State 10301, j2EX: Air EX Shoryu]
-;type = ChangeState
-;value = 10301
-;triggerall = power>=1000
-;triggerall = !var(50)
-;triggerall = var(3)<=0
-;triggerall = command = "b" && command = "c" || (command = "EX") 
-;triggerall = command = "holddown"
-;trigger1 = statetype = A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = (stateno = 610)||(stateno = 620)||(stateno = 630)
-;trigger3 = movecontact ;&& enemynear, movetype = H
+[State 10301, j2EX: Air EX Shoryu]
+type = ChangeState
+value = 10301
+triggerall = power>=1000
+triggerall = !var(50)
+triggerall = var(3)<=0
+triggerall = command = "b" && command = "c" || (command = "EX") 
+triggerall = command = "holddown"
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = var(1)
+trigger3 = (stateno = 610)||(stateno = 620)||(stateno = 630)
+trigger3 = movecontact ;&& enemynear, movetype = H
 
-;[State 10300, j2S: Air Shoryu]
-;type = ChangeState
-;value = 10300
-;triggerall = !var(50)
-;triggerall = command = "b"
-;triggerall = command = "holddown"
-;trigger1 = statetype = A
-;trigger1 = ctrl
-;trigger2 = var(1)
-;trigger3 = (stateno = 610)||(stateno = 620)||(stateno = 630) 
-;trigger3 = movecontact ;&& enemynear, movetype = H
+[State 10300, j2S: Air Shoryu]
+type = ChangeState
+value = 10300
+triggerall = !var(50)
+triggerall = command = "b"
+triggerall = command = "holddown"
+trigger1 = statetype = A
+trigger1 = ctrl
+trigger2 = var(1)
+trigger3 = (stateno = 610)||(stateno = 620)||(stateno = 630) 
+trigger3 = movecontact ;&& enemynear, movetype = H
 
 [State 1027, j6EX: Acid Shredder]
 type = ChangeState

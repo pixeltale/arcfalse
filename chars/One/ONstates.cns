@@ -308,14 +308,6 @@ type = VarAdd
 trigger1 = time = 0 
 v =  45   ;fv = 
 value = -1
-ignorehitpause = 
-persistent = 
-
-;[State 0, VarAdd]
-;type = VarAdd
-;trigger1 = time =0
-;v = 29     ;fv = 
-;value = -1
 
 [State 50, 2]
 type = ChangeAnim

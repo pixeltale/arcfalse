@@ -460,9 +460,14 @@ buffertime = 5
 
 [Command]
 name = "a66"
-command = ~F | ~UF, F
+command = ~F, F
 time = 5
-buffertime = 5
+buffertime = 2
+[Command]
+name = "a66"
+command = UF, F
+time = 5
+buffertime = 2
 
 
 [Command]

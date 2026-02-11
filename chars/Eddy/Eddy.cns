@@ -1292,7 +1292,7 @@ ignoreHitPause = 1
 type = DisplayToClipboard
 trigger1 = 1
 text = "backedgebodydist = %i"
-params = backedgebodydist
+params = prevstateno
 ignorehitpause = 1
 
 ;This controller plays a sound everytime KFM lands from a jump, or

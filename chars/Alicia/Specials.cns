@@ -1333,8 +1333,7 @@ getpower 			= 80
 [State 0, destroyself]
 type = destroyself
 trigger1 = animtime = 0 || movecontact
-trigger2 = parent, movetype = H
-trigger2 = parent, stateno != [120, 155]
+trigger2 = root, movetype = H
 trigger3 = pos y >= 0 || frontedgedist <= -10
 
 ;================================================================================

@@ -776,7 +776,7 @@ kill = 0
 trigger1 = animelemno(0) = [1,29]
 attr = S,HA
 getpower = 0
-damage = 5*map(P4) + 10
+damage = 5*map(P4) + 5
 hitflag = MAF
 guardflag = MA
 priority = 1

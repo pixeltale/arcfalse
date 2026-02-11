@@ -27,7 +27,13 @@ map 		= "ScratchLockout"
 value 		= 20
 ignorehitpause 	= 1
 persistent		= 1
-     
+
+[State 0, Mapadd] ;Pummel Max Limiter
+type = MapAdd
+trigger1 = time = 0
+trigger1 = map(Pummel)
+map = "TOTAL_PUMMEL_LIMIT"
+value = -1
 [State 0, Pummel Limiter]
 type 		= MapSet
 trigger1 		= time = 0
@@ -194,7 +200,7 @@ pos = 40,0
 ;Pummel
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(Pummel)<3
+triggerall = map(Pummel) < map(TOTAL_PUMMEL_LIMIT)
 triggerall = p2stateno = 1010
 trigger1 = command = "x"
 trigger2 = command = "buffer_x"
@@ -203,7 +209,7 @@ ctrl = 0
 ;Slam
 [State 0, ChangeState]
 type = ChangeState
-triggerall = time < 50
+triggerall = time < 30
 triggerall = p2stateno = 1010
 trigger1 = command = "y"
 trigger2 = command = "buffer_y"
@@ -212,7 +218,7 @@ ctrl = 0
 ;Knee
 [State 0, ChangeState]
 type = ChangeState
-triggerall = time < 50
+triggerall = time < 30
 triggerall = p2stateno = 1010
 trigger1 = command = "z"
 trigger2 = command = "buffer_z"
@@ -221,7 +227,7 @@ ctrl = 0
 ;Release
 [State 0, ChangeState]
 type = ChangeState
-triggerall = time < 50
+triggerall = time < 30
 triggerall = p2stateno = 1010
 trigger1 = command = "c"
 value = 1004
@@ -460,8 +466,8 @@ value = 1011
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(Pummel)<3
-trigger1 = animtime = 0 && command = "hold_x"
+triggerall = map(Pummel) < map(TOTAL_PUMMEL_LIMIT)
+trigger1 = (animtime = 0 || animelem = 6) && command = "hold_x"
 value = 1006
 ctrl = 0
 [State 0, ChangeState]
@@ -3017,6 +3023,12 @@ x = 1.5
 ignorehitpause = 1
 ;persistent = 
      
+[State 0, Mapadd] ;Pummel Max Limiter
+type = MapAdd
+trigger1 = time = 0
+trigger1 = map(Pummel)
+map = "TOTAL_PUMMEL_LIMIT_4S"
+value = -1
 [State 0, Pummel Limiter]
 type 		= MapSet
 trigger1 		= time = 0
@@ -3176,7 +3188,7 @@ pos = 42,-48
 ;Pummel
 [State 0, ChangeState]
 type = ChangeState
-triggerall = time < 30 && map(Pummel)<3
+triggerall = time < 30 && map(Pummel) < map(TOTAL_PUMMEL_LIMIT_4S)
 trigger1 = command = "x"
 trigger2 = command = "buffer_x"
 value = 1042
@@ -3385,14 +3397,14 @@ value = 1046
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = map(Pummel)<3
+triggerall = map(Pummel)<map(TOTAL_PUMMEL_LIMIT_4S)
 trigger1 = animtime = 0 && command = "hold_x"
 value = 1042
 ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = animtime = 0 || map(Pummel) > 3
+trigger1 = animtime = 0 || map(Pummel) > map(TOTAL_PUMMEL_LIMIT_4S)
 value = 1041
 ctrl = 1
 ;----------------------

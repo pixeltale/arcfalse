@@ -558,7 +558,7 @@ trigger1 = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = [600,640] || stateno = 420
 trigger2 = movecontact
-trigger3 = stateno = 1011 
+trigger3 = stateno = [1010, 1011] 
 trigger3 = movecontact
 
 

@@ -708,6 +708,18 @@ value = 0
 ;=============================================================================
 [Statedef -2]
 
+;Pummel Max Limiter
+[State 0, MapSet]
+type = MapSet
+trigger1 = !map(COMBOSTATECHECK)
+map = "TOTAL_PUMMEL_LIMIT"
+value = 3
+[State 0, MapSet]
+type = MapSet
+trigger1 = !map(COMBOSTATECHECK)
+map = "TOTAL_PUMMEL_LIMIT_4S"
+value = 3
+
 [State 0, AttackMulSet]
 type = AttackMulSet
 trigger1 = stateno != 3000
@@ -918,8 +930,8 @@ id = 101010
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "speed = %f"
-params = map(speedbonus)
+text = "Total Pummel Limit = %f Total Pummel Limit = %f"
+params = map(TOTAL_PUMMEL_LIMIT), map(TOTAL_PUMMEL_LIMIT_4S)
  
 [Statedef -3]
 

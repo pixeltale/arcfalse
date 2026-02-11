@@ -658,7 +658,8 @@ juggle  = 0
 ctrl = 0                         
 anim = 1006                       
 poweradd = 0                   
-sprpriority = 0                  
+sprpriority = 0     
+facep2 = map(SJI)             
 
 [State 0, VarAdd]
 type = VarAdd

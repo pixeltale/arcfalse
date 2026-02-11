@@ -1344,12 +1344,12 @@ type = VarSet
 trigger1 = !numtarget
 v = 28    ;fv = 10
 value = 0
-[State 0, VarSet]
+
+[State 0, VarSet] ;Air Jump
 type = VarSet
-trigger1 = statetype=S
-trigger2 = statetype=C
+trigger1 = statetype != A
 v = 45    ;fv = 10
-value = 1
+value = 2
 
 [State 0, VarSet]
 type = VarSet
