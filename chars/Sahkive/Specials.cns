@@ -20,6 +20,18 @@ anim = 1000                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 facep2 = 1
 
+[State 0, Mapadd] ;Pummel Max Limiter
+type = MapAdd
+trigger1 = time = 0
+trigger1 = map(Pummel_Check)
+map = "TOTAL_PUMMEL_LIMIT"
+value = -1
+[State 0, Pummel Bool Check]
+type 		= MapSet
+trigger1 		= 0
+map 		= "Pummel_Check"
+value 		= 1
+
 [State 0, RC LOCKOUT]
 type 		= MapSet
 trigger1 		= 1
@@ -28,12 +40,6 @@ value 		= 20
 ignorehitpause 	= 1
 persistent		= 1
 
-[State 0, Mapadd] ;Pummel Max Limiter
-type = MapAdd
-trigger1 = time = 0
-trigger1 = map(Pummel)
-map = "TOTAL_PUMMEL_LIMIT"
-value = -1
 [State 0, Pummel Limiter]
 type 		= MapSet
 trigger1 		= time = 0
@@ -290,6 +296,12 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1006                       ;Change animation (Def: no change)
 sprpriority = 2   
 
+[State 0, Pummel Bool Check]
+type 		= MapSet
+trigger1 		= 1
+map 		= "Pummel_Check"
+value 		= 1
+
 [State 0. MapSet]
 type 		= MapSet
 trigger1 	= 1
@@ -496,11 +508,11 @@ channel = 6
 
 [State 0. MapSet]
 type 		= MapSet
-trigger1 	= animelemno(0) = 13
+trigger1 		= enemy, gethitvar(chainid) = 1
 map 		= "Combo5SM"
 value 		= 1
 ignorehitpause 	= 1
-persistent 	= 1
+persistent 		= 1
 
 [State 0, PlayerPush]
 type = PlayerPush
@@ -519,7 +531,7 @@ trigger1 = animelem = 12
 [State 0]
 type = hitdef 
 p2facing = 1
-trigger1 = animelem = 7
+trigger1 = !movecontact && !movereversed
 attr = A, NA
 damage = 50*MAP(P4), 15
 animtype = hard
@@ -546,6 +558,40 @@ ground.cornerpush.veloff = -2
 air.cornerpush.veloff = -2
 getpower = 25
 kill = 0
+
+[State 0]
+type = hitdef 
+p2facing = 1
+trigger1 = animelem = 12 && map(combo5SM)=0
+attr = A, NA
+damage = 80*MAP(P4), 15
+animtype = hard
+hitflag = MAFD
+guardflag = MAFD
+priority = 3
+pausetime = 15,20
+sparkno = 1
+sparkxy = -45, -35
+hitsound   = 5, 3
+guardsound = 6,2
+ground.type = low
+ground.slidetime = 1
+guard.slidetime = 9
+ground.hittime  = 0
+ground.velocity = -5,-1
+fall = 1
+air.fall = 1
+fall.yvelocity = 0
+envshake.time = 12
+envshake.freq = 100
+envshake.ampl = 6
+envshake.phase = 10
+p2facing = 1
+ground.cornerpush.veloff = -7
+air.cornerpush.veloff = -7
+getpower = 100
+p2stateno = 915030
+id = 1
 
 [State 0]
 type = hitdef 
@@ -580,38 +626,7 @@ ground.cornerpush.veloff = -7
 air.cornerpush.veloff = -7
 getpower = 100
 
-[State 0]
-type = hitdef 
-p2facing = 1
-trigger1 = animelem = 12 && map(combo5SM)=0
-attr = A, NA
-damage = 80*MAP(P4), 15
-animtype = hard
-hitflag = MAFD
-guardflag = MAFD
-priority = 3
-pausetime = 15,20
-sparkno = 1
-sparkxy = -45, -35
-hitsound   = 5, 3
-guardsound = 6,2
-ground.type = low
-ground.slidetime = 1
-guard.slidetime = 9
-ground.hittime  = 0
-ground.velocity = -5,-1
-fall = 1
-air.fall = 1
-fall.yvelocity = 0
-envshake.time = 12
-envshake.freq = 100
-envshake.ampl = 6
-envshake.phase = 10
-p2facing = 1
-ground.cornerpush.veloff = -7
-air.cornerpush.veloff = -7
-getpower = 100
-p2stateno = 915030
+
 
 [State 0, Explod]
 type = Explod
@@ -3022,13 +3037,19 @@ trigger1 = time = [0,8] || animelemno(0) = [7,9]
 x = 1.5
 ignorehitpause = 1
 ;persistent = 
-     
+
 [State 0, Mapadd] ;Pummel Max Limiter
 type = MapAdd
 trigger1 = time = 0
-trigger1 = map(Pummel)
+trigger1 = map(Pummel_Check_4S)
 map = "TOTAL_PUMMEL_LIMIT_4S"
 value = -1
+[State 0, Pummel Bool Check]
+type 		= MapSet
+trigger1 		= 0
+map 		= "Pummel_Check"
+value 		= 1
+     
 [State 0, Pummel Limiter]
 type 		= MapSet
 trigger1 		= time = 0
@@ -3161,6 +3182,8 @@ ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1041                       ;Change animation (Def: no change)
 sprpriority = 2                  ;Set p1's sprite layering priority to 2 (in front)
 
+
+
 [State 0. MapSet]
 type 		= MapAdd
 trigger1 		= 1
@@ -3240,6 +3263,13 @@ velset = 0,0                     ;Set velocity (x,y) (Def: no change)
 ctrl = 0                         ;Set ctrl (Def: no change)
 anim = 1042                       ;Change animation (Def: no change)
 sprpriority = 2   
+
+[State 0, Pummel Bool Check]
+type 		= MapSet
+trigger1 		= 1
+map 		= "Pummel_Check_4S"
+value 		= 1
+
 
 ;Pummel Limiter
 [State 420, MapSet]
@@ -3398,7 +3428,7 @@ value = 1046
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(Pummel)<map(TOTAL_PUMMEL_LIMIT_4S)
-trigger1 = animtime = 0 && command = "hold_x"
+trigger1 = (animtime = 0||animelem = 8) && command = "hold_x"
 value = 1042
 ctrl = 0
 

@@ -7978,7 +7978,7 @@ value = 6140
 [State -1, REDLINE GUARD]
 type = ChangeState
 value = 910 + 1 * statetype = A
-triggerall = power >= 1000
+triggerall = power >= 1000 && !map(SlowdownTime)
 triggerall = hitshakeover && teammode != Tag
 triggerall = command = "holdfwd" || command = "fwd"
 triggerall = command = "REDLINEGUARD" || (stateno = [120,155] || stateno = 912 || stateno = 5120 || prevstateno = 5120 || prevstateno = 0) && (command = "BUFFERED_REDLINEGUARD") && prevstateno != 4000 || prevstateno = 5120 && command = "HELD_REDLINEGUARD" && prevstateno != 4000
@@ -9309,12 +9309,10 @@ unhittable = 1
 
 [State -2, RC Speed Boost]
 type = Changestate
-triggerall = time > 0
 trigger1 = stateno = 4000 && (command = "fwd" || command = "holdfwd")
 value = 100
 [State -2, RC Speed Boost]
 type = Changestate
-triggerall = time > 0
 trigger1 = stateno = 4000 && (command = "back" || command = "holdback")
 value = 105
 [State -2, RC Speed Boost]
