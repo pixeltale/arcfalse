@@ -1,0 +1,177 @@
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+
+	<#ff8400>UNIQUE TRAIT: WINGS OF THE PHOENIX</>
+	Tui can only use his Remix moves if he has a Wing available.
+	Whenever Tui uses a Ground Remix or an Air Remix, that move's Wing
+	is used. To restore a Grounded Wing, he must go into the air.
+	To restore an Air Wing, he must touch the ground.
+
+	<#ff8400>UNIQUE MOVES</>
+HEAVY FLAME	-		_F^C
+SWEEP	-		(CAN BE HELD) _DF^C
+   <#bbbbbb>Launches enemies higher when held.</>
+
+
+
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#ff8400>SPECIAL MOVES</>
+X FLAME	-		<#aaffff>(GROUND OR AIR)</> ^Y
+   <#bbbbbb>This move creates a <#0097ff>Flame Trap<#bbbbbb> that explodes when near an enemy.</>
+COIL STRIKE	-		<#aaffff>(GROUND OR AIR)</> _F^Y
+_!TWO-CORE STRIKE	-		<#65b5ff>(AIR ONLY)</> _F^Y
+        <#bbbbbb>The grounded version launches enemies,
+        the air version causes a sliding knockdown.</>
+PROMETHEUS	-		<#aaffff>(GROUND OR AIR)</> _B^Y
+   <#bbbbbb>You can hold Special while performing the grounded version
+   to perform a palm strike and increase the projectile's distance.</>
+SPIRAL OUT	-		<#aaffff>(GROUND OR AIR)</> _D^Y
+   <#bbbbbb>The grounded version is a rising anti-air/anti-projectile attack.</>
+
+
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#ff8400>REMIX MOVES</>
+PHOENIX STANCE	-		<#aaffff>(GROUND OR AIR) ^Z
+   <#bbbbbb>When performed near a <#0097ff>Flame Trap<#bbbbbb>,  this move is enhanced
+   and becomes an attack. Hitting an enemy with this attack reduces your
+   combo's scaling, allowing you to get a longer combo.
+
+	<#ff8400>PHOENIX STANCE FOLLOWUPS</>
+	These moves can be performed while in Phoenix Stance.
+
+PHOENIX RISE	-		<#aaffff>(GROUND OR AIR) _U^Z
+   <#bbbbbb>You can hold Left or Right to change Tui's trajectory.</>
+PHOENIX DASH	-		_F^Z
+PHOENIX FLIGHT	-		<#65b5ff>(AIR ONLY)</> _F^Z
+   <#bbbbbb>You can hold Up or Down to change Tui's trajectory.</>
+RETREAT	-		<#aaffff>(GROUND OR AIR)</> _B^Z
+BLAST KICK	-		_D^Z 
+PHOENIX DESCENT	-		<#65b5ff>(AIR ONLY)</> _D^Z
+CANCEL	-		<#aaffff>(GROUND OR AIR) ^Z
+   <#bbbbbb>This can also be performed during any of the followups.</>
+
+
+
+_D	_D		_D
+
+	<#ff8400>PHOENIX STANCE ENDERS</>
+	These moves can be performed while in Phoenix Stance,
+	OR during a Phoenix Stance Followup.
+
+WINDMILL KICK	-		^A
+   <#bbbbbb>Can be jump cancelled on hit.</>
+STOMP	-		^B
+FLASH FIRE	-		^C
+   <#bbbbbb>A command grab. Can be used to extend combos.</>
+RAPID-FIRE	-		<#65b5ff>(AIR ONLY)</> ^A
+SUPERIORITY	-		<#65b5ff>(AIR ONLY)</> ^B
+DIVE	-		<#65b5ff>(AIR ONLY)</> ^C
+
+
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#ffef0f>EX MOVES</>
+_EX FLAME	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> ^Y+^Z
+   <#bbbbbb>This move creates a long-lasting <#0097ff>Flame Trap<#bbbbbb>
+   that explodes multiple times when near an enemy.</>
+_EX COIL STRIKE	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _F^Y+^Z
+_EX PROMETHEUS	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _B^Y+^Z
+_EX SPIRAL OUT	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _D^Y+^Z
+   <#bbbbbb>A rising kick followed by an overhead divekick.
+   The grounded version is a rising anti-air/anti-projectile attack.</>
+
+
+
+
+
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#55ffff>SUPERS</>
+<#ff8400>PHOENIX CRY</>		<#aaffff>(GROUND OR AIR)<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A divekick that does more damage the higher up it hits.
+   The grounded version is invincible.</>
+<#ff8400>SPIRIT FLAMES</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#bbbbbb>Tui creates several <#0097ff>Flame Traps<#bbbbbb> that explode when near an enemy.
+   This move is faster when used during a combo or after knocking the enemy down.</>
+_!<#ff8400>SPIRIT FLAME COLLAPSE</>	-		_D_DB_B_-^A/^B/^C
+        <#bbbbbb>This move causes all of the <#0097ff>Flame Traps<#bbbbbb> to home in on the enemy.</>
+<#ff8400>INFERNO RUSH</>	-		<#65b5ff>(AIR ONLY)<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+_!<#ff8400>DIVINE COMEDY</>	-		<#65b5ff>(AIR ONLY)<#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+
+<#ff8400>PHOENIX REVIVAL</>	-		<#55ffff>(6 BARS)</> ON DEATH </>
+   <#bbbbbb>Tui enters the Phoenix Revival state if he dies while at 6 Bars.
+   Tui no longer takes damage in this state, but his meter will slowly drain,
+   and it drains faster while he's getting hit. If his meter empties out,
+   he will instantly die. While in this state, all EX moves cost no meter,
+   and Tui loses access to all Super Moves except for Final Phoenix.
+<#ff8400>FINAL PHOENIX</>		(PHOENIX REVIVAL) <#aaffff>(GROUND OR AIR)</> _D_DF_F_-^A/^B/^C
+   <#bbbbbb>A stronger version of Phoenix Dive. If this move doesn't defeat the enemy,
+   Tui will immediately die after using it.</>
+
+_D	_D		_D
+
+	UNIVERSAL MOVES
+OVERHEAD	-		_F^B
+   <#bbbbbb>Puts you in the air and hits overhead.</>
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to projectiles and airborne enemies.</>
+GRAB	-		ANY 2 NORMALS </>
+   <#bbbbbb>Cannot be blocked. Starts combos on counter-hit.
+   Enemies can break this by pressing ^A/^B/^C.</>
+FORCE BLOCK (WHILE BLOCKING)	-		<#55ffff>(1 BAR)</> _B^X
+   <#bbbbbb>Can push the enemy backwards while you block.</>
+NO PARRY	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _F^X
+   <#bbbbbb>A reversal option that makes you invincible if the enemy hits you.
+   Can be used again FOR FREE while the invincibility is active.</>
+RECORD SCRATCH (WHILE ATTACKING)		<#55ffff>(1 BAR/2 BARS ON BLOCK)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding any direction during this will cause you to move that way.</>
+BURST (WHILE GETTING HIT)	-		^X+^A/^B/^C
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+PANIC BURST (WHILE GETTING HIT)	-		<#55ffff>(5 BARS)</> ^X+^A/^B/^C
+   <#bbbbbb>An extra burst that can be used in an emergency.</>
+   <#ff0000>Using this PERMANENTLY lowers your max meter
+   for the rest of the game.</>
+_D	_D		_D
+
+	2V2 MODE
+SWITCH CHARACTERS	-		ASSIST </>
+ACTIVE SWITCH (WHILE ATTACKING)	-		<#55ffff>(2 BARS)</>ASSIST </>
+ASSIST ATTACK	-		_B/_D/_F+ASSIST </>
+   <#bbbbbb>Each character has 3 assist attacks.</>
+TAG SUPER (DURING A SUPER)		<#55ffff>(2 BARS)</>_D_DF_F+ASSIST OR _D_DB_B+ASSIST </>
+
+</>

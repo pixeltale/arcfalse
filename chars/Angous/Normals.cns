@@ -18,6 +18,15 @@ value = 200, (0+(Random%5))
 volume = 150
 channel = 6
 
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0, 0
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 1, 0
+
 [State -2, Starter Level]
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
@@ -47,19 +56,10 @@ value 		= Map(Accumulation) * map(P2)
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 3
-value = 0, 0
-[State 200, 2]
-type = PlaySnd
-trigger1 = animelem = 3
-value = 1, 0
-
 [State 200, 1]
 type = hitdef 
 p2facing 	= 1
-trigger1 	= time = 0 
+trigger1 	= !movecontact && !movereversed
 attr 	= S, NA
 damage 		= 40*MAP(P4), 0
 animtype 		= light
@@ -85,7 +85,7 @@ envshake.time 	= 0;
 guard.hittime 	= 16
 guard.ctrltime 	= 10
 air.fall 		= 1
-getpower 		= (30)*(cond(var(var(5)) = 1, 1, .5)) 
+getpower 	= (30)*(cond(var(var(5)) = 1, 1, .5)) 
 
 [State 200, 3]
 type 	= ChangeState

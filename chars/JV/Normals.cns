@@ -186,7 +186,7 @@ envshake.freq 	= 10
 envshake.ampl 	= 2
 envshake.phase 	= 1
 fall.yvelocity 	= 0
-getpower 		= (50)*(cond(var(var(2)) = 1, 1, .5))
+getpower 	= (50)*(cond(var(var(2)) = 1, 1, .5))
 
 [State 0, Veladd]
 type = Velset

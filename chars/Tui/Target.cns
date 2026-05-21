@@ -7,10 +7,6 @@ movetype= H
 physics = N
 velset = 0,0
 
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = S3001, 0+(Random%8)
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -202,10 +198,7 @@ movetype= H
 physics = N
 velset = 0,0
 
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = S3001, 0+(Random%8)
+
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -407,10 +400,7 @@ trigger1 = 1
 value = SCA
 time = 1
 
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = S3001, 0+(Random%8)
+
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -622,10 +612,7 @@ movetype= H
 physics = N
 velset = 0,0
 
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = S3001, 0+(Random%8)
+
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -732,8 +719,8 @@ value = 915111 ;HITA_FALL
 
 [State 5030, 6]
 type = ChangeState
-trigger1 = AnimTime = 0
-value = 915035 ;Air get-hit (transition)
+trigger1 = time>3
+value = 915050
 
 ;---------------------------------------------------------------------------
 ;Slide (transition)
@@ -822,7 +809,7 @@ velset = -10,0
 
 [State 0, Explod]
 type = Explod
-trigger1 = time%5 = 0
+trigger1 = time%10 = 0
 ;trigger1 = time%10=0
 anim = F201
 ID = 206
@@ -872,14 +859,6 @@ type    = S
 movetype= H
 physics = N
 velset = 0,0
-
-
-
-
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = 3001, (0+(Random%8))
 
 [State 5000, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
@@ -1126,11 +1105,6 @@ movetype= H
 physics = N
 velset = 0,0
 
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = 3001, (0+(Random%8))
-
 [State 5000, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -1230,10 +1204,6 @@ movetype= H
 physics = N
 velset = 0,0
 
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1
-value = 3001, (0+(Random%15))
 [State 5010, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -1328,10 +1298,7 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
-[State -3, Win Voices] ;Win
-type = PlaySnd
-trigger1 = time = 1 && random <249
-value = S3001, 0+(Random%8)
+
 [State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
