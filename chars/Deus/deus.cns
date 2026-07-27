@@ -53,8 +53,8 @@ walk.back = -12    ;Walk backward
 run.fwd  = 4.6, 0    ;Run forward (x, y)
 run.back = -4.5,-3.8 ;Hop backward (x, y)
 jump.neu = 0,-8       ;Neutral jumping velocity (x, y)
-jump.back = -8    ;Jump back Speed (x, y)
-jump.fwd = 10    ;Jump forward Speed (x, y)
+jump.back = -6    ;Jump back Speed (x, y)
+jump.fwd = 8    ;Jump forward Speed (x, y)
 runjump.back = -6 ;Running jump speeds (opt)
 runjump.fwd = 8     ;.
 airjump.neu = 0,-6.5      ;.
@@ -564,6 +564,25 @@ ontop=1
 facing=facing
 removetime = -1
 removeonchangestate=1
+[State 650, 2]
+type = Explod
+trigger1 = time=15
+trigger1 = map(specialoutro)=1
+trigger1 = palno=11
+trigger1 = map(rina)=6
+anim = 3067
+pos = 140,170
+id = 181
+postype = back
+ignorehitpause = 0
+persistent = 0
+sprpriority = 5
+ownpal = 0
+scale=.84,.84
+ontop=1
+facing=facing
+removetime = -1
+removeonchangestate=1
 [State Voice From Above]
 type = PlaySnd
 trigger1 = map(specialoutro)=1
@@ -612,7 +631,7 @@ persistent=0
 [State 650, 2]
 type = Explod
 trigger1 = time=0
-trigger1 = map(december)=0&&map(rina)!=3
+trigger1 = map(december)=0&&map(rina)!=3&&map(rina)!=6
 anim = 3111
 pos = 0,0
 id = 3111
@@ -644,7 +663,8 @@ removetime=-1
 [State 650, 2]
 type = Explod
 trigger1 = time=0
-trigger1 = palno=11&&map(rina)=3
+trigger1 = palno=11
+trigger1 = map(rina)=3||map(rina)=6
 anim = 3113
 pos = 0,0
 id = 3113
@@ -657,6 +677,7 @@ scale=1,1
 ontop=1
 facing=1
 removetime=-1
+
 [State 650, 2]
 type = Explod
 trigger1 = time=0
@@ -673,20 +694,10 @@ ontop=1
 facing=1
 removetime=-1
 
-
-[State 0, VarSet]
-type = Mapset
-triggerall = palno=4||palno=7||palno=8||palno=10
-trigger1 =time=1
-map = "specialoutro"
-value = 1
-ignorehitpause = 1
-persistent = 0
-
 [State 650, 2]
 type = Explod
 trigger1 = animelem=23
-triggerall= map(specialoutro)=0
+triggerall = palno!=4&&palno!=7&&palno!=8&&palno!=10
 trigger1 = map(december)=0
 anim = 3101+random%3
 pos = 10,-37
@@ -704,7 +715,6 @@ removetime=-1
 [State 650, 2]
 type = Explod
 trigger1 = animelem=23
-triggerall= map(specialoutro)=1
 trigger1 = palno=4||palno=10
 anim = 3104
 pos = 10,-37
@@ -721,7 +731,6 @@ removetime=-1
 [State 650, 2]
 type = Explod
 trigger1 = animelem=23
-triggerall= map(specialoutro)=1
 trigger1 = palno=7
 anim = 3105
 pos = 10,-37
@@ -738,7 +747,6 @@ removetime=-1
 [State 650, 2]
 type = Explod
 trigger1 = animelem=23
-triggerall= map(specialoutro)=1
 trigger1 = palno=8
 anim = 3106
 pos = 10,-37
@@ -2579,6 +2587,25 @@ trigger1 = vel x > (const(velocity.jump.back.x))
 x = -.45
 ;===========
 
+;===========
+;AIRDASH BRAKE
+[State 0, VelAdd]
+type = MapAdd
+trigger1 = map(ADB)<15
+map = "ADB"
+value = 1
+
+[State 0, VelMul]
+type = VelMul
+triggerall = stateno!=[2000,2007]
+triggerall = statetype=A
+trigger1 = map(ADB)>5&&map(ADB)<10
+x = .5
+y = .8
+ignorehitpause = 1
+persistent = 1
+;===========
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = enemy,stateno=1226&&enemy,time=4
@@ -2623,7 +2650,7 @@ triggerall = palno=11
 trigger1 =map(stopcountingpls)<roundno
 trigger1 = roundno =1
 map = "rina"
-value = 1+random%5
+value = 1+random%6
 ignorehitpause = 1
 persistent = 0
 [State 0, VarSet]
@@ -2635,6 +2662,14 @@ map = "rina"
 value = 1+random%4
 ignorehitpause = 1
 persistent = 0
+[State 0, VarSet]
+type = MapSet
+triggerall = palno=11
+trigger1 = map(rina)>6
+map = "rina"
+value = map(rina)-6
+ignorehitpause = 1
+persistent = 1
 
 [State 0, VarSet]
 type = MapAdd
@@ -2652,15 +2687,6 @@ trigger1 = combocount=0&&movetype!=A
 map = "projc"
 value = 0
 ignorehitpause = 1
-
-[State 0, VarSet]
-type = MapSet
-triggerall = palno=11
-trigger1 = map(rina)>5
-map = "rina"
-value = map(rina)-5
-ignorehitpause = 1
-persistent = 1
 
 [State 0, VarSet]
 type = MapSet
@@ -2758,8 +2784,7 @@ persistent = 1
 [State 0, VarSet]
 type = Mapset
 triggerall = palno=12
-trigger1 =command = "hold_start"
-triggerall = StageVar(info.name) = "From the Other Side"
+trigger1 = StageVar(info.name) = "From the Other Side"
 trigger1 =roundno=1&&roundstate=0
 map = "december"
 value = 1

@@ -888,6 +888,44 @@ ownpal = 0
 scale=.7,.7
 ontop=0
 facing=1
+
+[State 650, 2]
+type = Explod
+trigger1 = time=17
+trigger1 = map(december)
+anim = 3112
+pos = 0,0
+id = 3112
+postype = back
+ignorehitpause = 0
+persistent = 0
+sprpriority = -4
+ownpal = 0
+scale=1,1
+ontop=0
+facing=1
+removetime=264
+removeonchangestate=1
+[State 650, 2]
+type = Explod
+trigger1 = time=17
+trigger1 = palno=11
+trigger1 = map(rina)=3||map(rina)=6
+anim = 3113
+pos = 0,0
+id = 3113
+postype = back
+ignorehitpause = 0
+persistent = 0
+sprpriority = -4
+ownpal = 0
+scale=1,1
+ontop=0
+facing=1
+removetime=264
+removeonchangestate=1
+
+
 [State 0, ModifyExplod]
 type = ModifyExplod
 trigger1 = animelem=10
@@ -1053,7 +1091,8 @@ removetime=-1
 [State 650, 2]
 type = Explod
 trigger1 = time=0
-trigger1 = palno=11&&map(rina)=3
+trigger1 = palno=11
+trigger1 = map(rina)=3||map(rina)=6
 anim = 3113
 pos = 0,0
 id = 3113
@@ -1415,6 +1454,13 @@ velset = vel x,0
 anim = 3500
 sprpriority = 0
 
+[State 0, VarAdd]
+type = MapSet
+trigger1 = 1
+map = "projc"
+value = 1
+ignorehitpause = 1
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = time=0
@@ -1428,10 +1474,18 @@ trigger1 = animtime = 0
 value = 0
 ctrl = 1
 
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = map(combobeam)
+value = 3501
+[State 0]
+type = MapSet
+trigger1 = combocount
+map = "combobeam"
+value=1
+
 [State 0, ReversalDef]
 type = ReversalDef
-triggerall=enemynear,stateno!=900
-triggerall=enemynear,stateno!=901
 trigger1 = time<=40
 reversal.attr = SCA,AA,AP
 pausetime = 5,30
@@ -1441,8 +1495,6 @@ persistent = 1
 
 [State 0, HitOverride]
 type = HitOverride
-triggerall=enemynear,stateno!=900
-triggerall=enemynear,stateno!=901
 trigger1 = time<=40
 attr = SCA,AA,AP
 stateno = 3501
@@ -1465,9 +1517,16 @@ sprpriority = 0
 
 [State Voice From Above]
 type = PlaySnd
-triggerall=map(december)=0
+triggerall=map(december)=0&&map(combobeam)=0
 trigger1 = time=0
 value = 3510, (0+(Random%3))
+volumescale=200
+channel=7
+[State Voice From Above]
+type = PlaySnd
+triggerall=map(december)=0&&map(combobeam)
+trigger1 = time=0
+value = 3510, (0+(Random%2))
 volumescale=200
 channel=7
 
@@ -1521,12 +1580,13 @@ value = 3500,3
 volumescale = 100
 persistent=0
 channel=11
-[State Test]
-type = ModifySnd
-trigger1 = animelem=13
-channel = 11
-volumescale =0
-ignorehitpause=1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem=14
+value = 3500,3
+volumescale = 0
+persistent=1
+channel=11
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1=anim=3501
@@ -1587,7 +1647,7 @@ type = Explod
 trigger1 = animelem=12
 anim = 12334
 ID = 12334
-pos = -120,20
+pos = -120,-pos y+15
 scale = .4,.4
 postype = p1  ;p2,front,back,left,right
 facing = 1
@@ -1625,7 +1685,7 @@ type = Explod
 trigger1 = animelem=13
 anim = 12335
 ID = 12335
-pos = -60,20
+pos = -60,-pos y+15
 scale = .4,.4
 postype = p1  ;p2,front,back,left,right
 facing = 1
@@ -1649,14 +1709,20 @@ phase = 1
 [State 0, Turn]
 type = Turn
 trigger1 = time=1
-trigger1 = facing=player(map(enemyteamlead)),facing
+trigger1 = facing=enemy,facing
 ignorehitpause = 1
 
 [State 0, PosSet]
 type = PosSet
-trigger1 = time=2
-x = player(map(enemyteamlead)),pos x + cond(facing=1,120,-120)
-y = player(map(enemyteamlead)),pos y
+trigger1 = time=2 && enemy,pos y < 0
+x = enemy,pos x + cond(facing=1,120,-120)
+y = enemy,pos y
+ignorehitpause = 1
+[State 0, PosSet]
+type = PosSet
+trigger1 = time=2 && enemy,pos y >= 0
+x = enemy,pos x + cond(facing=1,120,-120)
+y = 0
 ignorehitpause = 1
 
 [State 0, NotHitBy]
@@ -1751,7 +1817,9 @@ supermove = -1
 [State 200, 1]
 type = HitDef 
 p2facing = -1
+triggerall=!map(combobeam)
 trigger1 = time%3=1
+kill = 0
 attr = S, HA
 animtype  = Hard
 air.animtype = back
@@ -1786,6 +1854,7 @@ getpower = 0
 [State 200, 1]
 type = HitDef 
 p2facing = -1
+triggerall=!map(combobeam)
 trigger1 = time=141
 attr = S, HA
 animtype  = Hard
@@ -1818,6 +1887,134 @@ ground.cornerpush.veloff=0
 fall = 1
 air.fall=1
 getpower = 0
+
+
+[State 200, 1]
+type = HitDef 
+p2facing = -1
+triggerall=map(combobeam)
+trigger1 = time%3=1
+kill=0
+attr = S, HA
+animtype  = Hard
+air.animtype = back
+damage = 10*MAP(P4)+3,1
+hitflag = MAFD
+guardflag = MA
+pausetime = 1,12
+guard.pausetime=1,1
+sparkno = 2
+sparkxy = -15,-45
+hitsound   = 5,3
+guardsound = S300, 2
+ground.type = trip
+ground.slidetime = 12
+ground.hittime  = ceil(cond(fvar(15) *40 < 9, 9, fvar(15) * 40))
+air.hittime  = ceil(cond(fvar(15) *40 < 15, 15, fvar(15) * 40))
+down.hittime = ceil(cond(fvar(15) *40 < 15, 15, fvar(15) * 40))
+ground.velocity = 20,-3
+air.velocity = 20,-3
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime = 5
+guard.slidetime = 1
+guard.ctrltime = 5
+guard.velocity = 1
+ground.cornerpush.veloff=0
+fall = 1
+air.fall=1
+getpower = 0
+[State 200, 1]
+type = HitDef 
+p2facing = -1
+triggerall=map(combobeam)
+trigger1 = time=141
+attr = S, HA
+animtype  = Hard
+air.animtype = back
+damage = 150*MAP(P4)+70,19
+hitflag = MAFD
+guardflag = MA
+pausetime = 1,12
+guard.pausetime=1,1
+sparkno = 2
+sparkxy = -15,-45
+hitsound   = 5,3
+guardsound = S300, 2
+ground.type = trip
+ground.slidetime = 12
+ground.hittime  = ceil(cond(fvar(15) *40 < 9, 9, fvar(15) * 40))
+air.hittime  = ceil(cond(fvar(15) *40 < 15, 15, fvar(15) * 40))
+down.hittime = ceil(cond(fvar(15) *40 < 15, 15, fvar(15) * 40))
+ground.velocity = 20,-3
+air.velocity = 20,-3
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime = 5
+guard.slidetime = 1
+guard.ctrltime = 5
+guard.velocity = 1
+ground.cornerpush.veloff=0
+fall = 1
+air.fall=1
+getpower = 0
+
+
+;=======================================
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = WinKO
+value = 8991,0
+channel = 0
+ignorehitpause = 1
+persistent=0
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nobardisplay
+flag2 = NoFG
+flag3 = Noshadow
+ignorehitpause=1
+[State 8990, AssertSpecial]
+type = AssertSpecial
+trigger1 = WinKO
+flag = Nomusic
+ignorehitpause=1
+[State 8990, Explod]
+type = Explod
+trigger1 = WinKO
+anim = F8990
+id = 8990
+pos = 0,0
+scale = 1,1
+postype = back
+bindtime = -1
+removetime = -2
+sprpriority = -10
+ownpal = 1
+supermovetime = -1
+persistent=0
+ignorehitpause=1
+[State 8990, Explod]
+type = Explod
+trigger1 = WinKO
+anim = F8991
+id = 8991
+pos = 0,0
+scale = 1,1
+postype = Left
+bindtime = -1
+removetime = -2
+sprpriority = -9
+ownpal = 1
+supermovetime = -1
+persistent=0
+ignorehitpause=1
+;=======================================
 
 [State 0, ChangeAnim]
 type = ChangeAnim

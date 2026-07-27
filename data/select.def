@@ -46,7 +46,7 @@ stages/virtualbattleground.def, music = sound/MEDIUMPACE.mp3, music = sound/NIGG
 stages/ring.def, music = sound/KNOCKUOUT.mp3
 stages/ballin.def, music = sound/STEPUP.mp3, music = sound/DIVEINTOTHEMELLOW.mp3
 stages/falls.def, music = sound/OCEANPRIME.mp3
-stages/kno.def, music = sound/POPTIMISM.mp3, music = sound/CANTCONTROL.mp3, zoom=0, music = sound/IFI.mp3,
+stages/kno.def, music = sound/CHECKAGAIN.mp3, music = sound/CANTCONTROL.mp3, zoom=0, music = sound/IFI.mp3,
 
 ;-------------------------------------------------------------------------------
 [Options]
