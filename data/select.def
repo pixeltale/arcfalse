@@ -24,8 +24,6 @@ Tanxin
 
 ;-------------------------------------------------------------------------------
 [ExtraStages]
-
-stages/interactivestage.def
 stages/training_re.def, music = sound/LINKUP.mp3, music = sound/TINTS.mp3, music = sound/MOVEON.mp3
 stages/garden.def,zoom = 0
 stages/aegisdusk.def, zoom = 0, music=sound/MORALISTICCONFUSION.mp3, music=sound/KAGEFUMI.mp3, music=sound/SATURDAYS.mp3
