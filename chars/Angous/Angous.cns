@@ -910,8 +910,8 @@ ignorehitpause = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "nobar: %f"
-params = map(nobar)
+text = "projactive %i"
+params = (hitdefattr = SCA, NA, SA, AP)
 
 ;=============================
 ;ARMOR POINTS ASSIGNMENT

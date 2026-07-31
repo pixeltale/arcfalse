@@ -371,19 +371,9 @@ y = 0
 
 [State 20, 1]
 type = VelMul
-triggerall =time=0
-triggerall = command = "holdback"
-trigger1 = p2dist x <0
-trigger2 = combocount
-x = .7
-
-[State 20, 1]
-type = VelMul
-triggerall =time=0
-triggerall = command = "holdback"
-trigger1 = p2dist x >=0
-trigger1 = !combocount
-x = .6
+trigger1 =time=0
+trigger1 = command = "holdback"
+x = .8
 
 [State 20, 1]
 type = VelAdd
@@ -398,9 +388,9 @@ x = const(velocity.walk.fwd.x)
 
 [State 20, 1]
 type = VelSet
-trigger1 = vel x < 4
+trigger1 = vel x < 6
 trigger1 = command != "holdback"
-x = 4
+x = 6
 
 [State 20, 2]
 type = Turn

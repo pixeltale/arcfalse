@@ -1,21 +1,18 @@
-#if __VERSION__ >= 130
-#define COMPAT_VARYING out
-#define COMPAT_ATTRIBUTE in
-in vec3 TexCoord;
-out vec3 vTexCoord;
+#if __VERSION__ >= 450
+	// VULKAN PATH
+	layout(push_constant, std430) uniform u {
+		vec2 TextureSize;
+	};
+	layout(location = 0) in vec2 VertCoord;
+	layout(location = 0) out vec3 vTexCoord;
 #else
-#define COMPAT_VARYING varying 
-#define COMPAT_ATTRIBUTE attribute 
+	// OPENGL / GLES PATH
+	uniform vec2 TextureSize;
+	in vec2 VertCoord;
+	out vec3 vTexCoord;
 #endif
 
-uniform vec2 TextureSize;
-COMPAT_ATTRIBUTE vec2 VertCoord;
-
-void main(void) {
-	gl_Position = vec4(VertCoord, 0.0, 1.0);
-#if __VERSION__ >= 130
-    vTexCoord = vec3((VertCoord + 1.0) / 2.0, TexCoord.z);
-#else
-    gl_TexCoord[0].xy = (VertCoord + 1.0) / 2.0;
-#endif
+void main() {
+    gl_Position = vec4(VertCoord, 0.0, 1.0);
+    vTexCoord = vec3((VertCoord + 1.0) / 2.0, 0.0);
 }

@@ -37,19 +37,21 @@ common.snd = common.snd
 p1.pos    = 159,10
 p1.bg0.spr = 999,1
 p1.bg1.spr = 11,0
-p1.bg1.scale = 1, 1
+p1.bg1.scale = 1.2, 1.2
 p1.front.spr = 13,0
-p1.range.x  = -19,-146
+p1.front.scale = 1.2, 1.2
+p1.range.x  = -19,-175
 ;Player 2
 p2.pos    = 160,10
 p2.bg0.spr = 999,1
 p2.bg0.facing = -1
 p2.bg1.spr = 11,0
 p2.bg1.facing = -1
-p2.bg1.scale = 1, 1
+p2.bg1.scale = 1.2, 1.2
 p2.front.spr = 13,0
 p2.front.facing = -1
-p2.range.x =  19, 146
+p2.front.scale = 1.2, 1.2
+p2.range.x =  19, 175
 
 
 [Simul Lifebar]
@@ -111,35 +113,35 @@ p2.range.x = 2,128
 ;-----------------------------------------------------------
 [Powerbar]
 ;Player 1
-p1.pos    = 15,218
+p1.pos    = -30,210
 p1.bg1.anim = 98
 p1.bg1.layerno = 2
-p1.bg1.scale = 1.25, 1.25
+p1.bg1.scale = 1.55, 1.55
 p1.front.spr = 43,0
 p1.front.layerno = 2
-p1.front.scale = 1.25, 1.25
-p1.range.x = 0,120
+p1.front.scale = 1.55, 1.55
+p1.range.x = 0,148
 p1.counter.offset = 10, 0
 p1.counter.layerno = 2
 p1.counter.font = 6,0, 0
-p1.counter.scale = 0.75, 0.75
+p1.counter.scale = 1, 1
 
 ;Player 2
-p2.pos    = 304,218
+p2.pos    = 349,210
 p2.bg0.facing = -1
 p2.bg1.anim = 99
 p2.bg1.facing = -1
 p2.bg1.layerno = 2
-p2.bg1.scale = 1.25, 1.25
+p2.bg1.scale = 1.55, 1.55
 p2.front.spr = 43,0
 p2.front.facing = -1
 p2.front.layerno = 2
-p2.front.scale = 1.25, 1.25
-p2.range.x  = 0, -120
+p2.front.scale = 1.55, 1.55
+p2.range.x  = 0, -148
 p2.counter.offset = -10,0
 p2.counter.layerno = 2
 p2.counter.font = 6,0, 0
-p2.counter.scale = 0.75, 0.75
+p2.counter.scale = 1, 1
 
 ; --level sounds---
 level1.snd = 21,0
@@ -232,11 +234,11 @@ level4.snd = 21,0
 
 ;-----------------------------------------------------------
 [Name]
-p1.pos = 26,33
+p1.pos = -10,46
 ;p1.bg. =
 p1.name.font = 3,0, 1
 ;p2.bg. =
-p2.pos = 293,33
+p2.pos = 329,46
 p2.name.font = 3,0, -1
 
 [Simul Name]
@@ -267,13 +269,13 @@ framespercount = 70
 
 ;-----------------------------------------------------------
 [Combo]
-pos = 10,80         ;Coords to show
+pos = -10,80         ;Coords to show
 start.x = -50       ;Starting x-coords
 counter.font 	= 4,0
 counter.scale=0.9,0.9
 counter.shake = 1   ;Set to 1 to shake count on hit
 counter.layerno = 0
-text.text = Hits! %d damage      ;You can use %i to show count in the text, eg "%i Hit!"
+text.text = Hits!\n %d damage      ;You can use %i to show count in the text, eg "%i Hit!"
 text.font = 3,0
 text.scale=1, 0.9
 text.offset = 5, 0   ;Offset of text

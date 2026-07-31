@@ -9021,7 +9021,7 @@ value = 1000
 type = MapAdd
 trigger1 = movetype = H && !map(BurstGauge_Lockout) && enemy, stateno != 900
 map = "BurstGauge"
-value =  3 * (enemy, (map(ComboStateCheck))) 
+value =  3 * enemy, map(ComboStateCheck)
 ignorehitpause = 1
 persistent = 0
 

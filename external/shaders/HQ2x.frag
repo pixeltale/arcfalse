@@ -1,16 +1,21 @@
-#if __VERSION__ >= 130
-#define COMPAT_VARYING in
-#define COMPAT_TEXTURE texture
-out vec4 FragColor;
-in vec4 TexCoord[7];
+#if __VERSION__ >= 450
+	// VULKAN PATH
+	layout(push_constant, std430) uniform u {
+		layout(offset = 8) float CurrentTime;
+	};
+	layout(binding = 0) uniform sampler2D Texture;
+	layout(location = 0) in vec4 TexCoord[7];
+	layout(location = 0) out vec4 FragColor;
 #else
-#define COMPAT_VARYING varying
-#define FragColor gl_FragColor
-#define COMPAT_TEXTURE texture2D
-#define TexCoord gl_TexCoord
+	// OPENGL / GLES PATH
+	uniform float CurrentTime;
+	uniform sampler2D Texture;
+	in vec4 TexCoord[7];
+	out vec4 FragColor;
 #endif
 
-uniform sampler2D Texture;
+#define COMPAT_TEXTURE texture
+
 const float mx = 0.325;		// start smoothing wt.
 const float k = -0.250;		// wt. decrease factor
 const float max_w = 0.25;	// max filter weigth
@@ -45,4 +50,5 @@ void main() {
 	w3 = clamp(lc1 * dot(abs(c11 - c12), dt) + mx, min_w, max_w);
 	w4 = clamp(lc2 * dot(abs(c11 - c01), dt) + mx, min_w, max_w);
 	FragColor.xyz = w1 * c10 + w2 * c21 + w3 * c12 + w4 * c01 + (1.0 - w1 - w2 - w3 - w4) * c11;
+	FragColor.w = 1.0;
 }

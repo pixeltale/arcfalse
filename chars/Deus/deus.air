@@ -267,6 +267,13 @@ LoopStart
 105,0, 0,0, 2, , AS200D256
 105,0, 0,0, 2, , AS100D256
 
+; GUARDEND (stand)
+[Begin Action 140]
+LoopStart
+Clsn2Default: 1
+  Clsn2[0] = -28, -111, 26, -1
+120,2, 0,0, 3
+
 [Begin Action 130]
 Clsn2Default: 1
   Clsn2[0] = -28, -111, 26, -1
@@ -276,13 +283,6 @@ Clsn2Default: 1
 Clsn2Default: 1
   Clsn2[0] = -33, -65, 44, -1
 121,0, 0,0, 1
-
-; GUARDEND (stand)
-[Begin Action 140]
-LoopStart
-Clsn2Default: 1
-  Clsn2[0] = -28, -111, 26, -1
-120,2, 0,0, 3
 
 ; GUARDEND (crouch)
 [Begin Action 141]
@@ -2139,15 +2139,6 @@ LoopStart
 167,15, 0,-1, 6
 167,15, 0,0, 6
 
-; Special Outro 17
-[Begin Action 3067]
-LoopStart
-168,16, 0,0, 2, , AS100D256
-168,16, 0,0, 2, , AS200D256
-168,16, 0,0, 5
-LoopStart
-167,16, 0,0, 2
-
 ; Super Outro
 [Begin Action 3100]
 170,0, 0,0, 2, , AS200D256
@@ -2506,6 +2497,16 @@ LoopStart
 40,6, 0,0, 7
 40,7, 0,0, 7
 
+;Air Recover
+[Begin Action 5210]
+Clsn2Default: 1
+  Clsn2[0] = -34, -111, 34, -21
+40,4, 0,0, 4
+LoopStart
+40,5, 0,0, 7
+40,6, 0,0, 7
+40,7, 0,0, 7
+
 ;---------------------------
 ;Air Fall (going up)
 [Begin Action 5050]
@@ -2666,16 +2667,6 @@ LoopStart
 5100,9, 0,0, 5
 5100,9, 0,0, 2, , AS200D256
 5100,9, 0,0, 2, , AS100D256
-
-;Air Recover
-[Begin Action 5210]
-Clsn2Default: 1
-  Clsn2[0] = -34, -111, 34, -21
-40,4, 0,0, 4
-LoopStart
-40,5, 0,0, 7
-40,6, 0,0, 7
-40,7, 0,0, 7
 
 ; Crumple (52f)
 [Begin Action 5251]

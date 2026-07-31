@@ -4485,7 +4485,7 @@ persistent = 1
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time=0
-x = 10
+x = 12
 y = 0
 [State 0, VelMul]
 type = VelMul
@@ -4578,7 +4578,7 @@ persistent = 1
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time=0
-x = 10
+x = 12
 y = 15
 [State 0, VelMul]
 type = VelMul
@@ -4766,7 +4766,7 @@ persistent = 1
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time=0
-x = 10
+x = 12
 y = 15
 [State 0, VelMul]
 type = VelMul
@@ -4858,7 +4858,7 @@ persistent = 1
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time=0
-x = -10
+x = -15
 y = 0
 [State 0, VelMul]
 type = VelMul
@@ -4951,7 +4951,7 @@ persistent = 1
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time=0
-x = -10
+x = -12
 y = -6
 [State 0, VelMul]
 type = VelMul
@@ -5137,7 +5137,7 @@ persistent = 1
 [State 0, VelAdd]
 type = VelSet
 trigger1 = time=0
-x = 10
+x = 12
 y = -6
 [State 0, VelMul]
 type = VelMul
