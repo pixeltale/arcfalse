@@ -1385,7 +1385,7 @@ value = 1
 [State 0, PosSet]
 type = PosSet
 trigger1 =  1
-y = -460
+y = -260
 [State 0, PosSet]
 type = velset
 trigger1 =  enemynear,animelemtime(45)>=0

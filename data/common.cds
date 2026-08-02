@@ -1,3 +1,7 @@
+[Defaults]
+command.time = 15
+command.buffer.time = 3
+
 ;-| Single Button |---------------------------------------------------------
 [Command]
 name = "a"
@@ -1009,7 +1013,7 @@ time = 10
 ;236 Motion ========================[]
 [Command]
 name = "236x"
-command = ~D, DF, F, x
+command = ~D, F, x
 time = 15
 buffer.time = 4
 [Command]

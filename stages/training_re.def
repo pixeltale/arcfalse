@@ -28,8 +28,8 @@ tension = 300
 
 ; These parameters control the distance between the highest and lowest
 ; characters where the camera will begin to move or zoom out
-tensionhigh = 120
-tensionlow = 120
+tensionhigh = 240
+tensionlow = 240
 
 ; Number of pixels beyond the top and bottom of the screen that may
 ; be drawn.  Overdraw specifies the how much can be seen during an

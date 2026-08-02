@@ -4454,7 +4454,7 @@ movetype= A
 physics = S
 juggle  = 0
 anim = 0
-poweradd = -2000
+poweradd = -2000 + 1000 * (combocount > 0)
 ctrl = 0
 velset = vel x * 0.05,0
 sprpriority = 2
@@ -4552,7 +4552,7 @@ movetype = A
 physics = A
 juggle  = 0
 anim = 69000
-poweradd = (-2000)
+poweradd = (-2000) + 1000 * (ComboCount > 0)
 ctrl = 0
 velset = vel x,vel y
 sprpriority = 2
@@ -4577,7 +4577,7 @@ ignorehitpause = 1
 type 		= MapSet
 triggerall  = enemy, map(GC) = 0
 trigger1 	= time = 0
-map 		= "SlowdownTimeC"
+map 		= "SlowdownTime"
 value 		= 30
 ignorehitpause 	= 1
 persistent 		= 1
@@ -7990,7 +7990,7 @@ ignorehitpause = 1
 type = ChangeState
 value = 4000
 triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag && !ishelper
-triggerall = power>=2000
+triggerall = power >= 2000 - 1000*(combocount > 0) 
 triggerall = stateno != [900,915] && stateno != 803
 triggerall = command = "SP"
 triggerall = statetype != A
@@ -8001,7 +8001,7 @@ trigger1 = movecontact
 type = ChangeState
 value = 4001
 triggerall = !map(ScratchLockout) && enemy, Alive && teammode != Tag && !ishelper
-triggerall = power>=2000
+triggerall = power >= 2000 - 1000*(combocount > 0) 
 triggerall = stateno !=750
 triggerall = stateno != [900,915]
 triggerall = command = "SP"
@@ -8184,12 +8184,12 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
-[State 810, Push Priority For Hurt Player]
-type = PlayerPush
-trigger1 = movetype = H && stateno != [120,155]
-trigger1 = backedgebodydist = 0
-value = 1
-priority = 5
+; [State 810, Push Priority For Hurt Player]
+; type = PlayerPush
+; trigger1 = movetype = H && stateno != [120,155]
+; trigger1 = backedgebodydist = 0
+; value = 1
+; priority = 5
 
 [State 0, Explod]
 type = Explod
@@ -8266,7 +8266,7 @@ value 		= 0
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = map(BGuard) || map(_iksys_trainingGuardMode) = 3
+trigger1 = map(BGuard) ;|| map(_iksys_trainingGuardMode) = 3
 flag =  NoGuardDamage
 
 [State 0, PowerAdd]
@@ -8441,36 +8441,7 @@ ignorehitpause = 1
 
 ;=============================================================================
 ;Record Scratch Refund
-[State 0, PowerAdd]
-type = PowerAdd
-trigger1 = map(PostRC_Hit)
-value = 30
-ignoreHitPause = 1
 
-[State 0, Custom Afterimage]
-type = Explod
-trigger1 = map(PostRC_Hit) && movehit = 1
-anim = anim
-animelem = animelemno(0)
-ID = 4000
-postype = p1
-pos = 0, 0
-facing = 1
-vfacing = 1
-bindtime = 1
-supermovetime = 0
-pausemovetime = 0
-scale = const(size.xscale), const(size.yscale)
-sprpriority = 1
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-trans = add
-removetime = 20
-palfx.time = 40
-palfx.sinmul = -255,-255,-255,160
-removeongethit = 1
-ignorehitpause = 0
 
 [State -2, JDR UNTECH DECAY]
 type 		= MapSET
@@ -9291,7 +9262,7 @@ persistent 		= 1
 type = BGPalFX
 trigger1 = map(SlowdownTime)
 time = 5
-add = -(map(SlowdownTime))*2.75,-(map(SlowdownTime))*2.75,-(map(SlowdownTime))*2.75
+add = -(map(SlowdownTime))*1.75,-(map(SlowdownTime))*1.75,-(map(SlowdownTime))*1.75
 persistent = 1
 ignorehitpause = 1
 
@@ -9299,13 +9270,19 @@ ignorehitpause = 1
 type = SuperPause
 triggerall = map(slowdownTime) && map(ComboStateCheck)
 trigger1 = gametime % 2 = 0
-time = 2
+time = 1
 anim = 99999
 pos = 0,0
-movetime = 2
+movetime = 1
 darken = 0
 p2defmul = 1
 unhittable = 1
+[State 0, ModifyPlayer] ;Enemies Dont Get Frozen
+type = ModifyPlayer
+trigger1 = map(Slowdowntime)
+supermovetime = 5
+ignorehitpause = 1
+persistent = 1
 
 [State -2, RC Speed Boost]
 type = Changestate
@@ -9492,6 +9469,12 @@ value = vel x * 0.75
 ;==================================================================================================
 ;TRAINING MODE STUFF
 ;==================================================================================================
+[State 0, MapSet]
+type = PowerSet
+triggerall = map(_iksys_TrainingMeter) > 0
+trigger1 = GameMode = "Training"
+trigger1 = combocount = 0
+value = 1000 * (map(_iksys_TrainingMeter) - 1)
 
 [State 0, LifeAdd]
 type = LifeAdd
@@ -9782,13 +9765,13 @@ value 		= 0
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = map(_iksys_trainingGuardMode) = 2
+trigger1 = map(_iksys_trainingGuardMode) = 3
 flag = autoGuard
 ignorehitpause = 1
 persistent = 1
 [State 0, MapSet]
 type = MapSet
-trigger1 = map(_iksys_trainingGuardMode) = 2
+trigger1 = map(_iksys_trainingGuardMode) = 3
 map = "IBTimer"
 value = 30
 ignorehitpause = 1
@@ -9796,20 +9779,20 @@ persistent = 1
 
 [State 0, AssertSpecial]
 type = AssertSpecial
-trigger1 = map(_iksys_trainingGuardMode) = 3
+trigger1 = map(_iksys_trainingGuardMode) = 4
 flag = autoGuard
 ignorehitpause = 1
 persistent = 1
 [State 0, MapSet]
 type = MapSet
-trigger1 = map(_iksys_trainingGuardMode) = 3
+trigger1 = map(_iksys_trainingGuardMode) = 4
 map = "BGuard"
 value = 1
 ignorehitpause = 1
 persistent = 1
 [State 0, MapSet]
 type = MapSet
-trigger1 = map(_iksys_trainingGuardMode) = 3
+trigger1 = map(_iksys_trainingGuardMode) = 4
 map = "BGuard_Penalty"
 value = 1
 ignorehitpause = 1

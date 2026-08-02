@@ -618,6 +618,8 @@ ctrl = 1
 
 [Statedef -2]
 
+
+
 [State 0, ChangeState]
 type = DestroySelf
 triggerall = isHelper(260)
@@ -947,28 +949,15 @@ ignoreHitPause = 1
 
 [State 0, SuperPause]
 type = SuperPause
+trigger1 = gametime % 2 = 0
 trigger1 = var(30)>0
-triggerall = gametime % 2 = 0
 time = 2
+movetime = 2
 anim = 99999
 pos = 0,0
-movetime = 2
 darken = 0
 p2defmul = 1
 unhittable = 1
-
-[State 0, SuperPause]
-type = SuperPause
-trigger1 = var(30)>0
-triggerall = gametime % 2 = 0
-time = 2
-anim = 99999
-pos = 0,0
-movetime = 2
-darken = 0
-p2defmul = 1
-unhittable = 1
-redirectid = player(teamleader), ID
 
 [State 0, PowerSet]
 type = PowerSet
@@ -1453,6 +1442,20 @@ value = 40, 0
 
 
 
+[Statedef -4]
 
+[State 0, ModifyPlayer] ;Extreme Speed
+type = ModifyPlayer
+trigger1 = var(30) > 0
+supermovetime = 999
+ignorehitpause = 1
+persistent = 1
+[State 0, ModifyPlayer] ;Extreme Speed
+type = ModifyPlayer
+trigger1 = var(30) > 0 && gametime % 2 = 0
+supermovetime = 1
+ignorehitpause = 1
+persistent = 1
+redirectid = enemy, id
 
 
