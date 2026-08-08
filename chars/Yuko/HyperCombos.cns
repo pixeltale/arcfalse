@@ -1,0 +1,1135 @@
+;---------------------------------------------------------------------------
+;Devil-Claw
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+poweradd= -2000
+ctrl = 0
+anim = 3000
+sprpriority = 2
+facep2=1
+
+[State 0, VarAdd]
+type = mapset
+trigger1 = 1
+map =  "truecounter"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+;=====SCALING SHIT==================
+[State Stun Scaling]
+type = VarAdd
+trigger1 = movehit
+fv = 25  
+value = 3
+ignorehitpause = 1
+persistent = 0
+
+[State Damage Scaling]
+type = VarAdd
+trigger1 = movehit=1
+fv =13     ;fv = 
+value = 3
+persistent = 0
+;==================================
+
+[State Yuko Voice]
+type = PlaySnd
+trigger1 = time=0
+value = 3001, 0+random%2
+volumescale=175
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem=4
+value = 3000,0
+volumescale=75
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem=4
+value = 3100,0
+volumescale=75
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem=3
+time = 30
+anim = -1
+sound = 20,0
+pos = 0,-50
+movetime = 30
+darken = 1
+p2defmul = 1
+unhittable = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem=4&&stagefrontedgedist > 100 &&numexplod(3001)=0
+anim = 3001
+ID = 3001
+pos = -20,0
+postype = p1  ;p2,front,back,left,right
+bindtime = 0
+removetime = -2
+scale = .84,.84
+sprpriority = 3
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent=0
+supermovetime=999
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem=4&&stagefrontedgedist <= 100 &&numexplod(3001)=0
+anim = 3001
+ID = 3001
+pos = -80 ,0
+postype = p1  ;p2,front,back,left,right
+bindtime = 0
+removetime = -2
+scale = .84,.84
+sprpriority = 3
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent=0
+
+[State 0, VarAdd]
+type = MapAdd
+trigger1 =movehit
+map = "dclaw"
+value = 1
+ignorehitpause = 1
+persistent=0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 =animelem=3
+trigger2 =animelem=4
+trigger3 =animelem=5
+x = 20
+[State 0, PosAdd]
+type = PosAdd
+trigger1 =animelem=8
+trigger2 =animelem=9
+x = -20
+[State 0, PosAdd]
+type = PosAdd
+trigger1 =animelem=10
+x = -7
+
+[State 0, Width]
+type = Width
+trigger1 =animelemtime(2)>=0&&animelemtime(8)<0
+edge = 30,15
+player = 30,15
+
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact&&map(dclaw)=0
+attr = S, HA
+animtype  = Hard
+air.animtype = back
+damage = ceil(cond(fvar(11) * 250 < 75, 75, fvar(11) * 250)), 20
+hitflag = MAFD
+guardflag = MA
+pausetime = 18,18
+guard.pausetime=12,12
+sparkno = 3
+sparkxy = -15,-45
+hitsound   = s8,1
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = ceil(cond(fvar(15) *20 < 9, 9, fvar(15) * 20))
+air.hittime  = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
+down.hittime = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
+ground.velocity = -.5,-10
+air.velocity = -.5,-10
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime =20
+guard.slidetime = 20
+guard.ctrltime = 20
+guard.velocity = -6
+getpower = 0
+p2stateno = 30000
+fall.yvelocity=0
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact&&map(dclaw)
+attr = S, HA
+animtype  = Hard
+air.animtype = back
+damage = ceil(cond(fvar(11) * 250 < 75, 75, fvar(11) * 250)), 20
+hitflag = MAFD
+guardflag = MA
+pausetime = 18,18
+guard.pausetime=12,12
+sparkno = 3
+sparkxy = -15,-45
+hitsound   = s8,1
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 20
+air.hittime  = 20
+down.hittime = 20
+ground.velocity = -3,-5
+air.velocity = -3,-5
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime =20
+guard.slidetime = 20
+guard.ctrltime = 20
+guard.velocity = -6
+getpower = 0
+fall.yvelocity=0
+
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = animelem=7
+triggerall = power>=1000&&map(Imagination)>=800&&map(dclaw)=1
+trigger1 = command = "hold_x"||command = "hold_y"||command = "hold_z"
+trigger1 = movehit
+value =3050
+ctrl = 0
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Devil-Claw 2
+[Statedef 3050]
+type    = S
+movetype= A
+physics = S
+poweradd= -1000
+ctrl = 0
+anim = 3050
+sprpriority = 2
+
+[State 0, VarAdd]
+type = mapset
+trigger1 = 1
+map =  "truecounter"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State Yuko Voice]
+type = PlaySnd
+trigger1 = time=0
+value = 3050, 0+random%2
+volumescale=175
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = animelem=4
+time = 30
+anim = -1
+sound = 20,0
+pos = 0,-50
+movetime = 30
+darken = 1
+p2defmul = 1
+unhittable = 1
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem=5
+value = 3000,1
+volumescale=75
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem=5
+value = 3100,1
+volumescale=75
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem=5&&stagefrontedgedist > 100 &&numexplod(3002)=0
+anim = 3001
+ID = 3002
+pos = 200,-50
+postype = p1  ;p2,front,back,left,right
+bindtime = 0
+removetime = -2
+scale = .84,.84
+sprpriority = 3
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent=1
+facing=-1
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem=5&&stagefrontedgedist <= 100 &&numexplod(3002)=0
+anim = 3001
+ID = 3002
+pos = 170,-50
+postype = p1  ;p2,front,back,left,right
+bindtime = 0
+removetime = -2
+scale = .84,.84
+sprpriority = 3
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent=1
+facing=-1
+
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact
+attr = S, HA
+animtype  = Hard
+air.animtype = back
+damage = ceil(cond(fvar(11) * 250 < 125, 125, fvar(11) * 250)), 20
+hitflag = MAFD
+guardflag = MA
+pausetime = 25,35
+sparkno = 3
+sparkxy = -15,-120
+hitsound   = s8,2
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = ceil(cond(fvar(15) *20 < 9, 9, fvar(15) * 20))
+air.hittime  = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
+down.hittime = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
+ground.velocity = 0.1,-12
+air.velocity = 0.1,-12
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime =20
+guard.slidetime = 20
+guard.ctrltime = 20
+guard.velocity = -6
+getpower = 0
+p2stateno = 30000
+fall.yvelocity=0
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Install
+[Statedef 3100]
+type    = S
+movetype= A
+physics = S
+poweradd= -2000
+ctrl = 0
+anim = 3100
+sprpriority = 2
+
+[State 0, VarAdd]
+type = mapset
+trigger1 = 1
+map =  "truecounter"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno!=8&&palno!=10
+trigger1 = time=0
+value = 3101, 0
+volumescale=175
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno=8
+trigger1 = time=0
+value = 8383, 5
+volumescale=200
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno=10
+trigger1 = time=0
+value = 3101, 1
+volumescale=175
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time=0
+time = 77
+anim = -1
+sound = 20,0
+pos = 0,-50
+movetime = 77
+darken = 1
+p2defmul = 1
+unhittable = 1
+
+[State 0, VarAdd]
+type = MapSet
+trigger1 = animelem=11
+map = "install"
+value = 1
+[State 0, VarAdd]
+type = mapset
+trigger1 = animelem=11
+map =  "Imagination"
+value = 400
+ignorehitpause = 1
+persistent = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem=11
+time = 15
+freq = 120
+ampl = 4
+phase = 1
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem=1
+value = 3100,0
+volumescale=75
+[State 200, 2]
+type = PlaySnd
+trigger1 = animelem=10
+value = 3100,1
+volumescale=75
+
+;DEATH ZOOM ================================================
+[State 0]
+type = MapSet
+trigger1 = time=0
+map = "nozoom"
+value = 0
+ignorehitpause = 0
+
+[State 0, Zoom]
+type = zoom
+trigger1=map(nozoom)=0
+triggerall = stagefrontedgedist >50
+scale = 1.3
+lag = .94
+stagebound = 1
+camerabound = 0
+pos =-30*facing,-5
+ignorehitpause=1
+[State 0, Zoom]
+type = zoom
+trigger1=map(nozoom)=0
+triggerall = stagefrontedgedist <=50
+scale = 1.3
+lag = .94
+stagebound = 1
+camerabound = 0
+pos =10,-5
+ignorehitpause=1
+
+
+[State 0]
+type = MapAdd
+trigger1 = time=76
+map = "nozoom"
+value = 1
+ignorehitpause = 0
+
+[State 0]
+type = Camera
+trigger1 = time=0
+view = follow
+FollowID = 1
+[State 0]
+type = Camera
+trigger1 = time>=76
+view = fighting
+FollowID = 1
+
+;==============================================================
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = animelem=11 && palno=8
+source = 1,1
+dest = 2,palno
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Blitz
+[Statedef 3500]
+type    = S
+movetype= A
+physics = S
+poweradd= -2000
+ctrl = 0
+anim = 3500
+sprpriority = 2
+facep2=1
+
+;=====SCALING SHIT==================
+[State Stun Scaling]
+type = VarAdd
+trigger1 = movehit
+fv = 25  
+value = 3
+ignorehitpause = 1
+persistent = 0
+
+[State Damage Scaling]
+type = VarAdd
+trigger1 = movehit=1
+fv =13     ;fv = 
+value = 3
+persistent = 0
+;==================================
+
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno!=6&&palno!=9&&palno!=10
+trigger1 = time=0
+value = 3500, 0+random%2
+volumescale=175
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno=6
+trigger1 = time=0
+value = 3501, 0+random%2
+volumescale=175
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno=9
+trigger1 = time=0
+value = 3502, 0+random%2
+volumescale=175
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno=10
+trigger1 = time=0
+value = 3503, 0
+volumescale=175
+
+[State 0, VelSet]
+type = MapAdd
+trigger1 = time=0
+trigger2 = anim=3501&&animelemtime(1)=1
+map="Imagination"
+value=-200
+persistent=1
+ignorehitpause=0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = time=0
+time = 30
+anim = -1
+sound = 20,0
+pos = 0,-50
+movetime = 30
+darken = 1
+p2defmul = 1
+unhittable = 1
+;ignorehitpause = 
+;persistent = 
+
+[State 200, 2]
+type = PlaySnd
+trigger1 = anim=3500&&animelem=4
+trigger2 = anim=3501&&animelem=2
+value = 1800,1
+volumescale=50
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = anim=3500&&animelem=5
+trigger2 = anim=3501&&animelem=2
+anim = 3510
+ID = 3510
+pos = 175,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 0
+removetime = -2
+scale = 1,1
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+ontop=1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =animelem=5&&anim=3500 
+x = 20
+ignorehitpause = 1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 =animelem=4&&anim=3500 
+x = 30
+[State 0, PosAdd]
+type = PosAdd
+trigger1 =animelem=5&&anim=3500 
+x = 40
+
+[State 0, Width]
+type = Width
+trigger1 =animelemtime(2)>=0&&animelemtime(6)<0&&anim=3500 
+edge = 50,15
+player = 50,15
+ignorehitpause=1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = movehit
+value = 0
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =movehit&&anim=3500 
+x = 15
+ignorehitpause = 1
+persistent=0
+
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+trigger1 = movecontact = 0&&anim=3500
+attr = S, HA
+animtype  = up
+air.animtype = up
+damage = ceil(cond(fvar(11) * 50 < 20, 20, fvar(11) * 50)), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 0,100
+guard.pausetime=12,12
+sparkno = 3
+sparkxy = -15,-45
+hitsound   = s8,0
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 50
+air.hittime  = 50
+down.hittime = 50
+ground.velocity =0,-2
+air.velocity = 0,0
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime =0
+guard.slidetime = 0
+guard.ctrltime = 0
+getpower = 0
+p2getp1state=0
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+trigger1 = anim=3501&&animelem=2
+attr = S, HA
+animtype  = up
+air.animtype = up
+damage = ceil(cond(fvar(11) * 50 < 20, 20, fvar(11) * 50)), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 0,100
+guard.pausetime=12,12
+sparkno = 3
+sparkxy = -15,-45
+hitsound   = s8,0
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 50
+air.hittime  = 50
+down.hittime = 50
+ground.velocity =0,-2
+air.velocity = 0,0
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime =0
+guard.slidetime = 0
+guard.ctrltime = 0
+getpower = 0
+p2getp1state=0
+
+[State 0, VelSet]
+type = MapSet
+trigger1 = time=0
+map="supertime"
+value=0
+[State 0, VelSet]
+type = MapAdd
+trigger1 = movehit 
+map="supertime"
+value=1
+persistent=1
+ignorehitpause=0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim=3500 && movehit && map(supertime)>15
+value = 3501
+ignorehitpause = 1
+[State 0, Turn]
+type = Turn
+trigger1 = anim=3501 && animelemtime(1)=0
+trigger2 = anim=3501 && animelem=4 && map(supertime)>25&& map(supertime)<40
+ignorehitpause = 1 
+[State 0, VelSet]
+type = VelSet
+trigger1 =animelem=2&&anim=3501 
+x = 30
+ignorehitpause = 1
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim=3501 && animelem=4 && map(supertime)>25&& map(supertime)<40
+value = 3501
+ignorehitpause = 1
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime=0&&anim=3501
+value =3505
+ctrl = 0
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit
+time = 1
+pos = 0,-5
+ignorehitpause = 1
+persistent = 0
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Blitz Finish
+[Statedef 3505]
+type    = S
+movetype= A
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 3505
+sprpriority = 2
+
+[State 0, Turn]
+type = Turn
+trigger1 = time=0
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall=anim=3505
+trigger1 =animelem=3
+trigger2 =animelem=4
+trigger3 =animelem=5
+trigger4 =animelem=8
+trigger5 =animelem=9
+trigger6 =animelem=10
+x = 20
+[State 0, PosAdd]
+type = PosAdd
+triggerall=anim=3505
+trigger1 =animelem=14
+x = 13
+
+[State 200, 2]
+type = PlaySnd
+trigger1 =animelem=4&&anim=3505 
+value = 1610, 0+random%2
+volumescale=75
+[State 200, 2]
+type = PlaySnd
+trigger1 =animelem=4&&anim=3505 
+value = 1800,1
+volumescale=15
+freqmul = 0.8
+[State 200, 2]
+type = PlaySnd
+trigger1 =animelem=4&&anim=3505 &&map(imagination)>=200
+value = 3100,0
+volumescale=75
+
+[State 200, 2]
+type = PlaySnd
+trigger1 =animelem=9&&anim=3505 
+value = 3000,0
+volumescale=75
+[State 200, 2]
+type = PlaySnd
+trigger1 =animelem=9&&anim=3505 
+value = 3100,0
+volumescale=75
+
+[State 200, 2]
+type = PlaySnd
+trigger1 =animelem=8&&anim=3506 
+value = 3000,1
+volumescale=50
+[State 200, 2]
+type = PlaySnd
+trigger1 =animelem=8&&anim=3506 
+value = 3100,1
+volumescale=75
+
+[State 0, Width]
+type = Width
+triggerall=anim=3505
+trigger1 =animelemtime(2)>=0&&animelemtime(11)<0
+edge = 30,15
+player = 30,15
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit
+time = 1
+pos = p2dist x,-15
+ignorehitpause = 1
+persistent = 0
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1=anim=3505
+trigger1 = animelemtime(10)=0
+trigger2=anim=3506
+trigger2 = animelemtime(9)=0
+time = 1
+pos = p2dist x,-40
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = anim=3505&&animelem=5
+anim = 3507
+ID = 3507
+pos = -20,0
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = -2
+scale = .84,.84
+sprpriority = 3
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent=1
+supermovetime=999
+[State 0, Explod]
+type = Explod
+trigger1 = anim=3505&&animelem=10
+anim = 3508
+ID = 3508
+pos = -50,0
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = -2
+scale = .84,.84
+sprpriority = 3
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent=1
+[State 0, Explod]
+type = Explod
+trigger1 = anim=3506&&animelem=9
+anim = 3509
+ID = 3509
+pos = -50,20
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+removetime = -2
+scale = .84,.84
+sprpriority = 3
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+persistent=1
+
+[State 0]
+type = HitDef 
+p2facing = 1
+trigger1 = animelem=5
+trigger2 = animelem=6
+attr = S, HA
+animtype  = up
+air.animtype = up
+damage = ceil(cond(fvar(11) * 30 < 10, 10, fvar(11) * 30)), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 6,12
+sparkno = 2
+sparkxy = -10,-50
+hitsound   = s8,0
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 999
+ground.velocity = -1,-7
+air.velocity = -1,-7
+ground.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.hittime = 0
+guard.velocity = -7
+guard.dist = 0
+guard.slidetime =0
+guard.ctrltime = 0
+guard.cornerpush.veloff = -18
+envshake.phase = 1
+getpower = 0
+[State 0]
+type = HitDef 
+p2facing = 1
+trigger1 = animelem=7
+attr = S, HA
+animtype  = up
+air.animtype = up
+damage = ceil(cond(fvar(11) * 30 < 10, 10, fvar(11) * 30)), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 6,0
+sparkno = 3
+sparkxy = -10,-70
+hitsound   = s8,1
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 999
+ground.velocity = -1,cond(map(Imagination)<200,-9,-11)
+air.velocity = -1,cond(map(Imagination)<200,-9,-11)
+ground.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+guard.hittime = 0
+guard.velocity = -7
+guard.dist = 0
+guard.slidetime =0
+guard.ctrltime = 0
+guard.cornerpush.veloff = -18
+envshake.phase = 1
+getpower = 0
+p2stateno = 30000
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = animelem=8&&anim=3505&&map(Imagination)>=400
+value = 3506
+
+[State 0, VelSet]
+type = MapSet
+trigger1 = anim=3505&&animelemtime(10)=0
+trigger2 = anim=3506&&animelemtime(9)=0
+map="Imagination"
+value=200
+persistent=1
+ignorehitpause=1
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall=anim=3506
+trigger1 =animelem=8
+trigger2 =animelem=9
+trigger3 =animelem=13
+x = 20
+ignorehitpause=1
+[State 0, PosAdd]
+type = PosAdd
+triggerall=anim=3506
+trigger1 =animelem=14
+x = 13
+ignorehitpause=1
+
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno!=10
+trigger1 = anim=3505&&animelem=9
+value = 3505, 0+random%2
+volumescale=175
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno=10
+trigger1 = anim=3505&&animelem=9
+value = 3503, 1
+volumescale=175
+
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno!=10
+trigger1 = time=0&&map(Imagination)>=400
+value = 3506, 0
+volumescale=175
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno!=10
+trigger1 = anim=3506&&animelem=8
+value = 3506, 1
+volumescale=175
+[State Yuko Voice]
+type = PlaySnd
+triggerall = palno=10
+trigger1 = anim=3506&&animelem=8
+value = 3503, 1
+volumescale=175
+
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+triggerall=anim=3505
+trigger1 = animelem=10
+attr = S, HA
+animtype  = Hard
+air.animtype = back
+damage = ceil(cond(fvar(11) * 139 < 50, 50, fvar(11) * 139)), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 25,25
+sparkno = 3
+sparkxy = -15,-70
+hitsound   = s8,2
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 999
+ground.velocity = -10,8
+air.velocity = -10,8
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime =20
+guard.slidetime = 20
+guard.ctrltime = 20
+guard.velocity = -6
+fall = 1
+getpower = 0
+
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+triggerall=anim=3506
+trigger1 = animelem=9
+attr = S, HA
+animtype  = Hard
+air.animtype = back
+damage = ceil(cond(fvar(11) * 237 < 90, 90, fvar(11) * 237)), 0
+hitflag = MAFD
+guardflag = MA
+pausetime = 25,25
+sparkno = 3
+sparkxy = -15,-70
+hitsound   = s8,2
+guardsound = 6,2
+ground.type = high
+ground.slidetime = 12
+ground.hittime  = 999
+ground.velocity = -12,6
+air.velocity = -12,6
+envshake.time = 12
+envshake.freq = 90
+envshake.ampl = 3
+envshake.phase = 1
+guard.hittime =20
+guard.slidetime = 20
+guard.ctrltime = 20
+guard.velocity = -6
+fall = 1
+getpower = 0
+
+;DEATH ZOOM ================================================
+[State 0]
+type = MapSet
+trigger1 = time=0
+map = "nozoom"
+value = 0
+ignorehitpause = 0
+
+[State 0, Zoom]
+type = zoom
+triggerall = anim=3505
+triggerall=map(nozoom)=0
+trigger1 = enemy,HitShakeOver = 0
+trigger1 = movehit&&animelemtime(9)>=0&&animelemtime(11)<0
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos =0*facing,-10
+ignorehitpause=1
+
+[State 0, Zoom]
+type = zoom
+triggerall = anim=3506
+triggerall=map(nozoom)=0
+trigger1 = enemy,HitShakeOver = 0
+trigger1 = movehit&&animelemtime(9)>=0&&animelemtime(11)<0
+scale = 1.5
+lag = 0.8
+stagebound = 1
+camerabound = 0
+pos =30*facing,-10
+ignorehitpause=1
+
+[State 0]
+type = MapAdd
+trigger1 = animelem=11
+map = "nozoom"
+value = 1
+ignorehitpause = 0
+[State 0, BGPalFX]
+type = BGPalFX
+triggerall=map(nozoom)=0
+trigger1 = enemy,HitShakeOver = 0
+trigger1 = movehit&&animelemtime(9)>=0&&animelemtime(11)<0
+time = 1
+;add = 0,0,0
+mul = 50,50,50
+;sinadd = 0,0,0,10
+;color = 256
+ignorehitpause = 1
+persistent = 1
+;==============================================================
+
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1

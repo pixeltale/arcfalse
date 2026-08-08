@@ -1,0 +1,192 @@
+	<#bbbbbb>Health: 1500</>
+	<#bbbbbb>This move list assumes you are facing to the right.</>
+	<#7f41b9>UNIQUE TRAIT: THE FUNDAMENTALS OF MAGIC</>
+	Yuko's moves can be modified with Imagination and Motivation.
+	Imagination is gained by attacking the enemy, and lost by taking
+	damage or by not landing any attacks. Motivation is gained in a
+	variety of ways, and can be spent to expand Yuko's moveset.
+
+	<#7f41b9>IMAGINATION GAUGE</>
+	The different levels drastically change Yuko's capabilities.
+	It is strongly encouraged to check the rest of the movelist
+	to understand the full extent of Imagination's effects.
+	<#818181>LEVEL 0: All damage is decreased.</>
+	<#ffd541>LEVELS 1-2: Yuko's default state.</>
+	<#f0710a>LEVEL 3: All of Yuko's Special Moves become enhanced.</>
+	<#ff0000>LEVEL 4: Devil-Chain Enders refund all Momentum used
+	during the chain.</>
+
+	<#7f41b9>UNIQUE MOVES</>
+REAPING	-		_DF^C
+
+
+
+_D	_D		_D
+
+	<#7f41b9>SPECIAL MOVES</>
+ORDINARY OFFENSIVE MAGIC: ZOLTRAAK		^Y
+   <#f0710a>LEVEL 3+: This move can be cast in the air.
+   Additionally, you can input any direction to fly during this move.</>
+A SPELL THAT MOVES YOU FORWARD: WINDBURST		_B^Y
+   <#bbbbbb>The dash is projectile immune.</>
+   <#f0710a>LEVEL 3+: This move can pass through the opponent.</>
+A SPELL THAT MOVES YOU DOWNWARD: WINDBURST~ALTER		<#65b5ff>(AIR ONLY)</> _B^Y
+   <#f0710a>LEVEL 3+: This move causes a sliding knockdown.</>
+A SPELL THAT CUTS THINGS: CLAW	-		_D^Y
+   <#bbbbbb>Can be jump cancelled.
+   This move is an anti-air/anti-projectile during the first swing.</>
+   <#f0710a>LEVEL 3+: The first swing creates a projectile,
+   and the second swing shoots it forward.</>
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#7f41b9>DEVIL-CHAIN</>
+DEVIL-CHAIN	-		_F^Y
+   <#f0710a>LEVEL 3+: Any non Devil-Chain Special Move can be
+   cancelled into this on hit for <#db00ac>1 Momentum.</>
+
+	<#7f41b9>DEVIL-CHAIN FOLLOWUPS</>
+	These moves can be used after Devil-Chain.
+DEVIL-CHAIN~PIERCE	-		_F^Y
+   <#bbbbbb>The basic followup for combos.</>
+DEVIL-CHAIN~WINDBURST	-		_B^Y
+   <#bbbbbb>The dash is projectile immune.</>
+   <#f0710a>LEVEL 3+: This move can pass through the opponent.</>
+DEVIL-CHAIN~SLIP THROUGH	-		_D^Y
+   <#bbbbbb>The dash is fully invincible and can pass through opponents.</>
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	<#7f41b9>//HUNT// FOLLOWUPS</>
+	These moves can be used after Devil-Chain or any followup.
+	<#db00ac>All of these moves cost 1 Momentum to use.</>
+HUNT//SWEEP	-		_F^Z
+   <#bbbbbb>The second hit is jump cancellable.</>
+   <#db00ac>Holding R during the startup spends 1 Momentum
+   to cancel this move into HUNT//DIVE.</>
+HUNT//DIVE	-		_B^Z
+   <#db00ac>Holding R during the startup spends 1 Momentum
+   to cancel this move into HUNT//SWEEP.</>
+HUNT//CRUSH	-		_D^Z
+   <#bbbbbb>A command grab that can be used to extend combos.</>
+
+	<#7f41b9>DEVIL-CHAIN ENDERS</>
+	These moves can be used after any followup.
+ENDE	-		_F^Y
+   <#db00ac>Grants 1 Momentum on hit.</>
+ENDE~</>DISMANTLE	-		_B^Y
+   <#db00ac>Grants 2 Momentum on hit.</>
+ENDE~COLLAPSE	-		_D^Y
+   <#bbbbbb>Can be used to start combos.</>
+   <#db00ac>Grants 1 Momentum on hit.</>
+_D	_D		_D
+
+	<#7f41b9>REMIX MOVES</>
+DEVIL-CHAIN~ALTER	-		^Z
+   <#bbbbbb>This move can pass through opponents.</>
+   <#db00ac>Grants 1 Momentum when used.</>
+MAGIC BURST	-		_D^Z
+   <#bbbbbb>An invincible reversal attack that can extend combos.</>
+   <#ffd541>Costs 2 Imagination Levels to use during a combo.</>
+   <#f0710a>Costs 3 Imagination Levels to use outside of combos,
+   but using the move this way increases its damage.</>
+
+
+
+
+
+
+
+
+
+
+
+
+
+_D	_D	b	_D
+
+	<#ffef0f>EX MOVES</>
+_EX KILLING MAGIC: ZOLTRAAK		<#55ffff>(1 BAR)</> ^Y+^Z
+   <#f0710a>LEVEL 3+: This move can be cast in the air.
+   Additionally, you can input any direction to fly during this move.</>
+_EX DEVIL-CHAIN	-		<#55ffff>(1 BAR)</> _F^Y+^Z
+   <#f0710a>LEVEL 3+: Any non Devil-Chain Special Move can be
+   cancelled into this for <#db00ac>1 Momentum.</>
+_EX WINDBURST	-		<#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>This move is projectile immune.</>
+   <#f0710a>LEVEL 3+: Crumples the opponent, and Yuko gains full control on hit.</>
+_EX WINDBURST~ALTER	-		<#65b5ff>(AIR ONLY)</><#55ffff>(1 BAR)</> _B^Y+^Z
+   <#bbbbbb>Causes a sliding knockdown.</>
+   <#f0710a>LEVEL 3+: Causes a floor bounce, and Yuko gains full control on hit.</>
+_EX CLAW	-		<#55ffff>(1 BAR)</> _D^Y+^Z
+   <#bbbbbb>Both hits are jump cancellable on hit or block,
+   and the second swing fires a projectile that causes a wallbounce.
+   This move is an anti-air/anti-projectile during the first swing.</>
+   <#f0710a>LEVEL 3+: Both swings create projectiles.</>
+
+
+
+
+_D	_D		_D
+
+	<#55ffff>SUPER MOVES</>
+<#7f41b9>DEVIL-CLAW</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+_!<#7f41b9>DEVIL-CLAW~COMPLETE</>	-		<#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
+        <#f0710a>Can only be used at Imagination Level 3+.</>
+<#7f41b9>ONE-WINGED DEVIL</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^Y
+   <#818181>Can only be used at Imagination Level 0.</>
+   <#bbbbbb>An Install that causes Yuko to passively gain Imagination
+   for the rest of the round. Additionally, she can no longer enter
+   Imagination Levels 0 or 4.</>
+<#7f41b9>DEVIL-CHAIN~<#7f41b9>BLITZSCHRITT</>		<#55ffff>(2 BARS)</> _D_DB_B_-^A/^B/^C
+   <#f0710a>Can only be used at Imagination Level 3+.</>
+   <#ff0000>Does increased damage at Imagination Level 4.</>
+   <#818181>Using this move drains the Imagination Gauge to Level 0.</>
+
+
+
+
+
+
+
+
+
+_D	_D		_D
+
+	UNIVERSAL MOVES
+OVERHEAD	-		_F^B
+   <#bbbbbb>Puts you in the air and hits overhead.</>
+ANTI-AIR	-		_D^C
+   <#bbbbbb>This move has invulnerability to projectiles and airborne enemies.</>
+GRAB	-		ANY 2 NORMALS </>
+   <#bbbbbb>Cannot be blocked. Starts combos on counter-hit.
+   Enemies can break this by pressing ^A/^B/^C.</>
+FORCE BLOCK (WHILE BLOCKING)	-		<#55ffff>(1 BAR)</> _B^X
+   <#bbbbbb>Can push the enemy backwards while you block.</>
+NO PARRY	-		<#aaffff>(GROUND OR AIR)</><#55ffff>(1 BAR)</> _F^X
+   <#bbbbbb>A reversal option that makes you invincible if the enemy hits you.
+   Can be used again FOR FREE while the invincibility is active.</>
+RECORD SCRATCH (WHILE ATTACKING)		<#55ffff>(1 BAR/2 BARS ON BLOCK)</> ^X
+   <#bbbbbb>Can be used to instantly cancel most attacks.
+   Holding any direction during this will cause you to move that way.</>
+BURST (WHILE GETTING HIT)	-		^X+^A/^B/^C
+   <#bbbbbb>A large reversal that can be used while you're getting hit.</>
+PANIC BURST (WHILE GETTING HIT)	-		<#55ffff>(5 BARS)</> ^X+^A/^B/^C
+   <#bbbbbb>An extra burst that can be used in an emergency.</>
+   <#ff0000>Using this PERMANENTLY lowers your max meter
+   for the rest of the game.</>
+</>

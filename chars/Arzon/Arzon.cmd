@@ -59,7 +59,7 @@ var(1) = 1
 
 ;---------------------------------------------------------------------------
 ;Wind Palm
-[State -1, Triple Kung Fu Palm]
+[State -1, Wind Palm]
 type = ChangeState
 value = 3000
 triggerall = command = "236X"
@@ -73,7 +73,7 @@ trigger5 = stateno = 1033 && movecontact = 1 ;&& enemynear, movetype = H
 trigger6 = numexplod(1000) && (var(5) <= 2)
 ;---------------------------------------------------------------------------
 ;Typhoon Slap
-[State -1, Triple Kung Fu Palm]
+[State -1, Typhoon Slap]
 type = ChangeState
 value = 3500
 triggerall = command = "214X"
@@ -163,19 +163,17 @@ trigger1 = ctrl
 [State -1, j2S] 
 type = ChangeState
 value = 1450
-triggerall = command = "c"
+triggerall = command = "REMIX"
 triggerall = statetype = A
-triggerall = stateno!=1450
-triggerall = prevstateno!=1450
+triggerall = stateno!=1450 && prevstateno!=1450
 trigger1 = ctrl
 trigger2 = var(1) || stateno = [600, 640] && movecontact
 
 [State -1, 2EX] ; 2EX
 type = ChangeState
 value = 1010
-triggerall=stateno!=40
 triggerall = power>=1000 && !map(EX2SLimiter)
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "SPECIAL" && command = "REMIX" || command = "EX"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
 triggerall = statetype != A
@@ -186,9 +184,8 @@ trigger3 = numexplod(1000) && (var(5) <= 2)
 [State -1, 2S] ; lol whats this called
 type = ChangeState
 value = 1000
-triggerall=stateno!=40
-triggerall = command = "b"
-triggerall=command!="c"
+triggerall = command = "SPECIAL"
+triggerall = command != "REMIX"
 triggerall = command = "holddown"
 triggerall = command != "holdback"
 triggerall = statetype != A
@@ -198,10 +195,9 @@ trigger2 = var(1)
 [State -1, 4EX]
 type = ChangeState
 value = 1310
-triggerall=stateno!=40
 triggerall = stateno != 1310
 triggerall = power>=1000 && !map(EX4SLimiter) && !numhelper(1305)
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "SPECIAL" && command = "REMIX" || command = "EX"
 triggerall = command != "holddown"
 triggerall = command = "holdback"
 triggerall = statetype != A
@@ -211,11 +207,10 @@ trigger2 = ctrl
 [State -1, 4Sset] ; trap metal
 type = ChangeState
 value = 1300
-triggerall=stateno!=40
 triggerall = stateno != 1310
 triggerall = NumHelper(1303) <= 0
-triggerall=command!="c"
-triggerall = command = "b" && command="holdback"
+triggerall = command != "REMIX"
+triggerall = command = "SPECIAL" && command="holdback"
 triggerall = statetype != A
 trigger1 = var(1) || map(RemixToSpecial)
 trigger2 = ctrl
@@ -223,10 +218,9 @@ trigger2 = ctrl
 [State -1, 4S] 
 type = ChangeState
 value = 1301
-triggerall=stateno!=40
 triggerall = NumHelper(1303) >= 1
-triggerall=command!="c"
-triggerall = command = "b" && command="holdback"
+triggerall = command != "REMIX"
+triggerall = command = "SPECIAL" && command="holdback"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -235,8 +229,8 @@ trigger2 = var(1)
 type = ChangeState
 value = 1302
 triggerall = NumHelper(1303) >= 1
-triggerall=command!="c"
-triggerall = command = "b" && command="holdback"
+triggerall = command != "REMIX"
+triggerall = command = "SPECIAL" && command="holdback"
 triggerall = statetype = A
 triggerall = !numexplod(1301)
 trigger1 = ctrl
@@ -246,11 +240,10 @@ trigger2 = var(1)
 [State -1, 5EX] ; no longer gay; hate those people (I lied)
 type = ChangeState
 value = 1250
-triggerall=stateno!=40
 triggerall = numhelper(12050)=0
 triggerall = power>=1000  && !map(EX5SLimiter)
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "SPECIAL" && command = "REMIX" || command = "EX"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -258,11 +251,10 @@ trigger2 = var(1)
 [State -1, 5S]
 type = ChangeState
 value = 1200
-triggerall=stateno!=40
 triggerall = !numhelper(1204)
-triggerall=command!="c"
+triggerall = command != "REMIX"
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
-triggerall = command = "b"
+triggerall = command = "SPECIAL"
 triggerall = statetype != A
 triggerall = !numexplod(1200)
 trigger1 = ctrl
@@ -271,22 +263,20 @@ trigger2 = var(1)
 [State -1, 5SS] 
 type = ChangeState
 value = 1201
-triggerall=stateno!=40
 triggerall = numhelper(1204)
 triggerall = !numhelper(1205) || numexplod(1200)
-triggerall=command!="c"
+triggerall = command != "REMIX"
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
-triggerall = command = "b"
+triggerall = command = "SPECIAL"
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = var(1)
 
 [State -1, 6S] ; Painwheel!
 type = ChangeState
-value = 1100
-triggerall=stateno!=40 && stateno != 1100
+value = 1100 
 triggerall = NumHelper(1101) <= 0
-triggerall = command = "b" && command = "holdfwd"
+triggerall = command = "SPECIAL" && command = "holdfwd"
 triggerall = command != "holdback"
 triggerall = command != "holdup"
 triggerall = command != "c"
@@ -298,11 +288,10 @@ trigger2 = var(1)
 [State -1, EX 6S] ; Now THIS is a real painwheel!
 type = ChangeState
 value = 1110
-triggerall=stateno!=40
 triggerall = NumprojID(1112) <= 0
 triggerall = power>=1000  && !map(EX6SLimiter)
 triggerall = fvar(23) = 0
-triggerall = command = "b" && command = "c"  || command = "EX"
+triggerall = command = "SPECIAL" && command = "REMIX"  || command = "EX"
 triggerall = command = "holdfwd"  && command != "holdback" && command != "holddown"
 triggerall = statetype != A
 trigger1 = ctrl
@@ -314,7 +303,7 @@ value = 1400
 triggerall = NumHelper(1101) <= 0
 triggerall = command != "holdback" && command = "holdfwd" 
 triggerall=command != "holddown"
-triggerall = command = "b" && command != "c"
+triggerall = command = "SPECIAL" && command != "c"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -325,7 +314,7 @@ value = 1410
 triggerall = NumprojID(1112) <= 0
 triggerall = power>=1000  && !map(EXj6SLimiter)
 triggerall = command != "holdback" && command = "holdfwd" && command != "holddown"
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "SPECIAL" && command = "REMIX" || command = "EX"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
@@ -337,47 +326,45 @@ value = 1430
 triggerall = !map(Airball) && stateno != 1430
 triggerall = command != "holdback" && command != "holdfwd" 
 triggerall = command != "holddown"
-triggerall = command = "b" && command != "c"
+triggerall = command = "SPECIAL" && command != "c"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
 
-[State -1, j5EX] ; no longer gay; hate those people (I lied)
+[State -1, j5EX]
 type = ChangeState
 value = 1440
 triggerall = numhelper(12050)=0
 triggerall = power>=1000  && !map(EXj5SLimiter) && stateno != 1430
 triggerall = command != "holdback" && command != "holdfwd" && command != "holddown"
-triggerall = command = "b" && command = "c" || command = "EX"
+triggerall = command = "SPECIAL" && command = "REMIX" || command = "EX"
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
 
 [State -1, 4R: Wind Push]
 type = ChangeState
-value = 1540
-triggerall=stateno!=40 && stateno != 1540
-triggerall = stateno != 1310
+value = 1540 
+triggerall = stateno != 1310 && stateno != 1540
 triggerall = statetype != A
 triggerall = command != "holddown"
 triggerall = command = "holdback"
 triggerall = command != "holdfwd"
 triggerall = command != "b"
 triggerall = command != "z"
-triggerall = command = "c"
+triggerall = command = "REMIX"
 trigger1 = var(1)
 trigger2 = ctrl
 trigger3 = map(RemixCancel)
 
 [State -1, 6R: Wind Push]
 type = ChangeState
-value = 1560
-triggerall=stateno!=40 && stateno != 1560
-triggerall = statetype != A
+value = 1560 
+triggerall = statetype != A && stateno != 1560
 triggerall = command != "holddown"
 triggerall = command != "holdback"
 triggerall = command = "holdfwd"
-triggerall = command = "c"
+triggerall = command = "REMIX"
 triggerall = command != "b"
 triggerall = command != "z"
 trigger1 = var(1)
@@ -386,13 +373,12 @@ trigger3 = map(RemixCancel)
 
 [State -1, 5R: Wind Push]
 type = ChangeState
-value = 1520
-triggerall=stateno!=40 && stateno != 1520
-triggerall = statetype != A
+value = 1520 
+triggerall = statetype != A && stateno != 1520
 triggerall = command = "holddown"
 triggerall = command != "holdback"
 triggerall = command != "holdfwd"
-triggerall = command = "c"
+triggerall = command = "REMIX"
 triggerall = command != "b"
 triggerall = command != "z"
 trigger1 = var(1)
@@ -403,12 +389,11 @@ trigger3 = map(RemixCancel)
 [State -1, 2R: Wind Push]
 type = ChangeState
 value = 1550
-triggerall=stateno!=40 && stateno != 1550
-triggerall = statetype != A
+triggerall = statetype != A && stateno != 1550
 triggerall = command != "holddown"
 triggerall = command != "holdback"
 triggerall = command != "holdfwd"
-triggerall = command = "c"
+triggerall = command = "REMIX"
 triggerall = command != "b"
 triggerall = command != "z"
 trigger1 = var(1)
@@ -444,7 +429,6 @@ triggerall = stateno!=105
 [State -1, Standing Light]
 type = ChangeState
 value = 200
-triggerall=stateno!=40
 triggerall = command = "x"
 triggerall = command != "holddown" && var(59) !=4
 triggerall = statetype != A
@@ -455,7 +439,6 @@ trigger2 = stateno = 400 && MoveContact
 [State -1, Standing Medium]
 type = ChangeState
 value =  210
-triggerall=stateno!=40
 triggerall = command = "y"
 triggerall = command != "holddown"
 triggerall = statetype != A
@@ -466,7 +449,6 @@ trigger2 = (stateno = 200 || stateno = 400) && movecontact
 [State -1, Standing Heavy]
 type = ChangeState
 value =  220
-triggerall=stateno!=40
 triggerall = statetype != A
 triggerall = command = "z"
 triggerall = command != "holddown"
@@ -477,7 +459,6 @@ trigger2 = (stateno = [200,210] || stateno = [410,420]) && movecontact
 [State -1, Standing Heavy]
 type = ChangeState
 value = 230
-triggerall=stateno!=40
 trigger1 = statetype != A
 triggerall = command = "z"
 triggerall = command = "holddown"
@@ -492,7 +473,6 @@ trigger2 = (stateno = [200,220] || stateno = [410,420]) && movecontact
 [State -1, Crouching Light]
 type = ChangeState
 value = 400
-triggerall=stateno!=40
 triggerall = command = "buffer_x"
 triggerall = command = "holddown"
 triggerall = statetype != A
@@ -503,7 +483,6 @@ trigger2 = stateno = 200 && movecontact ;5L
 [State -1, Crouching Medium]
 type = ChangeState
 value = 410
-triggerall=stateno!=40
 triggerall = command = "y"
 triggerall = command = "holddown"
 triggerall = statetype != A
@@ -517,7 +496,6 @@ trigger3 = stateno = 101 ;runstop
 [State -1, Crouching Heavy]
 type = ChangeState
 value = 420
-triggerall=stateno!=40
 triggerall = command = "z"
 triggerall = command = "holddown"
 triggerall = command != "holdfwd"

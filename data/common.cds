@@ -1,6 +1,6 @@
 [Defaults]
 command.time = 15
-command.buffer.time = 3
+command.buffer.time = 5
 
 ;-| Single Button |---------------------------------------------------------
 [Command]
@@ -34,7 +34,6 @@ name = "z"
 command = z
 time = 1
 buffer.time = 3
-
 [Command]
 name = "w"
 command = w
@@ -55,6 +54,43 @@ buffer.time = 30
 name = "m"
 command = m
 time = 1
+
+;-| Arcfalse - New Inputs |---------------------------------------------------------
+[Command]
+name = "L"
+command = x
+time = 1
+buffer.time = 3
+[Command]
+name = "M"
+command = y
+time = 1
+buffer.time = 3
+[Command]
+name = "H"
+command = z
+time = 1
+buffer.time = 3
+[Command]
+name = "F"
+command = /a
+time = 1
+buffer.time = 0
+[Command]
+name = "F"
+command = a
+time = 1
+buffer.time = 1
+[Command]
+name = "SPECIAL"
+command = b
+time = 1
+[Command]
+name = "REMIX"
+command = c
+time = 1
+
+
 
 [Command]
 name = "SP"
@@ -464,13 +500,13 @@ buffertime = 5
 
 [Command]
 name = "a66"
-command = ~F, F
-time = 5
+command = F, N, F
+time = 10
 buffertime = 2
 [Command]
 name = "a66"
-command = UF, F
-time = 5
+command = UF, N,  F
+time = 10
 buffertime = 2
 
 
@@ -485,6 +521,28 @@ name = "a44"
 command = B, B
 time = 10
 buffertime = 4
+
+[Command]
+name = "aFF" 
+command = ~F, F
+time = 10
+buffer.time = 6
+
+[Command]
+name = "FF"
+command = F, F
+time = 10
+
+[Command]
+name = "aBB" 
+command = ~B, B
+time = 10
+buffer.time = 6
+
+[Command]
+name = "BB"
+command = B, B
+time = 10
 
 [Command]
 name = "SUPERJUMP"
@@ -663,28 +721,6 @@ time = 1
 [Command]
 name = "DD"
 command = D,D
-
-[Command]
-name = "aFF"     ;Required (do not remove)
-command = ~F, F
-time = 10
-buffer.time = 6
-
-[Command]
-name = "FF"     ;Required (do not remove)
-command = F, F
-time = 10
-
-[Command]
-name = "aBB"     ;Required (do not remove)
-command = ~B, B
-time = 10
-buffer.time = 6
-
-[Command]
-name = "BB"     ;Required (do not remove)
-command = B, B
-time = 10
 
 [Command]
 name = "QCF"
@@ -1013,76 +1049,27 @@ time = 10
 ;236 Motion ========================[]
 [Command]
 name = "236x"
-command = ~D, F, x
-time = 15
-buffer.time = 4
+command = ~D, F, x | y | z
+time = 10
 [Command]
-name = "236x"   ;Same name as above
-command = ~D, DF, F, y
-time = 15
-buffer.time = 4
-[Command]
-name = "236x"   ;Same name as above
-command = ~D, DF, F, z
-time = 15
-buffer.time = 4
-[Command]
-name = "236s"   ;Same name as above
-command = ~D, DF, F, s
-time = 15
-buffer.time = 4
-[Command] ;Duplicates for Case Sensitivity ==========
 name = "236X"
-command = ~D, DF, F, x
-time = 15
-buffer.time = 4
-[Command]
-name = "236X"   ;Same name as above
-command = ~D, DF, F, y
-time = 15
-buffer.time = 4
-[Command]
-name = "236X"   ;Same name as above
-command = ~D, DF, F, z
-time = 15
-buffer.time = 4
-name = "236S"   ;Same name as above
-command = ~D, DF, F, s
-time = 15
-buffer.time = 4
-
-;214 Motion ========================[]
+command = ~D, F, x | y | z
+time = 10
 [Command]
 name = "214x"
-command = ~D, DB, B, x;~F, D, DF, F, D, DF, x
+command = ~D, B, x | y | z
 time = 10
 [Command]
-name = "214x"   ;Same name as above
-command = ~D, DB, B, y;~F, D, DF, F, D, DF, y
-time = 10
-[Command]
-name = "214x"   ;Same name as above
-command = ~D, DB, B, z;~F, D, DF, F, D, DF, y
-time = 10
-[Command]
-name = "214s"   ;Same name as above
-command = ~D, DB, B, b;~F, D, DF, F, D, DF, y
-time = 10
-[Command] ;Duplicates for Case Sensitivity ==========
 name = "214X"
-command = ~D, DB, B, x;~F, D, DF, F, D, DF, x
+command = ~D, B, x | y | z
 time = 10
 [Command]
-name = "214X"   ;Same name as above
-command = ~D, DB, B, y;~F, D, DF, F, D, DF, y
+name = "236S"
+command = ~D, F, b
 time = 10
 [Command]
-name = "214X"   ;Same name as above
-command = ~D, DB, B, z;~F, D, DF, F, D, DF, y
-time = 10
-[Command]
-name = "214S"   ;Same name as above
-command = ~D, DB, B, b;~F, D, DF, F, D, DF, y
+name = "214S"
+command = ~D, B, b
 time = 10
 
 ;623 Motion
