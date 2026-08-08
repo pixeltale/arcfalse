@@ -386,6 +386,84 @@ value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------
+; Air Dash Fwd
+[Statedef 60]
+type    = A
+physics = A
+anim = 60
+sprpriority = 1
+ctrl = 0
+velset = 0,vel y *.4
+
+[State 100, 1]
+type = VelSet
+trigger1 = time = 0
+x = 4.25
+
+[State - Air Option Limiter - Airdash]
+type = mapadd
+trigger1 = time = 0
+map = "ADash"
+value = -1
+[State - Air Option Limiter - Double Jump]
+type = mapset
+trigger1 = time = 0
+map = "DJCL"
+value = -1
+
+[State - Airdash Momentum Preserve]
+type = mapset
+trigger1 = time = 0
+map = "ADM" ;AirDash Momentum Preserve
+value = 12
+
+[State Cancel]
+type = mapset
+triggerall = prevstateno = [1300, 1301]
+trigger1 = time = 0 && enemy, movetype = H
+map = "DCBurn2S"
+value = 1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = time
+value = 1
+;---------------------------------------------------------------------------
+; Air Dash Back
+[Statedef 61]
+type    = A
+physics = A
+anim = 61
+sprpriority = 1
+ctrl = 0
+velset = 0,vel y *.1
+
+[State 100, 1]
+type = VelSet
+trigger1 = time = 0
+x = -4.25
+[State 100, 1]
+type = VelSet
+trigger1 = time < 12
+y = 0
+
+[State Limiter]
+type = mapadd
+trigger1 = time = 0
+map = "ADash"
+value = -1
+[State Category]
+type = mapset
+trigger1 = time = 0
+map = "DJCL"
+value = -1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = time
+value = 1
+
+;---------------------------------------------------------------------------
 ; Guard Cancel Dash
 [Statedef 99]
 type    = S

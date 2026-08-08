@@ -447,6 +447,40 @@ velset = vel x,0
 anim = 230
 sprpriority = 4
 
+[State 0, ChangeAnim]
+type 	= ChangeAnim
+triggerall = time < 35
+trigger1 	= command = "focusATK_CHARGE" && animelemno(0) = 4
+value 	= 230
+elem 	= 4
+ignorehitpause = 1
+persistent = 1
+
+[State -2, CHARGED]
+type 		= MapSet
+trigger1		= anim = 230
+trigger1 		= animelemno(0) < 4
+map 			= "CHARGED"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 1
+[State -2, CHARGED]
+type 		= MapSet
+trigger1 		= anim = 230 && animelemno(0) = 4 && time > 30 
+map 			= "CHARGED"
+value 		= 1
+ignorehitpause 	= 0
+persistent 		= 0
+
+[State 0, ChangeAnim]
+type 	= ChangeAnim
+triggerall = anim != 231 
+trigger1 	= map(Charged)
+value 	= 231
+elem 	= 5
+ignorehitpause = 1
+persistent = 1
+
 [State 0, VelSet]
 type = VelSet
 triggerall = !map(Charged)
@@ -622,21 +656,6 @@ p2stateno = map(CornerSplat)
 p2getp1state = 0
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1))
 
-[State -2, CHARGED]
-type 		= MapSet
-trigger1		= anim = 230
-trigger1 		= animelemno(0) < 4
-map 			= "CHARGED"
-value 		= 0
-ignorehitpause 	= 1
-persistent 		= 1
-[State -2, CHARGED]
-type 		= MapSet
-trigger1 		= anim = 230 && animelemno(0) = 4 && time > 30 
-map 			= "CHARGED"
-value 		= 1
-ignorehitpause 	= 0
-persistent 		= 0
 [State - Guard Crush] 
 type = mapset
 trigger1 = moveguarded && map(CHARGED)
@@ -653,23 +672,7 @@ value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
 
-[State 0, ChangeAnim]
-type 	= ChangeAnim
-triggerall = time < 35
-trigger1 	= command = "focusATK_CHARGE" && animelemno(0) = 4
-value 	= 230
-elem 	= 4
-ignorehitpause = 1
-persistent = 1
 
-[State 0, ChangeAnim]
-type 	= ChangeAnim
-triggerall = anim != 231 
-trigger1 	= map(Charged)
-value 	= 231
-elem 	= 5
-ignorehitpause = 1
-persistent = 1
 
 [State 0, ChangeState]
 type = ChangeState

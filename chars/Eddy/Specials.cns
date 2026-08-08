@@ -1940,7 +1940,6 @@ ignorehitpause =0
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-triggerall 		= enemy, map(ArmorActive) = 0
 trigger1 		= !MAP(counterHit) && movecontact = 0 && movereversed = 0
 attr 		= S, SA
 damage 		= 90*MAP(P4), 10
@@ -1966,11 +1965,11 @@ guard.slidetime 	= 12
 guard.hittime 	= 12
 guard.ctrltime 	= 12
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, .5)) 
+missonoverride = 0
 
 [State 630, 2]
 type = HitDef 
 p2facing = 1 
-triggerall 		= enemy, map(ArmorActive) = 0
 trigger1 = MAP(counterhit) = 1 && movecontact = 0 && movereversed = 0
 attr = S, SA
 damage = 120*MAP(P4), 10
@@ -1986,8 +1985,8 @@ ground.type = Low
 animtype = medium
 ground.slidetime = 14
 ground.hittime  = 999
-ground.velocity = -12,-7
-air.velocity = -12,-7
+ground.velocity = -18,-7
+air.velocity = -18,-7
 yaccel = .14
 air.hittime = 999
 envshake.time = 7
@@ -1999,37 +1998,7 @@ guard.slidetime = 12
 guard.hittime = 21
 guard.ctrltime = 20
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
-
-[State 630, 2]
-type = HitDef 
-p2facing = 1 
-triggerall = enemy, map(ArmorActive)
-trigger1 = movecontact = 0 && movereversed = 0
-attr = S, SA
-damage = 120*MAP(P4), 10
-hitflag = MAFD
-guardflag = MA
-priority = 3
-pausetime = 22,22
-sparkno = 2
-sparkxy = -25,-44
-hitsound   = 5,1
-guardsound = 6,1
-ground.type = Low
-animtype = medium
-ground.slidetime = 14
-ground.hittime  = 999
-ground.velocity = -12,-7
-air.velocity = -12,-7
-yaccel = .14
-air.hittime = 999
-envshake.time = 7
-fall = 1
-fall.yvelocity = 0
-guard.slidetime = 12
-guard.hittime = 21
-guard.ctrltime = 20
-getpower = (100)*(cond(var(var(2)) = 1, 1, .5)) 
+missonoverride = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -2275,8 +2244,7 @@ ignorehitpause =0
 [State 630, 2]
 type = HitDef 
 p2facing 	= 1 
-triggerall	= enemy, map(ArmorActive) = 0
-trigger1 	= time = 0
+trigger1 	= !MoveContact && !movereversed
 attr 	= S, SA
 damage 	= 120*MAP(P4)+ 50 * map(CounterHit), 5
 hitflag 	= MAFD
@@ -2294,8 +2262,8 @@ animtype 		= medium
 air.animtype 	= back
 ground.slidetime 	= 14
 ground.hittime  	= 80
-ground.velocity 	= -11,-7
-air.velocity 	= -11,-7 * MAP(untechMOD)
+ground.velocity 	= -18,-7
+air.velocity 	= -18,-7 * MAP(untechMOD)
 air.hittime 	= 80
 down.hittime	= 80
 envshake.time 	= 7
@@ -2307,41 +2275,7 @@ guard.velocity  = -3
 ground.cornerpush.veloff = -20
 p2stateno 	= 5220
 p2getp1state 	= 0
-
-[State 630, 2]
-type = HitDef 
-p2facing 	= 1 
-triggerall	= enemy, map(ArmorActive)
-trigger1 	= !movecontact && !movereversed
-hitonce 	= 1
-attr 	= S, SA
-damage 	= 120*MAP(P4)+50 * map(CounterHit), 5
-hitflag 	= MAFD
-guardflag = MA
-priority 	= 3
-pausetime 	= 24,28
-guard.pausetime 	= 20,20
-sparkno 		= 3
-sparkxy 		= -5,-45
-hitsound   	= 5,4
-getpower 		= 0
-guardsound 	= 6,2
-ground.type 	= Low
-animtype 		= medium
-air.animtype 	= back
-ground.slidetime 	= 14
-ground.hittime  	= 80
-ground.velocity 	= -11,-7 * MAP(untechMOD)
-air.velocity 	= -11,-7 * MAP(untechMOD)
-air.hittime 	= 80
-down.hittime	= 80
-envshake.time 	= 7
-fall 		= 1
-air.fall		= 1
-fall.yvelocity	= 0
-guard.ctrltime 	= 8
-guard.velocity  = -3
-ground.cornerpush.veloff = -20
+missonoverride = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
