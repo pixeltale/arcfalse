@@ -1487,8 +1487,8 @@ value = 0
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "ArmorElement = %f"
-params = map(AIRGUARD.LOCKOUT)
+text = "cornersplat = %.0f"
+params = camerapos x
 
 [State 0, VarAdd]
 type = VarAdd

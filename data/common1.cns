@@ -3839,7 +3839,6 @@ pos = 0, 0
 postype = p1
 ownpal = 1
 sprpriority = 3
-postype = P1
 
 [State 5111, 1] ;For hit up/up-diag type (from state 5081)
 type = ChangeAnim
@@ -4556,7 +4555,29 @@ poweradd = (-2000) + 1000 * (ComboCount > 0)
 ctrl = 0
 velset = vel x,vel y
 sprpriority = 2
-facep2 = 0
+facep2 = 1
+
+[State 4001 VelSet]
+type = velset
+trigger1 = Time = 0 && command = "holdfwd"
+x = 6
+[State 4001 VelSet]
+type = velset
+trigger1 = Time = 0 && command = "holdback"
+x = -6
+[State 4001 VelSet]
+type = velset
+trigger1 = Time = 0 && command = "holddown"
+y = 6
+[State 4001 VelSet]
+type = velset
+trigger1 = Time = 0 && command = "holdup"
+y = -6
+[State 4001 VelSet]
+type = velset
+trigger1 = Time = 0 && (command = "holdfwd" || command = "holdback") && command != "holddown" && command != "holdup"
+y = 0
+
 
 [State 0, AfterImage]
 type = AfterImage
@@ -4573,6 +4594,20 @@ framegap = 2
 persistent = 1
 ignorehitpause = 1
 
+[State 0. MapSet]
+type 		= AssertSpecial
+trigger1 	= 1
+flag = noairjump
+persistent = 1
+ignorehitpause = 1
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= time = 0
+map 		= "JC"
+value 		= 0
+ignorehitpause 	= 1
+persistent 		= 1
 [State 0. MapSet]
 type 		= MapSet
 triggerall  = enemy, map(GC) = 0
@@ -8007,6 +8042,7 @@ triggerall = stateno != [900,915]
 triggerall = command = "F"
 triggerall = statetype = A
 trigger1 = movecontact
+ignorehitpause = 1
 
 [State -1, Grab] ;Throw
 type = ChangeState
@@ -8034,7 +8070,7 @@ trigger1 = (stateno = [200,230] && time < 4) && !movecontact
 [State -1, BLUELINE GUARD]
 type = ChangeState
 value = 135
-triggerall = power > 0 && statetype != A
+triggerall = power > 0 && statetype != A && prevstateno != 4000
 triggerall = command = "BLUELINE GUARD" || map(BGuard_CustomBuffer)
 trigger1 = ctrl || stateno = 100 && !map(noNormals) || stateno = 140
 
@@ -8914,7 +8950,7 @@ persistent	= 0
 type 		= MapSet
 trigger1 	= 1
 map 		= "cornerSplat"
-value 		= cond((abs(camerapos x) > 260 && frontedgedist < 250) && (stagefrontedgedist < stagebackedgedist), 5225, 5220)
+value 		= cond((abs(camerapos x) > 100 && frontedgedist < 250) && (stagefrontedgedist < stagebackedgedist), 5225, 5220)
 ignorehitpause 	= 0
 persistent	= 0
 
@@ -9304,45 +9340,6 @@ trigger1 = stateno = [100,105]
 value = 1
 
 
-[State 0, VelAdd]
-type = VelSet
-triggerall = stateno = 4001
-trigger1 = statetype = A
-trigger1 = map(SlowdownTimeC) = [29, 30]
-trigger1 = command != "holdfwd" && command != "holdback" && command != "holdup" && command != "holddown"
-x = vel x
-y = vel y
-[State 0, VelAdd]
-type = VelSet
-triggerall = stateno = 4001
-trigger1 = statetype = A
-trigger1 = map(SlowdownTimeC) = [29, 30]
-trigger1 = command = "holdfwd"
-x = 8
-y = 0
-[State 0, VelAdd]
-type = VelSet
-triggerall = stateno = 4001
-trigger1 = statetype = A
-trigger1 = map(SlowdownTimeC) = [29, 30]
-trigger1 = command = "holdback"
-x = -4
-y = 0
-[State 0, VelAdd]
-type = VelSet
-trigger1 = statetype = A
-trigger1 = map(SlowdownTimeC) = [29, 30]
-trigger1 = command = "holdup"
-x = 0
-y = -8
-[State 0, VelAdd]
-type = VelSet
-triggerall = stateno = 4001
-trigger1 = statetype = A
-trigger1 = map(SlowdownTimeC) = [29, 30]
-trigger1 = command = "holddown"
-x = 0
-y = 2
 [State 0, MAPSet]
 type = MapSet
 trigger1 = map(SlowdownTimeC) = [29, 30]

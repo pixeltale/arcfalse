@@ -3003,9 +3003,6 @@ getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 [State 210, 2]
 type = HitDef 
 p2facing = 1
-triggerall= enemy, map(ArmorActive) = 0
-triggerall=var(25)>0
-triggerall = enemy, movetype!=A 
 trigger1 = !movecontact && !movereversed
 attr = S, SA
 animtype  = Light
@@ -3021,97 +3018,23 @@ ground.type = low
 ground.slidetime = 12
 ground.hittime  = 999
 air.hittime = 999
-ground.velocity = -15.5 ,-6.5
-air.velocity = -15.5,-6
-fall = 1
-fall.yvelocity = 0
-envshake.time = 16
-envshake.freq = 50
-fall.envshake.time = 0
-airguard.velocity = -10,-3
-guard.hittime = 34
-guard.pausetime= 22,22
-guard.velocity = -7
-guard.dist = 20
-guard.slidetime = 30;
-ground.cornerpush.veloff = -12
-p2stateno 	= 5220
-p2getp1state 	= 0
-getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
-
-
-[State 210, 2]
-type = HitDef 
-p2facing = 1
-triggerall= enemy, map(ArmorActive) = 0
-triggerall = enemy, movetype=A 
-trigger1 = !movecontact && !movereversed
-attr = S, SA
-animtype  = Light
-damage = 200*MAP(P4),20
-hitflag = MAFDP
-guardflag = MA
-pausetime = 22,22
-sparkno = 3
-sparkxy = -10,-55
-hitsound   = S8,2
-guardsound = 6,2
-ground.type = low
-ground.slidetime = 12
-ground.hittime  = 999
-air.hittime = 999
-ground.velocity = -15.5 ,-7
-air.velocity = -15.5,-5
+ground.velocity = -20 ,-7
+air.velocity = -20,-6
 fall = 1
 fall.yvelocity = 0
 envshake.time = 16
 envshake.freq =50
+fall.envshake.time = 0
+airguard.velocity = -10,-3
+guard.hittime = 34
+guard.pausetime= 22,22
+guard.velocity = -7
+guard.dist = 20
+guard.slidetime = 30;
+ground.cornerpush.veloff = -8
 p2stateno 	= 5220
 p2getp1state 	= 0
-fall.envshake.time = 0
-airguard.velocity = -10,-3
-guard.hittime = 34
-guard.pausetime= 22,22
-guard.velocity = -7
-guard.dist = 20
-guard.slidetime = 30;
-ground.cornerpush.veloff = -12
-getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
-
-[State 210, 2]
-type = HitDef 
-p2facing = 1
-triggerall= enemy, map(ArmorActive)
-trigger1 = !movecontact && !movereversed
-attr = S, SA
-attr = S, SA
-animtype  = Light
-damage = 200*MAP(P4),20
-hitflag = MAFDP
-guardflag = MA
-pausetime = 22,22
-sparkno = 3
-sparkxy = -10,-55
-hitsound   = S8,2
-guardsound = 6,2
-ground.type = low
-ground.slidetime = 12
-ground.hittime  = 999
-air.hittime = 999
-ground.velocity = -15.5 ,-6.5
-air.velocity = -15.5,-5
-fall = 1
-fall.yvelocity = 0
-envshake.time = 16
-envshake.freq = 50
-fall.envshake.time = 0
-airguard.velocity = -10,-3
-guard.hittime = 34
-guard.pausetime= 22,22
-guard.velocity = -7
-guard.dist = 20
-guard.slidetime = 30;
-ground.cornerpush.veloff = -12
+missonoverride = 0 
 getpower = (100)*(cond(var(var(2)) = 1, 1, .5))
 
 [State -2, Wallbounce Velocity Set]
