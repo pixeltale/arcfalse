@@ -1949,7 +1949,7 @@ triggerall = teamside = 1
 ;TriggerAll=Root,NumExplod(991901)=0 && Enemy,NumExplod(991901)=0
 trigger1 = !NumExplod(7002)
 anim = 9052
-pos = 31,187;13+(root,var(45)),250-(root,var(46))
+pos = 31,135;13+(root,var(45)),250-(root,var(46))
 ;pos = 120,39;13+(root,var(45)),250-(root,var(46))
 postype = left
 removetime = -1

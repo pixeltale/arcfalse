@@ -173,18 +173,28 @@ type = VarSet
 trigger1 = command = "holdback"
 sysvar(1) = -1
 
-[State 40, 4]
+[State 40, 4];FWD jump
 type = VelSet
-trigger1 = AnimTime = 0
-x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+triggerall = sysvar(1) = 1
+trigger1 = animtime = 0
+x = const(velocity.jump.fwd.x) + (vel x * 0.65)
 y = const(velocity.jump.y)
 
-[State 40, 5]
+[State 40, 4] ;Neutral Jump
 type = VelSet
-trigger1 = AnimTime = 0
-trigger1 = prevstateno = 100 ;RUN_FWD
-trigger1 = sysvar(1) = 1
-x = const(velocity.runjump.fwd.x)
+triggerall = sysvar(1) = 0
+trigger1 = animtime = 0
+x = const(velocity.jump.neu.x) + (vel x * 0.05)
+y = const(velocity.jump.y)
+
+[State 40, 4] ;Backward Jump
+type = VelSet
+triggerall = sysvar(1) = -1
+trigger1 = animtime = 0
+x = const(velocity.jump.back.x)
+y = const(velocity.jump.y)
+
+
 
 [State 40, 6]
 type = ChangeState
@@ -4674,7 +4684,7 @@ time = cond((enemynear, stateno = [120,160]), 0, 16)
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time = 2
+trigger1 = time >= 2
 value = 1
 
 [State 0, ChangeState]
@@ -8220,12 +8230,382 @@ ignorehitpause = 1
 ;------------------------------------------------------------------------------
 [Statedef -2]
 
-; [State 810, Push Priority For Hurt Player]
-; type = PlayerPush
-; trigger1 = movetype = H && stateno != [120,155]
-; trigger1 = backedgebodydist = 0
-; value = 1
-; priority = 5
+;===============================================================================
+; Yuko Stuff
+;===============================================================================
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = roundstate<2
+map = "Imagination"
+value = 400
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = roundstate<2
+map = "Install"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = map(Imagination)>1000
+map = "Imagination"
+value = 1000
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = map(Install)
+trigger1 = map(Imagination)>800
+map = "Imagination"
+value = 800
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = map(Imagination)<0
+map = "Imagination"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = map(Install)
+trigger1 = map(Imagination)<200
+map = "Imagination"
+value = 200
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"&&stateno!=[3500,3599]
+triggerall = map(Install)=0
+trigger1 = map(Boredom)>=180&&map(Imagination)>200
+trigger1 = time%2=1
+trigger1 = enemy,stateno!=[900,902]&&enemy,stateno!=69002
+map = "Imagination"
+value = -1
+ignorehitpause = 0
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"&&stateno!=[3500,3599]
+trigger1 = enemy,combocount&&map(Imagination)>200
+trigger1 = time%2=1
+trigger1 = enemy,stateno!=[900,902]&&enemy,stateno!=69002
+triggerall = map(IDtimer)>1
+map = "Imagination"
+value = -1
+ignorehitpause = 0
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"&&stateno!=[3500,3599]
+triggerall = map(Install)=0
+trigger1 = map(Boredom)>=180&&map(Imagination)<=200&&map(Imagination)>0
+trigger1 = time%4=1
+trigger1 = enemy,stateno!=[900,902]&&enemy,stateno!=69002
+map = "Imagination"
+value = -1
+ignorehitpause = 0
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"&&stateno!=[3500,3599]
+trigger1 = enemy,combocount&&map(Imagination)<=200&&map(Imagination)>0
+trigger1 = time%4=1
+trigger1 = enemy,stateno!=[900,902]&&enemy,stateno!=69002
+map = "Imagination"
+value = -1
+ignorehitpause = 0
+persistent = 1
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = enemy,combocount
+triggerall = map(IDtimer)=0
+map = "IDtimer"
+value = 31
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+trigger1= map(IDtimer)>1
+map = "IDtimer"
+value = -1
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = enemy,combocount=0
+trigger2 = movetype!=H
+map = "IDtimer"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+triggerall = map(Install)&&map(Imagination)<600
+triggerall = time%3=1
+trigger1 = enemy,combocount=0
+trigger2 = enemy,combocount
+trigger2 = enemy,stateno=[900,902]||enemy,stateno=69002
+map = "Imagination"
+value = 1
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+triggerall = map(Install)&&map(Imagination)>=600
+triggerall = time%6=1
+trigger1 = enemy,combocount=0
+trigger2 = enemy,combocount
+trigger2 = enemy,stateno=[900,902]||enemy,stateno=69002
+map = "Imagination"
+value = 1
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+triggerall = map(IGtimer)>1&&map(Imagination)<800
+triggerall = time%2=1
+triggerall = stateno!=1900&&stateno!=[3500,3599]
+trigger1 = combocount
+map = "Imagination"
+value = 1
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+trigger1= map(IGtimer)>1&&map(Imagination)>=800
+triggerall = time%4=1
+triggerall = combocount
+triggerall = stateno!=1900&&stateno!=[3500,3599]
+map = "Imagination"
+value = 1
+ignorehitpause = 1
+persistent = 1
+
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = combocount
+triggerall = map(IGtimer)=0
+map = "IGtimer"
+value = 31
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+trigger1= map(IGtimer)>1
+map = "IGtimer"
+value = -1
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = combocount=0
+map = "IGtimer"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+triggerall = map(IMHL)=1
+trigger1 = stateno!=200&&stateno!=400&&stateno!=600
+trigger1 = stateno!=210&&stateno!=410&&stateno!=610
+trigger1 = stateno!=1900&&stateno!=[3000,3599]
+map = "Imagination"
+value = 25+cond(map(Imagination)<400,10,cond(map(Imagination)>=800,-15,0))-cond(combocount,0,10)
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+triggerall = map(IMHL)=1
+trigger1 = stateno=200||stateno=400||stateno=600
+map = "Imagination"
+value = 5+cond(map(Imagination)<400,10,cond(map(Imagination)>=800,-5,0))-cond(combocount,0,5)
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+triggerall = map(IMHL)=1
+trigger1 = stateno=210||stateno=410||stateno=610
+map = "Imagination"
+value = 15+cond(map(Imagination)<400,10,cond(map(Imagination)>=800,-10,0))-cond(combocount,0,5)
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+triggerall = map(IMHL)=1
+trigger1 = stateno=3000||stateno=3050
+map = "Imagination"
+value = 100+cond(map(Imagination)<400,100,cond(map(Imagination)>=800,-20,0))-cond(combocount,0,70)
+ignorehitpause = 1
+persistent = 1
+
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = !movecontact
+map = "IMHL"
+value = 0
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+trigger1 = movecontact&&map(IMHL)<2
+map = "IMHL"
+value = 1
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = movecontact
+trigger2 = enemy,movetype=H
+trigger3 = combocount
+trigger4 = stateno=0&&ctrl=0
+trigger5 = stateno=[180,199]
+trigger6 = enemy,stateno=[900,902]||enemy,stateno=69002
+map = "Boredom"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapAdd
+triggerall=name="Yuko"
+trigger1 = map(Boredom)<180
+map = "Boredom"
+value = 1
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = movetype=H
+trigger1 = enemy,stateno!=[900,902]&&enemy,stateno!=69002&&enemy,prevstateno!=[900,902]&&enemy,prevstateno!=69002
+map = "Boredom"
+value = 180
+ignorehitpause = 1
+persistent = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+triggerall = name="Yuko"
+triggerall=map(afterparry)=0
+triggerall=map(counterdamage)=0
+trigger1 = map(Imagination)>200
+value = 1
+ignorehitpause = 1
+persistent = 1
+[State 0, AttackMulSet]
+type = AttackMulSet
+triggerall = name="Yuko"
+triggerall=map(afterparry)=0
+triggerall=map(counterdamage)
+trigger1 = map(Imagination)>200
+value = 1.2
+ignorehitpause = 1
+persistent = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+triggerall = name="Yuko"
+trigger1=map(afterparry)=0
+trigger1=map(counterdamage)=0
+trigger1 = map(Imagination)<=200&&stateno!=[3500,3599]&&stateno!=1900
+value = .7
+ignorehitpause = 1
+persistent = 1
+[State 0, AttackMulSet]
+type = AttackMulSet
+triggerall = name="Yuko"
+trigger1=map(afterparry)=0
+trigger1=map(counterdamage)
+trigger1 = map(Imagination)<=200&&stateno!=[3500,3599]&&stateno!=1900
+value = .9
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapSet
+triggerall = GameMode = "Training"
+triggerall=name="Yuko"
+trigger1 = map(trainingi)&&combocount=0&&movetype!=A
+map = "Imagination"
+value = (map(trainingi)-1)*200
+ignorehitpause = 1
+persistent = 1
+
+
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = map(Momentum)>5
+map = "Momentum"
+value = 5
+ignorehitpause = 1
+persistent = 1
+[State 0]
+type = MapSet
+triggerall=name="Yuko"
+trigger1 = map(Momentum)<0
+trigger2 = roundstate<2
+map = "Momentum"
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0]
+type = MapSet
+triggerall = GameMode = "Training"
+triggerall=name="Yuko"
+trigger1 = map(trainingm)&&combocount=0
+map = "Momentum"
+value = map(trainingm)-1
+ignorehitpause = 1
+persistent = 1
+
+
+;==========================================
+
 
 [State 0, Explod]
 type = Explod

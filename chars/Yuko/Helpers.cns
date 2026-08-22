@@ -521,7 +521,7 @@ type =ModifyExplod
 Trigger1=TeamSide=1
 triggerall=root,alive
 trigger1 = NumExplod(7001)
-window = 1,0,76*(root,map(Imagination)/1000),20
+window = 1,0,76*(root,map(Imagination)/1000),0
 id = 7001
 ignorehitpause = 1
 [State -2, Explod];Scaling The Bar

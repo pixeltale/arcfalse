@@ -10,13 +10,7 @@ anim = 3000
 sprpriority = 2
 facep2=1
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
+
 
 ;=====SCALING SHIT==================
 [State Stun Scaling]
@@ -226,13 +220,7 @@ ctrl = 0
 anim = 3050
 sprpriority = 2
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
+
 
 [State Yuko Voice]
 type = PlaySnd
@@ -349,13 +337,7 @@ ctrl = 0
 anim = 3100
 sprpriority = 2
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
+
 
 [State Yuko Voice]
 type = PlaySnd

@@ -1,8 +1,12 @@
 {
-  "playtime": 0,
+  "playtime": 108.67,
   "modes": {
     "training": {
       "playtime": 0,
+      "clear": 0
+    },
+    "freebattle": {
+      "playtime": 108.67,
       "clear": 0
     }
   }

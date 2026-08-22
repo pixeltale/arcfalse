@@ -9,32 +9,6 @@ ctrl = 0
 anim = 1000
 sprpriority = 2
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
-
-;=====SCALING SHIT==================
-[State Stun Scaling]
-type = VarAdd
-trigger1 = movehit
-fv = 25  
-value = 1
-ignorehitpause = 1
-persistent = 0
-
-ignorehitpause = 1
-[State Damage Scaling]
-type = VarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = 1
-persistent = 0
-;==================================
-
 [State Yuko Voice]
 type = PlaySnd
 trigger1 = time=0
@@ -238,7 +212,7 @@ trigger1 = movecontact = 0
 attr = A, SP
 animtype  = Hard
 air.animtype = back
-damage = ceil(cond(fvar(11) * 80 < 8, 8, fvar(11) * 80)), 10
+damage = 85 * MAP(P4), 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
@@ -248,11 +222,11 @@ hitsound = 5,2                ;Sound to play on hit
 guardsound = 6, 2                ;Sound to play on guard
 ground.type = trip
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *20 < 9, 9, fvar(15) * 20))
-air.hittime  = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
-down.hittime = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
-ground.velocity = -7,-4
-air.velocity = -7,-4
+ground.hittime  = 95 * map(untechMOD)
+air.hittime  = 95 * map(untechMOD)
+down.hittime = 95 * map(untechMOD)
+ground.velocity = -16,-7
+air.velocity = -16,-7
 envshake.time = 12
 envshake.freq = 90
 envshake.ampl = 3
@@ -261,8 +235,10 @@ guard.hittime =13
 guard.slidetime = 13
 guard.ctrltime = 13
 guard.velocity = -6
+fall = 1
+air.fall = 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
-p2stateno = cond(map(zoltraak),5020,1225)
+p2stateno = cond(map(zoltraak),5020,5220)
 p2getp1state = cond(map(zoltraak),0,1)
 ground.cornerpush.veloff = -8
 
@@ -273,6 +249,14 @@ map = "zoltraak"
 value = 1
 ignorehitpause = 1
 persistent=0
+
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "wallbounce_boomerang"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 0
 
 [State 210, 5]
 type = ChangeState
@@ -334,13 +318,7 @@ value = 1
 ignorehitpause=1
 persistent=1
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
+
 
 ;=====SCALING SHIT==================
 [State Stun Scaling]
@@ -799,31 +777,6 @@ value = 1
 ignorehitpause=1
 persistent=1
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
-
-;=====SCALING SHIT==================
-[State Stun Scaling]
-type = VarAdd
-trigger1 = movehit
-fv = 25  
-value = 3
-ignorehitpause = 1
-persistent = 0
-
-[State Damage Scaling]
-type = VarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = 3
-persistent = 0
-;==================================
-
 [State -3, Arzon Wind SFX]
 type = PlaySnd
 trigger1 = time = 0
@@ -922,7 +875,7 @@ trigger1 = movecontact = 0&&map(Imagination)<800
 attr = S, SA
 animtype  = up
 air.animtype = up
-damage = ceil(cond(fvar(11) * 70 < 7, 7, fvar(11) * 70)), 0
+damage = 70 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -945,6 +898,8 @@ guard.hittime =0
 guard.slidetime = 0
 guard.ctrltime = 0
 getpower = 0
+fall = 1
+air.fall = 1
 p2getp1state=0
 
 [State 200, 1]
@@ -954,7 +909,7 @@ trigger1 = movecontact = 0&&map(Imagination)>=800
 attr = S, SA
 animtype  = Hard
 air.animtype = back
-damage = ceil(cond(fvar(11) * 70 < 7, 7, fvar(11) * 70)), 0
+damage = 70 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,0
@@ -964,9 +919,9 @@ sparkxy = -15,-60
 guardsound =S300, 2
 ground.type = trip
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *20 < 9, 9, fvar(15) * 20))
-air.hittime  = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
-down.hittime = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
+ground.hittime  = 25 * map(untechMOD)
+air.hittime  = 30 * map(untechMOD)
+down.hittime = 30 * map(untechMOD)
 ground.velocity = 0,0
 air.velocity = 0,0
 envshake.time = 12
@@ -977,8 +932,12 @@ guard.hittime =0
 guard.slidetime = 0
 guard.ctrltime = 0
 getpower = 0
-p2stateno=6150
+fall = 0
+air.fall = 0
+forcenofall = 1
+p2stateno=5250
 p2getp1state=0
+missonoverride = 0
 
 [State 0, CtrlSet]
 type = CtrlSet
@@ -1002,23 +961,6 @@ poweradd= 0
 ctrl = 0
 anim = 1400
 sprpriority = 2
-
-;=====SCALING SHIT==================
-[State Stun Scaling]
-type = VarAdd
-trigger1 = movehit
-fv = 25  
-value = 1
-ignorehitpause = 1
-persistent = 0
-
-[State Damage Scaling]
-type = VarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = 2
-persistent = 0
-;==================================
 
 [State Yuko Voice]
 type = PlaySnd
@@ -1118,7 +1060,7 @@ trigger1= map(Imagination)<800
 trigger1 = map(divekick)=0
 triggerall = !movecontact
 attr = A, SA
-damage = ceil(cond(fvar(11) * 80 < 8, 8, fvar(11) * 80)), 0
+damage = 85 * MAP(P4), 0
 guardflag = HA
 hitflag = MAFD
 pausetime = 10,10
@@ -1131,9 +1073,9 @@ air.animtype = up
 ground.type = high
 ground.slidetime = 12
 fall = 1
-ground.hittime  = ceil(cond(fvar(15) *20 < 9, 9, fvar(15) * 20))
-air.hittime  = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
-down.hittime = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
+ground.hittime  = 30 * map(untechMOD)
+air.hittime  = 30 * map(untechMOD)
+down.hittime = 30 * map(untechMOD)
 ground.velocity = -6
 air.velocity = -6,-2
 guard.ctrltime =2
@@ -1149,7 +1091,7 @@ p2facing = 1
 triggerall = map(Imagination)>=800 && map(divekick)=0
 trigger1 = !movecontact
 attr = A, SA
-damage = ceil(cond(fvar(11) * 80 < 8, 8, fvar(11) * 80)), 0
+damage = 80 * MAP(P4), 0
 guardflag = HA
 hitflag = MAFD
 pausetime = 10,10
@@ -1161,9 +1103,9 @@ animtype =up
 air.animtype = up
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-air.hittime  = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-down.hittime = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
+ground.hittime  = 25 * map(untechMOD)
+air.hittime  = 25 * map(untechMOD)
+down.hittime = 25 * map(untechMOD)
 ground.velocity = -8,12
 air.velocity = -8,12
 guard.ctrltime =2
@@ -1224,23 +1166,6 @@ map = "EXlimiter3"
 value = 1
 ignorehitpause=1
 persistent=1
-
-;=====SCALING SHIT==================
-[State Stun Scaling]
-type = VarAdd
-trigger1 = movehit
-fv = 25  
-value = 1
-ignorehitpause = 1
-persistent = 0
-
-[State Damage Scaling]
-type = VarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = 2
-persistent = 0
-;==================================
 
 [State -3, Arzon Wind SFX]
 type = PlaySnd
@@ -1362,67 +1287,65 @@ ignorehitpause =1
 vel = -1,-1.2
 accel = 0.05,0.05
 
-[State 610, 3]
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 2	;Med Starter
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 0.9	;100% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.90	;85% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
+[State 630, 2]
 type = HitDef 
-p2facing = 1
-trigger1 = !movecontact&&map(Imagination)<800
-attr = A, SA
-damage = ceil(cond(fvar(11) * 100 < 10, 10, fvar(11) * 100)), 0
-guardflag = HA
-hitflag = MAFD
-pausetime = 10,10
-sparkno = 2
-sparkxy = -20,-10
-hitsound   = 5,1
-guardsound = 6,2
-animtype =up
-air.animtype = up
-ground.type = high
-ground.slidetime = 12
-fall = 1
-ground.hittime  = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-air.hittime  = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-down.hittime = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-ground.velocity = -15,15
-air.velocity = -15,15
-down.velocity = -8,-2
-guard.ctrltime =14
-guard.slidetime = 14
-guard.hittime = 14
-getpower = 0
-fall.yvelocity=-8
-fall.xvelocity=-2
-p2stateno=915020
-[State 610, 3]
-type = HitDef 
-p2facing = 1
-trigger1 = !movecontact&&map(Imagination)>=800
-attr = A, SA
-damage = ceil(cond(fvar(11) * 100 < 10, 10, fvar(11) * 100)), 0
-guardflag = HA
-hitflag = MAFD
-pausetime = 10,10
-sparkno = 2
-sparkxy = -20,-10
-hitsound   = 5,1
-guardsound = 6,2
-animtype =up
-air.animtype = up
-ground.type = high
-ground.slidetime = 12
-fall = 1
-ground.hittime  = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-air.hittime  = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-down.hittime = ceil(cond(fvar(15) *24 < 10, 10, fvar(15) * 24))
-ground.velocity = -15,15
-air.velocity = -15,15
-down.velocity = -8,-2
-guard.ctrltime =14
-guard.slidetime = 14
-guard.hittime = 14
-getpower = 0
-fall.yvelocity=-8
-fall.xvelocity=-2
+p2facing 	= 1
+trigger1 	= !movecontact && !movereversed
+hitonce 	= 1
+attr 	= A, NA
+damage 	= 100*MAP(P4)
+hitflag 	= AF
+guardflag 	= HA
+pausetime 	= 14,14
+sparkno 		= 3
+sparkxy 		= -5,-35
+hitsound   	= 5,3
+guardsound 	= 6,2
+ground.type 	= LOW
+air.type		= LOW
+ground.slidetime 	= 6
+ground.hittime  	= 20 - MAP(UntechDecay)
+air.hittime  	= 99
+down.hittime 	= 99
+ground.velocity 	= -4
+fall.yvelocity 	= 0
+air.velocity 	= -1,16
+down.velocity 	= -2,-10
+guard.slidetime 	= 18
+guard.hittime 	= 20
+guard.ctrltime 	= 10
+air.fall 		= 1
+getpower 		= 50
+p2stateno = cond((enemy, statetype = A), cond(map(j2H_useCount) < 1, 5255,  5070), 5000)
+p2getp1state = 0
 
 [State 0, CtrlSet]
 type = CtrlSet
@@ -1447,13 +1370,7 @@ ctrl = 0
 anim = 1600
 sprpriority = 2
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
+
 
 ;=====SCALING SHIT==================
 [State Stun Scaling]
@@ -1686,7 +1603,7 @@ trigger1 = !movecontact&&anim=1610
 attr = A, SP
 animtype  = Hard
 air.animtype = back
-damage = ceil(cond(root,fvar(11) * 30 < 3, 3, root,fvar(11) * 30)), 0
+damage = 40 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -1697,9 +1614,9 @@ hitsound   = s8,2
 guardsound = 6,0
 ground.type = trip
 ground.slidetime = 12
-ground.hittime  = ceil(cond(root,fvar(15) *30 < 15, 15, root,fvar(15) * 30))
-air.hittime  = ceil(cond(root,fvar(15) *30 < 15, 15, root,fvar(15) * 30))
-down.hittime = ceil(cond(root,fvar(15) *30 < 15, 15, root,fvar(15) * 30))
+ground.hittime  = 30 * MAP(UntechMOD)
+air.hittime  = 30 * MAP(UntechMOD)
+down.hittime = 30 * MAP(UntechMOD)
 ground.velocity = -3,-6
 air.velocity = -3,-6
 envshake.time = 12
@@ -1710,6 +1627,8 @@ guard.hittime =15
 guard.slidetime = 15
 guard.ctrltime = 15
 guard.velocity = -6
+air.fall = 1
+fall = 1
 getpower = 0
 ground.cornerpush.veloff = 0
 
@@ -1849,13 +1768,7 @@ ctrl = 0
 anim = 1600
 sprpriority = 2
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
+
 
 [State EX Limiters]
 type = mapset
@@ -2551,13 +2464,7 @@ ctrl = 0
 anim = 1900
 sprpriority = 2
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
+
 
 ;=====SCALING SHIT==================
 [State Stun Scaling]
@@ -2864,25 +2771,6 @@ anim = 2000
 sprpriority = 2
 facep2=1
 
-
-;=====SCALING SHIT==================
-[State Stun Scaling]
-type = VarAdd
-trigger1 = movehit
-fv = 25  
-value = .5
-ignorehitpause = 1
-persistent = 0
-
-ignorehitpause = 1
-[State Damage Scaling]
-type = VarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = .5
-persistent = 0
-;==================================
-
 [State 0, VarAdd]
 type = MapSet
 trigger1 = map(Imagination)>=800
@@ -2965,7 +2853,7 @@ trigger1 = movecontact = 0
 attr = S, SA
 animtype  = Hard
 air.animtype = back
-damage = ceil(cond(fvar(11) * 70 < 7, 7, fvar(11) * 70)), 7
+damage = 70 * MAP(P4), 7
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
@@ -3132,31 +3020,7 @@ anim = 2050
 sprpriority = 2
 facep2=1
 
-[State 0, VarAdd]
-type = mapset
-trigger1 = 1
-map =  "truecounter"
-value = 0
-ignorehitpause = 1
-persistent = 1
 
-;=====SCALING SHIT==================
-[State Stun Scaling]
-type = VarAdd
-trigger1 = movehit
-fv = 25  
-value = .5
-ignorehitpause = 1
-persistent = 0
-
-ignorehitpause = 1
-[State Damage Scaling]
-type = VarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = .5
-persistent = 0
-;==================================
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;Shadow Override
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -3304,9 +3168,9 @@ hitsound   = s8,2
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *20 < 9, 9, fvar(15) * 20))
-air.hittime  = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
-down.hittime = ceil(cond(fvar(15) *30 < 15, 15, fvar(15) * 30))
+ground.hittime  = 20 * map(untechMOD)
+air.hittime  = 35 * map(untechMOD)
+down.hittime = 35 * map(untechMOD)
 ground.velocity = 0,0
 air.velocity = 0,0
 envshake.time = 12
@@ -3318,8 +3182,11 @@ guard.slidetime = 12
 guard.ctrltime = 12
 guard.velocity = -6
 getpower = 0
-p2stateno=6150
+fall = 0
+forcenofall = 1
+p2stateno=5250
 p2getp1state=0
+missonoverride = 0
 
 [State 0, TargetBind]
 type = TargetBind
@@ -3328,26 +3195,12 @@ time = 1
 pos = p2dist x,0
 ignorehitpause = 1
 persistent=0
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = movehit&&enemy,statetype=A&& p2dist x > 0
-time = 1
-pos = p2dist x,-20
-ignorehitpause = 1
-persistent=0
 
 [State 0, TargetBind]
 type = TargetBind
 trigger1 = movehit&&enemy,statetype!=A&& p2dist x <= 0
 time = 1
 pos = 10,0
-ignorehitpause = 1
-persistent=0
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = movehit&&enemy,statetype=A&& p2dist x <= 0
-time = 1
-pos = 10,-20
 ignorehitpause = 1
 persistent=0
 
@@ -3462,24 +3315,6 @@ ctrl = 0
 anim = 2100
 sprpriority = 2
 
-;=====SCALING SHIT==================
-[State Stun Scaling]
-type = VarAdd
-trigger1 = movehit
-fv = 25  
-value = .5
-ignorehitpause = 1
-persistent = 0
-
-ignorehitpause = 1
-[State Damage Scaling]
-type = VarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = .5
-persistent = 0
-;==================================
-
 [State 0, VarAdd]
 type = MapSet
 trigger1 = map(Imagination)>=800
@@ -3546,7 +3381,7 @@ trigger1 = movecontact = 0
 attr = S, SA
 animtype  = Hard
 air.animtype = back
-damage = ceil(cond(fvar(11) * 40 < 4, 4, fvar(11) * 40)), 5
+damage = 45 * MAP(P4), 5
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10

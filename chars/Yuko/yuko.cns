@@ -1,33 +1,15 @@
 [Data]
-;Amount of life to start with
 life = 1200
-;attack power (more is stronger)
 attack = 100
-;defensive power (more is stronger)
 defence = 100
-;Percentage to increase defense everytime player is knocked down
 fall.defence_up = 0
-;Time which player lies down for, before getting up
 liedown.time = 60
-;Number of points for juggling
 airjuggle = 20
-;Default hit spark number for HitDefs
 sparkno = 2
-;Default guard spark number
 guard.sparkno = 40
-;1 to enable echo on KO
 KO.echo = 0
-;Volume offset (negative for softer)
 volume = 0
-
 power = 4000
-;Variables with this index and above will not have their values
-;reset to 0 between rounds or matches. There are 60 int variables,
-;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
-;If omitted, then it defaults to 60 and 40 for integer and float
-;variables repectively, meaning that none are persistent, i.e. all
-;are reset. If you want your variables to persist between matches,
-;you need to override state 5900 from common1.cns.
 IntPersistIndex = 60
 FloatPersistIndex = 39
 
@@ -56,7 +38,7 @@ jump.neu = 0,-8    ;Neutral jumping velocity (x, y)
 jump.back = -2.55    ;Jump back Speed (x, y)
 jump.fwd = 3      ;Jump forward Speed (x, y)
 runjump.back = -2.55
-runjump.fwd = 4
+runjump.fwd = 8, -5
 airjump.neu = 0,-6.5      ;.
 airjump.back = -2.55      ;Air jump speeds (opt)
 airjump.fwd = 3        ;.

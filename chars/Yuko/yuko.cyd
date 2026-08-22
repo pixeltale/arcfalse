@@ -151,19 +151,19 @@ trigger2 = stateno = 400 && movecontact && prevstateno !=200
 type = ChangeState
 value = 210
 triggerall = command = "y" && command !="holddown"
-triggerall = statetype != A && prevstateno !=210
+triggerall = statetype != A
 trigger1 = ctrl || stateno = 101
 trigger2 = stateno = 200 && movecontact
-trigger3 = stateno = [400, 410] && movecontact
+trigger3 = stateno = [400, 410] && movecontact && prevstateno !=210
 
 ;---------------------------------------------------------------------------
 [State 5H]
 type = ChangeState
 value = 220
 triggerall = command = "z" && command !="holddown"
-triggerall = statetype != A && prevstateno !=220 
+triggerall = statetype != A 
 trigger1 = ctrl || stateno = 101
-trigger2 = stateno = [200, 210] || stateno = [400, 420]
+trigger2 = stateno = [200, 210] || stateno = [400, 420] && prevstateno !=220 
 trigger2 = movecontact
 ;---------------------------------------------------------------------------
 [State 2L]
@@ -260,12 +260,11 @@ value = 1000
 triggerall = command = "b"
 triggerall = command != "EX"
 triggerall = command != "QCBs"
-trigger1 = command !="holddown"
-trigger1 = command !="holdfwd"
 triggerall = command !="holdback"
 triggerall = var(1)
-triggerall = statetype != A
-trigger2 = statetype = A&&map(Imagination)>=800
+triggerall = statetype != A || map(Imagination) >= 800
+trigger1 = command !="holddown"
+trigger1 = command !="holdfwd"
 ;---------------------------------------------------------------------------
 [State EX 5S]
 type = ChangeState
@@ -274,12 +273,11 @@ triggerall=map(EXLimiter1)=0
 triggerall = command = "EX"
 triggerall = command != "QCBs"
 triggerall = power>=1000
-trigger1= command !="holddown"
-trigger1 = command !="holdfwd"
 triggerall = command !="holdback"
 triggerall = var(1)
-triggerall = statetype != A
-trigger2 = statetype = A&&map(Imagination)>=800
+triggerall = statetype != A || map(Imagination) >= 800
+trigger1= command !="holddown"
+trigger1 = command !="holdfwd"
 ;---------------------------------------------------------------------------
 [State 4S]
 type = ChangeState
