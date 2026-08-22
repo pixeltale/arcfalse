@@ -7,4 +7,3 @@ mugenversion 	= 1.0
 ikemenversion	= 0.99
 [Files]
 st      	= DynamicLight.cns
-stcommon	= common1.cns

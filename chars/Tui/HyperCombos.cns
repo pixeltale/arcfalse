@@ -240,7 +240,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 1
 attr = S, HA
-damage = ceil(cond(fvar(11) * 90 < 30, 30, fvar(11) * 90)),15
+damage = 100 * map(P4),15
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA
@@ -272,7 +272,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem = 3
 attr = S, HA
-damage = ceil(cond(fvar(11) * 200 < 80, 80, fvar(11) * 200)),15
+damage = 100 * MAP(P4) + 100,15
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA
@@ -411,7 +411,7 @@ y = -5
 [State 0, VelMul]
 type = VelAdd
 trigger1 = animelemtime(10)>0&&animelemtime(35)<0
-y = .5
+y = .25
 
 [State 0, Helper]
 type = Helper
@@ -551,11 +551,11 @@ removeongethit = 0
 type = HitDef
 trigger1 = !movecontact
 attr = A, HP
-damage = ceil(cond(root, fvar(11) * 25< 10, 10, root, fvar(11) * 25)), 5
+damage = 45 * root,MAP(P4), 5
 hitflag = MAFD
 air.animtype = back
 guardflag = MA
-pausetime = 6,6
+pausetime = 3,3
 sparkno = 2
 sparkxy = random%20,10-random%20
 hitsound   = 5,2
@@ -566,12 +566,12 @@ ground.slidetime = 14
 ground.hittime  = 20
 ground.velocity = -4,-4
 fall.yvelocity = 0
-air.velocity = -4,-4
-air.hittime = 24
+air.velocity = -6, 0
+air.hittime = 55
 airguard.velocity = -2,-3
 getpower = 0
 envshake.time = 5
-yaccel = .38
+air.fall = 1
 fall = 1
 kill=0
 
@@ -699,7 +699,7 @@ removeongethit = 0
 type = HitDef
 trigger1 = !movecontact
 attr = A, HP
-damage = ceil(cond(root, fvar(11) * 25< 10, 10, root, fvar(11) * 25)), 5
+damage = 45 * root,MAP(p4), 5
 hitflag = MAFD
 air.animtype = back
 guardflag = MA
@@ -720,6 +720,7 @@ airguard.velocity = -2,-3
 getpower = 0
 envshake.time = 5
 yaccel = .38
+air.fall = 1
 fall = 1
 kill=0
 
@@ -808,7 +809,7 @@ removeongethit = 0
 type = HitDef
 trigger1 = time %2= 0
 attr = A, HP
-damage = ceil(cond(root, fvar(11) * 33< 15, 15, root, fvar(11) * 33)), 3
+damage = 45 * root, MAP(P4) + 10, 3
 hitflag = MAFD
 air.animtype = back
 guardflag = MA
@@ -825,12 +826,12 @@ ground.hittime  = 33
 air.velocity = -2,-3
 fall.yvelocity = 0
 air.velocity = -2,-3
-air.hittime = 24
+air.hittime = 999
 airguard.velocity = -2,-3
 getpower = 0
 envshake.time = 5
-yaccel = .38
 fall = 1
+air.fall =  1
 ground.cornerpush.veloff = 0
 kill=0
 
@@ -982,7 +983,7 @@ removeongethit = 0
 type = HitDef
 trigger1 = time %2= 0
 attr = A, HP
-damage = ceil(cond(root, fvar(11) * 34< 15, 15, root, fvar(11) * 34)), 3
+damage = 45 * root,MAP(P4) + 10, 3
 hitflag = MAFD
 air.animtype = back
 guardflag = MA
@@ -1003,7 +1004,7 @@ air.hittime = 24
 airguard.velocity = -2,-3
 getpower = 0
 envshake.time = 5
-yaccel = .38
+air.fall = 1
 fall = 1
 ground.cornerpush.veloff = 0
 kill=0
@@ -1119,7 +1120,7 @@ type = HitDef
 trigger1 = var(21)<2
 trigger1 = time %2= 0
 attr = A, HP
-damage = ceil(cond(root, fvar(11) * 40< 25, 25, root, fvar(11) * 40)), 3
+damage = 45 * root,MAP(P4) + 10, 3
 hitflag = MAFD
 air.animtype = back
 guardflag = MA
@@ -1140,8 +1141,8 @@ air.hittime = 24
 airguard.velocity = -2,-3
 getpower = 0
 envshake.time = 5
-yaccel = .38
 fall = 1
+air.fall = 1
 ground.cornerpush.veloff = 0
 
 [State 410, 2]
@@ -1150,7 +1151,7 @@ trigger1 = var(21)>=2
 trigger1 = time %2= 0
 trigger1 = root,map(bigblue)=1
 attr = A, HP
-damage = ceil(cond(root, fvar(11) * 81< 40, 40, root, fvar(11) * 81)), 3
+damage = 100 * root,MAP(P4) + 50, 3
 hitflag = MAF
 air.animtype = back
 guardflag = MA
@@ -1173,8 +1174,8 @@ getpower = 0
 envshake.time = 12
 envshake.freq = 80
 envshake.ampl = 12
-yaccel = .38
-forcenofall = 1
+air.fall  = 1
+fall = 1
 ground.cornerpush.veloff = 0
 
 [State Limiter]
@@ -1191,7 +1192,7 @@ trigger1 = var(21)>=2
 trigger1 = time %2= 0
 trigger1 = root,map(bigblue)>1
 attr = A, HP
-damage = ceil(cond(root, fvar(11) * 66< 40, 40, root, fvar(11) * 66)), 3
+damage = 75 * MAP(P4) + 45, 3
 hitflag = MAF
 air.animtype = back
 guardflag = MA
@@ -1788,7 +1789,7 @@ trigger1 =!movecontact
 attr = A, SP
 animtype  = Light
 air.animtype = back
-damage = ceil(cond(root,fvar(11) *40< 15, 15, root,fvar(11) * 40)), 0
+damage = 50 * MAP(P4) + 25, 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 8,16
@@ -1799,9 +1800,9 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(root,fvar(15) *35 < 9, 9, root,fvar(15) * 35))
-air.hittime  = ceil(cond(root,fvar(15) *42 < 9, 9, root,fvar(15) * 42))
-down.hittime = ceil(cond(root,fvar(15) *42 < 9, 9, root,fvar(15) * 42))  
+ground.hittime  = 35 * MAP(untechMOD)
+air.hittime  = 45 * MAP(untechMOD)
+down.hittime = 45 * MAP(untechMOD) 
 ground.velocity = -2.5,-6.5
 air.velocity = -2.5,-6.5
 down.velocity = -2.5,-6.5
@@ -1858,7 +1859,7 @@ ctrl=1
 
 ;PHOENIX REVIVAL
 ;-----------------------------
-[Statedef 4000]
+[Statedef 40000]
 type    = S
 movetype= A
 physics = S
@@ -2001,7 +2002,7 @@ ctrl=1
 
 ;Phoenix Final
 ;-----------------------------
-[Statedef 4100]
+[Statedef 41000]
 type    = A
 movetype= A
 physics = N
@@ -2123,7 +2124,7 @@ p2facing = 1
 trigger1 = !movecontact
 attr = S, HA
 kill=0
-damage = ceil(cond(fvar(11) * 200 < 80, 80, fvar(11) * 200)),0
+damage = 250 *MAP(P4) + 50,0
 animtype  = Medium
 hitflag = MAFD
 guardflag = MA
@@ -2210,7 +2211,7 @@ value = 4101
 
 ;Finale Land
 ;---------------------------------------------------------------------------
-[Statedef 4101]
+[Statedef 41010]
 type    = S
 movetype= A
 physics = S
@@ -2298,7 +2299,7 @@ type = HitDef
 p2facing = 1
 trigger1 = !movecontact
 attr = S, HA
-damage = ceil(cond(fvar(11) * 200 < 100, 100, fvar(11) * 200)),0
+damage = 250 * MAP(P4) + 50,0
 animtype  = Medium
 hitflag = MAFD+
 guardflag = MA

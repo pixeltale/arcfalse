@@ -257,7 +257,7 @@ trigger1 = prevstateno!=1005
 trigger1 = anim = 1001
 trigger1 = time %3=0
 attr = A, SA
-damage = ceil(cond(fvar(11) *8 < 2, 2, fvar(11) * 8)), 2
+damage = 15*MAP(P4), 2
 hitflag = MAFD
 guardflag = MAF
 getpower = cond(prevstateno = 1005, 0, 10)
@@ -406,7 +406,7 @@ trigger1 = anim = 1002
 trigger1 = animelemtime(1) = 1
 trigger1 = map(upperhit)=1
 attr = A, SA
-damage = ceil(cond(fvar(11) * 32 < 4, 4, fvar(11) * 50)), 5
+damage = 50 * MAP(P4), 5
 hitflag = MAFD
 guardflag = MAF
 ;priority = 3
@@ -439,7 +439,7 @@ trigger1 = anim = 1002
 trigger1 = animelemtime(1) = 1
 trigger1 = map(upperhit)>1
 attr = A, SA
-damage = ceil(cond(fvar(11) * 32 < 4, 4, fvar(11) * 50)), 5
+damage = 50 * MAP(P4), 5
 hitflag = MAFD
 guardflag = MAF
 ;priority = 3
@@ -806,7 +806,7 @@ type = HitDef
 p2facing = 1 
 trigger1 = movecontact = 0
 attr = S, SA
-damage = ceil(cond(fvar(11) *60 < 6, 6, fvar(11) * 60)), 3
+damage = 60 * MAP(P4), 6
 hitflag = MAFD
 guardflag = MAFD
 pausetime = 8,12
@@ -947,7 +947,7 @@ removeongethit = 0
 type = HitDef
 trigger1 = !movecontact
 attr = S, SP
-damage = ceil(cond(root, fvar(11) * 40< 8, 8, root, fvar(11) * 40)), 6
+damage = 40 * MAP(P4), 6
 hitflag = MAF
 air.animtype = back
 guardflag = MA
@@ -1275,7 +1275,7 @@ removeongethit = 0
 type = HitDef
 trigger1 = time %10= 0
 attr = S, SP
-damage = ceil(cond(root, fvar(11) * 30< 3, 3, root, fvar(11) * 30)), 3
+damage = 30 * MAP(P4), 3
 hitflag = MAF
 air.animtype = back
 guardflag = MA
@@ -1862,7 +1862,7 @@ p2facing = 1
 triggerall = map(launchkick)
 trigger1 = !movecontact
 attr = A, SA
-damage = ceil(cond(fvar(11) *70 < 7, 7, fvar(11) * 70)), 7
+damage = 70 * MAP(P4), 7
 hitflag = MAFD+
 guardflag = HAFD
 pausetime = 12,12
@@ -1991,7 +1991,7 @@ type = HitDef
 p2facing = 1 
 trigger1 = animelem = 3
 attr = S, SA
-damage = ceil(cond(fvar(11) *10 < 1, 1, fvar(11) * 10)), 2
+damage = 20 * MAP(P4), 2
 hitflag = MAF
 guardflag = MAF
 ;priority = 3
@@ -2004,9 +2004,9 @@ ground.type = Low
 animtype = medium
 air.animtype = back
 ground.slidetime = 14
-ground.hittime  = ceil(cond(fvar(14) *21 < 6, 6, fvar(14) * 21))
-air.hittime  = ceil(cond(fvar(14) *50 < 9, 9, fvar(14) * 50))
-down.hittime = ceil(cond(fvar(14) *25 < 9, 9, fvar(14) * 25)) 
+ground.hittime  = 25 * MAP(untechMOD)
+air.hittime  = 50 * MAP(untechMOD)
+down.hittime = 25 * MAP(untechMOD)
 forcenofall = 1
 air.fall = 0
 fall = 0
@@ -2106,7 +2106,7 @@ p2facing = 1
 trigger1 = !movecontact
 triggerall = map(slidekick)=0 
 attr = S, SA
-damage = ceil(cond(fvar(11) *70 < 7, 7, fvar(11) * 70)), 7
+damage = 100 * MAP(P4), 7
 hitflag = MAF
 guardflag = HAFD
 ;priority = 3
@@ -2151,7 +2151,7 @@ p2facing = 1
 trigger1 = !movecontact
 triggerall = map(slidekick) 
 attr = S, SA
-damage = ceil(cond(fvar(11) *70 < 7, 7, fvar(11) * 70)), 7
+damage = 80*MAP(P4), 7
 hitflag = MAF
 guardflag = HAFD
 ;priority = 3
@@ -2383,7 +2383,7 @@ trigger3 = animelem = 12
 trigger4 = animelem = 15
 getpower = 0
 attr = A, SA
-damage = ceil(cond(fvar(11) *10 < 4, 4, fvar(11) * 10)), 3
+damage = 15 * MAP(P4), 3
 hitflag = MAFD
 guardflag = MAF
 ;priority = 3
@@ -2419,7 +2419,7 @@ p2facing = 1
 trigger1 = animelem = 19
 attr = A, SA
 getpower = 0
-damage = ceil(cond(fvar(11) *30 < 10, 10, fvar(11) * 30)), 4
+damage = 40 * MAP(P4), 4
 hitflag = MAFD
 guardflag = MAFD
 ;priority = 3
@@ -2445,7 +2445,7 @@ type = HitDef
 p2facing = 1 
 trigger1 = animelem = 20
 attr = A, SA
-damage = ceil(cond(fvar(11) *50 < 10, 10, fvar(11) * 50)), 4
+damage = 75 * MAP(P4), 7
 hitflag = MAFD
 guardflag = MAFD
 ;priority = 3
@@ -2699,20 +2699,6 @@ anim = 1043
 sprpriority = 5
 velset=0,0
 
-[State 200, VarAdd]
-type = ParentVarAdd
-trigger1 = movehit = 1
-fv = 25   
-value = .5; You can make this whatever you want to increase stun scaling per move
-ignorehitpause = 1
-persistent = 0
-
-[State 0, VarAdd]
-type = ParentVarAdd
-trigger1 = movehit=1
-fv =13     ;fv = 
-value = .5
-persistent = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -2739,7 +2725,7 @@ trigger1 =!movecontact
 attr = A, SP
 animtype  = Light
 air.animtype = back
-damage = ceil(cond(root,fvar(11) *50 < 5, 5, root,fvar(11) * 50)), 0
+damage = 50 * root, MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 8,8
@@ -2749,9 +2735,9 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(root,fvar(15) *35 < 9, 9, root,fvar(15) * 35))
-air.hittime  = ceil(cond(root,fvar(15) *42 < 9, 9, root,fvar(15) * 42))
-down.hittime = ceil(cond(root,fvar(15) *42 < 9, 9, root,fvar(15) * 42))  
+ground.hittime  = 35 * root, MAP(UntechMOD)
+air.hittime  = 45 * root, MAP(UntechMOD)
+down.hittime = 45 * root, MAP(UntechMOD)  
 ground.velocity = -2,-2+root,map(traplaunch)
 air.velocity = -2,-2+root,map(traplaunch)
 down.velocity = -2,-2+root,map(traplaunch)
@@ -2765,7 +2751,8 @@ guard.hittime = 2
 guard.slidetime = 2
 guard.ctrltime = 2
 guard.cornerpush.veloff = -3
-forcenofall = 1
+air.fall = 1
+fall = 1
 getpower = (115)*(cond(var(var(3)) = 1, 1, 1))
 
 [State Limiter]
@@ -3082,7 +3069,7 @@ trigger3 =animelem=8
 attr = A, SP
 animtype  = Light
 air.animtype = back
-damage = ceil(cond(root,fvar(11) *25 < 5, 5, root,fvar(11) * 25)), 0
+damage = 25 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 2,6
@@ -3092,9 +3079,9 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(root,fvar(15) *35 < 9, 9, root,fvar(15) * 35))
-air.hittime  = ceil(cond(root,fvar(15) *42 < 9, 9, root,fvar(15) * 42))
-down.hittime = ceil(cond(root,fvar(15) *42 < 9, 9, root,fvar(15) * 42))  
+ground.hittime  = 35 * MAP(untechMOD)
+air.hittime  = 45 * MAP(untechMOD)
+down.hittime = 45 * MAP(untechMOD)
 ground.velocity = 0,-4
 air.velocity = 0,-4
 down.velocity = 0,-4

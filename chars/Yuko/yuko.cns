@@ -306,7 +306,7 @@ ctrl=0
 [State Voice From Above]
 type = PlaySnd
 triggerall=map(december)=0
-triggerall = player(map(enemyteamlead)),name!="Deus"
+triggerall = enemy,name!="Deus"
 trigger1 = time=5
 trigger1 = roundstate=2
 value = 185,0+random%5

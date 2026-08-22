@@ -4565,7 +4565,6 @@ poweradd = (-2000) + 1000 * (ComboCount > 0)
 ctrl = 0
 velset = vel x,vel y
 sprpriority = 2
-facep2 = 1
 
 [State 4001 VelSet]
 type = velset
@@ -4588,6 +4587,9 @@ type = velset
 trigger1 = Time = 0 && (command = "holdfwd" || command = "holdback") && command != "holddown" && command != "holdup"
 y = 0
 
+[State 5222, Turn]
+type = Turn
+trigger1 = time = 2 && p2dist x  < 0
 
 [State 0, AfterImage]
 type = AfterImage
@@ -8856,25 +8858,6 @@ flag = NoAILevel
 ignorehitpause = 1
 
 ;=============================================================================
-;Record Scratch Refund
-
-
-[State -2, JDR UNTECH DECAY]
-type 		= MapSET
-trigger1 	= (map(SlowdownTime) || map(SlowdownTimeC)) && movehit
-map 		= "postRC_Hit"
-value 		= 1
-ignorehitpause 	= 1
-persistent		= 1
-[State -2, JDR UNTECH DECAY]
-type 		= MapSET
-trigger1 	= !(map(SlowdownTime) || map(SlowdownTimeC))
-map 		= "postRC_Hit"
-value 		= 0
-ignorehitpause 	= 1
-persistent		= 1
-
-;=============================================================================
 ;JORMUNGANDR Hitstun Scaling System
 [State -2, JDR UNTECH DECAY]
 type 		= TeamMapSet
@@ -9671,6 +9654,13 @@ type 		= MapAdd
 trigger1 	    = map(SlowdownTime)
 map 		    = "SlowdownTime"
 value 		    = -1
+ignorehitpause 	= 1
+persistent 		= 1
+[State 0, Mapadd]
+type 		= MapSet
+trigger1 	    = stateno >= 3000 && stateno < 4000
+map 		    = "SlowdownTime"
+value 		    = 0
 ignorehitpause 	= 1
 persistent 		= 1
 
@@ -10944,28 +10934,42 @@ value 		= 1
 ignorehitpause 	= 1
 
 ;===============================================================================
-; ------- Team Lead Map Set --------
+; ------- Team Lead Map Set -------- These are buggy on current ikemen so im limiting their use to deus only for now.
 ;===============================================================================
-; [state 0]
-; type = Mapset
-; trigger1 = teamleader
-; map = "teamlead"
-; value = playerno
-; [state 0]
-; type = Mapset
-; trigger1 = !alive
-; map = "teamlead"
-; value = 0
-; [state 0]
-; type = Mapset
-; trigger1 = teamside=1
-; map = "enemyteamlead"
-; value = player(2),map(teamlead)+player(4),map(teamlead)
-; [state 0]
-; type = Mapset
-; trigger1 = teamside=2
-; map = "enemyteamlead"
-; value = player(1),map(teamlead)+player(3),map(teamlead)
+[state 0]
+type = Mapset
+trigger1 = teamleader
+map = "teamlead"
+value = playerno
+[state 0]
+type = Mapset
+trigger1 = !alive
+map = "teamlead"
+value = 0
+[state 0]
+type = Mapset
+triggerall = teammode != tag
+trigger1 = teamside=1
+map = "enemyteamlead"
+value = player(2),map(teamlead)
+[state 0]
+type = Mapset
+triggerall = teammode = tag
+trigger1 = teamside=1
+map = "enemyteamlead"
+value = player(2),map(teamlead)+player(4),map(teamlead)
+[state 0]
+type = Mapset
+triggerall = teammode != tag
+trigger1 = teamside=2
+map = "enemyteamlead"
+value = player(1),map(teamlead)
+[state 0]
+type = Mapset
+triggerall = teammode = tag
+trigger1 = teamside=2
+map = "enemyteamlead"
+value = player(1),map(teamlead)+player(3),map(teamlead)
 
 ;===============================================================================
 ; ------- Counter-Hit --------

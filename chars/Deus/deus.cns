@@ -2415,6 +2415,7 @@ ignorehitpause = 1
 
 [State 0, PalFXWiz]
 type = PalFX
+triggerall = numhelper
 trigger1 = helper, numexplod(900)=1
 time = 15
 add = 100,100,100

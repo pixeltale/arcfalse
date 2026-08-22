@@ -394,7 +394,7 @@ trigger1 = animelem = 9 && !movecontact
 attr = S, NA
 animtype  = up
 air.animtype = back
-damage = ceil(cond(fvar(11) *40 < 4, 4, fvar(11) * 40)), 0
+damage = 65 * MAP(P4), 0
 hitflag = MAFD+
 guardflag = MA
 pausetime = 10,10
@@ -404,9 +404,9 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *30 < 9, 9, fvar(15) * 30))
-air.hittime  = ceil(cond(fvar(15) *30 < 9, 9, fvar(15) * 30))
-down.hittime = ceil(cond(fvar(15) *30 < 9, 9, fvar(15) * 30))
+ground.hittime  = 30 * MAP(untechMOD)
+air.hittime  = 30 * MAP(untechMOD)
+down.hittime = 30 * MAP(untechMOD)
 ground.velocity = -2,-6
 air.velocity = -1.25,-5
 envshake.time = 8
@@ -428,7 +428,7 @@ trigger1 = animelem = 9 && movecontact
 attr = S, NA
 animtype  = up
 air.animtype = back
-damage = ceil(cond(fvar(11) *40 < 4, 4, fvar(11) * 40)), 0
+damage = 50 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
@@ -438,9 +438,9 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *30 < 9, 9, fvar(15) * 30))
-air.hittime  = ceil(cond(fvar(15) *30 < 9, 9, fvar(15) * 30))
-down.hittime = ceil(cond(fvar(15) *30 < 9, 9, fvar(15) * 30))
+ground.hittime  = 30 * MAP(untechMOD)
+air.hittime  = 30 * MAP(untechMOD)
+down.hittime = 30 * MAP(untechMOD)
 ground.velocity = -2,-6
 air.velocity = -1.25,-5
 envshake.time = 8
@@ -574,6 +574,34 @@ type = PlaySnd
 trigger1 = animelem = 5
 value = 1, 2
 
+[State -2, Starter Level]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "StarterLevel"
+value 		= 4
+ignorehitpause 	= 1
+
+[State -2, P1 Value Set]
+type 		= MapSet
+trigger1 		= movehit && !map(ComboStateCheck)
+map 		= "P1"
+value 		= 1	;90% Starting DMG
+ignorehitpause 	= 1
+[State -2, P2 Value Set]
+type 		= MapSet
+trigger1 		= movehit && map(ComboStateCheck)
+map 		= "P2"
+value 		= 0.95	;84% DMG For next hit
+ignorehitpause 	= 1
+persistent = 0
+[State -2, P2 Accumulation - Scale]
+type 		= MapSet
+trigger1 		= movehit
+map 		= "Accumulation"
+value 		= Map(Accumulation) * map(P2)
+ignorehitpause 	= 1
+persistent 		= 0
+
 
 [State 210, 2]
 type = HitDef 
@@ -582,7 +610,7 @@ trigger1 = time = 0
 attr = S, NA
 animtype  = Light
 air.animtype = back
-damage = ceil(cond(fvar(11) *80 < 8, 8, fvar(11) * 80)), 0
+damage = 90 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -592,9 +620,9 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *25 < 9, 9, fvar(15) * 25))
-air.hittime  = ceil(cond(fvar(15) *34 < 10, 10, fvar(15) * 34))
-down.hittime = ceil(cond(fvar(15) *34 < 10, 10, fvar(15) * 34))
+ground.hittime  = 25 * MAP(untechMOD)
+air.hittime  = 35 * MAP(untechMOD)
+down.hittime = 35 * MAP(untechMOD)
 ground.velocity = -4
 air.velocity = -2,-5
 down.velocity = -2,-5
@@ -813,9 +841,9 @@ hitsound   	= 5,2
 guardsound 	= 6,1
 ground.type 	= Low
 ground.slidetime 	= 16
-ground.hittime  	= 16 - MAP(untechDecay)
-air.hittime  	= 20 - MAP(untechDecay)
-down.hittime 	= 22 - MAP(untechDecay)
+ground.hittime  	= 16 * MAP(untechMOD)
+air.hittime  	= 25 * MAP(untechMOD)
+down.hittime 	= 25
 ground.velocity 	= -6
 air.velocity 	= -3,-2.5;
 down.velocity 	= -3,-1.9;
@@ -973,7 +1001,7 @@ trigger1 = !movecontact
 attr = S, NA
 animtype  = hard
 air.animtype = up
-damage = ceil(cond(fvar(11) *70 < 7, 7, fvar(11) * 70)), 0
+damage = 70 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -1103,7 +1131,7 @@ triggerall = !movecontact
 trigger1= time<=19
 triggerall = !map(triphit)
 attr = C, NA
-damage = ceil(cond(fvar(11) *80 < 8, 8, fvar(11) * 80)), 0
+damage = 80 * MAP(P4), 0
 animtype  = Hard
 hitflag = MAFD
 guardflag = LA
@@ -1116,9 +1144,9 @@ animtype = back
 ground.type = trip
 air.animtype = back
 ground.slidetime = 25
-ground.hittime  = ceil(cond(fvar(15) *31 < 11, 11, fvar(15) * 31))
-air.hittime  = ceil(cond(fvar(15) *31 < 11, 11, fvar(15) * 31))
-down.hittime = ceil(cond(fvar(15) *31 < 11, 11, fvar(15) * 31))
+ground.hittime  = 30 * MAP(untechMOD)
+air.hittime  = 30 * MAP(untechMOD)
+down.hittime = 30 * MAP(untechMOD)
 ground.velocity = -1,-2.5
 forcenofall =1
 ;yaccel = cond(p2statetype = S, .8, 1)
@@ -1140,7 +1168,7 @@ trigger1= time>19
 triggerall = !map(triphit)
 triggerall = enemy,movetype!=A
 attr = C, NA
-damage = ceil(cond(fvar(11) *80 < 8, 8, fvar(11) * 80)), 0
+damage = 80 * MAP(P4), 0
 animtype  = Hard
 hitflag = MAFD
 guardflag = LA
@@ -1153,9 +1181,9 @@ animtype = back
 ground.type = trip
 air.animtype = back
 ground.slidetime = 25
-ground.hittime  = ceil(cond(fvar(15) *31 < 20, 20, fvar(15) * 31))
-air.hittime  = ceil(cond(fvar(15) *31 < 20, 20, fvar(15) * 31))
-down.hittime = ceil(cond(fvar(15) *31 < 20, 20, fvar(15) * 31))
+ground.hittime  = 30 * MAP(untechMOD)
+air.hittime  = 30 * MAP(untechMOD)
+down.hittime = 30 * MAP(untechMOD)
 ground.velocity = -1,-7
 forcenofall =1
 ;yaccel = cond(p2statetype = S, .8, 1)
@@ -1177,7 +1205,7 @@ trigger1= time>19
 triggerall = !map(triphit)
 triggerall = enemy,movetype=A
 attr = C, NA
-damage = ceil(cond(fvar(11) *80 < 8, 8, fvar(11) * 80)), 0
+damage = 80 * MAP(P4), 0
 animtype  = Hard
 hitflag =
 guardflag = LA
@@ -1190,9 +1218,9 @@ animtype = back
 ground.type = trip
 air.animtype = back
 ground.slidetime = 25
-ground.hittime  = ceil(cond(fvar(15) *31 < 20, 20, fvar(15) * 31))
-air.hittime  = ceil(cond(fvar(15) *31 < 20, 20, fvar(15) * 31))
-down.hittime = ceil(cond(fvar(15) *31 < 20, 20, fvar(15) * 31))
+ground.hittime  = 30 * MAP(untechMOD)
+air.hittime  = 30 * MAP(untechMOD)
+down.hittime = 30 * MAP(untechMOD)
 ground.velocity = -1,-7
 forcenofall =1
 ;yaccel = cond(p2statetype = S, .8, 1)
@@ -1222,7 +1250,7 @@ p2facing = 1
 trigger1 = !movecontact
 triggerall = map(triphit)
 attr = C, NA
-damage = ceil(cond(fvar(11) *80 < 8, 8, fvar(11) * 80)), 0
+damage = 80 * MAP(P4), 0
 animtype  = Hard
 hitflag = MAFD
 guardflag = LA
@@ -1235,9 +1263,9 @@ animtype = back
 ground.type = low
 air.animtype = back
 ground.slidetime = 25
-ground.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-air.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-down.hittime = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
+ground.hittime  = 30 * MAP(untechMOD)
+air.hittime  = 30 * MAP(untechMOD)
+down.hittime = 30 * MAP(untechMOD)
 ground.velocity = -1,-2
 forcenofall =1
 ;yaccel = cond(p2statetype = S, .8, 1)
@@ -1282,7 +1310,7 @@ type = HitDef
 p2facing = 1
 trigger1 = Time = 0
 attr = C, NA
-damage = ceil(cond(fvar(11) *22 < 4, 4, fvar(11) * 22)), 0
+damage = 25 * MAP(P4), 0
 hitflag = MAF
 guardflag = LA
 pausetime = 12,12
@@ -1877,7 +1905,7 @@ trigger1 = time = 0
 attr = A, SA
 animtype  = Light
 air.animtype = back
-damage = ceil(cond(fvar(11) *100 < 4, 4, fvar(11) * 100)), 0
+damage = 110 * MAP(P4), 0
 hitflag = MAFD
 guardflag = HA
 pausetime = 15,15
@@ -1889,9 +1917,9 @@ guardsound = 6,1
 ground.type = Trip
 air.type=trip
 ground.slidetime = 12
-ground.hittime  = ceil(cond(fvar(15) *16 < 9, 9, fvar(15) * 16))
-air.hittime  = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))
-down.hittime = ceil(cond(fvar(15) *31 < 9, 9, fvar(15) * 31))  
+ground.hittime  = 16 * MAP(untechMOD)
+air.hittime  = 35 * MAP(untechMOD)
+down.hittime = 35 * MAP(untechMOD) 
 ground.velocity = -6
 air.velocity = -1.5,4
 down.velocity = -1.5,4
@@ -2235,6 +2263,7 @@ air.hittime 	= 10
 guard.slidetime 	= 6
 guard.ctrltime 	= 6
 guard.hittime 	= 6
+fall 		= 1
 air.fall 		= 1
 getpower 	= 0
 
@@ -2271,6 +2300,7 @@ guard.dist = 20
 guard.slidetime = 14
 guard.ctrltime = 6
 guard.cornerpush.veloff = -5
+fall = 1
 air.fall 		= 1
 getpower = (100)*(cond(var(var(2)) = 1, 1, 1)) 
 
@@ -2290,7 +2320,7 @@ triggerall = map(windmillkick)>1
 attr = S, SA
 animtype  = UP
 air.animtype = up
-damage = ceil(cond(fvar(11) *45 < 6, 6, fvar(11) * 45)), 3
+damage = 55 * MAP(P4), 3
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
@@ -2471,7 +2501,7 @@ p2facing = 1
 trigger1 = !movecontact
 attr = S, SA
 animtype  = Hard
-damage = ceil(cond(fvar(11) *120 < 10,10, fvar(11) * 120)), 0
+damage = 120 * MAP(P4), 0
 hitflag = MAFD
 guardflag = HAFD
 pausetime = 12,12
@@ -2614,7 +2644,7 @@ trigger1 = !map(slash)
 trigger1 = !movecontact&&combocount
 attr = S, ST
 animtype  = Hard
-damage = ceil(cond(fvar(11) *90 < 9, 9, fvar(11) * 90)), 10
+damage = 100 * MAP(P4), 10
 hitflag = MAFD+
 guardflag =
 pausetime = 12,0
@@ -2655,7 +2685,7 @@ trigger1 = map(slash)
 trigger1 = !movecontact
 attr = S, ST
 animtype  = Hard
-damage = ceil(cond(fvar(11) *90 < 9, 9, fvar(11) * 90)), 10
+damage = 100 * MAP(P4), 10
 hitflag = MAFD
 guardflag = 
 pausetime = 12,0
@@ -3150,7 +3180,7 @@ p2facing = 1
 triggerall = !map(dkick)
 trigger1 = !movecontact
 attr = S, SA
-damage = ceil(cond(fvar(11) *80 < 8, 8, fvar(11) * 80)), 0
+damage = 80 * MAP(P4), 0
 hitflag = MAF
 guardflag = MAF
 ;priority = 3
@@ -3163,10 +3193,9 @@ guardsound = 6,2
 ground.type = Low
 animtype = back
 ground.slidetime = 14
-;p2stateno = 915020
-ground.hittime  = 999;ceil(cond(fvar(14) *21 < 6, 6, fvar(14) * 21))
-air.hittime  = 999;ceil(cond(fvar(14) *31 < 6, 6, fvar(14) * 31))
-down.hittime = 999;ceil(cond(fvar(14) *31 < 6, 6, fvar(14) * 31))
+ground.hittime  = 999
+air.hittime  = 999
+down.hittime = 999
 ground.velocity = -11,-2
 ground.cornerpush.veloff = -10
 air.velocity = -11,-2
@@ -3199,7 +3228,7 @@ p2facing = 1
 triggerall = map(dkick)
 trigger1 = !movecontact
 attr = S, SA
-damage = ceil(cond(fvar(11) *40 < 4, 4, fvar(11) * 40)), 5
+damage = 60 * MAP(P4), 5
 hitflag = MAF
 guardflag = MAF
 ;priority = 3
@@ -3211,10 +3240,9 @@ guardsound = 6,2
 ground.type = Low
 animtype = back
 ground.slidetime = 14
-;p2stateno = 915020
-ground.hittime  = 999;ceil(cond(fvar(14) *21 < 6, 6, fvar(14) * 21))
-air.hittime  = 999;ceil(cond(fvar(14) *31 < 6, 6, fvar(14) * 31))
-down.hittime = 999;ceil(cond(fvar(14) *31 < 6, 6, fvar(14) * 31))
+ground.hittime  = 999
+air.hittime  = 999
+down.hittime = 999
 ground.velocity = -11,-1
 ground.cornerpush.veloff = -10
 forcenofall=1
@@ -3421,7 +3449,7 @@ physics = A
 ctrl = 0
 anim = 556
 sprpriority = 2
-velset = 3, vel y
+velset = 3, vel y * 0.5
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -3502,7 +3530,7 @@ p2facing = 1
 triggerall=map(kicks)<2
 trigger1 = time %6= 0
 attr = A, SA
-damage = ceil(cond(fvar(11) *20 <6, 6, fvar(11) * 20)), 0
+damage = 25 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 3,3
@@ -3514,16 +3542,16 @@ ground.type = high
 animtype = light
 air.animtype = back
 ground.slidetime = 5
-ground.hittime  = ceil(cond(fvar(15) *20 < 2, 2, fvar(15) * 20))
-air.hittime  = ceil(cond(fvar(1) *35 < 12, 12, fvar(1) *35))
-down.hittime = ceil(cond(fvar(1) *35 < 12, 12, fvar(1) * 35))
+ground.hittime  = 35 * MAP(UntechMOD)
+air.hittime  = 35 * MAP(UntechMOD)
+down.hittime = 35 * MAP(UntechMOD)
 ground.velocity = -1
 air.velocity = -1, vel y * 0.25
 GUARD.VELOCITY=-6
 guard.slidetime = 6
 guard.hittime = 13
 guard.ctrltime = 13
-guard.cornerpush.veloff = -10
+guard.cornerpush.veloff = -1
 getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 air.fall = 1
 
@@ -3533,7 +3561,7 @@ p2facing = 1
 triggerall=map(kicks)>=2
 trigger1 = time %6= 0
 attr = A, SA
-damage = ceil(cond(fvar(11) *15 <5, 5, fvar(11) * 15)), 0
+damage = 25 * MAP(P4), 0
 hitflag = MAFD
 guardflag = MA
 pausetime = 3,3
@@ -3545,15 +3573,15 @@ ground.type = high
 animtype = light
 air.animtype = back
 ground.slidetime = 5
-ground.hittime  = ceil(cond(fvar(15) *12 < 2, 2, fvar(15) * 12))
-air.hittime  = ceil(cond(fvar(15) *35 < 9, 9, fvar(15) * 35))
-down.hittime  = ceil(cond(fvar(15) *35 < 9, 9, fvar(15) * 35))
+ground.hittime  = 12 * MAP(UntechMOD)
+air.hittime  = 35 * MAP(UntechMOD)
+down.hittime  = 35 * MAP(UntechMOD)
 ground.velocity = -1
 air.velocity = -1,.7
 guard.slidetime = 6
 guard.hittime = 5
 guard.ctrltime = 5
-guard.cornerpush.veloff = -10
+guard.cornerpush.veloff = -5
 getpower = (100)*(cond(var(var(3)) = 1, 1, .5))
 air.fall = 1
 
@@ -3675,7 +3703,7 @@ trigger1 = !movecontact
 attr = A, SA
 animtype  = Light
 air.animtype = back
-damage = ceil(cond(fvar(11) *100 < 10,10, fvar(11) * 100)), 0
+damage = 120 * MAP(P4), 0
 hitflag = MAFD
 guardflag = HA
 pausetime = 10,16
@@ -3724,7 +3752,7 @@ trigger1 = !movecontact
 attr = A, SA
 animtype  = Light
 air.animtype = back
-damage = ceil(cond(fvar(11) *100 < 10,10, fvar(11) * 100)), 0
+damage = 120 * MAP(P4), 0
 hitflag = MAFD
 guardflag = HA
 pausetime = 12,10
@@ -3834,7 +3862,7 @@ p2facing = 1
 trigger1 = map(exdp)=0
 trigger1 = !movecontact
 attr = A, SA
-damage = ceil(cond(fvar(11) *30 < 3, 3, fvar(11) * 30)), 2
+damage = 40 * MAP(P4), 2
 hitflag = MAF
 guardflag = HA
 ;priority = 3
@@ -3864,7 +3892,7 @@ p2facing = 1
 trigger1 = map(exdp)
 trigger1 = !movecontact
 attr = A, SA
-damage = ceil(cond(fvar(11) *31 < 5, 5, fvar(11) * 31)), 2
+damage = 50 * MAP(P4), 2
 hitflag = MAF
 guardflag = HA
 ;priority = 3
@@ -4085,7 +4113,7 @@ p2facing = 1
 triggerall = !movecontact
 trigger1 = map(divekick)=0
 attr = S, SA
-damage = ceil(cond(fvar(11) *60 < 6, 6, fvar(11) * 60)), 6
+damage = 80 * MAP(P4), 6
 hitflag = MAFD+
 guardflag = MAF
 ;priority = 3
@@ -4098,18 +4126,19 @@ ground.type = Low
 animtype = UP
 air.animtype = up
 ground.slidetime = 14
-ground.hittime  = ceil(cond(fvar(15) *60 < 11, 11, fvar(15) * 60))
-air.hittime  = ceil(cond(fvar(15) *60 < 11,11, fvar(15) * 60))
-down.hittime = ceil(cond(fvar(15) *60 < 11, 11, fvar(15) *60))
+ground.hittime  = 60
+air.hittime  = 60
+down.hittime = 60
 ground.velocity = -3,-8
 getpower = 0
 guard.hittime = 23
 guard.slidetime = 18
 guard.ctrltime = 19
-guard.cornerpush.veloff = -15
+guard.cornerpush.veloff = -5
 air.velocity = -4,-8
 down.velocity = -4,-8
-forcenofall = 1
+air.fall = 1
+fall = 1
 
 [State 630, 2]
 type = HitDef 
@@ -4117,7 +4146,7 @@ p2facing = 1
 triggerall = !movecontact
 trigger1 = map(exdp)
 attr = S, SA
-damage = ceil(cond(fvar(11) *60 < 6, 6, fvar(11) * 60)), 6
+damage = 80, 6
 hitflag = MAFD+
 guardflag = MAF
 ;priority = 3
@@ -4130,18 +4159,19 @@ ground.type = Low
 animtype = UP
 air.animtype = up
 ground.slidetime = 14
-ground.hittime  = 78
-air.hittime  = 78
-down.hittime = 78
-ground.velocity = -1,-8
+ground.hittime  = 60
+air.hittime  = 60
+down.hittime = 60
+ground.velocity = -3,-8
 getpower = 0
 guard.hittime = 23
 guard.slidetime = 18
 guard.ctrltime = 19
-guard.cornerpush.veloff = -15
-air.velocity = -1,-8
-down.velocity = -1,-8
-forcenofall = 1
+guard.cornerpush.veloff = -5
+air.velocity = -4,-5
+down.velocity = -4,-5
+air.fall = 1
+fall = 1
 
 [State 630, 2]
 type = HitDef 
@@ -4150,7 +4180,7 @@ triggerall = !movecontact
 trigger1 = map(divekick)
 trigger1 = map(exdp)=0
 attr = S, SA
-damage = ceil(cond(fvar(11) *60 < 6, 6, fvar(11) * 60)), 6
+damage = 60 * MAP(P4), 6
 hitflag = MAFD+
 guardflag = MAF
 ;priority = 3
@@ -4174,7 +4204,8 @@ guard.ctrltime = 19
 guard.cornerpush.veloff = -15
 air.velocity = -6,-2
 down.velocity = -6,-2
-forcenofall = 1
+air.fall = 1
+fall = 1
 
 [State 0, ChangeState]
 type = ChangeState
@@ -4529,7 +4560,7 @@ trigger1 = animelem=6
 trigger2 = animelem=7
 trigger3 = animelem=8
 attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *5 < 1, 1, fvar(11) * 5)), 0
+damage = 10 * MAP(P4), 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                 ;Flags of conditions that move can hit
@@ -4543,9 +4574,9 @@ hitsound = 5, 0                  ;Sound to play on hit
 guardsound = 6, 0                ;Sound to play on guard
 ground.type = High               ;Type: High, Low, Trip (def: Normal)
 ground.slidetime = 5             ;Time that the opponent slides back
-ground.hittime  = ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))
-air.hittime  =ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))
-down.hittime = ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))         ;Time opponent is in hit state 
+ground.hittime  = 50 * MAP(untechMOD)
+air.hittime  = 50 * MAP(untechMOD)
+down.hittime = 50 * MAP(untechMOD)        ;Time opponent is in hit state 
 ground.velocity = -4             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
@@ -4565,7 +4596,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem=10
 attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *45 < 4, 4, fvar(11) * 45)), 0
+damage = 65 * MAP(P4), 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                 ;Flags of conditions that move can hit
@@ -4579,9 +4610,9 @@ hitsound = 5, 0                  ;Sound to play on hit
 guardsound = 6, 0                ;Sound to play on guard
 ground.type = High               ;Type: High, Low, Trip (def: Normal)
 ground.slidetime = 5             ;Time that the opponent slides back
-ground.hittime  = ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))
-air.hittime  =ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))
-down.hittime = ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))         ;Time opponent is in hit state
+ground.hittime  = 50 * MAP(untechMOD)
+air.hittime  = 50 * MAP(untechMOD)
+down.hittime = 50 * MAP(untechMOD)       ;Time opponent is in hit state
 ground.velocity = 4,-6             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
@@ -4713,7 +4744,7 @@ trigger1 = animelem=6
 trigger2 = animelem=7
 trigger3 = animelem=8
 attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *5 < 1, 1, fvar(11) * 5)), 0
+damage = 10 * MAP(P4), 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                 ;Flags of conditions that move can hit
@@ -4749,7 +4780,7 @@ type = HitDef
 p2facing = 1
 trigger1 = animelem=10
 attr = S, NA                     ;Attribute: Standing, Normal Attack
-damage = ceil(cond(fvar(11) *45 < 4, 4, fvar(11) * 45)), 0
+damage = 75 * MAP(P4), 0
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
 guardflag = MA                   ;Flags on how move is to be guarded against
 hitflag = MAFD                 ;Flags of conditions that move can hit
@@ -4763,9 +4794,9 @@ hitsound = 5, 0                  ;Sound to play on hit
 guardsound = 6, 0                ;Sound to play on guard
 ground.type = High               ;Type: High, Low, Trip (def: Normal)
 ground.slidetime = 5             ;Time that the opponent slides back
-ground.hittime  = ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))
-air.hittime  =ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))
-down.hittime = ceil(cond(fvar(15) *50 < 10, 10, fvar(15) * 50))         ;Time opponent is in hit state
+ground.hittime  = 50 * MAP(untechMOD)
+air.hittime  = 50 * MAP(untechMOD)
+down.hittime = 50 * MAP(untechMOD)        ;Time opponent is in hit state
 ground.velocity = 2,-7             ;Velocity at which opponent is pushed
 airguard.velocity = -1.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
@@ -4822,530 +4853,3 @@ type = ChangeState
 triggerall = time> 13
 trigger1 = command = "c" || time>120
 value = 551
-
-;---------------------------------------------------------------------------
-;Throw
-[Statedef 800]
-type    = S
-movetype= A
-physics = S
-juggle  = 0
-poweradd = 0
-velset = 0,0
-ctrl = 0
-anim = 800
-sprpriority = 2
-
-[State yeah]
-type = MapSet
-trigger1 = time=0
-map = "gcounter"
-value = 0
-ignorehitpause = 1
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = 1
-value = ,NT
-time = 1
-
-[State 0, AttackDist]
-type = AttackDist
-trigger1 = 1
-value = 0
-
-; Notes: The '-' symbol in the hitflag field means that it only affects
-;   players who are not in a hit state. This prevents KFM from combo-ing
-;   into the throw. The priority should be set to a low number, such as
-;   1 or 2, so that the throw does not take precedence over normal attacks.
-;   The type of priority must always be set to "Miss" or "Dodge" for throws,
-;   otherwise strange behavior can result.
-[State 800, 1] ;With grab sound
-type = HitDef 
-p2facing = 1
-trigger1 = p2statetype != A
-Trigger1 = time = 0 
-attr = S, NT          ;Attributes: Standing, Normal Throw
-hitflag = M-          ;Affect only ground people who are not being hit
-priority = 1, Miss    ;Throw has low priority, must be miss or dodge type.
-sparkno = -1          ;No spark
-p1sprpriority = 1     ;Draw p1's sprite in front of p2
-                      ;p2's sprite priority is set to 0 by default
-p1facing = 1
-hitsound = S669,0 ;Throw Hit
-p2facing = 1          ;Force p2 to face KFM
-p1stateno = 803
-p2stateno = 820       ;If hit, p2 changes to state 820 in KFM's cns
-guard.dist = 0        ;This prevents p2 from going into a guard state if close
-forcestand = 1              ;Force p2 into falling down
-forcenofall = 1
-ground.velocity = 0,0
-snap = 50,0
-air.velocity=0,30
-[State 800, 1] ;With grab sound
-type = HitDef 
-p2facing = 1
-trigger1 = p2statetype != A
-Trigger1 = Time = 0
-attr = S, NT          ;Attributes: Standing, Normal Throw
-hitflag = M-          ;Affect only ground people who are not being hit
-priority = 1, Miss    ;Throw has low priority, must be miss or dodge type.
-sparkno = -1          ;No spark
-p1sprpriority = 1     ;Draw p1's sprite in front of p2
-                      ;p2's sprite priority is set to 0 by default
-p1facing = 1
-hitsound = S669,0 ;Throw Hit
-p2facing = 1          ;Force p2 to face KFM
-p1stateno = 803
-p2stateno = 820       ;If hit, p2 changes to state 820 in KFM's cns
-guard.dist = 0        ;This prevents p2 from going into a guard state if close
-snap = 50,0
-air.velocity=0,30
-forcestand = 1              ;Force p2 into falling down
-forcenofall = 1
-
-[State 0, PlaySnd] ;Throw Woosh
-type = PlaySnd
-trigger1 = animelem = 1
-value = S0,0
-
-[State 800, 2]
-type = ChangeState
-trigger1 = movehit = 1
-value = 803
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = animtime = 0 && movehit = 0
-value = 0
-ctrl = 1 
-
-
-;-----------------------------
-[Statedef 812]
-type    = S
-movetype= H
-physics = N
-juggle  = 0
-poweradd= 0
-ctrl = 0
-velset = 0,0
-sprpriority = 2
-
-[State 0, Width]
-type = Width
-trigger1 = 1
-edge = 0,0
-player = 0,0
-value = 0,0
-
-
-[State 0, ChangeAnim2]
-type = ChangeAnim
-trigger1 = 1
-value = 5010
-elem = 1
-
-
-[State 0, ChangeState]
-type = SelfState
-trigger1 = time = 90
-value = 0 
-ctrl = 1
-
-
-;Hit
-;-----------------------------
-[Statedef 803]
-type    = S
-movetype= A
-physics = S
-juggle  = 0
-poweradd= 0
-ctrl = 0
-velset = 0,0
-anim =803
-sprpriority = 2
-
-[State 0, TargetState]
-type = TargetState
-trigger1 = time = 0
-value =812
-
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = time = 0
-time = 1
-pos = 50,0
-;ignorehitpause = 
-;persistent = 
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = map(gcounter)=0
-trigger1 = time<=10 && target, command = "throwtech"
-value = 820
-ctrl = 0
-
-[State 803, 3]
-type = ChangeState
-trigger1 = Time = 22 && command = "holdback"
-value = 802
-ctrl = 0
-
-[State 803, 3]
-type = ChangeState
-trigger1 = Time = 22 && command != "holdback"
-value = 801
-ctrl = 0
-
-;-----------------------------
-[Statedef 801]
-type    = S
-movetype= A
-physics = N
-juggle  = 0
-poweradd = (50)*(cond(var(var(3)) = 1, 1, .5))
-ctrl = 0
-velset = 0,0
-anim =810
-sprpriority = 2
-
-
-[State 0]
-type = HitDef 
-p2facing = 1
-trigger1 = map(gcounter)=0
-trigger1 = time = 0
-attr = S, NT
-animtype  = hard
-damage = ceil(cond(fvar(11) *150 < 4, 4, fvar(11) * 150)), 0
-guardflag = MA
-pausetime = 8,8
-sparkno = 2
-sparkxy = -10,-40
-hitsound = 5,2
-guardsound = 6,2
-ground.type = high
-ground.slidetime = 12
-ground.hittime  = 17
-ground.velocity = -8, -2
-air.velocity = -7.2,-0
-fall.yvelocity = 0
-fall = 1
-getpower = (70)*(cond(var(var(3)) = 1, 1, .5))
-
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 5
-ignorehitpause=1
-[State 0]
-type = HitDef 
-p2facing = 1
-trigger1 = map(gcounter)=1
-trigger1 = time = 0
-attr = S, NT
-animtype  = hard
-damage = ceil(cond(fvar(11) *150 < 4, 4, fvar(11) * 150)), 0
-guardflag = MA
-pausetime = 8,8
-sparkno = 2
-sparkxy = -10,-40
-hitsound = 5,4
-guardsound = 6,2
-ground.type = high
-air.hittime  = 120
-ground.hittime  = 120
-fall.yvelocity = 0
-ground.velocity = -1, -7
-air.velocity = -1,-7
-getpower = 0
-
-
-[State 0, TargetState]
-type = TargetState
-trigger1 = time = 0
-value =812
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = animelem = 5
-value = S0,1
-
-
-
-[State 802, 3]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-;-----------------------------
-[Statedef 802]
-type    = S
-movetype= A
-physics = N
-juggle  = 0
-poweradd= (50)*(cond(var(var(3)) = 1, 1, .5))
-ctrl = 0
-velset = 0,0
-anim =810
-sprpriority = 2
-
-[State 0, Turn]
-type = Turn
-trigger1 = time = 0
-
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = time = 0
-x = -25
-
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = time = 0
-time = 10
-id = -1
-pos = 50,0
-ignorehitpause = 1
-
-
-[State 0]
-type = HitDef 
-p2facing = 1
-trigger1 = map(gcounter)=0
-trigger1 = time = 0
-attr = S, NT
-animtype  = hard
-damage = ceil(cond(fvar(11) *150 < 4, 4, fvar(11) * 150)), 0
-guardflag = MA
-pausetime = 8,8
-sparkno = 2
-sparkxy = -10,-40
-hitsound = 5,2
-guardsound = 6,2
-ground.type = high
-ground.slidetime = 12
-ground.hittime  = 17
-ground.velocity = -8, -2
-air.velocity = -7.2,-0
-fall.yvelocity = 0
-fall = 1
-getpower = (70)*(cond(var(var(3)) = 1, 1, .5))
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1
-fv =13     ;fv = 
-value = 5
-ignorehitpause=1
-[State 0]
-type = HitDef 
-p2facing = 1
-trigger1 = map(gcounter)=1
-trigger1 = time = 0
-attr = S, NT
-animtype  = hard
-damage = ceil(cond(fvar(11) *150 < 4, 4, fvar(11) * 150)), 0
-guardflag = MA
-pausetime = 8,8
-sparkno = 2
-sparkxy = -10,-40
-hitsound = 5,4
-guardsound = 6,2
-ground.type = high
-air.hittime  = 120
-ground.hittime  = 120
-fall.yvelocity = 0
-ground.velocity = -1, -7
-air.velocity = -1,-7
-getpower = 0
-
-[State 0, TargetState]
-type = TargetState
-trigger1 = time = 0
-value =812
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = animelem = 5
-value = S0,2
-
-
-[State 802, 3]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-;Tech
-;-----------------------------
-[Statedef 820]
-type    = S
-movetype= A
-physics = N
-juggle  = 4
-poweradd= 0
-ctrl = 0
-velset = -4,0
-sprpriority = 2
-
-;Throw Tech SFX & FX
-[State -3, ThrowTech Announcer]
-type = PlaySnd
-trigger1 = time=0
-value = 7411, (0+(Random%2))
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = time = 0
-value = F6,2
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = time = 0
-value = F6,2
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = time = 5
-value = 672,0
-[State 0, Explod]
-type = Explod
-trigger1 = time = 0
-anim =6950
-ID = 6950
-pos = 30,10
-postype = p1  ;p2,front,back,left,right
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 0.70,0.70
-sprpriority = 2
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
-supermovetime = 200
-ignorehitpause=1
-ontop=1
-[State 1200, Shake Screen]
-type = EnvShake
-trigger1 = time = 0
-time = 12     ;Time to shake screen
-ampl = 2     ;Amount to shake
-freq = 180   ;A frequency of 180 shakes the screen rapidly
-[State 0, Explod]
-type = Explod
-trigger1 = time = 0 
-anim = 6800
-ID = 6800
-pos = 20,0
-scale = 1,0.3
-postype =p1
-ontop = 1
-bindtime = 9999
-pausemovetime = 999999999
-[State 0, Pause]
-type = Pause
-trigger1 = time = 0
-time = 5
-movetime = 0
-
-[State -2, Explod];THROW TECH Explod for P1 Side.
-type = Explod
-trigger1=teamside=2
-trigger1 = time = 0
-anim = 13102
-pos = 30,170
-postype = left  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.53,0.53
-sprpriority = 0
-id = 13102
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
-[State -2, Explod];throw tech Explod for P2 Side.
-type = Explod
-trigger1=teamside=1
-trigger1 = time = 0
-anim = 13103
-pos = -120,170
-postype = right  ;p2,front,back,left,right
-removetime = -2
-supermove = 1
-scale = 0.53,0.53
-sprpriority = 0
-id = 13103
-bindtime = -1
-ontop = 1
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = -1
-
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = 1
-value = SCA
-time = 1
-ignorehitpause = 1
-persistent = 1
-
-[State 0, TargetState]
-type = TargetState
-trigger1 = time = 0
-value =821
-
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = time = 0
-value = 120
-
-
-[State 230, 3]
-type = SelfState
-trigger1 = Time = 12
-value = 0
-ctrl = 1
-;-----------------------------
-[Statedef 821]
-type    = S
-movetype= A
-physics = N
-ctrl = 0
-velset = -4,0
-sprpriority = 2
-
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = 1
-value = SCA
-time = 1
-ignorehitpause = 1
-persistent = 1
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = time=0
-v =15
-value = 50
-
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = time = 0
-value = 120
-;elem = 1
-;ignorehitpause = 
-;persistent = 
-
-[State 230, 3]
-type = SelfState
-trigger1 = Time = 12
-value = 0
-ctrl = 1
-

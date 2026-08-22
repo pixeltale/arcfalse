@@ -98,7 +98,7 @@ trigger5 = stateno = 1033 && movecontact ;&& enemynear, movetype = H
 
 [State Final Divekick Super]
 type = ChangeState
-value = 4100
+value = 41000
 triggerall = map(phoenix)=1
 triggerall = roundstate = 2 ;only attack during the round
 triggerall = command = "QCF"
@@ -111,16 +111,6 @@ trigger4 = stateno = 1030 && movecontact ;&& enemynear, movetype = H
 trigger5 = stateno = 1033 && movecontact ;&& enemynear, movetype = H
 
 
-;===========================================================================
-
-[State -1, Grab]
-type = ChangeState
-value = 800
-triggerall=stateno!=40
-triggerall = roundstate = 2 ;only attack during the round
-trigger1 = command = "throwtech"
-trigger1 = statetype != A
-trigger1 = ctrl
 
 ;Super Jump
 [State -1, Super Jump]
@@ -363,23 +353,6 @@ triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = var(1)
 
-[State Overhead]
-type = ChangeState
-value =  750
-triggerall=stateno!=100
-triggerall=stateno!=40
-trigger1 = statetype != A
-triggerall = command = "y"
-triggerall = command = "holdfwd"
-triggerall = command !="holddown"
-triggerall = command !="holdup"
-trigger1 = ctrl
-trigger2 = (stateno = 200) && movecontact ;&& enemynear, movetype = H
-trigger3 = (stateno = 210) && movecontact ;&& enemynear, movetype = H
-trigger4 = (stateno = 400) && movecontact ;&& enemynear, movetype = H
-trigger5 = stateno = 410 && movecontact ;&& enemynear, movetype = H
-trigger6 = stateno = 101 
-
 [State 5L]
 type = ChangeState
 value = 200
@@ -525,7 +498,7 @@ value = 630
 triggerall = roundstate = 2 ;only attack during the round
 triggerall = command = "z"
 triggerall = statetype = A
-trigger1 = ctrl
+trigger1 = ctrl || stateno = [60,61]
 trigger2 = (stateno = [600,610]) && movecontact
 ;---------------------------------------------------------------------------
 
