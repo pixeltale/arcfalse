@@ -10946,26 +10946,26 @@ ignorehitpause 	= 1
 ;===============================================================================
 ; ------- Team Lead Map Set --------
 ;===============================================================================
-[state 0]
-type = Mapset
-trigger1 = teamleader
-map = "teamlead"
-value = playerno
-[state 0]
-type = Mapset
-trigger1 = !alive
-map = "teamlead"
-value = 0
-[state 0]
-type = Mapset
-trigger1 = teamside=1
-map = "enemyteamlead"
-value = player(2),map(teamlead)+player(4),map(teamlead)
-[state 0]
-type = Mapset
-trigger1 = teamside=2
-map = "enemyteamlead"
-value = player(1),map(teamlead)+player(3),map(teamlead)
+; [state 0]
+; type = Mapset
+; trigger1 = teamleader
+; map = "teamlead"
+; value = playerno
+; [state 0]
+; type = Mapset
+; trigger1 = !alive
+; map = "teamlead"
+; value = 0
+; [state 0]
+; type = Mapset
+; trigger1 = teamside=1
+; map = "enemyteamlead"
+; value = player(2),map(teamlead)+player(4),map(teamlead)
+; [state 0]
+; type = Mapset
+; trigger1 = teamside=2
+; map = "enemyteamlead"
+; value = player(1),map(teamlead)+player(3),map(teamlead)
 
 ;===============================================================================
 ; ------- Counter-Hit --------
@@ -11120,7 +11120,7 @@ persistent = 1
 [State 0, TargetLifeAdd]
 type = LifeAdd
 triggerall=name!="Deus"
-triggerall = player(map(enemyteamlead)),name="Deus"
+triggerall = enemy,name="Deus"
 trigger1 = TimeRemaining <=60
 trigger1 = player(map(enemyteamlead)),map(notime)<=10
 trigger1 = player(map(enemyteamlead)),map(notime)>0
