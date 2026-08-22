@@ -5133,6 +5133,7 @@ type = explod
 trigger1 = animelemtime(7)=0
 anim = 10043
 id = 10043
+postype = p1
 pos = 0,0
 scale = 0.8,0.7
 sprpriority = 2
