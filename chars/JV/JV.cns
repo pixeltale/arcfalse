@@ -136,17 +136,20 @@ Super3 = 3200
 ;If this section is included, the default language victory quotes must be in English.
 [Quotes]
 ; Up to 100 victory quotes can be specified per language (victory0 - victory99)
-victory1 = "The hell, even after all that you still haven't gone down? Alright then, time for round 2!"
-victory2 = "Guardian, huh? So is that why that other guy was so strong as well? Seems like I have a lot to worry about around here."
-victory3 = "...Britain? The hell's that? Are you messing with me or something...?"
-victory4 = "The hell is a 'Blackwatch?' Why would I be working for them? Is this a race thing?"
-victory5 = "I can see why they call you the 'God Killing Demon'. You were strong...stand proud..."
-victory6 = "Everyone wants to say they're a 'death god' or 'death goddess' nowadays. Why don't you fill out a damn job application."
-victory7 = "Grandmaster Wu? Like, Wu-Tang clan? No? Alright, sorry..."
-victory8 = "Sorry man, the Garten is that way."
+victory1 = "Stay down this time. If you keep swinging wildly like that, your fists will never reach me."
+victory2 = "You seem desperate to prove yourself. Too bad, it looks like youre all burned out."
+victory3 = "...Britain? You've gotta just be coming up with fake countries at this point."
+victory4 = "We don't need to fight. I can help you."
+victory5 = "...Your need for power will consume you."
+victory6 = "You think that level of power is enough to threaten humanity? The only Omen of Death you represent is your own."
+victory7 = "I tried learning Astral Projection. Couldn't wrap my head around it. Might be an issue of the soul."
+victory8 = "The wind is awfully loud today..."
 victory9 = "...Is this really how weak I am...? No way you...I mean me...I mean...fuck. Whatever."
-victory10 = "Come on Alicia. I know you're just acting injured so you can stab me in the neck when I come check on you. That trick wont work on me twice."
-victory11 = "Sorry, but a cinder block in a weed warehouse is not enough to stop me."
+victory10 = "You taught Angous? Tragic."
+victory11 = "...What the hell was that?"
+victory12 = "Somehow I get the impression she was just toying with me...How nostalgic..."
+victory13 = "You'll never find peace without accepting who you are. You're more than the circumstances of your birth."
+victory14 = "A phantom of the past...Did I really look this pathetic?"
 ;Alternate language victory quotes (optional).
 ;0 or more alternate language sections may be added, preceded by the
 ;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".

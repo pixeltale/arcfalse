@@ -3884,6 +3884,7 @@ envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
+guard.ctrltime = 10
 getpower = (105)*(cond(var(var(3)) = 1, 1, .5))
 
 [State 630, 2]
@@ -3914,6 +3915,7 @@ envshake.time = 8
 envshake.freq = 10
 envshake.ampl = 2
 envshake.phase = 1
+guard.ctrltime = 10
 getpower = 0
 
 [State 0, TargetBind]

@@ -1,13 +1,17 @@
 {
-  "playtime": 108.67,
+  "playtime": 514.89,
   "modes": {
     "training": {
       "playtime": 0,
       "clear": 0
     },
     "freebattle": {
-      "playtime": 108.67,
-      "clear": 0
+      "playtime": 514.89,
+      "clear": 7,
+      "clearcount": {
+        "jv": 6,
+        "deus": 1
+      }
     }
   }
 }

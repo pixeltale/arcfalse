@@ -253,13 +253,13 @@ getpower = 0
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-triggerall = time < 25 && animelemno(0) = 3
+triggerall = time < 15 && animelemno(0) = 3
 trigger1 = command = "holdb"
 value = anim
 elem = 3
 [State 0, ChangeAnim]
 type = ChangeAnim
-triggerall = time = 25 && animelemno(0) = 3
+triggerall = time = 15 && animelemno(0) = 3
 trigger1 = command = "holdb"
 value = 1002
 elem = 3
@@ -970,7 +970,6 @@ value = 7, 3
 
 [State 1000, 1]
 type = HitDef
-triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 attr = S, SA                     ;Attribute: Standing, Normal Attack
 damage = 150 * map(p4), 20
@@ -989,8 +988,8 @@ ground.hittime  = 55             ;Time opponent is in hit state
 ground.velocity = -12,-2.8            ;Velocity at which opponent is pushed
 airguard.velocity = -6.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
 air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
-air.velocity = -12,-2.8
-down.velocity= -12, -4
+air.velocity = -18,-2.8
+down.velocity= -18, -4
 air.hittime = 40                 ;Time before opponent regains control in air
 envshake.time = 14
 envshake.freq = 100
@@ -1003,41 +1002,7 @@ guard.slidetime = 35
 getpower = 0
 p2stateno = 5220
 p2getp1state = 0
-
-[State 1000, 1]
-type = HitDef
-triggerall = enemy, map(ArmorActive)
-trigger1 = !movecontact && !movereversed
-attr = S, SA                     ;Attribute: Standing, Normal Attack
-damage = 150, 20
-animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)
-guardflag = MA                   ;Flags on how move is to be guarded against
-hitflag = MAFDP
-pausetime = 19, 19                ;Time attacker pauses, time opponent shakes
-sparkno = 3                      ;Spark anim no (Def: set above)
-sparkxy =-14, -40
-fall = 1
-hitsound = 5, 2                  ;Sound to play on hit
-guardsound = 6, 0                ;Sound to play on guard
-ground.type = low            ;Type: High, Low, Trip (def: Normal)
-ground.slidetime = 5             ;Time that the opponent slides back
-ground.hittime  = 55             ;Time opponent is in hit state
-ground.velocity = -12,-2.8            ;Velocity at which opponent is pushed
-airguard.velocity = -6.9,-.8     ;Guard velocity in air (def: (air.xvel*1.5, air.yvel/2))
-air.type = High                  ;Type: High, Low, Trip (def: same as ground.type)
-air.velocity = -12,-2.8
-down.velocity= -12, -4
-air.hittime = 40                 ;Time before opponent regains control in air
-envshake.time = 14
-envshake.freq = 100
-envshake.ampl = 4
-fall.yvelocity = 0
-ground.cornerpush.veloff =-8
-air.cornerpush.veloff=-8
-guard.hittime = 36
-guard.ctrltime = 35
-guard.slidetime = 12
-getpower = 0
+missonoverride = 0
 
 [State 0, ChangeState]
 type = ChangeState

@@ -19,6 +19,7 @@ st2      = Specials.cns
 st3      = HyperCombos.cns
 st4      = Helpers.cns
 st5      = Movement.cns
+st6		= target.cns
 stcommon = common1.cns      ;Common states (from data/ or motif)
 sprite  = yuko.sff           ;Sprite
 anim    = yuko.air           ;Animation

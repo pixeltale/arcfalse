@@ -1203,11 +1203,8 @@ removeongethit = 0
 type = AssertSpecial
 trigger1 = 1
 flag = NoWalk
-
-[State 100, 3] ;Prevent from turning
-type = AssertSpecial
-trigger1 = 1
-flag = NoAutoTurn
+flag2 = nocrouch 
+flag3 = noautoturn
 
 [State 100, 4]
 type = ChangeState

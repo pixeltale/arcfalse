@@ -10817,15 +10817,41 @@ value = 9
 [State -3, QuoteValue]
 type = mapset
 triggerall = MatchOver
-trigger1 = enemynear, name = "Alicia"
+trigger1 = enemynear, name = "Sahkive"
 map = "quoteNum"
 value = 10
 [State -3, QuoteValue]
 type = mapset
 triggerall = MatchOver
-trigger1 = enemynear, name = "Sahkive"
+trigger1 = enemynear, name = "Z"
 map = "quoteNum"
 value = 11
+[State -3, QuoteValue]
+type = mapset
+triggerall = MatchOver
+trigger1 = enemynear, name = "Deus"
+map = "quoteNum"
+value = 12
+[State -3, QuoteValue]
+type = mapset
+triggerall = MatchOver
+trigger1 = enemynear, name = "Yuko"
+map = "quoteNum"
+value = 13
+[State -3, QuoteValue]
+type = mapset
+triggerall = MatchOver
+trigger1 = enemynear, name = "UJV"
+map = "quoteNum"
+value = 14
+
+; [State -3, QuoteValue]
+; type = mapset
+; triggerall = MatchOver
+; trigger1 = enemynear, name = "Alicia"
+; map = "quoteNum"
+; value = 14
+
 
 [State 0, WinQuote Vs]
 type = VictoryQuote

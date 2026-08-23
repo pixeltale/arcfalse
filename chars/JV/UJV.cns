@@ -133,17 +133,21 @@ StateTagAssistHyper = 3000 ; STATENO: Super assist attack, cost 1000 of power.
 ;If this section is included, the default language victory quotes must be in English.
 [Quotes]
 ; Up to 100 victory quotes can be specified per language (victory0 - victory99)
-victory1 = "The hell, even after all that you still haven't gone down? Alright then, time for round 2!"
-victory2 = "Guardian, huh? So is that why that other guy was so strong as well? Seems like I have a lot to worry about around here."
-victory3 = "...Britain? The hell's that? Are you messing with me or something...?"
-victory4 = "The hell is a 'Blackwatch?' Why would I be working for them? Is this a race thing?"
-victory5 = "I can see why they call you the 'God Killing Demon'. You were strong...stand proud..."
-victory6 = "Everyone wants to say they're a 'death god' or 'death goddess' nowadays. Why don't you fill out a damn job application."
-victory7 = "Grandmaster Wu? Like, Wu-Tang clan? No? Alright, sorry..."
-victory8 = "Sorry man, the Garten is that way."
-victory9 = "...Is this really how weak I am...? No way you...I mean me...I mean...fuck. Whatever."
-victory10 = "Come on Alicia. I know you're just acting injured so you can stab me in the neck when I come check on you. That trick wont work on me twice."
-victory11 = "Sorry, but a cinder block in a weed warehouse is not enough to stop me."
+victory1 = "Lets see how you yell without a throat."
+victory2 = "My power outshines you. Be eclipsed by the power of Einskis Viroi."
+victory3 = "You pride in your country is just as worthless as you are."
+victory4 = "You're too weak to work alone. This is what true power looks like."
+victory5 = "No amount of technology can replicate the power I wield."
+victory6 = "YOU'RE WORTHLESS. DIE."
+victory7 = "You have nothing to teach me, old man."
+victory8 = "You can't beat me, you bald bitch."
+victory9 = "...You're mocking me. Don't mock me. I'm Powerful. I'M POWERFUL."
+victory10 = "...Stupid."
+victory11 = "THE AIR CRACKLES WITH FREEDOM."
+victory12 = "STOP TOYING WITH ME!"
+victory13 = "Don't fight your instincts. You're nothing more than a monster."
+victory14 = "LETS KILL EACHOTHER!!"
+
 ;Alternate language victory quotes (optional).
 ;0 or more alternate language sections may be added, preceded by the
 ;ISO 639-1 code followed by a ".", e.g. "[ja.Quotes]".
