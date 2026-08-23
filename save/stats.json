@@ -1,12 +1,12 @@
 {
-  "playtime": 1009.89,
+  "playtime": 3790.84,
   "modes": {
     "training": {
       "playtime": 0,
       "clear": 0
     },
     "freebattle": {
-      "playtime": 514.89,
+      "playtime": 625.72,
       "clear": 7,
       "clearcount": {
         "jv": 6,
@@ -14,11 +14,23 @@
       }
     },
     "netplayversus": {
-      "playtime": 495,
-      "clear": 1,
+      "playtime": 3165.12,
+      "clear": 13,
       "clearcount": {
-        "tui": 1
+        "tui": 1,
+        "tanxin": 2,
+        "crow": 3,
+        "yuko": 1,
+        "alicia": 1,
+        "eddy": 2,
+        "vile": 1,
+        "z": 1,
+        "one": 1
       }
+    },
+    "versus": {
+      "playtime": 0,
+      "clear": 0
     }
   }
 }
