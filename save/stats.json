@@ -1,5 +1,5 @@
 {
-  "playtime": 514.89,
+  "playtime": 1009.89,
   "modes": {
     "training": {
       "playtime": 0,
@@ -11,6 +11,13 @@
       "clearcount": {
         "jv": 6,
         "deus": 1
+      }
+    },
+    "netplayversus": {
+      "playtime": 495,
+      "clear": 1,
+      "clearcount": {
+        "tui": 1
       }
     }
   }

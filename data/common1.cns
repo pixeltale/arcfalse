@@ -9389,15 +9389,16 @@ value = 1000
 
 [State 0, MapAdd] ;Build Burst while hit
 type = MapAdd
+trigger1 = time % 5 = 0
 trigger1 = movetype = H && !map(BurstGauge_Lockout) && enemy, stateno != 900
 map = "BurstGauge"
-value =  3 * enemy, map(ComboStateCheck)
-ignorehitpause = 1
+value =  1
+ignorehitpause = 0
 persistent = 0
 
 [State 0, MapAdd] ;Build Burst while hit
 type    = MapAdd
-trigger1    = enemy, movehit = 1
+trigger1    = enemy, movehitvar(frame) = 1
 map         = "BurstGauge"
 value       = gethitvar(damage) * 0.15
 ignorehitpause = 1
