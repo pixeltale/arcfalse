@@ -277,8 +277,8 @@ guard.velocity 		= -5
 air.fall 			= 1
 fall.yvelocity 		= 0
 ground.cornerpush.veloff 	= -10 / MAP(untechMOD)
-air.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
-down.cornerpush.veloff 	= -10.5 / MAP(untechMOD)
+air.cornerpush.veloff 	= -5.5
+down.cornerpush.veloff 	= -5.5
 getpower 		= 75
 
 [State 200, 3]
@@ -666,7 +666,7 @@ ctrl = 1
 type    = C
 movetype= A
 physics = C
-velset 	= vel x, 0
+velset 	= vel x + 3, 0
 ctrl = 0
 anim = 420
 sprpriority = 2
@@ -942,7 +942,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 0.88	;100% Starting DMG
+value 		= 0.80	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1033,7 +1033,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 		= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1	;100% Starting DMG
+value 		= 0.85	;100% Starting DMG
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1110,13 +1110,15 @@ anim = 620
 sprpriority = 2
 facep2 = map(Float) || map(SJI)
 
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = animelem = 5 && command = "holdz"
-triggerall = anim = 620
-value = 621
-ignorehitpause = 1
-
+[State 0, VelMul]
+type = VelMul
+trigger1 = time > 11
+x = .975
+[State 0, VelMul]
+type = VelAdd
+trigger1 = vel y > 0
+trigger1 = time < 16
+y = -0.3
 
 [State 200, 2]
 type = PlaySnd
@@ -1138,7 +1140,7 @@ ignorehitpause 	= 1
 type 		= MapSet
 trigger1 	= movehit && !map(ComboStateCheck)
 map 		= "P1"
-value 		= 1.2	;100% Starting DMG
+value 		= 0.90
 ignorehitpause 	= 1
 [State -2, P2 Value Set]
 type 		= MapSet
@@ -1175,7 +1177,7 @@ ground.hittime  = 14 * MAP(untechMOD)
 air.hittime  = 20 * MAP(untechMOD)
 down.hittime = 20 * MAP(untechMOD)
 ground.velocity = -4
-air.velocity = -5, -1.2
+air.velocity = -5, -1
 air.fall = 1
 guard.slidetime = 1
 guard.hittime = 1

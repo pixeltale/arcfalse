@@ -518,22 +518,22 @@ size.xscale = const(size.xscale)
 postype = p1
 facing = 1
 ignorehitpause = 1
-[State 0, Helper]
-type = Helper
-triggerall = time = 60
-trigger1 = !numhelper(1060 + (id-1015))
-helpertype = normal
-name = "I use these to eat cheese"
-ID = 1060 + (id-1015)
-stateno = 1060
-pos = 0,0
-postype = p1    ;p2,front,back,left,right
-facing = 0
-keyctrl = 0
-ownpal = 0
-ignorehitpause = 1
-size.xscale = const(size.xscale)
-size.yscale = const(size.yscale)
+;[State 0, Helper]
+;type = Helper
+;triggerall = time = 60
+;trigger1 = !numhelper(1060 + (id-1015))
+;helpertype = normal
+;name = "I use these to eat cheese"
+;ID = 1060 + (id-1015)
+;stateno = 1060
+;pos = 0,0
+;postype = p1    ;p2,front,back,left,right
+;facing = 0
+;keyctrl = 0
+;ownpal = 0
+;ignorehitpause = 1
+;size.xscale = const(size.xscale)
+;size.yscale = const(size.yscale)
 
 [State 0, Transition To Butterfly State]
 type 		= Changestate

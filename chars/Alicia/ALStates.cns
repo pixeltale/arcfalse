@@ -628,25 +628,25 @@ value = 1
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = !time
-y = -10
+y = -5
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time >= 0
 x = 0.35
-y = -0.25
+y = -0.15
 [State 0, VelSet]
 type = VelSet
 trigger1 = !time
 X = 2
 [State 0, VelSet]
 type = VelSet
-trigger1 = vel x > 6
-x = 6
+trigger1 = vel x > 5
+x = 5
 [State 0, VelSet]
 type = VelSet
-trigger1 = vel y < -2.5
-y = -2.5
+trigger1 = vel y < -1.5
+y = -1.5
 
 
 [State 0, Explod]
@@ -1011,6 +1011,12 @@ anim =  44
 ctrl = 1
 velset = 0, 3
 
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0
+
+
 [State 0, MapSet]
 type = MapSet
 trigger1 = 1
@@ -1061,7 +1067,7 @@ movetype= A
 physics = S
 juggle  = 0
 anim = 0
-poweradd = -1000
+poweradd = -500
 ctrl = 0
 velset = vel x * 0.05,0
 sprpriority = 2
@@ -1118,7 +1124,7 @@ type    = A
 movetype = A
 physics = N
 anim = 69000
-poweradd = (-1000)
+poweradd = (-500)
 ctrl = 0
 velset = vel x,vel y
 sprpriority = 2
