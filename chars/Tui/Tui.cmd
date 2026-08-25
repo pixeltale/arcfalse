@@ -25,7 +25,7 @@ type = ChangeState
 value = 3000
 triggerall = map(phoenix)=0
 triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "QCF"
+triggerall = command = "236X"
 triggerall = power >= 2000
 trigger1 = ctrl
 trigger2 = hitdefattr = SCA, NA, SA, ST
@@ -40,16 +40,15 @@ type = ChangeState
 value = 3100
 triggerall = map(phoenix)=0
 triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "QCB"
+triggerall = command = "214X"
 triggerall = power >= 2000
 triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = hitdefattr = SCA, NA, SA, ST
 trigger2 = stateno != [3000,3600)
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 1030 && movecontact ;&& enemynear, movetype = H
-trigger5 = stateno = 1033 && movecontact ;&& enemynear, movetype = H
+trigger2 = movecontact
+trigger3 = stateno = 1030 && movecontact ;&& enemynear, movetype = H
+trigger4 = stateno = 1033 && movecontact ;&& enemynear, movetype = H
 
 [State Hellzone Super]
 type = ChangeState
@@ -57,7 +56,7 @@ value = 3500
 triggerall=stateno!=40
 triggerall = map(phoenix)=0
 triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "QCB"
+triggerall = command = "214X"
 triggerall = power >= 2000
 triggerall = statetype != A
 triggerall = !numhelper(3500)&&!numhelper(3501)&&!numhelper(3502)&&!numhelper(3503)&&!numhelper(3504)
@@ -75,7 +74,7 @@ value = 3505
 triggerall=stateno!=40
 triggerall = map(Collapse)=0
 triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "QCB"
+triggerall = command = "214X"
 triggerall = statetype != A
 triggerall = numhelper(3500)||numhelper(3501)||numhelper(3502)||numhelper(3503)||numhelper(3504)
 trigger1 = ctrl
@@ -101,7 +100,7 @@ type = ChangeState
 value = 41000
 triggerall = map(phoenix)=1
 triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "QCF"
+triggerall = command = "236X"
 trigger1 = ctrl
 trigger2 = hitdefattr = SCA, NA, SA, ST
 trigger2 = stateno != [3000,3600)

@@ -34,7 +34,7 @@ common.snd = common.snd
 ;-----------------------------------------------------------
 [Lifebar]
 ;Player 1
-p1.pos    = 159,10
+p1.pos    = 159,5
 p1.bg0.spr = 999,1
 p1.bg1.spr = 11,0
 p1.bg1.scale = 1.1, 1
@@ -42,7 +42,7 @@ p1.front.spr = 13,0
 p1.front.scale = 1.1, 1
 p1.range.x  = -22,-161
 ;Player 2
-p2.pos    = 160,10
+p2.pos    = 160,5
 p2.bg0.spr = 999,1
 p2.bg0.facing = -1
 p2.bg1.spr = 11,0

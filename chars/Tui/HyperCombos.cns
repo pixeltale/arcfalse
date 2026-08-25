@@ -1693,30 +1693,30 @@ value = 3504
 [State 0, ChangeState]
 type = ChangeState
 triggerall = root,stateno!=3500
-trigger1 = p2bodydist x > -30 && p2bodydist x < 20
-trigger1 = p2bodydist  y > -70 && p2bodydist  y < 60
+trigger1 = p2dist x > -30 && p2dist x < 20
+trigger1 = p2dist  y > -70 && p2dist  y < 60
 trigger1 = enemy,stateno!=5120 && enemy,stateno!=5111 && enemy,stateno!=915111
 value = 3502
 
 [State 0, VelSet]
 type = VelAdd
 triggerall = root,map(Collapse)
-trigger1 = p2bodydist  y > 20
+trigger1 = p2dist  y > 20
 y =.1
 [State 0, VelSet]
 type = VelAdd
 triggerall = root,map(Collapse)
-trigger1 = p2bodydist  y < 10
+trigger1 = p2dist  y < 10
 y =-.1
 [State 0, VelSet]
 type = VelAdd
 triggerall = root,map(Collapse)
-trigger1 = p2bodydist  x > 0
+trigger1 = p2dist  x > 0
 x =.4
 [State 0, VelSet]
 type = VelAdd
 triggerall = root,map(Collapse)
-trigger1 = p2bodydist  x < 0
+trigger1 = p2dist  x < 0
 x =-.4
 
 [State 0, DestroySelf]
@@ -1800,9 +1800,9 @@ hitsound   = 5,3
 guardsound = 6,2
 ground.type = high
 ground.slidetime = 12
-ground.hittime  = 35 * MAP(untechMOD)
-air.hittime  = 45 * MAP(untechMOD)
-down.hittime = 45 * MAP(untechMOD) 
+ground.hittime  = 35
+air.hittime  = 45
+down.hittime = 45
 ground.velocity = -2.5,-6.5
 air.velocity = -2.5,-6.5
 down.velocity = -2.5,-6.5

@@ -208,6 +208,13 @@ ctrl = 1
 ;=============================================================================
 [Statedef -2]
 
+[State -2, ShaderSet]
+type = ShaderSet
+trigger1 = movetype = H
+shader = "ripple"
+time = -1
+shaderparam.p0 = 2.0
+
 [State 0, PowerAdd]
 type = PowerAdd
 trigger1 = numhelper(1015) || numhelper(1016) || numhelper(1017)

@@ -30,6 +30,9 @@ sound   		= Alicia.snd           ;Sound
 ai      		= Alicia.ai            ;AI hints data (not used)
 movelist 		= Alicia.txt
 
+[Shaders]
+ripple 	= ripple.frag
+
 
 ; Maps character selection buttons to palette numbers.
 [Palette Keymap]

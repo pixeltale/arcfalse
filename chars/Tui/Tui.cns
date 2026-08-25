@@ -912,17 +912,6 @@ trigger1 =  GetHitVar(fall) = 1
 v = 50    ;fv = 10
 value = 0
 
-[State 0, PalFXWiz]
-type = PalFX
-trigger1 = helper, numexplod(900)=1
-time = 15
-add = 100,100,100
-mul = 256,256,256
-sinadd = 30,30,30,3
-invertall = 0
-color = 256
-
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = stateno = [400,420]
