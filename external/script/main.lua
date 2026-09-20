@@ -2347,6 +2347,7 @@ main.t_itemname = {
 		--main.fightscreen.p2ailevel = true
 		main.makeRoster = true
 		main.motif.hiscore = true
+		main.motif.losescreen = true
 		main.motif.winscreen = true
 		main.matchWins.draw = {0, 0}
 		main.matchWins.simul = {1, 1}
@@ -3985,7 +3986,11 @@ end
 local t_modules = {}
 for _, v in ipairs(getDirectoryFiles('external/mods')) do
 	if v:lower():match('%.([^%.\\/]-)$') == 'lua' then
-		table.insert(t_modules, v)
+		local fileName = v:match("[^/\\]+$") or v
+		-- Lua files prefixed with '-' are excluded from autoloading
+		if not fileName:match("^%-") then
+			table.insert(t_modules, v)
+		end
 	end
 end
 
