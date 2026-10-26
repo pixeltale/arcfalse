@@ -1267,14 +1267,6 @@ yaccel = .38
 air.fall = 1
 ground.cornerpush.veloff = 0
 
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = movehit && enemynear,statetype=A
-time = 1
-pos = 0, 30
-ignorehitpause = 1
-persistent = 0
-
 [State 0, VarSet]
 type = VarSet
 trigger1 = time=0

@@ -715,10 +715,9 @@ persistent 		= 0
 [State 400, 2]
 type = HitDef 
 p2facing = 1
-trigger1 = !MoveContact && !MoveReversed && (enemynear, stateno!= [5110,5119])
+trigger1 = !MoveContact && !MoveReversed
 attr = C, NA
 damage = 40*MAP(P4), 0
-priority  = 3
 air.animtype = back
 animtype  = Light
 hitflag = MAFD

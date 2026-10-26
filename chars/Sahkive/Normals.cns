@@ -439,7 +439,6 @@ persistent         	= 0
 ;============================
 [State 1055, 5]
 type = HitDef
-triggerall = enemy, map(ArmorActive) = 0
 trigger1 = !movecontact && !movereversed
 attr = S,NA
 getpower = 25
@@ -476,12 +475,12 @@ envshake.ampl = 4
 guard.hittime = 28
 guard.ctrltime = 19
 guard.slidetime = 18
+missonoverride		= 0
 
 ;-----------------------------------------
 ;Enhanced 6H code
 [State 1055, 5]
 type = HitDef
-triggerall		= enemy, map(ArmorActive) = 0
 triggerall 		= prevstateno = 100
 trigger1 		= !movecontact && !movereversed
 attr 		= S,NA
@@ -522,53 +521,20 @@ guard.ctrltime 		= 18
 guard.slidetime 		= 18
 p2stateno 		= 5220
 p2getp1state 		= 0
-
-[State 1055, 5]
-type = HitDef
-triggerall		= enemy, map(ArmorActive)
-triggerall 		= prevstateno = 100
-trigger1 		= !movecontact && !movereversed
-attr 		= S,NA
-getpower 		= 25
-damage 		= 125*MAP(P4), 0
-animtype 			= hard
-air.animtype 		= back
-guardflag		 	= MA
-hitflag 			= MAFD
-priority 			= 5
-pausetime 		= 21,21
-guard.pausetime 		= 14, 14
-sparkno			=3
-hitsound   		= 5,3
-sparkxy 			= -19,-45
-guardsound 		= 6,2
-ground.type 		= low
-ground.slidetime 		= 25
-guard.velocity 		= -10
-ground.hittime  		= 39-MAP(untechDecay)
-air.hittime  		= 48-MAP(untechDecay)
-down.hittime 		= 48-MAP(untechDecay)
-ground.velocity 		= -20,-5
-air.velocity 		= -20,-4
-airguard.velocity 		= -2.6,-1.8
-air.type 			= high
-p2facing 			= 1
-fall 			= 1
-fall.yvelocity 		= 0
-ground.cornerpush.veloff 	= -7
-air.cornerpush.veloff 	= -7
-envshake.time		 = 10
-envshake.freq 		= 80
-envshake.ampl 		= 4
-guard.hittime 		= 18
-guard.ctrltime 		= 18
-guard.slidetime 		= 18
+missonoverride		= 0
 
 [State -2, Wallbounce Velocity Set]
 type 		= MapSet
 trigger1 		= movehit = 1 && anim = 252
 map 		= "wallbounce_yvel"
 value 		= -4.5 + map(en6HuseCount)*0.75
+ignorehitpause 	= 1
+persistent 		= 0
+[State -2, Wallbounce Type Set]
+type 		= MapSet
+trigger1 		= 1
+map 		= "wallbounce_boomerang"
+value 		= 1
 ignorehitpause 	= 1
 persistent 		= 0
 

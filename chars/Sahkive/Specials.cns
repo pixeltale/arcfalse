@@ -107,7 +107,7 @@ persistent         = 0
 [State 800, 1] ;With grab sound
 type = HitDef
 triggerall = enemy, movetype != H
-Trigger1 = !movecontact
+Trigger1 = !movecontact && enemy, statetype != A
 attr = S, ST          ;Attributes: Standing, Normal Throw
 hitflag = M          ;Affect only ground people who are not being hit
 priority = 3,Hit    ;Throw has low priority, must be miss or dodge type.

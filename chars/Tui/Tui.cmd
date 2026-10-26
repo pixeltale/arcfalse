@@ -269,55 +269,58 @@ triggerall = command = "holddown"
 trigger1 = ctrl
 trigger2 = var(1)
 
-[State 4S]
-type = ChangeState
-value = 1010
-triggerall=stateno!=40
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "b" && command="holdback"
-triggerall = command != "holddown"
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
 
-[State EX4S]
-type = ChangeState
-value = 1016
-triggerall=stateno!=40
-triggerall=map(EXLimiter2)=0
-triggerall = numhelper(1013)=0
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = power>=1000||map(phoenix)=0
-triggerall = command="holdback" 
-triggerall = command != "holddown"
-triggerall = command = "EX"
-triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = var(1)
-
-[State j4S]
-type = ChangeState
-value = 1021
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "b" && command="holdback"
-triggerall = command != "holddown"
-triggerall = statetype = A
-trigger1 = ctrl
-trigger2 = var(1)
-
-[State EX j4S]
-type = ChangeState
-value = 1022
-triggerall=map(EXLimiter2)=0
-triggerall = numhelper(1013)=0
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = power>=1000||map(phoenix)=0
-triggerall = command="holdback" 
-triggerall = command != "holddown"
-triggerall = command = "EX"
-triggerall = statetype = A
-trigger1 = ctrl
-trigger2 = var(1)
+;================================== FIREBALL GROOVE 4S SECTION =============]
+;[State EX4S]
+;type = ChangeState
+;value = 1016
+;triggerall=stateno!=40
+;triggerall=map(EXLimiter2)=0
+;triggerall = numhelper(1013)=0
+;triggerall = roundstate = 2 ;only attack during the round
+;triggerall = power>=1000||map(phoenix)=0
+;triggerall = command="holdback" 
+;triggerall = command != "holddown"
+;triggerall = command = "EX"
+;triggerall = statetype != A
+;trigger1 = ctrl
+;trigger2 = var(1)
+;
+;[State 4S]
+;type = ChangeState
+;value = 1010
+;triggerall=stateno!=40
+;triggerall = roundstate = 2 ;only attack during the round
+;triggerall = command = "b" && command="holdback"
+;triggerall = command != "holddown"
+;triggerall = statetype != A
+;trigger1 = ctrl
+;trigger2 = var(1)
+;
+;[State EX j4S]
+;type = ChangeState
+;value = 1022
+;triggerall=map(EXLimiter2)=0
+;triggerall = numhelper(1013)=0
+;triggerall = roundstate = 2 ;only attack during the round
+;triggerall = power>=1000||map(phoenix)=0
+;triggerall = command="holdback" 
+;triggerall = command != "holddown"
+;triggerall = command = "EX"
+;triggerall = statetype = A
+;trigger1 = ctrl
+;trigger2 = var(1)
+;
+;[State j4S]
+;type = ChangeState
+;value = 1021
+;triggerall = roundstate = 2 ;only attack during the round
+;triggerall = command = "b" && command="holdback"
+;triggerall = command != "holddown"
+;triggerall = statetype = A
+;trigger1 = ctrl
+;trigger2 = var(1)
+;=========================================================================]
 
 [State EX6S]
 type = ChangeState
