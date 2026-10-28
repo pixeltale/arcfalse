@@ -250,13 +250,13 @@ value = 1
 ignorehitpause = 1
 persistent=0
 
-[State -2, Wallbounce Type Set]
-type 		= MapSet
-trigger1 		= movehit
-map 		= "wallbounce_boomerang"
-value 		= 1
-ignorehitpause 	= 1
-persistent 		= 0
+;[State -2, Wallbounce Type Set]
+;type 		= MapSet
+;trigger1 		= movehit
+;map 		= "wallbounce_boomerang"
+;value 		= 1
+;ignorehitpause 	= 1
+;persistent 		= 0
 
 [State 210, 5]
 type = ChangeState
@@ -1322,7 +1322,7 @@ trigger1 	= !movecontact && !movereversed
 hitonce 	= 1
 attr 	= A, NA
 damage 	= 100*MAP(P4)
-hitflag 	= AF
+hitflag 	= MAF
 guardflag 	= HA
 pausetime 	= 14,14
 sparkno 		= 3
@@ -2110,7 +2110,12 @@ guard.slidetime = 28
 guard.ctrltime = 28
 guard.velocity = -6
 getpower = 0
-p2stateno = 1220
+fall = 1
+air.fall = 1
+forcenofall = 0
+p2stateno 	= 5220
+p2getp1state 	= 0
+missonoverride = 0
 ground.cornerpush.veloff = 0
 
 [State 200, 1]
@@ -2680,7 +2685,7 @@ damage = ceil(cond(fvar(11) * 20 < 2, 2, fvar(11) * 20)), 5
 hitflag = MAFD
 guardflag = MA
 pausetime = 2,16
-guard.pausetime=2,8
+guard.pausetime=2,2
 sparkno = 3
 sparkxy = -15,-45
 hitsound = 5,2                ;Sound to play on hit
@@ -2770,6 +2775,18 @@ ctrl = 0
 anim = 2000
 sprpriority = 2
 facep2=1
+
+[State Indicator]
+type = Helper
+trigger1 = !NumHelper(7020)
+trigger1 = animelem=8
+stateNo = 7020
+ID = 7020
+name = "Indicator"
+posType = p1
+facing = 1
+keyCtrl = 0
+ignoreHitPause = 1
 
 [State 0, VarAdd]
 type = MapSet
@@ -3020,6 +3037,17 @@ anim = 2050
 sprpriority = 2
 facep2=1
 
+[State Indicator]
+type = Helper
+trigger1 = !NumHelper(7020)
+trigger1 = animelem=8
+stateNo = 7020
+ID = 7020
+name = "Indicator"
+posType = p1
+facing = 1
+keyCtrl = 0
+ignoreHitPause = 1
 
 ;----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;Shadow Override

@@ -3286,6 +3286,7 @@ anim = 550
 [State 1060, Explod]
 type = Explod
 trigger1 = !NumExplod(44020)
+postype = p1
 anim = 99856
 ID = 44020
 removetime = -1
@@ -3659,6 +3660,7 @@ trigger1 = animelem = 2
 anim = 10044
 id = 10044
 pos = 0,0
+postype = p1
 scale = 1.9,1.3
 sprpriority = 2
 bindtime = -1

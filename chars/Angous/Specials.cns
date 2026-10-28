@@ -185,7 +185,7 @@ persistent 		= 0
 [State 410, Regular Hit]
 type = hitdef 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed
 trigger1 = !MAP(CounterHit)
 attr = S, SA
 damage = 70*MAP(P4),11
@@ -204,7 +204,7 @@ air.hittime  	= 999
 ground.velocity = -4
 air.velocity = -2,-3 * MAP(untechMOD)
 yaccel = .24
-air.cornerpush.veloff = -8
+air.cornerpush.veloff = -4 
 air.fall = 1
 envshake.time = 9
 envshake.freq = 90
@@ -222,6 +222,7 @@ getpower = (50)*(cond(var(var(2)) = 1, 1, .5))
 [State 410, Counter Hit]
 type = hitdef 
 p2facing = 1
+trigger1 = !movecontact && !movereversed
 trigger1 = MAP(CounterHit)
 attr = S, SA
 damage = 120*MAP(P4), 12
@@ -327,7 +328,7 @@ x = 7
 [State 0, VelSet]
 type = VelSet
 trigger1 = animelem = 6
-x = 1
+x = 5
 
 [State 0, ChangeState]
 type = ChangeState
@@ -1236,7 +1237,7 @@ value = 0
 type 		= MapSet
 trigger1 	= !time
 map 		= "StarterLevel"
-value 		= 3
+value 		= 2
 ignorehitpause 	= 1
 
 [State 0, PalFXWiz]
@@ -4360,7 +4361,7 @@ ignorehitpause = 0
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = animelem = 3
-x = 8
+x = 10
 
 [State -2, Starter Level]
 type 		= MapSet
@@ -4412,7 +4413,7 @@ air.hittime  = 99
 ground.velocity = -4
 air.velocity = -2,-2.5 * MAP(untechMOD)
 yaccel = .24
-air.cornerpush.veloff = -15
+air.cornerpush.veloff = -6
 air.fall = 1
 envshake.time = 9
 envshake.freq = 90

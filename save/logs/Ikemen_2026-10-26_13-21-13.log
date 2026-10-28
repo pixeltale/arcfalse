@@ -1,0 +1,36 @@
+Version: v1.0.0
+Build Time: 2026.09.12
+Platform: windows (amd64)
+Vulkan 1.3.239
+RAM in Use: 461 MB / OS Reserved: 992 MB
+Active Goroutines: 3
+Timestamp: 2026-10-26 13:21:13
+
+Engine error
+
+Error: .\external\script\start.lua:1758: chars/Yuko/Helpers.cns:723:
+'!' operator cannot be used within a trigger redirection
+stack traceback:
+	[G]: in function 'game'
+	.\external\script\start.lua:1758: in function 'f_game'
+	.\external\script\start.lua:2380: in function 'launchFight'
+	@external/script/default.lua:2: in function <@external/script/default.lua:0>
+	.\external\script\start.lua:1829: in function 'f'
+	external/script/main.lua:2704: in function 'loop'
+	external/script/main.lua:4044: in main chunk
+	[G]: ?
+
+Go stack traceback:
+goroutine 1 [running, locked to thread]:
+runtime/debug.Stack()
+	runtime/debug/stack.go:24 +0x65
+main.handlePanic({0x7ff6abe44960?, 0xc0075fd400})
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:372 +0x408
+main.realMain.func1()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:66 +0x2a
+panic({0x7ff6abe44960, 0xc0075fd400})
+	runtime/panic.go:884 +0x213
+main.realMain()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:206 +0x573
+main.main()
+	github.com/ikemen-engine/Ikemen-GO/src/main.go:59 +0x17

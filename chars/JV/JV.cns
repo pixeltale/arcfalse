@@ -644,8 +644,8 @@ ignorehitpause 	= 1
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 1
-text = "DJ  Buffer = %0.0f"
-params = map(doubleJump_BUFFFIX)
+text = "p2dist x = %0.0f p2bodydist = %0.0f"
+params = p2dist x, p2bodydist x
 ignorehitpause = 1
 persistent = 1
 

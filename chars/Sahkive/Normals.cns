@@ -1120,7 +1120,7 @@ persistent		= 1
 type         		= MapSet
 trigger1         	= movehit && !map(ComboStateCheck)
 map         		= "StarterLevel"
-value         		=  3
+value         		=  1
 ignorehitpause     	=  1
 
 [State -2, P1 Value Set]
@@ -2148,7 +2148,7 @@ getpower 			= 70
 [State 610, 3]
 type = hitdef 
 p2facing = 1
-triggerall = enemy, map(ArmorActive) = 0
+triggerall = !map(LIM_2R)
 trigger1 = animelem = 10
 hitonce = 1
 attr = S, SA
@@ -2159,19 +2159,19 @@ guardflag = HA
 priority = 3
 pausetime = 20,20
 guard.pausetime = 16,16
-sparkno = 3
-sparkxy = -19, -22
-hitsound   = 5,4
-guardsound = 6,2
+sparkno 				= 3
+sparkxy 				= -19, -22
+hitsound   			= 5,4
+guardsound 			= 6,2
 ground.slidetime 		= 30
 ground.velocity 		= -0.7, 18
 airguard.velocity 		= -1,-.8
 fall.yvelocity		= 0
 air.type 			= trip
-air.velocity 		= -0.7, 15 - (map(UntechDecay)/2.3)
-ground.hittime  		= 31-MAP(untechDecay)
-air.hittime 		= 31
-down.hittime		= 31
+air.velocity 		= -0.7, 16
+ground.hittime  		= 32
+air.hittime 		= 45
+down.hittime		= 60
 air.fall 			= 1
 fall 			= 1
 envshake.time 		= 35
@@ -2190,10 +2190,12 @@ guard.velocity 		= -8
 getpower 			= 70
 p2stateno 		= cond(map(untechDecay) < 10, 5255, 5070)
 p2getp1state 		= 0
+missonoverride		= 0
+
 [State 610, 3]
 type = hitdef 
 p2facing = 1
-triggerall = enemy, map(ArmorActive)
+triggerall = map(LIM_2R)
 trigger1 = animelem = 10
 hitonce = 1
 attr = S, SA
@@ -2204,21 +2206,22 @@ guardflag = HA
 priority = 3
 pausetime = 20,20
 guard.pausetime = 16,16
-sparkno = 3
-sparkxy = -19, -22
-hitsound   = 5,4
-guardsound = 6,2
+sparkno 				= 3
+sparkxy 				= -19, -22
+hitsound   			= 5,4
+guardsound 			= 6,2
 ground.slidetime 		= 30
 ground.velocity 		= -0.7, 18
 airguard.velocity 		= -1,-.8
 fall.yvelocity		= 0
 air.type 			= trip
-air.velocity 		= -0.7, 15 - (map(UntechDecay)/2.3)
-ground.hittime  		= 31-MAP(untechDecay)
-air.hittime 		= 31
+air.velocity 		= -0.7, 18
+ground.hittime  		= 32
+air.hittime 		= 32
 down.hittime		= 31
 air.fall 			= 1
 fall 			= 1
+air.type			= trip
 envshake.time 		= 35
 envshake.freq 		= 90
 envshake.ampl 		= -6
@@ -2230,9 +2233,15 @@ p2facing 			= 1
 palfx.time 		= 35
 palfx.add 			= 100, 0,20
 ground.cornerpush.veloff 	= -1
-guard.ctrltime 		= 22
+guard.ctrltime 		= 12
 guard.velocity 		= -8
-getpower 		= 70
+getpower 			= 70
+
+[State 0, 2R Groundbounce Limiter]
+type 		= MapSet
+trigger1 		= animelem = 10 && movehit
+map 			= "LIM_2R"
+value 		= 1
 
 [State 0, VarAdd]
 type = VarAdd
@@ -2799,7 +2808,7 @@ ground.slidetime = 12
 ground.hittime  = 45-MAP(untechDecay)
 air.hittime = 45-MAP(untechDecay)
 down.hittime = 45-MAP(untechDecay)
-ground.velocity = -20,-9
+ground.velocity = -20,-8
 air.velocity = -20,-8
 airguard.velocity = -6,0
 fall.yvelocity = 0
@@ -2824,7 +2833,6 @@ p2getp1state 	= 0
 [State 410, 2]
 type = hitdef 
 p2facing = 1
-triggerall = enemy, map(ArmorActive) = 0
 trigger1 = map(CounterHit)
 trigger1 = !movecontact && !movereversed
 attr = S, SA
@@ -2841,8 +2849,8 @@ ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 3000
 air.hittime = 3000
-ground.velocity = -20,-8
-air.velocity = -20,-8
+ground.velocity = -20,-6
+air.velocity = -20,-6
 airguard.velocity = -6,0
 fall.yvelocity = 0
 fall  = 1
@@ -2861,44 +2869,8 @@ guard.ctrltime 	= 13
 getpower = 40*var(2)
 p2stateno = map(CornerSplat)
 p2getp1state = 0
+missonoverride = 0
 
-[State 410, 2]
-type = hitdef 
-p2facing = 1
-trigger1 = enemy, map(ArmorActive)
-trigger1 = !movecontact && !movereversed
-attr = S, SA
-damage = (150 + map(RChargeTime)*1.2)*MAP(P4), 0
-animtype  = Medium
-hitflag = MAFD
-guardflag = MAFD
-pausetime = 48,48
-sparkno = 3
-sparkxy = -10,-50
-hitsound   = 5,4
-guardsound = 6,2
-ground.type = Low
-ground.slidetime = 12
-ground.hittime  = 3000
-air.hittime = 3000
-ground.velocity = -20,-8
-air.velocity = -20,-8
-airguard.velocity = -6,0
-fall.yvelocity = 0
-fall  = 1
-air.fall = 1
-envshake.time = 22
-envshake.freq = 90
-envshake.ampl = 8
-fall.envshake.time = 0
-fall.envshake.freq = 0
-fall.envshake.ampl = 0
-palfx.time = 28
-palfx.add = 100, 0,20
-guard.hittime 	= 13
-guard.slidetime	= 13
-guard.ctrltime 	= 13
-getpower = 40*var(2)
 
 [State 0, AfterImage]
 type = AfterImage

@@ -145,8 +145,9 @@ _D	_D		_D
 
 	<#55ffff>SUPER MOVES</>
 <#7f41b9>DEVIL-CLAW</>	-		<#55ffff>(2 BARS)</> _D_DF_F_-^A/^B/^C
+        <#f0710a>Gives a bar of imagination on hit.</>
 _!<#7f41b9>DEVIL-CLAW~COMPLETE</>	-		<#55ffff>(1 BAR)</> (HOLD)^A/^B/^C
-        <#f0710a>Can only be used at Imagination Level 3+.</>
+        <#f0710a>Gives a bar of imagination on hit.</>
 <#7f41b9>ONE-WINGED DEVIL</>	-		<#55ffff>(2 BARS)</> _D_DB_B_-^Y
    <#818181>Can only be used at Imagination Level 0.</>
    <#bbbbbb>An Install that causes Yuko to passively gain Imagination

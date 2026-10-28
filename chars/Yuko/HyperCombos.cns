@@ -94,6 +94,14 @@ ignorehitpause = 1
 persistent=0
 
 [State 0, VarAdd]
+type = mapadd
+trigger1 = movehit = 1
+map =  "Imagination"
+value = 80
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VarAdd]
 type = MapAdd
 trigger1 =movehit
 map = "dclaw"
@@ -197,7 +205,7 @@ fall.yvelocity=0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = animelem=7
-triggerall = power>=1000&&map(Imagination)>=800&&map(dclaw)=1
+triggerall = power>=1000&&map(dclaw)=1
 trigger1 = command = "hold_x"||command = "hold_y"||command = "hold_z"
 trigger1 = movehit
 value =3050
@@ -319,6 +327,14 @@ guard.velocity = -6
 getpower = 0
 p2stateno = 30000
 fall.yvelocity=0
+
+[State 0, VarAdd]
+type = mapadd
+trigger1 = movehit = 1
+map =  "Imagination"
+value = 80
+ignorehitpause = 1
+persistent = 0
 
 [State 210, 5]
 type = ChangeState

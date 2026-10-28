@@ -1753,6 +1753,7 @@ trigger1 = animelem = 6
 anim = 6600
 id = 6600
 pos = -10,0
+postype = p1
 scale = .6,.6
 sprpriority = 1
 bindtime = -1
@@ -1917,6 +1918,7 @@ type = explod
 trigger1 = animelem = 6
 anim = 6600
 id = 6600
+postype = p1
 pos = -10,0
 scale = .6,.6
 sprpriority = 1

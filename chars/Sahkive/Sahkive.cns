@@ -708,6 +708,12 @@ value = 0
 ;=============================================================================
 [Statedef -2]
 
+[State 0, 2R Groundbounce Limiter]
+type 		= MapSet
+trigger1 		= !map(ComboStateCheck)
+map 			= "LIM_2R"
+value 		= 0
+
 [State 0, Pummel Bool Check]
 type 		= MapSet
 trigger1 		= !map(ComboStateCheck)

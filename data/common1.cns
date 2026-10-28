@@ -4580,11 +4580,7 @@ trigger1 = Time = 0 && command = "holddown"
 y = 6
 [State 4001 VelSet]
 type = velset
-trigger1 = Time = 0 && command = "holdup"
-y = -6
-[State 4001 VelSet]
-type = velset
-trigger1 = Time = 0 && (command = "holdfwd" || command = "holdback") && command != "holddown" && command != "holdup"
+trigger1 = Time = 0 && (command = "holdfwd" || command = "holdback") && command != "holddown"
 y = 0
 
 [State 5222, Turn]
@@ -8042,6 +8038,7 @@ triggerall = stateno != [900,915] && stateno != 803
 triggerall = command = "F"
 triggerall = statetype != A
 trigger1 = movecontact
+ignorehitpause = 1
 
 ;RECORD SCRATCH (AIR)
 [State -1, RC Jasta Air]
@@ -11004,6 +11001,7 @@ value = player(1),map(teamlead)+player(3),map(teamlead)
 [State -2, CH Check - 1] 				;Checks if the opponent is
 type = MapSet	                        ;attacking or not
 trigger1 = enemynear, movetype = A
+trigger2 = movecountered
 map = "CounterHit"
 value = 1
 ignorehitpause = 1
@@ -11016,7 +11014,7 @@ ignorehitpause = 1
 
 [State -2, CH - Read for Start Flag] 				;Checks if the opponent is
 type = MapSet	                                    ;attacking or not
-trigger1 = map(CounterHit)	
+trigger1 = map(CounterHit)	|| movecountered
 map = "CounterHit_Flag"
 value = 5
 ignorehitpause = 1

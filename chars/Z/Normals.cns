@@ -874,6 +874,7 @@ type = explod
 trigger1 = animelem = 4
 anim = 6600
 id = 6600
+postype = p1
 pos = 90,0
 scale = .6,.6
 sprpriority = 2
@@ -2821,6 +2822,7 @@ value = 0
 [State 1900, dust]
 type = explod
 trigger1 = animelem = 3
+postype = p1
 anim = 10043
 id = 10043
 pos = -0,0

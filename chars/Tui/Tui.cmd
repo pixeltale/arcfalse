@@ -95,19 +95,19 @@ trigger5 = stateno = 1033 && movecontact ;&& enemynear, movetype = H
 ;triggerall = map(phoenix)=0
 ;trigger1 = ctrl
 
-[State Final Divekick Super]
-type = ChangeState
-value = 41000
-triggerall = map(phoenix)=1
-triggerall = roundstate = 2 ;only attack during the round
-triggerall = command = "236X"
-trigger1 = ctrl
-trigger2 = hitdefattr = SCA, NA, SA, ST
-trigger2 = stateno != [3000,3600)
-trigger2 = movecontact ;&& enemynear, movetype = H
-trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
-trigger4 = stateno = 1030 && movecontact ;&& enemynear, movetype = H
-trigger5 = stateno = 1033 && movecontact ;&& enemynear, movetype = H
+;[State Final Divekick Super]
+;type = ChangeState
+;value = 41000
+;triggerall = map(phoenix)=1
+;triggerall = roundstate = 2 ;only attack during the round
+;triggerall = command = "236X"
+;trigger1 = ctrl
+;trigger2 = hitdefattr = SCA, NA, SA, ST
+;trigger2 = stateno != [3000,3600)
+;trigger2 = movecontact ;&& enemynear, movetype = H
+;trigger3 = stateno = 1310 || stateno = 1330 ;From blocking
+;trigger4 = stateno = 1030 && movecontact ;&& enemynear, movetype = H
+;trigger5 = stateno = 1033 && movecontact ;&& enemynear, movetype = H
 
 
 
@@ -269,6 +269,16 @@ triggerall = command = "holddown"
 trigger1 = ctrl
 trigger2 = var(1)
 
+[State 4S]
+type = ChangeState
+value = 1006
+triggerall=stateno!=40
+triggerall = roundstate = 2 ;only attack during the round
+triggerall = command = "b" && command="holdback"
+triggerall = command != "holddown"
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = var(1)
 
 ;================================== FIREBALL GROOVE 4S SECTION =============]
 ;[State EX4S]

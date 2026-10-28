@@ -678,6 +678,7 @@ value = 0
 
 [State 0, ChangeState]
 type = ChangeState
+triggerall = map(Groove) = 2
 trigger1 = command = "b" || command = "holdb"
 trigger1 = animelemno(0) > 6
 value = 1015
@@ -1855,7 +1856,7 @@ persistent 	= 0				        ;+
 [State 630, 2];Sour Spot
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x > 45 || enemy, map(ArmorActive)
+triggerall = p2bodydist x > 25
 trigger1 = time = 0
 attr = S, SA
 damage = 80*MAP(P4), 10
@@ -1881,7 +1882,7 @@ guard.ctrltime = 2
 [State 630, 2] ;Clean Hit
 type = HitDef 
 p2facing = 1 
-triggerall = p2dist x <= 45 || enemy, map(ArmorActive) = 0
+triggerall = p2bodydist x <= 25
 trigger1 = time = 0
 attr = S, SA
 damage = 120*Map(P4)+5, 10
@@ -1898,13 +1899,14 @@ ground.slidetime 	= 14
 ground.hittime  	= 33
 ground.velocity 	= -8,-6
 air.velocity 	= -20,-3.5
-ground.hittime	= 70 - map(untechDecay)
-air.hittime 	= 40 - MAP(UntechDecay)
+ground.hittime	= 70 * MAP(UntechMOD)
+air.hittime 	= 40 * MAP(UntechMOD)
 fall 		= 1
 fall.yvelocity 	= 0
 guard.ctrltime 	= 10
 p2stateno 	= 5220
 p2getp1state 	= 0
+missonoverride = 0
 getpower = (120)*(cond(var(var(3)) = 1, 1, .5)) 
 
 [State -2, Wallbounce Type Set]

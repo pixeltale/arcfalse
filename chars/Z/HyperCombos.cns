@@ -1984,6 +1984,9 @@ sprpriority = 2
 poweradd=-2000
 velset = 4,0
 
+
+
+
 [State 0, RC LOCKOUT]
 type 		= MapSet
 trigger1 		= 1
@@ -2259,7 +2262,9 @@ envshake.time = 14
 envshake.freq = 90
 envshake.ampl = 3
 envshake.phase = 1
-forcenofall = 1
+forcenofall = 0
+fall = 1
+air.fall = 1
 yaccel = .28
 palfx.color=256
 palfx.mul=128,128,128
@@ -2292,6 +2297,13 @@ movetype= A
 physics = A
 ctrl = 0
 sprpriority = 2
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+redirectid = enemynear, id
 
 [State 0, RC LOCKOUT]
 type 		= MapSet
@@ -2430,6 +2442,7 @@ trigger2 = AnimElemTime(29) < 0
 flag = noFG
 ignorehitpause = 1
 persistent = 1
+
 
 [State -2, Starter Level]
 type 		= MapSet

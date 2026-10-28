@@ -107,6 +107,12 @@ sprpriority = -1
 anim = 210
 facep2 = 1
 
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = time = 2
+
+
 [State -3, Angous Voices]
 type 	= PlaySnd
 trigger1 	= animelem = 3
@@ -607,10 +613,21 @@ movetype= A
 physics = N
 juggle  = 0
 poweradd= 0
-velset = vel x, 0
+velset = 0, 0
 ctrl = 0
 anim = 230
 sprpriority = -1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = vel x < 0 && map(ComboStateCheck)
+flag = nocornerpush
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = vel x < 0 && map(ComboStateCheck)
+x = 0
+
 
 [State -3, Angous Voices]
 type = PlaySnd
@@ -749,7 +766,6 @@ ignorehitpause = 1
 [State 230, 1]
 type 	= hitdef 
 p2facing 	= 1
-triggerall	= map(ArmorActive) = 0
 trigger1 	= numexplod(90101) <= 1
 trigger1 	= !movecontact && !movereversed
 attr 	= A, NA
@@ -784,11 +800,11 @@ air.fall 		= 1
 getpower 		= (100)*(cond(var(var(2)) = 1, 1, 1))
 p2stateno 	= cond(enemy, statetype = A , 5255, 5000)
 p2getp1state 	= 0
+missonoverride = 0
 
 [State 230, 1]
 type = hitdef 
 p2facing 	= 1
-triggerall	= map(ArmorActive) = 0
 trigger1 	= numexplod(90101) > 1
 trigger1 	= !movecontact && !movereversed
 attr 	= A, NA
@@ -818,49 +834,6 @@ envshake.ampl 	= 5
 envshake.phase 	= 1
 guard.ctrltime 	= 22
 guard.slidetime 	= 22
-guard.velocity 	= -8
-guard.dist 	= 2
-fall.yvelocity 	= 0
-fall  		= 1
-air.fall 		= 1
-getpower 		= (100)*(cond(var(var(2)) = 1, 1, 1))
-
-[State 230, 1]
-type = hitdef 
-p2facing 	= 1
-triggerall	= map(ArmorActive)
-trigger1 	= numexplod(90101) > 1
-trigger1 	= !movecontact && !movereversed
-attr 	= A, NA
-animtype 	= hard
-damage 		= 100*map(P4), 10
-hitflag 		= MAFD
-guardflag 	= HA
-pausetime 	= 20,25
-sparkno 		= 3
-sparkxy 		= -15,-40
-hitsound   	= 5,2
-guardsound 	= 6,2
-air.type		= trip
-ground.type 	= trip
-ground.slidetime 	= 12
-ground.hittime  	= 26
-air.hittime  	= 60 * MAP(untechMOD)
-down.hittime 	= 60 * MAP(untechMOD)
-ground.velocity 	= -2.4
-down.velocity 	= -1,15
-air.velocity 	= -1,15
-air.cornerpush.veloff = -10
-guard.cornerpush.veloff = -15
-envshake.time 	= 40
-envshake.freq 	= 120
-envshake.ampl 	= 5
-envshake.phase 	= 1
-palfx.time 	= 12
-palfx.add 		= 100, 0,20
-guard.hittime 	= 22
-guard.slidetime	= 40
-guard.ctrltime 	= 28
 guard.velocity 	= -8
 guard.dist 	= 2
 fall.yvelocity 	= 0
@@ -2683,6 +2656,7 @@ value = 8501, (0+(Random%5))
 type = hitdef 
 p2facing = 1 
 p2facing = 1
+triggerall = !map(CHStarter)
 trigger1 = time = 0
 attr = S, NT
 animtype  = hard
@@ -2705,6 +2679,43 @@ envshake.freq = 3
 envshake.ampl = -6
 envshake.phase = 100
 getpower = 0
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed && map(CHStarter)
+attr 	= S, NA
+animtype  = Hard
+air.animtype = back
+damage 	= 120*map(P4)
+hitflag 	= MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno 	= 2
+sparkxy 	= -15,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 30
+air.hittime  	= 50
+down.hittime 	= 56
+ground.velocity = -20,-8
+air.velocity = -20,-2
+envshake.time = 20
+envshake.freq = 180
+envshake.ampl = 2
+envshake.phase = 1
+guard.hittime = 14
+guard.slidetime = 14
+guard.ctrltime = 14
+guard.velocity = -6
+ground.cornerpush.veloff = 0
+air.fall 		= 1
+fall 		= 1
+p2stateno 	= 5220
+p2getp1state 	= 0
+missonoverride = 0
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1))
 
 [State 0, TargetState]
 type = TargetState
@@ -2790,7 +2801,7 @@ persistent 		= 0
 type = hitdef 
 p2facing = 1 
 p2facing = 1
-trigger1 = time = 0
+trigger1 = !movecontact && !movereversed && !map(CHStarter)
 attr = S, NT
 animtype  = hard
 damage = 150*MAP(P4), 0
@@ -2813,6 +2824,43 @@ envshake.ampl = -6
 envshake.phase = 100
 envshake.phase = 100
 getpower = 0
+[State 200, 1]
+type = HitDef 
+p2facing = 1
+trigger1 = !movecontact && !movereversed && map(CHStarter)
+attr 	= S, NA
+animtype  = Hard
+air.animtype = back
+damage 	= 120*map(P4)
+hitflag 	= MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno 	= 2
+sparkxy 	= -15,-45
+hitsound   = 5,3
+guardsound = 6,2
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 30
+air.hittime  	= 50
+down.hittime 	= 56
+ground.velocity = -20,-8
+air.velocity = -20,-2
+envshake.time = 20
+envshake.freq = 180
+envshake.ampl = 2
+envshake.phase = 1
+guard.hittime = 14
+guard.slidetime = 14
+guard.ctrltime = 14
+guard.velocity = -6
+ground.cornerpush.veloff = 0
+air.fall 		= 1
+fall 		= 1
+p2stateno 	= 5220
+p2getp1state 	= 0
+missonoverride = 0
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1))
 
 [State 0, TargetState]
 type = TargetState

@@ -653,6 +653,7 @@ type = explod
 trigger1 = animelemtime(1)=0
 anim = 6800
 id = 6800
+postype = p1
 pos = 0,-floor(pos y)
 scale = .6,.6
 sprpriority = 3
@@ -894,6 +895,7 @@ type = explod
 trigger1 = time = 0
 anim = 10043
 id = 10043
+postype = p1
 pos = 0,-floor(pos y)
 scale = 1.1,.9
 sprpriority = 4
@@ -910,6 +912,7 @@ type = Explod
 trigger1 = time = 0
 anim = 10042
 ID = 10042
+postype = p1
 pos = 0,-floor(pos y)
 postype = p1  ;p2,front,back,left,right
 facing = -1

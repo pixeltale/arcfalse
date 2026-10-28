@@ -467,18 +467,16 @@ persistent 		= 0
 [State 200, 1]
 type = HitDef 
 p2facing = 1
-triggerall = enemy, map(ArmorActive) = 0
-triggerall = statetype != A
 trigger1 = !movecontact && !movereversed
-attr = S, NA
+attr 	= S, NA
 animtype  = Hard
 air.animtype = back
-damage = 120*map(P4)
-hitflag = MAFD
+damage 	= 120*map(P4)
+hitflag 	= MAFD
 guardflag = MA
 pausetime = 12,12
-sparkno = 2
-sparkxy = -15,-45
+sparkno 	= 2
+sparkxy 	= -15,-45
 hitsound   = 5,3
 guardsound = 6,2
 ground.type = Low
@@ -501,84 +499,13 @@ air.fall 		= 1
 fall 		= 1
 p2stateno 	= 5220
 p2getp1state 	= 0
-getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
+missonoverride = 0
+getpower = (150)*(cond(var(var(2)) = 1, 1, 1))
 
-[State 200, 1]
-type = HitDef 
-p2facing = 1
-triggerall = enemy, map(ArmorActive) = 0
-triggerall = statetype = A
-trigger1 = !movecontact && !movereversed
-attr = S, NA
-animtype  = Hard
-air.animtype = back
-damage = 120*map(P4)
-hitflag = MAFD
-guardflag = MA
-pausetime = 12,12
-sparkno = 2
-sparkxy = -15,-45
-hitsound   = 5,3
-guardsound = 6,2
-ground.type = Low
-ground.slidetime = 12
-ground.hittime  = 30
-air.hittime  	= 30-(map(UntechDecay)*2)
-down.hittime 	= 56 * map(UntechMod)
-ground.velocity = -20,-8
-air.velocity = -20,-2
-envshake.time = 20
-envshake.freq = 180
-envshake.ampl = 2
-envshake.phase = 1
-guard.hittime = 14
-guard.slidetime = 14
-guard.ctrltime = 14
-guard.velocity = -6
-air.fall 	= 1
-fall 		= 1
-p2stateno 	= 5220
-p2getp1state 	= 0
-getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
-
-[State 200, 1]
-type = HitDef 
-p2facing = 1
-triggerall = enemy, map(ArmorActive)
-trigger1 = !movecontact && !movereversed
-attr = S, NA
-animtype  = Hard
-air.animtype = back
-damage = 120*map(P4)
-hitflag = MAFD
-guardflag = MA
-pausetime = 12,12
-sparkno = 2
-sparkxy = -15,-45
-hitsound   = 5,3
-guardsound = 6,2
-ground.type = Low
-ground.slidetime = 12
-ground.hittime  = 30
-air.hittime  	= 30-(map(UntechDecay)*2)
-down.hittime 	= 56 * map(UntechMod)
-ground.velocity = -20,-8
-air.velocity = -20,-2
-envshake.time = 20
-envshake.freq = 180
-envshake.ampl = 2
-envshake.phase = 1
-guard.hittime = 14
-guard.slidetime = 14
-guard.ctrltime = 14
-guard.velocity = -6
-air.fall 	= 1
-fall 		= 1
-getpower = (150)*(cond(var(var(2)) = 1, 1, 1)) 
 
 [State -2, Wallbounce Type Set]
 type 		= MapSet
-trigger1 	= movehit = 1
+trigger1 	= 1
 map 		= "wallbounce_boomerang"
 value 		= 1
 ignorehitpause 	= 1
@@ -1845,7 +1772,7 @@ type = Explod
 trigger1 = animelem = 4
 anim = 1610
 ID = 1610
-pos = -1*facing*Pos X + 160, 0
+pos = -1*facing*Pos X + 200, 0
 postype = P1
 facing = 1
 removetime = -2
@@ -1972,7 +1899,7 @@ type = Explod
 trigger1 = animelem = 4
 anim = 1610
 ID = 1610
-pos = -1 * facing * Pos X - 160, 0
+pos = -1 * facing * Pos X - 200, 0
 postype = P1 
 facing = -1
 removetime = -2
