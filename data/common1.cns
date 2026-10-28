@@ -8038,7 +8038,6 @@ triggerall = stateno != [900,915] && stateno != 803
 triggerall = command = "F"
 triggerall = statetype != A
 trigger1 = movecontact
-ignorehitpause = 1
 
 ;RECORD SCRATCH (AIR)
 [State -1, RC Jasta Air]
@@ -8051,7 +8050,6 @@ triggerall = stateno != [900,915]
 triggerall = command = "F"
 triggerall = statetype = A
 trigger1 = movecontact
-ignorehitpause = 1
 
 [State -1, Grab] ;Throw
 type = ChangeState

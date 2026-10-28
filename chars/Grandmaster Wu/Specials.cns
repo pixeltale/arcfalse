@@ -1399,12 +1399,12 @@ sparkno = 3
 sparkxy = -14, -20
 hitsound = 5, 3
 guardsound = 6, 0
-ground.type = low
+ground.type = TRIP
 ground.slidetime = 5
 ground.hittime  = 26
 ground.velocity = -vel x
 airguard.velocity = -1.9,-.8
-air.type = LOW
+air.type = TRIP
 air.velocity = 2,5
 air.hittime = 66
 fall = 1
@@ -1736,17 +1736,37 @@ trigger1 	= !time
 map 		= "FIREBALL_LEVEL"
 value 		= 0
 ignorehitpause 	= 1
+[State -2, Charge Input]
+type 	= MapSet
+trigger1 	= !time
+map 		= "CHARGE.LEVEL"
+value 		= 0
+ignorehitpause 	= 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = map(CHARGE.LEVEL) < 45
+trigger1 = command = "holdb"
+value = anim
+elem = 4 + (time / 10)
+[State -2, Charge Input]
+type 	= MapADD
+trigger1 	= command = "holdb"
+map 		= "CHARGE.LEVEL"
+value 		= 1
+ignorehitpause 	= 1
+
 [State -2, Charge Checker]
 type 	= MapAdd
-trigger1 	= time = 1
-trigger1	= map(CHARGE.LEVEL) >= 45
+trigger1 	= animelem = 9
+trigger1	= map(CHARGE.LEVEL) >= 15
 map 		= "FIREBALL_LEVEL"
 value 		= 1
 ignorehitpause 	= 1
 [State -2, Charge Checker]
 type 	= MapAdd
-trigger1 	= time = 1
-trigger1	= map(CHARGE.LEVEL) >= 200
+trigger1 	= animelem = 9
+trigger1	= map(CHARGE.LEVEL) >= 45
 map 		= "FIREBALL_LEVEL"
 value 		= 1
 ignorehitpause 	= 1

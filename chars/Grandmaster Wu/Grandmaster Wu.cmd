@@ -151,6 +151,7 @@ trigger2 = hitdefattr = A, NA
 trigger2 = stateno!=620
 trigger3 =  stateno=45 || stateno=46|| stateno=50
 trigger3 = vel y>.1
+trigger4 = stateno = 1016 && movehit
 
 ;Double Jump Raw
 [State -1,DJC]
