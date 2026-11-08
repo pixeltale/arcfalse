@@ -3677,6 +3677,7 @@ persistent 		= 0
 type = HitDef
 triggerall = prevstateno != 2015
 trigger1 = !movecontact && !movereversed
+p2facing = 1
 attr = S, SA                     ;Attribute: Standing, Normal Attack
 damage = 100 * map(P4), 8
 animtype = light                 ;Animation type: Light, Medium, Heavy, Back (def: Light)

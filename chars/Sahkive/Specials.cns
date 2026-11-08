@@ -189,14 +189,6 @@ value 		= 20
 ignorehitpause 	= 1
 persistent		= 1
 
-[State 0. MapSet]
-type 		= MapAdd
-trigger1 		= 1
-map 		= "comboTimer"
-value 		= -1
-ignorehitpause 	= 1
-persistent 		= 1
-
 [State 0, TargetBind]
 type = TargetBind
 triggerall = NumTarget
@@ -423,11 +415,17 @@ value = 100
 ignorehitpause = 1
 ;persistent = 
 
+[State -2, Starter Level]
+type         		= MapAdd
+trigger1         	= 1
+map         		= "ComboTimer"
+value         		=  1
+ignorehitpause     	=  1
 [State -2, P2 Value Set]
 type         	= MapSet
 trigger1     	= animelem = 5
 map         	= "P2"
-value         	=  0.85
+value         	=  0.75
 ignorehitpause  = 1
 persistent      = 0
 [State -2, P2 Accumulation - Scale]
